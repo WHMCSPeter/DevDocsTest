@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interacting with the Database - WHMCS Developer Documentation</title>
+    <meta name="generator" content="Hugo 0.16" />
+
+    
+    <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
+    
+    <link rel="canonical" href="//developers.whmcs.com/advanced/db-interaction/">
+    
+    <meta name="author" content="WHMCS Development Team">
+    
+
+    <link rel="stylesheet" href="//developers.whmcs.com/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/styles.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/prism.css">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+    
+
+  </head>
+  <body class="language-php">
+
+<header class="header">
+
+
+
+
+
+<div class="container">
+<nav class="navbar navbar-whmcs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.whmcs.com/"><img src="//developers.whmcs.com/img/logo.png" width="148" height="34"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="primary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="//developers.whmcs.com/"><span class="hidden-sm">Developer Documentation</span><span class="visible-sm">Developer Docs</span></a></li>
+        <li class="visible-xs"><a href="//developers.whmcs.com/">Home</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/api/">API</a></li>
+            <li class="visible-xs active"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+        <li><a href="//developers.whmcs.com/hooks-reference/">Hook Reference</a></li>
+        <li><a href="https://github.com/whmcs" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+
+<div class="headline-bar hidden-xs">
+<div class="container">
+<nav class="navbar navbar-main-nav">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="secondary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="//developers.whmcs.com/">Home</a></li>
+            <li><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li><a href="//developers.whmcs.com/api/">API</a></li>
+            <li class="active"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+</div>
+
+</header>
+
+
+<main class="main">
+
+  <div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-sm-3 sidebar-offcanvas">
+
+        
+          <ul class="sidebar-nav">
+            
+  <li class="active parent" data-nav-id="/advanced/">
+    <a href="//developers.whmcs.com/advanced/">
+      <span>
+        
+          <i class='fa fa-code fa-fw'></i>
+        
+         Advanced
+       </span>
+    </a>
+    
+    <ul>
+      
+      
+      
+      
+        <li class="" data-nav-id="/advanced/creating-pages/">
+          <a href="//developers.whmcs.com/advanced/creating-pages/">
+            <span>Creating Pages</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="active" data-nav-id="/advanced/db-interaction/">
+          <a href="//developers.whmcs.com/advanced/db-interaction/">
+            <span>Interacting with the Database</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/advanced/date-functions/">
+          <a href="//developers.whmcs.com/advanced/date-functions/">
+            <span>Date Functions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/advanced/currency-formatting/">
+          <a href="//developers.whmcs.com/advanced/currency-formatting/">
+            <span>Currency Formatting</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/advanced/logging/">
+          <a href="//developers.whmcs.com/advanced/logging/">
+            <span>Logging</span>
+          </a>
+        </li>
+      
+      
+    </ul>
+    
+  </li>
+
+
+          </ul>
+        
+
+      </div>
+      <div class="col-sm-9">
+
+        <div class="breadcrumb-nav">
+
+            <div class="pull-right">
+              <a class="suggest-an-edit" href="https://github.com/WHMCS/developer-docs" target="blank">
+                <i class="fa fa-code-fork"></i>
+                <span class="hidden-xs">Suggest an edit</span>
+              </a>
+            </div>
+
+            <div class="visible-xs pull-left">
+                <button type="button" class="btn btn-toggle-sidebar" data-toggle="offcanvas">
+                    <i class="fa fa-list-alt"></i>
+                </button>
+            </div>
+
+            <div id="breadcrumbs">
+                
+                
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                    
+                <a href="//developers.whmcs.com/advanced/" itemprop="url"><span itemprop="title">Advanced</span></a> <i class="fa fa-angle-right"></i>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                <span itemprop="title"> Interacting with the Database</span>
+              </div>
+            </div>
+
+
+			<h1>Interacting with the Database </h1>
+
+			
+
+<p>WHMCS 6.0 and later leverages a database connection library to ensure compatibility with modern PHP environments and best practices. It is based on the Laravel framework&rsquo;s database component. This library includes a Database Abstraction Layer (DBAL) called &ldquo;Capsule&rdquo; and an Object Relational Mapping (ORM) library called &ldquo;Eloquent&rdquo;.</p>
+
+<p>The Capsule DBAL component introduces two libraries to WHMCS, a query manager for running database queries and a schema manager for an abstracted API to table management. Capsule&rsquo;s underlying PDO connection is also available for advanced database usage. Capsule has three static methods to get to these components:</p>
+
+<ul>
+<li><code>Capsule::table(string $tableName)</code>: Access the query manager for the given table.</li>
+<li><code>Capsule::schema()</code>: Access the schema manager for the WHMCS database.</li>
+<li><code>Capsule::connection()</code>: Access the connection manager to interact with the underlying database connection.</li>
+</ul>
+
+<h2 id="deprecated-functionality">Deprecated functionality</h2>
+
+<p>The previously used SQL Helper Functions are still present in WHMCS but are now deprecated and may be removed in a later version of the product:</p>
+
+<ul>
+<li><strong>select_query()</strong></li>
+<li><strong>update_query()</strong></li>
+<li><strong>insert_query()</strong></li>
+<li><strong>full_query()</strong></li>
+</ul>
+
+<p>We encourage all third party developers to use the Capsule DBAL and PDO connection for all new database interaction.</p>
+
+<h2 id="using-capsule">Using Capsule</h2>
+
+<p>Declare an alias to Laravel&rsquo;s database manager in your project file&rsquo;s use block to access Capsule:</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\Database\Capsule;
+
+// Run queries or modify tables as you like.
+</code></pre>
+
+<h2 id="the-query-manager">The Query Manager</h2>
+
+<p>Please see <a href="https://laravel.com/docs/5.2/queries">Laravel&rsquo;s query documentation</a> for more information.</p>
+
+<p>The <code>Capsule::table(string $tableName)</code> method provides access to the query manager. Declare it with the name of the table you wish to query as it&rsquo;s first parameter to interact with that table. The query manager has a wide range of functionality to perform advanced select, join, insert, update, and delete statements. Capsule&rsquo;s select calls return rows as stdClass objects.</p>
+
+<p>Capsule escapes all input, so it is not necessary to add escaping slashes to variables passed to these methods.</p>
+
+<p>All of Capsule&rsquo;s methods throw an exception on failure. Please place Capusle calls in try/catch blocks for graceful error handling and to avoid potential fatal errors in your hook, module, or other customization.</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\Database\Capsule;
+
+// Print all client first names using a simple select.
+
+/** @var stdClass $client */
+foreach (Capsule::table('tblclients')-&gt;get() as $client) {
+    echo $client-&gt;firstname . PHP_EOL;
+}
+
+// Rename all clients named &quot;John Deo&quot; to &quot;John Doe&quot; using an update statement.
+try {
+    $updatedUserCount = Capsule::table('tblclients')
+        -&gt;where('firstname', 'John')
+        -&gt;where('lastname', 'Deo')
+        -&gt;update(
+            [
+                'lastname' =&gt; 'Doe',
+            ]
+        );
+
+    echo &quot;Fixed {$updatedUserCount} misspelled last names.&quot;;
+} catch (\Exception $e) {
+    echo &quot;I couldn't update client names. {$e-&gt;getMessage()}&quot;;
+}
+</code></pre>
+
+<h2 id="the-schema-manager">The Schema Manager</h2>
+
+<p>Use the <code>Capsule::schema()</code> method to access the schema manager to modify table schema if necessary. The schema manager has support for creating, dropping and truncating tables and for modifying columns, indexes, and keys.</p>
+
+<p><strong>Note:</strong> WHMCS does not recommend changing default table schema as that can affect product functionality.</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\Database\Capsule;
+
+// Create a new table.
+try {
+    Capsule::schema()-&gt;create(
+        'my_table',
+        function ($table) {
+            /** @var \Illuminate\Database\Schema\Blueprint $table */
+            $table-&gt;increments('id');
+            $table-&gt;string('name');
+            $table-&gt;integer('serial_number');
+            $table-&gt;boolean('is_required');
+            $table-&gt;timestamps();
+        }
+    );
+} catch (\Exception $e) {
+    echo &quot;Unable to create my_table: {$e-&gt;getMessage()}&quot;;
+}
+</code></pre>
+
+<h2 id="the-connection-manager">The Connection Manager</h2>
+
+<p>The <code>Capsule::connection()</code> method provides low-level access to the database connection itself. Use it to initiate transactions with automatic commit and rollback or to access the underlying PDO connection to perform manual database queries outside the DBAL. The connection manager also has methods to retrieve query and schema managers.</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\Database\Capsule;
+
+// Perform potentially risky queries in a transaction for easy rollback.
+try {
+    Capsule::connection()-&gt;transaction(
+        function ($connectionManager)
+        {
+            /** @var \Illuminate\Database\Connection $connectionManager */
+            $connectionManager-&gt;table('my_table')-&gt;insert(
+                [
+                    'name' =&gt; $_POST['name'],
+                    'serial_number' =&gt; $_POST['serialNumber'],
+                    'is_required' =&gt; (int)(bool) $_POST['isRequired'],
+                ]
+            );
+        }
+    );
+} catch (\Exception $e) {
+    echo &quot;Uh oh! Inserting didn't work, but I was able to rollback. {$e-&gt;getMessage()}&quot;;
+}
+</code></pre>
+
+<h2 id="getting-to-pdo">Getting to PDO</h2>
+
+<p>Use the connection manager&rsquo;s getPdo() method to retrieve the underlying PDO connection instance. Use the PDO connection to perform manual queries and advanced database usage.</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\Database\Capsule;
+
+// Perform potentially risky queries in a transaction for easy rollback.
+$pdo = Capsule::connection()-&gt;getPdo();
+$pdo-&gt;beginTransaction();
+
+try {
+    $statement = $pdo-&gt;prepare(
+        'insert into my_table (name, serial_number, is_required) values (:name, :serialNumber, :isRequired)'
+    );
+
+    $statement-&gt;execute(
+        [
+            ':name' =&gt; $_POST['name'],
+            ':serialNumber' =&gt; $_POST['serialNumber'],
+            ':isRequired' =&gt; (bool) $_POST['isRequired'],
+        ]
+    );
+
+    $pdo-&gt;commit();
+} catch (\Exception $e) {
+    echo &quot;Uh oh! {$e-&gt;getMessage()}&quot;;
+    $pdo-&gt;rollBack();
+}
+</code></pre>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="exceptions">Exceptions</h3>
+
+<p>All Capsule methods throw an exception on failure. Catch these exceptions and analyze their messages and stack traces to help determine the nature of the failure. WHMCS recommends placing all database interactivity in try/catch blocks for graceful error handling.</p>
+
+<h3 id="the-capsule-query-log">The Capsule Query Log</h3>
+
+<p>The connection manager&rsquo;s getQueryLog() method returns an array of all queries made during the life of the page request. Queries are stored in the log as an array containing the query run, the parameter bindings passed to the query, and the time it took for the query to execute, measured in milliseconds.</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\Database\Capsule;
+
+// Loop through each Capsule query made during the page request.
+foreach (Capsule::connection()-&gt;getQueryLog() as $query) {
+    echo &quot;Query: {$query['query']}&quot; . PHP_EOL;
+    echo &quot;Execution Time: {$query['time']}ms&quot; . PHP_EOL;
+    echo &quot;Parameters: &quot; . PHP_EOL;
+
+    foreach ($query['bindings'] as $key =&gt; $value) {
+        echo &quot;{$key} =&gt; {$value}&quot; . PHP_EOL;
+    }
+}
+</code></pre>
+
+<h3 id="the-whmcs-activity-log">The WHMCS Activity Log</h3>
+
+<p>All uncaught PDO-based query failures, including those made by Capsule and manual PDO queries, are written to to the WHMCS activity log. View the system activity log to view the details of these failed queries.</p>
+
+
+			<div class="topic-navigation clearfix">
+                
+                    <a class="nav nav-prev" href="//developers.whmcs.com/prev/path">
+                        <i class="fa fa-arrow-circle-left"></i>
+                        Previous
+                    </a>
+                
+                
+                    <a class="nav nav-next" href="//developers.whmcs.com/next/path">
+                        <i class="fa fa-arrow-circle-right"></i>
+                        Next
+                    </a>
+                
+            </div>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+
+        </div>
+  </div>
+</div>
+</main>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <nav>
+                <div class="col-sm-3">
+                    <h3>Learn</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/">About WHMCS</a></li>
+                        <li><a href="//developers.whmcs.com/quick-start/">Quick start</a></li>
+                        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+                        <li><a href="//docs.whmcs.com/classes/">Classes Reference</a></li>
+                        <li><a href="//developers.whmcs.com/about/faq/">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Contribute</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/contribute/">Contribute</a></li>
+                        <li><a href="https://github.com/whmcs/" target="_blank">Github</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-5">
+                    <h3>Stay up to date</h3>
+                    <div class="subscribe-form">
+                        <p class="muted subscribe-lead">Join our developers mailing list to be kept up-to-date.</p>
+                        <form action="https://www.whmcs.com/members/requestinfo.php" method="post">
+                            <input type="hidden" name="developer" value="dev">
+                            <div class="input-group">
+                                <input type="email" name="email" class="form-control" placeholder="you@yourdomain.com">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-info">
+                                        SUBSCRIBE
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <p>
+                        We won't spam you.
+                    </p>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <p>Found an error or a typo in these docs? <a href="https://github.com/WHMCS/developer-docs/issues">Submit an issue or a pull request</a></p>
+            </div>
+            <div class="col-md-5">
+                <p class="pull-right">
+                    Copyright &copy; WHMCS 2016. All rights reserved.
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="//developers.whmcs.com/js/jquery.min.js"></script>
+<script src="//developers.whmcs.com/js/bootstrap.min.js"></script>
+<script src="//developers.whmcs.com/js/prism.js"></script>
+<script>
+$(document).ready(function () {
+  $('[data-toggle="offcanvas"]').click(function () {
+    $('.row-offcanvas').toggleClass('active')
+  });
+});
+</script>
+  </body>
+</html>
+

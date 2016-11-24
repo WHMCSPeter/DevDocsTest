@@ -1,0 +1,2148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WHMCS Developer Documentation</title>
+    <link>//developers.whmcs.com/</link>
+    <description>Recent content on WHMCS Developer Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="//developers.whmcs.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title></title>
+      <link>//developers.whmcs.com/README/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/README/</guid>
+      <description>
+
+&lt;h1 id=&#34;whmcs-developer-documentation&#34;&gt;WHMCS Developer Documentation&lt;/h1&gt;
+
+&lt;p&gt;This is the repository for the WHMCS Developer Documentation located at &lt;a href=&#34;http://developers.whmcs.com/&#34;&gt;http://developers.whmcs.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We welcome you to create issues and submit pull requests for any suggestions, corrections and improvements you would like to see.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.whmcs.com/&#34;&gt;WHMCS&lt;/a&gt; | &lt;a href=&#34;https://www.whmcs.com/support/&#34;&gt;Contact Support&lt;/a&gt; | &lt;a href=&#34;http://forum.whmcs.com/&#34;&gt;Community Forums&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>API</title>
+      <link>//developers.whmcs.com/api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api/</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;The WHMCS API allows you to perform operations and actions within WHMCS from external third party and custom code.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/getting-started/&#34;&gt;Getting Started&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn about how to get started with the API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/authentication/&#34;&gt;Authentication&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how authentication works for the WHMCS API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/access-control/&#34;&gt;Access Control&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how IP and Access Key control works for the WHMCS API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/response-types/&#34;&gt;Response Types&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn about the different response types&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/sample-code/&#34;&gt;Sample Code&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;See sample code for remotely connecting to the WHMCS API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/internal-api/&#34;&gt;Internal API&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;See sample code for using the Local WHMCS API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/api=index/&#34;&gt;API Index&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;A complete listing of all available API commands&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api-reference/&#34;&gt;API Reference&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Visit the API Reference Manual&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>API Reference</title>
+      <link>//developers.whmcs.com/api-reference/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api-reference/</guid>
+      <description>
+
+&lt;h2 id=&#34;function-overview&#34;&gt;Function Overview&lt;/h2&gt;
+
+&lt;p&gt;API functions do x y z.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>//developers.whmcs.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/about/</guid>
+      <description>
+
+&lt;h2 id=&#34;about-whmcs&#34;&gt;About WHMCS&lt;/h2&gt;
+
+&lt;p&gt;WHMCS is a web host billing &amp;amp; automation platform.&lt;/p&gt;
+
+&lt;p&gt;Launched in 2005, today WHMCS is the market leading platform of choice for Web Hosting Providers and Domain Registrars to automate and manage their businesses.&lt;/p&gt;
+
+&lt;p&gt;Handling the entire customer lifecycle from initial signup, to provisioning, management and support, WHMCS provides a single centralized platform for web hosting businesses to manage their operations, making every day tasks quicker, easier, and more efficient.&lt;/p&gt;
+
+&lt;p&gt;With over 10 years experience and development, a large and active developer community, and our commitment to responding to user requests and leading the way with the latest web hosting technologies and developments, WHMCS is a rich and powerful platform that sets the standard in web host billing automation.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WHMCS&lt;/strong&gt;
+2550 North Loop West
+Suite 500
+Houston, TX 77092
+United States&lt;/p&gt;
+
+&lt;p&gt;Email us sales@whmcs.com&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AcceptOrder</title>
+      <link>//developers.whmcs.com/api-reference/acceptorder/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api-reference/acceptorder/</guid>
+      <description>
+
+&lt;p&gt;Accepts a pending order&lt;/p&gt;
+
+&lt;h3 id=&#34;request-parameters&#34;&gt;Request Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;action&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;AcceptOrder&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;orderid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The order id to be accepted&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serverid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The specific server to assign to products within the order&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serviceusername&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The specific username to assign to products within the order&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servicepassword&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The specific password to assign to products within the order&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;registrar&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The specific registrar to assign to domains within the order&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;sendregistrar&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Send the request to the registrar to register the domain.&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;autosetup&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Send the request to the product module to activate the service. This can override the product configuration.&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;sendemail&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Send any automatic emails. This can be Product Welcome, Domain Renewal, Domain Transfer etc.&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;response-parameters&#34;&gt;Response Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;result&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The result of the operation: success or error&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example-request-curl&#34;&gt;Example Request (CURL)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/includes/api.php&#39;);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+            &#39;action&#39; =&amp;gt; &#39;AcceptOrder&#39;,
+            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            &#39;orderid&#39; =&amp;gt; &#39;1&#39;,
+            &#39;registrar&#39; =&amp;gt; &#39;enom&#39;,
+            &#39;autosetup&#39; =&amp;gt; &#39;1&#39;,
+            &#39;sendemail&#39; =&amp;gt; &#39;1&#39;,
+            &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-request-local-api&#34;&gt;Example Request (Local API)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$command = &#39;AcceptOrder&#39;;
+$postData = array(
+    &#39;orderid&#39; =&amp;gt; &#39;1&#39;,
+    &#39;registrar&#39; =&amp;gt; &#39;enom&#39;,
+    &#39;autosetup&#39; =&amp;gt; &#39;1&#39;,
+    &#39;sendemail&#39; =&amp;gt; &#39;1&#39;,
+);
+$adminUsername = &#39;ADMIN_USERNAME&#39;;
+
+$results = localAPI($command, $postData, $adminUsername);
+print_r($results);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-response-json&#34;&gt;Example Response JSON&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;result&amp;quot;: &amp;quot;success&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;error-responses&#34;&gt;Error Responses&lt;/h3&gt;
+
+&lt;p&gt;Possible error condition responses include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Order ID not found or Status not Pending&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Changelog&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AcceptQuote</title>
+      <link>//developers.whmcs.com/api-reference/acceptquote/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api-reference/acceptquote/</guid>
+      <description>
+
+&lt;p&gt;Accepts a quote&lt;/p&gt;
+
+&lt;h3 id=&#34;request-parameters&#34;&gt;Request Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;action&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;AcceptQuote&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;quoteid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The quote id to be accepted and converted to an invoice&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;response-parameters&#34;&gt;Response Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;result&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The result of the operation: success or error&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;invoiceid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The newly created invoice id&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example-request-curl&#34;&gt;Example Request (CURL)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/includes/api.php&#39;);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+            &#39;action&#39; =&amp;gt; &#39;AcceptQuote&#39;,
+            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            &#39;quoteid&#39; =&amp;gt; &#39;1&#39;,
+            &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-request-local-api&#34;&gt;Example Request (Local API)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$command = &#39;AcceptQuote&#39;;
+$postData = array(
+    &#39;quoteid&#39; =&amp;gt; &#39;1&#39;,
+);
+$adminUsername = &#39;ADMIN_USERNAME&#39;;
+
+$results = localAPI($command, $postData, $adminUsername);
+print_r($results);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-response-json&#34;&gt;Example Response JSON&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;result&amp;quot;: &amp;quot;success&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;error-responses&#34;&gt;Error Responses&lt;/h3&gt;
+
+&lt;p&gt;Possible error condition responses include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Quote ID Not Found&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Changelog&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ActivateModule</title>
+      <link>//developers.whmcs.com/api-reference/activatemodule/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api-reference/activatemodule/</guid>
+      <description>
+
+&lt;p&gt;Activates a given module.&lt;/p&gt;
+
+&lt;h3 id=&#34;request-parameters&#34;&gt;Request Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;action&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;ActivateModule&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;moduleType&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The module type to be activated&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;moduleName&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The module name to be activated&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;parameters&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of configuration parameters to set for the given module. Use &lt;em&gt;GetModuleConfigurationParameters&lt;/em&gt; to obtain a list of fields for a given module.&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;response-parameters&#34;&gt;Response Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;result&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The result of the operation: success or error&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example-request-curl&#34;&gt;Example Request (CURL)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/includes/api.php&#39;);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+            &#39;action&#39; =&amp;gt; &#39;ActivateModule&#39;,
+            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            &#39;moduleType&#39; =&amp;gt; &#39;gateway&#39;,
+            &#39;moduleName&#39; =&amp;gt; &#39;paypal&#39;,
+            &#39;parameters[email]&#39; =&amp;gt; &#39;billing@example.com&#39;,
+            &#39;parameters[forcesubscriptions]&#39; =&amp;gt; &#39;true&#39;,
+            &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-request-local-api&#34;&gt;Example Request (Local API)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$command = &#39;ActivateModule&#39;;
+$postData = array(
+    &#39;moduleType&#39; =&amp;gt; &#39;gateway&#39;,
+    &#39;moduleName&#39; =&amp;gt; &#39;paypal&#39;,
+    &#39;parameters[email]&#39; =&amp;gt; &#39;billing@example.com&#39;,
+    &#39;parameters[forcesubscriptions]&#39; =&amp;gt; &#39;true&#39;,
+);
+$adminUsername = &#39;ADMIN_USERNAME&#39;;
+
+$results = localAPI($command, $postData, $adminUsername);
+print_r($results);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-response-json&#34;&gt;Example Response JSON&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;result&amp;quot;: &amp;quot;success&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;error-responses&#34;&gt;Error Responses&lt;/h3&gt;
+
+&lt;p&gt;Possible error condition responses include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Invalid module type provided. Supported module types include: xxx&lt;/li&gt;
+&lt;li&gt;Invalid module name provided.&lt;/li&gt;
+&lt;li&gt;Module activation not supported by module type.&lt;/li&gt;
+&lt;li&gt;Failed to activate: xxx&lt;/li&gt;
+&lt;li&gt;An unexpected error occurred: xxx&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Changelog&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;7.0.0-beta.1&lt;/td&gt;
+&lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AddAnnouncement</title>
+      <link>//developers.whmcs.com/api-reference/addannouncement/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api-reference/addannouncement/</guid>
+      <description>
+
+&lt;p&gt;Adds an announcement.&lt;/p&gt;
+
+&lt;h3 id=&#34;request-parameters&#34;&gt;Request Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;action&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;AddAnnouncement&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date&lt;/td&gt;
+&lt;td&gt;\datetime&lt;/td&gt;
+&lt;td&gt;Date in the format YYYY-MM-DD HH:MM:SS&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;title&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;announcement&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Announcement text&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;published&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Pass as true to publish&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;response-parameters&#34;&gt;Response Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;result&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The result of the operation: success or error&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;announcementid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the new announcement&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example-request-curl&#34;&gt;Example Request (CURL)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/includes/api.php&#39;);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+            &#39;action&#39; =&amp;gt; &#39;AddAnnouncement&#39;,
+            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            &#39;date&#39; =&amp;gt; &#39;2016-01-01 15:30:00&#39;,
+            &#39;title&#39; =&amp;gt; &#39;Sample announcement&#39;,
+            &#39;announcement&#39; =&amp;gt; &#39;Text goes here...&#39;,
+            &#39;published&#39; =&amp;gt; &#39;1&#39;,
+            &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-request-local-api&#34;&gt;Example Request (Local API)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$command = &#39;AddAnnouncement&#39;;
+$postData = array(
+    &#39;date&#39; =&amp;gt; &#39;2016-01-01 15:30:00&#39;,
+    &#39;title&#39; =&amp;gt; &#39;Sample announcement&#39;,
+    &#39;announcement&#39; =&amp;gt; &#39;Text goes here...&#39;,
+    &#39;published&#39; =&amp;gt; &#39;1&#39;,
+);
+$adminUsername = &#39;ADMIN_USERNAME&#39;;
+
+$results = localAPI($command, $postData, $adminUsername);
+print_r($results);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-response-json&#34;&gt;Example Response JSON&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;result&amp;quot;: &amp;quot;success&amp;quot;,
+    &amp;quot;announcementid&amp;quot;: &amp;quot;1&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Changelog&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AddBannedIp</title>
+      <link>//developers.whmcs.com/api-reference/addbannedip/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api-reference/addbannedip/</guid>
+      <description>
+
+&lt;p&gt;Adds an IP to the ban list.&lt;/p&gt;
+
+&lt;h3 id=&#34;request-parameters&#34;&gt;Request Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;action&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;AddBannedIp&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ip&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;reason&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Admin only reason&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;days&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;If passed, expires date is auto calculated&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;expires&lt;/td&gt;
+&lt;td&gt;\datetime&lt;/td&gt;
+&lt;td&gt;YYYY-MM-DD HH:MM:SS&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;response-parameters&#34;&gt;Response Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;result&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The result of the operation: success or error&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;banid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the new ban entry&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example-request-curl&#34;&gt;Example Request (CURL)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/includes/api.php&#39;);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+            &#39;action&#39; =&amp;gt; &#39;AddBannedIp&#39;,
+            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            &#39;ip&#39; =&amp;gt; &#39;1.2.3.4&#39;,
+            &#39;reason&#39; =&amp;gt; &#39;Abuse&#39;,
+            &#39;days&#39; =&amp;gt; &#39;30&#39;,
+            &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-request-local-api&#34;&gt;Example Request (Local API)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$command = &#39;AddBannedIp&#39;;
+$postData = array(
+    &#39;ip&#39; =&amp;gt; &#39;1.2.3.4&#39;,
+    &#39;reason&#39; =&amp;gt; &#39;Abuse&#39;,
+    &#39;days&#39; =&amp;gt; &#39;30&#39;,
+);
+$adminUsername = &#39;ADMIN_USERNAME&#39;;
+
+$results = localAPI($command, $postData, $adminUsername);
+print_r($results);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-response-json&#34;&gt;Example Response JSON&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;result&amp;quot;: &amp;quot;success&amp;quot;,
+    &amp;quot;banid&amp;quot;: &amp;quot;1&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Changelog&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AddBillableItem</title>
+      <link>//developers.whmcs.com/api-reference/addbillableitem/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api-reference/addbillableitem/</guid>
+      <description>
+
+&lt;p&gt;Adds a Billable Item&lt;/p&gt;
+
+&lt;h3 id=&#34;request-parameters&#34;&gt;Request Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;action&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;AddBillableItem&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;clientid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The client to add the item to&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;description&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The description of the Billable Item. This will appear on the invoice&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;amount&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;the total amount to invoice for&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;invoiceaction&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;One of &amp;lsquo;noinvoice&amp;rsquo;, &amp;lsquo;nextcron&amp;rsquo;, &amp;lsquo;nextinvoice&amp;rsquo;, &amp;lsquo;duedate&amp;rsquo;, &amp;lsquo;recur&amp;rsquo;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;recur&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;When $invoiceaction=recur. The frequency of the recurrence.&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;recurcycle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;How often to recur the Billable Item. Days, Weeks, Months or Years.&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;recurfor&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;How many times the Billable Item should create an invoice.&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;duedate&lt;/td&gt;
+&lt;td&gt;\Carbon\Carbon&lt;/td&gt;
+&lt;td&gt;Date the invoice should be due (only required for duedate &amp;amp; recur invoice actions). YYYY-mm-dd&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;hours&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;number of hours/quantity the item corresponds to. (not required for single quantities)&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;response-parameters&#34;&gt;Response Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;result&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The result of the operation: success or error&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;billableid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the newly created billable item&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example-request-curl&#34;&gt;Example Request (CURL)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/includes/api.php&#39;);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+            &#39;action&#39; =&amp;gt; &#39;AddBillableItem&#39;,
+            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
+            &#39;description&#39; =&amp;gt; &#39;This is a billable item&#39;,
+            &#39;amount&#39; =&amp;gt; &#39;10.00&#39;,
+            &#39;invoiceaction&#39; =&amp;gt; &#39;recur&#39;,
+            &#39;recur&#39; =&amp;gt; &#39;1&#39;,
+            &#39;recurcycle&#39; =&amp;gt; &#39;Months&#39;,
+            &#39;recurfor&#39; =&amp;gt; &#39;12&#39;,
+            &#39;duedate&#39; =&amp;gt; &#39;2016-01-01&#39;,
+            &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-request-local-api&#34;&gt;Example Request (Local API)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$command = &#39;AddBillableItem&#39;;
+$postData = array(
+    &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
+    &#39;description&#39; =&amp;gt; &#39;This is a billable item&#39;,
+    &#39;amount&#39; =&amp;gt; &#39;10.00&#39;,
+    &#39;invoiceaction&#39; =&amp;gt; &#39;recur&#39;,
+    &#39;recur&#39; =&amp;gt; &#39;1&#39;,
+    &#39;recurcycle&#39; =&amp;gt; &#39;Months&#39;,
+    &#39;recurfor&#39; =&amp;gt; &#39;12&#39;,
+    &#39;duedate&#39; =&amp;gt; &#39;2016-01-01&#39;,
+);
+$adminUsername = &#39;ADMIN_USERNAME&#39;;
+
+$results = localAPI($command, $postData, $adminUsername);
+print_r($results);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-response-json&#34;&gt;Example Response JSON&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;result&amp;quot;: &amp;quot;success&amp;quot;,
+    &amp;quot;billableid&amp;quot;: &amp;quot;1&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;error-responses&#34;&gt;Error Responses&lt;/h3&gt;
+
+&lt;p&gt;Possible error condition responses include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Client ID not Found&lt;/li&gt;
+&lt;li&gt;You must provide a description&lt;/li&gt;
+&lt;li&gt;Invalid Invoice Action&lt;/li&gt;
+&lt;li&gt;Recurring must have a unit, cycle and limit&lt;/li&gt;
+&lt;li&gt;Due date is required&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Changelog&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AddCancelRequest</title>
+      <link>//developers.whmcs.com/api-reference/addcancelrequest/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api-reference/addcancelrequest/</guid>
+      <description>
+
+&lt;p&gt;Adds a Cancellation Request&lt;/p&gt;
+
+&lt;h3 id=&#34;request-parameters&#34;&gt;Request Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;action&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;AddCancelRequest&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serviceid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The Service ID to cancel&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The type of cancellation. &amp;lsquo;Immediate&amp;rsquo; or &amp;lsquo;End of Billing Period&amp;rsquo;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;reason&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The customer reason for cancellation&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;response-parameters&#34;&gt;Response Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;result&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The result of the operation: success or error&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serviceid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the service the request was for&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;userid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the user the service belongs to&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example-request-curl&#34;&gt;Example Request (CURL)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/includes/api.php&#39;);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+            &#39;action&#39; =&amp;gt; &#39;AddCancelRequest&#39;,
+            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            &#39;serviceid&#39; =&amp;gt; &#39;1&#39;,
+            &#39;type&#39; =&amp;gt; &#39;Immediate&#39;,
+            &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-request-local-api&#34;&gt;Example Request (Local API)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$command = &#39;AddCancelRequest&#39;;
+$postData = array(
+    &#39;serviceid&#39; =&amp;gt; &#39;1&#39;,
+    &#39;type&#39; =&amp;gt; &#39;Immediate&#39;,
+);
+$adminUsername = &#39;ADMIN_USERNAME&#39;;
+
+$results = localAPI($command, $postData, $adminUsername);
+print_r($results);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-response-json&#34;&gt;Example Response JSON&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;result&amp;quot;: &amp;quot;success&amp;quot;,
+    &amp;quot;serviceid&amp;quot;: &amp;quot;1&amp;quot;,
+    &amp;quot;userid&amp;quot;: &amp;quot;1&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;error-responses&#34;&gt;Error Responses&lt;/h3&gt;
+
+&lt;p&gt;Possible error condition responses include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Service ID Not Found&lt;/li&gt;
+&lt;li&gt;Existing Cancellation Request Exists&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Changelog&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AddClient</title>
+      <link>//developers.whmcs.com/api-reference/addclient/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api-reference/addclient/</guid>
+      <description>
+
+&lt;p&gt;Adds a client.&lt;/p&gt;
+
+&lt;h3 id=&#34;request-parameters&#34;&gt;Request Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;action&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;AddClient&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;firstname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;lastname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;email&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;address1&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;address2&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;city&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;state&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;postcode&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;country&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;2 character ISO country code&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;phonenumber&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;password2&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;securityqid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Security Question ID from tbladminsecurityquestions&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;securityqans&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Security Question Answer&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardtype&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Credit card type. Provide full name: Visa, Mastercard, American Express, etc&amp;hellip;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardnum&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Credit card number&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;expdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Format: MMYY&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;startdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Format: MMYY (if applicable)&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;issuenumber&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Credit card issue number (if applicable)&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cvv&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Credit card CVV number (will not be stored)&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;currency&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Currency ID from tblcurrencies&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;groupid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Client Group ID from tblclientgroups&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;customfields&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Base64 encoded serialized array of custom field values&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Default language setting. Provide full name: &amp;lsquo;english&amp;rsquo;, &amp;lsquo;french&amp;rsquo;, etc&amp;hellip;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;clientip&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;IP address of the user&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;notes&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Admin only notes&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;noemail&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Pass as true to skip sending welcome email&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;skipvalidation&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Pass as true to ignore required fields validation&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;response-parameters&#34;&gt;Response Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;result&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The result of the operation: success or error&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example-request-curl&#34;&gt;Example Request (CURL)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/includes/api.php&#39;);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+            &#39;action&#39; =&amp;gt; &#39;AddClient&#39;,
+            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            &#39;firstname&#39; =&amp;gt; &#39;John&#39;,
+            &#39;lastname&#39; =&amp;gt; &#39;Doe&#39;,
+            &#39;email&#39; =&amp;gt; &#39;john.doe@example.com&#39;,
+            &#39;address1&#39; =&amp;gt; &#39;123 Main Street&#39;,
+            &#39;city&#39; =&amp;gt; &#39;Anytown&#39;,
+            &#39;state&#39; =&amp;gt; &#39;ST&#39;,
+            &#39;postcode&#39; =&amp;gt; &#39;12345&#39;,
+            &#39;country&#39; =&amp;gt; &#39;US&#39;,
+            &#39;phonenumber&#39; =&amp;gt; &#39;800-555-1234&#39;,
+            &#39;password2&#39; =&amp;gt; &#39;password&#39;,
+            &#39;cardtype&#39; =&amp;gt; &#39;Visa&#39;,
+            &#39;cardnum&#39; =&amp;gt; &#39;4111111111111111&#39;,
+            &#39;expdate&#39; =&amp;gt; &#39;0721&#39;,
+            &#39;clientip&#39; =&amp;gt; &#39;1.2.3.4&#39;,
+            &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-request-local-api&#34;&gt;Example Request (Local API)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$command = &#39;AddClient&#39;;
+$postData = array(
+    &#39;firstname&#39; =&amp;gt; &#39;John&#39;,
+    &#39;lastname&#39; =&amp;gt; &#39;Doe&#39;,
+    &#39;email&#39; =&amp;gt; &#39;john.doe@example.com&#39;,
+    &#39;address1&#39; =&amp;gt; &#39;123 Main Street&#39;,
+    &#39;city&#39; =&amp;gt; &#39;Anytown&#39;,
+    &#39;state&#39; =&amp;gt; &#39;ST&#39;,
+    &#39;postcode&#39; =&amp;gt; &#39;12345&#39;,
+    &#39;country&#39; =&amp;gt; &#39;US&#39;,
+    &#39;phonenumber&#39; =&amp;gt; &#39;800-555-1234&#39;,
+    &#39;password2&#39; =&amp;gt; &#39;password&#39;,
+    &#39;cardtype&#39; =&amp;gt; &#39;Visa&#39;,
+    &#39;cardnum&#39; =&amp;gt; &#39;4111111111111111&#39;,
+    &#39;expdate&#39; =&amp;gt; &#39;0721&#39;,
+    &#39;clientip&#39; =&amp;gt; &#39;1.2.3.4&#39;,
+);
+$adminUsername = &#39;ADMIN_USERNAME&#39;;
+
+$results = localAPI($command, $postData, $adminUsername);
+print_r($results);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-response-json&#34;&gt;Example Response JSON&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;result&amp;quot;: &amp;quot;success&amp;quot;,
+    &amp;quot;clientid&amp;quot;: &amp;quot;1&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;error-responses&#34;&gt;Error Responses&lt;/h3&gt;
+
+&lt;p&gt;Possible error condition responses include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You did not enter your first name&lt;/li&gt;
+&lt;li&gt;You did not enter your last name&lt;/li&gt;
+&lt;li&gt;You did not enter your email address&lt;/li&gt;
+&lt;li&gt;The email address you entered was not valid&lt;/li&gt;
+&lt;li&gt;You did not enter your email address&lt;/li&gt;
+&lt;li&gt;You did not enter your  address line 1&lt;/li&gt;
+&lt;li&gt;You did not enter your city&lt;/li&gt;
+&lt;li&gt;You did not enter your state&lt;/li&gt;
+&lt;li&gt;You did not enter your postcode&lt;/li&gt;
+&lt;li&gt;You did not enter your country&lt;/li&gt;
+&lt;li&gt;You did not enter your phone number&lt;/li&gt;
+&lt;li&gt;Invalid telephone phone number&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Changelog&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AddClientNote</title>
+      <link>//developers.whmcs.com/api-reference/addclientnote/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api-reference/addclientnote/</guid>
+      <description>
+
+&lt;p&gt;Adds a Client Note&lt;/p&gt;
+
+&lt;h3 id=&#34;request-parameters&#34;&gt;Request Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;action&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;AddClientNote&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;userid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The Client ID to apply the note to&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;notes&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The note to add&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;sticky&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Should the note be made sticky. Makes the note &amp;lsquo;sticky&amp;rsquo; and displays the note throughout the client&amp;rsquo;s account and on any tickets they submit in the admin area&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;response-parameters&#34;&gt;Response Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;result&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The result of the operation: success or error&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;noteid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the newly created note&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example-request-curl&#34;&gt;Example Request (CURL)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/includes/api.php&#39;);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+            &#39;action&#39; =&amp;gt; &#39;AddClientNote&#39;,
+            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            &#39;userid&#39; =&amp;gt; &#39;1&#39;,
+            &#39;notes&#39; =&amp;gt; &#39;Note to add&#39;,
+            &#39;sticky&#39; =&amp;gt; &#39;true&#39;,
+            &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-request-local-api&#34;&gt;Example Request (Local API)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$command = &#39;AddClientNote&#39;;
+$postData = array(
+    &#39;userid&#39; =&amp;gt; &#39;1&#39;,
+    &#39;notes&#39; =&amp;gt; &#39;Note to add&#39;,
+    &#39;sticky&#39; =&amp;gt; &#39;true&#39;,
+);
+$adminUsername = &#39;ADMIN_USERNAME&#39;;
+
+$results = localAPI($command, $postData, $adminUsername);
+print_r($results);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-response-json&#34;&gt;Example Response JSON&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;result&amp;quot;: &amp;quot;success&amp;quot;,
+    &amp;quot;noteid&amp;quot;: &amp;quot;1&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;error-responses&#34;&gt;Error Responses&lt;/h3&gt;
+
+&lt;p&gt;Possible error condition responses include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Client ID not found&lt;/li&gt;
+&lt;li&gt;Notes can not be empty&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Changelog&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AddContact</title>
+      <link>//developers.whmcs.com/api-reference/addcontact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api-reference/addcontact/</guid>
+      <description>
+
+&lt;p&gt;Adds a contact to a client account.&lt;/p&gt;
+
+&lt;h3 id=&#34;request-parameters&#34;&gt;Request Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;action&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;AddContact&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;clientid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;firstname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;lastname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;email&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Email address to identify the contact. This should be unique if the contact will be a sub-account&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;address1&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;address2&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;city&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;state&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;postcode&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;country&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;2 character ISO country code&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;phonenumber&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;password2&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;if creating a sub-account&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;generalemails&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;set true to receive general email types&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;productemails&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;set true to receive product related emails&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;domainemails&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;set true to receive domain related emails&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;invoiceemails&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;set true to receive billing related emails&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;supportemails&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;set true to receive support ticket related emails&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;permissions&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;A comma separated list of sub-account permissions. eg manageproducts,managedomains&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;response-parameters&#34;&gt;Response Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;result&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The result of the operation: success or error&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;contactid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the newly added contact.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example-request-curl&#34;&gt;Example Request (CURL)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/includes/api.php&#39;);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+            &#39;action&#39; =&amp;gt; &#39;AddContact&#39;,
+            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
+            &#39;firstname&#39; =&amp;gt; &#39;Jane&#39;,
+            &#39;lastname&#39; =&amp;gt; &#39;Doe&#39;,
+            &#39;email&#39; =&amp;gt; &#39;jane.doe@example.com&#39;,
+            &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-request-local-api&#34;&gt;Example Request (Local API)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$command = &#39;AddContact&#39;;
+$postData = array(
+    &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
+    &#39;firstname&#39; =&amp;gt; &#39;Jane&#39;,
+    &#39;lastname&#39; =&amp;gt; &#39;Doe&#39;,
+    &#39;email&#39; =&amp;gt; &#39;jane.doe@example.com&#39;,
+);
+$adminUsername = &#39;ADMIN_USERNAME&#39;;
+
+$results = localAPI($command, $postData, $adminUsername);
+print_r($results);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-response-json&#34;&gt;Example Response JSON&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;result&amp;quot;: &amp;quot;success&amp;quot;,
+    &amp;quot;contactid&amp;quot;: &amp;quot;1&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;error-responses&#34;&gt;Error Responses&lt;/h3&gt;
+
+&lt;p&gt;Possible error condition responses include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Client ID Not Found&lt;/li&gt;
+&lt;li&gt;Duplicate Email Address&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Changelog&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AddCredit</title>
+      <link>//developers.whmcs.com/api-reference/addcredit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api-reference/addcredit/</guid>
+      <description>
+
+&lt;p&gt;Adds credit to a given client.&lt;/p&gt;
+
+&lt;h3 id=&#34;request-parameters&#34;&gt;Request Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Required&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;action&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;AddCredit&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;clientid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;description&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Admin only notes for credit justification&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;amount&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;response-parameters&#34;&gt;Response Parameters&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;result&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The result of the operation: success or error&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;newbalance&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;The new total credit balance&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example-request-curl&#34;&gt;Example Request (CURL)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/includes/api.php&#39;);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+            &#39;action&#39; =&amp;gt; &#39;AddCredit&#39;,
+            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
+            &#39;description&#39; =&amp;gt; &#39;Adding funds via api&#39;,
+            &#39;amount&#39; =&amp;gt; &#39;12.34&#39;,
+            &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-request-local-api&#34;&gt;Example Request (Local API)&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$command = &#39;AddCredit&#39;;
+$postData = array(
+    &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
+    &#39;description&#39; =&amp;gt; &#39;Adding funds via api&#39;,
+    &#39;amount&#39; =&amp;gt; &#39;12.34&#39;,
+);
+$adminUsername = &#39;ADMIN_USERNAME&#39;;
+
+$results = localAPI($command, $postData, $adminUsername);
+print_r($results);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-response-json&#34;&gt;Example Response JSON&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;result&amp;quot;: &amp;quot;success&amp;quot;,
+    &amp;quot;newbalance&amp;quot;: &amp;quot;123.45&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;error-responses&#34;&gt;Error Responses&lt;/h3&gt;
+
+&lt;p&gt;Possible error condition responses include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Client ID Not Found&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Version&lt;/th&gt;
+&lt;th&gt;Changelog&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

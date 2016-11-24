@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Languages on WHMCS Developer Documentation</title>
+    <link>//developers.whmcs.com/languages/</link>
+    <description>Recent content in Languages on WHMCS Developer Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="//developers.whmcs.com/languages/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Languages</title>
+      <link>//developers.whmcs.com/languages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/languages/</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;WHMCS is fully multi-lingual and supports over 25 different languages out of the box.&lt;/p&gt;
+
+&lt;p&gt;Words and phrases are defined in language files stored in the &lt;code&gt;lang&lt;/code&gt; directories within both the admin and client areas.&lt;/p&gt;
+
+&lt;p&gt;If you wish to customise any of the language strings, we recommend using Overrides.&lt;/p&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;If you spot an inaccuracy or inconsistency in a translation, please contact us and let us know. We rely on the dedication and generosity of our users for contributing translations.&lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Adding a Language</title>
+      <link>//developers.whmcs.com/languages/adding-a-language/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/languages/adding-a-language/</guid>
+      <description>&lt;p&gt;The language system in WHMCS allows you to create your own additional language translations.&lt;/p&gt;
+
+&lt;p&gt;We recommend starting by duplicating one of the existing language files.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;Language file names should be a single word, consisting of only lowercase letters and numbers. The file must end with the extension &lt;strong&gt;.php&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;Begin by opening an existing language file, for example &lt;code&gt;lang/english.php&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Save this file with a new name. The name you choose will be shown in the language selection dropdown menu inside WHMCS.&lt;/li&gt;
+&lt;li&gt;Translate the words and phrases contained within it into your new language. Be careful not to change the language key names, only the words and phrases contained within the double quotes on each line.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;Be careful not to delete any of the quotation marks (&amp;ldquo;) around the text strings or the semi-colons on the ends of each line (;). Also should you want to use a quote character (&amp;rdquo;) within your translated text, you must escape it - for example: \&amp;rdquo; The language files are written in PHP syntax so valid PHP code must be maintained.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;Upload your new language file to your WHMCS installations &lt;code&gt;/lang/&lt;/code&gt; directory.&lt;/li&gt;
+&lt;li&gt;The language file will now be available for use.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Test it by visiting your WHMCS installation client area and selecting the language file from the dropdown. If you encounter any errors, this suggests your changes to the language file have introduced a syntax error. Please double check your modifications and try again.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Contributing</title>
+      <link>//developers.whmcs.com/languages/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/languages/contributing/</guid>
+      <description>&lt;p&gt;The language translations provided with WHMCS are thanks to our community of users who dedicate their time to translating and contributing their translations for the benefit of others.&lt;/p&gt;
+
+&lt;p&gt;We welcome suggestions for change and improvements to translations to be submitted to us via &lt;a href=&#34;https://www.whmcs.com/support/&#34; target=&#34;_blank&#34;&gt;Support Ticket&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For all accepted translations, we offer a WHMCS account credit and will list the contributors name in the release notes.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Encoding</title>
+      <link>//developers.whmcs.com/languages/encoding/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/languages/encoding/</guid>
+      <description>&lt;p&gt;By default, language files in WHMCS use UTF-8 encoding without a Byte Order Marker character.&lt;/p&gt;
+
+&lt;p&gt;When modifying language files it is important to maintain the same encoding.&lt;/p&gt;
+
+&lt;p&gt;If you have chosen to change the system charset to something other than UTF-8 (for example iso-8859-1) then the language files will need to be re-saved with ANSI encoding (also without a Byte Order Marker). Most text editors have this option (including Notepad).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Locales</title>
+      <link>//developers.whmcs.com/languages/locales/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/languages/locales/</guid>
+      <description>&lt;p&gt;Locales define the language and region for a language file.&lt;/p&gt;
+
+&lt;p&gt;Each language file in WHMCS requires a locale to be defined in the following format:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$_LANG[&#39;locale&#39;] = &amp;quot;en_GB&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above defines that the language is English (en), and the region is Great Britain (GB).&lt;/p&gt;
+
+&lt;p&gt;The locale information is used by WHMCS to localise and display the language name localised to the native language within the WHMCS client area.&lt;/p&gt;
+
+&lt;p&gt;Failure to provide a valid locale will prevent the language file from showing up as available for use within WHMCS.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Overrides</title>
+      <link>//developers.whmcs.com/languages/overrides/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/languages/overrides/</guid>
+      <description>
+
+&lt;p&gt;The language files are provided unencoded to allow you to view the language strings that WHMCS uses.&lt;/p&gt;
+
+&lt;p&gt;However we do not recommend editing these files directly. Instead overrides should be used.&lt;/p&gt;
+
+&lt;p&gt;Language file overrides allow you to customise language strings and phrases in a way that is safely preserved through the upgrade process.&lt;/p&gt;
+
+&lt;h2 id=&#34;using-overrides&#34;&gt;Using Overrides&lt;/h2&gt;
+
+&lt;p&gt;Steps for customising language strings via overrides are as follows:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create a directory named &lt;code&gt;overrides&lt;/code&gt; within the &lt;code&gt;~/lang/&lt;/code&gt; directory.&lt;/li&gt;
+&lt;li&gt;Create or copy the language file you want to override. For example, to create an override for the English language you create &lt;code&gt;~/lang/overrides/english.php&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Open the newly created file in your preferred editor.&lt;/li&gt;
+&lt;li&gt;Start the file with a PHP tag &lt;code&gt;&amp;lt;?php&lt;/code&gt; indicating PHP code is to be used.&lt;/li&gt;
+&lt;li&gt;Enter the variable(s) you wish to override. For example, if you wanted to change &amp;ldquo;Welcome to our members area&amp;rdquo; you would locate the proper variable within &lt;code&gt;~/lang/english.php&lt;/code&gt; and place it into the overrides english file with your preferred change:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code&gt;~/lang/english.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$_LANG[&#39;headertext&#39;] = &amp;quot;Welcome to our members area.&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;~/lang/overrides/english.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$_LANG[&#39;headertext&#39;] = &amp;quot;Welcome home!&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;For each variable you wish you change, repeat step #5. For example, a completed overrides file should look something like this:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code&gt;~/lang/overrides/english.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+$_LANG[&#39;headertext&#39;] = &amp;quot;Welcome home!&amp;quot;;
+$_LANG[&#39;addtocart&#39;] = &amp;quot;Add to Basket&amp;quot;;
+$_LANG[&#39;cartproductaddons&#39;] = &amp;quot;Product Extras&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Save, and you&amp;rsquo;re done!&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Translating</title>
+      <link>//developers.whmcs.com/languages/translating/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/languages/translating/</guid>
+      <description>
+
+&lt;p&gt;In addition to regular words and phrases, language file strings may also use the following constructs within them:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Using named tags, like &lt;code&gt;:page&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Using variable names, like &lt;code&gt;$price&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Using &lt;code&gt;%s&lt;/code&gt; for string replacements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the first two examples, WHMCS will substitute them into the final output for the string at the time it is used, so it is important to keep them intact and untranslated in your translations. So &lt;code&gt;:page&lt;/code&gt; will always be page, and &lt;code&gt;$price&lt;/code&gt; will always be $price.&lt;/p&gt;
+
+&lt;p&gt;For the string replacement &lt;code&gt;%s&lt;/code&gt; type, the number and order of &lt;code&gt;%s&lt;/code&gt; should not be changed as the product will replace the &lt;code&gt;%s&lt;/code&gt; values in order from beginning to end.&lt;/p&gt;
+
+&lt;h2 id=&#34;examples&#34;&gt;Examples&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$_LANG[&#39;examplestring&#39;] = &amp;quot;The price you will pay today is :price&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Correct Translation = &amp;ldquo; &amp;lsquo;ay&amp;rsquo; yIbuS DaHjaj :price &amp;ldquo;
+Incorrect Translation = &amp;ldquo; &amp;lsquo;ay&amp;rsquo; yIbuS DaHjaj :&amp;lsquo;ay&amp;rsquo; &amp;ldquo;&lt;/p&gt;
+
+&lt;p&gt;This would display :&amp;lsquo;ay&amp;rsquo; instead of the price on the translated page.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$_LANG[&#39;examplestring&#39;] = &amp;quot;Today is a good day to purchase your domain $domain for cheap!&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Correct Translation = &amp;ldquo; DaHjaj QaQ jaj yer $domain je&amp;rsquo; qutlh! &amp;ldquo;
+Incorrect Translation = &amp;ldquo; DaHjaj QaQ jaj yer $yer je&amp;rsquo; qutlh! &amp;ldquo;&lt;/p&gt;
+
+&lt;p&gt;This would display everything but $yer: &amp;ldquo;DaHjaj QaQ jaj yer je&amp;rsquo; qutlh!&amp;rdquo;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$_LANG[&#39;examplestring&#39;] = &amp;quot;Honor your house with a server for only %s a year! (%s a month)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Correct Translation = &amp;ldquo;tuqwIj neH %s jabwI&amp;rsquo; pop! (%s net jar)&amp;rdquo;
+Incorrect Translation 1 = &amp;ldquo;tuqwIj je jabwI&amp;rsquo; pop! (%s net jar pagh %s)&amp;rdquo;
+Incorrect Translation 2 = &amp;ldquo;tuqwIj %s net jar jabwI&amp;rsquo; pop!&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;In the first wrong translation, &amp;ldquo;net jar pagh&amp;rdquo; means &amp;ldquo;X a month, or Y a year&amp;rdquo;. Because WHMCS will be replacing these in the original order, you&amp;rsquo;ll end up showing the prices backwards.&lt;/p&gt;
+
+&lt;p&gt;In the second wrong translation, we removed the part talking about the yearly price and only mention the monthly price. However, WHMCS will still replace the first %s it sees with the yearly price, so you&amp;rsquo;ll end up quoting the yearly price as monthly.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

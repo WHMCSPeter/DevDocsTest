@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WHMCS Developer Documentation</title>
+    <meta name="generator" content="Hugo 0.16" />
+
+    
+    <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
+    
+    <link rel="canonical" href="//developers.whmcs.com/">
+    
+    <meta name="author" content="WHMCS Development Team">
+    
+
+    <link rel="stylesheet" href="//developers.whmcs.com/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/styles.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/prism.css">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+    
+    <link href="//developers.whmcs.com/index.xml" rel="alternate" type="application/rss+xml" title="WHMCS Developer Documentation" />
+    <link href="//developers.whmcs.com/index.xml" rel="feed" type="application/rss+xml" title="WHMCS Developer Documentation" />
+    
+
+  </head>
+  <body class="language-php">
+
+<header class="header">
+
+
+
+
+
+<div class="container">
+<nav class="navbar navbar-whmcs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.whmcs.com/"><img src="//developers.whmcs.com/img/logo.png" width="148" height="34"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="primary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="//developers.whmcs.com/"><span class="hidden-sm">Developer Documentation</span><span class="visible-sm">Developer Docs</span></a></li>
+        <li class="visible-xs active"><a href="//developers.whmcs.com/">Home</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/api/">API</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+        <li><a href="//developers.whmcs.com/hooks-reference/">Hook Reference</a></li>
+        <li><a href="https://github.com/whmcs" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+
+<div class="headline-bar hidden-xs">
+<div class="container">
+<nav class="navbar navbar-main-nav">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="secondary-nav">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="//developers.whmcs.com/">Home</a></li>
+            <li><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li><a href="//developers.whmcs.com/api/">API</a></li>
+            <li><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+</div>
+
+</header>
+
+
+<main class="main">
+
+    <div class="container">
+        <div class="text-center">
+            <h1>Developer Documentation</h1>
+            <h4>Resources, guides and reference material for developers working with WHMCS.</h4>
+        </div>
+    </div>
+
+    <div class="home-categories text-center">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="//developers.whmcs.com/themes/">
+                        <i class="fa fa-paint-brush"></i>
+                        <h3>Themes</h3>
+                        <p>Customise the client facing UI</p>
+                    </a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="//developers.whmcs.com/languages/">
+                        <i class="fa fa-language"></i>
+                        <h3>Languages</h3>
+                        <p>Customise text &amp; phrases</p>
+                    </a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="//developers.whmcs.com/modules/">
+                        <i class="fa fa-cube"></i>
+                        <h3>Modules</h3>
+                        <p>Integrate &amp; Extend functionality</p>
+                    </a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="//developers.whmcs.com/oauth/">
+                        <i class="fa fa-lock"></i>
+                        <h3>OAuth</h3>
+                        <p>APIs for Authenticating with WHMCS</p>
+                    </a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="//developers.whmcs.com/hooks/">
+                        <i class="fa fa-arrow-left"></i>
+                        <h3>Hooks</h3>
+                        <p>Hook into events as they occur</p>
+                    </a>
+                </div>
+                <div class="col-sm-4">
+                    <a href="//developers.whmcs.com/api/">
+                        <i class="fa fa-code"></i>
+                        <h3>API</h3>
+                        <p>Interact with WHMCS remotely</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <nav>
+                <div class="col-sm-3">
+                    <h3>Learn</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/">About WHMCS</a></li>
+                        <li><a href="//developers.whmcs.com/quick-start/">Quick start</a></li>
+                        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+                        <li><a href="//docs.whmcs.com/classes/">Classes Reference</a></li>
+                        <li><a href="//developers.whmcs.com/about/faq/">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Contribute</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/contribute/">Contribute</a></li>
+                        <li><a href="https://github.com/whmcs/" target="_blank">Github</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-5">
+                    <h3>Stay up to date</h3>
+                    <div class="subscribe-form">
+                        <p class="muted subscribe-lead">Join our developers mailing list to be kept up-to-date.</p>
+                        <form action="https://www.whmcs.com/members/requestinfo.php" method="post">
+                            <input type="hidden" name="developer" value="dev">
+                            <div class="input-group">
+                                <input type="email" name="email" class="form-control" placeholder="you@yourdomain.com">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-info">
+                                        SUBSCRIBE
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <p>
+                        We won't spam you.
+                    </p>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <p>Found an error or a typo in these docs? <a href="https://github.com/WHMCS/developer-docs/issues">Submit an issue or a pull request</a></p>
+            </div>
+            <div class="col-md-5">
+                <p class="pull-right">
+                    Copyright &copy; WHMCS 2016. All rights reserved.
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="//developers.whmcs.com/js/jquery.min.js"></script>
+<script src="//developers.whmcs.com/js/bootstrap.min.js"></script>
+<script src="//developers.whmcs.com/js/prism.js"></script>
+<script>
+$(document).ready(function () {
+  $('[data-toggle="offcanvas"]').click(function () {
+    $('.row-offcanvas').toggleClass('active')
+  });
+});
+</script>
+  </body>
+</html>
+

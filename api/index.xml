@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apis on WHMCS Developer Documentation</title>
+    <link>//developers.whmcs.com/api/</link>
+    <description>Recent content in Apis on WHMCS Developer Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="//developers.whmcs.com/api/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>API</title>
+      <link>//developers.whmcs.com/api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api/</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;The WHMCS API allows you to perform operations and actions within WHMCS from external third party and custom code.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/getting-started/&#34;&gt;Getting Started&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn about how to get started with the API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/authentication/&#34;&gt;Authentication&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how authentication works for the WHMCS API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/access-control/&#34;&gt;Access Control&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how IP and Access Key control works for the WHMCS API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/response-types/&#34;&gt;Response Types&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn about the different response types&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/sample-code/&#34;&gt;Sample Code&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;See sample code for remotely connecting to the WHMCS API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/internal-api/&#34;&gt;Internal API&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;See sample code for using the Local WHMCS API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/api=index/&#34;&gt;API Index&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;A complete listing of all available API commands&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api-reference/&#34;&gt;API Reference&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Visit the API Reference Manual&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>//developers.whmcs.com/api/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api/getting-started/</guid>
+      <description>
+
+&lt;p&gt;Two methods are provided for accessing the API.&lt;/p&gt;
+
+&lt;h2 id=&#34;external-api&#34;&gt;External API&lt;/h2&gt;
+
+&lt;p&gt;The External API should be used when the system making the call is hosted remotely from the WHMCS installation.&lt;/p&gt;
+
+&lt;p&gt;This API accepts &lt;code&gt;POST&lt;/code&gt; requests to the API endpoint located at:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.yourdomain.com/path/to/whmcs/includes/api.php&#34;&gt;https://www.yourdomain.com/path/to/whmcs/includes/api.php&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;internal-api&#34;&gt;Internal API&lt;/h2&gt;
+
+&lt;p&gt;The Internal API should be used when making API calls from within the WHMCS system.&lt;/p&gt;
+
+&lt;p&gt;For instance from modules, hooks, or other custom code local to the WHMCS installation.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Authentication</title>
+      <link>//developers.whmcs.com/api/authentication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api/authentication/</guid>
+      <description>&lt;p&gt;Use of the API requires admin user credentials.&lt;/p&gt;
+
+&lt;p&gt;The admin username and a hashed version of the password must be passed in every API call.&lt;/p&gt;
+
+&lt;p&gt;The admin user must have the &lt;code&gt;API Access&lt;/code&gt; permission granted to their admin role group.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Access Control</title>
+      <link>//developers.whmcs.com/api/access-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api/access-control/</guid>
+      <description>
+
+&lt;p&gt;Access to the API by default is restricted by IP.&lt;/p&gt;
+
+&lt;p&gt;For situations where IP access control is not feasible, an Access Key can also be configured.&lt;/p&gt;
+
+&lt;h2 id=&#34;managing-allowed-ips&#34;&gt;Managing Allowed IPs&lt;/h2&gt;
+
+&lt;p&gt;To configure the Allowed IPs, login to the WHMCS admin area and navigate to &lt;em&gt;Setup &amp;gt; General Settings &amp;gt; Security&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;There you can add and remove IPs, along with a note referencing.&lt;/p&gt;
+
+&lt;h2 id=&#34;configuring-an-access-key&#34;&gt;Configuring an Access Key&lt;/h2&gt;
+
+&lt;p&gt;Alternatively an access key can be configured to allow IP restrictions to be bypassed.&lt;/p&gt;
+
+&lt;p&gt;It works by defining a secret key/passphrase in the WHMCS configuration.php file which is then passed into all API calls.  To configure it, add a line as follows to your &lt;code&gt;configuration.php&lt;/code&gt; file in the root WHMCS directory.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$api_access_key = &#39;secret_key_passphrase_goes_here&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Following the introduction of an API Access Key, you can then include it in your API requests as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;?action=xxxx&amp;amp;username=xxx&amp;amp;password=xxx&amp;amp;accesskey=secret_key_passphrase_goes_here
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Response Types</title>
+      <link>//developers.whmcs.com/api/response-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api/response-types/</guid>
+      <description>&lt;p&gt;The API supports 3 response types:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;JSON &lt;strong&gt;(Recommended)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;XML&lt;/li&gt;
+&lt;li&gt;NVP &lt;em&gt;(Deprecated)&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can define the response type you wish to receive by including &lt;code&gt;responsetype=xxxx&lt;/code&gt; in your request parameters.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sample Code</title>
+      <link>//developers.whmcs.com/api/sample/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api/sample/</guid>
+      <description>&lt;p&gt;The following demonstrates how to connect to the WHMCS API from a PHP script using CURL.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+/**
+ * WHMCS Sample API Call
+ *
+ * @package    WHMCS
+ * @author     WHMCS Limited &amp;lt;development@whmcs.com&amp;gt;
+ * @copyright  Copyright (c) WHMCS Limited 2005-2016
+ * @license    http://www.whmcs.com/license/ WHMCS Eula
+ * @version    $Id$
+ * @link       http://www.whmcs.com/
+ */
+
+// API Connection Details
+$whmcsUrl = &amp;quot;https://www.yourdomain.com/path/to/whmcs/&amp;quot;;
+$username = &amp;quot;yourusername&amp;quot;;
+$password = &amp;quot;yourpassword&amp;quot;;
+
+// Set post values
+$postfields = array(
+    &#39;username&#39; =&amp;gt; $username,
+    &#39;password&#39; =&amp;gt; md5($password),
+    &#39;action&#39; =&amp;gt; &#39;GetClients&#39;,
+    &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
+);
+
+// Call the API
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $whmcsUrl . &#39;includes/api.php&#39;);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
+$response = curl_exec($ch);
+if (curl_error($ch)) {
+    die(&#39;Unable to connect: &#39; . curl_errno($ch) . &#39; - &#39; . curl_error($ch));
+}
+curl_close($ch);
+
+// Decode response
+$jsonData = json_decode($response, true);
+
+// Dump array structure for inspection
+var_dump($jsonData);
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Internal API</title>
+      <link>//developers.whmcs.com/api/internal-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api/internal-api/</guid>
+      <description>
+
+&lt;p&gt;The Internal API should be used when making API calls from within the WHMCS system.&lt;/p&gt;
+
+&lt;p&gt;Common uses for this include from modules, hooks, or other custom code local to the WHMCS installation.&lt;/p&gt;
+
+&lt;h2 id=&#34;usage-example&#34;&gt;Usage Example&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+/**
+ * WHMCS Sample Local API Call
+ *
+ * @package    WHMCS
+ * @author     WHMCS Limited &amp;lt;development@whmcs.com&amp;gt;
+ * @copyright  Copyright (c) WHMCS Limited 2005-2016
+ * @license    http://www.whmcs.com/license/ WHMCS Eula
+ * @version    $Id$
+ * @link       http://www.whmcs.com/
+ */
+
+// Define parameters
+$command = &#39;SendEmail&#39;;
+$values = array(
+    &#39;messagename&#39; =&amp;gt; &#39;Test Template&#39;,
+    &#39;id&#39; =&amp;gt; &#39;1&#39;,
+);
+$adminuser = &#39;AdminUsername&#39;;
+
+// Call the localAPI function
+$results = localAPI($command, $values, $adminuser);
+if ($results[&#39;result&#39;] == &#39;success&#39;) {
+    echo &#39;Message sent successfully!&#39;;
+} else {
+    echo &amp;quot;An Error Occurred: &amp;quot; . $results[&#39;result&#39;];
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>API Index</title>
+      <link>//developers.whmcs.com/api/api-index/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/api/api-index/</guid>
+      <description>&lt;div class=&#34;row&#34;&gt;&lt;div class=&#34;col-sm-6&#34;&gt;
+&lt;h3&gt;Orders&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/acceptorder/&#34;&gt;AcceptOrder&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addorder/&#34;&gt;AddOrder&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/cancelorder/&#34;&gt;CancelOrder&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteorder/&#34;&gt;DeleteOrder&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/fraudorder/&#34;&gt;FraudOrder&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getorders/&#34;&gt;GetOrders&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getorderstatuses/&#34;&gt;GetOrderStatuses&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getproducts/&#34;&gt;GetProducts&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getpromotions/&#34;&gt;GetPromotions&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/orderfraudcheck/&#34;&gt;OrderFraudCheck&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/pendingorder/&#34;&gt;PendingOrder&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Billing&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/acceptquote/&#34;&gt;AcceptQuote&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addbillableitem/&#34;&gt;AddBillableItem&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addcredit/&#34;&gt;AddCredit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addinvoicepayment/&#34;&gt;AddInvoicePayment&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addtransaction/&#34;&gt;AddTransaction&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/applycredit/&#34;&gt;ApplyCredit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/capturepayment/&#34;&gt;CapturePayment&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/createinvoice/&#34;&gt;CreateInvoice&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/createquote/&#34;&gt;CreateQuote&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/geninvoices/&#34;&gt;GenInvoices&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getcredits/&#34;&gt;GetCredits&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getinvoice/&#34;&gt;GetInvoice&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getinvoices/&#34;&gt;GetInvoices&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getquotes/&#34;&gt;GetQuotes&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/gettransactions/&#34;&gt;GetTransactions&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/sendquote/&#34;&gt;SendQuote&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateinvoice/&#34;&gt;CreateInvoice&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updatequote/&#34;&gt;UpdateQuote&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updatetransaction/&#34;&gt;UpdateTransaction&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Module&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/activatemodule/&#34;&gt;ActivateModule&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deactivatemodule/&#34;&gt;DeactivateModule&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getmoduleconfigurationparameters/&#34;&gt;GetModuleConfigurationParameters&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getmodulequeue/&#34;&gt;GetModuleQueue&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updatemoduleconfiguration/&#34;&gt;UpdateModuleConfiguration&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Support&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addannouncement/&#34;&gt;AddAnnouncement&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addcancelrequest/&#34;&gt;AddCancelRequest&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addclientnote/&#34;&gt;AddClientNote&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addticketnote/&#34;&gt;AddTicketNote&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addticketreply/&#34;&gt;AddTicketReply&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteannouncement/&#34;&gt;DeleteAnnouncement&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteticket/&#34;&gt;DeleteTicket&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteticketnote/&#34;&gt;DeleteTicketNote&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getannouncements/&#34;&gt;GetAnnouncements&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/openticket/&#34;&gt;OpenTicket&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateticket/&#34;&gt;UpdateTicket&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;System&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addbannedip/&#34;&gt;AddBannedIp&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/decryptpassword/&#34;&gt;DecryptPassword&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/encryptpassword/&#34;&gt;EncryptPassword&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getactivitylog/&#34;&gt;GetActivityLog&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getadmindetails/&#34;&gt;GetAdminDetails&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getautomationlog/&#34;&gt;GetAutomationLog&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getconfigurationvalue/&#34;&gt;GetConfigurationValue&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getcurrencies/&#34;&gt;GetCurrencies&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getpaymentmethods/&#34;&gt;GetPaymentMethods&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getstaffonline/&#34;&gt;GetStaffOnline&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getstats/&#34;&gt;GetStats&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/gettodoitems/&#34;&gt;GetToDoList&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/gettodoitemstatuses/&#34;&gt;GetToDoItemStatuses&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/logactivity/&#34;&gt;LogActivity&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/sendadminemail/&#34;&gt;SendAdminEmail&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/sendemail/&#34;&gt;SendAdminEmail&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/setconfigurationvalue/&#34;&gt;SetConfigurationValue&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateadminnotes/&#34;&gt;UpdateAdminNotes&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateannouncement/&#34;&gt;UpdateAnnouncement&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updatetodoitem/&#34;&gt;UpdateToDoItem&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Client&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addclient/&#34;&gt;AddClient&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addcontact/&#34;&gt;AddContact&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/closeclient/&#34;&gt;CloseClient&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteclient/&#34;&gt;DeleteClient&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deletecontact/&#34;&gt;DeleteContact&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getcancelledpackages/&#34;&gt;GetCancelledPackages&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getclientgroups/&#34;&gt;GetClientGroups&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getclientpassword/&#34;&gt;GetClientPassword&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getclients/&#34;&gt;GetClients&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getclientsaddons/&#34;&gt;GetClientsAddons&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getclientsdetails/&#34;&gt;GetClientsDetails&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getclientsdomains/&#34;&gt;GetClientsDomains&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getclientsproducts/&#34;&gt;GetClientsDomains&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getcontacts/&#34;&gt;GetContacts&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getemails/&#34;&gt;GetEmails&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getemailtemplates/&#34;&gt;GetEmailTemplates&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateclient/&#34;&gt;UpdateClient&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updatecontact/&#34;&gt;UpdateContact&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Products&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addproduct/&#34;&gt;AddProduct&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Project Management&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addprojectmessage/&#34;&gt;AddProjectMessage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addprojecttask/&#34;&gt;AddProjectTask&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/createproject/&#34;&gt;CreateProject&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteprojecttask/&#34;&gt;DeleteProjectTask&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deletequote/&#34;&gt;DeleteProjectTask&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/endtasktimer/&#34;&gt;EndTaskTimer&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getproject/&#34;&gt;GetProject&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getprojects/&#34;&gt;GetProjects&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/starttasktimer/&#34;&gt;EndTaskTimer&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateproject/&#34;&gt;UpdateProject&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateprojecttask/&#34;&gt;UpdateProjectTask&lt;/a&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;div class=&#34;col-sm-6&#34;&gt;&lt;h3&gt;Affiliates&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/affiliateactivate/&#34;&gt;AffiliateActivate&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getaffiliates/&#34;&gt;GetAffiliates&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Authentication&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/createoauthcredential/&#34;&gt;CreateOAuthCredential&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteoauthcredential/&#34;&gt;DeleteOAuthCredential&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/listoauthcredentials/&#34;&gt;ListOAuthCredentials&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateoauthcredential/&#34;&gt;UpdateOAuthCredential&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/validatelogin/&#34;&gt;ValidateLogin&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Domains&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domaingetlockingstatus/&#34;&gt;DomainGetLockingStatus&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domaingetnameservers/&#34;&gt;DomainGetNameservers&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domaingetwhoisinfo/&#34;&gt;DomainGetWhoisInfo&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domainregister/&#34;&gt;DomainRegister&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domainrelease/&#34;&gt;DomainRelease&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domainrenew/&#34;&gt;DomainRenew&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domainrequestepp/&#34;&gt;DomainRequestEPP&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domaintoggleidprotect/&#34;&gt;DomainToggleIdProtect&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domaintransfer/&#34;&gt;DomainTransfer&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domainupdatelockingstatus/&#34;&gt;DomainUpdateLockingStatus&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domainupdatenameservers/&#34;&gt;DomainUpdateNameservers&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domainupdatewhoisinfo/&#34;&gt;DomainUpdateWhoisInfo&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domainwhois/&#34;&gt;DomainWhois&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateclientdomain/&#34;&gt;UpdateClientDomain&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Servers&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/gethealthstatus/&#34;&gt;GetHealthStatus&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getservers/&#34;&gt;GetServers&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Tickets&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getsupportdepartments/&#34;&gt;GetSupportDepartments&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getsupportstatuses/&#34;&gt;GetSupportStatuses&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getticket/&#34;&gt;GetTicket&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getticketcounts/&#34;&gt;GetTicketCounts&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getticketnotes/&#34;&gt;GetTicketNotes&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getticketpredefinedcats/&#34;&gt;GetTicketPredefinedCats&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getticketpredefinedreplies/&#34;&gt;GetTicketPredefinedReplies&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/gettickets/&#34;&gt;GetTickets&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Service&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/modulechangepackage/&#34;&gt;ModuleChangePackage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/modulechangepw/&#34;&gt;ModuleChangePw&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/modulecreate/&#34;&gt;ModuleCreate&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/modulecustom/&#34;&gt;ModuleCustom&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/modulesuspend/&#34;&gt;ModuleSuspend&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/moduleterminate/&#34;&gt;ModuleTerminate&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/moduleunsuspend/&#34;&gt;ModuleUnsuspend&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateclientproduct/&#34;&gt;UpdateClientProduct&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/upgradeproduct/&#34;&gt;UpgradeProduct&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Addons&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateclientaddon/&#34;&gt;UpdateClientAddon&lt;/a&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

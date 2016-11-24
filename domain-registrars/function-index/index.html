@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Function Index - WHMCS Developer Documentation</title>
+    <meta name="generator" content="Hugo 0.16" />
+
+    
+    <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
+    
+    <link rel="canonical" href="//developers.whmcs.com/domain-registrars/function-index/">
+    
+    <meta name="author" content="WHMCS Development Team">
+    
+
+    <link rel="stylesheet" href="//developers.whmcs.com/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/styles.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/prism.css">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+    
+
+  </head>
+  <body class="language-php">
+
+<header class="header">
+
+
+
+
+
+<div class="container">
+<nav class="navbar navbar-whmcs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.whmcs.com/"><img src="//developers.whmcs.com/img/logo.png" width="148" height="34"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="primary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="//developers.whmcs.com/"><span class="hidden-sm">Developer Documentation</span><span class="visible-sm">Developer Docs</span></a></li>
+        <li class="visible-xs"><a href="//developers.whmcs.com/">Home</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/api/">API</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+        <li><a href="//developers.whmcs.com/hooks-reference/">Hook Reference</a></li>
+        <li><a href="https://github.com/whmcs" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+
+<div class="headline-bar hidden-xs">
+<div class="container">
+<nav class="navbar navbar-main-nav">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="secondary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="//developers.whmcs.com/">Home</a></li>
+            <li><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li><a href="//developers.whmcs.com/api/">API</a></li>
+            <li><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+</div>
+
+</header>
+
+
+<main class="main">
+
+  <div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-sm-3 sidebar-offcanvas">
+
+        
+          <ul class="sidebar-nav">
+            
+  <li class="active parent" data-nav-id="/domain-registrars/">
+    <a href="//developers.whmcs.com/domain-registrars/">
+      <span>
+        
+          <i class='fa fa-globe fa-fw'></i>
+        
+         Domain Registrars
+       </span>
+    </a>
+    
+    <ul>
+      
+      
+      
+      
+        <li class="" data-nav-id="/domain-registrars/getting-started/">
+          <a href="//developers.whmcs.com/domain-registrars/getting-started/">
+            <span>Getting Started</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/domain-registrars/config-options/">
+          <a href="//developers.whmcs.com/domain-registrars/config-options/">
+            <span>Configuration Options</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="active" data-nav-id="/domain-registrars/function-index/">
+          <a href="//developers.whmcs.com/domain-registrars/function-index/">
+            <span>Function Index</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/domain-registrars/domain-syncing/">
+          <a href="//developers.whmcs.com/domain-registrars/domain-syncing/">
+            <span>Domain Syncronisation</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/domain-registrars/module-parameters/">
+          <a href="//developers.whmcs.com/domain-registrars/module-parameters/">
+            <span>Module Parameters</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/domain-registrars/module-functions/">
+          <a href="//developers.whmcs.com/domain-registrars/module-functions/">
+            <span>Module Functions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/domain-registrars/extending-further/">
+          <a href="//developers.whmcs.com/domain-registrars/extending-further/">
+            <span>Externding Further</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/domain-registrars/hooks/">
+          <a href="//developers.whmcs.com/domain-registrars/hooks/">
+            <span>Hooks</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/domain-registrars/module-logging/">
+          <a href="//developers.whmcs.com/domain-registrars/module-logging/">
+            <span>Module Logging</span>
+          </a>
+        </li>
+      
+      
+    </ul>
+    
+  </li>
+
+
+          </ul>
+        
+
+      </div>
+      <div class="col-sm-9">
+
+        <div class="breadcrumb-nav">
+
+            <div class="pull-right">
+              <a class="suggest-an-edit" href="https://github.com/WHMCS/developer-docs" target="blank">
+                <i class="fa fa-code-fork"></i>
+                <span class="hidden-xs">Suggest an edit</span>
+              </a>
+            </div>
+
+            <div class="visible-xs pull-left">
+                <button type="button" class="btn btn-toggle-sidebar" data-toggle="offcanvas">
+                    <i class="fa fa-list-alt"></i>
+                </button>
+            </div>
+
+            <div id="breadcrumbs">
+                
+                
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                    
+                <a href="//developers.whmcs.com/domain-registrars/" itemprop="url"><span itemprop="title">Domain Registrars</span></a> <i class="fa fa-angle-right"></i>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                <span itemprop="title"> Function Index</span>
+              </div>
+            </div>
+
+
+			<h1>Function Index </h1>
+
+			<p>The following is an index of all prescribed supported functions for a registrar module.</p>
+
+<p>Your registrar module should only define the functions that your module supports.</p>
+
+<p>Remember, all functions should have the prefix <code>yourmodulename_</code> and then the function name.</p>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>RegisterDomain</td>
+<td>Called when the registration of a new domain comes from WHMCS.</td>
+</tr>
+
+<tr>
+<td>TransferDomain</td>
+<td>Called when an existing domain transfer request comes from WHMCS.</td>
+</tr>
+
+<tr>
+<td>RenewDomain</td>
+<td>Called when a request to renew a domain comes from WHMCS.</td>
+</tr>
+
+<tr>
+<td>GetNameservers</td>
+<td>Called whenever a domain is viewed within WHMCS. It can return up to 5 nameservers that are set for the domain.</td>
+</tr>
+
+<tr>
+<td>SaveNameservers</td>
+<td>Called when a change request to the nameservers displayed inside WHMCS.</td>
+</tr>
+
+<tr>
+<td>GetRegistrarLock</td>
+<td>Called whenever a domains details are viewed within WHMCS. It should return the current lock status of a domain</td>
+</tr>
+
+<tr>
+<td>SaveRegistrarLock</td>
+<td>Called when the lock status setting is toggled within WHMCS.</td>
+</tr>
+
+<tr>
+<td>GetContactDetails</td>
+<td>Called when the WHOIS information is displayed within WHMCS.</td>
+</tr>
+
+<tr>
+<td>SaveContactDetails</td>
+<td>Called when revised WHOIS information is submitted.</td>
+</tr>
+
+<tr>
+<td>GetDNS</td>
+<td>Called when the DNS Host Records are requested to be viewed within WHMCS.</td>
+</tr>
+
+<tr>
+<td>SaveDNS</td>
+<td>Called when any changes to DNS Host Records information is submitted.</td>
+</tr>
+
+<tr>
+<td>IDProtectToggle</td>
+<td>Called when the ID Protection setting is toggled on or off.</td>
+</tr>
+
+<tr>
+<td>GetEPPCode</td>
+<td>Called when the EPP Code is requested for a transfer out.</td>
+</tr>
+
+<tr>
+<td>ReleaseDomain</td>
+<td>Called when a domain release is requested (eg. UK IPSTag Changes).</td>
+</tr>
+
+<tr>
+<td>RegisterNameserver</td>
+<td>Called when a child nameserver registration request comes from WHMCS.</td>
+</tr>
+
+<tr>
+<td>ModifyNameserver</td>
+<td>Called when a child nameserver modification request comes from WHMCS.</td>
+</tr>
+
+<tr>
+<td>DeleteNameserver</td>
+<td>Called when a child nameserver deletion request comes from WHMCS.</td>
+</tr>
+
+<tr>
+<td>RequestDelete</td>
+<td>Called when a domain deletion request comes from WHMCS.</td>
+</tr>
+
+<tr>
+<td>ClientArea</td>
+<td>Used to define module specific client area output. It accepts a return of HTML for display on the domain details page of the client area. Output via a template file within the module folder named &ldquo;clientarea.tpl&rdquo; is also possible. This function is discussed in more detail later on in the docs.</td>
+</tr>
+
+<tr>
+<td>ClientAreaCustomButtonArray</td>
+<td>Used to define custom functions that the module supports. Customers can invoke and run these from the client area. The functions can perform actions or product page output in the client area. Example usages for this are to provide domain management pages, bandwidth reporting pages, etc&hellip;</td>
+</tr>
+
+<tr>
+<td>ClientAreaAllowedFunctions</td>
+<td>Like the above, used to define custom functions. These are functions that customers can invoke, but are not shown as buttons by default. (i.e. custom client area output will invoke them).</td>
+</tr>
+</tbody>
+</table>
+
+
+			<div class="topic-navigation clearfix">
+                
+                    <a class="nav nav-prev" href="//developers.whmcs.com/prev/path">
+                        <i class="fa fa-arrow-circle-left"></i>
+                        Previous
+                    </a>
+                
+                
+                    <a class="nav nav-next" href="//developers.whmcs.com/next/path">
+                        <i class="fa fa-arrow-circle-right"></i>
+                        Next
+                    </a>
+                
+            </div>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+
+        </div>
+  </div>
+</div>
+</main>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <nav>
+                <div class="col-sm-3">
+                    <h3>Learn</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/">About WHMCS</a></li>
+                        <li><a href="//developers.whmcs.com/quick-start/">Quick start</a></li>
+                        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+                        <li><a href="//docs.whmcs.com/classes/">Classes Reference</a></li>
+                        <li><a href="//developers.whmcs.com/about/faq/">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Contribute</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/contribute/">Contribute</a></li>
+                        <li><a href="https://github.com/whmcs/" target="_blank">Github</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-5">
+                    <h3>Stay up to date</h3>
+                    <div class="subscribe-form">
+                        <p class="muted subscribe-lead">Join our developers mailing list to be kept up-to-date.</p>
+                        <form action="https://www.whmcs.com/members/requestinfo.php" method="post">
+                            <input type="hidden" name="developer" value="dev">
+                            <div class="input-group">
+                                <input type="email" name="email" class="form-control" placeholder="you@yourdomain.com">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-info">
+                                        SUBSCRIBE
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <p>
+                        We won't spam you.
+                    </p>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <p>Found an error or a typo in these docs? <a href="https://github.com/WHMCS/developer-docs/issues">Submit an issue or a pull request</a></p>
+            </div>
+            <div class="col-md-5">
+                <p class="pull-right">
+                    Copyright &copy; WHMCS 2016. All rights reserved.
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="//developers.whmcs.com/js/jquery.min.js"></script>
+<script src="//developers.whmcs.com/js/bootstrap.min.js"></script>
+<script src="//developers.whmcs.com/js/prism.js"></script>
+<script>
+$(document).ready(function () {
+  $('[data-toggle="offcanvas"]').click(function () {
+    $('.row-offcanvas').toggleClass('active')
+  });
+});
+</script>
+  </body>
+</html>
+

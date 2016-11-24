@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Modules on WHMCS Developer Documentation</title>
+    <link>//developers.whmcs.com/modules/</link>
+    <description>Recent content in Modules on WHMCS Developer Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="//developers.whmcs.com/modules/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Modules</title>
+      <link>//developers.whmcs.com/modules/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/modules/</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;A module is a collection of functions that provide additional functionality to the WHMCS platform, most commonly used to integrate with third party services and APIs.&lt;/p&gt;
+
+&lt;h4 id=&#34;choose-a-module-type-to-begin&#34;&gt;Choose a module type to begin&amp;hellip;&lt;/h4&gt;
+
+&lt;div class=&#34;row text-center link-blocks&#34;&gt;
+    &lt;div class=&#34;col-sm-6&#34;&gt;
+        &lt;a href=&#34;//developers.whmcs.com/provisioning-modules/&#34;&gt;
+            &lt;i class=&#34;fa fa-cube&#34;&gt;&lt;/i&gt;
+            &lt;h3&gt;Provisoning Modules&lt;/h3&gt;
+            &lt;p&gt;For modules that enable provisioning and management of products &amp;amp; services via API.&lt;/p&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;col-sm-6&#34;&gt;
+        &lt;a href=&#34;//developers.whmcs.com/domain-registrars/&#34;&gt;
+            &lt;i class=&#34;fa fa-cube&#34;&gt;&lt;/i&gt;
+            &lt;h3&gt;Registrar Modules&lt;/h3&gt;
+            &lt;p&gt;Connect with domain registrars to allow for availability checking, domain registration and management.&lt;/p&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;col-sm-6&#34;&gt;
+        &lt;a href=&#34;//developers.whmcs.com/payment-gateways/&#34;&gt;
+            &lt;i class=&#34;fa fa-cube&#34;&gt;&lt;/i&gt;
+            &lt;h3&gt;Gateway Modules&lt;/h3&gt;
+            &lt;p&gt;Integrate with payment gateway providers to collect and process payments.&lt;/p&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;col-sm-6&#34;&gt;
+        &lt;a href=&#34;//developers.whmcs.com/provisioning-modules/&#34;&gt;
+            &lt;i class=&#34;fa fa-cube&#34;&gt;&lt;/i&gt;
+            &lt;h3&gt;Addon Modules&lt;/h3&gt;
+            &lt;p&gt;Create a module that provides additional functionality within WHMCS.&lt;/p&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>//developers.whmcs.com/modules/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/modules/getting-started/</guid>
+      <description>&lt;p&gt;Coming soon&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Code Samples</title>
+      <link>//developers.whmcs.com/modules/code-samples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/modules/code-samples/</guid>
+      <description>&lt;p&gt;We make available sample code for each of our module types via &lt;a href=&#34;https://github.com/whmcs&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Sample Gateway Module - &lt;a href=&#34;https://github.com/WHMCS/sample-gateway-module&#34;&gt;https://github.com/WHMCS/sample-gateway-module&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Sample Merchant Gateway - &lt;a href=&#34;https://github.com/WHMCS/sample-merchant-gateway&#34;&gt;https://github.com/WHMCS/sample-merchant-gateway&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Sample Provisioning Module - &lt;a href=&#34;https://github.com/WHMCS/sample-provisioning-module&#34;&gt;https://github.com/WHMCS/sample-provisioning-module&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Sample Domain Registrar Module - &lt;a href=&#34;https://github.com/WHMCS/sample-registrar-module&#34;&gt;https://github.com/WHMCS/sample-registrar-module&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Sample Addon Module - &lt;a href=&#34;https://github.com/WHMCS/sample-addon-module&#34;&gt;https://github.com/WHMCS/sample-addon-module&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Marketplace</title>
+      <link>//developers.whmcs.com/modules/marketplace/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/modules/marketplace/</guid>
+      <description>&lt;p&gt;The WHMCS Marketplace allows users of WHMCS to connect with, find and discover add-ons and extensions for the WHMCS platform.&lt;/p&gt;
+
+&lt;p&gt;For developers, it provides a great opportunity for you to get your creations exposure and visibility to potential users and customers.&lt;/p&gt;
+
+&lt;p&gt;Submission is free, and we highly recommend submitting your creations to it.&lt;/p&gt;
+
+&lt;p&gt;For more information, please visit &lt;a href=&#34;https://marketplace.whmcs.com&#34;&gt;https://marketplace.whmcs.com&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

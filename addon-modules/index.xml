@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Addon-modules on WHMCS Developer Documentation</title>
+    <link>//developers.whmcs.com/addon-modules/</link>
+    <description>Recent content in Addon-modules on WHMCS Developer Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="//developers.whmcs.com/addon-modules/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Addon Modules</title>
+      <link>//developers.whmcs.com/addon-modules/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/addon-modules/</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Addon modules allow you to create both admin pages and hooks to extend WHMCS further.&lt;/p&gt;
+
+&lt;p&gt;Addon Modules can consist of just an admin page, just hooks, or both.
+They are all managed through the &lt;strong&gt;Setup&lt;/strong&gt; &amp;gt; &lt;strong&gt;Addon Modules&lt;/strong&gt; interface.&lt;/p&gt;
+
+&lt;p&gt;There are other types of module in WHMCS. These are &lt;a href=&#34;gateway-modules&#34; title=&#34;Gateway Module Documentation&#34;&gt;Payment Gateways&lt;/a&gt;, &lt;a href=&#34;provisioning-modules&#34; title=&#34;Provisioning Module Developer Documentation&#34;&gt;Provisioning Modules&lt;/a&gt; and &lt;a href=&#34;registrar-modules&#34; title=&#34;Registrar Module Developer Documentation&#34;&gt;Registrar Modules&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once activated, modules will display in the &amp;ldquo;Addons&amp;rdquo; menu within the admin area for access from any page.&lt;/p&gt;
+
+&lt;p&gt;Management options consist of activating and deactivating of the modules.
+Access control allows full admins to define which of the administrator roles can access each addon module.&lt;/p&gt;
+
+&lt;p&gt;We have a &lt;strong&gt;Video Tutorial&lt;/strong&gt; demonstrating addon module management &amp;amp; access control &lt;a href=&#34;https://www.youtube.com/watch?v=39TpVTs8onE&#34; title=&#34;Addon Modules&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>//developers.whmcs.com/addon-modules/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/addon-modules/getting-started/</guid>
+      <description>&lt;p&gt;To get started, you need to begin by choosing a name for your module.
+The module name chosen must be unique and should be all lowercase.
+The name must only contain letters &amp;amp; numbers whilst always starting with a letter.
+Underscore is the only accepted special character.
+For example, valid names would be:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;mymodulename&lt;/strong&gt; OR &lt;strong&gt;my_module_name&lt;/strong&gt; OR &lt;strong&gt;my_module&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Once you have chosen your name, you need to create a directory and module file for it.
+Addon modules are found in the &lt;code&gt;/modules/addons/&lt;/code&gt; directory.
+Each module can be found within it&amp;rsquo;s own directory &lt;strong&gt;/your_module_name/&lt;/strong&gt;.
+Then the core module file within it should be &amp;ldquo;&lt;strong&gt;your_module_name&lt;/strong&gt;.php&amp;rdquo; to match the folder.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Configuration</title>
+      <link>//developers.whmcs.com/addon-modules/configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/addon-modules/configuration/</guid>
+      <description>
+
+&lt;p&gt;The first step in the module is defining the configuration data.
+This includes the module name, version number, author, description.
+Also, this contains any custom configuration fields.
+Below is an example of the config function:&lt;/p&gt;
+
+&lt;h2 id=&#34;config-function-example-a-id-config-example-function-a&#34;&gt;Config Function Example &lt;a id=&#34;config-example-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;function demo_config() {
+    $configarray = array(
+    &amp;quot;name&amp;quot; =&amp;gt; &amp;quot;Addon Example&amp;quot;,
+    &amp;quot;description&amp;quot; =&amp;gt; &amp;quot;This is a sample config function for an addon module&amp;quot;,
+    &amp;quot;version&amp;quot; =&amp;gt; &amp;quot;1.0&amp;quot;,
+    &amp;quot;author&amp;quot; =&amp;gt; &amp;quot;WHMCS&amp;quot;,
+    &amp;quot;fields&amp;quot; =&amp;gt; array(
+        &amp;quot;option1&amp;quot; =&amp;gt; array (&amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Option1&amp;quot;, &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;text&amp;quot;, &amp;quot;Size&amp;quot; =&amp;gt; &amp;quot;25&amp;quot;,
+                              &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Textbox&amp;quot;, &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;Example&amp;quot;, ),
+        &amp;quot;option2&amp;quot; =&amp;gt; array (&amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Option2&amp;quot;, &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;password&amp;quot;, &amp;quot;Size&amp;quot; =&amp;gt; &amp;quot;25&amp;quot;,
+                              &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Password&amp;quot;, ),
+        &amp;quot;option3&amp;quot; =&amp;gt; array (&amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Option3&amp;quot;, &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;yesno&amp;quot;, &amp;quot;Size&amp;quot; =&amp;gt; &amp;quot;25&amp;quot;,
+                              &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Sample Check Box&amp;quot;, ),
+        &amp;quot;option4&amp;quot; =&amp;gt; array (&amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Option4&amp;quot;, &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;dropdown&amp;quot;, &amp;quot;Options&amp;quot; =&amp;gt;
+                              &amp;quot;1,2,3,4,5&amp;quot;, &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Sample Dropdown&amp;quot;, &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;3&amp;quot;, ),
+        &amp;quot;option5&amp;quot; =&amp;gt; array (&amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Option5&amp;quot;, &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;radio&amp;quot;, &amp;quot;Options&amp;quot; =&amp;gt;
+                              &amp;quot;Demo1,Demo2,Demo3&amp;quot;, &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Radio Options Demo&amp;quot;, ),
+        &amp;quot;option6&amp;quot; =&amp;gt; array (&amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Option6&amp;quot;, &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;textarea&amp;quot;, &amp;quot;Rows&amp;quot; =&amp;gt; &amp;quot;3&amp;quot;,
+                              &amp;quot;Cols&amp;quot; =&amp;gt; &amp;quot;50&amp;quot;, &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Description goes here&amp;quot;, &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;Test&amp;quot;, ),
+    ));
+    return $configarray;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first 4 fields: name, version, author &amp;amp; description should all be self-explanatory.
+These contain the display name for the module which will show within the admin area.
+Also, the version number, name/company of the creator, and a brief description of the addon.&lt;/p&gt;
+
+&lt;p&gt;The fields section is where you can define the input you need from end users to be able to make the module work.
+In this example we are asking for some API related information.
+Supported field types are “text”, “password”, “yesno” (checkboxes), “textarea”, “dropdown” and “radio”.
+If using the textarea option, a “Rows” parameter is used to show the height of the box.
+If using the dropdown type, then you must provide an “Options” parameter with comma separated values.&lt;/p&gt;
+
+&lt;p&gt;There is a language variable you can also include if you will be using language files for your module.
+We’ll look at languages in more &lt;a href=&#34;//developers.whmcs.com/addon-modules/multi-language&#34; title=&#34;Multi Language Support&#34;&gt;detail later on&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Installation &amp; Uninstallation</title>
+      <link>//developers.whmcs.com/addon-modules/installation-uninstallation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/addon-modules/installation-uninstallation/</guid>
+      <description>
+
+&lt;p&gt;Modules can contain both activate and deactivate functions.
+These functions run when an admin user activates or deactivates the module in the Addon Modules configuration area.&lt;/p&gt;
+
+&lt;p&gt;These functions can be used run any code required when activating or deactivating the module.
+For example, to create custom tables, database entries, or perform license checks.
+They can also be used to return messages, or errors to a user.
+So, if you want to fail the process due to a problem, or want to notify the user of a missing requirement or license issue.&lt;/p&gt;
+
+&lt;p&gt;The deactivation function should undo everything that the activation function does to remove the module from the users system.&lt;/p&gt;
+
+&lt;p&gt;There will already be an active database connection when the module is run, so to access the WHMCS database you won’t need to reconnect to the database.&lt;/p&gt;
+
+&lt;p&gt;For example, the activate and deactivate functions could create and drop a table for use by the custom module as below:&lt;/p&gt;
+
+&lt;h2 id=&#34;example-activate-function-a-id-example-activate-function-a&#34;&gt;Example Activate Function &lt;a id=&#34;example-activate-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;function demo_activate() {
+ 
+    # Create Custom DB Table
+    $query = &amp;quot;CREATE TABLE `mod_addonexample` (`id` INT( 1 ) NOT NULL AUTO_INCREMENT ... &amp;quot;;
+	$result = mysql_query($query);
+ 
+    # Return Result
+    return array(&#39;status&#39;=&amp;gt;&#39;success&#39;,&#39;description&#39;=&amp;gt;&#39;This is an demo module only. In a real
+           module you might instruct a user how to get started with it here...&#39;);
+    return array(&#39;status&#39;=&amp;gt;&#39;error&#39;,&#39;description&#39;=&amp;gt;&#39;You can use the error status return to
+           indicate there was a problem activating the module&#39;);
+    return array(&#39;status&#39;=&amp;gt;&#39;info&#39;,&#39;description&#39;=&amp;gt;&#39;You can use the info status return to display
+           a message to the user&#39;);
+ 
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;example-deactivate-function-a-id-example-deactivate-function-a&#34;&gt;Example Deactivate Function &lt;a id=&#34;example-deactivate-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;function demo_deactivate() {
+ 
+    # Remove Custom DB Table
+    $query = &amp;quot;DROP TABLE `mod_addonexample`&amp;quot;;
+	$result = mysql_query($query);
+ 
+    # Return Result
+    return array(&#39;status&#39;=&amp;gt;&#39;success&#39;,&#39;description&#39;=&amp;gt;&#39;If successful, you can return a message
+           to show the user here&#39;);
+    return array(&#39;status&#39;=&amp;gt;&#39;error&#39;,&#39;description&#39;=&amp;gt;&#39;If an error occurs you can return an error
+           message for display here&#39;);
+    return array(&#39;status&#39;=&amp;gt;&#39;info&#39;,&#39;description&#39;=&amp;gt;&#39;If you want to give an info message to a user
+           you can return it here&#39;);
+ 
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Admin Area Content/Output</title>
+      <link>//developers.whmcs.com/addon-modules/admin-area-output/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/addon-modules/admin-area-output/</guid>
+      <description>
+
+&lt;p&gt;The output from modules is defined in the function your_module_name_output.
+This should be actually output (i.e. echo’d) not returned.
+All output is captured by WHMCS and displayed within the admin interface template.
+The module name/title is prefixed to the output.&lt;/p&gt;
+
+&lt;h2 id=&#34;variables-a-id-variables-a&#34;&gt;Variables &lt;a id=&#34;variables&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;The output function is passing all the fields defined in your modules config,
+along with the values users have set for them, as well as a &amp;ldquo;&lt;em&gt;modulelink&lt;/em&gt;&amp;rdquo; variable which you can use to link back to the module.&lt;/p&gt;
+
+&lt;h2 id=&#34;linking-actions-a-id-linking-a&#34;&gt;Linking/Actions &lt;a id=&#34;linking&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Using the modulelink variable passed into the output function, you can then create links and forms that post back to your module.
+The modulelink will be in the format &amp;ldquo;&lt;em&gt;addonmodules.php?module=xxxxxx&lt;/em&gt;&amp;rdquo;. For links you can then append “_&amp;amp;var1=x&amp;amp;var2=y_”.
+For forms, use the POST form method to receive user input.&lt;/p&gt;
+
+&lt;p&gt;Within the output function, the $_GET or $_POST variables can be checked.
+This can be used to display other output or perform various tasks, once links have been followed.&lt;/p&gt;
+
+&lt;h2 id=&#34;admin-user-data-a-id-admin-user-data-a&#34;&gt;Admin User Data &lt;a id=&#34;admin-user-data&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;To access the currently logged in admin ID should the module need that, in the session, use &lt;code&gt;$_SESSION[‘adminid’]&lt;/code&gt;.
+From that, the module can find any extra information you need in tbladmins.&lt;/p&gt;
+
+&lt;h2 id=&#34;example-output-function-a-id-example-function-a&#34;&gt;Example Output Function &lt;a id=&#34;example-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;function demo_output($vars) {
+ 
+    $modulelink = $vars[&#39;modulelink&#39;];
+    $version = $vars[&#39;version&#39;];
+    $option1 = $vars[&#39;option1&#39;];
+    $option2 = $vars[&#39;option2&#39;];
+    $option3 = $vars[&#39;option3&#39;];
+    $option4 = $vars[&#39;option4&#39;];
+    $option5 = $vars[&#39;option5&#39;];
+    $option6 = $vars[&#39;option6&#39;];
+    $LANG = $vars[&#39;_lang&#39;];
+ 
+    echo &#39;&amp;lt;p&amp;gt;The date &amp;amp; time are currently &#39;.date(&amp;quot;Y-m-d H:i:s&amp;quot;).&#39;&amp;lt;/p&amp;gt;&#39;;
+ 
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Things aren&amp;rsquo;t of course limited to just one file.
+Use the &lt;strong&gt;_output&lt;/strong&gt; function to include other files, call templates, etc.
+The system is flexible.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Client Area Output</title>
+      <link>//developers.whmcs.com/addon-modules/client-area-output/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/addon-modules/client-area-output/</guid>
+      <description>
+
+&lt;p&gt;Addon Modules also support generating client area output.
+This is done with the use of an &lt;strong&gt;_clientarea&lt;/strong&gt; function within the module.&lt;/p&gt;
+
+&lt;p&gt;The functionality allows for modules to return output in the form of template files.
+The template files are stored within the module folder.&lt;/p&gt;
+
+&lt;p&gt;You can return a page title, breadcrumb path, and template variables.
+You can also require a client login with a simple true/false response.
+Language strings from the modules language file (&lt;a href=&#34;//developers.whmcs.com/addon-modules/multi-language&#34; title=&#34;Multi Language Support&#34;&gt;see here&lt;/a&gt;) are also available.&lt;/p&gt;
+
+&lt;p&gt;Access Client area modules using an URL in the format &lt;strong&gt;index.php?m=modulename&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;example-client-area-function-a-id-example-function-a&#34;&gt;Example Client Area Function &lt;a id=&#34;example-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Here is a sample client area function demonstrating all the available return variables:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function demo_clientarea($vars) {
+ 
+    $modulelink = $vars[&#39;modulelink&#39;];
+    $version = $vars[&#39;version&#39;];
+    $option1 = $vars[&#39;option1&#39;];
+    $option2 = $vars[&#39;option2&#39;];
+    $option3 = $vars[&#39;option3&#39;];
+    $option4 = $vars[&#39;option4&#39;];
+    $option5 = $vars[&#39;option5&#39;];
+    $option6 = $vars[&#39;option6&#39;];
+    $LANG = $vars[&#39;_lang&#39;];
+ 
+    return array(
+        &#39;pagetitle&#39; =&amp;gt; &#39;Addon Module&#39;,
+        &#39;breadcrumb&#39; =&amp;gt; array(&#39;index.php?m=demo&#39;=&amp;gt;&#39;Demo Addon&#39;),
+        &#39;templatefile&#39; =&amp;gt; &#39;clienthome&#39;,
+        &#39;requirelogin&#39; =&amp;gt; true, # accepts true/false
+        &#39;forcessl&#39; =&amp;gt; false, # accepts true/false
+        &#39;vars&#39; =&amp;gt; array(
+            &#39;testvar&#39; =&amp;gt; &#39;demo&#39;,
+            &#39;anothervar&#39; =&amp;gt; &#39;value&#39;,
+            &#39;sample&#39; =&amp;gt; &#39;test&#39;,
+        ),
+    );
+ 
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above assumes a template, &lt;strong&gt;clienthome.tpl&lt;/strong&gt;, existing within the module folder to use for the output.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Multi-Language Support</title>
+      <link>//developers.whmcs.com/addon-modules/multi-language/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/addon-modules/multi-language/</guid>
+      <description>
+
+&lt;p&gt;Modules can support multiple languages should you wish.&lt;/p&gt;
+
+&lt;p&gt;For this, the addon module needs a lang subfolder created within it.
+Within that, language files can be created matching the names of the main WHMCS admin area language files.
+The admin language files are located in the /admin/lang/ folder.&lt;/p&gt;
+
+&lt;p&gt;WHMCS has the language variables for custom modules separate to make installation and updating easier.&lt;/p&gt;
+
+&lt;p&gt;If language files exist, WHMCS will then load these whenever the custom module is accessed.
+WHMCS will select the appropriate language file based on the current administrators language setting.
+If no matching language file exists within the module folder, it will fall back to the default language set in the module’s config array.&lt;/p&gt;
+
+&lt;p&gt;A language file would be located at &lt;code&gt;/modules/addons/youraddonname/lang/english.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;example-language-file-a-id-example-file-a&#34;&gt;Example Language File &lt;a id=&#34;example-file&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$_ADDONLANG[&#39;intro&#39;] = &amp;quot;This is an example module to be used as a starting point for developers.&amp;quot;;
+$_ADDONLANG[&#39;description&#39;] = &amp;quot;Creating an addon module is easy and this example demonstrates all the functionality an addon module can utilise.&amp;lt;br /&amp;gt;&amp;lt;br /&amp;gt;Addon modules offer the ultimate flexibility allowing you to create anything from a simple extra admin area page, to advanced fully custom modules interfacing with remote third party systems and hooking into &amp;amp; extending the core system.&amp;quot;;
+$_ADDONLANG[&#39;documentation&#39;] = &amp;quot;This file is not protected so you can have a look at it&amp;quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The language variables are then passed into the _output and _sidebar functions array using “_lang”.&lt;/p&gt;
+
+&lt;p&gt;Below is a demonstration of how you specify the default language for your module in the config array.&lt;/p&gt;
+
+&lt;h2 id=&#34;specifying-default-addon-module-language-a-id-default-language-a&#34;&gt;Specifying Default Addon Module Language &lt;a id=&#34;default-language&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;function demo_config() {
+    $configarray = array(
+    &amp;quot;name&amp;quot; =&amp;gt; &amp;quot;Addon Example&amp;quot;,
+    &amp;quot;description&amp;quot; =&amp;gt; &amp;quot;This is a sample config function for an addon module&amp;quot;,
+    &amp;quot;version&amp;quot; =&amp;gt; &amp;quot;1.0&amp;quot;,
+    &amp;quot;author&amp;quot; =&amp;gt; &amp;quot;WHMCS&amp;quot;,
+    &amp;quot;language&amp;quot; =&amp;gt; &amp;quot;english&amp;quot;,
+    &amp;quot;fields&amp;quot; =&amp;gt; etc...
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hooks</title>
+      <link>//developers.whmcs.com/addon-modules/hooks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/addon-modules/hooks/</guid>
+      <description>&lt;p&gt;Hooks that the module should define within WHMCS are defined in a file named “hooks.php”.
+This should be within your custom module folder.
+That will then become detected and any hooks that exist will be loaded on every page of WHMCS.&lt;/p&gt;
+
+&lt;p&gt;The hook functions within that file should be defined in exactly the same way as normal.&lt;/p&gt;
+
+&lt;p&gt;Please refer to &lt;a href=&#34;http://docs.whmcs.com/Hooks&#34; title=&#34;Hooks&#34;&gt;Hook Documentation&lt;/a&gt; for more info on creating and working with hooks in WHMCS.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Upgrades</title>
+      <link>//developers.whmcs.com/addon-modules/upgrades/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/addon-modules/upgrades/</guid>
+      <description>
+
+&lt;p&gt;Releasing updates and upgrades to custom modules is likely something that is needed to be done at some point.
+If those modules need to modify the database structure or perform other functions that would be handled in the &lt;strong&gt;_activate&lt;/strong&gt; function, then you need some way of handling that.&lt;/p&gt;
+
+&lt;p&gt;With the Addon Modules system, this is a breeze with the upgrade function.
+The upgrade function is called the first time a module is accessed following an update.
+The update is detected by a change of version number in the &lt;strong&gt;_config&lt;/strong&gt; array of the module.
+The upgrade function is passed the previous version number so that the module can then decide what updates to run within that function.
+This allows the module to bring it up to date with your latest version.&lt;/p&gt;
+
+&lt;h2 id=&#34;example-upgrade-function-a-id-example-function-a&#34;&gt;Example Upgrade Function &lt;a id=&#34;example-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;An example of how this function can be used is demonstrated below:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function demo_upgrade($vars) {
+ 
+    $version = $vars[&#39;version&#39;];
+ 
+    # Run SQL Updates for V1.0 to V1.1
+    if ($version &amp;lt; 1.1) {
+        $query = &amp;quot;ALTER `mod_addonexample` ADD `demo2` TEXT NOT NULL &amp;quot;;
+    	$result = mysql_query($query);
+    }
+ 
+    # Run SQL Updates for V1.1 to V1.2
+    if ($version &amp;lt; 1.2) {
+        $query = &amp;quot;ALTER `mod_addonexample` ADD `demo3` TEXT NOT NULL &amp;quot;;
+    	$result = mysql_query($query);
+    }
+ 
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WHMCS Marketplace</title>
+      <link>//developers.whmcs.com/addon-modules/whmcs-marketplace/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/addon-modules/whmcs-marketplace/</guid>
+      <description>&lt;p&gt;WHMCS offers a Marketplace which accepts submission of the completed module.
+Displayed listed are found under the Addons tab within the administration area and &lt;a href=&#34;https://marketplace.whmcs.com&#34; title=&#34;WHMCS Marketplace&#34;&gt;online&lt;/a&gt;.
+This is a great way to make WHMCS users aware of the module.&lt;/p&gt;
+
+&lt;p&gt;For help using the Marketplace please click &lt;a href=&#34;https://marketplace.whmcs.com/help&#34; title=&#34;WHMCS Marketplace Help&#34;&gt;here&lt;/a&gt;.
+We aim to review submissions in 1-2 weeks.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Themes on WHMCS Developer Documentation</title>
+    <link>//developers.whmcs.com/themes/</link>
+    <description>Recent content in Themes on WHMCS Developer Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="//developers.whmcs.com/themes/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Themes</title>
+      <link>//developers.whmcs.com/themes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;A theme in WHMCS controls the client facing user interface.&lt;/p&gt;
+
+&lt;p&gt;WHMCS allows you to provide a seamless experience for your website visitors by customising the look of the client area to match the rest of your website.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>//developers.whmcs.com/themes/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/getting-started/</guid>
+      <description>
+
+&lt;p&gt;The default template that ships with WHMCS 6.0 and later is called the &lt;strong&gt;Six&lt;/strong&gt; theme.&lt;/p&gt;
+
+&lt;p&gt;Before you begin customising it for your needs, the first step is to create your own copy of the template. This ensures your customisations are not lost when updating.&lt;/p&gt;
+
+&lt;h3 id=&#34;method-1-using-source-control&#34;&gt;Method 1: Using Source Control&lt;/h3&gt;
+
+&lt;p&gt;If you&amp;rsquo;re familiar with GIT Version Control, we make the Six theme available as a read-only repository on &lt;a href=&#34;https://github.com/WHMCS/templates-six&#34;&gt;Github&lt;/a&gt; that enables you to build your template in a way that can be tracked and automatically updated.&lt;/p&gt;
+
+&lt;p&gt;To use this, navigate to the WHMCS templates directory:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd ~/whmcs/templates/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Clone the Six template theme repo into your new template directory:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git clone git@github.com:WHMCS/templates-six.git my-template-name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now begin making your changes&lt;/p&gt;
+
+&lt;h3 id=&#34;method-2-non-source-controlled&#34;&gt;Method 2: Non source controlled&lt;/h3&gt;
+
+&lt;p&gt;Alternatively, if you aren&amp;rsquo;t familiar with GIT Source Control or don&amp;rsquo;t wish to use it, you can simply make a copy of the &lt;strong&gt;Six&lt;/strong&gt; template directory.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Copy the &lt;code&gt;~/templates/six/&lt;/code&gt; directory to &lt;code&gt;~/templates/yourname/&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;Template names should be a single word, consisting of only lowercase letters and numbers.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Now it&amp;rsquo;s time to &lt;a href=&#34;//developers.whmcs.com/themes/customising&#34;&gt;customise your theme&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Customising</title>
+      <link>//developers.whmcs.com/themes/customising/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/customising/</guid>
+      <description>
+
+&lt;p&gt;The header and footer template files that are common to every page and act as a wrapper around the primary body content are a good place to start for this.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;We strongly recommend you maintain all of the template includes and output variables present in the default template files in your custom header/footer as this will help ensure compatibility with addons and extensions you later install&lt;/li&gt;
+&lt;li&gt;Navigation bar and Sidebar content is defined within WHMCS and passed to the templates for output. This allows modules and addons to interact with and manipulate these areas of the client area dynamically. The output styling of these is controlled by include files which are explained in more detail below.&lt;/li&gt;
+&lt;li&gt;The footer template file includes a number of lines of javascript code immediately prior to the closing &lt;/body&gt; tag which are essential to the correct operation of the client area. Please take care not to remove these lines.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;include-files&#34;&gt;Include Files&lt;/h2&gt;
+
+&lt;p&gt;Include templates are templates that are shared and used by multiple pages. They are located within the &lt;code&gt;/includes/&lt;/code&gt; sub-directory.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Common to All Pages&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;head.tpl - Defines the CSS &amp;amp; Javascript files included within the &lt;head&gt; section of a page&lt;/li&gt;
+&lt;li&gt;navbar.tpl - Controls the output of the primary navigation bar menu items&lt;/li&gt;
+&lt;li&gt;sidebar.tpl - Controls the output of the sidebar menu items&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Used as Required&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;captcha.tpl - Used to output the captcha verification image wherever used&lt;/li&gt;
+&lt;li&gt;pwstrength.tpl - Used to output the password strength meter and tooltip wherever used&lt;/li&gt;
+&lt;li&gt;tablelist.tpl - Controls the output of all filterable data list tables throughout the client area&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Editing any of these template files will affect everywhere that the respective elements are used. One place to edit, and one place to maintain during upgrades, will help make applying and preserving your customisations easier.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CSS Styling</title>
+      <link>//developers.whmcs.com/themes/css-styling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/css-styling/</guid>
+      <description>&lt;p&gt;If you want to make changes to any of the CSS that is applied by default, we recommend making those customisations inside of the /css/custom.css file.&lt;/p&gt;
+
+&lt;p&gt;This file is included after styles.css allowing you to override any of the CSS defined within it and will not be affected by future updates to the WHMCS software.&lt;/p&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;We strongly recommend adding your custom CSS rules to the &lt;strong&gt;custom.css&lt;/strong&gt; file and not editing /css/styles.css directly as it will make updating easier.&lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Navigation</title>
+      <link>//developers.whmcs.com/themes/navigation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/navigation/</guid>
+      <description>
+
+&lt;p&gt;There are two navigation bars in WHMCS’ client area. The primary navigation bar contains the bulk of the menu and floats to the left of the secondary navigation bar. The secondary navigation bar contains user-specific items and changes if a client is logged in to WHMCS. When a client is not logged in then the secondary navigation contains a login link, and when a client is logged in then the secondary menu contains links to the client’s account.&lt;/p&gt;
+
+&lt;p&gt;Responsive mode is activated when WHMCS’ client area is viewed on a smaller screen device such as a phone or tablet. At that point, WHMCS will collapse the navbar into a fold out menu.&lt;/p&gt;
+
+&lt;p&gt;The navigation bar elements are controlled in a programmatic way allowing modules and hooks to dynamically interact with the navigation menu elements.&lt;/p&gt;
+
+&lt;p&gt;The look and feel of the navigation bar can be customised via the header.tpl and navbar.tpl (located in /includes/) template files.&lt;/p&gt;
+
+&lt;p&gt;To change the items within a menu, please refer to the &lt;a href=&#34;#&#34;&gt;Editing Client Area Menus&lt;/a&gt; documentation.&lt;/p&gt;
+
+&lt;h2 id=&#34;sidebars&#34;&gt;Sidebars&lt;/h2&gt;
+
+&lt;p&gt;There are two sidebars in WHMCS’ client area. The primary sidebar contains sidebar elements that are displayed above the body content when in responsive mode. The secondary sidebar contains sidebar elements that are displayed below the body content when in responsive mode. In desktop mode, there will be no noticeable difference between primary and secondary sidebar items.&lt;/p&gt;
+
+&lt;p&gt;The sidebar elements and panels are controlled in a programmatic way allowing modules and hooks to dynamically interact with the sidebar items.&lt;/p&gt;
+
+&lt;p&gt;The look and feel of the sidebar can be customised via the header.tpl and sidebar.tpl (located in /includes/) template files.&lt;/p&gt;
+
+&lt;p&gt;To change the items within a sidebar, please refer to the &lt;a href=&#34;#&#34;&gt;Editing Client Area Menus&lt;/a&gt; documentation.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Variables</title>
+      <link>//developers.whmcs.com/themes/variables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/variables/</guid>
+      <description>&lt;p&gt;In the Smarty template language, template variables take the format &lt;code&gt;{$variable_name}&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The following template parameters are made available to all pages.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;{$BASE_PATH_CSS}&lt;/td&gt;
+&lt;td&gt;The base URL to common CSS assets.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$BASE_PATH_FONTS}&lt;/td&gt;
+&lt;td&gt;The base URL to common font assets.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$BASE_PATH_IMG}&lt;/td&gt;
+&lt;td&gt;The base URL to common image assets.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$BASE_PATH_JS}&lt;/td&gt;
+&lt;td&gt;The base URL to common Javascript assets.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$charset}&lt;/td&gt;
+&lt;td&gt;The configured character set.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$client}&lt;/td&gt;
+&lt;td&gt;The currently logged in Client, or null if a client is not logged in.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$companyname}&lt;/td&gt;
+&lt;td&gt;The configured company name.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$date_day}&lt;/td&gt;
+&lt;td&gt;The current calendar day.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$date_month}&lt;/td&gt;
+&lt;td&gt;The current calendar month.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$date_year}&lt;/td&gt;
+&lt;td&gt;The current calendar year.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$filename}&lt;/td&gt;
+&lt;td&gt;The basename of the current file requested by the web browser.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$language}&lt;/td&gt;
+&lt;td&gt;The name of the language to display to the user.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$loggedin}&lt;/td&gt;
+&lt;td&gt;true or false depending on if a client is logged in.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$logo}&lt;/td&gt;
+&lt;td&gt;The path to the configured logo image.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$pagetitle}&lt;/td&gt;
+&lt;td&gt;The current page&amp;rsquo;s title.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$reCaptchaPublicKey}&lt;/td&gt;
+&lt;td&gt;The configured reCAPTCHA site key. This can be an empty string if the WHMCS installation does not use Google reCAPTCHA.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$systemNonSSLURL}&lt;/td&gt;
+&lt;td&gt;The configured non-SSL URL.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$systemsslurl}&lt;/td&gt;
+&lt;td&gt;The configured SSL URL.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$systemurl}&lt;/td&gt;
+&lt;td&gt;The URL to the WHMCS system. Either the SSL or non-SSL URL depending on whether the current page loaded via HTTPS.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$template}&lt;/td&gt;
+&lt;td&gt;The name of the template used for display.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$todaysdate}&lt;/td&gt;
+&lt;td&gt;The current date, presented in &amp;ldquo;l, jS F Y&amp;rdquo; format.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$token}&lt;/td&gt;
+&lt;td&gt;A CSRF token to use on POST forms.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{$WEB_ROOT}&lt;/td&gt;
+&lt;td&gt;Your WHMCS system&amp;rsquo;s base URL.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;For a complete listing of all variables available to you in a given template file, add the following line to your template file and then access the page which calls the template via a browser to receive a popup listing all available template data.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{debug}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Functions</title>
+      <link>//developers.whmcs.com/themes/functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/functions/</guid>
+      <description>
+
+&lt;h3 id=&#34;replace&#34;&gt;Replace&lt;/h3&gt;
+
+&lt;p&gt;This is a shorthand version of the &lt;code&gt;str_replace&lt;/code&gt; function. Use it to replace a value in a string.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{$variable_name|replace:&#39;hello&#39;:&#39;world&#39;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;count&#34;&gt;Count&lt;/h3&gt;
+
+&lt;p&gt;Use this to count the number of entries in an array.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{$variable_name|count}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Conditionals</title>
+      <link>//developers.whmcs.com/themes/conditionals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/conditionals/</guid>
+      <description>
+
+&lt;p&gt;It is often necessary to display text or messages when certain conditions are met.&lt;/p&gt;
+
+&lt;p&gt;{if} statements in Smarty have much the same flexibility as PHP if statements.&lt;/p&gt;
+
+&lt;p&gt;Every {if} must be paired with a matching {/if}. {else} and {elseif} are also permitted.&lt;/p&gt;
+
+&lt;p&gt;All PHP conditionals and functions are recognized, such as &lt;code&gt;||&lt;/code&gt;, &lt;code&gt;or&lt;/code&gt;, &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;, &lt;code&gt;and&lt;/code&gt;, &lt;code&gt;is_array()&lt;/code&gt;, etc.&lt;/p&gt;
+
+&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;{if $filename eq &amp;quot;announcements.php&amp;quot;}
+    This is the announcements page
+{else}
+    This is not the announcements page
+{/if}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For more information, please refer to &lt;a href=&#34;http://www.smarty.net/docs/en/language.function.if.tpl&#34;&gt;http://www.smarty.net/docs/en/language.function.if.tpl&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PHP Logic</title>
+      <link>//developers.whmcs.com/themes/php/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/php/</guid>
+      <description>
+
+&lt;p&gt;We recommend that all custom PHP logic be performed via hooks. Hooks are the &lt;strong&gt;only&lt;/strong&gt; future-proof way of performing your own PHP logic at the time of page rendering.&lt;/p&gt;
+
+&lt;p&gt;Historically, Smarty has allowed you to define custom PHP logic directly within template files. This has often been used by users and third party developers as a quick and convenient way of performing additional logic and defining additional template output.&lt;/p&gt;
+
+&lt;p&gt;However, as of Smarty 3, support for the {php} block has been removed, and we are only providing legacy support to ease the transition for developers and users who work with our platform and rely on this functionality.&lt;/p&gt;
+
+&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
+
+&lt;p&gt;The below example demonstrates how a hook can be used to perform additional PHP logic and define template variables for use in client area template files.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+/**
+ * Hook sample for defining additional template variables
+ *
+ * @param array $vars Existing defined template variables
+ *
+ * @return array
+ */
+function hook_template_variables_example($vars)
+{
+    $extraTemplateVariables = array();
+
+    // set a fixed value
+    $extraTemplateVariables[&#39;fixedValue&#39;] = &#39;abc&#39;;
+
+    // fetch clients data if available
+    $clientsData = isset($vars[&#39;clientsdetails&#39;]) ? $vars[&#39;clientsdetails&#39;] : null;
+
+    // determine if client is logged in
+    if (is_array($clientsData) &amp;amp;&amp;amp; isset($clientsData[&#39;id&#39;])) {
+        $userId = $clientsData[&#39;id&#39;];
+        // perform calculation here
+        $extraTemplateVariables[&#39;userSpecificValue&#39;] = &#39;123&#39;;
+        $extraTemplateVariables[&#39;anotherUserOnlyValue&#39;] = &#39;456&#39;;
+    }
+
+    // return array of template variables to define
+    return $extraTemplateVariables;
+}
+
+add_hook(&#39;ClientAreaPageViewTicket&#39;, 1, &#39;hook_template_variables_example&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;This example above executes on the View Ticket page within the client area. There are hook points available for every page of the WHMCS client area that allow you to defined template variables in this way. For a full list, please refer to the Client Area Interface Hooks Index Listing&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The above hook defines the additional template variables &lt;code&gt;{$fixedValue}&lt;/code&gt; - and, in the case of a logged in user, &lt;code&gt;{$userSpecificValue}&lt;/code&gt; and &lt;code&gt;{$anotherUserOnlyValue}&lt;/code&gt;. These can then be used inside the associated template file (in this case, viewticket.tpl) in the regular way.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;The fixed value is {$fixedValue}.&amp;lt;/p&amp;gt;
+
+{if $userSpecificValue &amp;amp;&amp;amp; $anotherUserOnlyValue}
+    &amp;lt;p&amp;gt;I also have this {$userSpecificValue} and {$anotherUserOnlyValue} to show you.&amp;lt;/p&amp;gt;
+{/if}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Testing</title>
+      <link>//developers.whmcs.com/themes/testing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/testing/</guid>
+      <description>
+
+&lt;p&gt;WHMCS allows you to preview a template before making it live.&lt;/p&gt;
+
+&lt;p&gt;This is done using the &lt;code&gt;?systpl=xxxx&lt;/code&gt; url parameter.&lt;/p&gt;
+
+&lt;p&gt;For example, if your new theme was named &amp;lsquo;mytemplate&amp;rsquo; and your WHMCS client area was located at &lt;a href=&#34;http://www.yourdomain.com/whmcs/&#34;&gt;http://www.yourdomain.com/whmcs/&lt;/a&gt;, you would navigate to:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.yourdomain.com/whmcs/?systpl=mytemplate&#34;&gt;http://www.yourdomain.com/whmcs/?systpl=mytemplate&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The template will be stored for the duration of your browser session allowing you to exercise all areas of the client area with your new theme.&lt;/p&gt;
+
+&lt;h2 id=&#34;making-your-template-live&#34;&gt;Making your template live&lt;/h2&gt;
+
+&lt;p&gt;Once you&amp;rsquo;re happy with your new template and are ready to make it live, follow the steps below:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Login to the Admin Area&lt;/li&gt;
+&lt;li&gt;Navigate to &lt;em&gt;Setup &amp;gt; General Settings&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Under the Template setting on the General tab, select the name of the template you created above&lt;/li&gt;
+&lt;li&gt;Hit &lt;strong&gt;Save Changes&lt;/strong&gt; and visitors to your site will immediately begin seeing your new template&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Debugging</title>
+      <link>//developers.whmcs.com/themes/debugging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/debugging/</guid>
+      <description>
+
+&lt;p&gt;Syntax errors in template files can cause a page to be unable to render completely.&lt;/p&gt;
+
+&lt;p&gt;Other common causes include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Using features of Smarty that have been removed in the upstream Smarty package&lt;/li&gt;
+&lt;li&gt;A custom or third party module that is incompatible&lt;/li&gt;
+&lt;li&gt;Using PHP code blocks in your template without the Allow Smarty PHP Tags setting enabled (go to Setup &amp;gt; General Settings &amp;gt; Security to enable it)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
+
+&lt;p&gt;If you see a blank page after making a change to a template file, check the &lt;strong&gt;Activity Log&lt;/strong&gt; in &lt;em&gt;Utilities &amp;gt; Logs&lt;/em&gt; for any logged error message.&lt;/p&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;If you don&amp;rsquo;t find anything in the activity logs, switching to a different template is an easy way to determine if the issue is with your template or something else.&lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Smarty</title>
+      <link>//developers.whmcs.com/themes/smarty/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/smarty/</guid>
+      <description>
+
+&lt;p&gt;WHMCS uses the Smarty templating engine.&lt;/p&gt;
+
+&lt;p&gt;Smarty is a fast and powerful templating system with a vast array of functionality that makes working with WHMCS templates easy and flexible.&lt;/p&gt;
+
+&lt;h2 id=&#34;smarty-3-manual&#34;&gt;Smarty 3 Manual&lt;/h2&gt;
+
+&lt;p&gt;Visit the Smarty 3 manual below:&lt;/p&gt;
+
+&lt;a  href=&#34;http://www.smarty.net/docs/en/&#34; target=&#34;_blank&#34;  class=&#34;btn btn-default&#34;&gt;
+  
+  
+  
+  &lt;i class=&#34;fa fa-file-text-o&#34;&gt;&lt;/i&gt; Launch Smarty Documentation
+  
+&lt;/a&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Github</title>
+      <link>//developers.whmcs.com/themes/github/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/github/</guid>
+      <description>
+
+&lt;p&gt;The following template&amp;rsquo;s are made available on Github.&lt;/p&gt;
+
+&lt;h2 id=&#34;six-client-area-template&#34;&gt;Six Client Area Template&lt;/h2&gt;
+
+&lt;p&gt;The default client area template in WHMCS.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/WHMCS/templates-six&#34;&gt;https://github.com/WHMCS/templates-six&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;standard-card-order-form-template&#34;&gt;Standard Card Order Form Template&lt;/h2&gt;
+
+&lt;p&gt;The default shopping cart template in WHMCS.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/WHMCS/orderforms-standard_cart&#34;&gt;https://github.com/WHMCS/orderforms-standard_cart&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

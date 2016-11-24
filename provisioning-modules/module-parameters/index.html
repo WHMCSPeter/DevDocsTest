@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Module Parameters - WHMCS Developer Documentation</title>
+    <meta name="generator" content="Hugo 0.16" />
+
+    
+    <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
+    
+    <link rel="canonical" href="//developers.whmcs.com/provisioning-modules/module-parameters/">
+    
+    <meta name="author" content="WHMCS Development Team">
+    
+
+    <link rel="stylesheet" href="//developers.whmcs.com/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/styles.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/prism.css">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+    
+
+  </head>
+  <body class="language-php">
+
+<header class="header">
+
+
+
+
+
+<div class="container">
+<nav class="navbar navbar-whmcs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.whmcs.com/"><img src="//developers.whmcs.com/img/logo.png" width="148" height="34"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="primary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="//developers.whmcs.com/"><span class="hidden-sm">Developer Documentation</span><span class="visible-sm">Developer Docs</span></a></li>
+        <li class="visible-xs"><a href="//developers.whmcs.com/">Home</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li class="visible-xs active"><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/api/">API</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+        <li><a href="//developers.whmcs.com/hooks-reference/">Hook Reference</a></li>
+        <li><a href="https://github.com/whmcs" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+
+<div class="headline-bar hidden-xs">
+<div class="container">
+<nav class="navbar navbar-main-nav">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="secondary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="//developers.whmcs.com/">Home</a></li>
+            <li><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li class="active"><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li><a href="//developers.whmcs.com/api/">API</a></li>
+            <li><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+</div>
+
+</header>
+
+
+<main class="main">
+
+  <div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-sm-3 sidebar-offcanvas">
+
+        
+          <ul class="sidebar-nav">
+            
+  <li class="active parent" data-nav-id="/provisioning-modules/">
+    <a href="//developers.whmcs.com/provisioning-modules/">
+      <span>
+        
+          <i class='fa fa-cog fa-fw'></i>
+        
+         Provisioning Modules
+       </span>
+    </a>
+    
+    <ul>
+      
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/getting-started/">
+          <a href="//developers.whmcs.com/provisioning-modules/getting-started/">
+            <span>Getting Started</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/config-options/">
+          <a href="//developers.whmcs.com/provisioning-modules/config-options/">
+            <span>Configuration Options</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/supported-functions/">
+          <a href="//developers.whmcs.com/provisioning-modules/supported-functions/">
+            <span>Supported Functions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="active" data-nav-id="/provisioning-modules/module-parameters/">
+          <a href="//developers.whmcs.com/provisioning-modules/module-parameters/">
+            <span>Module Parameters</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/core-module-functions/">
+          <a href="//developers.whmcs.com/provisioning-modules/core-module-functions/">
+            <span>Core Module Functions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/single-sign-on/">
+          <a href="//developers.whmcs.com/provisioning-modules/single-sign-on/">
+            <span>Single Sign-On</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/usage-update/">
+          <a href="//developers.whmcs.com/provisioning-modules/usage-update/">
+            <span>Usage Update</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/custom-functions/">
+          <a href="//developers.whmcs.com/provisioning-modules/custom-functions/">
+            <span>Custom Functions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/client-area-output/">
+          <a href="//developers.whmcs.com/provisioning-modules/client-area-output/">
+            <span>Client Area Output</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/admin-services-tab/">
+          <a href="//developers.whmcs.com/provisioning-modules/admin-services-tab/">
+            <span>Admin Services Tab</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/module-logging/">
+          <a href="//developers.whmcs.com/provisioning-modules/module-logging/">
+            <span>Module Logging</span>
+          </a>
+        </li>
+      
+      
+    </ul>
+    
+  </li>
+
+
+          </ul>
+        
+
+      </div>
+      <div class="col-sm-9">
+
+        <div class="breadcrumb-nav">
+
+            <div class="pull-right">
+              <a class="suggest-an-edit" href="https://github.com/WHMCS/developer-docs" target="blank">
+                <i class="fa fa-code-fork"></i>
+                <span class="hidden-xs">Suggest an edit</span>
+              </a>
+            </div>
+
+            <div class="visible-xs pull-left">
+                <button type="button" class="btn btn-toggle-sidebar" data-toggle="offcanvas">
+                    <i class="fa fa-list-alt"></i>
+                </button>
+            </div>
+
+            <div id="breadcrumbs">
+                
+                
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                    
+                <a href="//developers.whmcs.com/provisioning-modules/" itemprop="url"><span itemprop="title">Provisioning Modules</span></a> <i class="fa fa-angle-right"></i>
+                    
+                  
+                
+                  
+                
+                <span itemprop="title"> Module Parameters</span>
+              </div>
+            </div>
+
+
+			<h1>Module Parameters </h1>
+
+			
+
+<p>The module parameters are the data/values passed into each function when called.
+Every provisioning module function receives the same parameters.
+These parameters provide information about the specific product/service the module command runs for.
+The parameters also contains the settings from the product itself.</p>
+
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>serviceid</td>
+<td>The unique ID of the service.<br />Database Field: tblhosting.id</td>
+</tr>
+
+<tr>
+<td>pid</td>
+<td>The product ID for the service.<br />Database Field: tblproducts.id</td>
+</tr>
+
+<tr>
+<td>serverid</td>
+<td>The assigned server ID for the service.<br />Database Field: tblservers.id</td>
+</tr>
+
+<tr>
+<td>domain</td>
+<td>The domain entered by the customer when ordering.<br />Database Field: tblhosting.domain</td>
+</tr>
+
+<tr>
+<td>username</td>
+<td>Username generated for the service. (defaults to first 8 letters of the domain)<br />Database Field: tblhosting.username</td>
+</tr>
+
+<tr>
+<td>password</td>
+<td>Password generated for the service. (10 char generated on first creation consisting of letters &amp; numbers, both upper &amp; lowercase).  <br />Database Field: tblhosting.password</td>
+</tr>
+
+<tr>
+<td>producttype</td>
+<td>The product type which can be one of sharedhosting, reselleraccount, server or other.</td>
+</tr>
+
+<tr>
+<td>moduletype</td>
+<td>The module name (will match filename of module).</td>
+</tr>
+
+<tr>
+<td>configoptionX</td>
+<td>with X being from 1 to 24. <br />These fields contain the module settings for the product defined in the ConfigOptions function.</td>
+</tr>
+
+<tr>
+<td>clientsdetails</td>
+<td>Contains an array of all client details service owner. This contains things like firstname, lastname, email, address1, country, etc…</td>
+</tr>
+
+<tr>
+<td>customfields</td>
+<td>Contains an array of all custom fields defined on the product.  <br />The key is the custom field name - $params[&lsquo;customfields&rsquo;][&lsquo;Field Name&rsquo;].</td>
+</tr>
+
+<tr>
+<td>configoptions</td>
+<td>Contains an array of all the configurable options defined on the product.  <br />Again the key being the option name in this case - $params[&lsquo;configoption&rsquo;][&lsquo;Option Name Here&rsquo;].</td>
+</tr>
+
+<tr>
+<td>server</td>
+<td>true/false - Is the product assigned to a server.</td>
+</tr>
+
+<tr>
+<td>serverip</td>
+<td>The IP Address of the selected server.</td>
+</tr>
+
+<tr>
+<td>serverhostname</td>
+<td>The Hostname of the selected server.</td>
+</tr>
+
+<tr>
+<td>serverusername</td>
+<td>The Username of the selected server.</td>
+</tr>
+
+<tr>
+<td>serverpassword</td>
+<td>The Password of the selected server.</td>
+</tr>
+
+<tr>
+<td>serveraccesshash</td>
+<td>The Access Hash of the selected server.</td>
+</tr>
+
+<tr>
+<td>serversecure</td>
+<td>true/false - Is an SSL connection enabled in the Server Configuration.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="config-options-a-id-config-options-a">Config Options <a id="config-options"></a></h2>
+
+<p><a href="//developers.whmcs.com/provisioning-modules/getting-started#product-configuration-options" title="Product Configuration Options">Config Options</a> (do not confuse with Configurable Options) are the module&rsquo;s settings.
+These are defined in the ConfigOptions function of the module.
+Config Options are set on a per product basis.
+Supplied as a numbered list: $params[‘configoption1’], $params[‘configoption2’], etc.
+Defined by the order specified in the ConfigOptions function of the module.</p>
+
+<h2 id="custom-fields-configurable-options-a-id-custom-fields-configurable-options-a">Custom Fields &amp; Configurable Options <a id="custom-fields-configurable-options"></a></h2>
+
+<p>Values from any custom fields &amp; configurable options are passed into modules as parameters.
+Passed as an array with the key being the name of the field or option.</p>
+
+<p>For example for a custom field called “Username”, would become $params[‘customfields’][‘Username’].
+Likewise, a configurable option named “Disk Space”, would become $params[‘configoptions’][‘Disk Space’].</p>
+
+
+			<div class="topic-navigation clearfix">
+                
+                    <a class="nav nav-prev" href="//developers.whmcs.com/provisioning-modules/supported-functions">
+                        <i class="fa fa-arrow-circle-left"></i>
+                        Previous
+                    </a>
+                
+                
+                    <a class="nav nav-next" href="//developers.whmcs.com/provisioning-modules/core-module-functions">
+                        <i class="fa fa-arrow-circle-right"></i>
+                        Next
+                    </a>
+                
+            </div>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+
+        </div>
+  </div>
+</div>
+</main>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <nav>
+                <div class="col-sm-3">
+                    <h3>Learn</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/">About WHMCS</a></li>
+                        <li><a href="//developers.whmcs.com/quick-start/">Quick start</a></li>
+                        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+                        <li><a href="//docs.whmcs.com/classes/">Classes Reference</a></li>
+                        <li><a href="//developers.whmcs.com/about/faq/">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Contribute</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/contribute/">Contribute</a></li>
+                        <li><a href="https://github.com/whmcs/" target="_blank">Github</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-5">
+                    <h3>Stay up to date</h3>
+                    <div class="subscribe-form">
+                        <p class="muted subscribe-lead">Join our developers mailing list to be kept up-to-date.</p>
+                        <form action="https://www.whmcs.com/members/requestinfo.php" method="post">
+                            <input type="hidden" name="developer" value="dev">
+                            <div class="input-group">
+                                <input type="email" name="email" class="form-control" placeholder="you@yourdomain.com">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-info">
+                                        SUBSCRIBE
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <p>
+                        We won't spam you.
+                    </p>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <p>Found an error or a typo in these docs? <a href="https://github.com/WHMCS/developer-docs/issues">Submit an issue or a pull request</a></p>
+            </div>
+            <div class="col-md-5">
+                <p class="pull-right">
+                    Copyright &copy; WHMCS 2016. All rights reserved.
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="//developers.whmcs.com/js/jquery.min.js"></script>
+<script src="//developers.whmcs.com/js/bootstrap.min.js"></script>
+<script src="//developers.whmcs.com/js/prism.js"></script>
+<script>
+$(document).ready(function () {
+  $('[data-toggle="offcanvas"]').click(function () {
+    $('.row-offcanvas').toggleClass('active')
+  });
+});
+</script>
+  </body>
+</html>
+

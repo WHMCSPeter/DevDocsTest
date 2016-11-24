@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on WHMCS Developer Documentation</title>
+    <link>//developers.whmcs.com/about/</link>
+    <description>Recent content in Abouts on WHMCS Developer Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="//developers.whmcs.com/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About</title>
+      <link>//developers.whmcs.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/about/</guid>
+      <description>
+
+&lt;h2 id=&#34;about-whmcs&#34;&gt;About WHMCS&lt;/h2&gt;
+
+&lt;p&gt;WHMCS is a web host billing &amp;amp; automation platform.&lt;/p&gt;
+
+&lt;p&gt;Launched in 2005, today WHMCS is the market leading platform of choice for Web Hosting Providers and Domain Registrars to automate and manage their businesses.&lt;/p&gt;
+
+&lt;p&gt;Handling the entire customer lifecycle from initial signup, to provisioning, management and support, WHMCS provides a single centralized platform for web hosting businesses to manage their operations, making every day tasks quicker, easier, and more efficient.&lt;/p&gt;
+
+&lt;p&gt;With over 10 years experience and development, a large and active developer community, and our commitment to responding to user requests and leading the way with the latest web hosting technologies and developments, WHMCS is a rich and powerful platform that sets the standard in web host billing automation.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WHMCS&lt;/strong&gt;
+2550 North Loop West
+Suite 500
+Houston, TX 77092
+United States&lt;/p&gt;
+
+&lt;p&gt;Email us sales@whmcs.com&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Contribute</title>
+      <link>//developers.whmcs.com/about/contribute/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/about/contribute/</guid>
+      <description>&lt;p&gt;This documentation site is hosted on Github.&lt;/p&gt;
+
+&lt;p&gt;We welcome users and developers to submit issues and pull requests with suggestions for change, improvements and corrections.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/WHMCS/developer-docs&#34;&gt;https://github.com/WHMCS/developer-docs&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Frequently Asked Questions</title>
+      <link>//developers.whmcs.com/about/faq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/about/faq/</guid>
+      <description>
+
+&lt;h3 id=&#34;q-who-is-the-intended-audience-of-this-website&#34;&gt;Q. Who is the intended audience of this website?&lt;/h3&gt;
+
+&lt;p&gt;Our developer documentation portal is designed for developers wishing to work with, customise, extend and develop for the WHMCS platform.&lt;/p&gt;
+
+&lt;h3 id=&#34;q-who-can-i-contact-if-i-need-support&#34;&gt;Q. Who can I contact if I need support?&lt;/h3&gt;
+
+&lt;p&gt;We have a developers forum available @ xxxxxx&lt;/p&gt;
+
+&lt;p&gt;Basic development support is also available free of charge to all users via our Technical Support Team.&lt;/p&gt;
+
+&lt;p&gt;For more advanced support needs, we recommend contacting partners[at]whmcs.com&lt;/p&gt;
+
+&lt;h3 id=&#34;q-where-can-i-find-end-user-documentation&#34;&gt;Q. Where can I find end user documentation?&lt;/h3&gt;
+
+&lt;p&gt;If you are looking for end user documentation relating to the WHMCS product, please &lt;a href=&#34;http://docs.whmcs.com/&#34;&gt;click here&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Domain-registrars on WHMCS Developer Documentation</title>
+    <link>//developers.whmcs.com/domain-registrars/</link>
+    <description>Recent content in Domain-registrars on WHMCS Developer Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="//developers.whmcs.com/domain-registrars/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Domain Registrars</title>
+      <link>//developers.whmcs.com/domain-registrars/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/domain-registrars/</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Registrar Modules&lt;/strong&gt; allow for the registration and management of domains within WHMCS.&lt;/p&gt;
+
+&lt;p&gt;Registrar Modules are also referred to as &lt;strong&gt;Domain Modules&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The core function of a registrar module is registering, transferring and renewing of domains. These are triggered when payments are made within WHMCS for domain purchases or renewals.&lt;/p&gt;
+
+&lt;p&gt;Other functionality a registrar module can provide includes the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;checking availability of domains&lt;/li&gt;
+&lt;li&gt;providing domain name suggestions&lt;/li&gt;
+&lt;li&gt;viewing and updating of nameservers&lt;/li&gt;
+&lt;li&gt;viewing and updating of WHOIS information&lt;/li&gt;
+&lt;li&gt;viewing and management of DNS Host Records&lt;/li&gt;
+&lt;li&gt;viewing and management of Email Forwarding services&lt;/li&gt;
+&lt;li&gt;fetching of the EPP Code / Domain Release&lt;/li&gt;
+&lt;li&gt;management of Registrar Lock status&lt;/li&gt;
+&lt;li&gt;registering, modification and deletion of Private Nameservers&lt;/li&gt;
+&lt;li&gt;enable/disable of ID Protection&lt;/li&gt;
+&lt;li&gt;domain expiry date and status syncronisation&lt;/li&gt;
+&lt;li&gt;transfer status monitoring&lt;/li&gt;
+&lt;li&gt;deletion requests&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Unlimited custom additional functionality can also be implemented using custom methods.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>//developers.whmcs.com/domain-registrars/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/domain-registrars/getting-started/</guid>
+      <description>
+
+&lt;h2 id=&#34;github&#34;&gt;Github&lt;/h2&gt;
+
+&lt;p&gt;We make available a sample provisioning module on Github which we recommend using as a basis for your custom module.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/WHMCS/sample-registrar-module&#34;&gt;https://github.com/WHMCS/sample-registrar-module&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;choosing-a-name&#34;&gt;Choosing a Name&lt;/h2&gt;
+
+&lt;p&gt;Registrar Modules are located in the &lt;code&gt;/modules/registrars/&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;Module names should be a single word, consisting of only lowercase letters and numbers. The name must start with a letter, and must be unique.&lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Configuration Options</title>
+      <link>//developers.whmcs.com/domain-registrars/config-options/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/domain-registrars/config-options/</guid>
+      <description>&lt;p&gt;As with all modules in WHMCS, the configuration function is a required function of all registrar modules.&lt;/p&gt;
+
+&lt;p&gt;This defines the settings that are available for your registrar module. The name of this function must be &lt;code&gt;yourmodulename_getConfigArray&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The supported configuration field types include the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Text&lt;/li&gt;
+&lt;li&gt;Password&lt;/li&gt;
+&lt;li&gt;Yes/No Checkboxes&lt;/li&gt;
+&lt;li&gt;Dropdown Menus&lt;/li&gt;
+&lt;li&gt;Radio Buttons&lt;/li&gt;
+&lt;li&gt;Text Areas&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Below are examples of the available parameters for each field type. Provisioning modules support up to 24 options defined in this way.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+function yourmodulename_getConfigArray($params)
+{
+    return array(
+        &amp;quot;username&amp;quot; =&amp;gt; array (
+            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;UserName&amp;quot;,
+            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;text&amp;quot;, # Text Box
+            &amp;quot;Size&amp;quot; =&amp;gt; &amp;quot;25&amp;quot;, # Defines the Field Width
+            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Textbox&amp;quot;,
+            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;Example&amp;quot;,
+        ),
+        &amp;quot;password&amp;quot; =&amp;gt; array (
+            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Password&amp;quot;,
+            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;password&amp;quot;, # Password Field
+            &amp;quot;Size&amp;quot; =&amp;gt; &amp;quot;25&amp;quot;, # Defines the Field Width
+            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Password&amp;quot;,
+            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;Example&amp;quot;,
+        ),
+        &amp;quot;usessl&amp;quot; =&amp;gt; array (
+            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Enable SSL&amp;quot;,
+            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;yesno&amp;quot;, # Yes/No Checkbox
+            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Tick to use secure connections&amp;quot;,
+        ),
+        &amp;quot;package&amp;quot; =&amp;gt; array (
+            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Package Name&amp;quot;,
+            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;dropdown&amp;quot;, # Dropdown Choice of Options
+            &amp;quot;Options&amp;quot; =&amp;gt; &amp;quot;Starter,Advanced,Ultimate&amp;quot;,
+            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Sample Dropdown&amp;quot;,
+            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;Advanced&amp;quot;,
+        ),
+        &amp;quot;disk&amp;quot; =&amp;gt; array (
+            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Disk Space&amp;quot;,
+            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;radio&amp;quot;, # Radio Selection of Options
+            &amp;quot;Options&amp;quot; =&amp;gt; &amp;quot;100MB,200MB,300MB&amp;quot;,
+            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Radio Options Demo&amp;quot;,
+            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;200MB&amp;quot;,
+        ),
+        &amp;quot;comments&amp;quot; =&amp;gt; array (
+            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Notes&amp;quot;,
+            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;textarea&amp;quot;, # Textarea
+            &amp;quot;Rows&amp;quot; =&amp;gt; &amp;quot;3&amp;quot;, # Number of Rows
+            &amp;quot;Cols&amp;quot; =&amp;gt; &amp;quot;50&amp;quot;, # Number of Columns
+            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Description goes here&amp;quot;,
+            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;Enter notes here&amp;quot;,
+        ),
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Function Index</title>
+      <link>//developers.whmcs.com/domain-registrars/function-index/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/domain-registrars/function-index/</guid>
+      <description>&lt;p&gt;The following is an index of all prescribed supported functions for a registrar module.&lt;/p&gt;
+
+&lt;p&gt;Your registrar module should only define the functions that your module supports.&lt;/p&gt;
+
+&lt;p&gt;Remember, all functions should have the prefix &lt;code&gt;yourmodulename_&lt;/code&gt; and then the function name.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;RegisterDomain&lt;/td&gt;
+&lt;td&gt;Called when the registration of a new domain comes from WHMCS.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;TransferDomain&lt;/td&gt;
+&lt;td&gt;Called when an existing domain transfer request comes from WHMCS.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;RenewDomain&lt;/td&gt;
+&lt;td&gt;Called when a request to renew a domain comes from WHMCS.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;GetNameservers&lt;/td&gt;
+&lt;td&gt;Called whenever a domain is viewed within WHMCS. It can return up to 5 nameservers that are set for the domain.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;SaveNameservers&lt;/td&gt;
+&lt;td&gt;Called when a change request to the nameservers displayed inside WHMCS.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;GetRegistrarLock&lt;/td&gt;
+&lt;td&gt;Called whenever a domains details are viewed within WHMCS. It should return the current lock status of a domain&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;SaveRegistrarLock&lt;/td&gt;
+&lt;td&gt;Called when the lock status setting is toggled within WHMCS.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;GetContactDetails&lt;/td&gt;
+&lt;td&gt;Called when the WHOIS information is displayed within WHMCS.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;SaveContactDetails&lt;/td&gt;
+&lt;td&gt;Called when revised WHOIS information is submitted.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;GetDNS&lt;/td&gt;
+&lt;td&gt;Called when the DNS Host Records are requested to be viewed within WHMCS.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;SaveDNS&lt;/td&gt;
+&lt;td&gt;Called when any changes to DNS Host Records information is submitted.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;IDProtectToggle&lt;/td&gt;
+&lt;td&gt;Called when the ID Protection setting is toggled on or off.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;GetEPPCode&lt;/td&gt;
+&lt;td&gt;Called when the EPP Code is requested for a transfer out.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ReleaseDomain&lt;/td&gt;
+&lt;td&gt;Called when a domain release is requested (eg. UK IPSTag Changes).&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;RegisterNameserver&lt;/td&gt;
+&lt;td&gt;Called when a child nameserver registration request comes from WHMCS.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ModifyNameserver&lt;/td&gt;
+&lt;td&gt;Called when a child nameserver modification request comes from WHMCS.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;DeleteNameserver&lt;/td&gt;
+&lt;td&gt;Called when a child nameserver deletion request comes from WHMCS.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;RequestDelete&lt;/td&gt;
+&lt;td&gt;Called when a domain deletion request comes from WHMCS.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ClientArea&lt;/td&gt;
+&lt;td&gt;Used to define module specific client area output. It accepts a return of HTML for display on the domain details page of the client area. Output via a template file within the module folder named &amp;ldquo;clientarea.tpl&amp;rdquo; is also possible. This function is discussed in more detail later on in the docs.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ClientAreaCustomButtonArray&lt;/td&gt;
+&lt;td&gt;Used to define custom functions that the module supports. Customers can invoke and run these from the client area. The functions can perform actions or product page output in the client area. Example usages for this are to provide domain management pages, bandwidth reporting pages, etc&amp;hellip;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ClientAreaAllowedFunctions&lt;/td&gt;
+&lt;td&gt;Like the above, used to define custom functions. These are functions that customers can invoke, but are not shown as buttons by default. (i.e. custom client area output will invoke them).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Domain Syncronisation</title>
+      <link>//developers.whmcs.com/domain-registrars/domain-syncing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/domain-registrars/domain-syncing/</guid>
+      <description>
+
+&lt;p&gt;The domain syncronisation functions allow you to propogate any domain expiry date and status changes at the registry level to WHMCS.  This is particularly useful for domain transfers where completion of the transfer and expiry dates can not be known by WHMCS automatically without it.&lt;/p&gt;
+
+&lt;h2 id=&#34;domain-syncing&#34;&gt;Domain Syncing&lt;/h2&gt;
+
+&lt;p&gt;Domain syncing is performed in batches. When defined in your module, the Sync function will be called for 50 domains on a rolling basis each time the domain sync cron is invoked. Once all domains assigned to your module have been synced it will start from the beginning again.&lt;/p&gt;
+
+&lt;p&gt;The below example shows the supported return values for the function.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function modulename_Sync($params) {
+
+    /**
+     * Available parameters include the following.
+     * Any settings defined in your Config Options method will also be available.
+     */
+
+    $params[&#39;domainid&#39;];
+    $params[&#39;domain&#39;];
+    $params[&#39;sld&#39;];
+    $params[&#39;tld&#39;];
+    $params[&#39;registrar&#39;];
+    $params[&#39;regperiod&#39;];
+    $params[&#39;status&#39;];
+    $params[&#39;dnsmanagement&#39;];
+    $params[&#39;emailforwarding&#39;];
+    $params[&#39;idprotection&#39;];
+
+    // Perform code to fetch domain status here
+
+    return array(
+        &#39;active&#39; =&amp;gt; true, // Return true if the domain is active
+        &#39;expired&#39; =&amp;gt; false, // Return true if the domain has expired
+        &#39;expirydate&#39; =&amp;gt; &#39;2016-11-01&#39;, // Return the current expiry date for the domain
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;Settings relating to domain syncing are in the &lt;strong&gt;Setup &amp;gt; General Settings &amp;gt; Domains&lt;/strong&gt; area. There are 3 key settings:
+* &lt;strong&gt;&lt;em&gt;Domain Sync Enabled&lt;/em&gt;&lt;/strong&gt; - Check to allow the domain sync cron to actually run.
+* &lt;strong&gt;&lt;em&gt;Sync Next Due Date&lt;/em&gt;&lt;/strong&gt; - Enable this setting to update next due date to match the expiry field as part of the sync.
+* &lt;strong&gt;&lt;em&gt;Domain Sync Notify Only&lt;/em&gt;&lt;/strong&gt; - Enable this to allow WHMCS to run the sync checks and report any inconsistencies. But, no changes to the domains will occur. With this enabled you receive an email report listing any discrepancies between the registrar and WHMCS.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;transfer-syncing&#34;&gt;Transfer Syncing&lt;/h2&gt;
+
+&lt;p&gt;Transfer syncing works in a similar way to domain syncing. When defined in your module, this function will be called for every domain in the Pending Transfer status when the domain sync cron runs.&lt;/p&gt;
+
+&lt;p&gt;The Transfer Sync method supports a number of return values.  A completed status indicator, the expiry date, a failed state, and a failure reason.  The below code example demonstrates the use of these.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function modulename_TransferSync($params) {
+
+    /**
+     * Available parameters include the following.
+     * Any settings defined in your Config Options method will also be available.
+     */
+
+    $params[&#39;domainid&#39;];
+    $params[&#39;domain&#39;];
+    $params[&#39;sld&#39;];
+    $params[&#39;tld&#39;];
+    $params[&#39;registrar&#39;];
+    $params[&#39;regperiod&#39;];
+    $params[&#39;status&#39;];
+    $params[&#39;dnsmanagement&#39;];
+    $params[&#39;emailforwarding&#39;];
+    $params[&#39;idprotection&#39;];
+
+    // Perform code to fetch transfer status here
+
+    return array(
+        &#39;completed&#39; =&amp;gt; true, // Return as true upon successful completion of the transfer
+        &#39;expirydate&#39; =&amp;gt; &#39;2017-10-15&#39;, // The expiry date of the domain
+        &#39;failed&#39; =&amp;gt; false, // Return as true when transfer fails permenantly
+        &#39;reason&#39; =&amp;gt; &#39;Reason message can go here&#39;, // Reason for the transfer failure if available
+        &#39;error&#39; =&amp;gt; &#39;Error message goes here&#39;, // If the check fails, an error message string can be provided here
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Module Parameters</title>
+      <link>//developers.whmcs.com/domain-registrars/module-parameters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/domain-registrars/module-parameters/</guid>
+      <description>&lt;p&gt;The module parameters are the data values passed into each registrar module function when called.&lt;/p&gt;
+
+&lt;p&gt;Every registrar module function receives the same parameters. These parameters provide information about the specific domain the module command is being invoked for. The parameters also contain the settings from the registrar itself. Additional variables specific to the action may be available depending upon the function running.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;configvalues&lt;/td&gt;
+&lt;td&gt;the settings defined in your modules configuration function - names as defined&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;domainid&lt;/td&gt;
+&lt;td&gt;the unique ID of the domain (Database Field: tbldomains.id)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;sld&lt;/td&gt;
+&lt;td&gt;the second level domain being managed (eg. google)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;tld&lt;/td&gt;
+&lt;td&gt;the top level domain being managed (eg. .com)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;regperiod&lt;/td&gt;
+&lt;td&gt;the registration period requested for the domain&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;nsX&lt;/td&gt;
+&lt;td&gt;the nameserver values for a domain - where X = 1 to 5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Module Functions</title>
+      <link>//developers.whmcs.com/domain-registrars/module-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/domain-registrars/module-functions/</guid>
+      <description>
+
+&lt;p&gt;Registrar module functions are expected to return data and information to WHMCS for rendering to the end user.&lt;/p&gt;
+
+&lt;p&gt;The data should be returned as part of a structured array. The exact format varies depending upon the registrar module function being invoked, and the data it returns. For specific details of the expected and supported values, please refer to the sample registrar module.&lt;/p&gt;
+
+&lt;h2 id=&#34;error-handling&#34;&gt;Error Handling&lt;/h2&gt;
+
+&lt;p&gt;Registrar module functions will assume success providing no error message is returned.&lt;/p&gt;
+
+&lt;p&gt;In the event of an error or failure, a user friendly error message should be returned in the &lt;code&gt;error&lt;/code&gt; variable.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;return array(
+    &#39;error&#39; =&amp;gt; &#39;Domain name not found&#39;,
+);
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Externding Further</title>
+      <link>//developers.whmcs.com/domain-registrars/extending-further/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/domain-registrars/extending-further/</guid>
+      <description>&lt;p&gt;Custom functions allow you to define extra operations that can be performed using the module. The custom functions can perform actions, or define extra client area pages/output. Permissions can be granted for who can use each custom function, be it just clients, just admins, or both.&lt;/p&gt;
+
+&lt;p&gt;The convention for custom function names follow the same as any other function of a module. It must begin with &lt;code&gt;yourmodulename_&lt;/code&gt;, and then the custom function name.&lt;/p&gt;
+
+&lt;p&gt;The easiest way to show this is with an example. So let&amp;rsquo;s take an example of a Push Function that will use a template, &amp;ldquo;pushdomain.tpl&amp;rdquo;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function yourmodulename_push($params) {
+
+    $domainid = $params[&#39;domainid&#39;];
+    $sld = $params[&#39;sld&#39;];
+    $tld = $params[&#39;tld&#39;];
+
+    return array(
+        &#39;templatefile&#39; =&amp;gt; &#39;pushdomain&#39;,
+        &#39;breadcrumb&#39; =&amp;gt; array(
+            &#39;clientarea.php?action=domaindetails&amp;amp;domainid=&#39;.$domainid.&#39;&amp;amp;modop=custom&amp;amp;a=push&#39; =&amp;gt; &#39;Push Domain&#39;,
+        ),
+        &#39;vars&#39; =&amp;gt; array(
+            &#39;var1&#39; =&amp;gt; &#39;valuehere&#39;,
+            &#39;var2&#39; =&amp;gt; &#39;anothervaluehere&#39;,
+        ),
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above shows how to define custom functions, use the parameters passed, and return an array response. The response can either be a simple empty array/error for an action function, or a complex array return like the above to define an extra client area page for extra domain management functionality.&lt;/p&gt;
+
+&lt;p&gt;Now we need to allow clients to use this. The following function defines that clients are allowed to invoke the push function, and will add a menu option to the Domain Actions dropdown within the client area for it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function yourmodulename_ClientAreaCustomButtonArray() {
+    return array(
+        &amp;quot;Push Domain&amp;quot; =&amp;gt; &amp;quot;push&amp;quot;,
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The key value of the array is what is displayed to admins/clients on the button or menu options for the commands. And the value is the custom function name excluding the modulename_ prefix.&lt;/p&gt;
+
+&lt;p&gt;If you want to provide clients with a custom button or way to invoke a function, then this can be done as follows within a .tpl file described in the previous Client Area Output section:&lt;/p&gt;
+
+&lt;p&gt;&lt;form method=&#34;post&#34; action=&#34;clientarea.php?action=domaindetails&#34;&gt;
+ &lt;input type=&#34;hidden&#34; name=&#34;domainid&#34; value=&#34;{$domainid}&#34; /&gt;
+ &lt;input type=&#34;hidden&#34; name=&#34;modop&#34; value=&#34;custom&#34; /&gt;
+ &lt;input type=&#34;hidden&#34; name=&#34;a&#34; value=&#34;reboot&#34; /&gt;
+ &lt;input type=&#34;submit&#34; value=&#34;Reboot VPS Server&#34; /&gt;
+ &lt;/form&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hooks</title>
+      <link>//developers.whmcs.com/domain-registrars/hooks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/domain-registrars/hooks/</guid>
+      <description>&lt;p&gt;Registrar modules can also define hook functions.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;Hooks allow you to integrate with events and actions that occur inside WHMCS.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Hooks for your registrar module should be defined in a file named &lt;code&gt;hooks.php&lt;/code&gt; within your registrar module directory.  These hooks will then be auto-detected and loaded throughout WHMCS.&lt;/p&gt;
+
+&lt;p&gt;The hook functions within that file should be defined in exactly the same way as normal.&lt;/p&gt;
+
+&lt;p&gt;Please refer to Hook Documentation for more info on creating and working with hooks in WHMCS.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Module Logging</title>
+      <link>//developers.whmcs.com/domain-registrars/module-logging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/domain-registrars/module-logging/</guid>
+      <description>&lt;p&gt;We recommend you make use of the built in module logging functionality for WHMCS modules.&lt;/p&gt;
+
+&lt;p&gt;This makes debugging the external API calls your module makes follow the standardised pattern and makes it easier to debug.&lt;/p&gt;
+
+&lt;p&gt;Please refer to the URL below for more details on how to do this.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://docs.whmcs.com/Provisioning_Module_Developer_Docs#Module_Logging&#34;&gt;http://docs.whmcs.com/Provisioning_Module_Developer_Docs#Module_Logging&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

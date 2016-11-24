@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hooks Index - WHMCS Developer Documentation</title>
+    <meta name="generator" content="Hugo 0.16" />
+
+    
+    <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
+    
+    <link rel="canonical" href="http://localhost/DeveloperDocs/public/hooks/hooks-index/">
+    
+    <meta name="author" content="WHMCS Development Team">
+    
+
+    <link rel="stylesheet" href="http://localhost/DeveloperDocs/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost/DeveloperDocs/public/css/styles.css">
+    <link rel="stylesheet" href="http://localhost/DeveloperDocs/public/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://localhost/DeveloperDocs/public/css/prism.css">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+    
+
+  </head>
+  <body class="language-php">
+
+<header class="header">
+
+
+
+
+
+<div class="container">
+<nav class="navbar navbar-whmcs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.whmcs.com/"><img src="http://localhost/DeveloperDocs/public/img/logo.png" width="148" height="34"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="primary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="http://localhost/DeveloperDocs/public/"><span class="hidden-sm">Developer Documentation</span><span class="visible-sm">Developer Docs</span></a></li>
+        <li class="visible-xs"><a href="http://localhost/DeveloperDocs/public/">Home</a></li>
+            <li class="visible-xs"><a href="http://localhost/DeveloperDocs/public/themes/">Themes</a></li>
+            <li class="visible-xs"><a href="http://localhost/DeveloperDocs/public/languages/">Languages</a></li>
+            <li class="visible-xs"><a href="http://localhost/DeveloperDocs/public/modules/">Modules</a></li>
+            <li class="visible-xs"><a href="http://localhost/DeveloperDocs/public/oauth/">OAuth</a></li>
+            <li class="visible-xs active"><a href="http://localhost/DeveloperDocs/public/hooks/">Hooks</a></li>
+            <li class="visible-xs"><a href="http://localhost/DeveloperDocs/public/api/">API</a></li>
+            <li class="visible-xs"><a href="http://localhost/DeveloperDocs/public/advanced/">Advanced</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://localhost/DeveloperDocs/public/api-reference/">API Reference</a></li>
+        <li><a href="http://localhost/DeveloperDocs/public/hooks-reference/">Hook Reference</a></li>
+        <li><a href="https://github.com/whmcs" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+
+<div class="headline-bar hidden-xs">
+<div class="container">
+<nav class="navbar navbar-main-nav">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="secondary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="http://localhost/DeveloperDocs/public/">Home</a></li>
+            <li><a href="http://localhost/DeveloperDocs/public/themes/">Themes</a></li>
+            <li><a href="http://localhost/DeveloperDocs/public/languages/">Languages</a></li>
+            <li><a href="http://localhost/DeveloperDocs/public/modules/">Modules</a></li>
+            <li><a href="http://localhost/DeveloperDocs/public/oauth/">OAuth</a></li>
+            <li class="active"><a href="http://localhost/DeveloperDocs/public/hooks/">Hooks</a></li>
+            <li><a href="http://localhost/DeveloperDocs/public/api/">API</a></li>
+            <li><a href="http://localhost/DeveloperDocs/public/advanced/">Advanced</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+</div>
+
+</header>
+
+
+<main class="main">
+
+  <div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-sm-3 sidebar-offcanvas">
+
+        
+          <ul class="sidebar-nav">
+            
+  <li class="active parent" data-nav-id="/hooks/">
+    <a href="http://localhost/DeveloperDocs/public/hooks/">
+      <span>
+        
+          <i class='fa fa-retweet fa-fw'></i>
+        
+         Hooks
+       </span>
+    </a>
+    
+    <ul>
+      
+      
+      
+      
+        <li class="" data-nav-id="/hooks/getting-started/">
+          <a href="http://localhost/DeveloperDocs/public/hooks/getting-started/">
+            <span>Getting Started</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/hooks/priority/">
+          <a href="http://localhost/DeveloperDocs/public/hooks/priority/">
+            <span>Defining Priority</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/hooks/module-hooks/">
+          <a href="http://localhost/DeveloperDocs/public/hooks/module-hooks/">
+            <span>Module Hooks</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/hooks/sample/">
+          <a href="http://localhost/DeveloperDocs/public/hooks/sample/">
+            <span>Sample Hook</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="active" data-nav-id="/hooks/hooks-index/">
+          <a href="http://localhost/DeveloperDocs/public/hooks/hooks-index/">
+            <span>Hooks Index</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/hooks/reference/">
+          <a href="http://localhost/DeveloperDocs/public/hooks/reference/">
+            <span>Hook Reference</span>
+          </a>
+        </li>
+      
+      
+    </ul>
+    
+  </li>
+
+
+          </ul>
+        
+
+      </div>
+      <div class="col-sm-9">
+
+        <div class="breadcrumb-nav">
+
+            <div class="pull-right">
+              <a class="suggest-an-edit" href="https://github.com/WHMCS/developer-docs" target="blank">
+                <i class="fa fa-code-fork"></i>
+                <span class="hidden-xs">Suggest an edit</span>
+              </a>
+            </div>
+
+            <div class="visible-xs pull-left">
+                <button type="button" class="btn btn-toggle-sidebar" data-toggle="offcanvas">
+                    <i class="fa fa-list-alt"></i>
+                </button>
+            </div>
+
+            <div id="breadcrumbs">
+                
+                
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                    
+                <a href="http://localhost/DeveloperDocs/public/hooks/" itemprop="url"><span itemprop="title">Hooks</span></a> <i class="fa fa-angle-right"></i>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                <span itemprop="title"> Hooks Index</span>
+              </div>
+            </div>
+
+
+			<h1>Hooks Index </h1>
+
+			<div class="row"><div class="col-sm-6">
+<h3>Invoices and Quotes</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#addinvoicelatefee">AddInvoiceLateFee</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#addinvoicepayment">AddInvoicePayment</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#addtransaction">AddTransaction</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#adminareaviewquotepage">AdminAreaViewQuotePage</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#afterinvoicinggenerateinvoiceitems">AfterInvoicingGenerateInvoiceItems</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#invoicecancelled">InvoiceCancelled</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#invoicechangegateway">InvoiceChangeGateway</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#invoicecreated">InvoiceCreated</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#invoicecreation">InvoiceCreation</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#invoicecreationadminarea">InvoiceCreationAdminArea</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#invoicecreationpreemail">InvoiceCreationPreEmail</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#invoicepaid">InvoicePaid</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#invoicepaidpreemail">InvoicePaidPreEmail</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#invoicerefunded">InvoiceRefunded</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#invoicesplit">InvoiceSplit</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#invoiceunpaid">InvoiceUnpaid</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#logtransaction">LogTransaction</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#manualrefund">ManualRefund</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#preinvoicinggenerateinvoiceitems">PreInvoicingGenerateInvoiceItems</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#quotecreated">QuoteCreated</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#quotestatuschange">QuoteStatusChange</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#updateinvoicetotal">UpdateInvoiceTotal</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#viewinvoicedetailspage">ViewInvoiceDetailsPage</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/invoices-and-quotes/#acceptquote">acceptQuote</a>
+</ul>
+<h3>Shopping Cart</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#acceptorder">AcceptOrder</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#addonfraud">AddonFraud</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#afterfraudcheck">AfterFraudCheck</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#aftershoppingcartcheckout">AfterShoppingCartCheckout</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#cancelorder">CancelOrder</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#carttotaladjustment">CartTotalAdjustment</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#deleteorder">DeleteOrder</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#fraudorder">FraudOrder</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#orderaddonpricingoverride">OrderAddonPricingOverride</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#orderproductpricingoverride">OrderProductPricingOverride</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#orderproductupgradeoverride">OrderProductUpgradeOverride</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#overrideordernumbergeneration">OverrideOrderNumberGeneration</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#pendingorder">PendingOrder</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#precalculatecarttotals">PreCalculateCartTotals</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#preshoppingcartcheckout">PreShoppingCartCheckout</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#runfraudcheck">RunFraudCheck</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#shoppingcartcheckoutcompletepage">ShoppingCartCheckoutCompletePage</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/shopping-cart/#vieworderdetailspage">ViewOrderDetailsPage</a>
+</ul>
+<h3>Service</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/service/#adminclientservicestabfields">AdminClientServicesTabFields</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/service/#adminclientservicestabfieldssave">AdminClientServicesTabFieldsSave</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/service/#adminserviceedit">AdminServiceEdit</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/service/#cancellationrequest">CancellationRequest</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/service/#preadminserviceedit">PreAdminServiceEdit</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/service/#preserviceedit">PreServiceEdit</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/service/#servicedelete">ServiceDelete</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/service/#serviceedit">ServiceEdit</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/service/#servicerecurringcompleted">ServiceRecurringCompleted</a>
+</ul>
+<h3>Module</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/module/#aftermodule">AfterModule</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/module/#aftermodulechangepassword">AfterModuleChangePassword</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/module/#clientareaproductdetailspremoduletemplate">ClientAreaProductDetailsPreModuleTemplate</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/module/#overridemoduleusernamegeneration">OverrideModuleUsernameGeneration</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/module/#premodule">PreModule</a>
+</ul>
+<h3>Domain</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/domain/#adminclientdomainstabfields">AdminClientDomainsTabFields</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/domain/#adminclientdomainstabfieldssave">AdminClientDomainsTabFieldsSave</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/domain/#clientareadomaindetails">ClientAreaDomainDetails</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/domain/#domaindelete">DomainDelete</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/domain/#domainedit">DomainEdit</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/domain/#domainvalidation">DomainValidation</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/domain/#predomainregister">PreDomainRegister</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/domain/#predomaintransfer">PreDomainTransfer</a>
+</ul>
+<h3>Registrar Module</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/registrar-module/#afterregistrar">AfterRegistrar</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/registrar-module/#afterregistrarregistration">AfterRegistrarRegistration</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/registrar-module/#afterregistrarregistrationfailed">AfterRegistrarRegistrationFailed</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/registrar-module/#afterregistrarrenewal">AfterRegistrarRenewal</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/registrar-module/#afterregistrarrenewalfailed">AfterRegistrarRenewalFailed</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/registrar-module/#afterregistrartransfer">AfterRegistrarTransfer</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/registrar-module/#afterregistrartransferfailed">AfterRegistrarTransferFailed</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/registrar-module/#preregistrar">PreRegistrar</a>
+</ul>
+<h3>Addon</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/addon/#addonactivated">AddonActivated</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/addon/#addonactivation">AddonActivation</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/addon/#addonadd">AddonAdd</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/addon/#addoncancelled">AddonCancelled</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/addon/#addonconfig">AddonConfig</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/addon/#addonconfigsave">AddonConfigSave</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/addon/#addondeleted">AddonDeleted</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/addon/#addonedit">AddonEdit</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/addon/#addonsuspended">AddonSuspended</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/addon/#addonterminated">AddonTerminated</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/addon/#addonunsuspended">AddonUnsuspended</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/addon/#licensingaddonreissue">LicensingAddonReissue</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/addon/#licensingaddonverify">LicensingAddonVerify</a>
+</ul>
+<h3>Client</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#adminareaclientsummaryactionlinks">AdminAreaClientSummaryActionLinks</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#adminareaclientsummarypage">AdminAreaClientSummaryPage</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#adminclientfileupload">AdminClientFileUpload</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#adminclientprofiletabfields">AdminClientProfileTabFields</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#adminclientprofiletabfieldssave">AdminClientProfileTabFieldsSave</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#afterclientmerge">AfterClientMerge</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientalert">ClientAlert</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientareahomepage">ClientAreaHomepage</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientareahomepagepanels">ClientAreaHomepagePanels</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientareanavbars">ClientAreaNavbars</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientareaprimarynavbar">ClientAreaPrimaryNavbar</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientareaprimarysidebar">ClientAreaPrimarySidebar</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientareaproductdetails">ClientAreaProductDetails</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientarearegister">ClientAreaRegister</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientareasecondarynavbar">ClientAreaSecondaryNavbar</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientareasecondarysidebar">ClientAreaSecondarySidebar</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientareasidebars">ClientAreaSidebars</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientchangepassword">ClientChangePassword</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientclose">ClientClose</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientdelete">ClientDelete</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientedit">ClientEdit</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#clientemailverificationcomplete">ClientEmailVerificationComplete</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client/#predeleteclient">PreDeleteClient</a>
+</ul>
+<h3>Contact</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/contact/#contactadd">ContactAdd</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/contact/#contactchangepassword">ContactChangePassword</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/contact/#contactedit">ContactEdit</a>
+</ul>
+</div><div class="col-sm-6"><h3>Products and Services</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/products-and-services/#adminproductconfigfields">AdminProductConfigFields</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/products-and-services/#adminproductconfigfieldssave">AdminProductConfigFieldsSave</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/products-and-services/#afterproductupgrade">AfterProductUpgrade</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/products-and-services/#productdelete">ProductDelete</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/products-and-services/#productedit">ProductEdit</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/products-and-services/#serveradd">ServerAdd</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/products-and-services/#serverdelete">ServerDelete</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/products-and-services/#serveredit">ServerEdit</a>
+</ul>
+<h3>Ticket</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/ticket/#adminareaviewticketpage">AdminAreaViewTicketPage</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/ticket/#submitticketanswersuggestions">SubmitTicketAnswerSuggestions</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/ticket/#ticketadminreply">TicketAdminReply</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/ticket/#ticketclose">TicketClose</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/ticket/#ticketdelete">TicketDelete</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/ticket/#ticketdeletereply">TicketDeleteReply</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/ticket/#ticketopen">TicketOpen</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/ticket/#ticketopenadmin">TicketOpenAdmin</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/ticket/#ticketpiping">TicketPiping</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/ticket/#ticketstatuschange">TicketStatusChange</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/ticket/#ticketuserreply">TicketUserReply</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/ticket/#transliteratetickettext">TransliterateTicketText</a>
+</ul>
+<h3>Support Tools</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/support-tools/#announcementadd">AnnouncementAdd</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/support-tools/#announcementedit">AnnouncementEdit</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/support-tools/#filedownload">FileDownload</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/support-tools/#networkissueadd">NetworkIssueAdd</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/support-tools/#networkissueclose">NetworkIssueClose</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/support-tools/#networkissuedelete">NetworkIssueDelete</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/support-tools/#networkissueedit">NetworkIssueEdit</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/support-tools/#networkissuereopen">NetworkIssueReopen</a>
+</ul>
+<h3>Authentication</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/authentication/#adminlogout">AdminLogout</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/authentication/#clientlogin">ClientLogin</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/authentication/#clientlogout">ClientLogout</a>
+</ul>
+<h3>Client Area Interface</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/client-area-interface/#clientareapagelogin">ClientAreaPageLogin</a>
+</ul>
+<h3>Output</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/output/#adminareafooteroutput">AdminAreaFooterOutput</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/output/#adminareaheadoutput">AdminAreaHeadOutput</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/output/#adminareaheaderoutput">AdminAreaHeaderOutput</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/output/#admininvoicescontrolsoutput">AdminInvoicesControlsOutput</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/output/#clientareadomaindetailsoutput">ClientAreaDomainDetailsOutput</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/output/#clientareafooteroutput">ClientAreaFooterOutput</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/output/#clientareaheadoutput">ClientAreaHeadOutput</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/output/#clientareaheaderoutput">ClientAreaHeaderOutput</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/output/#clientareaproductdetailsoutput">ClientAreaProductDetailsOutput</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/output/#reportviewpostoutput">ReportViewPostOutput</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/output/#reportviewpreoutput">ReportViewPreOutput</a>
+</ul>
+<h3>Cron</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/cron/#aftercronjob">AfterCronJob</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/cron/#dailycronjob">DailyCronJob</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/cron/#dailycronjobpreemail">DailyCronJobPreEmail</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/cron/#precronjob">PreCronJob</a>
+</ul>
+<h3>Everything Else</h3>
+
+<ul><li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#adminareapage">AdminAreaPage</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#adminhomepage">AdminHomepage</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#affiliateactivation">AffiliateActivation</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#affiliateclickthru">AffiliateClickthru</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#affiliatecommission">AffiliateCommission</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#affiliatewithdrawalrequest">AffiliateWithdrawalRequest</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#afterconfigoptionsupgrade">AfterConfigOptionsUpgrade</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#ccupdate">CCUpdate</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#calcaffiliatecommission">CalcAffiliateCommission</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#customfieldload">CustomFieldLoad</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#customfieldsave">CustomFieldSave</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#emailprelog">EmailPreLog</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#emailpresend">EmailPreSend</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#emailtplmergefields">EmailTplMergeFields</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#fetchcurrencyexchangerates">FetchCurrencyExchangeRates</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#intelligentsearch">IntelligentSearch</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#linktracker">LinkTracker</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#logactivity">LogActivity</a>
+<li> <a href="http://localhost/DeveloperDocs/public/hooks-reference/everything-else/#preautomationtask">PreAutomationTask</a>
+</ul>
+</div></div>
+
+
+			<div class="topic-navigation clearfix">
+                
+                
+            </div>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+
+        </div>
+  </div>
+</div>
+</main>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <nav>
+                <div class="col-sm-3">
+                    <h3>Learn</h3>
+                    <ul>
+                        <li><a href="http://localhost/DeveloperDocs/public/about/">About WHMCS</a></li>
+                        <li><a href="http://localhost/DeveloperDocs/public/quick-start/">Quick start</a></li>
+                        <li><a href="http://localhost/DeveloperDocs/public/api-reference/">API Reference</a></li>
+                        <li><a href="//docs.whmcs.com/classes/">Classes Reference</a></li>
+                        <li><a href="http://localhost/DeveloperDocs/public/about/faq/">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Contribute</h3>
+                    <ul>
+                        <li><a href="http://localhost/DeveloperDocs/public/about/contribute/">Contribute</a></li>
+                        <li><a href="https://github.com/whmcs/" target="_blank">Github</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-5">
+                    <h3>Stay up to date</h3>
+                    <div class="subscribe-form">
+                        <p class="muted subscribe-lead">Join our developers mailing list to be kept up-to-date.</p>
+                        <form action="https://www.whmcs.com/members/requestinfo.php" method="post">
+                            <input type="hidden" name="developer" value="dev">
+                            <div class="input-group">
+                                <input type="email" name="email" class="form-control" placeholder="you@yourdomain.com">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-info">
+                                        SUBSCRIBE
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <p>
+                        We won't spam you.
+                    </p>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <p>Found an error or a typo in these docs? <a href="https://github.com/WHMCS/developer-docs/issues">Submit an issue or a pull request</a></p>
+            </div>
+            <div class="col-md-5">
+                <p class="pull-right">
+                    Copyright &copy; WHMCS 2016. All rights reserved.
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="http://localhost/DeveloperDocs/public/js/jquery.min.js"></script>
+<script src="http://localhost/DeveloperDocs/public/js/bootstrap.min.js"></script>
+<script src="http://localhost/DeveloperDocs/public/js/prism.js"></script>
+<script>
+$(document).ready(function () {
+  $('[data-toggle="offcanvas"]').click(function () {
+    $('.row-offcanvas').toggleClass('active')
+  });
+});
+</script>
+  </body>
+</html>
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Intros on WHMCS Developer Documentation</title>
+    <link>//developers.whmcs.com/intro/</link>
+    <description>Recent content in Intros on WHMCS Developer Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="//developers.whmcs.com/intro/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Introduction</title>
+      <link>//developers.whmcs.com/intro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/intro/</guid>
+      <description>
+
+&lt;h3 id=&#34;developer-documentation&#34;&gt;Developer Documentation&lt;/h3&gt;
+
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;Welcome to the WHMCS Developer Documentation.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Overview</title>
+      <link>//developers.whmcs.com/intro/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/intro/overview/</guid>
+      <description>
+
+&lt;p&gt;WHMCS is a web based recurring billing and automation platform for web hosting providers.&lt;/p&gt;
+
+&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;
+
+&lt;p&gt;The purpose of this documentation is to provide developers with the information needed to work with the WHMCS platform to integrate and extend functionality.&lt;/p&gt;
+
+&lt;h2 id=&#34;intended-audience&#34;&gt;Intended Audience&lt;/h2&gt;
+
+&lt;p&gt;The intended audience for this documentation is users and developers.&lt;/p&gt;
+
+&lt;p&gt;You are expected to be familiar with PHP and associated technologies/standards.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

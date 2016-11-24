@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ModuleCustom - WHMCS Developer Documentation</title>
+    <meta name="generator" content="Hugo 0.16" />
+
+    
+    <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
+    
+    <link rel="canonical" href="//developers.whmcs.com/api-reference/modulecustom/">
+    
+    <meta name="author" content="WHMCS Development Team">
+    
+
+    <link rel="stylesheet" href="//developers.whmcs.com/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/styles.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/prism.css">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+    
+
+  </head>
+  <body class="language-php">
+
+<header class="header">
+
+
+
+
+
+<div class="container">
+<nav class="navbar navbar-whmcs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.whmcs.com/"><img src="//developers.whmcs.com/img/logo.png" width="148" height="34"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="primary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="//developers.whmcs.com/"><span class="hidden-sm">Developer Documentation</span><span class="visible-sm">Developer Docs</span></a></li>
+        <li class="visible-xs"><a href="//developers.whmcs.com/">Home</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/api/">API</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+        <li><a href="//developers.whmcs.com/hooks-reference/">Hook Reference</a></li>
+        <li><a href="https://github.com/whmcs" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+
+<div class="headline-bar hidden-xs">
+<div class="container">
+<nav class="navbar navbar-main-nav">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="secondary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="//developers.whmcs.com/">Home</a></li>
+            <li><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li><a href="//developers.whmcs.com/api/">API</a></li>
+            <li><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+</div>
+
+</header>
+
+
+<main class="main">
+
+  <div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-sm-3 sidebar-offcanvas">
+
+        
+          <ul class="sidebar-nav">
+            
+  <li class="active parent" data-nav-id="/api-reference/">
+    <a href="//developers.whmcs.com/api-reference/">
+      <span>
+        
+          
+        
+         API Reference
+       </span>
+    </a>
+    
+    <ul>
+      
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/acceptorder/">
+          <a href="//developers.whmcs.com/api-reference/acceptorder/">
+            <span>AcceptOrder</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/acceptquote/">
+          <a href="//developers.whmcs.com/api-reference/acceptquote/">
+            <span>AcceptQuote</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/activatemodule/">
+          <a href="//developers.whmcs.com/api-reference/activatemodule/">
+            <span>ActivateModule</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addannouncement/">
+          <a href="//developers.whmcs.com/api-reference/addannouncement/">
+            <span>AddAnnouncement</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addbannedip/">
+          <a href="//developers.whmcs.com/api-reference/addbannedip/">
+            <span>AddBannedIp</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addbillableitem/">
+          <a href="//developers.whmcs.com/api-reference/addbillableitem/">
+            <span>AddBillableItem</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addcancelrequest/">
+          <a href="//developers.whmcs.com/api-reference/addcancelrequest/">
+            <span>AddCancelRequest</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addclient/">
+          <a href="//developers.whmcs.com/api-reference/addclient/">
+            <span>AddClient</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addclientnote/">
+          <a href="//developers.whmcs.com/api-reference/addclientnote/">
+            <span>AddClientNote</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addcontact/">
+          <a href="//developers.whmcs.com/api-reference/addcontact/">
+            <span>AddContact</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addcredit/">
+          <a href="//developers.whmcs.com/api-reference/addcredit/">
+            <span>AddCredit</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addinvoicepayment/">
+          <a href="//developers.whmcs.com/api-reference/addinvoicepayment/">
+            <span>AddInvoicePayment</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addorder/">
+          <a href="//developers.whmcs.com/api-reference/addorder/">
+            <span>AddOrder</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addproduct/">
+          <a href="//developers.whmcs.com/api-reference/addproduct/">
+            <span>AddProduct</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addprojectmessage/">
+          <a href="//developers.whmcs.com/api-reference/addprojectmessage/">
+            <span>AddProjectMessage</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addprojecttask/">
+          <a href="//developers.whmcs.com/api-reference/addprojecttask/">
+            <span>AddProjectTask</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addticketnote/">
+          <a href="//developers.whmcs.com/api-reference/addticketnote/">
+            <span>AddTicketNote</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addticketreply/">
+          <a href="//developers.whmcs.com/api-reference/addticketreply/">
+            <span>AddTicketReply</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/addtransaction/">
+          <a href="//developers.whmcs.com/api-reference/addtransaction/">
+            <span>AddTransaction</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/affiliateactivate/">
+          <a href="//developers.whmcs.com/api-reference/affiliateactivate/">
+            <span>AffiliateActivate</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/applycredit/">
+          <a href="//developers.whmcs.com/api-reference/applycredit/">
+            <span>ApplyCredit</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/cancelorder/">
+          <a href="//developers.whmcs.com/api-reference/cancelorder/">
+            <span>CancelOrder</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/capturepayment/">
+          <a href="//developers.whmcs.com/api-reference/capturepayment/">
+            <span>CapturePayment</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/closeclient/">
+          <a href="//developers.whmcs.com/api-reference/closeclient/">
+            <span>CloseClient</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/createinvoice/">
+          <a href="//developers.whmcs.com/api-reference/createinvoice/">
+            <span>CreateInvoice</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateinvoice/">
+          <a href="//developers.whmcs.com/api-reference/updateinvoice/">
+            <span>CreateInvoice</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/createoauthcredential/">
+          <a href="//developers.whmcs.com/api-reference/createoauthcredential/">
+            <span>CreateOAuthCredential</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/createproject/">
+          <a href="//developers.whmcs.com/api-reference/createproject/">
+            <span>CreateProject</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/createquote/">
+          <a href="//developers.whmcs.com/api-reference/createquote/">
+            <span>CreateQuote</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deactivatemodule/">
+          <a href="//developers.whmcs.com/api-reference/deactivatemodule/">
+            <span>DeactivateModule</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/decryptpassword/">
+          <a href="//developers.whmcs.com/api-reference/decryptpassword/">
+            <span>DecryptPassword</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deleteannouncement/">
+          <a href="//developers.whmcs.com/api-reference/deleteannouncement/">
+            <span>DeleteAnnouncement</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deleteclient/">
+          <a href="//developers.whmcs.com/api-reference/deleteclient/">
+            <span>DeleteClient</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deletecontact/">
+          <a href="//developers.whmcs.com/api-reference/deletecontact/">
+            <span>DeleteContact</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deleteoauthcredential/">
+          <a href="//developers.whmcs.com/api-reference/deleteoauthcredential/">
+            <span>DeleteOAuthCredential</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deleteorder/">
+          <a href="//developers.whmcs.com/api-reference/deleteorder/">
+            <span>DeleteOrder</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deleteprojecttask/">
+          <a href="//developers.whmcs.com/api-reference/deleteprojecttask/">
+            <span>DeleteProjectTask</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deletequote/">
+          <a href="//developers.whmcs.com/api-reference/deletequote/">
+            <span>DeleteProjectTask</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deleteticket/">
+          <a href="//developers.whmcs.com/api-reference/deleteticket/">
+            <span>DeleteTicket</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deleteticketnote/">
+          <a href="//developers.whmcs.com/api-reference/deleteticketnote/">
+            <span>DeleteTicketNote</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/domaingetlockingstatus/">
+          <a href="//developers.whmcs.com/api-reference/domaingetlockingstatus/">
+            <span>DomainGetLockingStatus</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/domaingetnameservers/">
+          <a href="//developers.whmcs.com/api-reference/domaingetnameservers/">
+            <span>DomainGetNameservers</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/domaingetwhoisinfo/">
+          <a href="//developers.whmcs.com/api-reference/domaingetwhoisinfo/">
+            <span>DomainGetWhoisInfo</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/domainregister/">
+          <a href="//developers.whmcs.com/api-reference/domainregister/">
+            <span>DomainRegister</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/domainrelease/">
+          <a href="//developers.whmcs.com/api-reference/domainrelease/">
+            <span>DomainRelease</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/domainrenew/">
+          <a href="//developers.whmcs.com/api-reference/domainrenew/">
+            <span>DomainRenew</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/domainrequestepp/">
+          <a href="//developers.whmcs.com/api-reference/domainrequestepp/">
+            <span>DomainRequestEPP</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/domaintoggleidprotect/">
+          <a href="//developers.whmcs.com/api-reference/domaintoggleidprotect/">
+            <span>DomainToggleIdProtect</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/domaintransfer/">
+          <a href="//developers.whmcs.com/api-reference/domaintransfer/">
+            <span>DomainTransfer</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/domainupdatelockingstatus/">
+          <a href="//developers.whmcs.com/api-reference/domainupdatelockingstatus/">
+            <span>DomainUpdateLockingStatus</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/domainupdatenameservers/">
+          <a href="//developers.whmcs.com/api-reference/domainupdatenameservers/">
+            <span>DomainUpdateNameservers</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/domainupdatewhoisinfo/">
+          <a href="//developers.whmcs.com/api-reference/domainupdatewhoisinfo/">
+            <span>DomainUpdateWhoisInfo</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/domainwhois/">
+          <a href="//developers.whmcs.com/api-reference/domainwhois/">
+            <span>DomainWhois</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/encryptpassword/">
+          <a href="//developers.whmcs.com/api-reference/encryptpassword/">
+            <span>EncryptPassword</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/endtasktimer/">
+          <a href="//developers.whmcs.com/api-reference/endtasktimer/">
+            <span>EndTaskTimer</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/starttasktimer/">
+          <a href="//developers.whmcs.com/api-reference/starttasktimer/">
+            <span>EndTaskTimer</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/fraudorder/">
+          <a href="//developers.whmcs.com/api-reference/fraudorder/">
+            <span>FraudOrder</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/geninvoices/">
+          <a href="//developers.whmcs.com/api-reference/geninvoices/">
+            <span>GenInvoices</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getactivitylog/">
+          <a href="//developers.whmcs.com/api-reference/getactivitylog/">
+            <span>GetActivityLog</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getadmindetails/">
+          <a href="//developers.whmcs.com/api-reference/getadmindetails/">
+            <span>GetAdminDetails</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getaffiliates/">
+          <a href="//developers.whmcs.com/api-reference/getaffiliates/">
+            <span>GetAffiliates</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getannouncements/">
+          <a href="//developers.whmcs.com/api-reference/getannouncements/">
+            <span>GetAnnouncements</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getautomationlog/">
+          <a href="//developers.whmcs.com/api-reference/getautomationlog/">
+            <span>GetAutomationLog</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getcancelledpackages/">
+          <a href="//developers.whmcs.com/api-reference/getcancelledpackages/">
+            <span>GetCancelledPackages</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getclientgroups/">
+          <a href="//developers.whmcs.com/api-reference/getclientgroups/">
+            <span>GetClientGroups</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getclientpassword/">
+          <a href="//developers.whmcs.com/api-reference/getclientpassword/">
+            <span>GetClientPassword</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getclients/">
+          <a href="//developers.whmcs.com/api-reference/getclients/">
+            <span>GetClients</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getclientsaddons/">
+          <a href="//developers.whmcs.com/api-reference/getclientsaddons/">
+            <span>GetClientsAddons</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getclientsdetails/">
+          <a href="//developers.whmcs.com/api-reference/getclientsdetails/">
+            <span>GetClientsDetails</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getclientsdomains/">
+          <a href="//developers.whmcs.com/api-reference/getclientsdomains/">
+            <span>GetClientsDomains</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getclientsproducts/">
+          <a href="//developers.whmcs.com/api-reference/getclientsproducts/">
+            <span>GetClientsDomains</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getconfigurationvalue/">
+          <a href="//developers.whmcs.com/api-reference/getconfigurationvalue/">
+            <span>GetConfigurationValue</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getcontacts/">
+          <a href="//developers.whmcs.com/api-reference/getcontacts/">
+            <span>GetContacts</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getcredits/">
+          <a href="//developers.whmcs.com/api-reference/getcredits/">
+            <span>GetCredits</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getcurrencies/">
+          <a href="//developers.whmcs.com/api-reference/getcurrencies/">
+            <span>GetCurrencies</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getemailtemplates/">
+          <a href="//developers.whmcs.com/api-reference/getemailtemplates/">
+            <span>GetEmailTemplates</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getemails/">
+          <a href="//developers.whmcs.com/api-reference/getemails/">
+            <span>GetEmails</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/gethealthstatus/">
+          <a href="//developers.whmcs.com/api-reference/gethealthstatus/">
+            <span>GetHealthStatus</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getinvoice/">
+          <a href="//developers.whmcs.com/api-reference/getinvoice/">
+            <span>GetInvoice</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getinvoices/">
+          <a href="//developers.whmcs.com/api-reference/getinvoices/">
+            <span>GetInvoices</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getmoduleconfigurationparameters/">
+          <a href="//developers.whmcs.com/api-reference/getmoduleconfigurationparameters/">
+            <span>GetModuleConfigurationParameters</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getmodulequeue/">
+          <a href="//developers.whmcs.com/api-reference/getmodulequeue/">
+            <span>GetModuleQueue</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getorderstatuses/">
+          <a href="//developers.whmcs.com/api-reference/getorderstatuses/">
+            <span>GetOrderStatuses</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getorders/">
+          <a href="//developers.whmcs.com/api-reference/getorders/">
+            <span>GetOrders</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getpaymentmethods/">
+          <a href="//developers.whmcs.com/api-reference/getpaymentmethods/">
+            <span>GetPaymentMethods</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getproducts/">
+          <a href="//developers.whmcs.com/api-reference/getproducts/">
+            <span>GetProducts</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getproject/">
+          <a href="//developers.whmcs.com/api-reference/getproject/">
+            <span>GetProject</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getprojects/">
+          <a href="//developers.whmcs.com/api-reference/getprojects/">
+            <span>GetProjects</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getpromotions/">
+          <a href="//developers.whmcs.com/api-reference/getpromotions/">
+            <span>GetPromotions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getquotes/">
+          <a href="//developers.whmcs.com/api-reference/getquotes/">
+            <span>GetQuotes</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getservers/">
+          <a href="//developers.whmcs.com/api-reference/getservers/">
+            <span>GetServers</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getstaffonline/">
+          <a href="//developers.whmcs.com/api-reference/getstaffonline/">
+            <span>GetStaffOnline</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getstats/">
+          <a href="//developers.whmcs.com/api-reference/getstats/">
+            <span>GetStats</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getsupportdepartments/">
+          <a href="//developers.whmcs.com/api-reference/getsupportdepartments/">
+            <span>GetSupportDepartments</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getsupportstatuses/">
+          <a href="//developers.whmcs.com/api-reference/getsupportstatuses/">
+            <span>GetSupportStatuses</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getticket/">
+          <a href="//developers.whmcs.com/api-reference/getticket/">
+            <span>GetTicket</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getticketcounts/">
+          <a href="//developers.whmcs.com/api-reference/getticketcounts/">
+            <span>GetTicketCounts</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getticketnotes/">
+          <a href="//developers.whmcs.com/api-reference/getticketnotes/">
+            <span>GetTicketNotes</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getticketpredefinedcats/">
+          <a href="//developers.whmcs.com/api-reference/getticketpredefinedcats/">
+            <span>GetTicketPredefinedCats</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getticketpredefinedreplies/">
+          <a href="//developers.whmcs.com/api-reference/getticketpredefinedreplies/">
+            <span>GetTicketPredefinedReplies</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/gettickets/">
+          <a href="//developers.whmcs.com/api-reference/gettickets/">
+            <span>GetTickets</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/gettodoitemstatuses/">
+          <a href="//developers.whmcs.com/api-reference/gettodoitemstatuses/">
+            <span>GetToDoItemStatuses</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/gettodoitems/">
+          <a href="//developers.whmcs.com/api-reference/gettodoitems/">
+            <span>GetToDoList</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/gettransactions/">
+          <a href="//developers.whmcs.com/api-reference/gettransactions/">
+            <span>GetTransactions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/listoauthcredentials/">
+          <a href="//developers.whmcs.com/api-reference/listoauthcredentials/">
+            <span>ListOAuthCredentials</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/logactivity/">
+          <a href="//developers.whmcs.com/api-reference/logactivity/">
+            <span>LogActivity</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/modulechangepackage/">
+          <a href="//developers.whmcs.com/api-reference/modulechangepackage/">
+            <span>ModuleChangePackage</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/modulechangepw/">
+          <a href="//developers.whmcs.com/api-reference/modulechangepw/">
+            <span>ModuleChangePw</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/modulecreate/">
+          <a href="//developers.whmcs.com/api-reference/modulecreate/">
+            <span>ModuleCreate</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="active" data-nav-id="/api-reference/modulecustom/">
+          <a href="//developers.whmcs.com/api-reference/modulecustom/">
+            <span>ModuleCustom</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/modulesuspend/">
+          <a href="//developers.whmcs.com/api-reference/modulesuspend/">
+            <span>ModuleSuspend</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/moduleterminate/">
+          <a href="//developers.whmcs.com/api-reference/moduleterminate/">
+            <span>ModuleTerminate</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/moduleunsuspend/">
+          <a href="//developers.whmcs.com/api-reference/moduleunsuspend/">
+            <span>ModuleUnsuspend</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/openticket/">
+          <a href="//developers.whmcs.com/api-reference/openticket/">
+            <span>OpenTicket</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/orderfraudcheck/">
+          <a href="//developers.whmcs.com/api-reference/orderfraudcheck/">
+            <span>OrderFraudCheck</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/pendingorder/">
+          <a href="//developers.whmcs.com/api-reference/pendingorder/">
+            <span>PendingOrder</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/sendadminemail/">
+          <a href="//developers.whmcs.com/api-reference/sendadminemail/">
+            <span>SendAdminEmail</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/sendemail/">
+          <a href="//developers.whmcs.com/api-reference/sendemail/">
+            <span>SendAdminEmail</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/sendquote/">
+          <a href="//developers.whmcs.com/api-reference/sendquote/">
+            <span>SendQuote</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/setconfigurationvalue/">
+          <a href="//developers.whmcs.com/api-reference/setconfigurationvalue/">
+            <span>SetConfigurationValue</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateadminnotes/">
+          <a href="//developers.whmcs.com/api-reference/updateadminnotes/">
+            <span>UpdateAdminNotes</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateannouncement/">
+          <a href="//developers.whmcs.com/api-reference/updateannouncement/">
+            <span>UpdateAnnouncement</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateclient/">
+          <a href="//developers.whmcs.com/api-reference/updateclient/">
+            <span>UpdateClient</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateclientaddon/">
+          <a href="//developers.whmcs.com/api-reference/updateclientaddon/">
+            <span>UpdateClientAddon</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateclientdomain/">
+          <a href="//developers.whmcs.com/api-reference/updateclientdomain/">
+            <span>UpdateClientDomain</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateclientproduct/">
+          <a href="//developers.whmcs.com/api-reference/updateclientproduct/">
+            <span>UpdateClientProduct</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updatecontact/">
+          <a href="//developers.whmcs.com/api-reference/updatecontact/">
+            <span>UpdateContact</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updatemoduleconfiguration/">
+          <a href="//developers.whmcs.com/api-reference/updatemoduleconfiguration/">
+            <span>UpdateModuleConfiguration</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateoauthcredential/">
+          <a href="//developers.whmcs.com/api-reference/updateoauthcredential/">
+            <span>UpdateOAuthCredential</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateproject/">
+          <a href="//developers.whmcs.com/api-reference/updateproject/">
+            <span>UpdateProject</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateprojecttask/">
+          <a href="//developers.whmcs.com/api-reference/updateprojecttask/">
+            <span>UpdateProjectTask</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updatequote/">
+          <a href="//developers.whmcs.com/api-reference/updatequote/">
+            <span>UpdateQuote</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateticket/">
+          <a href="//developers.whmcs.com/api-reference/updateticket/">
+            <span>UpdateTicket</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updatetodoitem/">
+          <a href="//developers.whmcs.com/api-reference/updatetodoitem/">
+            <span>UpdateToDoItem</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updatetransaction/">
+          <a href="//developers.whmcs.com/api-reference/updatetransaction/">
+            <span>UpdateTransaction</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/upgradeproduct/">
+          <a href="//developers.whmcs.com/api-reference/upgradeproduct/">
+            <span>UpgradeProduct</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/validatelogin/">
+          <a href="//developers.whmcs.com/api-reference/validatelogin/">
+            <span>ValidateLogin</span>
+          </a>
+        </li>
+      
+      
+    </ul>
+    
+  </li>
+
+
+          </ul>
+        
+
+      </div>
+      <div class="col-sm-9">
+
+        <div class="breadcrumb-nav">
+
+            <div class="pull-right">
+              <a class="suggest-an-edit" href="https://github.com/WHMCS/developer-docs" target="blank">
+                <i class="fa fa-code-fork"></i>
+                <span class="hidden-xs">Suggest an edit</span>
+              </a>
+            </div>
+
+            <div class="visible-xs pull-left">
+                <button type="button" class="btn btn-toggle-sidebar" data-toggle="offcanvas">
+                    <i class="fa fa-list-alt"></i>
+                </button>
+            </div>
+
+            <div id="breadcrumbs">
+                
+                
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                    
+                <a href="//developers.whmcs.com/api-reference/" itemprop="url"><span itemprop="title">API Reference</span></a> <i class="fa fa-angle-right"></i>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                <span itemprop="title"> ModuleCustom</span>
+              </div>
+            </div>
+
+
+			<h1>ModuleCustom </h1>
+
+			
+
+<p>Runs a custom module action for a given service.</p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>action</td>
+<td>string</td>
+<td>&ldquo;ModuleCustom&rdquo;</td>
+<td>Required</td>
+</tr>
+
+<tr>
+<td>accountid</td>
+<td>int</td>
+<td>The service ID to run the action for</td>
+<td>Required</td>
+</tr>
+
+<tr>
+<td>func_name</td>
+<td>string</td>
+<td>The name of the custom function to run</td>
+<td>Required</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>result</td>
+<td>string</td>
+<td>The result of the operation: success or error</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="example-request-curl">Example Request (CURL)</h3>
+
+<pre><code>$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://www.example.com/includes/api.php');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS,
+    http_build_query(
+        array(
+            'action' =&gt; 'ModuleCustom',
+            'username' =&gt; 'ADMIN_USERNAME',
+            'password' =&gt; 'ADMIN_PASSWORD',
+            'accountid' =&gt; '1',
+            'func_name' =&gt; 'reboot',
+            'responsetype' =&gt; 'json',
+        )
+    )
+);
+$response = curl_exec($ch);
+curl_close($ch);
+</code></pre>
+
+<h3 id="example-request-local-api">Example Request (Local API)</h3>
+
+<pre><code>$command = 'ModuleCustom';
+$postData = array(
+    'accountid' =&gt; '1',
+    'func_name' =&gt; 'reboot',
+);
+$adminUsername = 'ADMIN_USERNAME';
+
+$results = localAPI($command, $postData, $adminUsername);
+print_r($results);
+</code></pre>
+
+<h3 id="example-response-json">Example Response JSON</h3>
+
+<pre><code>{
+    &quot;result&quot;: &quot;success&quot;
+}
+</code></pre>
+
+<h3 id="error-responses">Error Responses</h3>
+
+<p>Possible error condition responses include:</p>
+
+<ul>
+<li>Server response message</li>
+</ul>
+
+<h3 id="version-history">Version History</h3>
+
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Changelog</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1.0</td>
+<td>Initial Version</td>
+</tr>
+</tbody>
+</table>
+
+
+			<div class="topic-navigation clearfix">
+                
+                
+            </div>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+
+        </div>
+  </div>
+</div>
+</main>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <nav>
+                <div class="col-sm-3">
+                    <h3>Learn</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/">About WHMCS</a></li>
+                        <li><a href="//developers.whmcs.com/quick-start/">Quick start</a></li>
+                        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+                        <li><a href="//docs.whmcs.com/classes/">Classes Reference</a></li>
+                        <li><a href="//developers.whmcs.com/about/faq/">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Contribute</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/contribute/">Contribute</a></li>
+                        <li><a href="https://github.com/whmcs/" target="_blank">Github</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-5">
+                    <h3>Stay up to date</h3>
+                    <div class="subscribe-form">
+                        <p class="muted subscribe-lead">Join our developers mailing list to be kept up-to-date.</p>
+                        <form action="https://www.whmcs.com/members/requestinfo.php" method="post">
+                            <input type="hidden" name="developer" value="dev">
+                            <div class="input-group">
+                                <input type="email" name="email" class="form-control" placeholder="you@yourdomain.com">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-info">
+                                        SUBSCRIBE
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <p>
+                        We won't spam you.
+                    </p>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <p>Found an error or a typo in these docs? <a href="https://github.com/WHMCS/developer-docs/issues">Submit an issue or a pull request</a></p>
+            </div>
+            <div class="col-md-5">
+                <p class="pull-right">
+                    Copyright &copy; WHMCS 2016. All rights reserved.
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="//developers.whmcs.com/js/jquery.min.js"></script>
+<script src="//developers.whmcs.com/js/bootstrap.min.js"></script>
+<script src="//developers.whmcs.com/js/prism.js"></script>
+<script>
+$(document).ready(function () {
+  $('[data-toggle="offcanvas"]').click(function () {
+    $('.row-offcanvas').toggleClass('active')
+  });
+});
+</script>
+  </body>
+</html>
+

@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Provisioning-modules on WHMCS Developer Documentation</title>
+    <link>//developers.whmcs.com/provisioning-modules/</link>
+    <description>Recent content in Provisioning-modules on WHMCS Developer Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="//developers.whmcs.com/provisioning-modules/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Provisioning Modules</title>
+      <link>//developers.whmcs.com/provisioning-modules/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Provisioning Modules, enable provisioning and management of services in WHMCS.&lt;/p&gt;
+
+&lt;p&gt;Provisioning Modules are also referred to as Product or Server Modules.&lt;/p&gt;
+
+&lt;p&gt;The core function of a module is creating, suspending, unsuspending, and terminating of products.
+This happens as various events occur.
+These events include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;New order payment&lt;/li&gt;
+&lt;li&gt;Items becoming overdue&lt;/li&gt;
+&lt;li&gt;Overdue invoice payment&lt;/li&gt;
+&lt;li&gt;Cancellation requests.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A WHMCS module can do much more than just that including:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Automated password resets.&lt;/li&gt;
+&lt;li&gt;Upgrades/downgrades.&lt;/li&gt;
+&lt;li&gt;Renewals.&lt;/li&gt;
+&lt;li&gt;Admin based links.&lt;/li&gt;
+&lt;li&gt;Client area output.&lt;/li&gt;
+&lt;li&gt;And more via custom functions.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>//developers.whmcs.com/provisioning-modules/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/getting-started/</guid>
+      <description>
+
+&lt;h2 id=&#34;github&#34;&gt;Github&lt;/h2&gt;
+
+&lt;p&gt;We make available a sample provisioning module on Github which we recommend using as a basis for your custom module.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/WHMCS/sample-provisioning-module&#34;&gt;https://github.com/WHMCS/sample-provisioning-module&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;choosing-a-name&#34;&gt;Choosing a Name&lt;/h2&gt;
+
+&lt;p&gt;Provisioning Modules are located in the &lt;code&gt;/modules/servers/&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;Module names should be a single word, consisting of only lowercase letters and numbers. The name must start with a letter, and must be unique.&lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Configuration Options</title>
+      <link>//developers.whmcs.com/provisioning-modules/config-options/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/config-options/</guid>
+      <description>&lt;p&gt;This function defines the settings that can be configured on a per product basis for your module.&lt;/p&gt;
+
+&lt;p&gt;The name of this function must be &lt;code&gt;yourmodulename_ConfigOptions&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The supported configuration field types include the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Text&lt;/li&gt;
+&lt;li&gt;Password&lt;/li&gt;
+&lt;li&gt;Yes/No Checkboxes&lt;/li&gt;
+&lt;li&gt;Dropdown Menus&lt;/li&gt;
+&lt;li&gt;Radio Buttons&lt;/li&gt;
+&lt;li&gt;Text Areas&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Below are examples of the available parameters for each type of field. Provisioning modules support up to 24 options defined in this way.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function yourmodulename_ConfigOptions() {
+    return [
+        &amp;quot;username&amp;quot; =&amp;gt; [
+            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;UserName&amp;quot;,
+            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;text&amp;quot;, # Text Box
+            &amp;quot;Size&amp;quot; =&amp;gt; &amp;quot;25&amp;quot;, # Defines the Field Width
+            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Textbox&amp;quot;,
+            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;Example&amp;quot;,
+        ],
+        &amp;quot;password&amp;quot; =&amp;gt; [
+            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Password&amp;quot;,
+            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;password&amp;quot;, # Password Field
+            &amp;quot;Size&amp;quot; =&amp;gt; &amp;quot;25&amp;quot;, # Defines the Field Width
+            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Password&amp;quot;,
+            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;Example&amp;quot;,
+        ],
+        &amp;quot;usessl&amp;quot; =&amp;gt; [
+            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Enable SSL&amp;quot;,
+            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;yesno&amp;quot;, # Yes/No Checkbox
+            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Tick to use secure connections&amp;quot;,
+        ],
+        &amp;quot;package&amp;quot; =&amp;gt; [
+            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Package Name&amp;quot;,
+            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;dropdown&amp;quot;, # Dropdown Choice of Options
+            &amp;quot;Options&amp;quot; =&amp;gt; &amp;quot;Starter,Advanced,Ultimate&amp;quot;,
+            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Sample Dropdown&amp;quot;,
+            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;Advanced&amp;quot;,
+        ],
+        &amp;quot;packageWithNVP&amp;quot; =&amp;gt; [
+            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Package Name v2&amp;quot;,
+            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;dropdown&amp;quot;, # Dropdown Choice of Options
+            &amp;quot;Options&amp;quot; =&amp;gt; [
+                &#39;package1&#39; =&amp;gt; &#39;Starter&#39;,
+                &#39;package2&#39; =&amp;gt; &#39;Advanced&#39;,
+                &#39;package3&#39; =&amp;gt; &#39;Ultimate&#39;,
+            ],
+            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Sample Dropdown&amp;quot;,
+            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;package2&amp;quot;,
+        ],
+        &amp;quot;disk&amp;quot; =&amp;gt; [
+            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Disk Space&amp;quot;,
+            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;radio&amp;quot;, # Radio Selection of Options
+            &amp;quot;Options&amp;quot; =&amp;gt; &amp;quot;100MB,200MB,300MB&amp;quot;,
+            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Radio Options Demo&amp;quot;,
+            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;200MB&amp;quot;,
+        ],
+        &amp;quot;comments&amp;quot; =&amp;gt; [
+            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Notes&amp;quot;,
+            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;textarea&amp;quot;, # Textarea
+            &amp;quot;Rows&amp;quot; =&amp;gt; &amp;quot;3&amp;quot;, # Number of Rows
+            &amp;quot;Cols&amp;quot; =&amp;gt; &amp;quot;50&amp;quot;, # Number of Columns
+            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Description goes here&amp;quot;,
+            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;Enter notes here&amp;quot;,
+        ],
+    ];
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Supported Functions</title>
+      <link>//developers.whmcs.com/provisioning-modules/supported-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/supported-functions/</guid>
+      <description>
+
+&lt;p&gt;Here is an overview of all functions that a WHMCS provisioning module can contain.
+Functions within a module are optional and need not be in the module if they don’t apply.
+Remember, all functions should have the prefix &lt;strong&gt;filename_&lt;/strong&gt; and then the function name.
+The function name is the header below.&lt;/p&gt;
+
+&lt;h2 id=&#34;createaccount-a-id-create-account-a&#34;&gt;CreateAccount &lt;a id=&#34;create-account&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;This function runs when a new product provisions.
+This can be by WHMCS upon checkout or payment for a new order.
+Also, by an admin user from the Products/Services tab in a clients profile of the admin area.&lt;/p&gt;
+
+&lt;h2 id=&#34;suspendaccount-a-id-suspend-account-a&#34;&gt;SuspendAccount &lt;a id=&#34;suspend-account&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;This function runs when a suspension is requested.
+Requested by the WHMCS Cron when a product becomes overdue, or by admin user in the Client Profile.&lt;/p&gt;
+
+&lt;h2 id=&#34;unsuspendaccount-a-id-unsuspend-account-a&#34;&gt;UnsuspendAccount &lt;a id=&#34;unsuspend-account&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;This function runs when an unsuspension is requested.
+Requested upon payment of an overdue invoice for a product.&lt;/p&gt;
+
+&lt;h2 id=&#34;terminateaccount-a-id-terminate-account-a&#34;&gt;TerminateAccount &lt;a id=&#34;terminate-account&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;This function runs when a termination is requested.
+Requested by the WHMCS Cron for long overdue products when enabled (&lt;a href=&#34;http://docs.whmcs.com/Automation_Settings#Enable_Termination&#34; title=&#34;Automation Settings&#34;&gt;Automation Settings&lt;/a&gt;).
+Also requested by an admin user in the Client Profile.&lt;/p&gt;
+
+&lt;h2 id=&#34;renew-a-id-renew-a&#34;&gt;Renew &lt;a id=&#34;renew&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;This function runs each time a renewal invoice for a product becomes paid.&lt;/p&gt;
+
+&lt;h2 id=&#34;changepassword-a-id-change-password-a&#34;&gt;ChangePassword &lt;a id=&#34;change-password&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;This function runs as a client requests a password change.
+The option will not show up if the function is not defined in the module.
+The status of the product must also be active.
+Admins can also invoke this command from the admin area.&lt;/p&gt;
+
+&lt;h2 id=&#34;changepackage-a-id-change-package-a&#34;&gt;ChangePackage &lt;a id=&#34;change-package&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;This function runs for upgrading and downgrading of products.
+This function runs when an upgrade or downgrade order placed by the client becomes paid.
+Admins can also invoke this from the product management pages.
+The same function runs for upgrades and downgrades of both products and configurable options.&lt;/p&gt;
+
+&lt;h2 id=&#34;clientarea-a-id-client-area-a&#34;&gt;ClientArea &lt;a id=&#34;client-area&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;This function can be used to define module specific client area output.
+It accepts a return of HTML for display on the product details page of the client area.
+Output via a template file within the module folder named &amp;ldquo;clientarea.tpl&amp;rdquo; is also possible.
+Discussion of this function in more detail later on in the docs.&lt;/p&gt;
+
+&lt;h2 id=&#34;adminarea-a-id-admin-area-a&#34;&gt;AdminArea &lt;a id=&#34;admin-area&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Used to define HTML code that displays on server configuration page (&lt;strong&gt;Setup&lt;/strong&gt; &amp;gt; &lt;strong&gt;Products/Services&lt;/strong&gt; &amp;gt; &lt;strong&gt;Servers&lt;/strong&gt;).
+Used to provide an automated shortcut/login link to the integrated server control panel.&lt;/p&gt;
+
+&lt;h2 id=&#34;loginlink-a-id-login-link-a&#34;&gt;LoginLink &lt;a id=&#34;login-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Used to define HTML code to link to the customers account on a server control panel.
+Displayed on the product management page of the admin area.
+The return must be HTML output or link (no forms).&lt;/p&gt;
+
+&lt;h2 id=&#34;clientareacustombuttonarray-a-id-client-area-custom-button-array-a&#34;&gt;ClientAreaCustomButtonArray &lt;a id=&#34;client-area-custom-button-array&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Used to define custom functions that your module supports.
+Customers can invoke and run these from the client area.
+The functions can perform actions or product page output in the client area.
+Example usages for this are to provide product management pages, bandwidth reporting pages, etc…&lt;/p&gt;
+
+&lt;h2 id=&#34;clientareaallowedfunctions-a-id-client-area-allowed-functions-a&#34;&gt;ClientAreaAllowedFunctions &lt;a id=&#34;client-area-allowed-functions&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Like the above, used to define custom functions.
+Customers can invoke, but are not shown as buttons by default (i.e. custom client area output will invoke them).&lt;/p&gt;
+
+&lt;h2 id=&#34;admincustombuttonarray-a-id-admin-custom-button-array-a&#34;&gt;AdminCustomButtonArray &lt;a id=&#34;admin-custom-button-array&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Used to define custom functions in your module for admin users.
+This can contain more functions than the client area equivalent.&lt;/p&gt;
+
+&lt;h2 id=&#34;usageupdate-a-id-usage-update-a&#34;&gt;UsageUpdate &lt;a id=&#34;usage-update&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Used to perform a daily import of the disk and bandwidth usage from a server.
+The data imported is then used to display the usage stats both within the client and admin areas of WHMCS.
+The data is also used in disk and bandwidth overage billing calculations if enabled for a product.&lt;/p&gt;
+
+&lt;h2 id=&#34;adminservicestabfields-a-id-admin-services-tab-fields-a&#34;&gt;AdminServicesTabFields &lt;a id=&#34;admin-services-tab-fields&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Used to define extra fields or output to display within admin product pages.&lt;/p&gt;
+
+&lt;h2 id=&#34;adminservicestabfieldssave-a-id-admin-servics-tab-fields-save-a&#34;&gt;AdminServicesTabFieldsSave &lt;a id=&#34;admin-servics-tab-fields-save&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Used in conjunction with the above.
+This function handles the values submitted in any custom fields when a save occurs.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Module Parameters</title>
+      <link>//developers.whmcs.com/provisioning-modules/module-parameters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/module-parameters/</guid>
+      <description>
+
+&lt;p&gt;The module parameters are the data/values passed into each function when called.
+Every provisioning module function receives the same parameters.
+These parameters provide information about the specific product/service the module command runs for.
+The parameters also contains the settings from the product itself.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable Name&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;serviceid&lt;/td&gt;
+&lt;td&gt;The unique ID of the service.&lt;br /&gt;Database Field: tblhosting.id&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pid&lt;/td&gt;
+&lt;td&gt;The product ID for the service.&lt;br /&gt;Database Field: tblproducts.id&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serverid&lt;/td&gt;
+&lt;td&gt;The assigned server ID for the service.&lt;br /&gt;Database Field: tblservers.id&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;domain&lt;/td&gt;
+&lt;td&gt;The domain entered by the customer when ordering.&lt;br /&gt;Database Field: tblhosting.domain&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;username&lt;/td&gt;
+&lt;td&gt;Username generated for the service. (defaults to first 8 letters of the domain)&lt;br /&gt;Database Field: tblhosting.username&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;password&lt;/td&gt;
+&lt;td&gt;Password generated for the service. (10 char generated on first creation consisting of letters &amp;amp; numbers, both upper &amp;amp; lowercase).  &lt;br /&gt;Database Field: tblhosting.password&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;producttype&lt;/td&gt;
+&lt;td&gt;The product type which can be one of sharedhosting, reselleraccount, server or other.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;moduletype&lt;/td&gt;
+&lt;td&gt;The module name (will match filename of module).&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;configoptionX&lt;/td&gt;
+&lt;td&gt;with X being from 1 to 24. &lt;br /&gt;These fields contain the module settings for the product defined in the ConfigOptions function.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;clientsdetails&lt;/td&gt;
+&lt;td&gt;Contains an array of all client details service owner. This contains things like firstname, lastname, email, address1, country, etc…&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;customfields&lt;/td&gt;
+&lt;td&gt;Contains an array of all custom fields defined on the product.  &lt;br /&gt;The key is the custom field name - $params[&amp;lsquo;customfields&amp;rsquo;][&amp;lsquo;Field Name&amp;rsquo;].&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;configoptions&lt;/td&gt;
+&lt;td&gt;Contains an array of all the configurable options defined on the product.  &lt;br /&gt;Again the key being the option name in this case - $params[&amp;lsquo;configoption&amp;rsquo;][&amp;lsquo;Option Name Here&amp;rsquo;].&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;server&lt;/td&gt;
+&lt;td&gt;true/false - Is the product assigned to a server.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serverip&lt;/td&gt;
+&lt;td&gt;The IP Address of the selected server.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serverhostname&lt;/td&gt;
+&lt;td&gt;The Hostname of the selected server.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serverusername&lt;/td&gt;
+&lt;td&gt;The Username of the selected server.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serverpassword&lt;/td&gt;
+&lt;td&gt;The Password of the selected server.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serveraccesshash&lt;/td&gt;
+&lt;td&gt;The Access Hash of the selected server.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serversecure&lt;/td&gt;
+&lt;td&gt;true/false - Is an SSL connection enabled in the Server Configuration.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;config-options-a-id-config-options-a&#34;&gt;Config Options &lt;a id=&#34;config-options&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;//developers.whmcs.com/provisioning-modules/getting-started#product-configuration-options&#34; title=&#34;Product Configuration Options&#34;&gt;Config Options&lt;/a&gt; (do not confuse with Configurable Options) are the module&amp;rsquo;s settings.
+These are defined in the ConfigOptions function of the module.
+Config Options are set on a per product basis.
+Supplied as a numbered list: $params[‘configoption1’], $params[‘configoption2’], etc.
+Defined by the order specified in the ConfigOptions function of the module.&lt;/p&gt;
+
+&lt;h2 id=&#34;custom-fields-configurable-options-a-id-custom-fields-configurable-options-a&#34;&gt;Custom Fields &amp;amp; Configurable Options &lt;a id=&#34;custom-fields-configurable-options&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Values from any custom fields &amp;amp; configurable options are passed into modules as parameters.
+Passed as an array with the key being the name of the field or option.&lt;/p&gt;
+
+&lt;p&gt;For example for a custom field called “Username”, would become $params[‘customfields’][‘Username’].
+Likewise, a configurable option named “Disk Space”, would become $params[‘configoptions’][‘Disk Space’].&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Core Module Functions</title>
+      <link>//developers.whmcs.com/provisioning-modules/core-module-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/core-module-functions/</guid>
+      <description>
+
+&lt;p&gt;The core module functions are &lt;strong&gt;Create&lt;/strong&gt;, &lt;strong&gt;Suspend&lt;/strong&gt;, &lt;strong&gt;Unsuspend&lt;/strong&gt;, &lt;strong&gt;Terminate&lt;/strong&gt;, &lt;strong&gt;Renew&lt;/strong&gt;, &lt;strong&gt;ChangePassword&lt;/strong&gt; and &lt;strong&gt;ChangePackage&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;These 7 functions all operate in a similar manner. They can run both manually and automatically.
+Each expected to return either a success or error response.&lt;/p&gt;
+
+&lt;h2 id=&#34;response-handling-a-id-response-handling-a&#34;&gt;Response Handling &lt;a id=&#34;response-handling&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Each of these functions after running actions must either return a success or error.&lt;/p&gt;
+
+&lt;p&gt;For a successful result the code must actually return the word &amp;ldquo;&lt;em&gt;success&lt;/em&gt;&amp;rdquo; to end the function.
+When WHMCS receives &amp;ldquo;&lt;em&gt;success&lt;/em&gt;&amp;rdquo; it knows the function completed and continues on that basis.&lt;/p&gt;
+
+&lt;p&gt;Should the function fail, the return should be a user understandable error message, as it will display to staff users.&lt;/p&gt;
+
+&lt;h2 id=&#34;action-events-a-id-action-events-a&#34;&gt;Action Events &lt;a id=&#34;action-events&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;When a function is successful, there are various actions that run as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CreateAccount&lt;/strong&gt; - Changes status to Active + Sends Product Welcome Email&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SuspendAccount&lt;/strong&gt; - Changes status to Suspended&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UnsuspendAccount&lt;/strong&gt; - Changes status to Active&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TerminateAccount&lt;/strong&gt; - Changes status to Terminated&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ChangePassword&lt;/strong&gt; - Updates password in database&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Besides the above actions, admin users receive a confirmation of functions completing, or errors in the case of failure.
+Functions invoked through automation, such as payment of a new order, that notification can be via email.
+In the case of ChangePassword, any errors returned are also displayed to client users.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Single Sign-On</title>
+      <link>//developers.whmcs.com/provisioning-modules/single-sign-on/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/single-sign-on/</guid>
+      <description>
+
+&lt;p&gt;Single sign-on can occur for a service or server.&lt;/p&gt;
+
+&lt;p&gt;Whichever method being used, the return should be the same.&lt;/p&gt;
+
+&lt;p&gt;The return from either function should always be an array and contain two keys of a possible three.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;success - This is a &lt;a href=&#34;http://docs.whmcs.com/Glossary#Boolean&#34;&gt;boolean&lt;/a&gt; value and should indicate success or failure&lt;/li&gt;
+&lt;li&gt;redirectTo - This should be a fully formatted URL return from your SSO request&lt;/li&gt;
+&lt;li&gt;errorMsg - Any appropriate error message to be displayed to whoever is making the request&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;service-single-sign-on-a-id-service-sso-a&#34;&gt;Service Single Sign-On &lt;a id=&#34;service-sso&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Service single sign-on is to allow admin and client users to login to the control panel of the service automatically.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Perform single sign-on for a given instance of a product/service.
+ *
+ * Called when single sign-on is requested for an instance of a product/service.
+ *
+ * When successful, returns an URL to which the user should be redirected.
+ *
+ * @param array $params common module parameters
+ *
+ * @see http://docs.whmcs.com/Provisioning_Module_SDK_Parameters
+ *
+ * @return array
+ */
+function mymodule_ServiceSingleSignOn(array $params)
+{
+	$return = array(
+		&#39;success&#39; = false,
+	);
+	try {
+        /**
+         * all the service&#39;s single sign-on token retrieval function, using the
+         * values provided by WHMCS in `$params`.
+         * The variables and response format would depend on your server API
+         */
+
+        $response = $formattedResponse = custom_call_to_server();
+
+        $return = array(
+            &#39;success&#39; =&amp;gt; true,
+            &#39;redirectTo&#39; =&amp;gt; $response[&#39;redirectUrl&#39;],
+        );
+    } catch (Exception $e) {
+        $return[&#39;errorMsg&#39;] = $e-&amp;gt;getMessage();
+        $response = $e-&amp;gt;getMessage();
+        $formattedResponse = $e-&amp;gt;getTraceAsString();
+    }
+
+    /**
+     * Log any call to the server
+     */
+	logModuleCall(
+        &#39;provisioningmodule&#39;,
+        __FUNCTION__,
+        $params,
+        $response,
+        $formattedResponse,
+        array(&#39;username&#39;, &#39;password&#39;)
+    );
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;server-single-sign-on-a-id-server-sso-a&#34;&gt;Server Single Sign-On &lt;a id=&#34;server-sso&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Server single sign-on allows for Admin users to login to the associated server management panel (like WHM for cPanel) automatically.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Perform single sign-on for a server.
+ *
+ * Called when single sign-on is requested for a server assigned to the module.
+ *
+ * This differs from ServiceSingleSignOn in that it relates to a server
+ * instance within the admin area, as opposed to a single client instance of a
+ * product/service.
+ *
+ * When successful, returns an URL to which the user should be redirected to.
+ *
+ * @param array $params common module parameters
+ *
+ * @see http://docs.whmcs.com/Provisioning_Module_SDK_Parameters
+ *
+ * @return array
+ */
+function mymodule_AdminSingleSignOn(array $params)
+{
+	$return = array(
+		&#39;success&#39; = false,
+	);
+	try {
+        /**
+         * all the service&#39;s single sign-on token retrieval function, using the
+         * values provided by WHMCS in `$params`.
+         * The variables and response format would depend on your server API
+         */
+
+        $response = $formattedResponse = custom_call_to_server();
+
+        $return = array(
+            &#39;success&#39; =&amp;gt; true,
+            &#39;redirectTo&#39; =&amp;gt; $response[&#39;redirectUrl&#39;],
+        );
+    } catch (Exception $e) {
+        $return[&#39;errorMsg&#39;] = $e-&amp;gt;getMessage();
+        $response = $e-&amp;gt;getMessage();
+        $formattedResponse = $e-&amp;gt;getTraceAsString();
+    }
+
+    /**
+     * Log any call to the server
+     */
+	logModuleCall(
+        &#39;provisioningmodule&#39;,
+        __FUNCTION__,
+        $params,
+        $response,
+        $formattedResponse,
+        array(&#39;username&#39;, &#39;password&#39;)
+    );
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Usage Update</title>
+      <link>//developers.whmcs.com/provisioning-modules/usage-update/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/usage-update/</guid>
+      <description>
+
+&lt;p&gt;The UsageUpdate function performs a daily import of the disk and bandwidth usage for accounts of a server.
+The data imported is then used to display the usage stats both within the client and admin areas of WHMCS.
+The data is also used in disk and bandwidth overage billing calculations if enabled for a product.&lt;/p&gt;
+
+&lt;p&gt;The UsageUpdate function runs via WHMCS Cron, for any active, enabled server.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Important: Runs per server not per product&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This can only run if your module has a server created in WHMCS for it - products alone do not invoke it.&lt;/p&gt;
+
+&lt;p&gt;The function receives the id, ip, hostname, username/hash, &amp;amp; password variables.
+The function will query the disk and bandwidth usage for the server, and updates the database.
+The database update should be a single call for speed and efficiency.&lt;/p&gt;
+
+&lt;h2 id=&#34;example-usage-update-function-a-id-example-function-a&#34;&gt;Example Usage Update Function &lt;a id=&#34;example-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;function mymodule_UsageUpdate($params) {
+ 
+	$serverid = $params[&#39;serverid&#39;];
+	$serverhostname = $params[&#39;serverhostname&#39;];
+	$serverip = $params[&#39;serverip&#39;];
+	$serverusername = $params[&#39;serverusername&#39;];
+	$serverpassword = $params[&#39;serverpassword&#39;];
+	$serveraccesshash = $params[&#39;serveraccesshash&#39;];
+	$serversecure = $params[&#39;serversecure&#39;];
+ 
+	# Run connection to retrieve usage for all domains/accounts on $serverid
+
+	# Now loop through results and update DB
+
+	foreach ($results AS $domain=&amp;gt;$values) {
+        update_query(&amp;quot;tblhosting&amp;quot;,array(
+         &amp;quot;diskused&amp;quot;=&amp;gt;$values[&#39;diskusage&#39;],
+         &amp;quot;disklimit&amp;quot;=&amp;gt;$values[&#39;disklimit&#39;],
+         &amp;quot;bwusage&amp;quot;=&amp;gt;$values[&#39;bwusage&#39;],
+         &amp;quot;bwlimit&amp;quot;=&amp;gt;$values[&#39;bwlimit&#39;],
+         &amp;quot;lastupdate&amp;quot;=&amp;gt;&amp;quot;now()&amp;quot;,
+        ),array(&amp;quot;server&amp;quot;=&amp;gt;$serverid,&amp;quot;domain&amp;quot;=&amp;gt;$values[&#39;domain&#39;]));
+    }
+ 
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Custom Functions</title>
+      <link>//developers.whmcs.com/provisioning-modules/custom-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/custom-functions/</guid>
+      <description>
+
+&lt;p&gt;Custom functions allow definition of extra operations that run using the module.
+The custom functions can perform actions, or define extra client area pages/output.
+Permissions can be granted for who can use each custom function, be it just clients, just admins, or both.&lt;/p&gt;
+
+&lt;p&gt;The convention for custom function names follow the same as any other function of a module.
+It must begin with the module &lt;strong&gt;filename_&lt;/strong&gt;, and then the custom function name.&lt;/p&gt;
+
+&lt;p&gt;The easiest way to show this is with an example.&lt;/p&gt;
+
+&lt;h2 id=&#34;example-custom-function-a-id-example-function-a&#34;&gt;Example Custom Function &lt;a id=&#34;example-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Let’s take an example of a reboot &amp;amp; shutdown function in a VM/VPS system.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function mymodule_reboot($params) {
+ 
+	# Code to perform reboot action goes here...
+
+    if ($successful) {
+		$result = &amp;quot;success&amp;quot;;
+	} else {
+		$result = &amp;quot;Error Message Goes Here...&amp;quot;;
+	}
+	return $result;
+ 
+}
+ 
+function mymodule_shutdown($params) {
+ 
+	# Code to perform shutdown action goes here...
+
+    if ($successful) {
+		$result = &amp;quot;success&amp;quot;;
+	} else {
+		$result = &amp;quot;Error Message Goes Here...&amp;quot;;
+	}
+	return $result;
+ 
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above shows how to define custom functions and to used the passed variables.
+The custom function returns either “success” or an error message to show a failure.
+If we wanted to allow clients to perform reboots, but only admins to be able to perform a shutdown, that would be defined like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function mymodule_ClientAreaCustomButtonArray() {
+    $buttonarray = array(
+	 &amp;quot;Reboot Server&amp;quot; =&amp;gt; &amp;quot;reboot&amp;quot;,
+	);
+	return $buttonarray;
+}
+ 
+function mymodule_AdminCustomButtonArray() {
+    $buttonarray = array(
+	 &amp;quot;Reboot Server&amp;quot; =&amp;gt; &amp;quot;reboot&amp;quot;,
+	 &amp;quot;Shutdown Server&amp;quot; =&amp;gt; &amp;quot;shutdown&amp;quot;,
+	);
+	return $buttonarray;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above allows a clients to run the “reboot” function, and admins “reboot” and “shutdown”.&lt;/p&gt;
+
+&lt;p&gt;The key value of the array is what displays to admins/clients on the button or menu options for the commands.
+And the value is the custom function name excluding the &lt;strong&gt;modulename_&lt;/strong&gt; prefix.&lt;/p&gt;
+
+&lt;p&gt;A description of how to provide a button or way to invoke a custom function is in the Client Area Output section:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;form method=&amp;quot;post&amp;quot; action=&amp;quot;clientarea.php?action=productdetails&amp;quot;&amp;gt;
+&amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;id&amp;quot; value=&amp;quot;{$serviceid}&amp;quot; /&amp;gt;
+&amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;modop&amp;quot; value=&amp;quot;custom&amp;quot; /&amp;gt;
+&amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;a&amp;quot; value=&amp;quot;reboot&amp;quot; /&amp;gt;
+&amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Reboot VPS Server&amp;quot; /&amp;gt;
+&amp;lt;/form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Client Area Output</title>
+      <link>//developers.whmcs.com/provisioning-modules/client-area-output/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/client-area-output/</guid>
+      <description>
+
+&lt;p&gt;Another key function of a module is to give clients access to extra options and output within the client area. Done either on the product details page (using the ClientArea function of a module), or as a &lt;a href=&#34;//developers.whmcs.com/provisioning-modules/custom-functions#example-function&#34; title=&#34;Custom Function Example&#34;&gt;custom function/action&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;product-details-page-output-a-id-product-details-output-a&#34;&gt;Product Details Page Output &lt;a id=&#34;product-details-output&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Creating output to display on the same page as the product details in the client area is easy.
+Create a template file named “clientarea.tpl” within the module folder.
+This template file will process as a Smarty template file.
+This means it can make use of Smarty variables.
+The variables will be the same module vars as passed to every module function.
+Also, other smarty functions such as logic functions are available.&lt;/p&gt;
+
+&lt;p&gt;More advanced actions, such as performing API Calls or defining variables for the output are possible.
+A ClientArea function within the module that runs any code and returns an array with the template file to use, and any variables desired besides the defaults.
+Returning different template file values based on data in the $_GET or $_POST array data, allows for many pages which can have direct links.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function mymodule_ClientArea($vars) {
+    return array(
+        &#39;templatefile&#39; =&amp;gt; &#39;clientarea&#39;,
+        &#39;vars&#39; =&amp;gt; array(
+            &#39;test1&#39; =&amp;gt; &#39;hello&#39;,
+            &#39;test2&#39; =&amp;gt; &#39;world&#39;,
+        ),
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;custom-pages-a-id-custom-pages-a&#34;&gt;Custom Pages &lt;a id=&#34;custom-pages&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Situations that need a custom page, rather than output on the existing product details page, are possible.
+Done using &lt;a href=&#34;//developers.whmcs.com/provisioning-modules/custom-functions#example-function&#34; title=&#34;Custom Function Example&#34;&gt;custom functions&lt;/a&gt; as described earlier, with that function returning an array as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function mymodule_mycustomfunction($vars) {
+    return array(
+        &#39;templatefile&#39; =&amp;gt; &#39;customfunc&#39;,
+        &#39;breadcrumb&#39; =&amp;gt; array(
+            &#39;stepurl.php?action=this&amp;amp;var=that&#39; =&amp;gt; &#39;Custom Function&#39;,
+        ),
+        &#39;vars&#39; =&amp;gt; array(
+            &#39;test1&#39; =&amp;gt; &#39;hello&#39;,
+            &#39;test2&#39; =&amp;gt; &#39;world&#39;,
+        ),
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Clients then need access to use this function, and a link in the product details page.
+Do this using the methods described in the previous &amp;lsquo;&lt;a href=&#34;//developers.whmcs.com/provisioning-modules/custom-functions#example-function&#34; title=&#34;Custom Function Example&#34;&gt;Custom Functions&lt;/a&gt;&amp;rsquo; section.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Admin Services Tab</title>
+      <link>//developers.whmcs.com/provisioning-modules/admin-services-tab/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/admin-services-tab/</guid>
+      <description>
+
+&lt;p&gt;Admin Services Tab functions allow definition of extra fields to appear on the product details in the admin area.
+Used for informational output, or for settings and values stored in custom tables or outside WHMCS.&lt;/p&gt;
+
+&lt;p&gt;WHMCS uses this in the core system for our licensing addon module.
+The license specific fields of the allowed system are set and viewed from the product details.&lt;/p&gt;
+
+&lt;p&gt;There are 2 functions relating to the services tab - &lt;code&gt;AdminServicesTabFields&lt;/code&gt; and &lt;code&gt;AdminServicesTabFieldsSave&lt;/code&gt;.
+The first of these allows definition of the extra fields to output.
+The latter allows handling any input on submission/save, if required.&lt;/p&gt;
+
+&lt;p&gt;So on to an example, below we show you how to define 4 extra fields.
+This example shows an input, dropdown, textarea and info only output.
+The examples continues to update them in a custom table of the database via the save event.&lt;/p&gt;
+
+&lt;h2 id=&#34;example-admin-services-tab-function-a-id-example-function-a&#34;&gt;Example Admin Services Tab Function &lt;a id=&#34;example-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;function mymodule_AdminServicesTabFields($params) {
+ 
+    $result = select_query(
+        &amp;quot;mod_customtable&amp;quot;,
+        &amp;quot;&amp;quot;,
+        array(&amp;quot;serviceid&amp;quot; =&amp;gt; $params[&#39;serviceid&#39;],)
+    );
+    $data = mysql_fetch_array($result);
+    $var1 = $data[&#39;var1&#39;];
+    $var2 = $data[&#39;var2&#39;];
+    $var3 = $data[&#39;var3&#39;];
+    $var4 = $data[&#39;var4&#39;];
+ 
+    $fieldsarray = array(
+     &#39;Field 1&#39; =&amp;gt; &#39;&amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;modulefields[0]&amp;quot; size=&amp;quot;30&amp;quot; value=&amp;quot;&#39;.$var1.&#39;&amp;quot; /&amp;gt;&#39;,
+     &#39;Field 2&#39; =&amp;gt; &#39;&amp;lt;select name=&amp;quot;modulefields[1]&amp;quot;&amp;gt;&amp;lt;option&amp;gt;Val1&amp;lt;/option&amp;lt;/select&amp;gt;&#39;,
+     &#39;Field 3&#39; =&amp;gt; &#39;&amp;lt;textarea name=&amp;quot;modulefields[2]&amp;quot; rows=&amp;quot;2&amp;quot; cols=&amp;quot;80&amp;quot;&amp;gt;&#39;.$var3.&#39;&amp;lt;/textarea&amp;gt;&#39;,
+     &#39;Field 4&#39; =&amp;gt; $var4, # Info Output Only
+    );
+    return $fieldsarray;
+ 
+}
+ 
+function mymodule_AdminServicesTabFieldsSave($params) {
+    update_query(&amp;quot;mod_customtable&amp;quot;,array(
+        &amp;quot;var1&amp;quot;=&amp;gt;$_POST[&#39;modulefields&#39;][0],
+        &amp;quot;var2&amp;quot;=&amp;gt;$_POST[&#39;modulefields&#39;][1],
+        &amp;quot;var3&amp;quot;=&amp;gt;$_POST[&#39;modulefields&#39;][2],
+    ),array(&amp;quot;serviceid&amp;quot;=&amp;gt;$params[&#39;serviceid&#39;]));
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Module Logging</title>
+      <link>//developers.whmcs.com/provisioning-modules/module-logging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/module-logging/</guid>
+      <description>&lt;p&gt;To make reviewing and debugging module calls easier, WHMCS has a built in logging function.
+This allows the record of the request and response strings for every call the module makes.
+This becomes available in an accessible way via the WHMCS admin interface.
+If you plan to release the module, this allows end users to troubleshoot and debug issues experienced using the module.
+This also allows you to be able to debug issues experienced while using it.&lt;/p&gt;
+
+&lt;p&gt;Logging is not something that is always enabled.
+This is to avoid logs growing too large, so it&amp;rsquo;s something that needs enabling for the logging to occur.
+To toggle logging, goto &lt;strong&gt;Utilities&lt;/strong&gt; &amp;gt; &lt;strong&gt;Logs&lt;/strong&gt; &amp;gt; &lt;strong&gt;Module Debug Log&lt;/strong&gt;.
+This is the same place to review the logs.&lt;/p&gt;
+
+&lt;p&gt;To utilise this functionality, the module needs to make a call as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Log module call.
+ *
+ * @param string $module The name of the module
+ * @param string $action The name of the action being performed
+ * @param string|array $requestString The input parameters for the API call
+ * @param string|array $responseData The response data from the API call
+ * @param string|array $processedData The resulting data after any post processing (eg. json decode, xml decode, etc...)
+ * @param array $replaceVars An array of strings for replacement
+ */
+logModuleCall($module, $action, $requestString, $responseData, $processedData, $replaceVars);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We recommend passing data strings such as usernames and passwords into the &lt;code&gt;$replaceVars&lt;/code&gt; parameter to allow them to be automatically scrubbed and ommitted from module log entries.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

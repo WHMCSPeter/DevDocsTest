@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hooks on WHMCS Developer Documentation</title>
+    <link>//developers.whmcs.com/hooks/</link>
+    <description>Recent content in Hooks on WHMCS Developer Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="//developers.whmcs.com/hooks/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hooks</title>
+      <link>//developers.whmcs.com/hooks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/hooks/</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Hooks allow you to execute your own code when events occur inside WHMCS.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/hooks/getting-started/&#34;&gt;Getting Started&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to create a hook in WHMCS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/hooks/defining-priority/&#34;&gt;Defining Priority&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Priorities allow you to define in which order hooks execute&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/hooks/module-hooks/&#34;&gt;Module Hooks&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how modules can take advantage of hooks&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/hooks/sample-hook/&#34;&gt;Sample Hook&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;View sample code for creating a hook&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/hooks/hook-index/&#34;&gt;Hook Index&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;A complete listing of all available hook points&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/hooks-reference/&#34;&gt;Hook Reference&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Visit the Hook Reference Manual&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>//developers.whmcs.com/hooks/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/hooks/getting-started/</guid>
+      <description>
+
+&lt;p&gt;The following steps demonstrate how to create a hook function in WHMCS.&lt;/p&gt;
+
+&lt;h2 id=&#34;create-your-hook-file&#34;&gt;Create your Hook File&lt;/h2&gt;
+
+&lt;p&gt;Hooks live inside files located within the &lt;code&gt;/includes/hooks/&lt;/code&gt; directory (or as part of a module - see module hooks).&lt;/p&gt;
+
+&lt;p&gt;Begin by creating a file named &lt;code&gt;helloworld.php&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;touch ~/includes/hooks/helloworld.php
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;add-your-hook-function&#34;&gt;Add your Hook Function&lt;/h2&gt;
+
+&lt;p&gt;Hook functions can be either named functions or closures.&lt;/p&gt;
+
+&lt;p&gt;Below is an example hook that will execute whenever the ClientAdd event occurs.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+/**
+ * Register hook function call.
+ *
+ * @param string $hookPoint The hook point to call
+ * @param integer $priority The priority for the given hook function
+ * @param string|function Function name to call or anonymous function.
+ *
+ * @return Depends on hook function point.
+ */
+add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
+{
+    $userid = $vars[&#39;userid&#39;];
+    $firstname = $vars[&#39;firstname&#39;];
+    $lastname = $vars[&#39;lastname&#39;];
+    $email = $vars[&#39;email&#39;];
+    $password = $vars[&#39;password&#39;];
+
+    // Run code to create remote forum account here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A selection of variables will be passed into your hook point. The variables you receive will depend upon the action being invoked and the data available to it.&lt;/p&gt;
+
+&lt;p&gt;Some hook points will also allow you to return values, and in some cases, the response you provide can alter the program flow to allow you to override default behaviours.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;We recommend xxx&lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Defining Priority</title>
+      <link>//developers.whmcs.com/hooks/priority/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/hooks/priority/</guid>
+      <description>&lt;p&gt;Every hook function must be registered with a priority.&lt;/p&gt;
+
+&lt;p&gt;The priority defines the order in which hooks should run when multiple hooks are registered for the same hook point.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;The priority can be a valid integer value.&lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Module Hooks</title>
+      <link>//developers.whmcs.com/hooks/module-hooks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/hooks/module-hooks/</guid>
+      <description>
+
+&lt;p&gt;Module hooks follow all the same principles as regular hooks.&lt;/p&gt;
+
+&lt;h2 id=&#34;defining-hooks-within-a-module&#34;&gt;Defining Hooks within a Module&lt;/h2&gt;
+
+&lt;p&gt;To provide hooks as part of a module, create a file named &lt;code&gt;hooks.php&lt;/code&gt; in the root of your module directory.&lt;/p&gt;
+
+&lt;p&gt;This hooks file will be detected and loaded by WHMCS on every page load.&lt;/p&gt;
+
+&lt;div class=&#34;notice note&#34; &gt;&lt;p&gt;Hook files are only detected at the time a module is activated and configured. If you add your hook file after the module has already been activated, you may need to deactivate and reactivate your module in order for WHMCS to recognise it.&lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Sample Hook</title>
+      <link>//developers.whmcs.com/hooks/sample/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/hooks/sample/</guid>
+      <description>&lt;p&gt;&lt;code&gt;/includes/hooks/samplehook.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+/**
+ * Register hook function call.
+ *
+ * @param string $hookPoint The hook point to call
+ * @param integer $priority The priority for the given hook function
+ * @param string|function Function name to call or anonymous function.
+ *
+ * @return Depends on hook function point.
+ */
+add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
+{
+    $userid = $vars[&#39;userid&#39;];
+    $firstname = $vars[&#39;firstname&#39;];
+    $lastname = $vars[&#39;lastname&#39;];
+    $email = $vars[&#39;email&#39;];
+    $password = $vars[&#39;password&#39;];
+
+    // Run code to create remote forum account here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&#34;notice note&#34; &gt;&lt;p&gt;For a full list of available hooks, please refer to the &lt;a href=&#34;//developers.whmcs.com/hooks-reference/&#34;&gt;Hooks Reference&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Hook Index</title>
+      <link>//developers.whmcs.com/hooks/hook-index/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/hooks/hook-index/</guid>
+      <description>&lt;div class=&#34;row&#34;&gt;&lt;div class=&#34;col-sm-6&#34;&gt;
+&lt;h3&gt;Invoices and Quotes&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#addinvoicelatefee&#34;&gt;AddInvoiceLateFee&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#addinvoicepayment&#34;&gt;AddInvoicePayment&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#addtransaction&#34;&gt;AddTransaction&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#adminareaviewquotepage&#34;&gt;AdminAreaViewQuotePage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#afterinvoicinggenerateinvoiceitems&#34;&gt;AfterInvoicingGenerateInvoiceItems&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicecancelled&#34;&gt;InvoiceCancelled&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicechangegateway&#34;&gt;InvoiceChangeGateway&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicecreated&#34;&gt;InvoiceCreated&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicecreation&#34;&gt;InvoiceCreation&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicecreationadminarea&#34;&gt;InvoiceCreationAdminArea&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicecreationpreemail&#34;&gt;InvoiceCreationPreEmail&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicepaid&#34;&gt;InvoicePaid&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicepaidpreemail&#34;&gt;InvoicePaidPreEmail&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicerefunded&#34;&gt;InvoiceRefunded&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicesplit&#34;&gt;InvoiceSplit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoiceunpaid&#34;&gt;InvoiceUnpaid&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#logtransaction&#34;&gt;LogTransaction&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#manualrefund&#34;&gt;ManualRefund&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#preinvoicinggenerateinvoiceitems&#34;&gt;PreInvoicingGenerateInvoiceItems&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#quotecreated&#34;&gt;QuoteCreated&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#quotestatuschange&#34;&gt;QuoteStatusChange&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#updateinvoicetotal&#34;&gt;UpdateInvoiceTotal&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#viewinvoicedetailspage&#34;&gt;ViewInvoiceDetailsPage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#acceptquote&#34;&gt;acceptQuote&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Shopping Cart&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#acceptorder&#34;&gt;AcceptOrder&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#addonfraud&#34;&gt;AddonFraud&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#afterfraudcheck&#34;&gt;AfterFraudCheck&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#aftershoppingcartcheckout&#34;&gt;AfterShoppingCartCheckout&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#cancelorder&#34;&gt;CancelOrder&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#carttotaladjustment&#34;&gt;CartTotalAdjustment&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#deleteorder&#34;&gt;DeleteOrder&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#fraudorder&#34;&gt;FraudOrder&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#orderaddonpricingoverride&#34;&gt;OrderAddonPricingOverride&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#orderproductpricingoverride&#34;&gt;OrderProductPricingOverride&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#orderproductupgradeoverride&#34;&gt;OrderProductUpgradeOverride&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#overrideordernumbergeneration&#34;&gt;OverrideOrderNumberGeneration&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#pendingorder&#34;&gt;PendingOrder&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#precalculatecarttotals&#34;&gt;PreCalculateCartTotals&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#preshoppingcartcheckout&#34;&gt;PreShoppingCartCheckout&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#runfraudcheck&#34;&gt;RunFraudCheck&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#shoppingcartcheckoutcompletepage&#34;&gt;ShoppingCartCheckoutCompletePage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#vieworderdetailspage&#34;&gt;ViewOrderDetailsPage&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Service&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#adminclientservicestabfields&#34;&gt;AdminClientServicesTabFields&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#adminclientservicestabfieldssave&#34;&gt;AdminClientServicesTabFieldsSave&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#adminserviceedit&#34;&gt;AdminServiceEdit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#cancellationrequest&#34;&gt;CancellationRequest&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#preadminserviceedit&#34;&gt;PreAdminServiceEdit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#preserviceedit&#34;&gt;PreServiceEdit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#servicedelete&#34;&gt;ServiceDelete&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#serviceedit&#34;&gt;ServiceEdit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#servicerecurringcompleted&#34;&gt;ServiceRecurringCompleted&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Module&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#aftermodule&#34;&gt;AfterModule&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#aftermodulechangepassword&#34;&gt;AfterModuleChangePassword&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#clientareaproductdetailspremoduletemplate&#34;&gt;ClientAreaProductDetailsPreModuleTemplate&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#overridemoduleusernamegeneration&#34;&gt;OverrideModuleUsernameGeneration&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#premodule&#34;&gt;PreModule&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Domain&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#adminclientdomainstabfields&#34;&gt;AdminClientDomainsTabFields&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#adminclientdomainstabfieldssave&#34;&gt;AdminClientDomainsTabFieldsSave&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#clientareadomaindetails&#34;&gt;ClientAreaDomainDetails&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#domaindelete&#34;&gt;DomainDelete&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#domainedit&#34;&gt;DomainEdit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#domainvalidation&#34;&gt;DomainValidation&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#predomainregister&#34;&gt;PreDomainRegister&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#predomaintransfer&#34;&gt;PreDomainTransfer&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Registrar Module&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/registrar-module/#afterregistrar&#34;&gt;AfterRegistrar&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/registrar-module/#afterregistrarregistration&#34;&gt;AfterRegistrarRegistration&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/registrar-module/#afterregistrarregistrationfailed&#34;&gt;AfterRegistrarRegistrationFailed&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/registrar-module/#afterregistrarrenewal&#34;&gt;AfterRegistrarRenewal&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/registrar-module/#afterregistrarrenewalfailed&#34;&gt;AfterRegistrarRenewalFailed&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/registrar-module/#afterregistrartransfer&#34;&gt;AfterRegistrarTransfer&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/registrar-module/#afterregistrartransferfailed&#34;&gt;AfterRegistrarTransferFailed&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/registrar-module/#preregistrar&#34;&gt;PreRegistrar&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Addon&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addonactivated&#34;&gt;AddonActivated&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addonactivation&#34;&gt;AddonActivation&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addonadd&#34;&gt;AddonAdd&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addoncancelled&#34;&gt;AddonCancelled&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addonconfig&#34;&gt;AddonConfig&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addonconfigsave&#34;&gt;AddonConfigSave&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addondeleted&#34;&gt;AddonDeleted&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addonedit&#34;&gt;AddonEdit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addonsuspended&#34;&gt;AddonSuspended&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addonterminated&#34;&gt;AddonTerminated&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addonunsuspended&#34;&gt;AddonUnsuspended&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#licensingaddonreissue&#34;&gt;LicensingAddonReissue&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#licensingaddonverify&#34;&gt;LicensingAddonVerify&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Client&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#adminareaclientsummaryactionlinks&#34;&gt;AdminAreaClientSummaryActionLinks&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#adminareaclientsummarypage&#34;&gt;AdminAreaClientSummaryPage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#adminclientfileupload&#34;&gt;AdminClientFileUpload&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#adminclientprofiletabfields&#34;&gt;AdminClientProfileTabFields&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#adminclientprofiletabfieldssave&#34;&gt;AdminClientProfileTabFieldsSave&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#afterclientmerge&#34;&gt;AfterClientMerge&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientalert&#34;&gt;ClientAlert&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareahomepage&#34;&gt;ClientAreaHomepage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareahomepagepanels&#34;&gt;ClientAreaHomepagePanels&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareanavbars&#34;&gt;ClientAreaNavbars&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareaprimarynavbar&#34;&gt;ClientAreaPrimaryNavbar&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareaprimarysidebar&#34;&gt;ClientAreaPrimarySidebar&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareaproductdetails&#34;&gt;ClientAreaProductDetails&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientarearegister&#34;&gt;ClientAreaRegister&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareasecondarynavbar&#34;&gt;ClientAreaSecondaryNavbar&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareasecondarysidebar&#34;&gt;ClientAreaSecondarySidebar&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareasidebars&#34;&gt;ClientAreaSidebars&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientchangepassword&#34;&gt;ClientChangePassword&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientclose&#34;&gt;ClientClose&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientdelete&#34;&gt;ClientDelete&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientedit&#34;&gt;ClientEdit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientemailverificationcomplete&#34;&gt;ClientEmailVerificationComplete&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#predeleteclient&#34;&gt;PreDeleteClient&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Contact&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/contact/#contactadd&#34;&gt;ContactAdd&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/contact/#contactchangepassword&#34;&gt;ContactChangePassword&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/contact/#contactedit&#34;&gt;ContactEdit&lt;/a&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;div class=&#34;col-sm-6&#34;&gt;&lt;h3&gt;Products and Services&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/products-and-services/#adminproductconfigfields&#34;&gt;AdminProductConfigFields&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/products-and-services/#adminproductconfigfieldssave&#34;&gt;AdminProductConfigFieldsSave&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/products-and-services/#afterproductupgrade&#34;&gt;AfterProductUpgrade&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/products-and-services/#productdelete&#34;&gt;ProductDelete&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/products-and-services/#productedit&#34;&gt;ProductEdit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/products-and-services/#serveradd&#34;&gt;ServerAdd&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/products-and-services/#serverdelete&#34;&gt;ServerDelete&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/products-and-services/#serveredit&#34;&gt;ServerEdit&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Ticket&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#adminareaviewticketpage&#34;&gt;AdminAreaViewTicketPage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#submitticketanswersuggestions&#34;&gt;SubmitTicketAnswerSuggestions&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketadminreply&#34;&gt;TicketAdminReply&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketclose&#34;&gt;TicketClose&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketdelete&#34;&gt;TicketDelete&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketdeletereply&#34;&gt;TicketDeleteReply&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketopen&#34;&gt;TicketOpen&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketopenadmin&#34;&gt;TicketOpenAdmin&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketpiping&#34;&gt;TicketPiping&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketstatuschange&#34;&gt;TicketStatusChange&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketuserreply&#34;&gt;TicketUserReply&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#transliteratetickettext&#34;&gt;TransliterateTicketText&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Support Tools&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/support-tools/#announcementadd&#34;&gt;AnnouncementAdd&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/support-tools/#announcementedit&#34;&gt;AnnouncementEdit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/support-tools/#filedownload&#34;&gt;FileDownload&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/support-tools/#networkissueadd&#34;&gt;NetworkIssueAdd&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/support-tools/#networkissueclose&#34;&gt;NetworkIssueClose&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/support-tools/#networkissuedelete&#34;&gt;NetworkIssueDelete&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/support-tools/#networkissueedit&#34;&gt;NetworkIssueEdit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/support-tools/#networkissuereopen&#34;&gt;NetworkIssueReopen&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Authentication&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#adminlogout&#34;&gt;AdminLogout&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#clientlogin&#34;&gt;ClientLogin&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#clientlogout&#34;&gt;ClientLogout&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Client Area Interface&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareapagelogin&#34;&gt;ClientAreaPageLogin&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Output&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#adminareafooteroutput&#34;&gt;AdminAreaFooterOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#adminareaheadoutput&#34;&gt;AdminAreaHeadOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#adminareaheaderoutput&#34;&gt;AdminAreaHeaderOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#admininvoicescontrolsoutput&#34;&gt;AdminInvoicesControlsOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#clientareadomaindetailsoutput&#34;&gt;ClientAreaDomainDetailsOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#clientareafooteroutput&#34;&gt;ClientAreaFooterOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#clientareaheadoutput&#34;&gt;ClientAreaHeadOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#clientareaheaderoutput&#34;&gt;ClientAreaHeaderOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#clientareaproductdetailsoutput&#34;&gt;ClientAreaProductDetailsOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#reportviewpostoutput&#34;&gt;ReportViewPostOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#reportviewpreoutput&#34;&gt;ReportViewPreOutput&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Cron&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/cron/#aftercronjob&#34;&gt;AfterCronJob&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/cron/#dailycronjob&#34;&gt;DailyCronJob&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/cron/#dailycronjobpreemail&#34;&gt;DailyCronJobPreEmail&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/cron/#precronjob&#34;&gt;PreCronJob&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Everything Else&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#adminareapage&#34;&gt;AdminAreaPage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#adminhomepage&#34;&gt;AdminHomepage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#affiliateactivation&#34;&gt;AffiliateActivation&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#affiliateclickthru&#34;&gt;AffiliateClickthru&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#affiliatecommission&#34;&gt;AffiliateCommission&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#affiliatewithdrawalrequest&#34;&gt;AffiliateWithdrawalRequest&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#afterconfigoptionsupgrade&#34;&gt;AfterConfigOptionsUpgrade&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#ccupdate&#34;&gt;CCUpdate&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#calcaffiliatecommission&#34;&gt;CalcAffiliateCommission&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#customfieldload&#34;&gt;CustomFieldLoad&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#customfieldsave&#34;&gt;CustomFieldSave&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#emailprelog&#34;&gt;EmailPreLog&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#emailpresend&#34;&gt;EmailPreSend&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#emailtplmergefields&#34;&gt;EmailTplMergeFields&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#fetchcurrencyexchangerates&#34;&gt;FetchCurrencyExchangeRates&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#intelligentsearch&#34;&gt;IntelligentSearch&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#linktracker&#34;&gt;LinkTracker&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#logactivity&#34;&gt;LogActivity&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preautomationtask&#34;&gt;PreAutomationTask&lt;/a&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hook Reference</title>
+      <link>//developers.whmcs.com/hooks/reference/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/hooks/reference/</guid>
+      <description>&lt;a  href=&#34;//developers.whmcs.com/hooks-reference/&#34; target=&#34;_blank&#34;  class=&#34;btn btn-default&#34;&gt;
+  
+  
+  
+  &lt;i class=&#34;fa fa-file-text-o&#34;&gt;&lt;/i&gt; Launch Hooks Reference Manual
+  
+&lt;/a&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

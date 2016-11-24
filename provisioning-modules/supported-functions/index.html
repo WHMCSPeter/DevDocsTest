@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Supported Functions - WHMCS Developer Documentation</title>
+    <meta name="generator" content="Hugo 0.16" />
+
+    
+    <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
+    
+    <link rel="canonical" href="//developers.whmcs.com/provisioning-modules/supported-functions/">
+    
+    <meta name="author" content="WHMCS Development Team">
+    
+
+    <link rel="stylesheet" href="//developers.whmcs.com/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/styles.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/prism.css">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+    
+
+  </head>
+  <body class="language-php">
+
+<header class="header">
+
+
+
+
+
+<div class="container">
+<nav class="navbar navbar-whmcs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.whmcs.com/"><img src="//developers.whmcs.com/img/logo.png" width="148" height="34"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="primary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="//developers.whmcs.com/"><span class="hidden-sm">Developer Documentation</span><span class="visible-sm">Developer Docs</span></a></li>
+        <li class="visible-xs"><a href="//developers.whmcs.com/">Home</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li class="visible-xs active"><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/api/">API</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+        <li><a href="//developers.whmcs.com/hooks-reference/">Hook Reference</a></li>
+        <li><a href="https://github.com/whmcs" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+
+<div class="headline-bar hidden-xs">
+<div class="container">
+<nav class="navbar navbar-main-nav">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="secondary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="//developers.whmcs.com/">Home</a></li>
+            <li><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li class="active"><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li><a href="//developers.whmcs.com/api/">API</a></li>
+            <li><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+</div>
+
+</header>
+
+
+<main class="main">
+
+  <div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-sm-3 sidebar-offcanvas">
+
+        
+          <ul class="sidebar-nav">
+            
+  <li class="active parent" data-nav-id="/provisioning-modules/">
+    <a href="//developers.whmcs.com/provisioning-modules/">
+      <span>
+        
+          <i class='fa fa-cog fa-fw'></i>
+        
+         Provisioning Modules
+       </span>
+    </a>
+    
+    <ul>
+      
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/getting-started/">
+          <a href="//developers.whmcs.com/provisioning-modules/getting-started/">
+            <span>Getting Started</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/config-options/">
+          <a href="//developers.whmcs.com/provisioning-modules/config-options/">
+            <span>Configuration Options</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="active" data-nav-id="/provisioning-modules/supported-functions/">
+          <a href="//developers.whmcs.com/provisioning-modules/supported-functions/">
+            <span>Supported Functions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/module-parameters/">
+          <a href="//developers.whmcs.com/provisioning-modules/module-parameters/">
+            <span>Module Parameters</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/core-module-functions/">
+          <a href="//developers.whmcs.com/provisioning-modules/core-module-functions/">
+            <span>Core Module Functions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/single-sign-on/">
+          <a href="//developers.whmcs.com/provisioning-modules/single-sign-on/">
+            <span>Single Sign-On</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/usage-update/">
+          <a href="//developers.whmcs.com/provisioning-modules/usage-update/">
+            <span>Usage Update</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/custom-functions/">
+          <a href="//developers.whmcs.com/provisioning-modules/custom-functions/">
+            <span>Custom Functions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/client-area-output/">
+          <a href="//developers.whmcs.com/provisioning-modules/client-area-output/">
+            <span>Client Area Output</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/admin-services-tab/">
+          <a href="//developers.whmcs.com/provisioning-modules/admin-services-tab/">
+            <span>Admin Services Tab</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/provisioning-modules/module-logging/">
+          <a href="//developers.whmcs.com/provisioning-modules/module-logging/">
+            <span>Module Logging</span>
+          </a>
+        </li>
+      
+      
+    </ul>
+    
+  </li>
+
+
+          </ul>
+        
+
+      </div>
+      <div class="col-sm-9">
+
+        <div class="breadcrumb-nav">
+
+            <div class="pull-right">
+              <a class="suggest-an-edit" href="https://github.com/WHMCS/developer-docs" target="blank">
+                <i class="fa fa-code-fork"></i>
+                <span class="hidden-xs">Suggest an edit</span>
+              </a>
+            </div>
+
+            <div class="visible-xs pull-left">
+                <button type="button" class="btn btn-toggle-sidebar" data-toggle="offcanvas">
+                    <i class="fa fa-list-alt"></i>
+                </button>
+            </div>
+
+            <div id="breadcrumbs">
+                
+                
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                    
+                <a href="//developers.whmcs.com/provisioning-modules/" itemprop="url"><span itemprop="title">Provisioning Modules</span></a> <i class="fa fa-angle-right"></i>
+                    
+                  
+                
+                  
+                
+                <span itemprop="title"> Supported Functions</span>
+              </div>
+            </div>
+
+
+			<h1>Supported Functions </h1>
+
+			
+
+<p>Here is an overview of all functions that a WHMCS provisioning module can contain.
+Functions within a module are optional and need not be in the module if they don’t apply.
+Remember, all functions should have the prefix <strong>filename_</strong> and then the function name.
+The function name is the header below.</p>
+
+<h2 id="createaccount-a-id-create-account-a">CreateAccount <a id="create-account"></a></h2>
+
+<p>This function runs when a new product provisions.
+This can be by WHMCS upon checkout or payment for a new order.
+Also, by an admin user from the Products/Services tab in a clients profile of the admin area.</p>
+
+<h2 id="suspendaccount-a-id-suspend-account-a">SuspendAccount <a id="suspend-account"></a></h2>
+
+<p>This function runs when a suspension is requested.
+Requested by the WHMCS Cron when a product becomes overdue, or by admin user in the Client Profile.</p>
+
+<h2 id="unsuspendaccount-a-id-unsuspend-account-a">UnsuspendAccount <a id="unsuspend-account"></a></h2>
+
+<p>This function runs when an unsuspension is requested.
+Requested upon payment of an overdue invoice for a product.</p>
+
+<h2 id="terminateaccount-a-id-terminate-account-a">TerminateAccount <a id="terminate-account"></a></h2>
+
+<p>This function runs when a termination is requested.
+Requested by the WHMCS Cron for long overdue products when enabled (<a href="http://docs.whmcs.com/Automation_Settings#Enable_Termination" title="Automation Settings">Automation Settings</a>).
+Also requested by an admin user in the Client Profile.</p>
+
+<h2 id="renew-a-id-renew-a">Renew <a id="renew"></a></h2>
+
+<p>This function runs each time a renewal invoice for a product becomes paid.</p>
+
+<h2 id="changepassword-a-id-change-password-a">ChangePassword <a id="change-password"></a></h2>
+
+<p>This function runs as a client requests a password change.
+The option will not show up if the function is not defined in the module.
+The status of the product must also be active.
+Admins can also invoke this command from the admin area.</p>
+
+<h2 id="changepackage-a-id-change-package-a">ChangePackage <a id="change-package"></a></h2>
+
+<p>This function runs for upgrading and downgrading of products.
+This function runs when an upgrade or downgrade order placed by the client becomes paid.
+Admins can also invoke this from the product management pages.
+The same function runs for upgrades and downgrades of both products and configurable options.</p>
+
+<h2 id="clientarea-a-id-client-area-a">ClientArea <a id="client-area"></a></h2>
+
+<p>This function can be used to define module specific client area output.
+It accepts a return of HTML for display on the product details page of the client area.
+Output via a template file within the module folder named &ldquo;clientarea.tpl&rdquo; is also possible.
+Discussion of this function in more detail later on in the docs.</p>
+
+<h2 id="adminarea-a-id-admin-area-a">AdminArea <a id="admin-area"></a></h2>
+
+<p>Used to define HTML code that displays on server configuration page (<strong>Setup</strong> &gt; <strong>Products/Services</strong> &gt; <strong>Servers</strong>).
+Used to provide an automated shortcut/login link to the integrated server control panel.</p>
+
+<h2 id="loginlink-a-id-login-link-a">LoginLink <a id="login-link"></a></h2>
+
+<p>Used to define HTML code to link to the customers account on a server control panel.
+Displayed on the product management page of the admin area.
+The return must be HTML output or link (no forms).</p>
+
+<h2 id="clientareacustombuttonarray-a-id-client-area-custom-button-array-a">ClientAreaCustomButtonArray <a id="client-area-custom-button-array"></a></h2>
+
+<p>Used to define custom functions that your module supports.
+Customers can invoke and run these from the client area.
+The functions can perform actions or product page output in the client area.
+Example usages for this are to provide product management pages, bandwidth reporting pages, etc…</p>
+
+<h2 id="clientareaallowedfunctions-a-id-client-area-allowed-functions-a">ClientAreaAllowedFunctions <a id="client-area-allowed-functions"></a></h2>
+
+<p>Like the above, used to define custom functions.
+Customers can invoke, but are not shown as buttons by default (i.e. custom client area output will invoke them).</p>
+
+<h2 id="admincustombuttonarray-a-id-admin-custom-button-array-a">AdminCustomButtonArray <a id="admin-custom-button-array"></a></h2>
+
+<p>Used to define custom functions in your module for admin users.
+This can contain more functions than the client area equivalent.</p>
+
+<h2 id="usageupdate-a-id-usage-update-a">UsageUpdate <a id="usage-update"></a></h2>
+
+<p>Used to perform a daily import of the disk and bandwidth usage from a server.
+The data imported is then used to display the usage stats both within the client and admin areas of WHMCS.
+The data is also used in disk and bandwidth overage billing calculations if enabled for a product.</p>
+
+<h2 id="adminservicestabfields-a-id-admin-services-tab-fields-a">AdminServicesTabFields <a id="admin-services-tab-fields"></a></h2>
+
+<p>Used to define extra fields or output to display within admin product pages.</p>
+
+<h2 id="adminservicestabfieldssave-a-id-admin-servics-tab-fields-save-a">AdminServicesTabFieldsSave <a id="admin-servics-tab-fields-save"></a></h2>
+
+<p>Used in conjunction with the above.
+This function handles the values submitted in any custom fields when a save occurs.</p>
+
+
+			<div class="topic-navigation clearfix">
+                
+                    <a class="nav nav-prev" href="//developers.whmcs.com/provisioning-modules/getting-started">
+                        <i class="fa fa-arrow-circle-left"></i>
+                        Previous
+                    </a>
+                
+                
+                    <a class="nav nav-next" href="//developers.whmcs.com/provisioning-modules/module-parameters">
+                        <i class="fa fa-arrow-circle-right"></i>
+                        Next
+                    </a>
+                
+            </div>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+
+        </div>
+  </div>
+</div>
+</main>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <nav>
+                <div class="col-sm-3">
+                    <h3>Learn</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/">About WHMCS</a></li>
+                        <li><a href="//developers.whmcs.com/quick-start/">Quick start</a></li>
+                        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+                        <li><a href="//docs.whmcs.com/classes/">Classes Reference</a></li>
+                        <li><a href="//developers.whmcs.com/about/faq/">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Contribute</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/contribute/">Contribute</a></li>
+                        <li><a href="https://github.com/whmcs/" target="_blank">Github</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-5">
+                    <h3>Stay up to date</h3>
+                    <div class="subscribe-form">
+                        <p class="muted subscribe-lead">Join our developers mailing list to be kept up-to-date.</p>
+                        <form action="https://www.whmcs.com/members/requestinfo.php" method="post">
+                            <input type="hidden" name="developer" value="dev">
+                            <div class="input-group">
+                                <input type="email" name="email" class="form-control" placeholder="you@yourdomain.com">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-info">
+                                        SUBSCRIBE
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <p>
+                        We won't spam you.
+                    </p>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <p>Found an error or a typo in these docs? <a href="https://github.com/WHMCS/developer-docs/issues">Submit an issue or a pull request</a></p>
+            </div>
+            <div class="col-md-5">
+                <p class="pull-right">
+                    Copyright &copy; WHMCS 2016. All rights reserved.
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="//developers.whmcs.com/js/jquery.min.js"></script>
+<script src="//developers.whmcs.com/js/bootstrap.min.js"></script>
+<script src="//developers.whmcs.com/js/prism.js"></script>
+<script>
+$(document).ready(function () {
+  $('[data-toggle="offcanvas"]').click(function () {
+    $('.row-offcanvas').toggleClass('active')
+  });
+});
+</script>
+  </body>
+</html>
+

@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Advanceds on WHMCS Developer Documentation</title>
+    <link>//developers.whmcs.com/advanced/</link>
+    <description>Recent content in Advanceds on WHMCS Developer Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="//developers.whmcs.com/advanced/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Advanced</title>
+      <link>//developers.whmcs.com/advanced/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/advanced/</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;The following are some advanced customisation options.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/creating-pages/&#34;&gt;Creating Pages&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to create additional pages within the WHMCS client area&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/db-interaction/&#34;&gt;Interacting with the Database&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to interact with the WHMCS database&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/date-functions/&#34;&gt;Date Functions&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to use the date helper functions in WHMCS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/currency-formatting/&#34;&gt;Currency Formatting&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to use the currency formatting helper functions in WHMCS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/logging/&#34;&gt;Logging&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to use the logging helper functions in WHMCS&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Creating Pages</title>
+      <link>//developers.whmcs.com/advanced/creating-pages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/advanced/creating-pages/</guid>
+      <description>&lt;p&gt;Creating your own client area pages should orindarily be done by creating an Addon Module with client area output.&lt;/p&gt;
+
+&lt;p&gt;However, if you wish to, you can create a standalone page using the following template.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+use WHMCS\ClientArea;
+use WHMCS\Database\Capsule;
+
+define(&#39;CLIENTAREA&#39;, true);
+
+require __DIR__ . &#39;/init.php&#39;;
+
+$ca = new ClientArea();
+
+$ca-&amp;gt;setPageTitle(&#39;Your Page Title Goes Here&#39;);
+
+$ca-&amp;gt;addToBreadCrumb(&#39;index.php&#39;, Lang::trans(&#39;globalsystemname&#39;));
+$ca-&amp;gt;addToBreadCrumb(&#39;mypage.php&#39;, &#39;Your Custom Page Name&#39;);
+
+$ca-&amp;gt;initPage();
+
+//$ca-&amp;gt;requireLogin(); // Uncomment this line to require a login to access this page
+
+// To assign variables to the template system use the following syntax.
+// These can then be referenced using {$variablename} in the template.
+
+//$ca-&amp;gt;assign(&#39;variablename&#39;, $value);
+
+// Check login status
+if ($ca-&amp;gt;isLoggedIn()) {
+
+    /**
+     * User is logged in - put any code you like here
+     *
+     * Here&#39;s an example to get the currently logged in clients first name
+     */
+
+    $clientName = Capsule::table(&#39;tblclients&#39;)
+        -&amp;gt;where(&#39;id&#39;, &#39;=&#39;, $ca-&amp;gt;getUserID())-&amp;gt;pluck(&#39;firstname&#39;);
+        // &#39;pluck&#39; was renamed within WHMCS 7.0.  Replace it with &#39;value&#39; instead.
+        // -&amp;gt;where(&#39;id&#39;, &#39;=&#39;, $ca-&amp;gt;getUserID())-&amp;gt;value(&#39;firstname&#39;);
+    $ca-&amp;gt;assign(&#39;clientname&#39;, $clientName);
+
+} else {
+
+    // User is not logged in
+    $ca-&amp;gt;assign(&#39;clientname&#39;, &#39;Random User&#39;);
+
+}
+
+/**
+ * Set a context for sidebars
+ *
+ * @link http://docs.whmcs.com/Editing_Client_Area_Menus#Context
+ */
+Menu::addContext();
+
+/**
+ * Setup the primary and secondary sidebars
+ *
+ * @link http://docs.whmcs.com/Editing_Client_Area_Menus#Context
+ */
+Menu::primarySidebar(&#39;announcementList&#39;);
+Menu::secondarySidebar(&#39;announcementList&#39;);
+
+# Define the template filename to be used without the .tpl extension
+
+$ca-&amp;gt;setTemplate(&#39;mypage&#39;);
+
+$ca-&amp;gt;output();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The example demonstrates the attributes for a page:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;How to initiate the page&lt;/li&gt;
+&lt;li&gt;How to reference the language file variables (Lang::trans)&lt;/li&gt;
+&lt;li&gt;How to check if a user is logged in ($ca-&amp;gt;isLoggedIn())&lt;/li&gt;
+&lt;li&gt;How to define template variables ($ca-&amp;gt;assign)&lt;/li&gt;
+&lt;li&gt;How to set the template to use and then output it&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The template file should be a filename in the active WHMCS system template folder. So, for the example above the path would be &lt;code&gt;/templates/default/mypage.tpl&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now when ready to test, upload the PHP file to the root WHMCS directory and the template file to your active template directory. Then visit the PHP file in your browser to try it.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;Custom pages created in this way should always be located in the root WHMCS directory. Attempting to use this code outside of the root directory is unsupported.&lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Interacting with the Database</title>
+      <link>//developers.whmcs.com/advanced/db-interaction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/advanced/db-interaction/</guid>
+      <description>
+
+&lt;p&gt;WHMCS 6.0 and later leverages a database connection library to ensure compatibility with modern PHP environments and best practices. It is based on the Laravel framework&amp;rsquo;s database component. This library includes a Database Abstraction Layer (DBAL) called &amp;ldquo;Capsule&amp;rdquo; and an Object Relational Mapping (ORM) library called &amp;ldquo;Eloquent&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;The Capsule DBAL component introduces two libraries to WHMCS, a query manager for running database queries and a schema manager for an abstracted API to table management. Capsule&amp;rsquo;s underlying PDO connection is also available for advanced database usage. Capsule has three static methods to get to these components:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Capsule::table(string $tableName)&lt;/code&gt;: Access the query manager for the given table.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Capsule::schema()&lt;/code&gt;: Access the schema manager for the WHMCS database.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Capsule::connection()&lt;/code&gt;: Access the connection manager to interact with the underlying database connection.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;deprecated-functionality&#34;&gt;Deprecated functionality&lt;/h2&gt;
+
+&lt;p&gt;The previously used SQL Helper Functions are still present in WHMCS but are now deprecated and may be removed in a later version of the product:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;select_query()&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;update_query()&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;insert_query()&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;full_query()&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We encourage all third party developers to use the Capsule DBAL and PDO connection for all new database interaction.&lt;/p&gt;
+
+&lt;h2 id=&#34;using-capsule&#34;&gt;Using Capsule&lt;/h2&gt;
+
+&lt;p&gt;Declare an alias to Laravel&amp;rsquo;s database manager in your project file&amp;rsquo;s use block to access Capsule:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+use WHMCS\Database\Capsule;
+
+// Run queries or modify tables as you like.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-query-manager&#34;&gt;The Query Manager&lt;/h2&gt;
+
+&lt;p&gt;Please see &lt;a href=&#34;https://laravel.com/docs/5.2/queries&#34;&gt;Laravel&amp;rsquo;s query documentation&lt;/a&gt; for more information.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;Capsule::table(string $tableName)&lt;/code&gt; method provides access to the query manager. Declare it with the name of the table you wish to query as it&amp;rsquo;s first parameter to interact with that table. The query manager has a wide range of functionality to perform advanced select, join, insert, update, and delete statements. Capsule&amp;rsquo;s select calls return rows as stdClass objects.&lt;/p&gt;
+
+&lt;p&gt;Capsule escapes all input, so it is not necessary to add escaping slashes to variables passed to these methods.&lt;/p&gt;
+
+&lt;p&gt;All of Capsule&amp;rsquo;s methods throw an exception on failure. Please place Capusle calls in try/catch blocks for graceful error handling and to avoid potential fatal errors in your hook, module, or other customization.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+use WHMCS\Database\Capsule;
+
+// Print all client first names using a simple select.
+
+/** @var stdClass $client */
+foreach (Capsule::table(&#39;tblclients&#39;)-&amp;gt;get() as $client) {
+    echo $client-&amp;gt;firstname . PHP_EOL;
+}
+
+// Rename all clients named &amp;quot;John Deo&amp;quot; to &amp;quot;John Doe&amp;quot; using an update statement.
+try {
+    $updatedUserCount = Capsule::table(&#39;tblclients&#39;)
+        -&amp;gt;where(&#39;firstname&#39;, &#39;John&#39;)
+        -&amp;gt;where(&#39;lastname&#39;, &#39;Deo&#39;)
+        -&amp;gt;update(
+            [
+                &#39;lastname&#39; =&amp;gt; &#39;Doe&#39;,
+            ]
+        );
+
+    echo &amp;quot;Fixed {$updatedUserCount} misspelled last names.&amp;quot;;
+} catch (\Exception $e) {
+    echo &amp;quot;I couldn&#39;t update client names. {$e-&amp;gt;getMessage()}&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-schema-manager&#34;&gt;The Schema Manager&lt;/h2&gt;
+
+&lt;p&gt;Use the &lt;code&gt;Capsule::schema()&lt;/code&gt; method to access the schema manager to modify table schema if necessary. The schema manager has support for creating, dropping and truncating tables and for modifying columns, indexes, and keys.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; WHMCS does not recommend changing default table schema as that can affect product functionality.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+use WHMCS\Database\Capsule;
+
+// Create a new table.
+try {
+    Capsule::schema()-&amp;gt;create(
+        &#39;my_table&#39;,
+        function ($table) {
+            /** @var \Illuminate\Database\Schema\Blueprint $table */
+            $table-&amp;gt;increments(&#39;id&#39;);
+            $table-&amp;gt;string(&#39;name&#39;);
+            $table-&amp;gt;integer(&#39;serial_number&#39;);
+            $table-&amp;gt;boolean(&#39;is_required&#39;);
+            $table-&amp;gt;timestamps();
+        }
+    );
+} catch (\Exception $e) {
+    echo &amp;quot;Unable to create my_table: {$e-&amp;gt;getMessage()}&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-connection-manager&#34;&gt;The Connection Manager&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;Capsule::connection()&lt;/code&gt; method provides low-level access to the database connection itself. Use it to initiate transactions with automatic commit and rollback or to access the underlying PDO connection to perform manual database queries outside the DBAL. The connection manager also has methods to retrieve query and schema managers.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+use WHMCS\Database\Capsule;
+
+// Perform potentially risky queries in a transaction for easy rollback.
+try {
+    Capsule::connection()-&amp;gt;transaction(
+        function ($connectionManager)
+        {
+            /** @var \Illuminate\Database\Connection $connectionManager */
+            $connectionManager-&amp;gt;table(&#39;my_table&#39;)-&amp;gt;insert(
+                [
+                    &#39;name&#39; =&amp;gt; $_POST[&#39;name&#39;],
+                    &#39;serial_number&#39; =&amp;gt; $_POST[&#39;serialNumber&#39;],
+                    &#39;is_required&#39; =&amp;gt; (int)(bool) $_POST[&#39;isRequired&#39;],
+                ]
+            );
+        }
+    );
+} catch (\Exception $e) {
+    echo &amp;quot;Uh oh! Inserting didn&#39;t work, but I was able to rollback. {$e-&amp;gt;getMessage()}&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;getting-to-pdo&#34;&gt;Getting to PDO&lt;/h2&gt;
+
+&lt;p&gt;Use the connection manager&amp;rsquo;s getPdo() method to retrieve the underlying PDO connection instance. Use the PDO connection to perform manual queries and advanced database usage.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+use WHMCS\Database\Capsule;
+
+// Perform potentially risky queries in a transaction for easy rollback.
+$pdo = Capsule::connection()-&amp;gt;getPdo();
+$pdo-&amp;gt;beginTransaction();
+
+try {
+    $statement = $pdo-&amp;gt;prepare(
+        &#39;insert into my_table (name, serial_number, is_required) values (:name, :serialNumber, :isRequired)&#39;
+    );
+
+    $statement-&amp;gt;execute(
+        [
+            &#39;:name&#39; =&amp;gt; $_POST[&#39;name&#39;],
+            &#39;:serialNumber&#39; =&amp;gt; $_POST[&#39;serialNumber&#39;],
+            &#39;:isRequired&#39; =&amp;gt; (bool) $_POST[&#39;isRequired&#39;],
+        ]
+    );
+
+    $pdo-&amp;gt;commit();
+} catch (\Exception $e) {
+    echo &amp;quot;Uh oh! {$e-&amp;gt;getMessage()}&amp;quot;;
+    $pdo-&amp;gt;rollBack();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
+
+&lt;h3 id=&#34;exceptions&#34;&gt;Exceptions&lt;/h3&gt;
+
+&lt;p&gt;All Capsule methods throw an exception on failure. Catch these exceptions and analyze their messages and stack traces to help determine the nature of the failure. WHMCS recommends placing all database interactivity in try/catch blocks for graceful error handling.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-capsule-query-log&#34;&gt;The Capsule Query Log&lt;/h3&gt;
+
+&lt;p&gt;The connection manager&amp;rsquo;s getQueryLog() method returns an array of all queries made during the life of the page request. Queries are stored in the log as an array containing the query run, the parameter bindings passed to the query, and the time it took for the query to execute, measured in milliseconds.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+use WHMCS\Database\Capsule;
+
+// Loop through each Capsule query made during the page request.
+foreach (Capsule::connection()-&amp;gt;getQueryLog() as $query) {
+    echo &amp;quot;Query: {$query[&#39;query&#39;]}&amp;quot; . PHP_EOL;
+    echo &amp;quot;Execution Time: {$query[&#39;time&#39;]}ms&amp;quot; . PHP_EOL;
+    echo &amp;quot;Parameters: &amp;quot; . PHP_EOL;
+
+    foreach ($query[&#39;bindings&#39;] as $key =&amp;gt; $value) {
+        echo &amp;quot;{$key} =&amp;gt; {$value}&amp;quot; . PHP_EOL;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;the-whmcs-activity-log&#34;&gt;The WHMCS Activity Log&lt;/h3&gt;
+
+&lt;p&gt;All uncaught PDO-based query failures, including those made by Capsule and manual PDO queries, are written to to the WHMCS activity log. View the system activity log to view the details of these failed queries.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Date Functions</title>
+      <link>//developers.whmcs.com/advanced/date-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/advanced/date-functions/</guid>
+      <description>
+
+&lt;p&gt;The following date helper functions are made available to make it easier to work with dates in WHMCS.&lt;/p&gt;
+
+&lt;h2 id=&#34;todays-date&#34;&gt;Todays Date&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Returns todays date
+ *
+ * By default returns the format defined in General Settings &amp;gt; Localisation &amp;gt; Date Format
+ *
+ * @param bool $applyClientDateFormat Set true to apply Localisation &amp;gt; Client Date Format
+ *
+ * @return string
+ */
+$todaysdate = getTodaysDate($applyClientDateFormat);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;from-mysql-date&#34;&gt;From MySQL Date&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Formats a MySQL Date/Timestamp value to system settings
+ *
+ * @param string $datetimestamp The MySQL Date/Timestamp value
+ * @param bool $includeTime Pass true to include the time in the result
+ * @param bool $applyClientDateFormat Set true to apply Localisation &amp;gt; Client Date Format
+ *
+ * @return string
+ */
+$date = fromMySQLDate($date, $includeTime, $applyClientDateFormat);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;to-mysql-date&#34;&gt;To MySQL Date&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Converts a date entered in the system setting format to a MySQL Date/Timestamp
+ *
+ * @param string $userInputDate
+ *
+ * @return string Format: 2016-12-30 23:59:59
+ */
+$date = toMySQLDate($date);
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Currency Formatting</title>
+      <link>//developers.whmcs.com/advanced/currency-formatting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/advanced/currency-formatting/</guid>
+      <description>
+
+&lt;p&gt;The following helper functions are provided for formatting currency values.&lt;/p&gt;
+
+&lt;h2 id=&#34;get-clients-currency&#34;&gt;Get Clients Currency&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Get clients currency
+ *
+ * Required before making a call to formatCurrency
+ *
+ * @param int $userId
+ *
+ * @return array
+ */
+$currencyData = getCurrency($userId);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;format-currency&#34;&gt;Format Currency&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Format currency
+ *
+ * @param float $amount
+ * @param mixed $currencyData
+ *
+ * @return \WHMCS\View\Formatter\Price
+ */
+$price = formatCurrency($amount, $currencyData);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;$price&lt;/code&gt; value returned will be an object. The default &lt;code&gt;__toString&lt;/code&gt; response format is a fully formatted price output including prefix and suffix.&lt;/p&gt;
+
+&lt;p&gt;See &lt;a href=&#34;http://docs.whmcs.com/classes/7.0/WHMCS/View/Formatter/Price.html&#34;&gt;http://docs.whmcs.com/classes/7.0/WHMCS/View/Formatter/Price.html&lt;/a&gt; for more information.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Logging</title>
+      <link>//developers.whmcs.com/advanced/logging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/advanced/logging/</guid>
+      <description>
+
+&lt;p&gt;The following logging helper methods are made available in WHMCS.&lt;/p&gt;
+
+&lt;h2 id=&#34;log-activity&#34;&gt;Log Activity&lt;/h2&gt;
+
+&lt;p&gt;A helper method is available for adding entries to the activity log.&lt;/p&gt;
+
+&lt;p&gt;This function is available to all hooks, modules and template files throughout the WHMCS system.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Log activity.
+ *
+ * @param string $message The message to log
+ * @param int $userId An optional user id to which the log entry relates
+ */
+logActivity(&#39;Message goes here&#39;, 0);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;log-module-call&#34;&gt;Log Module Call&lt;/h2&gt;
+
+&lt;p&gt;We recommend making use of the module log to record all external API calls and requests.&lt;/p&gt;
+
+&lt;p&gt;This makes debugging the external API calls your modules make easier and consistent with other modules.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Log module call.
+ *
+ * @param string $module The name of the module
+ * @param string $action The name of the action being performed
+ * @param string|array $requestString The input parameters for the API call
+ * @param string|array $responseData The response data from the API call
+ * @param string|array $processedData The resulting data after any post processing (eg. json decode, xml decode, etc...)
+ * @param array $replaceVars An array of strings for replacement
+ */
+logModuleCall($module, $action, $requestString, $responseData, $processedData, $replaceVars);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We recommend passing data strings such as usernames and passwords into the &lt;code&gt;$replaceVars&lt;/code&gt; parameter to allow them to be automatically scrubbed and ommitted from module log entries.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
