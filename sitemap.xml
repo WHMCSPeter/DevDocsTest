@@ -666,10 +666,6 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/languages/contributing/</loc>
-  </url>
-  
-  <url>
     <loc>//developers.whmcs.com/advanced/creating-pages/</loc>
   </url>
   
@@ -683,10 +679,6 @@
   
   <url>
     <loc>//developers.whmcs.com/hooks-reference/domain/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/languages/encoding/</loc>
   </url>
   
   <url>
@@ -726,19 +718,11 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/languages/locales/</loc>
-  </url>
-  
-  <url>
     <loc>//developers.whmcs.com/hooks-reference/module/</loc>
   </url>
   
   <url>
     <loc>//developers.whmcs.com/hooks-reference/output/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/languages/overrides/</loc>
   </url>
   
   <url>
@@ -763,10 +747,6 @@
   
   <url>
     <loc>//developers.whmcs.com/hooks-reference/ticket/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/languages/translating/</loc>
   </url>
   
   <url>
@@ -814,6 +794,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/languages/locales/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/hooks/sample/</loc>
   </url>
   
@@ -835,6 +819,10 @@
   
   <url>
     <loc>//developers.whmcs.com/advanced/date-functions/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/languages/encoding/</loc>
   </url>
   
   <url>
@@ -882,6 +870,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/languages/overrides/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/api/response-types/</loc>
   </url>
   
@@ -910,7 +902,15 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/languages/translating/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/themes/variables/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/languages/contributing/</loc>
   </url>
   
   <url>

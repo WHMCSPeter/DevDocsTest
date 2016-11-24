@@ -64,34 +64,6 @@
     </item>
     
     <item>
-      <title>Contributing</title>
-      <link>//developers.whmcs.com/languages/contributing/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//developers.whmcs.com/languages/contributing/</guid>
-      <description>&lt;p&gt;The language translations provided with WHMCS are thanks to our community of users who dedicate their time to translating and contributing their translations for the benefit of others.&lt;/p&gt;
-
-&lt;p&gt;We welcome suggestions for change and improvements to translations to be submitted to us via &lt;a href=&#34;https://www.whmcs.com/support/&#34; target=&#34;_blank&#34;&gt;Support Ticket&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;For all accepted translations, we offer a WHMCS account credit and will list the contributors name in the release notes.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Encoding</title>
-      <link>//developers.whmcs.com/languages/encoding/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//developers.whmcs.com/languages/encoding/</guid>
-      <description>&lt;p&gt;By default, language files in WHMCS use UTF-8 encoding without a Byte Order Marker character.&lt;/p&gt;
-
-&lt;p&gt;When modifying language files it is important to maintain the same encoding.&lt;/p&gt;
-
-&lt;p&gt;If you have chosen to change the system charset to something other than UTF-8 (for example iso-8859-1) then the language files will need to be re-saved with ANSI encoding (also without a Byte Order Marker). Most text editors have this option (including Notepad).&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Locales</title>
       <link>//developers.whmcs.com/languages/locales/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -109,6 +81,20 @@
 &lt;p&gt;The locale information is used by WHMCS to localise and display the language name localised to the native language within the WHMCS client area.&lt;/p&gt;
 
 &lt;p&gt;Failure to provide a valid locale will prevent the language file from showing up as available for use within WHMCS.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Encoding</title>
+      <link>//developers.whmcs.com/languages/encoding/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/languages/encoding/</guid>
+      <description>&lt;p&gt;By default, language files in WHMCS use UTF-8 encoding without a Byte Order Marker character.&lt;/p&gt;
+
+&lt;p&gt;When modifying language files it is important to maintain the same encoding.&lt;/p&gt;
+
+&lt;p&gt;If you have chosen to change the system charset to something other than UTF-8 (for example iso-8859-1) then the language files will need to be re-saved with ANSI encoding (also without a Byte Order Marker). Most text editors have this option (including Notepad).&lt;/p&gt;
 </description>
     </item>
     
@@ -214,6 +200,20 @@ Incorrect Translation 2 = &amp;ldquo;tuqwIj %s net jar jabwI&amp;rsquo; pop!&amp
 &lt;p&gt;In the first wrong translation, &amp;ldquo;net jar pagh&amp;rdquo; means &amp;ldquo;X a month, or Y a year&amp;rdquo;. Because WHMCS will be replacing these in the original order, you&amp;rsquo;ll end up showing the prices backwards.&lt;/p&gt;
 
 &lt;p&gt;In the second wrong translation, we removed the part talking about the yearly price and only mention the monthly price. However, WHMCS will still replace the first %s it sees with the yearly price, so you&amp;rsquo;ll end up quoting the yearly price as monthly.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Contributing</title>
+      <link>//developers.whmcs.com/languages/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/languages/contributing/</guid>
+      <description>&lt;p&gt;The language translations provided with WHMCS are thanks to our community of users who dedicate their time to translating and contributing their translations for the benefit of others.&lt;/p&gt;
+
+&lt;p&gt;We welcome suggestions for change and improvements to translations to be submitted to us via &lt;a href=&#34;https://www.whmcs.com/support/&#34; target=&#34;_blank&#34;&gt;Support Ticket&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For all accepted translations, we offer a WHMCS account credit and will list the contributors name in the release notes.&lt;/p&gt;
 </description>
     </item>
     
