@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Themes - WHMCS Developer Documentation</title>
+    <title>Sidebars - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.16" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/themes/">
+    <link rel="canonical" href="//developers.whmcs.com/themes/sidebars/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -162,7 +162,7 @@
       
       
       
-        <li class="" data-nav-id="/themes/sidebars/">
+        <li class="active" data-nav-id="/themes/sidebars/">
           <a href="//developers.whmcs.com/themes/sidebars/">
             <span>Sidebars</span>
           </a>
@@ -298,28 +298,149 @@
                   
                     
                     
+                <a href="//developers.whmcs.com/themes/" itemprop="url"><span itemprop="title">Themes</span></a> <i class="fa fa-angle-right"></i>
+                    
                   
                 
-                <span itemprop="title"> Themes</span>
+                <span itemprop="title"> Sidebars</span>
               </div>
             </div>
 
 
-			<h1>Themes </h1>
+			<h1>Sidebars </h1>
 
 			
 
-<h2 id="introduction">Introduction</h2>
+<p>There are two sidebars in WHMCS’ client area. The primary sidebar contains sidebar elements that are displayed above the body content when in responsive mode. The secondary sidebar contains sidebar elements that are displayed below the body content when in responsive mode. In desktop mode, there will be no noticeable difference between primary and secondary sidebar items.</p>
 
-<p>A theme in WHMCS controls the client facing user interface.</p>
+<p>The sidebar elements and panels are controlled in a programmatic way allowing modules and hooks to dynamically interact with the sidebar items.</p>
 
-<p>WHMCS allows you to provide a seamless experience for your website visitors by customising the look of the client area to match the rest of your website.</p>
+<p>The look and feel of the sidebar can be customised via the header.tpl and sidebar.tpl (located in /includes/) template files.</p>
+
+<p>This guide assumes you are already familiar with creating and using <a href="//developers.whmcs.com/hooks/">Hook files in WHMCS</a>.</p>
+
+<h2 id="finding-a-sidebar-name">Finding a Sidebar Name</h2>
+
+<p>Every sidebar menu item has a unique name that is used to reference it. You will need this name in order to manipulate it. To make it easier, we have made the name of each sidebar menu item available in the HTML source of the page, which means it can be retrieved using the Inspect Element option available in most modern browsers. An example of this is shown below.</p>
+
+<p><img src="find-sidebar-name.png" alt="Sidebar Menus: Finding a Sidebar Name" /></p>
+
+<p>Once you have the menu item name that you wish to manipulate, which in the example above is &ldquo;Billing Information&rdquo; you can manipulate it in the following ways.</p>
+
+<div class="notice tip" ><p>The client area&rsquo;s sidebar menu system is defined in a tree structure. Each menu item has one parent item and can have many child items. To manipulate a menu item within a sidebar panel, you first need to retrieve the parent menu item, which in the case above is &ldquo;My Account&rdquo;, followed by the &ldquo;Billing Information&rdquo; menu item which is a child within that.</p>
+</div>
+
+
+<h2 id="changing-the-text-label-of-a-sidebar-item">Changing the Text Label of a Sidebar Item</h2>
+
+<p>All sidebar menu items that are supplied by default use display names controlled by language file. Simply search in your active language file for the text you see in the menu item label, and you can adjust/change it there as required.</p>
+
+<p>Alternatively, you can manipulate the display text via a hook as follows:</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\View\Menu\Item as MenuItem;
+
+add_hook('ClientAreaPrimarySidebar', 1, function(MenuItem $primarySidebar)
+{
+    $primarySidebar-&gt;getChild(&quot;My Account&quot;)
+        -&gt;getChild(&quot;Billing Information&quot;)
+        -&gt;setLabel(&quot;Custom Text Here&quot;);
+});
+</code></pre>
+
+<p>Notice how in the above we first retrieve the Support menu item, followed by the Announcements menu item which is a child within that. The same logic should be applied to all dropdown menu items.</p>
+
+<h2 id="changing-where-a-sidebar-item-points-to">Changing where a Sidebar Item Points To</h2>
+
+<p>You can change where a menu item points to using the setUri method. For example if we are using an external system to control our announcements, we could do something like the following:</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\View\Menu\Item as MenuItem;
+
+add_hook('ClientAreaPrimarySidebar', 1, function(MenuItem $primarySidebar)
+{
+    $primarySidebar-&gt;getChild('My Account')
+        -&gt;getChild('Billing Information')
+        -&gt;setUri('https://www.example.com/billingInfo');
+});
+</code></pre>
+
+<h2 id="re-arranging-sidebar-items">Re-arranging Sidebar Items</h2>
+
+<p>You can change the display order of menu items as follows:</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\View\Menu\Item as MenuItem;
+
+add_hook('ClientAreaPrimarySidebar', 1, function(MenuItem $primarySidebar)
+{
+    $primarySidebar-&gt;getChild('My Account')
+        -&gt;getChild('Billing Information')
+        -&gt;setOrder(25); // default menu items have orders 10, 20, 30, etc...
+});
+</code></pre>
+
+<p>The following helpers are also available:</p>
+
+<pre><code>// Moves a menu item up one position
+$primaryNavbar-&gt;getChild('My Account')-&gt;getChild('Billing Information')-&gt;moveUp();
+// Moves a menu item down one position
+$primaryNavbar-&gt;getChild('My Account')-&gt;getChild('Billing Information')-&gt;moveDown();
+// Moves a menu item to the first position
+$primaryNavbar-&gt;getChild('My Account')-&gt;getChild('Billing Information')-&gt;moveToFront();
+// Moves a menu item to the last position
+$primaryNavbar-&gt;getChild('My Account')-&gt;getChild('Billing Information')-&gt;moveToBack();
+</code></pre>
+
+<h2 id="adding-an-additional-sidebar-menu-item">Adding an Additional Sidebar Menu Item</h2>
+
+<p>To add an additional item to a menu, we must first check that the sidebar exists on the particular page before speciying You can add additional menu items as follows:</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\View\Menu\Item as MenuItem;
+
+add_hook('ClientAreaPrimarySidebar', 1, function (MenuItem $primarySidebar)
+
+{
+    if (!is_null($primarySidebar-&gt;getChild('My Account'))) {
+        $primarySidebar-&gt;getChild('My Account')
+            -&gt;addChild('Mailing List Subscription Prefs')
+                -&gt;setLabel('Subscription Preferences')
+                -&gt;setUri('subscriptionprefs.php')
+                -&gt;setOrder(100);
+    }
+});
+</code></pre>
+
+<h2 id="hiding-removing-a-sidebar-menu-item">Hiding/Removing a Sidebar Menu Item</h2>
+
+<p>You can remove a menu item as follows:</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\View\Menu\Item as MenuItem;
+
+add_hook('ClientAreaPrimarySidebar', 1, function(MenuItem $primarySidebar)
+{
+    $primarySidebar-&gt;getChild('My Account')
+        -&gt;removeChild('Billing Information');
+});
+</code></pre>
 
 
 			<div class="topic-navigation clearfix">
                 
+                    <a class="nav nav-prev" href="//developers.whmcs.com/themes/navigation/">
+                        <i class="fa fa-arrow-circle-left"></i>
+                        Previous
+                    </a>
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/themes/getting-started">
+                
+                    <a class="nav nav-next" href="//developers.whmcs.com/themes/variables/">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>

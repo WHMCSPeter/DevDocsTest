@@ -22,7 +22,7 @@
 
 &lt;p&gt;Words and phrases are defined in language files stored in the &lt;code&gt;lang&lt;/code&gt; directories within both the admin and client areas.&lt;/p&gt;
 
-&lt;p&gt;If you wish to customise any of the language strings, we recommend using Overrides.&lt;/p&gt;
+&lt;p&gt;If you wish to customise any of the language strings, we recommend using &lt;a href=&#34;//developers.whmcs.com/languages/overrides/&#34;&gt;Overrides&lt;/a&gt;.&lt;/p&gt;
 
 &lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;If you spot an inaccuracy or inconsistency in a translation, please contact us and let us know. We rely on the dedication and generosity of our users for contributing translations.&lt;/p&gt;
 &lt;/div&gt;

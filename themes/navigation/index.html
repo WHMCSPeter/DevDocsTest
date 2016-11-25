@@ -162,6 +162,14 @@
       
       
       
+        <li class="" data-nav-id="/themes/sidebars/">
+          <a href="//developers.whmcs.com/themes/sidebars/">
+            <span>Sidebars</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/themes/variables/">
           <a href="//developers.whmcs.com/themes/variables/">
             <span>Variables</span>
@@ -311,17 +319,173 @@
 
 <p>The look and feel of the navigation bar can be customised via the header.tpl and navbar.tpl (located in /includes/) template files.</p>
 
-<p>To change the items within a menu, please refer to the <a href="#">Editing Client Area Menus</a> documentation.</p>
+<p>This guide assumes you are already familiar with creating and using <a href="//developers.whmcs.com/hooks/">Hook files in WHMCS</a>.</p>
 
-<h2 id="sidebars">Sidebars</h2>
+<h2 id="finding-a-menu-name">Finding a Menu Name</h2>
 
-<p>There are two sidebars in WHMCS’ client area. The primary sidebar contains sidebar elements that are displayed above the body content when in responsive mode. The secondary sidebar contains sidebar elements that are displayed below the body content when in responsive mode. In desktop mode, there will be no noticeable difference between primary and secondary sidebar items.</p>
+<p>Every menu item has a unique name that is used to reference it. You will need this name in order to manipulate it. To make it easier, we have made the name of each sidebar menu item available in the HTML source of the page, which means it can be retrieved using the Inspect Element option available in most modern browsers. An example of this is shown below.</p>
 
-<p>The sidebar elements and panels are controlled in a programmatic way allowing modules and hooks to dynamically interact with the sidebar items.</p>
+<p><img src="menus-find-name.png" alt="Navigation Menus: Finding a Menu Name" /></p>
 
-<p>The look and feel of the sidebar can be customised via the header.tpl and sidebar.tpl (located in /includes/) template files.</p>
+<p>Once you have the menu item name that you wish to manipulate, which in the example above is &ldquo;Billing Information&rdquo; you can manipulate it in the following ways.</p>
 
-<p>To change the items within a sidebar, please refer to the <a href="#">Editing Client Area Menus</a> documentation.</p>
+<div class="notice tip" ><p>The client area&rsquo;s menu system is defined in a tree structure. Each menu item has one parent item and can have many child items. To manipulate a menu item within a sidebar panel, you first need to retrieve the parent menu item, which in the case above is &ldquo;My Account&rdquo;, followed by the &ldquo;Billing Information&rdquo; menu item which is a child within that.</p>
+</div>
+
+
+<h2 id="changing-the-text-label-of-a-menu-item">Changing the Text Label of a Menu Item</h2>
+
+<p>All sidebar menu items that are supplied by default use display names controlled by language file. Simply search in your active language file for the text you see in the menu item label, and you can adjust/change it there as required.</p>
+
+<p>Alternatively, you can manipulate the display text via a hook as follows:</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\View\Menu\Item as MenuItem;
+
+add_hook('ClientAreaPrimarySidebar', 1, function(MenuItem $primarySidebar)
+{
+    $primarySidebar-&gt;getChild(&quot;My Account&quot;)
+        -&gt;getChild(&quot;Billing Information&quot;)
+        -&gt;setLabel(&quot;Custom Text Here&quot;);
+});
+</code></pre>
+
+<p>Notice how in the above we first retrieve the Support menu item, followed by the Announcements menu item which is a child within that. The same logic should be applied to all dropdown menu items.</p>
+
+<h2 id="changing-where-a-menu-item-links-to">Changing where a Menu Item Links To</h2>
+
+<p>You can change where a menu item points to using the setUri method. For example if we are using an external system to control our announcements, we could do something like the following:</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\View\Menu\Item as MenuItem;
+
+add_hook('ClientAreaPrimaryNavbar', 1, function (MenuItem $primaryNavbar)
+{
+    $navItem = $primaryNavbar-&gt;getChild('Support');
+    if (is_null($navItem)) {
+        return;
+    }
+
+    $navItem = $navItem-&gt;getChild('Announcements');
+    if (is_null($navItem)) {
+        return;
+    }
+
+    $navItem-&gt;setUri('https://www.example.com/3rdpartyblogsystem');
+
+});
+</code></pre>
+
+<h2 id="re-arranging-menu-items">Re-arranging Menu Items</h2>
+
+<p>You can change the display order of menu items as follows:</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\View\Menu\Item as MenuItem;
+
+add_hook('ClientAreaPrimaryNavbar', 1, function (MenuItem $primaryNavbar)
+{
+    $navItem = $primaryNavbar-&gt;getChild('Support');
+    if (is_null($navItem)) {
+        return;
+    }
+
+    $navItem = $navItem-&gt;getChild('Announcements');
+    if (is_null($navItem)) {
+        return;
+    }
+
+    $navItem-&gt;setOrder(1);
+
+});
+</code></pre>
+
+<p>The following helpers are also available:</p>
+
+<pre><code>// Moves a menu item up one position
+$primaryNavbar-&gt;getChild('Support')-&gt;getChild('Announcements')-&gt;moveUp();
+// Moves a menu item down one position
+$primaryNavbar-&gt;getChild('Support')-&gt;getChild('Announcements')-&gt;moveDown();
+// Moves a menu item to the first position
+$primaryNavbar-&gt;getChild('Support')-&gt;getChild('Announcements')-&gt;moveToFront();
+// Moves a menu item to the last position
+$primaryNavbar-&gt;getChild('Support')-&gt;getChild('Announcements')-&gt;moveToBack();
+</code></pre>
+
+<h2 id="adding-a-menu-item">Adding a Menu Item</h2>
+
+<p>You can add a new link to the primary navigation as follows:</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\View\Menu\Item as MenuItem;
+
+add_hook('ClientAreaPrimaryNavbar', 1, function (MenuItem $primaryNavbar)
+{
+    $primaryNavbar-&gt;addChild('Menu Name')
+        -&gt;setUri('https://www.example.com/')
+        -&gt;setOrder(70);
+});
+</code></pre>
+
+<h2 id="adding-an-additional-child-menu-item">Adding an Additional Child Menu Item</h2>
+
+<p>You can add additional menu items as follows:</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\View\Menu\Item as MenuItem;
+
+add_hook('ClientAreaPrimaryNavbar', 1, function (MenuItem $primaryNavbar)
+{
+    if (!is_null($primaryNavbar-&gt;getChild('Support'))) {
+        $primaryNavbar-&gt;getChild('Support')
+            -&gt;addChild('Emergency Contacts', array(
+                'label' =&gt; Lang::trans('emergencyContacts'),
+                'uri' =&gt; 'emergency.php',
+                'order' =&gt; '100',
+            ));
+    }
+});
+</code></pre>
+
+<p>To add a menu item conditionally based on client login status, you can do that using menu context as follows:</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\View\Menu\Item as MenuItem;
+
+add_hook('ClientAreaPrimaryNavbar', 1, function (MenuItem $primaryNavbar)
+{
+    $client = Menu::context('client');
+
+    // only add menu item when no client logged in
+    if (is_null($client)) {
+        $primaryNavbar-&gt;addChild('Example')
+            -&gt;setUri('https://www.example.com/')
+            -&gt;setOrder(100);
+    }
+});
+</code></pre>
+
+<h2 id="hiding-removing-a-menu-item">Hiding/Removing a Menu Item</h2>
+
+<p>You can remove a menu item as follows:</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\View\Menu\Item as MenuItem;
+
+add_hook('ClientAreaPrimaryNavbar', 1, function (MenuItem $primaryNavbar)
+{
+    if (!is_null($primaryNavbar-&gt;getChild('Support'))) {
+        $primaryNavbar-&gt;getChild('Support')-&gt;removeChild('Announcements');
+    }
+});
+</code></pre>
 
 
 			<div class="topic-navigation clearfix">
@@ -332,7 +496,7 @@
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/themes/variables/">
+                    <a class="nav nav-next" href="//developers.whmcs.com/themes/sidebars/">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>
