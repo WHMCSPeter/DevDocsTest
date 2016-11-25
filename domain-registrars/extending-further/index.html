@@ -63,15 +63,22 @@
         <li><a href="//developers.whmcs.com/hooks-reference/">Hook Reference</a></li>
         <li><a href="https://github.com/whmcs" target="_blank"><i class="fa fa-github"></i></a></li>
       </ul>
+      <form class="navbar-form navbar-right visible-xs" id="docsSearchMobile">
+        <div class="input-group">
+          <input type="text" id="docsQueryMobile" class="form-control" placeholder="Search">
+          <span class="input-group-btn">
+            <button class="btn" type="submit" id="btnSearchDocsMobile"><i class="fa fa-search"></i></button>
+          </span>
+        </div>
+      </form>
     </div>
   </div>
 </nav>
 </div>
 
 <div class="headline-bar hidden-xs">
-<div class="container">
 <nav class="navbar navbar-main-nav">
-  <div class="container-fluid">
+  <div class="container">
     <div class="collapse navbar-collapse" id="secondary-nav">
       <ul class="nav navbar-nav">
         <li><a href="//developers.whmcs.com/">Home</a></li>
@@ -83,10 +90,17 @@
             <li><a href="//developers.whmcs.com/api/">API</a></li>
             <li><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
       </ul>
+      <form class="navbar-form navbar-right" id="docsSearch">
+        <div class="input-group">
+          <input type="text" id="docsQuery" class="form-control" placeholder="Search">
+          <span class="input-group-btn">
+            <button class="btn" type="submit" id="btnSearchDocs"><i class="fa fa-search"></i></button>
+          </span>
+        </div>
+      </form>
     </div>
   </div>
 </nav>
-</div>
 </div>
 
 </header>
@@ -398,8 +412,13 @@
     </div>
 </footer>
 
+<div style="width:0px;overflow:hidden;height:0px;">
+    <gcse:search noResultsString="No matches found. Please try a different search term or try contacting our support team."></gcse:search>
+</div>
+
 <script src="//developers.whmcs.com/js/jquery.min.js"></script>
 <script src="//developers.whmcs.com/js/bootstrap.min.js"></script>
+<script src="//developers.whmcs.com/js/search.js"></script>
 <script src="//developers.whmcs.com/js/prism.js"></script>
 <script>
 $(document).ready(function () {
