@@ -45,7 +45,7 @@
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/response-types/&#34;&gt;Response Types&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn about the different response types&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/sample-code/&#34;&gt;Sample Code&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;See sample code for remotely connecting to the WHMCS API&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/internal-api/&#34;&gt;Internal API&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;See sample code for using the Local WHMCS API&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/api=index/&#34;&gt;API Index&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;A complete listing of all available API commands&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/api-index/&#34;&gt;API Index&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;A complete listing of all available API commands&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api-reference/&#34;&gt;API Reference&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Visit the API Reference Manual&lt;/li&gt;
 &lt;/ul&gt;
 </description>
@@ -59,9 +59,13 @@
       <guid>//developers.whmcs.com/api-reference/</guid>
       <description>
 
-&lt;h2 id=&#34;function-overview&#34;&gt;Function Overview&lt;/h2&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 
-&lt;p&gt;API functions do x y z.&lt;/p&gt;
+&lt;p&gt;The WHMCS API provides an interface to allow you to access and perform actions in WHMCS both from external applications and scripts as well as internal modules and addons.&lt;/p&gt;
+
+&lt;p&gt;Choose a category from the left to browse the available API commands.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;//developers.whmcs.com/api/&#34;&gt;Learn more about the API&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

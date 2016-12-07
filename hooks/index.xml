@@ -401,22 +401,5 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 </description>
     </item>
     
-    <item>
-      <title>Hook Reference</title>
-      <link>//developers.whmcs.com/hooks/reference/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//developers.whmcs.com/hooks/reference/</guid>
-      <description>&lt;a  href=&#34;//developers.whmcs.com/hooks-reference/&#34; target=&#34;_blank&#34;  class=&#34;btn btn-default&#34;&gt;
-  
-  
-  
-  &lt;i class=&#34;fa fa-file-text-o&#34;&gt;&lt;/i&gt; Launch Hooks Reference Manual
-  
-&lt;/a&gt;
-
-</description>
-    </item>
-    
   </channel>
 </rss>
