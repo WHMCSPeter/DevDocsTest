@@ -373,7 +373,9 @@ function yourmodulename_getConfigArray($params)
       <guid>//developers.whmcs.com/domain-registrars/module-parameters/</guid>
       <description>&lt;p&gt;The module parameters are the data values passed into each registrar module function when called.&lt;/p&gt;
 
-&lt;p&gt;Every registrar module function receives the same parameters. These parameters provide information about the specific domain the module command is being invoked for. The parameters also contain the settings from the registrar itself. Additional variables specific to the action may be available depending upon the function running.&lt;/p&gt;
+&lt;p&gt;Registrar module functions all receive the same common set of parameters. These parameters provide information about the specific domain the module command is being invoked for. The parameters also contain the settings defined for the module itself.&lt;/p&gt;
+
+&lt;p&gt;Additional variables specific to the action being performed such as EPP code, nameservers and WHOIS contact information may be available depending upon the function being called.&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -385,33 +387,258 @@ function yourmodulename_getConfigArray($params)
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;configvalues&lt;/td&gt;
-&lt;td&gt;the settings defined in your modules configuration function - names as defined&lt;/td&gt;
+&lt;td&gt;userid&lt;/td&gt;
+&lt;td&gt;The client ID who owns the domain&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;domainid&lt;/td&gt;
-&lt;td&gt;the unique ID of the domain (Database Field: tbldomains.id)&lt;/td&gt;
+&lt;td&gt;The unique ID of the domain&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;sld&lt;/td&gt;
-&lt;td&gt;the second level domain being managed (eg. google)&lt;/td&gt;
+&lt;td&gt;eg. &lt;code&gt;yourdomain&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;tld&lt;/td&gt;
-&lt;td&gt;the top level domain being managed (eg. .com)&lt;/td&gt;
+&lt;td&gt;eg. &lt;code&gt;.com&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;regperiod&lt;/td&gt;
-&lt;td&gt;the registration period requested for the domain&lt;/td&gt;
+&lt;td&gt;The registration term for the domain (1-10 years)&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;nsX&lt;/td&gt;
-&lt;td&gt;the nameserver values for a domain - where X = 1 to 5&lt;/td&gt;
+&lt;td&gt;eppcode&lt;/td&gt;
+&lt;td&gt;Present only for incoming domain transfer orders (Transfers only)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Nameservers&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ns1&lt;/td&gt;
+&lt;td&gt;First Nameserver (Registrations, Transfers and Nameserver Updates only)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ns2&lt;/td&gt;
+&lt;td&gt;Second Nameserver&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ns3&lt;/td&gt;
+&lt;td&gt;Third Nameserver&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ns4&lt;/td&gt;
+&lt;td&gt;Fourth Nameserver&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ns5&lt;/td&gt;
+&lt;td&gt;Fifth Nameserver&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Contact Information&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;firstname&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;lastname&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;fullname&lt;/td&gt;
+&lt;td&gt;First name and last name combined&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;email&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;address1&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;address2&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;city&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;state&lt;/td&gt;
+&lt;td&gt;State code eg. TX&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;fullstate&lt;/td&gt;
+&lt;td&gt;State name eg. Texas&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;postcode&lt;/td&gt;
+&lt;td&gt;Postcode/Zip code&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;countrycode&lt;/td&gt;
+&lt;td&gt;Country code eg. GB&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;countryname&lt;/td&gt;
+&lt;td&gt;Country name eg. United Kingdom&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;phonenumber&lt;/td&gt;
+&lt;td&gt;Phone number as the user provided it&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;phonecc&lt;/td&gt;
+&lt;td&gt;Country code determined based on country&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;fullphonenumber&lt;/td&gt;
+&lt;td&gt;Format: +CC.xxxxxxxxxxxx&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;additionalfields&lt;/td&gt;
+&lt;td&gt;An array of additional registrant information fields and their values&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Admin/Tech/Billing&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminfirstname&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminlastname&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;admincompanyname&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminemail&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminaddress1&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminaddress2&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;admincity&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminstate&lt;/td&gt;
+&lt;td&gt;State code eg. TX&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminfullstate&lt;/td&gt;
+&lt;td&gt;State name eg. Texas&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminpostcode&lt;/td&gt;
+&lt;td&gt;Postcode/Zip code&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;admincountry&lt;/td&gt;
+&lt;td&gt;eg. GB&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminphonenumber&lt;/td&gt;
+&lt;td&gt;Phone number as the user provided it&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminfullphonenumber&lt;/td&gt;
+&lt;td&gt;Format: +CC.xxxxxxxxxxxx&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Domain Addons&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;dnsmanagement&lt;/td&gt;
+&lt;td&gt;True/false for if DNS Management add-on is active&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;emailforwarding&lt;/td&gt;
+&lt;td&gt;True/false for if Email Forwarding add-on is active&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;idprotection&lt;/td&gt;
+&lt;td&gt;True/false for if ID Protection add-on is active&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Premium Parameters&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;premiumEnabled&lt;/td&gt;
+&lt;td&gt;True if premium domain orders are enabled in WHMCS (Registration/Transfers only)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;premiumCost&lt;/td&gt;
+&lt;td&gt;The cost price fetched at the time of the order being placed&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

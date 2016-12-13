@@ -279,7 +279,9 @@
 
 			<p>The module parameters are the data values passed into each registrar module function when called.</p>
 
-<p>Every registrar module function receives the same parameters. These parameters provide information about the specific domain the module command is being invoked for. The parameters also contain the settings from the registrar itself. Additional variables specific to the action may be available depending upon the function running.</p>
+<p>Registrar module functions all receive the same common set of parameters. These parameters provide information about the specific domain the module command is being invoked for. The parameters also contain the settings defined for the module itself.</p>
+
+<p>Additional variables specific to the action being performed such as EPP code, nameservers and WHOIS contact information may be available depending upon the function being called.</p>
 
 <table>
 <thead>
@@ -291,33 +293,258 @@
 
 <tbody>
 <tr>
-<td>configvalues</td>
-<td>the settings defined in your modules configuration function - names as defined</td>
+<td>userid</td>
+<td>The client ID who owns the domain</td>
 </tr>
 
 <tr>
 <td>domainid</td>
-<td>the unique ID of the domain (Database Field: tbldomains.id)</td>
+<td>The unique ID of the domain</td>
 </tr>
 
 <tr>
 <td>sld</td>
-<td>the second level domain being managed (eg. google)</td>
+<td>eg. <code>yourdomain</code></td>
 </tr>
 
 <tr>
 <td>tld</td>
-<td>the top level domain being managed (eg. .com)</td>
+<td>eg. <code>.com</code></td>
 </tr>
 
 <tr>
 <td>regperiod</td>
-<td>the registration period requested for the domain</td>
+<td>The registration term for the domain (1-10 years)</td>
 </tr>
 
 <tr>
-<td>nsX</td>
-<td>the nameserver values for a domain - where X = 1 to 5</td>
+<td>eppcode</td>
+<td>Present only for incoming domain transfer orders (Transfers only)</td>
+</tr>
+
+<tr>
+<td><strong>Nameservers</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td>ns1</td>
+<td>First Nameserver (Registrations, Transfers and Nameserver Updates only)</td>
+</tr>
+
+<tr>
+<td>ns2</td>
+<td>Second Nameserver</td>
+</tr>
+
+<tr>
+<td>ns3</td>
+<td>Third Nameserver</td>
+</tr>
+
+<tr>
+<td>ns4</td>
+<td>Fourth Nameserver</td>
+</tr>
+
+<tr>
+<td>ns5</td>
+<td>Fifth Nameserver</td>
+</tr>
+
+<tr>
+<td><strong>Contact Information</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td>firstname</td>
+<td></td>
+</tr>
+
+<tr>
+<td>lastname</td>
+<td></td>
+</tr>
+
+<tr>
+<td>fullname</td>
+<td>First name and last name combined</td>
+</tr>
+
+<tr>
+<td>companyname</td>
+<td></td>
+</tr>
+
+<tr>
+<td>email</td>
+<td></td>
+</tr>
+
+<tr>
+<td>address1</td>
+<td></td>
+</tr>
+
+<tr>
+<td>address2</td>
+<td></td>
+</tr>
+
+<tr>
+<td>city</td>
+<td></td>
+</tr>
+
+<tr>
+<td>state</td>
+<td>State code eg. TX</td>
+</tr>
+
+<tr>
+<td>fullstate</td>
+<td>State name eg. Texas</td>
+</tr>
+
+<tr>
+<td>postcode</td>
+<td>Postcode/Zip code</td>
+</tr>
+
+<tr>
+<td>countrycode</td>
+<td>Country code eg. GB</td>
+</tr>
+
+<tr>
+<td>countryname</td>
+<td>Country name eg. United Kingdom</td>
+</tr>
+
+<tr>
+<td>phonenumber</td>
+<td>Phone number as the user provided it</td>
+</tr>
+
+<tr>
+<td>phonecc</td>
+<td>Country code determined based on country</td>
+</tr>
+
+<tr>
+<td>fullphonenumber</td>
+<td>Format: +CC.xxxxxxxxxxxx</td>
+</tr>
+
+<tr>
+<td>additionalfields</td>
+<td>An array of additional registrant information fields and their values</td>
+</tr>
+
+<tr>
+<td><strong>Admin/Tech/Billing</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td>adminfirstname</td>
+<td></td>
+</tr>
+
+<tr>
+<td>adminlastname</td>
+<td></td>
+</tr>
+
+<tr>
+<td>admincompanyname</td>
+<td></td>
+</tr>
+
+<tr>
+<td>adminemail</td>
+<td></td>
+</tr>
+
+<tr>
+<td>adminaddress1</td>
+<td></td>
+</tr>
+
+<tr>
+<td>adminaddress2</td>
+<td></td>
+</tr>
+
+<tr>
+<td>admincity</td>
+<td></td>
+</tr>
+
+<tr>
+<td>adminstate</td>
+<td>State code eg. TX</td>
+</tr>
+
+<tr>
+<td>adminfullstate</td>
+<td>State name eg. Texas</td>
+</tr>
+
+<tr>
+<td>adminpostcode</td>
+<td>Postcode/Zip code</td>
+</tr>
+
+<tr>
+<td>admincountry</td>
+<td>eg. GB</td>
+</tr>
+
+<tr>
+<td>adminphonenumber</td>
+<td>Phone number as the user provided it</td>
+</tr>
+
+<tr>
+<td>adminfullphonenumber</td>
+<td>Format: +CC.xxxxxxxxxxxx</td>
+</tr>
+
+<tr>
+<td><strong>Domain Addons</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td>dnsmanagement</td>
+<td>True/false for if DNS Management add-on is active</td>
+</tr>
+
+<tr>
+<td>emailforwarding</td>
+<td>True/false for if Email Forwarding add-on is active</td>
+</tr>
+
+<tr>
+<td>idprotection</td>
+<td>True/false for if ID Protection add-on is active</td>
+</tr>
+
+<tr>
+<td><strong>Premium Parameters</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td>premiumEnabled</td>
+<td>True if premium domain orders are enabled in WHMCS (Registration/Transfers only)</td>
+</tr>
+
+<tr>
+<td>premiumCost</td>
+<td>The cost price fetched at the time of the order being placed</td>
 </tr>
 </tbody>
 </table>
