@@ -942,6 +942,14 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/domain-registrars/availability-checks/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/domain-registrars/premium-domains/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/themes/conditionals/</loc>
   </url>
   

@@ -71,10 +71,10 @@
       <description>&lt;p&gt;The following API commands exist for interacting with OAuth/OpenID Connect credentials in WHMCS:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;ListOAuthCredentials&lt;/li&gt;
-&lt;li&gt;CreateOAuthCredential&lt;/li&gt;
-&lt;li&gt;UpdateOAuthCredential&lt;/li&gt;
-&lt;li&gt;DeleteOAuthCredential&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/api-reference/listoauthcredentials/&#34;&gt;ListOAuthCredentials&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/api-reference/createoauthcredential/&#34;&gt;CreateOAuthCredential&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/api-reference/updateoauthcredential/&#34;&gt;UpdateOAuthCredential&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/api-reference/deleteoauthcredential/&#34;&gt;DeleteOAuthCredential&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -88,8 +88,8 @@
       <description>&lt;p&gt;For more information, please refer to:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;OpenID Connect User Guide&lt;/li&gt;
-&lt;li&gt;OpenID Connect Developer Guide&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.whmcs.com/OpenID_Connect&#34;&gt;OpenID Connect User Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.whmcs.com/OpenID_Connect_Developer_Guide&#34;&gt;OpenID Connect Developer Guide&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

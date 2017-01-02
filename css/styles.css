@@ -415,3 +415,9 @@ td {
     height: 30px;
     width: auto !important;
 }
+
+.sub-success-message,
+.sub-error-message {
+    padding: 5px 14px;
+    margin-bottom: 8px;
+}

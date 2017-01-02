@@ -343,7 +343,14 @@ We aim to review submissions in 1-2 weeks.</p>
                     <h3>Stay up to date</h3>
                     <div class="subscribe-form">
                         <p class="muted subscribe-lead">Join our developers mailing list to be kept up-to-date.</p>
-                        <form action="https://www.whmcs.com/members/requestinfo.php" method="post">
+                        <div class="alert alert-success sub-success-message hidden" role="alert">
+                            <strong>Thank You!</strong> You have been subscribed.
+                        </div>
+                        <div class="alert alert-danger sub-error-message hidden" role="alert">
+                            <strong>Sorry</strong> <span id="error-message-text"></span>
+                        </div>
+                        <form action="//www.whmcs.com/members/subscribe.php" method="post" id="frmSubscribe">
+                            <input type="hidden" name="name" value="Subscriber">
                             <input type="hidden" name="developer" value="dev">
                             <div class="input-group">
                                 <input type="email" name="email" class="form-control" placeholder="you@yourdomain.com">
@@ -367,7 +374,7 @@ We aim to review submissions in 1-2 weeks.</p>
             </div>
             <div class="col-md-5">
                 <p class="pull-right">
-                    Copyright &copy; WHMCS 2016. All rights reserved.
+                    Copyright &copy; WHMCS 2017. All rights reserved.
                     <br>
                 </p>
             </div>
@@ -383,13 +390,7 @@ We aim to review submissions in 1-2 weeks.</p>
 <script src="//developers.whmcs.com/js/bootstrap.min.js"></script>
 <script src="//developers.whmcs.com/js/search.js"></script>
 <script src="//developers.whmcs.com/js/prism.js"></script>
-<script>
-$(document).ready(function () {
-  $('[data-toggle="offcanvas"]').click(function () {
-    $('.row-offcanvas').toggleClass('active')
-  });
-});
-</script>
+
   </body>
 </html>
 

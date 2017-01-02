@@ -24,6 +24,38 @@ jQuery(document).ready(function() {
         jQuery(".gsc-input").val(jQuery("#docsQueryMobile").val());
         jQuery(".gsc-search-button").click();
     });
+
+    jQuery('.sub-success-message').hide().removeClass('hidden');
+    jQuery('.sub-error-message').hide().removeClass('hidden');
+
+    jQuery('#frmSubscribe').submit(function(e) {
+        e.preventDefault();
+        var postdata = jQuery('#frmSubscribe').serialize();
+        jQuery.ajax({
+            type: 'POST',
+            url: 'https://www.whmcs.com/members/subscribe.php',
+            data: postdata,
+            dataType: 'json',
+            success: function(json) {
+                if(json.valid == 0) {
+                    jQuery('.sub-success-message').hide();
+                    jQuery('.sub-error-message').hide();
+                    jQuery('.sub-error-message').html(json.message);
+                    jQuery('.sub-error-message').fadeIn();
+                } else {
+                    jQuery('.sub-error-message').hide();
+                    jQuery('.sub-success-message').hide();
+                    jQuery('#frmSubscribe').hide();
+                    jQuery('.sub-success-message').html(json.message);
+                    jQuery('.sub-success-message').fadeIn();
+                }
+            }
+        });
+    });
+
+    jQuery('[data-toggle="offcanvas"]').click(function () {
+        jQuery('.row-offcanvas').toggleClass('active')
+    });
 });
 
 function resetSearchBtn() {

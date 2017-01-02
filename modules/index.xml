@@ -89,7 +89,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/modules/marketplace/</guid>
-      <description>&lt;p&gt;The WHMCS Marketplace allows users of WHMCS to connect with, find and discover add-ons and extensions for the WHMCS platform.&lt;/p&gt;
+      <description>&lt;div class=&#34;text-center&#34;&gt;
+    &lt;a href=&#34;https://marketplace.whmcs.com/&#34; target=&#34;_blank&#34;&gt;
+        &lt;img src=&#34;//www.whmcs.com/images/marketplace/whmcsmarketplacelogo.png&#34; alt=&#34;WHMCS Marketplace&#34;&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The WHMCS Marketplace allows users of WHMCS to connect with, find and discover add-ons and extensions for the WHMCS platform.&lt;/p&gt;
 
 &lt;p&gt;For developers, it provides a great opportunity for you to get your creations exposure and visibility to potential users and customers.&lt;/p&gt;
 

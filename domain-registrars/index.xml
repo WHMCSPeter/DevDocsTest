@@ -671,7 +671,207 @@ function yourmodulename_getConfigArray($params)
     </item>
     
     <item>
-      <title>Externding Further</title>
+      <title>Availability Checks</title>
+      <link>//developers.whmcs.com/domain-registrars/availability-checks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/domain-registrars/availability-checks/</guid>
+      <description>
+
+&lt;p&gt;In WHMCS 7.1 and later, domain registrar modules can take control of Domain Availability checks and lookups.&lt;/p&gt;
+
+&lt;p&gt;There are two supported functions: &lt;code&gt;CheckAvailability&lt;/code&gt; and &lt;code&gt;GetSuggestions&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;check-availability&#34;&gt;Check Availability&lt;/h2&gt;
+
+&lt;p&gt;The purpose of this function is to check if a domain is available for registration or transfer.&lt;/p&gt;
+
+&lt;h3 id=&#34;input-parameters&#34;&gt;Input Parameters&lt;/h3&gt;
+
+&lt;p&gt;In addition to the regular &lt;a href=&#34;//developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;Common Module Parameters&lt;/a&gt;, the CheckAvailability function is passed the following input parameters.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;searchTerm&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The search term provided by the end user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;punyCodeSearchTerm&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;For an IDN domain, the puny code encoded search term&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;tldsToInclude&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of TLDs/extensions to perform the availability check for&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;isIdnDomain&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;If IDN Domains are enabled for this WHMCS installation&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;premiumEnabled&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;If Premium Domains are enabled for this WHMCS installation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;For performance reasons, we recommending performing the lookup for all requested extensions at the same time if the registrar supports it.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h3 id=&#34;return&#34;&gt;Return&lt;/h3&gt;
+
+&lt;p&gt;The return of this function is expected to be an ArrayObject based collection of \WHMCS\Domains\DomainLookup\SearchResult results.&lt;/p&gt;
+
+&lt;p&gt;Each SearchResult object consists of an SLD and TLD, a status (available, registered, reserved) and optionally premium information such as Purchase Cost Price.&lt;/p&gt;
+
+&lt;h3 id=&#34;code-sample&#34;&gt;Code Sample&lt;/h3&gt;
+
+&lt;p&gt;Please refer to the example provided in the &lt;a href=&#34;https://github.com/WHMCS/sample-registrar-module&#34;&gt;Sample Registrar Module available via Github&lt;/a&gt; for an example implementation of the &lt;code&gt;CheckAvailability&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;h2 id=&#34;get-domain-suggestions&#34;&gt;Get Domain Suggestions&lt;/h2&gt;
+
+&lt;p&gt;The purpose of this function is to return a list of alternative domain registration suggestions based on the search term provided by an end user.&lt;/p&gt;
+
+&lt;h3 id=&#34;input-parameters-1&#34;&gt;Input Parameters&lt;/h3&gt;
+
+&lt;p&gt;In addition to the regular &lt;a href=&#34;//developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;Common Module Parameters&lt;/a&gt;, the GetSuggestions function is passed the following input parameters.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;searchTerm&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The search term provided by the end user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;punyCodeSearchTerm&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;For an IDN domain, the puny code encoded search term&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;tldsToInclude&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of TLDs/extensions to perform the availability check for&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;isIdnDomain&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;If IDN Domains are enabled for this WHMCS installation&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;premiumEnabled&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;If Premium Domains are enabled for this WHMCS installation&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;suggestionSettings&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of settings and their values as defined in the &lt;code&gt;DomainSuggestionOptions&lt;/code&gt; function&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;return-1&#34;&gt;Return&lt;/h3&gt;
+
+&lt;p&gt;The return of this function is expected to be an ArrayObject based collection of \WHMCS\Domains\DomainLookup\SearchResult results.&lt;/p&gt;
+
+&lt;p&gt;All domains returned by the suggestions function should be available for registration.&lt;/p&gt;
+
+&lt;h3 id=&#34;code-sample-1&#34;&gt;Code Sample&lt;/h3&gt;
+
+&lt;p&gt;Please refer to the example provided in the &lt;a href=&#34;https://github.com/WHMCS/sample-registrar-module&#34;&gt;Sample Registrar Module available via Github&lt;/a&gt; for an example implementation of the &lt;code&gt;GetDomainSuggestions&lt;/code&gt; function.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Premium Domains</title>
+      <link>//developers.whmcs.com/domain-registrars/premium-domains/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/domain-registrars/premium-domains/</guid>
+      <description>
+
+&lt;p&gt;In WHMCS 7.1 and later, registrar modules can include support for the selling of Premium Domains.&lt;/p&gt;
+
+&lt;p&gt;Premium Domains cannot be detected with traditional WHOIS lookups, and therefore to use Premium Domains, it requires a registrar module to implement the &lt;a href=&#34;//developers.whmcs.com/domain-registrars/availability-checks/&#34;&gt;Availability Check&lt;/a&gt; functions.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-it-works&#34;&gt;How It Works&lt;/h2&gt;
+
+&lt;p&gt;Premium Domain functionality must be enabled by admin users before it can be used. The status is passed as a boolean value to both the CheckAvailability and GetSuggestions registrar module functions under the parameter &lt;code&gt;premiumEnabled&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;When enabled, domain availability checks must return if a domain is premium, and if it is, also return pricing information.&lt;/p&gt;
+
+&lt;p&gt;The cost price of the registration will then be converted into the end users currency, and a markup as defined by the WHMCS admin user will be applied before displaying the price to the end user.&lt;/p&gt;
+
+&lt;p&gt;The registration and renewal registrar module functions will be passed two additional parameters when Premium Domains are enabled:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;premiumEnabled&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;If Premium Domains are enabled for this WHMCS installation&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;premiumCost&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;The cost price for the action being performed (registration or renewal)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;If the cost price passed to the Register or Renew functions by WHMCS does not match the cost price of the domain at the time the action is being performed, the process should be aborted and an appropriate error message should be returned for the admin user.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h3 id=&#34;code-sample&#34;&gt;Code Sample&lt;/h3&gt;
+
+&lt;p&gt;Please refer to the example provided in the &lt;a href=&#34;https://github.com/WHMCS/sample-registrar-module&#34;&gt;Sample Registrar Module available via Github&lt;/a&gt; for an example implementation of the &lt;code&gt;CheckAvailability&lt;/code&gt; and &lt;code&gt;Register&lt;/code&gt; functions. Both include the appropriate parameters for Premium Domain handling.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Extending Further</title>
       <link>//developers.whmcs.com/domain-registrars/extending-further/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
