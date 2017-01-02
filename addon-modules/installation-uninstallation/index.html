@@ -186,6 +186,14 @@
       
       
       
+        <li class="" data-nav-id="/addon-modules/admin-dashboard-widgets/">
+          <a href="//developers.whmcs.com/addon-modules/admin-dashboard-widgets/">
+            <span>Admin Dashboard Widgets</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/addon-modules/upgrades/">
           <a href="//developers.whmcs.com/addon-modules/upgrades/">
             <span>Upgrades</span>
@@ -296,11 +304,11 @@ So, if you want to fail the process due to a problem, or want to notify the user
 <h2 id="example-activate-function-a-id-example-activate-function-a">Example Activate Function <a id="example-activate-function"></a></h2>
 
 <pre><code>function demo_activate() {
- 
+
     # Create Custom DB Table
     $query = &quot;CREATE TABLE `mod_addonexample` (`id` INT( 1 ) NOT NULL AUTO_INCREMENT ... &quot;;
-	$result = mysql_query($query);
- 
+	$result = full_query($query);
+
     # Return Result
     return array('status'=&gt;'success','description'=&gt;'This is an demo module only. In a real
            module you might instruct a user how to get started with it here...');
@@ -308,18 +316,18 @@ So, if you want to fail the process due to a problem, or want to notify the user
            indicate there was a problem activating the module');
     return array('status'=&gt;'info','description'=&gt;'You can use the info status return to display
            a message to the user');
- 
+
 }
 </code></pre>
 
 <h2 id="example-deactivate-function-a-id-example-deactivate-function-a">Example Deactivate Function <a id="example-deactivate-function"></a></h2>
 
 <pre><code>function demo_deactivate() {
- 
+
     # Remove Custom DB Table
     $query = &quot;DROP TABLE `mod_addonexample`&quot;;
-	$result = mysql_query($query);
- 
+	$result = full_query($query);
+
     # Return Result
     return array('status'=&gt;'success','description'=&gt;'If successful, you can return a message
            to show the user here');
@@ -327,7 +335,7 @@ So, if you want to fail the process due to a problem, or want to notify the user
            message for display here');
     return array('status'=&gt;'info','description'=&gt;'If you want to give an info message to a user
            you can return it here');
- 
+
 }
 </code></pre>
 

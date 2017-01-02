@@ -56,7 +56,7 @@ These events include:&lt;/p&gt;
 
 &lt;h2 id=&#34;github&#34;&gt;Github&lt;/h2&gt;
 
-&lt;p&gt;We make available a sample provisioning module on Github which we recommend using as a basis for your custom module.&lt;/p&gt;
+&lt;p&gt;We make available a sample provisioning module on Github. We recommend using this as a starting point for a custom module.&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/WHMCS/sample-provisioning-module&#34;&gt;https://github.com/WHMCS/sample-provisioning-module&lt;/a&gt;&lt;/p&gt;
@@ -826,6 +826,57 @@ function mymodule_AdminServicesTabFieldsSave($params) {
     ),array(&amp;quot;serviceid&amp;quot;=&amp;gt;$params[&#39;serviceid&#39;]));
 }
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Admin Dashboard Widgets</title>
+      <link>//developers.whmcs.com/provisioning-modules/admin-dashboard-widgets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/admin-dashboard-widgets/</guid>
+      <description>&lt;p&gt;Admin Dashboard Widgets are displayed on the admin area homepage.&lt;/p&gt;
+
+&lt;p&gt;They allow you to provide convenient access to key information and functionality from your module within the admin homepage dashboard.&lt;/p&gt;
+
+&lt;p&gt;Below is an example of how a dashboard widget is defined.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+add_hook(&#39;AdminHomeWidgets&#39;, 1, function() {
+    return new HelloWorldWidget();
+});
+
+/**
+ * Hello World Widget.
+ */
+class HelloWorldWidget extends \WHMCS\Module\AbstractWidget
+{
+    protected $title = &#39;Hello World&#39;;
+    protected $description = &#39;&#39;;
+    protected $weight = 150;
+    protected $columns = 1;
+    protected $cache = false;
+    protected $cacheExpiry = 120;
+    protected $requiredPermission = &#39;&#39;;
+
+    public function getData()
+    {
+        return array();
+    }
+
+    public function generateOutput($data)
+    {
+        return &amp;lt;&amp;lt;&amp;lt;EOF
+&amp;lt;div class=&amp;quot;widget-content-padded&amp;quot;&amp;gt;
+    Hello World!
+&amp;lt;/div&amp;gt;
+EOF;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;More information on the AbstractWidget class used in the above example can be found at &lt;a href=&#34;http://docs.whmcs.com/classes/7.1/WHMCS/Module/AbstractWidget.html&#34;&gt;http://docs.whmcs.com/classes/7.1/WHMCS/Module/AbstractWidget.html&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

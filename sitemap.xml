@@ -966,6 +966,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/addon-modules/admin-dashboard-widgets/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/payment-gateways/errors/</loc>
   </url>
   
@@ -982,10 +986,6 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/addon-modules/upgrades/</loc>
-  </url>
-  
-  <url>
     <loc>//developers.whmcs.com/provisioning-modules/admin-services-tab/</loc>
   </url>
   
@@ -998,7 +998,7 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/addon-modules/whmcs-marketplace/</loc>
+    <loc>//developers.whmcs.com/addon-modules/upgrades/</loc>
   </url>
   
   <url>
@@ -1006,15 +1006,23 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/provisioning-modules/admin-dashboard-widgets/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/hooks/hook-index/</loc>
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/provisioning-modules/module-logging/</loc>
+    <loc>//developers.whmcs.com/themes/smarty/</loc>
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/themes/smarty/</loc>
+    <loc>//developers.whmcs.com/addon-modules/whmcs-marketplace/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/provisioning-modules/module-logging/</loc>
   </url>
   
   <url>

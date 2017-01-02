@@ -31,6 +31,13 @@
         &lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;col-sm-6&#34;&gt;
+        &lt;a href=&#34;//developers.whmcs.com/addon-modules/&#34;&gt;
+            &lt;i class=&#34;fa fa-cube&#34;&gt;&lt;/i&gt;
+            &lt;h3&gt;Addon Modules&lt;/h3&gt;
+            &lt;p&gt;Create a module that provides additional functionality within WHMCS.&lt;/p&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;col-sm-6&#34;&gt;
         &lt;a href=&#34;//developers.whmcs.com/domain-registrars/&#34;&gt;
             &lt;i class=&#34;fa fa-cube&#34;&gt;&lt;/i&gt;
             &lt;h3&gt;Registrar Modules&lt;/h3&gt;
@@ -42,13 +49,6 @@
             &lt;i class=&#34;fa fa-cube&#34;&gt;&lt;/i&gt;
             &lt;h3&gt;Gateway Modules&lt;/h3&gt;
             &lt;p&gt;Integrate with payment gateway providers to collect and process payments.&lt;/p&gt;
-        &lt;/a&gt;
-    &lt;/div&gt;
-    &lt;div class=&#34;col-sm-6&#34;&gt;
-        &lt;a href=&#34;//developers.whmcs.com/provisioning-modules/&#34;&gt;
-            &lt;i class=&#34;fa fa-cube&#34;&gt;&lt;/i&gt;
-            &lt;h3&gt;Addon Modules&lt;/h3&gt;
-            &lt;p&gt;Create a module that provides additional functionality within WHMCS.&lt;/p&gt;
         &lt;/a&gt;
     &lt;/div&gt;
 &lt;/div&gt;

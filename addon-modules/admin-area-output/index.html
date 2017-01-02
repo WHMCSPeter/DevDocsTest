@@ -186,6 +186,14 @@
       
       
       
+        <li class="" data-nav-id="/addon-modules/admin-dashboard-widgets/">
+          <a href="//developers.whmcs.com/addon-modules/admin-dashboard-widgets/">
+            <span>Admin Dashboard Widgets</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/addon-modules/upgrades/">
           <a href="//developers.whmcs.com/addon-modules/upgrades/">
             <span>Upgrades</span>
@@ -279,34 +287,31 @@
 
 			
 
-<p>The output from modules is defined in the function your_module_name_output.
-This should be actually output (i.e. echo’d) not returned.
-All output is captured by WHMCS and displayed within the admin interface template.
-The module name/title is prefixed to the output.</p>
+<p>The output from modules is defined in the function <code>your_module_name_output</code>.
+This should be actually output (i.e. echo’d) and not returned.
+All output is captured by WHMCS and displayed within the admin interface template.</p>
 
 <h2 id="variables-a-id-variables-a">Variables <a id="variables"></a></h2>
 
-<p>The output function is passing all the fields defined in your modules config,
-along with the values users have set for them, as well as a &ldquo;<em>modulelink</em>&rdquo; variable which you can use to link back to the module.</p>
+<p>The output function is passed all the fields defined in your modules configuration function, along with the values users have set for them, as well as a <code>modulelink</code> parameter which provides the URI to link back to the module.</p>
 
 <h2 id="linking-actions-a-id-linking-a">Linking/Actions <a id="linking"></a></h2>
 
-<p>Using the modulelink variable passed into the output function, you can then create links and forms that post back to your module.
+<p>Using the <code>modulelink</code> parameter you can build urls that post back to your module.
 The modulelink will be in the format &ldquo;<em>addonmodules.php?module=xxxxxx</em>&rdquo;. For links you can then append “_&amp;var1=x&amp;var2=y_”.
 For forms, use the POST form method to receive user input.</p>
 
-<p>Within the output function, the $_GET or $_POST variables can be checked.
-This can be used to display other output or perform various tasks, once links have been followed.</p>
+<p>Within the output function, the <code>$_GET</code> or <code>$_POST</code> variables can be accessed directly to retrieve user input.</p>
 
 <h2 id="admin-user-data-a-id-admin-user-data-a">Admin User Data <a id="admin-user-data"></a></h2>
 
-<p>To access the currently logged in admin ID should the module need that, in the session, use <code>$_SESSION[‘adminid’]</code>.
-From that, the module can find any extra information you need in tbladmins.</p>
+<p>To access the currently logged in admin user ID, use <code>$_SESSION['adminid']</code>.
+You can use the ID to retrieve any additional information that is required from the tbladmins table in the database.</p>
 
 <h2 id="example-output-function-a-id-example-function-a">Example Output Function <a id="example-function"></a></h2>
 
 <pre><code>function demo_output($vars) {
- 
+
     $modulelink = $vars['modulelink'];
     $version = $vars['version'];
     $option1 = $vars['option1'];
@@ -316,13 +321,13 @@ From that, the module can find any extra information you need in tbladmins.</p>
     $option5 = $vars['option5'];
     $option6 = $vars['option6'];
     $LANG = $vars['_lang'];
- 
-    echo '&lt;p&gt;The date &amp; time are currently '.date(&quot;Y-m-d H:i:s&quot;).'&lt;/p&gt;';
- 
+
+    echo '&lt;p&gt;The date &amp; time are currently ' . date(&quot;Y-m-d H:i:s&quot;) . '&lt;/p&gt;';
+
 }
 </code></pre>
 
-<p>Things aren&rsquo;t of course limited to just one file.
+<p>Things aren&rsquo;t limited to just one file.
 Use the <strong>_output</strong> function to include other files, call templates, etc.
 The system is flexible.</p>
 

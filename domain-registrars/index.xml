@@ -56,7 +56,7 @@
 
 &lt;h2 id=&#34;github&#34;&gt;Github&lt;/h2&gt;
 
-&lt;p&gt;We make available a sample provisioning module on Github which we recommend using as a basis for your custom module.&lt;/p&gt;
+&lt;p&gt;We make available a sample provisioning module on Github. We recommend using this as a starting point for a custom module.&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/WHMCS/sample-registrar-module&#34;&gt;https://github.com/WHMCS/sample-registrar-module&lt;/a&gt;&lt;/p&gt;

@@ -186,6 +186,14 @@
       
       
       
+        <li class="" data-nav-id="/addon-modules/admin-dashboard-widgets/">
+          <a href="//developers.whmcs.com/addon-modules/admin-dashboard-widgets/">
+            <span>Admin Dashboard Widgets</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="active" data-nav-id="/addon-modules/upgrades/">
           <a href="//developers.whmcs.com/addon-modules/upgrades/">
             <span>Upgrades</span>
@@ -293,28 +301,28 @@ This allows the module to bring it up to date with your latest version.</p>
 <p>An example of how this function can be used is demonstrated below:</p>
 
 <pre><code>function demo_upgrade($vars) {
- 
+
     $version = $vars['version'];
- 
+
     # Run SQL Updates for V1.0 to V1.1
     if ($version &lt; 1.1) {
         $query = &quot;ALTER `mod_addonexample` ADD `demo2` TEXT NOT NULL &quot;;
     	$result = mysql_query($query);
     }
- 
+
     # Run SQL Updates for V1.1 to V1.2
     if ($version &lt; 1.2) {
         $query = &quot;ALTER `mod_addonexample` ADD `demo3` TEXT NOT NULL &quot;;
     	$result = mysql_query($query);
     }
- 
+
 }
 </code></pre>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/addon-modules/hooks">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/addon-modules/admin-dashboard-widgets">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
