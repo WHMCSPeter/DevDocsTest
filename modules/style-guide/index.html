@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Code Samples - WHMCS Developer Documentation</title>
+    <title>Style Guide - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.16" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/modules/code-samples/">
+    <link rel="canonical" href="//developers.whmcs.com/modules/style-guide/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -138,7 +138,7 @@
       
       
       
-        <li class="active" data-nav-id="/modules/code-samples/">
+        <li class="" data-nav-id="/modules/code-samples/">
           <a href="//developers.whmcs.com/modules/code-samples/">
             <span>Code Samples</span>
           </a>
@@ -146,7 +146,7 @@
       
       
       
-        <li class="" data-nav-id="/modules/style-guide/">
+        <li class="active" data-nav-id="/modules/style-guide/">
           <a href="//developers.whmcs.com/modules/style-guide/">
             <span>Style Guide</span>
           </a>
@@ -230,33 +230,58 @@
                 
                   
                 
-                <span itemprop="title"> Code Samples</span>
+                <span itemprop="title"> Style Guide</span>
               </div>
             </div>
 
 
-			<h1>Code Samples </h1>
+			<h1>Style Guide </h1>
 
-			<p>We make available sample code for each of our module types via <a href="https://github.com/whmcs">Github</a>.</p>
+			
+
+<p>The following describes the recommended programming style and best practices when developing with WHMCS.</p>
+
+<h2 id="php-code-tags">PHP Code Tags</h2>
+
+<p>Always use &lt;?php ?&gt; to delimit PHP code, not the shorthand, &lt;? ?&gt;. This is the most portable format to ensure compatibility for differing operating systems and set-ups.</p>
+
+<p>If a file is pure PHP code, it is preferable to omit the PHP closing tag at the end of the file. This prevents accidental whitespace or new lines being added after the PHP closing tag which may cause unwanted side effects including &ldquo;header already sent&rdquo; errors, XHTML/XML validation issues, and other problems.</p>
+
+<h2 id="indenting-and-whitespace">Indenting and whitespace</h2>
+
+<p>Use an indent of 4 spaces, with no tabs.</p>
+
+<p>Lines should have no trailing whitespace at the end.</p>
+
+<p>Files should be formatted with \n as the line ending (Unix line endings), not \r\n (Windows line endings).</p>
+
+<p>All files should end in a single newline (\n). This avoids the verbose &ldquo;\ No newline at end of file&rdquo; warning and makes it clearer what is being changed when lines are added to the end of a file.</p>
+
+<h2 id="psr-coding-standards">PSR Coding Standards</h2>
+
+<p>The PHP Standard Recommendation (PSR) is a PHP specification published by the PHP Framework Interop Group. It comprises what should be considered the standard coding elements that are required to ensure a high level of technical interoperability between shared PHP code.</p>
+
+<p>At WHMCS we follow the PSR-1 and PSR-2 standards for all code we create, and we strongly recommend you do the same:</p>
 
 <ul>
-<li>Sample Gateway Module - <a href="https://github.com/WHMCS/sample-gateway-module">https://github.com/WHMCS/sample-gateway-module</a></li>
-<li>Sample Merchant Gateway - <a href="https://github.com/WHMCS/sample-merchant-gateway">https://github.com/WHMCS/sample-merchant-gateway</a></li>
-<li>Sample Provisioning Module - <a href="https://github.com/WHMCS/sample-provisioning-module">https://github.com/WHMCS/sample-provisioning-module</a></li>
-<li>Sample Domain Registrar Module - <a href="https://github.com/WHMCS/sample-registrar-module">https://github.com/WHMCS/sample-registrar-module</a></li>
-<li>Sample Addon Module - <a href="https://github.com/WHMCS/sample-addon-module">https://github.com/WHMCS/sample-addon-module</a></li>
+<li>Basic Coding Standard: <a href="http://www.php-fig.org/psr/psr-1/">http://www.php-fig.org/psr/psr-1/</a></li>
+<li>Coding Style Guide: <a href="http://www.php-fig.org/psr/psr-2/">http://www.php-fig.org/psr/psr-2/</a></li>
 </ul>
+
+<h2 id="character-encoding">Character Encoding</h2>
+
+<p>All PHP files should be encoded using UTF-8 without BOM (no byte-order-mark).</p>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/modules/getting-started/">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/modules/code-samples/">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/modules/style-guide/">
+                    <a class="nav nav-next" href="//developers.whmcs.com/modules/marketplace/">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>
