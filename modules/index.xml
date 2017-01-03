@@ -66,11 +66,11 @@
 &lt;p&gt;The first step in creating a module for WHMCS is determining which type of module you wish to create:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Provisioning Modules&lt;/strong&gt; - Provisioning Modules, also referred to as Product or Server Modules, allow you to create modules to allow for the provisioning and management of products &amp;amp; services. &lt;a href=&#34;//developers.whmcs.com/provisioning-modules/&#34;&gt;Learn more&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/provisioning-modules/&#34;&gt;Provisioning Modules&lt;/a&gt;&lt;/strong&gt; - Provisioning Modules, also referred to as Product or Server Modules, allow you to create modules to allow for the provisioning and management of products &amp;amp; services. &lt;a href=&#34;//developers.whmcs.com/provisioning-modules/&#34;&gt;Learn more&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Addon Modules&lt;/strong&gt; - Addon Modules allow you to create modules and extensions that provide client and/or admin area output and that are not directly linked to individual products/services.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/addon-modules/&#34;&gt;Addon Modules&lt;/a&gt;&lt;/strong&gt; - Addon Modules allow you to create modules and extensions that provide client and/or admin area output and that are not directly linked to individual products/services. &lt;a href=&#34;//developers.whmcs.com/addon-modules/&#34;&gt;Learn more&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Payment Gateway Modules&lt;/strong&gt; - Gateway Module allow you to connect WHMCS with additional payment and credit card processors for processing and capturing payments. Payment gateway modules include:&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/payment-gateways/&#34;&gt;Payment Gateway Modules&lt;/a&gt;&lt;/strong&gt; - Gateway Module allow you to connect WHMCS with additional payment and credit card processors for processing and capturing payments. Payment gateway modules include:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Third Party Gateways - Where a customer leaves the site to pay and returns when the payment process completes.&lt;/li&gt;
@@ -78,7 +78,7 @@
 &lt;li&gt;Tokenised Gateways - Where credit card details are entered either within or outside of WHMCS and a token is generated and stored for future billing needs.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Registrar Modules&lt;/strong&gt; - Registrar Modules, also referred to as Domain Modules, allow you to create modules to allow for the registration and management of domains within WHMCS.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/domain-registrars/&#34;&gt;Registrar Modules&lt;/a&gt;&lt;/strong&gt; - Registrar Modules, also referred to as Domain Modules, allow you to create modules to allow for the registration and management of domains within WHMCS. &lt;a href=&#34;//developers.whmcs.com/domain-registrars/&#34;&gt;Learn more&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Sample modules demonstrating usage and functionality are made available for all types of modules via the &lt;a href=&#34;https://github.com/whmcs&#34;&gt;WHMCS Github page&lt;/a&gt;.&lt;/p&gt;
@@ -86,9 +86,10 @@
 &lt;h2 id=&#34;recommended-reading&#34;&gt;Recommended Reading&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/modules/style-guide/&#34;&gt;Style Guide&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/hooks/&#34;&gt;Hooks Guide&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/api/&#34;&gt;API Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/modules/code-samples/&#34;&gt;Code Samples&lt;/a&gt; - We make available sample code for each of our module types via Github.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/modules/style-guide/&#34;&gt;Style Guide&lt;/a&gt; - Recommended programming style and best practices for developing with WHMCS.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/hooks/&#34;&gt;Hooks Guide&lt;/a&gt; - Hooks allow you to execute your own code when events occur inside WHMCS.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/api/&#34;&gt;API Guide&lt;/a&gt; - The API allows you to perform operations and actions within WHMCS.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -123,7 +124,7 @@
 
 &lt;h2 id=&#34;php-code-tags&#34;&gt;PHP Code Tags&lt;/h2&gt;
 
-&lt;p&gt;Always use &amp;lt;?php ?&amp;gt; to delimit PHP code, not the shorthand, &amp;lt;? ?&amp;gt;. This is the most portable format to ensure compatibility for differing operating systems and set-ups.&lt;/p&gt;
+&lt;p&gt;Always use &lt;code&gt;&amp;lt;?php ?&amp;gt;&lt;/code&gt; to delimit PHP code, not the shorthand, &lt;code&gt;&amp;lt;? ?&amp;gt;&lt;/code&gt;. This is the most portable format to ensure compatibility for differing operating systems and set-ups.&lt;/p&gt;
 
 &lt;p&gt;If a file is pure PHP code, it is preferable to omit the PHP closing tag at the end of the file. This prevents accidental whitespace or new lines being added after the PHP closing tag which may cause unwanted side effects including &amp;ldquo;header already sent&amp;rdquo; errors, XHTML/XML validation issues, and other problems.&lt;/p&gt;
 
@@ -133,7 +134,7 @@
 
 &lt;p&gt;Lines should have no trailing whitespace at the end.&lt;/p&gt;
 
-&lt;p&gt;Files should be formatted with \n as the line ending (Unix line endings), not \r\n (Windows line endings).&lt;/p&gt;
+&lt;p&gt;Files should be formatted with &lt;code&gt;\n&lt;/code&gt; as the line ending (Unix line endings), not &lt;code&gt;\r\n&lt;/code&gt; (Windows line endings).&lt;/p&gt;
 
 &lt;p&gt;All files should end in a single newline (\n). This avoids the verbose &amp;ldquo;\ No newline at end of file&amp;rdquo; warning and makes it clearer what is being changed when lines are added to the end of a file.&lt;/p&gt;
 
@@ -141,7 +142,7 @@
 
 &lt;p&gt;The PHP Standard Recommendation (PSR) is a PHP specification published by the PHP Framework Interop Group. It comprises what should be considered the standard coding elements that are required to ensure a high level of technical interoperability between shared PHP code.&lt;/p&gt;
 
-&lt;p&gt;At WHMCS we follow the PSR-1 and PSR-2 standards for all code we create, and we strongly recommend you do the same:&lt;/p&gt;
+&lt;p&gt;At WHMCS we follow the &lt;code&gt;PSR-1&lt;/code&gt; and &lt;code&gt;PSR-2&lt;/code&gt; standards for all code we create, and we strongly recommend you do the same:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Basic Coding Standard: &lt;a href=&#34;http://www.php-fig.org/psr/psr-1/&#34;&gt;http://www.php-fig.org/psr/psr-1/&lt;/a&gt;&lt;/li&gt;
@@ -150,7 +151,7 @@
 
 &lt;h2 id=&#34;character-encoding&#34;&gt;Character Encoding&lt;/h2&gt;
 
-&lt;p&gt;All PHP files should be encoded using UTF-8 without BOM (no byte-order-mark).&lt;/p&gt;
+&lt;p&gt;All PHP files should be encoded using &lt;code&gt;UTF-8 without BOM&lt;/code&gt; (no byte-order-mark).&lt;/p&gt;
 </description>
     </item>
     
