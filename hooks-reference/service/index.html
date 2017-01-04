@@ -347,6 +347,8 @@
 
 <h2 id="adminclientservicestabfields">AdminClientServicesTabFields</h2>
 
+<p>Executes when a service is being viewed in the Admin area.</p>
+
 <h4 id="parameters">Parameters</h4>
 
 <table>
@@ -361,15 +363,15 @@
 <tbody>
 <tr>
 <td>id</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>the id of the service being loaded</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response">Response</h4>
 
-<p>No response supported</p>
+<p>An array of key -&gt; value parameters to output additional fields as required.</p>
 
 <h4 id="example-code">Example Code</h4>
 
@@ -380,6 +382,8 @@ add_hook('AdminClientServicesTabFields', 1, function($vars) {
 </code></pre>
 
 <h2 id="adminclientservicestabfieldssave">AdminClientServicesTabFieldsSave</h2>
+
+<p>Executes when the Services tab in the Admin area is being saved. Receives all the $_REQUEST parameters as variables.</p>
 
 <h4 id="parameters-1">Parameters</h4>
 
@@ -393,11 +397,6 @@ add_hook('AdminClientServicesTabFields', 1, function($vars) {
 </thead>
 
 <tbody>
-<tr>
-<td>$_REQUEST</td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
 
@@ -415,6 +414,8 @@ add_hook('AdminClientServicesTabFieldsSave', 1, function($vars) {
 
 <h2 id="adminserviceedit">AdminServiceEdit</h2>
 
+<p>Executes as the service is being saved, after any changes have been made.</p>
+
 <h4 id="parameters-2">Parameters</h4>
 
 <table>
@@ -428,8 +429,14 @@ add_hook('AdminClientServicesTabFieldsSave', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>$serviceDetails</td>
+<td>userid</td>
+<td>int</td>
 <td></td>
+</tr>
+
+<tr>
+<td>serviceid</td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -501,6 +508,8 @@ add_hook('CancellationRequest', 1, function($vars) {
 
 <h2 id="preadminserviceedit">PreAdminServiceEdit</h2>
 
+<p>Executes as the service is being saved, before any changes have been made.</p>
+
 <h4 id="parameters-4">Parameters</h4>
 
 <table>
@@ -515,7 +524,7 @@ add_hook('CancellationRequest', 1, function($vars) {
 <tbody>
 <tr>
 <td>serviceid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -535,6 +544,8 @@ add_hook('PreAdminServiceEdit', 1, function($vars) {
 
 <h2 id="preserviceedit">PreServiceEdit</h2>
 
+<p>Executes as the service is being saved, before any changes have been made.</p>
+
 <h4 id="parameters-5">Parameters</h4>
 
 <table>
@@ -549,7 +560,7 @@ add_hook('PreAdminServiceEdit', 1, function($vars) {
 <tbody>
 <tr>
 <td>serviceid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -569,6 +580,8 @@ add_hook('PreServiceEdit', 1, function($vars) {
 
 <h2 id="servicedelete">ServiceDelete</h2>
 
+<p>Executes when a service is being deleted.</p>
+
 <h4 id="parameters-6">Parameters</h4>
 
 <table>
@@ -582,8 +595,14 @@ add_hook('PreServiceEdit', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>$serviceDetails</td>
+<td>userid</td>
+<td>int</td>
 <td></td>
+</tr>
+
+<tr>
+<td>serviceid</td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -603,6 +622,8 @@ add_hook('ServiceDelete', 1, function($vars) {
 
 <h2 id="serviceedit">ServiceEdit</h2>
 
+<p>Executes as the service is being saved, after any changes have been made.</p>
+
 <h4 id="parameters-7">Parameters</h4>
 
 <table>
@@ -616,8 +637,14 @@ add_hook('ServiceDelete', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>$serviceDetails</td>
+<td>userid</td>
+<td>int</td>
 <td></td>
+</tr>
+
+<tr>
+<td>serviceid</td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>

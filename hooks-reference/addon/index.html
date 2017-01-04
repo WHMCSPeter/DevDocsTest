@@ -557,6 +557,8 @@ add_hook('AddonCancelled', 1, function($vars) {
 
 <h2 id="addonconfig">AddonConfig</h2>
 
+<p>Executes as an addon is being displayed.</p>
+
 <h4 id="parameters-4">Parameters</h4>
 
 <table>
@@ -571,15 +573,15 @@ add_hook('AddonCancelled', 1, function($vars) {
 <tbody>
 <tr>
 <td>id</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The id of the created addon (tbladdons).</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response-4">Response</h4>
 
-<p>No response supported</p>
+<p>an array of key -&gt; value pairs to be displayed on the addon configuration.</p>
 
 <h4 id="example-code-4">Example Code</h4>
 
@@ -590,6 +592,8 @@ add_hook('AddonConfig', 1, function($vars) {
 </code></pre>
 
 <h2 id="addonconfigsave">AddonConfigSave</h2>
+
+<p>Executes as an addon is being saved.</p>
 
 <h4 id="parameters-5">Parameters</h4>
 
@@ -605,8 +609,8 @@ add_hook('AddonConfig', 1, function($vars) {
 <tbody>
 <tr>
 <td>id</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The id of the created addon (tbladdons).</td>
 </tr>
 </tbody>
 </table>
@@ -625,7 +629,7 @@ add_hook('AddonConfigSave', 1, function($vars) {
 
 <h2 id="addondeleted">AddonDeleted</h2>
 
-<p>We don&rsquo;t pass all the details for the AddonDeleted hook</p>
+<p>Executes when an addon is being deleted.</p>
 
 <h4 id="parameters-6">Parameters</h4>
 
@@ -639,6 +643,11 @@ add_hook('AddonConfigSave', 1, function($vars) {
 </thead>
 
 <tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>the id of the addon being removed. tblhostingaddons</td>
+</tr>
 </tbody>
 </table>
 

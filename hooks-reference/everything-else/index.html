@@ -381,6 +381,8 @@ add_hook('AdminAreaPage', 1, function($vars) {
 
 <h2 id="adminhomepage">AdminHomepage</h2>
 
+<p>Allows returning of output for display on the admin homepage</p>
+
 <h4 id="parameters-1">Parameters</h4>
 
 <table>
@@ -398,7 +400,7 @@ add_hook('AdminAreaPage', 1, function($vars) {
 
 <h4 id="response-1">Response</h4>
 
-<p>No response supported</p>
+<p>Return the HTML to be output on the page.</p>
 
 <h4 id="example-code-1">Example Code</h4>
 
@@ -450,6 +452,8 @@ add_hook('AffiliateActivation', 1, function($vars) {
 
 <h2 id="affiliateclickthru">AffiliateClickthru</h2>
 
+<p>Executes when a user has clicked an affiliate referral link.</p>
+
 <h4 id="parameters-3">Parameters</h4>
 
 <table>
@@ -464,8 +468,8 @@ add_hook('AffiliateActivation', 1, function($vars) {
 <tbody>
 <tr>
 <td>affiliateId</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The unique id of the affiliate that the link belongs to</td>
 </tr>
 </tbody>
 </table>
@@ -560,6 +564,8 @@ add_hook('AffiliateCommission', 1, function($vars) {
 
 <h2 id="affiliatewithdrawalrequest">AffiliateWithdrawalRequest</h2>
 
+<p>Executes when an affiliate withdrawal request is submitted.</p>
+
 <h4 id="parameters-5">Parameters</h4>
 
 <table>
@@ -574,33 +580,33 @@ add_hook('AffiliateCommission', 1, function($vars) {
 <tbody>
 <tr>
 <td>affiliateId</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The unique id of the affiliate making the request</td>
 </tr>
 
 <tr>
 <td>userId</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The user id of the user making the request</td>
 </tr>
 
 <tr>
 <td>contactId</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The contact id of the user making the request if logged in as a sub-account</td>
 </tr>
 
 <tr>
 <td>balance</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>The amount of commission the withdrawal request is for</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response-5">Response</h4>
 
-<p>No response supported</p>
+<p>To skip creating a ticket for the request: return array(&lsquo;skipTicket&rsquo; =&gt; true);</p>
 
 <h4 id="example-code-5">Example Code</h4>
 
@@ -934,6 +940,8 @@ add_hook('EmailPreSend', 1, function($vars) {
 
 <h2 id="emailtplmergefields">EmailTplMergeFields</h2>
 
+<p>Executes when editing an email template.</p>
+
 <h4 id="parameters-13">Parameters</h4>
 
 <table>
@@ -948,15 +956,15 @@ add_hook('EmailPreSend', 1, function($vars) {
 <tbody>
 <tr>
 <td>type</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>The type of email template being edited.</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response-13">Response</h4>
 
-<p>No response supported</p>
+<p>an Array of key -&gt; value pairs of merge fields</p>
 
 <h4 id="example-code-13">Example Code</h4>
 
@@ -1002,6 +1010,8 @@ add_hook('FetchCurrencyExchangeRates', 1, function($vars) {
 
 <h2 id="intelligentsearch">IntelligentSearch</h2>
 
+<p>Executes as the Intelligent Search is being completed</p>
+
 <h4 id="parameters-15">Parameters</h4>
 
 <table>
@@ -1014,12 +1024,17 @@ add_hook('FetchCurrencyExchangeRates', 1, function($vars) {
 </thead>
 
 <tbody>
+<tr>
+<td>searchTerm</td>
+<td>string</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
 <h4 id="response-15">Response</h4>
 
-<p>No response supported</p>
+<p>An array of additional responses to be appended to the search results.</p>
 
 <h4 id="example-code-15">Example Code</h4>
 
@@ -1030,6 +1045,8 @@ add_hook('IntelligentSearch', 1, function($vars) {
 </code></pre>
 
 <h2 id="linktracker">LinkTracker</h2>
+
+<p>Executes when a link.php link is being used.</p>
 
 <h4 id="parameters-16">Parameters</h4>
 
@@ -1045,8 +1062,8 @@ add_hook('IntelligentSearch', 1, function($vars) {
 <tbody>
 <tr>
 <td>linkid</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The id of the link being followed</td>
 </tr>
 </tbody>
 </table>

@@ -347,6 +347,8 @@
 
 <h2 id="adminclientdomainstabfields">AdminClientDomainsTabFields</h2>
 
+<p>Executes when a domain is being viewed in the Admin area.</p>
+
 <h4 id="parameters">Parameters</h4>
 
 <table>
@@ -361,15 +363,15 @@
 <tbody>
 <tr>
 <td>id</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>the id of the domain being loaded</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response">Response</h4>
 
-<p>No response supported</p>
+<p>An array of key -&gt; value parameters to output additional fields as required.</p>
 
 <h4 id="example-code">Example Code</h4>
 
@@ -380,6 +382,8 @@ add_hook('AdminClientDomainsTabFields', 1, function($vars) {
 </code></pre>
 
 <h2 id="adminclientdomainstabfieldssave">AdminClientDomainsTabFieldsSave</h2>
+
+<p>Executes when the Domains tab in the Admin area is being saved. Receives all the $_REQUEST parameters as variables.</p>
 
 <h4 id="parameters-1">Parameters</h4>
 
@@ -393,11 +397,6 @@ add_hook('AdminClientDomainsTabFields', 1, function($vars) {
 </thead>
 
 <tbody>
-<tr>
-<td>$_REQUEST</td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
 
@@ -451,6 +450,8 @@ add_hook('ClientAreaDomainDetails', 1, function($vars) {
 
 <h2 id="domaindelete">DomainDelete</h2>
 
+<p>Executes when a service is being deleted.</p>
+
 <h4 id="parameters-3">Parameters</h4>
 
 <table>
@@ -464,8 +465,14 @@ add_hook('ClientAreaDomainDetails', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>$domainDetails</td>
+<td>userid</td>
+<td>int</td>
 <td></td>
+</tr>
+
+<tr>
+<td>domainid</td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -485,6 +492,8 @@ add_hook('DomainDelete', 1, function($vars) {
 
 <h2 id="domainedit">DomainEdit</h2>
 
+<p>Executes as the domain is being saved, before any changes have been made.</p>
+
 <h4 id="parameters-4">Parameters</h4>
 
 <table>
@@ -498,8 +507,14 @@ add_hook('DomainDelete', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>$domainDetails</td>
+<td>userid</td>
+<td>int</td>
 <td></td>
+</tr>
+
+<tr>
+<td>domainid</td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
