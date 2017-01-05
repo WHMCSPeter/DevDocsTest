@@ -138,6 +138,14 @@
       
       
       
+        <li class="" data-nav-id="/hooks-reference/admin-area/">
+          <a href="//developers.whmcs.com/hooks-reference/admin-area/">
+            <span>Admin Area</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/hooks-reference/authentication/">
           <a href="//developers.whmcs.com/hooks-reference/authentication/">
             <span>Authentication</span>
@@ -345,185 +353,11 @@
 
 <p>The following hooks are provided for Everything Else related events.</p>
 
-<h2 id="adminareapage">AdminAreaPage</h2>
-
-<p>Runs on every admin area page load. All template variables defined at the time the hook is invoked are made availble to this hook point. This can vary by page. The list below is not an exhaustive list.</p>
-
-<h4 id="parameters">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>charset</td>
-<td>string</td>
-<td>System charset setting eg. UTF-8</td>
-</tr>
-
-<tr>
-<td>template</td>
-<td>string</td>
-<td>The admin template being used</td>
-</tr>
-
-<tr>
-<td>pagetemplate</td>
-<td>string</td>
-<td>The template for the current page (if applicable)</td>
-</tr>
-
-<tr>
-<td>adminid</td>
-<td>int</td>
-<td>The currently logged in admin user ID</td>
-</tr>
-
-<tr>
-<td>admin_username</td>
-<td>string</td>
-<td>The username of the current admin user</td>
-</tr>
-
-<tr>
-<td>admin_notes</td>
-<td>string</td>
-<td>The private notes for the current admin user</td>
-</tr>
-
-<tr>
-<td>admin_perms</td>
-<td>array</td>
-<td>The permissions of the current admin user</td>
-</tr>
-
-<tr>
-<td>addon_modules</td>
-<td>array</td>
-<td>A list of add-on modules the current admin user has access to</td>
-</tr>
-
-<tr>
-<td>filename</td>
-<td>string</td>
-<td>The name of the file being called</td>
-</tr>
-
-<tr>
-<td>pagetitle</td>
-<td>string</td>
-<td>The title of the current page</td>
-</tr>
-
-<tr>
-<td>helplink</td>
-<td>string</td>
-<td>The documentation url for the current page</td>
-</tr>
-
-<tr>
-<td>sidebar</td>
-<td>string</td>
-<td>The sidebar output</td>
-</tr>
-
-<tr>
-<td>minsidebar</td>
-<td>bool</td>
-<td>Returns true if the sidebar is minimised</td>
-</tr>
-
-<tr>
-<td>jquerycode</td>
-<td>string</td>
-<td>jQuery code for the current page</td>
-</tr>
-
-<tr>
-<td>jscode</td>
-<td>string</td>
-<td>Javascript code for the current page</td>
-</tr>
-
-<tr>
-<td>datepickerformat</td>
-<td>string</td>
-<td>The format defined for dates in the admin area</td>
-</tr>
-
-<tr>
-<td>adminsonline</td>
-<td>string</td>
-<td>A list of currently online admin users</td>
-</tr>
-
-<tr>
-<td>sidebarstats</td>
-<td>array</td>
-<td>Statistics relating to orders, clients, services, tickets and more</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response">Response</h4>
-
-<p>Accepts a return of key/value pairs to be made available to the template layer as additional template variables.</p>
-
-<h4 id="example-code">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('AdminAreaPage', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="adminhomepage">AdminHomepage</h2>
-
-<p>Allows returning of output for display on the admin homepage</p>
-
-<h4 id="parameters-1">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>No input parameters for this hook point.</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-1">Response</h4>
-
-<p>Return the HTML to be output on the page.</p>
-
-<h4 id="example-code-1">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('AdminHomepage', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
 <h2 id="affiliateactivation">AffiliateActivation</h2>
 
 <p>Executes as an affiliate is being activated.</p>
 
-<h4 id="parameters-2">Parameters</h4>
+<h4 id="parameters">Parameters</h4>
 
 <table>
 <thead>
@@ -549,11 +383,11 @@ add_hook('AdminHomepage', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-2">Example Code</h4>
+<h4 id="example-code">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AffiliateActivation', 1, function($vars) {
@@ -565,7 +399,7 @@ add_hook('AffiliateActivation', 1, function($vars) {
 
 <p>Executes when a user has clicked an affiliate referral link.</p>
 
-<h4 id="parameters-3">Parameters</h4>
+<h4 id="parameters-1">Parameters</h4>
 
 <table>
 <thead>
@@ -585,11 +419,11 @@ add_hook('AffiliateActivation', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-1">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-3">Example Code</h4>
+<h4 id="example-code-1">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AffiliateClickthru', 1, function($vars) {
@@ -601,7 +435,7 @@ add_hook('AffiliateClickthru', 1, function($vars) {
 
 <p>Executes as affiliate commission is being applied to an affiliate to clear later.</p>
 
-<h4 id="parameters-4">Parameters</h4>
+<h4 id="parameters-2">Parameters</h4>
 
 <table>
 <thead>
@@ -663,11 +497,11 @@ add_hook('AffiliateClickthru', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <p>Return boolean values to override &lsquo;skipCommission&rsquo; or &lsquo;payout&rsquo;. One or the other can be returned. eg: return array(&lsquo;payout&rsquo; =&gt; true,);</p>
 
-<h4 id="example-code-4">Example Code</h4>
+<h4 id="example-code-2">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AffiliateCommission', 1, function($vars) {
@@ -679,7 +513,7 @@ add_hook('AffiliateCommission', 1, function($vars) {
 
 <p>Executes when an affiliate withdrawal request is submitted.</p>
 
-<h4 id="parameters-5">Parameters</h4>
+<h4 id="parameters-3">Parameters</h4>
 
 <table>
 <thead>
@@ -717,11 +551,11 @@ add_hook('AffiliateCommission', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <p>To skip creating a ticket for the request: return array(&lsquo;skipTicket&rsquo; =&gt; true);</p>
 
-<h4 id="example-code-5">Example Code</h4>
+<h4 id="example-code-3">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AffiliateWithdrawalRequest', 1, function($vars) {
@@ -733,7 +567,7 @@ add_hook('AffiliateWithdrawalRequest', 1, function($vars) {
 
 <p>Executes after a product configurable options upgrade has been processed</p>
 
-<h4 id="parameters-6">Parameters</h4>
+<h4 id="parameters-4">Parameters</h4>
 
 <table>
 <thead>
@@ -753,11 +587,11 @@ add_hook('AffiliateWithdrawalRequest', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-6">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-6">Example Code</h4>
+<h4 id="example-code-4">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AfterConfigOptionsUpgrade', 1, function($vars) {
@@ -769,7 +603,7 @@ add_hook('AfterConfigOptionsUpgrade', 1, function($vars) {
 
 <p>Executes after CC details have been stored for a client or the remote storage functions completed.</p>
 
-<h4 id="parameters-7">Parameters</h4>
+<h4 id="parameters-5">Parameters</h4>
 
 <table>
 <thead>
@@ -825,11 +659,11 @@ add_hook('AfterConfigOptionsUpgrade', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-7">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-7">Example Code</h4>
+<h4 id="example-code-5">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('CCUpdate', 1, function($vars) {
@@ -841,7 +675,7 @@ add_hook('CCUpdate', 1, function($vars) {
 
 <p>Executes as the amount of commission is being calculated</p>
 
-<h4 id="parameters-8">Parameters</h4>
+<h4 id="parameters-6">Parameters</h4>
 
 <table>
 <thead>
@@ -879,11 +713,11 @@ add_hook('CCUpdate', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-8">Response</h4>
+<h4 id="response-6">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-8">Example Code</h4>
+<h4 id="example-code-6">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('CalcAffiliateCommission', 1, function($vars) {
@@ -895,7 +729,7 @@ add_hook('CalcAffiliateCommission', 1, function($vars) {
 
 <p>Executes when custom fields are being loaded</p>
 
-<h4 id="parameters-9">Parameters</h4>
+<h4 id="parameters-7">Parameters</h4>
 
 <table>
 <thead>
@@ -927,11 +761,11 @@ add_hook('CalcAffiliateCommission', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-9">Response</h4>
+<h4 id="response-7">Response</h4>
 
 <p>Override the value of the custom field returning the &ldquo;value&rdquo; key. eg: return array(&lsquo;value&rsquo; =&gt; &lsquo;overridden value&rsquo;,);</p>
 
-<h4 id="example-code-9">Example Code</h4>
+<h4 id="example-code-7">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('CustomFieldLoad', 1, function($vars) {
@@ -943,7 +777,7 @@ add_hook('CustomFieldLoad', 1, function($vars) {
 
 <p>Executes when custom fields are being saved</p>
 
-<h4 id="parameters-10">Parameters</h4>
+<h4 id="parameters-8">Parameters</h4>
 
 <table>
 <thead>
@@ -975,11 +809,11 @@ add_hook('CustomFieldLoad', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-10">Response</h4>
+<h4 id="response-8">Response</h4>
 
 <p>Override the value of the custom field returning the &ldquo;value&rdquo; key. eg: return array(&lsquo;value&rsquo; =&gt; &lsquo;overridden value&rsquo;,);</p>
 
-<h4 id="example-code-10">Example Code</h4>
+<h4 id="example-code-8">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('CustomFieldSave', 1, function($vars) {
@@ -991,7 +825,7 @@ add_hook('CustomFieldSave', 1, function($vars) {
 
 <p>Runs prior to email being logged.</p>
 
-<h4 id="parameters-11">Parameters</h4>
+<h4 id="parameters-9">Parameters</h4>
 
 <table>
 <thead>
@@ -1047,11 +881,11 @@ add_hook('CustomFieldSave', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-11">Response</h4>
+<h4 id="response-9">Response</h4>
 
 <p>Accepts a return of key/value pairs to override the parameters to be logged. Use the same names as the input parameters. Return the key/value pair <code>abortLogging=true</code> to abort logging of the email.</p>
 
-<h4 id="example-code-11">Example Code</h4>
+<h4 id="example-code-9">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('EmailPreLog', 1, function($vars) {
@@ -1063,7 +897,7 @@ add_hook('EmailPreLog', 1, function($vars) {
 
 <p>Runs prior to a client email being sent.</p>
 
-<h4 id="parameters-12">Parameters</h4>
+<h4 id="parameters-10">Parameters</h4>
 
 <table>
 <thead>
@@ -1089,11 +923,11 @@ add_hook('EmailPreLog', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-12">Response</h4>
+<h4 id="response-10">Response</h4>
 
 <p>An array of key/value pairs to be made available as additional email template merged fields. To abort the sending, return the key/value pair <code>abortsend=true</code></p>
 
-<h4 id="example-code-12">Example Code</h4>
+<h4 id="example-code-10">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('EmailPreSend', 1, function($vars) {
@@ -1105,7 +939,7 @@ add_hook('EmailPreSend', 1, function($vars) {
 
 <p>Executes when editing an email template.</p>
 
-<h4 id="parameters-13">Parameters</h4>
+<h4 id="parameters-11">Parameters</h4>
 
 <table>
 <thead>
@@ -1125,11 +959,11 @@ add_hook('EmailPreSend', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-13">Response</h4>
+<h4 id="response-11">Response</h4>
 
 <p>an Array of key -&gt; value pairs of merge fields</p>
 
-<h4 id="example-code-13">Example Code</h4>
+<h4 id="example-code-11">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('EmailTplMergeFields', 1, function($vars) {
@@ -1141,7 +975,7 @@ add_hook('EmailTplMergeFields', 1, function($vars) {
 
 <p>Executes when updating currency exchange rates. All supported automatic update currencies are retured</p>
 
-<h4 id="parameters-14">Parameters</h4>
+<h4 id="parameters-12">Parameters</h4>
 
 <table>
 <thead>
@@ -1167,11 +1001,11 @@ add_hook('EmailTplMergeFields', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-14">Response</h4>
+<h4 id="response-12">Response</h4>
 
 <p>An array of key -&gt; value pairs to define or override additional exchange rates. The rate should be appropriate to the EUR currency.</p>
 
-<h4 id="example-code-14">Example Code</h4>
+<h4 id="example-code-12">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('FetchCurrencyExchangeRates', 1, function($vars) {
@@ -1183,7 +1017,7 @@ add_hook('FetchCurrencyExchangeRates', 1, function($vars) {
 
 <p>Executes as the Intelligent Search is being completed</p>
 
-<h4 id="parameters-15">Parameters</h4>
+<h4 id="parameters-13">Parameters</h4>
 
 <table>
 <thead>
@@ -1203,15 +1037,31 @@ add_hook('FetchCurrencyExchangeRates', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-15">Response</h4>
+<h4 id="response-13">Response</h4>
 
 <p>An array of additional responses to be appended to the search results.</p>
 
-<h4 id="example-code-15">Example Code</h4>
+<h4 id="example-code-13">Example Code</h4>
 
-<pre><code>&lt;?php
-add_hook('IntelligentSearch', 1, function($vars) {
-    // Perform hook code here...
+<pre><code>add_hook('IntelligentSearch', 1, function($vars) {
+    $searchResults = array();
+
+    // look for matches in client notes field
+    $result = select_query(
+        'tblclients',
+        'id,firstname,lastname,email',
+        array('notes' =&gt; $vars['searchTerm'])
+    );
+    while ($data = mysql_fetch_array($result)) {
+        $searchResults[] = '&lt;div class=&quot;searchresult&quot;&gt;
+            &lt;a href=&quot;clientssummary.php?userid=' . $data['id'] . '&quot;&gt;
+                &lt;strong&gt;' . $data['firstname'] . ' ' . $data['lastname'] . '&lt;/strong&gt;
+                #' . $data['id'] . '&lt;br /&gt;
+                &lt;span class=&quot;desc&quot;&gt;' . $data['email'] . '&lt;/span&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;';
+    }
+    return $searchResults;
 });
 </code></pre>
 
@@ -1219,7 +1069,7 @@ add_hook('IntelligentSearch', 1, function($vars) {
 
 <p>Executes when a link.php link is being used.</p>
 
-<h4 id="parameters-16">Parameters</h4>
+<h4 id="parameters-14">Parameters</h4>
 
 <table>
 <thead>
@@ -1239,11 +1089,11 @@ add_hook('IntelligentSearch', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-16">Response</h4>
+<h4 id="response-14">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-16">Example Code</h4>
+<h4 id="example-code-14">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('LinkTracker', 1, function($vars) {
@@ -1255,7 +1105,7 @@ add_hook('LinkTracker', 1, function($vars) {
 
 <p>Executes after an activity log entry has been created.</p>
 
-<h4 id="parameters-17">Parameters</h4>
+<h4 id="parameters-15">Parameters</h4>
 
 <table>
 <thead>
@@ -1293,11 +1143,11 @@ add_hook('LinkTracker', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-17">Response</h4>
+<h4 id="response-15">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-17">Example Code</h4>
+<h4 id="example-code-15">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('LogActivity', 1, function($vars) {
@@ -1309,7 +1159,7 @@ add_hook('LogActivity', 1, function($vars) {
 
 <p>Executes before an automation task occurs</p>
 
-<h4 id="parameters-18">Parameters</h4>
+<h4 id="parameters-16">Parameters</h4>
 
 <table>
 <thead>
@@ -1329,11 +1179,11 @@ add_hook('LogActivity', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-18">Response</h4>
+<h4 id="response-16">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-18">Example Code</h4>
+<h4 id="example-code-16">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreAutomationTask', 1, function($vars) {

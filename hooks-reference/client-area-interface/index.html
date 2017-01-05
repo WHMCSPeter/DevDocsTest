@@ -138,6 +138,14 @@
       
       
       
+        <li class="" data-nav-id="/hooks-reference/admin-area/">
+          <a href="//developers.whmcs.com/hooks-reference/admin-area/">
+            <span>Admin Area</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/hooks-reference/authentication/">
           <a href="//developers.whmcs.com/hooks-reference/authentication/">
             <span>Authentication</span>
@@ -345,9 +353,9 @@
 
 <p>The following hooks are provided for Client Area Interface related events.</p>
 
-<h2 id="clientareapagelogin">ClientAreaPageLogin</h2>
+<h2 id="clientareadomaindetails">ClientAreaDomainDetails</h2>
 
-<p>Executes on the login page of the client area</p>
+<p>Executes when the domain details page is loaded within the client area. This hook runs regardless of domain status, so be sure to check for the appropriate statuses if required.</p>
 
 <h4 id="parameters">Parameters</h4>
 
@@ -362,21 +370,609 @@
 
 <tbody>
 <tr>
-<td>N/A</td>
-<td>array</td>
-<td>All currently defined template variables</td>
+<td>domain</td>
+<td>\WHMCS\Domain\Domain</td>
+<td>A domain object representing the domain being rendered.</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response">Response</h4>
 
-<p>An array of additional template variables to define.</p>
+<p>No response supported</p>
 
 <h4 id="example-code">Example Code</h4>
 
 <pre><code>&lt;?php
+add_hook('ClientAreaDomainDetails', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientareahomepage">ClientAreaHomepage</h2>
+
+<p>Executes on rendering of the client area homepage.</p>
+
+<h4 id="parameters-1">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>No input parameters for this hook point.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-1">Response</h4>
+
+<p>Return HTML to be output on the page.</p>
+
+<h4 id="example-code-1">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAreaHomepage', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientareahomepagepanels">ClientAreaHomepagePanels</h2>
+
+<p>Executes prior to rendering the Client Area Homepage panels. This can be used to manipulate and add additional panels. For more information on working with Homepage Panels, and further examples, please see Working with ClientArea Homepage Panels</p>
+
+<h4 id="parameters-2">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>item</td>
+<td>\WHMCS\View\Menu\Item</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-2">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-2">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAreaHomepagePanels', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientareanavbars">ClientAreaNavbars</h2>
+
+<p>Executes when generating the navigation bars in the client area</p>
+
+<h4 id="parameters-3">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>No input parameters for this hook point.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-3">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-3">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAreaNavbars', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientareapagelogin">ClientAreaPageLogin</h2>
+
+<p>Executes on the login page of the client area. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+
+<h4 id="parameters-4">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>companyname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>logo</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>systemurl</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>charset</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>pagetitle</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>filename</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>template</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>language</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>LANG</td>
+<td>array</td>
+<td>Active language translation strings</td>
+</tr>
+
+<tr>
+<td>todaysdate</td>
+<td>string</td>
+<td>Human friendly formatted version of todays date</td>
+</tr>
+
+<tr>
+<td>date_day</td>
+<td>string</td>
+<td>Current day of the month</td>
+</tr>
+
+<tr>
+<td>date_month</td>
+<td>string</td>
+<td>Current month</td>
+</tr>
+
+<tr>
+<td>date_year</td>
+<td>string</td>
+<td>Current year</td>
+</tr>
+
+<tr>
+<td>WEB_ROOT</td>
+<td>string</td>
+<td>The web path to the WHMCS doc root</td>
+</tr>
+
+<tr>
+<td>BASE_PATH_CSS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_JS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_FONTS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_IMG</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>token</td>
+<td>string</td>
+<td>CSRF token value</td>
+</tr>
+
+<tr>
+<td>servedOverSsl</td>
+<td>bool</td>
+<td>True if page was loaded via <code>https://</code></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-4">Response</h4>
+
+<p>A key/value pair array of additional template variables to define.</p>
+
+<h4 id="example-code-4">Example Code</h4>
+
+<pre><code>&lt;?php
 add_hook('ClientAreaPageLogin', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientareaprimarynavbar">ClientAreaPrimaryNavbar</h2>
+
+<p>Executes when generating the primary navigation bar in the client area</p>
+
+<h4 id="parameters-5">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>N/A</td>
+<td>\WHMCS\View\Menu\Item</td>
+<td>The currently defined items so further additions can be made</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-5">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-5">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAreaPrimaryNavbar', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientareaprimarysidebar">ClientAreaPrimarySidebar</h2>
+
+<p>Executes when generating the primary side bar in the client area</p>
+
+<h4 id="parameters-6">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>N/A</td>
+<td>\WHMCS\View\Menu\Item</td>
+<td>The currently defined items so further additions can be made</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-6">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-6">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAreaPrimarySidebar', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientareaproductdetails">ClientAreaProductDetails</h2>
+
+<p>Executes when the product details page is loaded within the client area. This hook runs regardless of service status, so be sure to check for the appropriate statuses if required.</p>
+
+<h4 id="parameters-7">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>service</td>
+<td>\WHMCS\Service\Service</td>
+<td>A service object representing the service being rendered.</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-7">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-7">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAreaProductDetails', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientareaproductdetailspremoduletemplate">ClientAreaProductDetailsPreModuleTemplate</h2>
+
+<p>Executes when rendering the client area product details page prior to module template invokation allowing to define additional template parameters.</p>
+
+<h4 id="parameters-8">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>serviceid</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>groupname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>product</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>modulename</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>domain</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>systemStatus</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>username</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>password</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-8">Response</h4>
+
+<p>Return an array of template parameters to make available to the template.</p>
+
+<h4 id="example-code-8">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAreaProductDetailsPreModuleTemplate', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientarearegister">ClientAreaRegister</h2>
+
+<p>Executes after a client has used the register.php file to create a client account.</p>
+
+<h4 id="parameters-9">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>userid</td>
+<td>int</td>
+<td>The id of the newly created client.</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-9">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-9">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAreaRegister', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientareasecondarynavbar">ClientAreaSecondaryNavbar</h2>
+
+<p>Executes when generating the secondary navigation bar in the client area</p>
+
+<h4 id="parameters-10">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>N/A</td>
+<td>\WHMCS\View\Menu\Item</td>
+<td>The currently defined items so further additions can be made</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-10">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-10">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAreaSecondaryNavbar', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientareasecondarysidebar">ClientAreaSecondarySidebar</h2>
+
+<p>Executes when generating the secondary side bar in the client area</p>
+
+<h4 id="parameters-11">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>N/A</td>
+<td>\WHMCS\View\Menu\Item</td>
+<td>The currently defined items so further additions can be made</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-11">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-11">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAreaSecondarySidebar', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientareasidebars">ClientAreaSidebars</h2>
+
+<p>Executes when generating the side bars in the client area</p>
+
+<h4 id="parameters-12">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>No input parameters for this hook point.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-12">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-12">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAreaSidebars', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>

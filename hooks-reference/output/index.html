@@ -138,6 +138,14 @@
       
       
       
+        <li class="" data-nav-id="/hooks-reference/admin-area/">
+          <a href="//developers.whmcs.com/hooks-reference/admin-area/">
+            <span>Admin Area</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/hooks-reference/authentication/">
           <a href="//developers.whmcs.com/hooks-reference/authentication/">
             <span>Authentication</span>
@@ -873,7 +881,7 @@ add_hook('AdminInvoicesControlsOutput', 1, function($vars) {
 <tbody>
 <tr>
 <td>domain</td>
-<td>\Domain</td>
+<td>\WHMCS\Domain\Domain</td>
 <td>A domain object representing the domain being rendered.</td>
 </tr>
 </tbody>
@@ -893,7 +901,7 @@ add_hook('ClientAreaDomainDetailsOutput', 1, function($vars) {
 
 <h2 id="clientareafooteroutput">ClientAreaFooterOutput</h2>
 
-<p>Executes when a client area page is being output</p>
+<p>Executes when a client area page is being output. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-5">Parameters</h4>
 
@@ -908,9 +916,123 @@ add_hook('ClientAreaDomainDetailsOutput', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>N/A</td>
+<td>companyname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>logo</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>systemurl</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>charset</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>pagetitle</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>filename</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>template</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>language</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>LANG</td>
 <td>array</td>
-<td>Receives all currently defined smarty variables</td>
+<td>Active language translation strings</td>
+</tr>
+
+<tr>
+<td>todaysdate</td>
+<td>string</td>
+<td>Human friendly formatted version of todays date</td>
+</tr>
+
+<tr>
+<td>date_day</td>
+<td>string</td>
+<td>Current day of the month</td>
+</tr>
+
+<tr>
+<td>date_month</td>
+<td>string</td>
+<td>Current month</td>
+</tr>
+
+<tr>
+<td>date_year</td>
+<td>string</td>
+<td>Current year</td>
+</tr>
+
+<tr>
+<td>WEB_ROOT</td>
+<td>string</td>
+<td>The web path to the WHMCS doc root</td>
+</tr>
+
+<tr>
+<td>BASE_PATH_CSS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_JS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_FONTS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_IMG</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>token</td>
+<td>string</td>
+<td>CSRF token value</td>
+</tr>
+
+<tr>
+<td>servedOverSsl</td>
+<td>bool</td>
+<td>True if page was loaded via <code>https://</code></td>
 </tr>
 </tbody>
 </table>
@@ -929,7 +1051,7 @@ add_hook('ClientAreaFooterOutput', 1, function($vars) {
 
 <h2 id="clientareaheadoutput">ClientAreaHeadOutput</h2>
 
-<p>Executes when a client area page is being output</p>
+<p>Executes when a client area page is being output. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-6">Parameters</h4>
 
@@ -944,9 +1066,123 @@ add_hook('ClientAreaFooterOutput', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>N/A</td>
+<td>companyname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>logo</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>systemurl</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>charset</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>pagetitle</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>filename</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>template</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>language</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>LANG</td>
 <td>array</td>
-<td>Receives all currently defined smarty variables</td>
+<td>Active language translation strings</td>
+</tr>
+
+<tr>
+<td>todaysdate</td>
+<td>string</td>
+<td>Human friendly formatted version of todays date</td>
+</tr>
+
+<tr>
+<td>date_day</td>
+<td>string</td>
+<td>Current day of the month</td>
+</tr>
+
+<tr>
+<td>date_month</td>
+<td>string</td>
+<td>Current month</td>
+</tr>
+
+<tr>
+<td>date_year</td>
+<td>string</td>
+<td>Current year</td>
+</tr>
+
+<tr>
+<td>WEB_ROOT</td>
+<td>string</td>
+<td>The web path to the WHMCS doc root</td>
+</tr>
+
+<tr>
+<td>BASE_PATH_CSS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_JS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_FONTS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_IMG</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>token</td>
+<td>string</td>
+<td>CSRF token value</td>
+</tr>
+
+<tr>
+<td>servedOverSsl</td>
+<td>bool</td>
+<td>True if page was loaded via <code>https://</code></td>
 </tr>
 </tbody>
 </table>
@@ -965,7 +1201,7 @@ add_hook('ClientAreaHeadOutput', 1, function($vars) {
 
 <h2 id="clientareaheaderoutput">ClientAreaHeaderOutput</h2>
 
-<p>Executes when a client area page is being output</p>
+<p>Executes when a client area page is being output. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-7">Parameters</h4>
 
@@ -980,9 +1216,123 @@ add_hook('ClientAreaHeadOutput', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>N/A</td>
+<td>companyname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>logo</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>systemurl</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>charset</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>pagetitle</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>filename</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>template</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>language</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>LANG</td>
 <td>array</td>
-<td>Receives all currently defined smarty variables</td>
+<td>Active language translation strings</td>
+</tr>
+
+<tr>
+<td>todaysdate</td>
+<td>string</td>
+<td>Human friendly formatted version of todays date</td>
+</tr>
+
+<tr>
+<td>date_day</td>
+<td>string</td>
+<td>Current day of the month</td>
+</tr>
+
+<tr>
+<td>date_month</td>
+<td>string</td>
+<td>Current month</td>
+</tr>
+
+<tr>
+<td>date_year</td>
+<td>string</td>
+<td>Current year</td>
+</tr>
+
+<tr>
+<td>WEB_ROOT</td>
+<td>string</td>
+<td>The web path to the WHMCS doc root</td>
+</tr>
+
+<tr>
+<td>BASE_PATH_CSS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_JS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_FONTS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_IMG</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>token</td>
+<td>string</td>
+<td>CSRF token value</td>
+</tr>
+
+<tr>
+<td>servedOverSsl</td>
+<td>bool</td>
+<td>True if page was loaded via <code>https://</code></td>
 </tr>
 </tbody>
 </table>
@@ -1017,7 +1367,7 @@ add_hook('ClientAreaHeaderOutput', 1, function($vars) {
 <tbody>
 <tr>
 <td>service</td>
-<td>\Service</td>
+<td>\WHMCS\Service\Service</td>
 <td>A service object representing the service being rendered.</td>
 </tr>
 </tbody>

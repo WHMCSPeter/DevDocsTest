@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ticket - WHMCS Developer Documentation</title>
+    <title>Admin Area - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.16" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/hooks-reference/ticket/">
+    <link rel="canonical" href="//developers.whmcs.com/hooks-reference/admin-area/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -138,7 +138,7 @@
       
       
       
-        <li class="" data-nav-id="/hooks-reference/admin-area/">
+        <li class="active" data-nav-id="/hooks-reference/admin-area/">
           <a href="//developers.whmcs.com/hooks-reference/admin-area/">
             <span>Admin Area</span>
           </a>
@@ -266,7 +266,7 @@
       
       
       
-        <li class="active" data-nav-id="/hooks-reference/ticket/">
+        <li class="" data-nav-id="/hooks-reference/ticket/">
           <a href="//developers.whmcs.com/hooks-reference/ticket/">
             <span>Ticket</span>
           </a>
@@ -342,20 +342,20 @@
                 
                   
                 
-                <span itemprop="title"> Ticket</span>
+                <span itemprop="title"> Admin Area</span>
               </div>
             </div>
 
 
-			<h1>Ticket </h1>
+			<h1>Admin Area </h1>
 
 			
 
-<p>The following hooks are provided for Ticket related events.</p>
+<p>The following hooks are provided for Admin Area related events.</p>
 
-<h2 id="adminareaviewticketpage">AdminAreaViewTicketPage</h2>
+<h2 id="adminareaclientsummaryactionlinks">AdminAreaClientSummaryActionLinks</h2>
 
-<p>Runs when an admin views a ticket.</p>
+<p>Allows returning of links for display on the client summary page in the Action Links section.</p>
 
 <h4 id="parameters">Parameters</h4>
 
@@ -370,28 +370,28 @@
 
 <tbody>
 <tr>
-<td>ticketid</td>
+<td>userid</td>
 <td>int</td>
-<td></td>
+<td>The id of the user being displayed</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response">Response</h4>
 
-<p>Returned HTML will be output to the page.</p>
+<p>An array of links to be displayed.</p>
 
 <h4 id="example-code">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('AdminAreaViewTicketPage', 1, function($vars) {
+add_hook('AdminAreaClientSummaryActionLinks', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="submitticketanswersuggestions">SubmitTicketAnswerSuggestions</h2>
+<h2 id="adminareaclientsummarypage">AdminAreaClientSummaryPage</h2>
 
-<p>Executes prior to looking up knowledgebase article suggestions related to the message body of a ticket. Can be used to override the default knowledgebase lookup. If fewer than 5 results are returned, WHMCS will search the knowldebase and add its own results to the output.</p>
+<p>Allows returning of output for display on the client summary page.</p>
 
 <h4 id="parameters-1">Parameters</h4>
 
@@ -406,28 +406,28 @@ add_hook('AdminAreaViewTicketPage', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>text</td>
-<td>string</td>
-<td>The message body</td>
+<td>userid</td>
+<td>int</td>
+<td>The id of the user being displayed</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response-1">Response</h4>
 
-<p>An array of knowledgebase article IDs.</p>
+<p>Return the HTML to be output on the page.</p>
 
 <h4 id="example-code-1">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('SubmitTicketAnswerSuggestions', 1, function($vars) {
+add_hook('AdminAreaClientSummaryPage', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="ticketadminreply">TicketAdminReply</h2>
+<h2 id="adminareapage">AdminAreaPage</h2>
 
-<p>Executes when a reply is added to a ticket by an admin user.</p>
+<p>Runs on every admin area page load. All template variables defined at the time the hook is invoked are made availble to this hook point. This can vary by page. The list below is not an exhaustive list.</p>
 
 <h4 id="parameters-2">Parameters</h4>
 
@@ -442,76 +442,130 @@ add_hook('SubmitTicketAnswerSuggestions', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>ticketid</td>
+<td>charset</td>
+<td>string</td>
+<td>System charset setting eg. UTF-8</td>
+</tr>
+
+<tr>
+<td>template</td>
+<td>string</td>
+<td>The admin template being used</td>
+</tr>
+
+<tr>
+<td>pagetemplate</td>
+<td>string</td>
+<td>The template for the current page (if applicable)</td>
+</tr>
+
+<tr>
+<td>adminid</td>
 <td>int</td>
-<td></td>
+<td>The currently logged in admin user ID</td>
 </tr>
 
 <tr>
-<td>replyid</td>
-<td>int</td>
-<td></td>
-</tr>
-
-<tr>
-<td>deptid</td>
-<td>int</td>
-<td></td>
-</tr>
-
-<tr>
-<td>deptname</td>
+<td>admin_username</td>
 <td>string</td>
-<td></td>
+<td>The username of the current admin user</td>
 </tr>
 
 <tr>
-<td>subject</td>
+<td>admin_notes</td>
 <td>string</td>
-<td></td>
+<td>The private notes for the current admin user</td>
 </tr>
 
 <tr>
-<td>message</td>
-<td>string</td>
-<td></td>
+<td>admin_perms</td>
+<td>array</td>
+<td>The permissions of the current admin user</td>
 </tr>
 
 <tr>
-<td>priority</td>
-<td>string</td>
-<td></td>
+<td>addon_modules</td>
+<td>array</td>
+<td>A list of add-on modules the current admin user has access to</td>
 </tr>
 
 <tr>
-<td>admin</td>
+<td>filename</td>
 <td>string</td>
-<td>Admin user display name</td>
+<td>The name of the file being called</td>
 </tr>
 
 <tr>
-<td>status</td>
+<td>pagetitle</td>
 <td>string</td>
-<td>Ticket status post reply</td>
+<td>The title of the current page</td>
+</tr>
+
+<tr>
+<td>helplink</td>
+<td>string</td>
+<td>The documentation url for the current page</td>
+</tr>
+
+<tr>
+<td>sidebar</td>
+<td>string</td>
+<td>The sidebar output</td>
+</tr>
+
+<tr>
+<td>minsidebar</td>
+<td>bool</td>
+<td>Returns true if the sidebar is minimised</td>
+</tr>
+
+<tr>
+<td>jquerycode</td>
+<td>string</td>
+<td>jQuery code for the current page</td>
+</tr>
+
+<tr>
+<td>jscode</td>
+<td>string</td>
+<td>Javascript code for the current page</td>
+</tr>
+
+<tr>
+<td>datepickerformat</td>
+<td>string</td>
+<td>The format defined for dates in the admin area</td>
+</tr>
+
+<tr>
+<td>adminsonline</td>
+<td>string</td>
+<td>A list of currently online admin users</td>
+</tr>
+
+<tr>
+<td>sidebarstats</td>
+<td>array</td>
+<td>Statistics relating to orders, clients, services, tickets and more</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response-2">Response</h4>
 
-<p>No response supported</p>
+<p>Accepts a return of key/value pairs to be made available to the template layer as additional template variables.</p>
 
 <h4 id="example-code-2">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('TicketAdminReply', 1, function($vars) {
+add_hook('AdminAreaPage', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="ticketclose">TicketClose</h2>
+<h2 id="adminareaviewquotepage">AdminAreaViewQuotePage</h2>
 
-<p>Executes when a ticket is closed.</p>
+<p>Executes as the quote is being viewed.</p>
 
 <h4 id="parameters-3">Parameters</h4>
 
@@ -526,7 +580,7 @@ add_hook('TicketAdminReply', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>ticketid</td>
+<td>quoteid</td>
 <td>int</td>
 <td></td>
 </tr>
@@ -535,19 +589,19 @@ add_hook('TicketAdminReply', 1, function($vars) {
 
 <h4 id="response-3">Response</h4>
 
-<p>No response supported</p>
+<p>An array of HTML to display on the View Quote page</p>
 
 <h4 id="example-code-3">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('TicketClose', 1, function($vars) {
+add_hook('AdminAreaViewQuotePage', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="ticketdelete">TicketDelete</h2>
+<h2 id="adminclientdomainstabfields">AdminClientDomainsTabFields</h2>
 
-<p>Executes when a ticket is deleted.</p>
+<p>Executes when a domain is being viewed in the Admin area.</p>
 
 <h4 id="parameters-4">Parameters</h4>
 
@@ -562,34 +616,28 @@ add_hook('TicketClose', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>ticketId</td>
+<td>id</td>
 <td>int</td>
-<td></td>
-</tr>
-
-<tr>
-<td>adminId</td>
-<td>int</td>
-<td>The admin ID who initiated the action</td>
+<td>the id of the domain being loaded</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response-4">Response</h4>
 
-<p>No response supported</p>
+<p>An array of key -&gt; value parameters to output additional fields as required.</p>
 
 <h4 id="example-code-4">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('TicketDelete', 1, function($vars) {
+add_hook('AdminClientDomainsTabFields', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="ticketdeletereply">TicketDeleteReply</h2>
+<h2 id="adminclientdomainstabfieldssave">AdminClientDomainsTabFieldsSave</h2>
 
-<p>Executes when a ticket reply is deleted.</p>
+<p>Executes when the Domains tab in the Admin area is being saved. Receives all the $_REQUEST parameters as variables.</p>
 
 <h4 id="parameters-5">Parameters</h4>
 
@@ -604,21 +652,9 @@ add_hook('TicketDelete', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>ticketId</td>
-<td>int</td>
+<td>No input parameters for this hook point.</td>
 <td></td>
-</tr>
-
-<tr>
-<td>replyId</td>
-<td>int</td>
 <td></td>
-</tr>
-
-<tr>
-<td>adminId</td>
-<td>int</td>
-<td>The admin ID who initiated the action</td>
 </tr>
 </tbody>
 </table>
@@ -630,14 +666,14 @@ add_hook('TicketDelete', 1, function($vars) {
 <h4 id="example-code-5">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('TicketDeleteReply', 1, function($vars) {
+add_hook('AdminClientDomainsTabFieldsSave', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="ticketopen">TicketOpen</h2>
+<h2 id="adminclientfileupload">AdminClientFileUpload</h2>
 
-<p>Executes when a ticket is opened by an end user.</p>
+<p>Executes as a client file is being uploaded from the Client Summary.</p>
 
 <h4 id="parameters-6">Parameters</h4>
 
@@ -652,44 +688,32 @@ add_hook('TicketDeleteReply', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>ticketid</td>
-<td>int</td>
-<td></td>
-</tr>
-
-<tr>
 <td>userid</td>
 <td>int</td>
 <td></td>
 </tr>
 
 <tr>
-<td>deptid</td>
-<td>int</td>
-<td></td>
-</tr>
-
-<tr>
-<td>deptname</td>
+<td>title</td>
 <td>string</td>
 <td></td>
 </tr>
 
 <tr>
-<td>subject</td>
+<td>filename</td>
 <td>string</td>
-<td></td>
+<td>The filename as stored on the server</td>
 </tr>
 
 <tr>
-<td>message</td>
+<td>origfilename</td>
 <td>string</td>
-<td></td>
+<td>The original filename</td>
 </tr>
 
 <tr>
-<td>priority</td>
-<td>string</td>
+<td>adminonly</td>
+<td>bool</td>
 <td></td>
 </tr>
 </tbody>
@@ -702,14 +726,14 @@ add_hook('TicketDeleteReply', 1, function($vars) {
 <h4 id="example-code-6">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('TicketOpen', 1, function($vars) {
+add_hook('AdminClientFileUpload', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="ticketopenadmin">TicketOpenAdmin</h2>
+<h2 id="adminclientprofiletabfields">AdminClientProfileTabFields</h2>
 
-<p>Executes when a ticket is opened by an admin user.</p>
+<p>Executes when a client profile is being viewed in the Admin area.</p>
 
 <h4 id="parameters-7">Parameters</h4>
 
@@ -724,44 +748,206 @@ add_hook('TicketOpen', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>ticketid</td>
-<td>int</td>
-<td></td>
-</tr>
-
-<tr>
 <td>userid</td>
 <td>int</td>
 <td></td>
 </tr>
 
 <tr>
-<td>deptid</td>
+<td>uuid</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>firstname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>lastname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>companyname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>email</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>address1</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>address2</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>city</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>state</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>postcode</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>country</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>phonenumber</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>password</td>
+<td>string</td>
+<td>The encrypted password for the user</td>
+</tr>
+
+<tr>
+<td>currency</td>
+<td>int</td>
+<td>The id of the currency</td>
+</tr>
+
+<tr>
+<td>notes</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>status</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>taxexempt</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>latefeeoveride</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>overideduenotices</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>separateinvoices</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>disableautocc</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>emailoptout</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>overrideautoclose</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>language</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>billingcid</td>
 <td>int</td>
 <td></td>
 </tr>
 
 <tr>
-<td>deptname</td>
-<td>string</td>
+<td>securityqid</td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
-<td>subject</td>
+<td>securityqans</td>
 <td>string</td>
-<td></td>
+<td>The encrypted security question answer</td>
 </tr>
 
 <tr>
-<td>message</td>
-<td>string</td>
-<td></td>
+<td>groupid</td>
+<td>int</td>
+<td>The id of the client group</td>
 </tr>
 
 <tr>
-<td>priority</td>
+<td>allow_sso</td>
+<td>bool</td>
+<td>Is Single Sign on enabled for the client?</td>
+</tr>
+
+<tr>
+<td>olddata</td>
+<td>array</td>
+<td>An array of the previous contact information</td>
+</tr>
+
+<tr>
+<td>authmodule</td>
 <td>string</td>
+<td>The 2Factor Auth Module enabled for the user</td>
+</tr>
+
+<tr>
+<td>authdata</td>
+<td>string</td>
+<td>The 2Factor Auth Data for the user</td>
+</tr>
+
+<tr>
+<td>email_verified</td>
+<td>bool</td>
 <td></td>
 </tr>
 </tbody>
@@ -769,19 +955,19 @@ add_hook('TicketOpen', 1, function($vars) {
 
 <h4 id="response-7">Response</h4>
 
-<p>No response supported</p>
+<p>An array of key -&gt; value parameters to output additional fields as required.</p>
 
 <h4 id="example-code-7">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('TicketOpenAdmin', 1, function($vars) {
+add_hook('AdminClientProfileTabFields', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="ticketpiping">TicketPiping</h2>
+<h2 id="adminclientprofiletabfieldssave">AdminClientProfileTabFieldsSave</h2>
 
-<p>Executes when a ticket is being imported via email.</p>
+<p>Executes when the Profile in the Admin area is being saved. Receives all the $_REQUEST parameters as variables.</p>
 
 <h4 id="parameters-8">Parameters</h4>
 
@@ -796,38 +982,8 @@ add_hook('TicketOpenAdmin', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>to</td>
-<td>string</td>
+<td>No input parameters for this hook point.</td>
 <td></td>
-</tr>
-
-<tr>
-<td>name</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>email</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>subject</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>body</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>attachments</td>
-<td>string</td>
 <td></td>
 </tr>
 </tbody>
@@ -835,21 +991,129 @@ add_hook('TicketOpenAdmin', 1, function($vars) {
 
 <h4 id="response-8">Response</h4>
 
-<p>Return skipProcessing=true to abort importing of the given email.</p>
+<p>No response supported</p>
 
 <h4 id="example-code-8">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('TicketPiping', 1, function($vars) {
+add_hook('AdminClientProfileTabFieldsSave', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="ticketstatuschange">TicketStatusChange</h2>
+<h2 id="adminclientservicestabfields">AdminClientServicesTabFields</h2>
 
-<p>Executes as a ticket status is changed.</p>
+<p>Executes when a service is being viewed in the Admin area.</p>
 
 <h4 id="parameters-9">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>the id of the service being loaded</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-9">Response</h4>
+
+<p>An array of key -&gt; value parameters to output additional fields as required.</p>
+
+<h4 id="example-code-9">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('AdminClientServicesTabFields', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="adminclientservicestabfieldssave">AdminClientServicesTabFieldsSave</h2>
+
+<p>Executes when the Services tab in the Admin area is being saved. Receives all the $_REQUEST parameters as variables.</p>
+
+<h4 id="parameters-10">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>No input parameters for this hook point.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-10">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-10">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('AdminClientServicesTabFieldsSave', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="adminhomepage">AdminHomepage</h2>
+
+<p>Allows returning of output for display on the admin homepage</p>
+
+<h4 id="parameters-11">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>No input parameters for this hook point.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-11">Response</h4>
+
+<p>Return the HTML to be output on the page.</p>
+
+<h4 id="example-code-11">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('AdminHomepage', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="adminlogout">AdminLogout</h2>
+
+<p>Executes on Admin log out</p>
+
+<h4 id="parameters-12">Parameters</h4>
 
 <table>
 <thead>
@@ -866,38 +1130,26 @@ add_hook('TicketPiping', 1, function($vars) {
 <td>int</td>
 <td></td>
 </tr>
-
-<tr>
-<td>status</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>ticketid</td>
-<td>int</td>
-<td></td>
-</tr>
 </tbody>
 </table>
 
-<h4 id="response-9">Response</h4>
+<h4 id="response-12">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-9">Example Code</h4>
+<h4 id="example-code-12">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('TicketStatusChange', 1, function($vars) {
+add_hook('AdminLogout', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="ticketuserreply">TicketUserReply</h2>
+<h2 id="adminproductconfigfields">AdminProductConfigFields</h2>
 
-<p>Executes when a reply is added to a ticket by an end user.</p>
+<p>Executes as a product is being edited.</p>
 
-<h4 id="parameters-10">Parameters</h4>
+<h4 id="parameters-13">Parameters</h4>
 
 <table>
 <thead>
@@ -910,17 +1162,77 @@ add_hook('TicketStatusChange', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>ticketid</td>
+<td>pid</td>
 <td>int</td>
 <td></td>
 </tr>
+</tbody>
+</table>
 
+<h4 id="response-13">Response</h4>
+
+<p>An array of key -&gt; value pairs to display on the Other tab.</p>
+
+<h4 id="example-code-13">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('AdminProductConfigFields', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="adminproductconfigfieldssave">AdminProductConfigFieldsSave</h2>
+
+<p>Executes as a product is being saved. Access The Request variables to save custom config fields.</p>
+
+<h4 id="parameters-14">Parameters</h4>
+
+<table>
+<thead>
 <tr>
-<td>replyid</td>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>pid</td>
 <td>int</td>
 <td></td>
 </tr>
+</tbody>
+</table>
 
+<h4 id="response-14">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-14">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('AdminProductConfigFieldsSave', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="adminserviceedit">AdminServiceEdit</h2>
+
+<p>Executes as the service is being saved, after any changes have been made.</p>
+
+<h4 id="parameters-15">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
 <tr>
 <td>userid</td>
 <td>int</td>
@@ -928,60 +1240,30 @@ add_hook('TicketStatusChange', 1, function($vars) {
 </tr>
 
 <tr>
-<td>deptid</td>
+<td>serviceid</td>
 <td>int</td>
 <td></td>
-</tr>
-
-<tr>
-<td>deptname</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>subject</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>message</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>priority</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>status</td>
-<td>string</td>
-<td>Ticket status post reply</td>
 </tr>
 </tbody>
 </table>
 
-<h4 id="response-10">Response</h4>
+<h4 id="response-15">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-10">Example Code</h4>
+<h4 id="example-code-15">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('TicketUserReply', 1, function($vars) {
+add_hook('AdminServiceEdit', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="transliteratetickettext">TransliterateTicketText</h2>
+<h2 id="invoicecreationadminarea">InvoiceCreationAdminArea</h2>
 
-<p>Invoked when a ticket is imported from email.</p>
+<p>Executes when an invoice is first created by an admin user. The invoice has not been delivered to the client at this point.</p>
 
-<h4 id="parameters-11">Parameters</h4>
+<h4 id="parameters-16">Parameters</h4>
 
 <table>
 <thead>
@@ -994,27 +1276,75 @@ add_hook('TicketUserReply', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>subject</td>
+<td>source</td>
 <td>string</td>
-<td>The message subject</td>
+<td></td>
 </tr>
 
 <tr>
-<td>message</td>
+<td>user</td>
 <td>string</td>
-<td>The message body</td>
+<td>int</td>
+</tr>
+
+<tr>
+<td>invoiceid</td>
+<td>int</td>
+<td>The invoice ID that was created</td>
+</tr>
+
+<tr>
+<td>status</td>
+<td>string</td>
+<td>The status of the new invoice</td>
 </tr>
 </tbody>
 </table>
 
-<h4 id="response-11">Response</h4>
+<h4 id="response-16">Response</h4>
 
-<p>Override the global variables $subject and $message to manipulate.</p>
+<p>No response supported</p>
 
-<h4 id="example-code-11">Example Code</h4>
+<h4 id="example-code-16">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('TransliterateTicketText', 1, function($vars) {
+add_hook('InvoiceCreationAdminArea', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="preadminserviceedit">PreAdminServiceEdit</h2>
+
+<p>Executes as the service is being saved, before any changes have been made.</p>
+
+<h4 id="parameters-17">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>serviceid</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-17">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-17">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreAdminServiceEdit', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>

@@ -174,13 +174,11 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#addinvoicelatefee&#34;&gt;AddInvoiceLateFee&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#addinvoicepayment&#34;&gt;AddInvoicePayment&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#addtransaction&#34;&gt;AddTransaction&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#adminareaviewquotepage&#34;&gt;AdminAreaViewQuotePage&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#afterinvoicinggenerateinvoiceitems&#34;&gt;AfterInvoicingGenerateInvoiceItems&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicecancelled&#34;&gt;InvoiceCancelled&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicechangegateway&#34;&gt;InvoiceChangeGateway&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicecreated&#34;&gt;InvoiceCreated&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicecreation&#34;&gt;InvoiceCreation&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicecreationadminarea&#34;&gt;InvoiceCreationAdminArea&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicecreationpreemail&#34;&gt;InvoiceCreationPreEmail&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicepaid&#34;&gt;InvoicePaid&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicepaidpreemail&#34;&gt;InvoicePaidPreEmail&lt;/a&gt;
@@ -219,11 +217,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;/ul&gt;
 &lt;h3&gt;Service&lt;/h3&gt;
 
-&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#adminclientservicestabfields&#34;&gt;AdminClientServicesTabFields&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#adminclientservicestabfieldssave&#34;&gt;AdminClientServicesTabFieldsSave&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#adminserviceedit&#34;&gt;AdminServiceEdit&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#cancellationrequest&#34;&gt;CancellationRequest&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#preadminserviceedit&#34;&gt;PreAdminServiceEdit&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#cancellationrequest&#34;&gt;CancellationRequest&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#preserviceedit&#34;&gt;PreServiceEdit&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#servicedelete&#34;&gt;ServiceDelete&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/service/#serviceedit&#34;&gt;ServiceEdit&lt;/a&gt;
@@ -233,16 +227,12 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#aftermodule&#34;&gt;AfterModule&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#aftermodulechangepassword&#34;&gt;AfterModuleChangePassword&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#clientareaproductdetailspremoduletemplate&#34;&gt;ClientAreaProductDetailsPreModuleTemplate&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#overridemoduleusernamegeneration&#34;&gt;OverrideModuleUsernameGeneration&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#premodule&#34;&gt;PreModule&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Domain&lt;/h3&gt;
 
-&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#adminclientdomainstabfields&#34;&gt;AdminClientDomainsTabFields&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#adminclientdomainstabfieldssave&#34;&gt;AdminClientDomainsTabFieldsSave&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#clientareadomaindetails&#34;&gt;ClientAreaDomainDetails&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#domaindelete&#34;&gt;DomainDelete&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#domaindelete&#34;&gt;DomainDelete&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#domainedit&#34;&gt;DomainEdit&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#domainvalidation&#34;&gt;DomainValidation&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#predomainregister&#34;&gt;PreDomainRegister&lt;/a&gt;
@@ -277,23 +267,8 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;/ul&gt;
 &lt;h3&gt;Client&lt;/h3&gt;
 
-&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#adminareaclientsummaryactionlinks&#34;&gt;AdminAreaClientSummaryActionLinks&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#adminareaclientsummarypage&#34;&gt;AdminAreaClientSummaryPage&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#adminclientfileupload&#34;&gt;AdminClientFileUpload&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#adminclientprofiletabfields&#34;&gt;AdminClientProfileTabFields&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#adminclientprofiletabfieldssave&#34;&gt;AdminClientProfileTabFieldsSave&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#afterclientmerge&#34;&gt;AfterClientMerge&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#afterclientmerge&#34;&gt;AfterClientMerge&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientalert&#34;&gt;ClientAlert&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareahomepage&#34;&gt;ClientAreaHomepage&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareahomepagepanels&#34;&gt;ClientAreaHomepagePanels&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareanavbars&#34;&gt;ClientAreaNavbars&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareaprimarynavbar&#34;&gt;ClientAreaPrimaryNavbar&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareaprimarysidebar&#34;&gt;ClientAreaPrimarySidebar&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareaproductdetails&#34;&gt;ClientAreaProductDetails&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientarearegister&#34;&gt;ClientAreaRegister&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareasecondarynavbar&#34;&gt;ClientAreaSecondaryNavbar&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareasecondarysidebar&#34;&gt;ClientAreaSecondarySidebar&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientareasidebars&#34;&gt;ClientAreaSidebars&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientchangepassword&#34;&gt;ClientChangePassword&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientclose&#34;&gt;ClientClose&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientdelete&#34;&gt;ClientDelete&lt;/a&gt;
@@ -309,9 +284,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;/ul&gt;
 &lt;/div&gt;&lt;div class=&#34;col-sm-6&#34;&gt;&lt;h3&gt;Products and Services&lt;/h3&gt;
 
-&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/products-and-services/#adminproductconfigfields&#34;&gt;AdminProductConfigFields&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/products-and-services/#adminproductconfigfieldssave&#34;&gt;AdminProductConfigFieldsSave&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/products-and-services/#afterproductupgrade&#34;&gt;AfterProductUpgrade&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/products-and-services/#afterproductupgrade&#34;&gt;AfterProductUpgrade&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/products-and-services/#productdelete&#34;&gt;ProductDelete&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/products-and-services/#productedit&#34;&gt;ProductEdit&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/products-and-services/#serveradd&#34;&gt;ServerAdd&lt;/a&gt;
@@ -346,13 +319,45 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;/ul&gt;
 &lt;h3&gt;Authentication&lt;/h3&gt;
 
-&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#adminlogout&#34;&gt;AdminLogout&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#clientlogin&#34;&gt;ClientLogin&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#clientlogin&#34;&gt;ClientLogin&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#clientlogout&#34;&gt;ClientLogout&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Client Area Interface&lt;/h3&gt;
 
-&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareapagelogin&#34;&gt;ClientAreaPageLogin&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareadomaindetails&#34;&gt;ClientAreaDomainDetails&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareahomepage&#34;&gt;ClientAreaHomepage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareahomepagepanels&#34;&gt;ClientAreaHomepagePanels&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareanavbars&#34;&gt;ClientAreaNavbars&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareapagelogin&#34;&gt;ClientAreaPageLogin&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareaprimarynavbar&#34;&gt;ClientAreaPrimaryNavbar&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareaprimarysidebar&#34;&gt;ClientAreaPrimarySidebar&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareaproductdetails&#34;&gt;ClientAreaProductDetails&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareaproductdetailspremoduletemplate&#34;&gt;ClientAreaProductDetailsPreModuleTemplate&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientarearegister&#34;&gt;ClientAreaRegister&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareasecondarynavbar&#34;&gt;ClientAreaSecondaryNavbar&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareasecondarysidebar&#34;&gt;ClientAreaSecondarySidebar&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareasidebars&#34;&gt;ClientAreaSidebars&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Admin Area&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminareaclientsummaryactionlinks&#34;&gt;AdminAreaClientSummaryActionLinks&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminareaclientsummarypage&#34;&gt;AdminAreaClientSummaryPage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminareapage&#34;&gt;AdminAreaPage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminareaviewquotepage&#34;&gt;AdminAreaViewQuotePage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminclientdomainstabfields&#34;&gt;AdminClientDomainsTabFields&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminclientdomainstabfieldssave&#34;&gt;AdminClientDomainsTabFieldsSave&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminclientfileupload&#34;&gt;AdminClientFileUpload&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminclientprofiletabfields&#34;&gt;AdminClientProfileTabFields&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminclientprofiletabfieldssave&#34;&gt;AdminClientProfileTabFieldsSave&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminclientservicestabfields&#34;&gt;AdminClientServicesTabFields&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminclientservicestabfieldssave&#34;&gt;AdminClientServicesTabFieldsSave&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminhomepage&#34;&gt;AdminHomepage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminlogout&#34;&gt;AdminLogout&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminproductconfigfields&#34;&gt;AdminProductConfigFields&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminproductconfigfieldssave&#34;&gt;AdminProductConfigFieldsSave&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminserviceedit&#34;&gt;AdminServiceEdit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#invoicecreationadminarea&#34;&gt;InvoiceCreationAdminArea&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#preadminserviceedit&#34;&gt;PreAdminServiceEdit&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Output&lt;/h3&gt;
 
@@ -377,9 +382,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;/ul&gt;
 &lt;h3&gt;Everything Else&lt;/h3&gt;
 
-&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#adminareapage&#34;&gt;AdminAreaPage&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#adminhomepage&#34;&gt;AdminHomepage&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#affiliateactivation&#34;&gt;AffiliateActivation&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#affiliateactivation&#34;&gt;AffiliateActivation&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#affiliateclickthru&#34;&gt;AffiliateClickthru&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#affiliatecommission&#34;&gt;AffiliateCommission&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#affiliatewithdrawalrequest&#34;&gt;AffiliateWithdrawalRequest&lt;/a&gt;

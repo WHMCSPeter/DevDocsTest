@@ -138,6 +138,14 @@
       
       
       
+        <li class="" data-nav-id="/hooks-reference/admin-area/">
+          <a href="//developers.whmcs.com/hooks-reference/admin-area/">
+            <span>Admin Area</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="active" data-nav-id="/hooks-reference/authentication/">
           <a href="//developers.whmcs.com/hooks-reference/authentication/">
             <span>Authentication</span>
@@ -345,9 +353,9 @@
 
 <p>The following hooks are provided for Authentication related events.</p>
 
-<h2 id="adminlogout">AdminLogout</h2>
+<h2 id="clientlogin">ClientLogin</h2>
 
-<p>Executes on Admin log out</p>
+<p>Executes when a client is logging into the Client Area.</p>
 
 <h4 id="parameters">Parameters</h4>
 
@@ -362,7 +370,7 @@
 
 <tbody>
 <tr>
-<td>adminid</td>
+<td>userid</td>
 <td>int</td>
 <td></td>
 </tr>
@@ -376,14 +384,14 @@
 <h4 id="example-code">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('AdminLogout', 1, function($vars) {
+add_hook('ClientLogin', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientlogin">ClientLogin</h2>
+<h2 id="clientlogout">ClientLogout</h2>
 
-<p>Executes when a client is logging into the Client Area.</p>
+<p>Executes when a client is logging out of the client area</p>
 
 <h4 id="parameters-1">Parameters</h4>
 
@@ -410,42 +418,6 @@ add_hook('AdminLogout', 1, function($vars) {
 <p>No response supported</p>
 
 <h4 id="example-code-1">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ClientLogin', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="clientlogout">ClientLogout</h2>
-
-<p>Executes when a client is logging out of the client area</p>
-
-<h4 id="parameters-2">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>userid</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-2">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-2">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientLogout', 1, function($vars) {

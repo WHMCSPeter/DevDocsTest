@@ -138,6 +138,14 @@
       
       
       
+        <li class="" data-nav-id="/hooks-reference/admin-area/">
+          <a href="//developers.whmcs.com/hooks-reference/admin-area/">
+            <span>Admin Area</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/hooks-reference/authentication/">
           <a href="//developers.whmcs.com/hooks-reference/authentication/">
             <span>Authentication</span>
@@ -345,125 +353,11 @@
 
 <p>The following hooks are provided for Service related events.</p>
 
-<h2 id="adminclientservicestabfields">AdminClientServicesTabFields</h2>
-
-<p>Executes when a service is being viewed in the Admin area.</p>
-
-<h4 id="parameters">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>id</td>
-<td>int</td>
-<td>the id of the service being loaded</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response">Response</h4>
-
-<p>An array of key -&gt; value parameters to output additional fields as required.</p>
-
-<h4 id="example-code">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('AdminClientServicesTabFields', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="adminclientservicestabfieldssave">AdminClientServicesTabFieldsSave</h2>
-
-<p>Executes when the Services tab in the Admin area is being saved. Receives all the $_REQUEST parameters as variables.</p>
-
-<h4 id="parameters-1">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>No input parameters for this hook point.</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-1">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-1">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('AdminClientServicesTabFieldsSave', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="adminserviceedit">AdminServiceEdit</h2>
-
-<p>Executes as the service is being saved, after any changes have been made.</p>
-
-<h4 id="parameters-2">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>userid</td>
-<td>int</td>
-<td></td>
-</tr>
-
-<tr>
-<td>serviceid</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-2">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-2">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('AdminServiceEdit', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
 <h2 id="cancellationrequest">CancellationRequest</h2>
 
 <p>Executes as a cancellation request is being created</p>
 
-<h4 id="parameters-3">Parameters</h4>
+<h4 id="parameters">Parameters</h4>
 
 <table>
 <thead>
@@ -501,50 +395,14 @@ add_hook('AdminServiceEdit', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-3">Example Code</h4>
+<h4 id="example-code">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('CancellationRequest', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="preadminserviceedit">PreAdminServiceEdit</h2>
-
-<p>Executes as the service is being saved, before any changes have been made.</p>
-
-<h4 id="parameters-4">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>serviceid</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-4">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-4">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('PreAdminServiceEdit', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
@@ -553,7 +411,7 @@ add_hook('PreAdminServiceEdit', 1, function($vars) {
 
 <p>Executes as the service is being saved, before any changes have been made.</p>
 
-<h4 id="parameters-5">Parameters</h4>
+<h4 id="parameters-1">Parameters</h4>
 
 <table>
 <thead>
@@ -573,11 +431,11 @@ add_hook('PreAdminServiceEdit', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-1">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-5">Example Code</h4>
+<h4 id="example-code-1">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreServiceEdit', 1, function($vars) {
@@ -589,7 +447,7 @@ add_hook('PreServiceEdit', 1, function($vars) {
 
 <p>Executes when a service is being deleted.</p>
 
-<h4 id="parameters-6">Parameters</h4>
+<h4 id="parameters-2">Parameters</h4>
 
 <table>
 <thead>
@@ -615,11 +473,11 @@ add_hook('PreServiceEdit', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-6">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-6">Example Code</h4>
+<h4 id="example-code-2">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ServiceDelete', 1, function($vars) {
@@ -631,7 +489,7 @@ add_hook('ServiceDelete', 1, function($vars) {
 
 <p>Executes as the service is being saved, after any changes have been made.</p>
 
-<h4 id="parameters-7">Parameters</h4>
+<h4 id="parameters-3">Parameters</h4>
 
 <table>
 <thead>
@@ -657,11 +515,11 @@ add_hook('ServiceDelete', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-7">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-7">Example Code</h4>
+<h4 id="example-code-3">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ServiceEdit', 1, function($vars) {
@@ -673,7 +531,7 @@ add_hook('ServiceEdit', 1, function($vars) {
 
 <p>Executes when the Recurring Cycles Limit is reached for a product.</p>
 
-<h4 id="parameters-8">Parameters</h4>
+<h4 id="parameters-4">Parameters</h4>
 
 <table>
 <thead>
@@ -699,11 +557,11 @@ add_hook('ServiceEdit', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-8">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-8">Example Code</h4>
+<h4 id="example-code-4">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ServiceRecurringCompleted', 1, function($vars) {

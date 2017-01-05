@@ -138,6 +138,14 @@
       
       
       
+        <li class="" data-nav-id="/hooks-reference/admin-area/">
+          <a href="//developers.whmcs.com/hooks-reference/admin-area/">
+            <span>Admin Area</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/hooks-reference/authentication/">
           <a href="//developers.whmcs.com/hooks-reference/authentication/">
             <span>Authentication</span>
@@ -345,9 +353,9 @@
 
 <p>The following hooks are provided for Domain related events.</p>
 
-<h2 id="adminclientdomainstabfields">AdminClientDomainsTabFields</h2>
+<h2 id="domaindelete">DomainDelete</h2>
 
-<p>Executes when a domain is being viewed in the Admin area.</p>
+<p>Executes when a service is being deleted.</p>
 
 <h4 id="parameters">Parameters</h4>
 
@@ -362,28 +370,34 @@
 
 <tbody>
 <tr>
-<td>id</td>
+<td>userid</td>
 <td>int</td>
-<td>the id of the domain being loaded</td>
+<td></td>
+</tr>
+
+<tr>
+<td>domainid</td>
+<td>int</td>
+<td></td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response">Response</h4>
 
-<p>An array of key -&gt; value parameters to output additional fields as required.</p>
+<p>No response supported</p>
 
 <h4 id="example-code">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('AdminClientDomainsTabFields', 1, function($vars) {
+add_hook('DomainDelete', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="adminclientdomainstabfieldssave">AdminClientDomainsTabFieldsSave</h2>
+<h2 id="domainedit">DomainEdit</h2>
 
-<p>Executes when the Domains tab in the Admin area is being saved. Receives all the $_REQUEST parameters as variables.</p>
+<p>Executes as the domain is being saved, before any changes have been made.</p>
 
 <h4 id="parameters-1">Parameters</h4>
 
@@ -398,8 +412,14 @@ add_hook('AdminClientDomainsTabFields', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>No input parameters for this hook point.</td>
+<td>userid</td>
+<td>int</td>
 <td></td>
+</tr>
+
+<tr>
+<td>domainid</td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -412,126 +432,6 @@ add_hook('AdminClientDomainsTabFields', 1, function($vars) {
 <h4 id="example-code-1">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('AdminClientDomainsTabFieldsSave', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="clientareadomaindetails">ClientAreaDomainDetails</h2>
-
-<p>Executes when the domain details page is loaded within the client area. This hook runs regardless of domain status, so be sure to check for the appropriate statuses if required.</p>
-
-<h4 id="parameters-2">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>domain</td>
-<td>\Domain</td>
-<td>A domain object representing the domain being rendered.</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-2">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-2">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ClientAreaDomainDetails', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="domaindelete">DomainDelete</h2>
-
-<p>Executes when a service is being deleted.</p>
-
-<h4 id="parameters-3">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>userid</td>
-<td>int</td>
-<td></td>
-</tr>
-
-<tr>
-<td>domainid</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-3">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-3">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('DomainDelete', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="domainedit">DomainEdit</h2>
-
-<p>Executes as the domain is being saved, before any changes have been made.</p>
-
-<h4 id="parameters-4">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>userid</td>
-<td>int</td>
-<td></td>
-</tr>
-
-<tr>
-<td>domainid</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-4">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-4">Example Code</h4>
-
-<pre><code>&lt;?php
 add_hook('DomainEdit', 1, function($vars) {
     // Perform hook code here...
 });
@@ -541,7 +441,7 @@ add_hook('DomainEdit', 1, function($vars) {
 
 <p>Executes as domain validation is being run</p>
 
-<h4 id="parameters-5">Parameters</h4>
+<h4 id="parameters-2">Parameters</h4>
 
 <table>
 <thead>
@@ -567,11 +467,11 @@ add_hook('DomainEdit', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-5">Example Code</h4>
+<h4 id="example-code-2">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('DomainValidation', 1, function($vars) {
@@ -583,7 +483,7 @@ add_hook('DomainValidation', 1, function($vars) {
 
 <p>Executes before a domain register command</p>
 
-<h4 id="parameters-6">Parameters</h4>
+<h4 id="parameters-3">Parameters</h4>
 
 <table>
 <thead>
@@ -598,16 +498,16 @@ add_hook('DomainValidation', 1, function($vars) {
 <tr>
 <td>params</td>
 <td>array</td>
-<td></td>
+<td>Common domain registrar parameters. See <a href="http://developers.whmcs.com/domain-registrars/module-parameters/">http://developers.whmcs.com/domain-registrars/module-parameters/</a></td>
 </tr>
 </tbody>
 </table>
 
-<h4 id="response-6">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-6">Example Code</h4>
+<h4 id="example-code-3">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreDomainRegister', 1, function($vars) {
@@ -619,7 +519,7 @@ add_hook('PreDomainRegister', 1, function($vars) {
 
 <p>Executes before a domain transfer command</p>
 
-<h4 id="parameters-7">Parameters</h4>
+<h4 id="parameters-4">Parameters</h4>
 
 <table>
 <thead>
@@ -634,16 +534,16 @@ add_hook('PreDomainRegister', 1, function($vars) {
 <tr>
 <td>params</td>
 <td>array</td>
-<td></td>
+<td>Common domain registrar parameters. See <a href="http://developers.whmcs.com/domain-registrars/module-parameters/">http://developers.whmcs.com/domain-registrars/module-parameters/</a></td>
 </tr>
 </tbody>
 </table>
 
-<h4 id="response-7">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-7">Example Code</h4>
+<h4 id="example-code-4">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreDomainTransfer', 1, function($vars) {

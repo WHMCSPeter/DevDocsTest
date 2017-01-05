@@ -642,6 +642,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/hooks-reference/admin-area/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/hooks-reference/authentication/</loc>
   </url>
   

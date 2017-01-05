@@ -138,6 +138,14 @@
       
       
       
+        <li class="" data-nav-id="/hooks-reference/admin-area/">
+          <a href="//developers.whmcs.com/hooks-reference/admin-area/">
+            <span>Admin Area</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/hooks-reference/authentication/">
           <a href="//developers.whmcs.com/hooks-reference/authentication/">
             <span>Authentication</span>
@@ -345,215 +353,11 @@
 
 <p>The following hooks are provided for Client related events.</p>
 
-<h2 id="adminareaclientsummaryactionlinks">AdminAreaClientSummaryActionLinks</h2>
-
-<p>Allows returning of links for display on the client summary page in the Action Links section.</p>
-
-<h4 id="parameters">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>userid</td>
-<td>int</td>
-<td>The id of the user being displayed</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response">Response</h4>
-
-<p>An array of links to be displayed.</p>
-
-<h4 id="example-code">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('AdminAreaClientSummaryActionLinks', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="adminareaclientsummarypage">AdminAreaClientSummaryPage</h2>
-
-<p>Allows returning of output for display on the client summary page.</p>
-
-<h4 id="parameters-1">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>userid</td>
-<td>int</td>
-<td>The id of the user being displayed</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-1">Response</h4>
-
-<p>Return the HTML to be output on the page.</p>
-
-<h4 id="example-code-1">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('AdminAreaClientSummaryPage', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="adminclientfileupload">AdminClientFileUpload</h2>
-
-<p>Executes as a client file is being uploaded from the Client Summary.</p>
-
-<h4 id="parameters-2">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>userid</td>
-<td>int</td>
-<td></td>
-</tr>
-
-<tr>
-<td>title</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>filename</td>
-<td>string</td>
-<td>The filename as stored on the server</td>
-</tr>
-
-<tr>
-<td>origfilename</td>
-<td>string</td>
-<td>The original filename</td>
-</tr>
-
-<tr>
-<td>adminonly</td>
-<td>bool</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-2">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-2">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('AdminClientFileUpload', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="adminclientprofiletabfields">AdminClientProfileTabFields</h2>
-
-<p>Undocumented</p>
-
-<h4 id="parameters-3">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>No input parameters for this hook point.</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-3">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-3">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('AdminClientProfileTabFields', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="adminclientprofiletabfieldssave">AdminClientProfileTabFieldsSave</h2>
-
-<p>Executes when the Profile in the Admin area is being saved. Receives all the $_REQUEST parameters as variables.</p>
-
-<h4 id="parameters-4">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>No input parameters for this hook point.</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-4">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-4">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('AdminClientProfileTabFieldsSave', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
 <h2 id="afterclientmerge">AfterClientMerge</h2>
 
 <p>Executes after a client merge has completed.</p>
 
-<h4 id="parameters-5">Parameters</h4>
+<h4 id="parameters">Parameters</h4>
 
 <table>
 <thead>
@@ -579,11 +383,11 @@ add_hook('AdminClientProfileTabFieldsSave', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-5">Example Code</h4>
+<h4 id="example-code">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AfterClientMerge', 1, function($vars) {
@@ -595,7 +399,7 @@ add_hook('AfterClientMerge', 1, function($vars) {
 
 <p>Executes when Client Alerts are being defined</p>
 
-<h4 id="parameters-6">Parameters</h4>
+<h4 id="parameters-1">Parameters</h4>
 
 <table>
 <thead>
@@ -609,380 +413,20 @@ add_hook('AfterClientMerge', 1, function($vars) {
 <tbody>
 <tr>
 <td>N/A</td>
-<td>\Client</td>
+<td>\WHMCS\User\Client</td>
 <td>The client model</td>
 </tr>
 </tbody>
 </table>
 
-<h4 id="response-6">Response</h4>
+<h4 id="response-1">Response</h4>
 
-<p>Return a new alerts to display. eg: return new WHMCS\User\Alert &ldquo;This is a test notification for {$firstName} {$lastName}&rdquo;, &lsquo;info&rsquo; //see <a href="http://getbootstrap.com/components/#alerts)">http://getbootstrap.com/components/#alerts)</a>;</p>
+<p>Return a new alert object for rendering.</p>
 
-<h4 id="example-code-6">Example Code</h4>
+<h4 id="example-code-1">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientAlert', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="clientareahomepage">ClientAreaHomepage</h2>
-
-<p>Executes on rendering of the client area homepage.</p>
-
-<h4 id="parameters-7">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>No input parameters for this hook point.</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-7">Response</h4>
-
-<p>Return HTML to be output on the page.</p>
-
-<h4 id="example-code-7">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ClientAreaHomepage', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="clientareahomepagepanels">ClientAreaHomepagePanels</h2>
-
-<p>Executes prior to rendering the Client Area Homepage panels. This can be used to manipulate and add additional panels. For more information on working with Homepage Panels, and further examples, please see Working with ClientArea Homepage Panels</p>
-
-<h4 id="parameters-8">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>item</td>
-<td>\MenuItem</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-8">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-8">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ClientAreaHomepagePanels', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="clientareanavbars">ClientAreaNavbars</h2>
-
-<p>Executes when generating the navigation bars in the client area</p>
-
-<h4 id="parameters-9">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>No input parameters for this hook point.</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-9">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-9">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ClientAreaNavbars', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="clientareaprimarynavbar">ClientAreaPrimaryNavbar</h2>
-
-<p>Executes when generating the primary navigation bar in the client area</p>
-
-<h4 id="parameters-10">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>N/A</td>
-<td>\Item</td>
-<td>The currently defined items so further additions can be made</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-10">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-10">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ClientAreaPrimaryNavbar', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="clientareaprimarysidebar">ClientAreaPrimarySidebar</h2>
-
-<p>Executes when generating the primary side bar in the client area</p>
-
-<h4 id="parameters-11">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>N/A</td>
-<td>\Item</td>
-<td>The currently defined items so further additions can be made</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-11">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-11">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ClientAreaPrimarySidebar', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="clientareaproductdetails">ClientAreaProductDetails</h2>
-
-<p>Executes when the product details page is loaded within the client area. This hook runs regardless of service status, so be sure to check for the appropriate statuses if required.</p>
-
-<h4 id="parameters-12">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>service</td>
-<td>\Service</td>
-<td>A service object representing the service being rendered.</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-12">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-12">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ClientAreaProductDetails', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="clientarearegister">ClientAreaRegister</h2>
-
-<p>Executes after a client has used the register.php file to create a client account.</p>
-
-<h4 id="parameters-13">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>userid</td>
-<td>int</td>
-<td>The id of the newly created client.</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-13">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-13">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ClientAreaRegister', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="clientareasecondarynavbar">ClientAreaSecondaryNavbar</h2>
-
-<p>Executes when generating the secondary navigation bar in the client area</p>
-
-<h4 id="parameters-14">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>N/A</td>
-<td>\Item</td>
-<td>The currently defined items so further additions can be made</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-14">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-14">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ClientAreaSecondaryNavbar', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="clientareasecondarysidebar">ClientAreaSecondarySidebar</h2>
-
-<p>Executes when generating the secondary side bar in the client area</p>
-
-<h4 id="parameters-15">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>N/A</td>
-<td>\Item</td>
-<td>The currently defined items so further additions can be made</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-15">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-15">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ClientAreaSecondarySidebar', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="clientareasidebars">ClientAreaSidebars</h2>
-
-<p>Executes when generating the side bars in the client area</p>
-
-<h4 id="parameters-16">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>No input parameters for this hook point.</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-16">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-16">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ClientAreaSidebars', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
@@ -991,7 +435,7 @@ add_hook('ClientAreaSidebars', 1, function($vars) {
 
 <p>Executed when a change of password occurs for a client.</p>
 
-<h4 id="parameters-17">Parameters</h4>
+<h4 id="parameters-2">Parameters</h4>
 
 <table>
 <thead>
@@ -1017,11 +461,11 @@ add_hook('ClientAreaSidebars', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-17">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-17">Example Code</h4>
+<h4 id="example-code-2">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientChangePassword', 1, function($vars) {
@@ -1033,7 +477,7 @@ add_hook('ClientChangePassword', 1, function($vars) {
 
 <p>Executes after a client has been closed</p>
 
-<h4 id="parameters-18">Parameters</h4>
+<h4 id="parameters-3">Parameters</h4>
 
 <table>
 <thead>
@@ -1053,11 +497,11 @@ add_hook('ClientChangePassword', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-18">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-18">Example Code</h4>
+<h4 id="example-code-3">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientClose', 1, function($vars) {
@@ -1069,7 +513,7 @@ add_hook('ClientClose', 1, function($vars) {
 
 <p>Executes as a client is deleted.</p>
 
-<h4 id="parameters-19">Parameters</h4>
+<h4 id="parameters-4">Parameters</h4>
 
 <table>
 <thead>
@@ -1089,11 +533,11 @@ add_hook('ClientClose', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-19">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-19">Example Code</h4>
+<h4 id="example-code-4">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientDelete', 1, function($vars) {
@@ -1103,9 +547,9 @@ add_hook('ClientDelete', 1, function($vars) {
 
 <h2 id="clientedit">ClientEdit</h2>
 
-<p>Undocumented</p>
+<p>Executes when a client is edited.</p>
 
-<h4 id="parameters-20">Parameters</h4>
+<h4 id="parameters-5">Parameters</h4>
 
 <table>
 <thead>
@@ -1118,18 +562,222 @@ add_hook('ClientDelete', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>No input parameters for this hook point.</td>
+<td>userid</td>
+<td>int</td>
 <td></td>
+</tr>
+
+<tr>
+<td>uuid</td>
+<td>string</td>
 <td></td>
+</tr>
+
+<tr>
+<td>firstname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>lastname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>companyname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>email</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>address1</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>address2</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>city</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>state</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>postcode</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>country</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>phonenumber</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>password</td>
+<td>string</td>
+<td>The encrypted password for the user</td>
+</tr>
+
+<tr>
+<td>currency</td>
+<td>int</td>
+<td>The id of the currency</td>
+</tr>
+
+<tr>
+<td>notes</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>status</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>taxexempt</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>latefeeoveride</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>overideduenotices</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>separateinvoices</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>disableautocc</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>emailoptout</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>overrideautoclose</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>language</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>billingcid</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>securityqid</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>securityqans</td>
+<td>string</td>
+<td>The encrypted security question answer</td>
+</tr>
+
+<tr>
+<td>groupid</td>
+<td>int</td>
+<td>The id of the client group</td>
+</tr>
+
+<tr>
+<td>allow_sso</td>
+<td>bool</td>
+<td>Is Single Sign on enabled for the client?</td>
+</tr>
+
+<tr>
+<td>olddata</td>
+<td>array</td>
+<td>An array of the previous contact information</td>
+</tr>
+
+<tr>
+<td>authmodule</td>
+<td>string</td>
+<td>The 2Factor Auth Module enabled for the user</td>
+</tr>
+
+<tr>
+<td>authdata</td>
+<td>string</td>
+<td>The 2Factor Auth Data for the user</td>
+</tr>
+
+<tr>
+<td>email_verified</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>olddata</td>
+<td>array</td>
+<td>An array of the previous user information</td>
 </tr>
 </tbody>
 </table>
 
-<h4 id="response-20">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-20">Example Code</h4>
+<h4 id="example-code-5">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientEdit', 1, function($vars) {
@@ -1141,7 +789,7 @@ add_hook('ClientEdit', 1, function($vars) {
 
 <p>Executes upon successful completion of email verification by a client user.</p>
 
-<h4 id="parameters-21">Parameters</h4>
+<h4 id="parameters-6">Parameters</h4>
 
 <table>
 <thead>
@@ -1161,11 +809,11 @@ add_hook('ClientEdit', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-21">Response</h4>
+<h4 id="response-6">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-21">Example Code</h4>
+<h4 id="example-code-6">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientEmailVerificationComplete', 1, function($vars) {
@@ -1177,7 +825,7 @@ add_hook('ClientEmailVerificationComplete', 1, function($vars) {
 
 <p>Executes immediately before a client is deleted</p>
 
-<h4 id="parameters-22">Parameters</h4>
+<h4 id="parameters-7">Parameters</h4>
 
 <table>
 <thead>
@@ -1197,11 +845,11 @@ add_hook('ClientEmailVerificationComplete', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-22">Response</h4>
+<h4 id="response-7">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-22">Example Code</h4>
+<h4 id="example-code-7">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreDeleteClient', 1, function($vars) {
