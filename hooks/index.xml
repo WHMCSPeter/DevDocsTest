@@ -24,7 +24,7 @@
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/hooks/getting-started/&#34;&gt;Getting Started&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to create a hook in WHMCS&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/hooks/defining-priority/&#34;&gt;Defining Priority&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Priorities allow you to define in which order hooks execute&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/hooks/module-hooks/&#34;&gt;Module Hooks&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how modules can take advantage of hooks&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/hooks/sample-hook/&#34;&gt;Sample Hook&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;View sample code for creating a hook&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/hooks/sample/&#34;&gt;Sample Hook&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;View sample code for creating a hook&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/hooks/hook-index/&#34;&gt;Hook Index&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;A complete listing of all available hook points&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/hooks-reference/&#34;&gt;Hook Reference&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Visit the Hook Reference Manual&lt;/li&gt;
 &lt;/ul&gt;
