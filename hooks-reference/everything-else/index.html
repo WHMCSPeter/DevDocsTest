@@ -347,6 +347,8 @@
 
 <h2 id="adminareapage">AdminAreaPage</h2>
 
+<p>Runs on every admin area page load. All template variables defined at the time the hook is invoked are made availble to this hook point. This can vary by page. The list below is not an exhaustive list.</p>
+
 <h4 id="parameters">Parameters</h4>
 
 <table>
@@ -360,16 +362,118 @@
 
 <tbody>
 <tr>
-<td>$hookvars</td>
-<td></td>
-<td></td>
+<td>charset</td>
+<td>string</td>
+<td>System charset setting eg. UTF-8</td>
+</tr>
+
+<tr>
+<td>template</td>
+<td>string</td>
+<td>The admin template being used</td>
+</tr>
+
+<tr>
+<td>pagetemplate</td>
+<td>string</td>
+<td>The template for the current page (if applicable)</td>
+</tr>
+
+<tr>
+<td>adminid</td>
+<td>int</td>
+<td>The currently logged in admin user ID</td>
+</tr>
+
+<tr>
+<td>admin_username</td>
+<td>string</td>
+<td>The username of the current admin user</td>
+</tr>
+
+<tr>
+<td>admin_notes</td>
+<td>string</td>
+<td>The private notes for the current admin user</td>
+</tr>
+
+<tr>
+<td>admin_perms</td>
+<td>array</td>
+<td>The permissions of the current admin user</td>
+</tr>
+
+<tr>
+<td>addon_modules</td>
+<td>array</td>
+<td>A list of add-on modules the current admin user has access to</td>
+</tr>
+
+<tr>
+<td>filename</td>
+<td>string</td>
+<td>The name of the file being called</td>
+</tr>
+
+<tr>
+<td>pagetitle</td>
+<td>string</td>
+<td>The title of the current page</td>
+</tr>
+
+<tr>
+<td>helplink</td>
+<td>string</td>
+<td>The documentation url for the current page</td>
+</tr>
+
+<tr>
+<td>sidebar</td>
+<td>string</td>
+<td>The sidebar output</td>
+</tr>
+
+<tr>
+<td>minsidebar</td>
+<td>bool</td>
+<td>Returns true if the sidebar is minimised</td>
+</tr>
+
+<tr>
+<td>jquerycode</td>
+<td>string</td>
+<td>jQuery code for the current page</td>
+</tr>
+
+<tr>
+<td>jscode</td>
+<td>string</td>
+<td>Javascript code for the current page</td>
+</tr>
+
+<tr>
+<td>datepickerformat</td>
+<td>string</td>
+<td>The format defined for dates in the admin area</td>
+</tr>
+
+<tr>
+<td>adminsonline</td>
+<td>string</td>
+<td>A list of currently online admin users</td>
+</tr>
+
+<tr>
+<td>sidebarstats</td>
+<td>array</td>
+<td>Statistics relating to orders, clients, services, tickets and more</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response">Response</h4>
 
-<p>No response supported</p>
+<p>Accepts a return of key/value pairs to be made available to the template layer as additional template variables.</p>
 
 <h4 id="example-code">Example Code</h4>
 
@@ -395,6 +499,11 @@ add_hook('AdminAreaPage', 1, function($vars) {
 </thead>
 
 <tbody>
+<tr>
+<td>No input parameters for this hook point.</td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
@@ -412,6 +521,8 @@ add_hook('AdminHomepage', 1, function($vars) {
 
 <h2 id="affiliateactivation">AffiliateActivation</h2>
 
+<p>Executes as an affiliate is being activated.</p>
+
 <h4 id="parameters-2">Parameters</h4>
 
 <table>
@@ -426,13 +537,13 @@ add_hook('AdminHomepage', 1, function($vars) {
 <tbody>
 <tr>
 <td>affid</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The new unique id for the affiliate (tblaffiliates).</td>
 </tr>
 
 <tr>
 <td>userid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -488,6 +599,8 @@ add_hook('AffiliateClickthru', 1, function($vars) {
 
 <h2 id="affiliatecommission">AffiliateCommission</h2>
 
+<p>Executes as affiliate commission is being applied to an affiliate to clear later.</p>
+
 <h4 id="parameters-4">Parameters</h4>
 
 <table>
@@ -502,57 +615,57 @@ add_hook('AffiliateClickthru', 1, function($vars) {
 <tbody>
 <tr>
 <td>affiliateId</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>referralId</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The id of the referral</td>
 </tr>
 
 <tr>
 <td>serviceId</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The id of the referred service</td>
 </tr>
 
 <tr>
 <td>commissionAmount</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>The amount of commission to be appplied</td>
 </tr>
 
 <tr>
 <td>commissionDelayed</td>
-<td></td>
-<td></td>
+<td>bool</td>
+<td>Will the commission be delayed</td>
 </tr>
 
 <tr>
 <td>clearingDate</td>
-<td></td>
-<td></td>
+<td>null</td>
+<td>string</td>
 </tr>
 
 <tr>
 <td>payout</td>
-<td></td>
-<td></td>
+<td>bool</td>
+<td>Will this commission be applied to the affiliate commissions</td>
 </tr>
 
 <tr>
 <td>message</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>The reason commission will not be applied if <code>payout</code> is false</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response-4">Response</h4>
 
-<p>No response supported</p>
+<p>Return boolean values to override &lsquo;skipCommission&rsquo; or &lsquo;payout&rsquo;. One or the other can be returned. eg: return array(&lsquo;payout&rsquo; =&gt; true,);</p>
 
 <h4 id="example-code-4">Example Code</h4>
 
@@ -618,6 +731,8 @@ add_hook('AffiliateWithdrawalRequest', 1, function($vars) {
 
 <h2 id="afterconfigoptionsupgrade">AfterConfigOptionsUpgrade</h2>
 
+<p>Executes after a product configurable options upgrade has been processed</p>
+
 <h4 id="parameters-6">Parameters</h4>
 
 <table>
@@ -632,7 +747,7 @@ add_hook('AffiliateWithdrawalRequest', 1, function($vars) {
 <tbody>
 <tr>
 <td>upgradeid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -652,6 +767,8 @@ add_hook('AfterConfigOptionsUpgrade', 1, function($vars) {
 
 <h2 id="ccupdate">CCUpdate</h2>
 
+<p>Executes after CC details have been stored for a client or the remote storage functions completed.</p>
+
 <h4 id="parameters-7">Parameters</h4>
 
 <table>
@@ -666,43 +783,43 @@ add_hook('AfterConfigOptionsUpgrade', 1, function($vars) {
 <tbody>
 <tr>
 <td>userid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>cardtype</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 
 <tr>
 <td>cardnum</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>Only if stored locally</td>
 </tr>
 
 <tr>
 <td>cardcvv</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 
 <tr>
 <td>expdate</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 
 <tr>
 <td>cardstart</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 
 <tr>
-<td>issuenumber</td>
-<td></td>
+<td>cardissue</td>
+<td>string</td>
 <td></td>
 </tr>
 </tbody>
@@ -722,6 +839,8 @@ add_hook('CCUpdate', 1, function($vars) {
 
 <h2 id="calcaffiliatecommission">CalcAffiliateCommission</h2>
 
+<p>Executes as the amount of commission is being calculated</p>
+
 <h4 id="parameters-8">Parameters</h4>
 
 <table>
@@ -736,25 +855,25 @@ add_hook('CCUpdate', 1, function($vars) {
 <tbody>
 <tr>
 <td>affid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>relid</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The id of the referred service</td>
 </tr>
 
 <tr>
 <td>amount</td>
-<td></td>
-<td></td>
+<td>float</td>
+<td>The amount the commission is being calculated on</td>
 </tr>
 
 <tr>
 <td>commission</td>
-<td></td>
+<td>float</td>
 <td></td>
 </tr>
 </tbody>
@@ -774,6 +893,8 @@ add_hook('CalcAffiliateCommission', 1, function($vars) {
 
 <h2 id="customfieldload">CustomFieldLoad</h2>
 
+<p>Executes when custom fields are being loaded</p>
+
 <h4 id="parameters-9">Parameters</h4>
 
 <table>
@@ -788,19 +909,19 @@ add_hook('CalcAffiliateCommission', 1, function($vars) {
 <tbody>
 <tr>
 <td>fieldid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>relid</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The related id for the field type.</td>
 </tr>
 
 <tr>
 <td>value</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 </tbody>
@@ -808,7 +929,7 @@ add_hook('CalcAffiliateCommission', 1, function($vars) {
 
 <h4 id="response-9">Response</h4>
 
-<p>No response supported</p>
+<p>Override the value of the custom field returning the &ldquo;value&rdquo; key. eg: return array(&lsquo;value&rsquo; =&gt; &lsquo;overridden value&rsquo;,);</p>
 
 <h4 id="example-code-9">Example Code</h4>
 
@@ -819,6 +940,8 @@ add_hook('CustomFieldLoad', 1, function($vars) {
 </code></pre>
 
 <h2 id="customfieldsave">CustomFieldSave</h2>
+
+<p>Executes when custom fields are being saved</p>
 
 <h4 id="parameters-10">Parameters</h4>
 
@@ -834,19 +957,19 @@ add_hook('CustomFieldLoad', 1, function($vars) {
 <tbody>
 <tr>
 <td>fieldid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>relid</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The related id for the field type.</td>
 </tr>
 
 <tr>
 <td>value</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 </tbody>
@@ -854,7 +977,7 @@ add_hook('CustomFieldLoad', 1, function($vars) {
 
 <h4 id="response-10">Response</h4>
 
-<p>No response supported</p>
+<p>Override the value of the custom field returning the &ldquo;value&rdquo; key. eg: return array(&lsquo;value&rsquo; =&gt; &lsquo;overridden value&rsquo;,);</p>
 
 <h4 id="example-code-10">Example Code</h4>
 
@@ -1016,6 +1139,8 @@ add_hook('EmailTplMergeFields', 1, function($vars) {
 
 <h2 id="fetchcurrencyexchangerates">FetchCurrencyExchangeRates</h2>
 
+<p>Executes when updating currency exchange rates. All supported automatic update currencies are retured</p>
+
 <h4 id="parameters-14">Parameters</h4>
 
 <table>
@@ -1029,8 +1154,14 @@ add_hook('EmailTplMergeFields', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>$exchrate</td>
+<td>USD</td>
+<td>float</td>
 <td></td>
+</tr>
+
+<tr>
+<td>GBP</td>
+<td>float</td>
 <td></td>
 </tr>
 </tbody>
@@ -1038,7 +1169,7 @@ add_hook('EmailTplMergeFields', 1, function($vars) {
 
 <h4 id="response-14">Response</h4>
 
-<p>No response supported</p>
+<p>An array of key -&gt; value pairs to define or override additional exchange rates. The rate should be appropriate to the EUR currency.</p>
 
 <h4 id="example-code-14">Example Code</h4>
 
@@ -1122,6 +1253,8 @@ add_hook('LinkTracker', 1, function($vars) {
 
 <h2 id="logactivity">LogActivity</h2>
 
+<p>Executes after an activity log entry has been created.</p>
+
 <h4 id="parameters-17">Parameters</h4>
 
 <table>
@@ -1136,25 +1269,25 @@ add_hook('LinkTracker', 1, function($vars) {
 <tbody>
 <tr>
 <td>description</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 
 <tr>
 <td>user</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 
 <tr>
 <td>userid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>ipaddress</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 </tbody>
@@ -1174,6 +1307,8 @@ add_hook('LogActivity', 1, function($vars) {
 
 <h2 id="preautomationtask">PreAutomationTask</h2>
 
+<p>Executes before an automation task occurs</p>
+
 <h4 id="parameters-18">Parameters</h4>
 
 <table>
@@ -1188,7 +1323,7 @@ add_hook('LogActivity', 1, function($vars) {
 <tbody>
 <tr>
 <td>task</td>
-<td></td>
+<td>\Collection</td>
 <td></td>
 </tr>
 </tbody>

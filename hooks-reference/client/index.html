@@ -493,6 +493,11 @@ add_hook('AdminClientFileUpload', 1, function($vars) {
 </thead>
 
 <tbody>
+<tr>
+<td>No input parameters for this hook point.</td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
@@ -524,6 +529,11 @@ add_hook('AdminClientProfileTabFields', 1, function($vars) {
 </thead>
 
 <tbody>
+<tr>
+<td>No input parameters for this hook point.</td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
@@ -583,6 +593,8 @@ add_hook('AfterClientMerge', 1, function($vars) {
 
 <h2 id="clientalert">ClientAlert</h2>
 
+<p>Executes when Client Alerts are being defined</p>
+
 <h4 id="parameters-6">Parameters</h4>
 
 <table>
@@ -595,12 +607,17 @@ add_hook('AfterClientMerge', 1, function($vars) {
 </thead>
 
 <tbody>
+<tr>
+<td>N/A</td>
+<td>\Client</td>
+<td>The client model</td>
+</tr>
 </tbody>
 </table>
 
 <h4 id="response-6">Response</h4>
 
-<p>No response supported</p>
+<p>Return a new alerts to display. eg: return new WHMCS\User\Alert &ldquo;This is a test notification for {$firstName} {$lastName}&rdquo;, &lsquo;info&rsquo; //see <a href="http://getbootstrap.com/components/#alerts)">http://getbootstrap.com/components/#alerts)</a>;</p>
 
 <h4 id="example-code-6">Example Code</h4>
 
@@ -626,6 +643,11 @@ add_hook('ClientAlert', 1, function($vars) {
 </thead>
 
 <tbody>
+<tr>
+<td>No input parameters for this hook point.</td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
@@ -679,6 +701,8 @@ add_hook('ClientAreaHomepagePanels', 1, function($vars) {
 
 <h2 id="clientareanavbars">ClientAreaNavbars</h2>
 
+<p>Executes when generating the navigation bars in the client area</p>
+
 <h4 id="parameters-9">Parameters</h4>
 
 <table>
@@ -692,7 +716,7 @@ add_hook('ClientAreaHomepagePanels', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>null</td>
+<td>No input parameters for this hook point.</td>
 <td></td>
 <td></td>
 </tr>
@@ -713,6 +737,8 @@ add_hook('ClientAreaNavbars', 1, function($vars) {
 
 <h2 id="clientareaprimarynavbar">ClientAreaPrimaryNavbar</h2>
 
+<p>Executes when generating the primary navigation bar in the client area</p>
+
 <h4 id="parameters-10">Parameters</h4>
 
 <table>
@@ -726,9 +752,9 @@ add_hook('ClientAreaNavbars', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>$primaryNavbar</td>
-<td></td>
-<td></td>
+<td>N/A</td>
+<td>\Item</td>
+<td>The currently defined items so further additions can be made</td>
 </tr>
 </tbody>
 </table>
@@ -747,6 +773,8 @@ add_hook('ClientAreaPrimaryNavbar', 1, function($vars) {
 
 <h2 id="clientareaprimarysidebar">ClientAreaPrimarySidebar</h2>
 
+<p>Executes when generating the primary side bar in the client area</p>
+
 <h4 id="parameters-11">Parameters</h4>
 
 <table>
@@ -760,9 +788,9 @@ add_hook('ClientAreaPrimaryNavbar', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>$primarySidebar</td>
-<td></td>
-<td></td>
+<td>N/A</td>
+<td>\Item</td>
+<td>The currently defined items so further additions can be made</td>
 </tr>
 </tbody>
 </table>
@@ -853,6 +881,8 @@ add_hook('ClientAreaRegister', 1, function($vars) {
 
 <h2 id="clientareasecondarynavbar">ClientAreaSecondaryNavbar</h2>
 
+<p>Executes when generating the secondary navigation bar in the client area</p>
+
 <h4 id="parameters-14">Parameters</h4>
 
 <table>
@@ -866,9 +896,9 @@ add_hook('ClientAreaRegister', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>$secondaryNavbar</td>
-<td></td>
-<td></td>
+<td>N/A</td>
+<td>\Item</td>
+<td>The currently defined items so further additions can be made</td>
 </tr>
 </tbody>
 </table>
@@ -887,6 +917,8 @@ add_hook('ClientAreaSecondaryNavbar', 1, function($vars) {
 
 <h2 id="clientareasecondarysidebar">ClientAreaSecondarySidebar</h2>
 
+<p>Executes when generating the secondary side bar in the client area</p>
+
 <h4 id="parameters-15">Parameters</h4>
 
 <table>
@@ -900,9 +932,9 @@ add_hook('ClientAreaSecondaryNavbar', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>$secondarySidebar</td>
-<td></td>
-<td></td>
+<td>N/A</td>
+<td>\Item</td>
+<td>The currently defined items so further additions can be made</td>
 </tr>
 </tbody>
 </table>
@@ -921,6 +953,8 @@ add_hook('ClientAreaSecondarySidebar', 1, function($vars) {
 
 <h2 id="clientareasidebars">ClientAreaSidebars</h2>
 
+<p>Executes when generating the side bars in the client area</p>
+
 <h4 id="parameters-16">Parameters</h4>
 
 <table>
@@ -934,7 +968,7 @@ add_hook('ClientAreaSecondarySidebar', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>null</td>
+<td>No input parameters for this hook point.</td>
 <td></td>
 <td></td>
 </tr>
@@ -997,6 +1031,8 @@ add_hook('ClientChangePassword', 1, function($vars) {
 
 <h2 id="clientclose">ClientClose</h2>
 
+<p>Executes after a client has been closed</p>
+
 <h4 id="parameters-18">Parameters</h4>
 
 <table>
@@ -1011,7 +1047,7 @@ add_hook('ClientChangePassword', 1, function($vars) {
 <tbody>
 <tr>
 <td>userid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -1081,6 +1117,11 @@ add_hook('ClientDelete', 1, function($vars) {
 </thead>
 
 <tbody>
+<tr>
+<td>No input parameters for this hook point.</td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
@@ -1134,6 +1175,8 @@ add_hook('ClientEmailVerificationComplete', 1, function($vars) {
 
 <h2 id="predeleteclient">PreDeleteClient</h2>
 
+<p>Executes immediately before a client is deleted</p>
+
 <h4 id="parameters-22">Parameters</h4>
 
 <table>
@@ -1148,7 +1191,7 @@ add_hook('ClientEmailVerificationComplete', 1, function($vars) {
 <tbody>
 <tr>
 <td>userid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>

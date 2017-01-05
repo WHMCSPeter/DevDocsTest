@@ -38,6 +38,8 @@
 
 &lt;h2 id=&#34;addonactivated&#34;&gt;AddonActivated&lt;/h2&gt;
 
+&lt;p&gt;Executes when an addon is activated.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -52,26 +54,26 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;id&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The addon ID (tblhostingaddons)&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;serviceid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;addonid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The predefined addon ID (tbladdons)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -90,6 +92,8 @@ add_hook(&#39;AddonActivated&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;addonactivation&#34;&gt;AddonActivation&lt;/h2&gt;
 
+&lt;p&gt;Executes when an addon is activated.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -104,26 +108,26 @@ add_hook(&#39;AddonActivated&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;id&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The addon ID (tblhostingaddons)&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;serviceid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;addonid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The predefined addon ID (tbladdons)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -196,6 +200,8 @@ add_hook(&#39;AddonAdd&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;addoncancelled&#34;&gt;AddonCancelled&lt;/h2&gt;
 
+&lt;p&gt;Executes when an addon is cancelled.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-3&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -210,26 +216,26 @@ add_hook(&#39;AddonAdd&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;id&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The addon ID (tblhostingaddons)&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;serviceid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;addonid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The predefined addon ID (tbladdons)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -356,6 +362,8 @@ add_hook(&#39;AddonDeleted&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;addonedit&#34;&gt;AddonEdit&lt;/h2&gt;
 
+&lt;p&gt;Executes when an addon is modified or updated.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -370,26 +378,26 @@ add_hook(&#39;AddonDeleted&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;id&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The addon ID (tblhostingaddons)&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;serviceid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;addonid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The predefined addon ID (tbladdons)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -408,6 +416,8 @@ add_hook(&#39;AddonEdit&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;addonsuspended&#34;&gt;AddonSuspended&lt;/h2&gt;
 
+&lt;p&gt;Executes when an addon is suspended.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-8&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -422,26 +432,26 @@ add_hook(&#39;AddonEdit&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;id&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The addon ID (tblhostingaddons)&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;serviceid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;addonid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The predefined addon ID (tbladdons)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -460,6 +470,8 @@ add_hook(&#39;AddonSuspended&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;addonterminated&#34;&gt;AddonTerminated&lt;/h2&gt;
 
+&lt;p&gt;Executes when an addon is terminated.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-9&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -474,26 +486,26 @@ add_hook(&#39;AddonSuspended&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;id&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The addon ID (tblhostingaddons)&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;serviceid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;addonid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The predefined addon ID (tbladdons)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -566,6 +578,8 @@ add_hook(&#39;AddonUnsuspended&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;licensingaddonreissue&#34;&gt;LicensingAddonReissue&lt;/h2&gt;
 
+&lt;p&gt;Executes as a license is being reissued&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-11&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -580,25 +594,13 @@ add_hook(&#39;AddonUnsuspended&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;licenseid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;id&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;array(&amp;ldquo;serviceid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;serviceid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -618,6 +620,8 @@ add_hook(&#39;LicensingAddonReissue&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;licensingaddonverify&#34;&gt;LicensingAddonVerify&lt;/h2&gt;
 
+&lt;p&gt;Executes as a license remote check is being completed&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -632,27 +636,27 @@ add_hook(&#39;LicensingAddonReissue&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;licenseid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;serviceid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;xmlresponse&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The current XML response&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Return key value pairs of additional items to be returned with the response.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -676,6 +680,8 @@ add_hook(&#39;LicensingAddonVerify&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;adminlogout&#34;&gt;AdminLogout&lt;/h2&gt;
 
+&lt;p&gt;Executes on Admin log out&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -690,7 +696,7 @@ add_hook(&#39;LicensingAddonVerify&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;adminid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -710,6 +716,8 @@ add_hook(&#39;AdminLogout&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientlogin&#34;&gt;ClientLogin&lt;/h2&gt;
 
+&lt;p&gt;Executes when a client is logging into the Client Area.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -724,7 +732,7 @@ add_hook(&#39;AdminLogout&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -938,6 +946,11 @@ add_hook(&#39;AdminClientFileUpload&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -969,6 +982,11 @@ add_hook(&#39;AdminClientProfileTabFields&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -1028,6 +1046,8 @@ add_hook(&#39;AfterClientMerge&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientalert&#34;&gt;ClientAlert&lt;/h2&gt;
 
+&lt;p&gt;Executes when Client Alerts are being defined&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -1040,12 +1060,17 @@ add_hook(&#39;AfterClientMerge&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;\Client&lt;/td&gt;
+&lt;td&gt;The client model&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-6&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Return a new alerts to display. eg: return new WHMCS\User\Alert &amp;ldquo;This is a test notification for {$firstName} {$lastName}&amp;rdquo;, &amp;lsquo;info&amp;rsquo; //see &lt;a href=&#34;http://getbootstrap.com/components/#alerts)&#34;&gt;http://getbootstrap.com/components/#alerts)&lt;/a&gt;;&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-6&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -1071,6 +1096,11 @@ add_hook(&#39;ClientAlert&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -1124,6 +1154,8 @@ add_hook(&#39;ClientAreaHomepagePanels&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientareanavbars&#34;&gt;ClientAreaNavbars&lt;/h2&gt;
 
+&lt;p&gt;Executes when generating the navigation bars in the client area&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-9&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -1137,7 +1169,7 @@ add_hook(&#39;ClientAreaHomepagePanels&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;null&lt;/td&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -1158,6 +1190,8 @@ add_hook(&#39;ClientAreaNavbars&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientareaprimarynavbar&#34;&gt;ClientAreaPrimaryNavbar&lt;/h2&gt;
 
+&lt;p&gt;Executes when generating the primary navigation bar in the client area&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-10&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -1171,9 +1205,9 @@ add_hook(&#39;ClientAreaNavbars&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$primaryNavbar&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;\Item&lt;/td&gt;
+&lt;td&gt;The currently defined items so further additions can be made&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1192,6 +1226,8 @@ add_hook(&#39;ClientAreaPrimaryNavbar&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientareaprimarysidebar&#34;&gt;ClientAreaPrimarySidebar&lt;/h2&gt;
 
+&lt;p&gt;Executes when generating the primary side bar in the client area&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-11&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -1205,9 +1241,9 @@ add_hook(&#39;ClientAreaPrimaryNavbar&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$primarySidebar&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;\Item&lt;/td&gt;
+&lt;td&gt;The currently defined items so further additions can be made&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1298,6 +1334,8 @@ add_hook(&#39;ClientAreaRegister&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientareasecondarynavbar&#34;&gt;ClientAreaSecondaryNavbar&lt;/h2&gt;
 
+&lt;p&gt;Executes when generating the secondary navigation bar in the client area&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-14&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -1311,9 +1349,9 @@ add_hook(&#39;ClientAreaRegister&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$secondaryNavbar&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;\Item&lt;/td&gt;
+&lt;td&gt;The currently defined items so further additions can be made&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1332,6 +1370,8 @@ add_hook(&#39;ClientAreaSecondaryNavbar&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientareasecondarysidebar&#34;&gt;ClientAreaSecondarySidebar&lt;/h2&gt;
 
+&lt;p&gt;Executes when generating the secondary side bar in the client area&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-15&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -1345,9 +1385,9 @@ add_hook(&#39;ClientAreaSecondaryNavbar&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$secondarySidebar&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;\Item&lt;/td&gt;
+&lt;td&gt;The currently defined items so further additions can be made&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1366,6 +1406,8 @@ add_hook(&#39;ClientAreaSecondarySidebar&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientareasidebars&#34;&gt;ClientAreaSidebars&lt;/h2&gt;
 
+&lt;p&gt;Executes when generating the side bars in the client area&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-16&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -1379,7 +1421,7 @@ add_hook(&#39;ClientAreaSecondarySidebar&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;null&lt;/td&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -1442,6 +1484,8 @@ add_hook(&#39;ClientChangePassword&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientclose&#34;&gt;ClientClose&lt;/h2&gt;
 
+&lt;p&gt;Executes after a client has been closed&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-18&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -1456,7 +1500,7 @@ add_hook(&#39;ClientChangePassword&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -1526,6 +1570,11 @@ add_hook(&#39;ClientDelete&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -1579,6 +1628,8 @@ add_hook(&#39;ClientEmailVerificationComplete&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;predeleteclient&#34;&gt;PreDeleteClient&lt;/h2&gt;
 
+&lt;p&gt;Executes immediately before a client is deleted&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-22&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -1593,7 +1644,7 @@ add_hook(&#39;ClientEmailVerificationComplete&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -1625,6 +1676,8 @@ add_hook(&#39;PreDeleteClient&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientareapagelogin&#34;&gt;ClientAreaPageLogin&lt;/h2&gt;
 
+&lt;p&gt;Executes on the login page of the client area&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -1638,16 +1691,16 @@ add_hook(&#39;PreDeleteClient&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$this-&amp;gt;templatevars&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;All currently defined template variables&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;An array of additional template variables to define.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -1671,6 +1724,8 @@ add_hook(&#39;ClientAreaPageLogin&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;contactadd&#34;&gt;ContactAdd&lt;/h2&gt;
 
+&lt;p&gt;Undocumented&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -1684,7 +1739,7 @@ add_hook(&#39;ClientAreaPageLogin&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;contactid&lt;/td&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -1767,6 +1822,11 @@ add_hook(&#39;ContactChangePassword&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -1810,6 +1870,11 @@ add_hook(&#39;ContactEdit&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -1841,6 +1906,11 @@ add_hook(&#39;AfterCronJob&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -1872,6 +1942,11 @@ add_hook(&#39;DailyCronJob&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -1903,6 +1978,11 @@ add_hook(&#39;DailyCronJobPreEmail&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -1982,6 +2062,11 @@ add_hook(&#39;AdminClientDomainsTabFields&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -2119,6 +2204,8 @@ add_hook(&#39;DomainEdit&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;domainvalidation&#34;&gt;DomainValidation&lt;/h2&gt;
 
+&lt;p&gt;Executes as domain validation is being run&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-5&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -2133,14 +2220,14 @@ add_hook(&#39;DomainEdit&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;sld&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The sld of the domain. eg whmcs in whmcs.com&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;tld&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The tld of the domain. eg com in whmcs.com&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2159,6 +2246,8 @@ add_hook(&#39;DomainValidation&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;predomainregister&#34;&gt;PreDomainRegister&lt;/h2&gt;
 
+&lt;p&gt;Executes before a domain register command&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -2172,8 +2261,8 @@ add_hook(&#39;DomainValidation&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;domain&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -2193,6 +2282,8 @@ add_hook(&#39;PreDomainRegister&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;predomaintransfer&#34;&gt;PreDomainTransfer&lt;/h2&gt;
 
+&lt;p&gt;Executes before a domain transfer command&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -2206,8 +2297,8 @@ add_hook(&#39;PreDomainRegister&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;domain&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -2239,6 +2330,8 @@ add_hook(&#39;PreDomainTransfer&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;adminareapage&#34;&gt;AdminAreaPage&lt;/h2&gt;
 
+&lt;p&gt;Runs on every admin area page load. All template variables defined at the time the hook is invoked are made availble to this hook point. This can vary by page. The list below is not an exhaustive list.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -2252,16 +2345,118 @@ add_hook(&#39;PreDomainTransfer&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$hookvars&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;System charset setting eg. UTF-8&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The admin template being used&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetemplate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The template for the current page (if applicable)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The currently logged in admin user ID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;admin_username&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The username of the current admin user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;admin_notes&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The private notes for the current admin user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;admin_perms&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;The permissions of the current admin user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;addon_modules&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;A list of add-on modules the current admin user has access to&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The name of the file being called&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The title of the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;helplink&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The documentation url for the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;sidebar&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The sidebar output&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;minsidebar&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the sidebar is minimised&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;jquerycode&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;jQuery code for the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;jscode&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Javascript code for the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;datepickerformat&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The format defined for dates in the admin area&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminsonline&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;A list of currently online admin users&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;sidebarstats&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Statistics relating to orders, clients, services, tickets and more&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Accepts a return of key/value pairs to be made available to the template layer as additional template variables.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -2287,6 +2482,11 @@ add_hook(&#39;AdminAreaPage&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -2304,6 +2504,8 @@ add_hook(&#39;AdminHomepage&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;affiliateactivation&#34;&gt;AffiliateActivation&lt;/h2&gt;
 
+&lt;p&gt;Executes as an affiliate is being activated.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -2318,13 +2520,13 @@ add_hook(&#39;AdminHomepage&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;affid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The new unique id for the affiliate (tblaffiliates).&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -2380,6 +2582,8 @@ add_hook(&#39;AffiliateClickthru&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;affiliatecommission&#34;&gt;AffiliateCommission&lt;/h2&gt;
 
+&lt;p&gt;Executes as affiliate commission is being applied to an affiliate to clear later.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-4&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -2394,57 +2598,57 @@ add_hook(&#39;AffiliateClickthru&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;affiliateId&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;referralId&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the referral&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;serviceId&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the referred service&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;commissionAmount&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;The amount of commission to be appplied&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;commissionDelayed&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Will the commission be delayed&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;clearingDate&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;null&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;payout&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Will this commission be applied to the affiliate commissions&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;message&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The reason commission will not be applied if &lt;code&gt;payout&lt;/code&gt; is false&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-4&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Return boolean values to override &amp;lsquo;skipCommission&amp;rsquo; or &amp;lsquo;payout&amp;rsquo;. One or the other can be returned. eg: return array(&amp;lsquo;payout&amp;rsquo; =&amp;gt; true,);&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -2510,6 +2714,8 @@ add_hook(&#39;AffiliateWithdrawalRequest&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;afterconfigoptionsupgrade&#34;&gt;AfterConfigOptionsUpgrade&lt;/h2&gt;
 
+&lt;p&gt;Executes after a product configurable options upgrade has been processed&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -2524,7 +2730,7 @@ add_hook(&#39;AffiliateWithdrawalRequest&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;upgradeid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -2544,6 +2750,8 @@ add_hook(&#39;AfterConfigOptionsUpgrade&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;ccupdate&#34;&gt;CCUpdate&lt;/h2&gt;
 
+&lt;p&gt;Executes after CC details have been stored for a client or the remote storage functions completed.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -2558,43 +2766,43 @@ add_hook(&#39;AfterConfigOptionsUpgrade&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;cardtype&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;cardnum&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Only if stored locally&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;cardcvv&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;expdate&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;cardstart&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;issuenumber&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;cardissue&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -2614,6 +2822,8 @@ add_hook(&#39;CCUpdate&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;calcaffiliatecommission&#34;&gt;CalcAffiliateCommission&lt;/h2&gt;
 
+&lt;p&gt;Executes as the amount of commission is being calculated&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-8&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -2628,25 +2838,25 @@ add_hook(&#39;CCUpdate&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;affid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;relid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the referred service&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;amount&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;The amount the commission is being calculated on&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;commission&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -2666,6 +2876,8 @@ add_hook(&#39;CalcAffiliateCommission&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;customfieldload&#34;&gt;CustomFieldLoad&lt;/h2&gt;
 
+&lt;p&gt;Executes when custom fields are being loaded&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-9&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -2680,19 +2892,19 @@ add_hook(&#39;CalcAffiliateCommission&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;fieldid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;relid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The related id for the field type.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;value&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -2700,7 +2912,7 @@ add_hook(&#39;CalcAffiliateCommission&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response-9&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Override the value of the custom field returning the &amp;ldquo;value&amp;rdquo; key. eg: return array(&amp;lsquo;value&amp;rsquo; =&amp;gt; &amp;lsquo;overridden value&amp;rsquo;,);&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-9&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -2711,6 +2923,8 @@ add_hook(&#39;CustomFieldLoad&#39;, 1, function($vars) {
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;customfieldsave&#34;&gt;CustomFieldSave&lt;/h2&gt;
+
+&lt;p&gt;Executes when custom fields are being saved&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-10&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -2726,19 +2940,19 @@ add_hook(&#39;CustomFieldLoad&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;fieldid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;relid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The related id for the field type.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;value&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -2746,7 +2960,7 @@ add_hook(&#39;CustomFieldLoad&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response-10&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Override the value of the custom field returning the &amp;ldquo;value&amp;rdquo; key. eg: return array(&amp;lsquo;value&amp;rsquo; =&amp;gt; &amp;lsquo;overridden value&amp;rsquo;,);&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-10&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -2908,6 +3122,8 @@ add_hook(&#39;EmailTplMergeFields&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;fetchcurrencyexchangerates&#34;&gt;FetchCurrencyExchangeRates&lt;/h2&gt;
 
+&lt;p&gt;Executes when updating currency exchange rates. All supported automatic update currencies are retured&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-14&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -2921,8 +3137,14 @@ add_hook(&#39;EmailTplMergeFields&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$exchrate&lt;/td&gt;
+&lt;td&gt;USD&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;GBP&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -2930,7 +3152,7 @@ add_hook(&#39;EmailTplMergeFields&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response-14&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;An array of key -&amp;gt; value pairs to define or override additional exchange rates. The rate should be appropriate to the EUR currency.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-14&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -3014,6 +3236,8 @@ add_hook(&#39;LinkTracker&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;logactivity&#34;&gt;LogActivity&lt;/h2&gt;
 
+&lt;p&gt;Executes after an activity log entry has been created.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-17&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -3028,25 +3252,25 @@ add_hook(&#39;LinkTracker&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;description&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;user&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;ipaddress&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -3066,6 +3290,8 @@ add_hook(&#39;LogActivity&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;preautomationtask&#34;&gt;PreAutomationTask&lt;/h2&gt;
 
+&lt;p&gt;Executes before an automation task occurs&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-18&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -3080,7 +3306,7 @@ add_hook(&#39;LogActivity&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;task&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;\Collection&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -3112,6 +3338,8 @@ add_hook(&#39;PreAutomationTask&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;addinvoicelatefee&#34;&gt;AddInvoiceLateFee&lt;/h2&gt;
 
+&lt;p&gt;Executes when a late fee has been added to an invoice&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -3126,7 +3354,7 @@ add_hook(&#39;PreAutomationTask&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;invoiceid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -3340,6 +3568,11 @@ add_hook(&#39;AdminAreaViewQuotePage&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -3941,6 +4174,11 @@ add_hook(&#39;ManualRefund&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -3958,6 +4196,8 @@ add_hook(&#39;PreInvoicingGenerateInvoiceItems&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;quotecreated&#34;&gt;QuoteCreated&lt;/h2&gt;
 
+&lt;p&gt;Executes when a new quote is created.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-19&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -3972,13 +4212,13 @@ add_hook(&#39;PreInvoicingGenerateInvoiceItems&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;quoteid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;status&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -3998,6 +4238,8 @@ add_hook(&#39;QuoteCreated&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;quotestatuschange&#34;&gt;QuoteStatusChange&lt;/h2&gt;
 
+&lt;p&gt;Executes when a quote status is updated&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-20&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -4012,13 +4254,13 @@ add_hook(&#39;QuoteCreated&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;quoteid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;status&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -4164,6 +4406,8 @@ add_hook(&#39;acceptQuote&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;aftermodule&#34;&gt;AfterModule&lt;/h2&gt;
 
+&lt;p&gt;Executes after any standard service module function call has failed. Hook name is updated as appropriate.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -4178,14 +4422,14 @@ add_hook(&#39;acceptQuote&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;failureResponseMessage&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The response message from the function call.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;The parameters passed to the module function call.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4328,6 +4572,8 @@ add_hook(&#39;ClientAreaProductDetailsPreModuleTemplate&#39;, 1, function($vars)
 
 &lt;h2 id=&#34;overridemoduleusernamegeneration&#34;&gt;OverrideModuleUsernameGeneration&lt;/h2&gt;
 
+&lt;p&gt;Executes as a username is being generated on module creation.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-3&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -4341,16 +4587,16 @@ add_hook(&#39;ClientAreaProductDetailsPreModuleTemplate&#39;, 1, function($vars)
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$params&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;The parameters being passed to the module function call&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-3&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Return the new username to be used. Eg: return array(&amp;lsquo;newusername&amp;rsquo;);&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -4361,6 +4607,8 @@ add_hook(&#39;OverrideModuleUsernameGeneration&#39;, 1, function($vars) {
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;premodule&#34;&gt;PreModule&lt;/h2&gt;
+
+&lt;p&gt;Executes before any standard service module function call. Hook name is updated as appropriate.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-4&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -4376,15 +4624,15 @@ add_hook(&#39;OverrideModuleUsernameGeneration&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;The parameters passed to the module function call.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-4&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Return boolean abortcmd to stop the command being run. eg: return array(&amp;lsquo;abortcmd&amp;rsquo; =&amp;gt; true,);&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -4408,6 +4656,8 @@ add_hook(&#39;PreModule&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;adminareafooteroutput&#34;&gt;AdminAreaFooterOutput&lt;/h2&gt;
 
+&lt;p&gt;Runs on every admin area page load. All template variables defined at the time the hook is invoked are made availble to this hook point. This can vary by page. The list below is not an exhaustive list.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -4421,16 +4671,118 @@ add_hook(&#39;PreModule&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$hookvars&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;System charset setting eg. UTF-8&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The admin template being used&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetemplate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The template for the current page (if applicable)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The currently logged in admin user ID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;admin_username&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The username of the current admin user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;admin_notes&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The private notes for the current admin user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;admin_perms&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;The permissions of the current admin user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;addon_modules&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;A list of add-on modules the current admin user has access to&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The name of the file being called&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The title of the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;helplink&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The documentation url for the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;sidebar&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The sidebar output&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;minsidebar&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the sidebar is minimised&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;jquerycode&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;jQuery code for the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;jscode&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Javascript code for the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;datepickerformat&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The format defined for dates in the admin area&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminsonline&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;A list of currently online admin users&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;sidebarstats&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Statistics relating to orders, clients, services, tickets and more&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Accepts HTML to be output before the closing body tag of the admin area output&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -4441,6 +4793,8 @@ add_hook(&#39;AdminAreaFooterOutput&#39;, 1, function($vars) {
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;adminareaheadoutput&#34;&gt;AdminAreaHeadOutput&lt;/h2&gt;
+
+&lt;p&gt;Runs on every admin area page load. All template variables defined at the time the hook is invoked are made availble to this hook point. This can vary by page. The list below is not an exhaustive list.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -4455,16 +4809,118 @@ add_hook(&#39;AdminAreaFooterOutput&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$hookvars&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;System charset setting eg. UTF-8&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The admin template being used&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetemplate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The template for the current page (if applicable)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The currently logged in admin user ID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;admin_username&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The username of the current admin user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;admin_notes&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The private notes for the current admin user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;admin_perms&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;The permissions of the current admin user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;addon_modules&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;A list of add-on modules the current admin user has access to&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The name of the file being called&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The title of the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;helplink&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The documentation url for the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;sidebar&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The sidebar output&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;minsidebar&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the sidebar is minimised&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;jquerycode&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;jQuery code for the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;jscode&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Javascript code for the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;datepickerformat&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The format defined for dates in the admin area&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminsonline&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;A list of currently online admin users&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;sidebarstats&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Statistics relating to orders, clients, services, tickets and more&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-1&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Accepts HTML to be output within the head tag of the admin area output&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-1&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -4475,6 +4931,8 @@ add_hook(&#39;AdminAreaHeadOutput&#39;, 1, function($vars) {
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;adminareaheaderoutput&#34;&gt;AdminAreaHeaderOutput&lt;/h2&gt;
+
+&lt;p&gt;Runs on every admin area page load. All template variables defined at the time the hook is invoked are made availble to this hook point. This can vary by page. The list below is not an exhaustive list.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -4489,16 +4947,118 @@ add_hook(&#39;AdminAreaHeadOutput&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$hookvars&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;System charset setting eg. UTF-8&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The admin template being used&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetemplate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The template for the current page (if applicable)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The currently logged in admin user ID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;admin_username&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The username of the current admin user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;admin_notes&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The private notes for the current admin user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;admin_perms&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;The permissions of the current admin user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;addon_modules&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;A list of add-on modules the current admin user has access to&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The name of the file being called&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The title of the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;helplink&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The documentation url for the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;sidebar&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The sidebar output&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;minsidebar&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the sidebar is minimised&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;jquerycode&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;jQuery code for the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;jscode&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Javascript code for the current page&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;datepickerformat&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The format defined for dates in the admin area&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminsonline&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;A list of currently online admin users&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;sidebarstats&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Statistics relating to orders, clients, services, tickets and more&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-2&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Accepts HTML to be output within the body tag of the admin area output&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-2&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -4642,6 +5202,8 @@ add_hook(&#39;ClientAreaDomainDetailsOutput&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientareafooteroutput&#34;&gt;ClientAreaFooterOutput&lt;/h2&gt;
 
+&lt;p&gt;Executes when a client area page is being output&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-5&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -4655,16 +5217,16 @@ add_hook(&#39;ClientAreaDomainDetailsOutput&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$hookParameters&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Receives all currently defined smarty variables&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-5&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Return HTML to be output before the closing body tag of the page output.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -4675,6 +5237,8 @@ add_hook(&#39;ClientAreaFooterOutput&#39;, 1, function($vars) {
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;clientareaheadoutput&#34;&gt;ClientAreaHeadOutput&lt;/h2&gt;
+
+&lt;p&gt;Executes when a client area page is being output&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -4689,16 +5253,16 @@ add_hook(&#39;ClientAreaFooterOutput&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$hookParameters&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Receives all currently defined smarty variables&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-6&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Return HTML to be output within the HEAD tags of the page output.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-6&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -4709,6 +5273,8 @@ add_hook(&#39;ClientAreaHeadOutput&#39;, 1, function($vars) {
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;clientareaheaderoutput&#34;&gt;ClientAreaHeaderOutput&lt;/h2&gt;
+
+&lt;p&gt;Executes when a client area page is being output&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -4723,16 +5289,16 @@ add_hook(&#39;ClientAreaHeadOutput&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$hookParameters&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Receives all currently defined smarty variables&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-7&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Return HTML to be output at the top of the body tag of the page output.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -4960,6 +5526,8 @@ add_hook(&#39;AdminProductConfigFieldsSave&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;afterproductupgrade&#34;&gt;AfterProductUpgrade&lt;/h2&gt;
 
+&lt;p&gt;Executes after a product upgrade has been processed&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -4974,7 +5542,7 @@ add_hook(&#39;AdminProductConfigFieldsSave&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;upgradeid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -5044,6 +5612,11 @@ add_hook(&#39;ProductDelete&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -5061,6 +5634,8 @@ add_hook(&#39;ProductEdit&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;serveradd&#34;&gt;ServerAdd&lt;/h2&gt;
 
+&lt;p&gt;Executes as a server is created&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-5&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -5075,7 +5650,7 @@ add_hook(&#39;ProductEdit&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;serverid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -5179,6 +5754,8 @@ add_hook(&#39;ServerEdit&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;afterregistrar&#34;&gt;AfterRegistrar&lt;/h2&gt;
 
+&lt;p&gt;Executes after any standard registrar module function call. Hook name is updated as appropriate.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -5192,8 +5769,26 @@ add_hook(&#39;ServerEdit&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$vars&lt;/td&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;The parameters passed to the registrar function call.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;results&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionExists&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionSuccessful&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -5201,7 +5796,7 @@ add_hook(&#39;ServerEdit&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Return boolean to &amp;lsquo;abortWithSuccess&amp;rsquo; or string &amp;lsquo;abortWithError&amp;rsquo;. Eg: return array(&amp;lsquo;abortWithSuccess&amp;rsquo; =&amp;gt; true,); return array(&amp;lsquo;abortWithError&amp;rsquo; =&amp;gt; &amp;lsquo;This is an error&amp;rsquo;,);&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -5212,6 +5807,8 @@ add_hook(&#39;AfterRegistrar&#39;, 1, function($vars) {
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;afterregistrarregistration&#34;&gt;AfterRegistrarRegistration&lt;/h2&gt;
+
+&lt;p&gt;Executes after a successful domain register command&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -5227,7 +5824,7 @@ add_hook(&#39;AfterRegistrar&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -5247,6 +5844,8 @@ add_hook(&#39;AfterRegistrarRegistration&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;afterregistrarregistrationfailed&#34;&gt;AfterRegistrarRegistrationFailed&lt;/h2&gt;
 
+&lt;p&gt;Executes after a failed domain register command&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -5261,13 +5860,13 @@ add_hook(&#39;AfterRegistrarRegistration&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;error&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -5287,6 +5886,8 @@ add_hook(&#39;AfterRegistrarRegistrationFailed&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;afterregistrarrenewal&#34;&gt;AfterRegistrarRenewal&lt;/h2&gt;
 
+&lt;p&gt;Executes after a successful domain renewal command&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-3&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -5301,7 +5902,7 @@ add_hook(&#39;AfterRegistrarRegistrationFailed&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -5321,6 +5922,8 @@ add_hook(&#39;AfterRegistrarRenewal&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;afterregistrarrenewalfailed&#34;&gt;AfterRegistrarRenewalFailed&lt;/h2&gt;
 
+&lt;p&gt;Executes after a failed domain renewal command&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-4&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -5335,13 +5938,13 @@ add_hook(&#39;AfterRegistrarRenewal&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;error&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -5395,6 +5998,8 @@ add_hook(&#39;AfterRegistrarTransfer&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;afterregistrartransferfailed&#34;&gt;AfterRegistrarTransferFailed&lt;/h2&gt;
 
+&lt;p&gt;Executes after a failed domain transfer command&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -5409,13 +6014,13 @@ add_hook(&#39;AfterRegistrarTransfer&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;error&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -5435,6 +6040,8 @@ add_hook(&#39;AfterRegistrarTransferFailed&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;preregistrar&#34;&gt;PreRegistrar&lt;/h2&gt;
 
+&lt;p&gt;Executes before any standard registrar module function call. Hook name is updated as appropriate.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -5449,15 +6056,15 @@ add_hook(&#39;AfterRegistrarTransferFailed&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;The parameters passed to the registrar function call.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-7&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Return boolean to &amp;lsquo;abortWithSuccess&amp;rsquo; or string &amp;lsquo;abortWithError&amp;rsquo;. Eg: return array(&amp;lsquo;abortWithSuccess&amp;rsquo; =&amp;gt; true,); return array(&amp;lsquo;abortWithError&amp;rsquo; =&amp;gt; &amp;lsquo;This is an error&amp;rsquo;,);&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -5531,6 +6138,11 @@ add_hook(&#39;AdminClientServicesTabFields&#39;, 1, function($vars) {
 &lt;/thead&gt;
 
 &lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;No input parameters for this hook point.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -5590,6 +6202,8 @@ add_hook(&#39;AdminServiceEdit&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;cancellationrequest&#34;&gt;CancellationRequest&lt;/h2&gt;
 
+&lt;p&gt;Executes as a cancellation request is being created&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-3&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -5604,25 +6218,25 @@ add_hook(&#39;AdminServiceEdit&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;relid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the service being cancelled&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;reason&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;type&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

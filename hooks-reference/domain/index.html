@@ -397,6 +397,11 @@ add_hook('AdminClientDomainsTabFields', 1, function($vars) {
 </thead>
 
 <tbody>
+<tr>
+<td>No input parameters for this hook point.</td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 
@@ -534,6 +539,8 @@ add_hook('DomainEdit', 1, function($vars) {
 
 <h2 id="domainvalidation">DomainValidation</h2>
 
+<p>Executes as domain validation is being run</p>
+
 <h4 id="parameters-5">Parameters</h4>
 
 <table>
@@ -548,14 +555,14 @@ add_hook('DomainEdit', 1, function($vars) {
 <tbody>
 <tr>
 <td>sld</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>The sld of the domain. eg whmcs in whmcs.com</td>
 </tr>
 
 <tr>
 <td>tld</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>The tld of the domain. eg com in whmcs.com</td>
 </tr>
 </tbody>
 </table>
@@ -574,6 +581,8 @@ add_hook('DomainValidation', 1, function($vars) {
 
 <h2 id="predomainregister">PreDomainRegister</h2>
 
+<p>Executes before a domain register command</p>
+
 <h4 id="parameters-6">Parameters</h4>
 
 <table>
@@ -587,8 +596,8 @@ add_hook('DomainValidation', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>domain</td>
-<td></td>
+<td>params</td>
+<td>array</td>
 <td></td>
 </tr>
 </tbody>
@@ -608,6 +617,8 @@ add_hook('PreDomainRegister', 1, function($vars) {
 
 <h2 id="predomaintransfer">PreDomainTransfer</h2>
 
+<p>Executes before a domain transfer command</p>
+
 <h4 id="parameters-7">Parameters</h4>
 
 <table>
@@ -621,8 +632,8 @@ add_hook('PreDomainRegister', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>domain</td>
-<td></td>
+<td>params</td>
+<td>array</td>
 <td></td>
 </tr>
 </tbody>

@@ -383,6 +383,8 @@ add_hook('AcceptOrder', 1, function($vars) {
 
 <h2 id="addonfraud">AddonFraud</h2>
 
+<p>Executes when an addon is set as fraud.</p>
+
 <h4 id="parameters-1">Parameters</h4>
 
 <table>
@@ -397,26 +399,26 @@ add_hook('AcceptOrder', 1, function($vars) {
 <tbody>
 <tr>
 <td>id</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The addon ID (tblhostingaddons)</td>
 </tr>
 
 <tr>
 <td>userid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>serviceid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>addonid</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The predefined addon ID (tbladdons)</td>
 </tr>
 </tbody>
 </table>
@@ -591,6 +593,8 @@ add_hook('AfterShoppingCartCheckout', 1, function($vars) {
 
 <h2 id="cancelorder">CancelOrder</h2>
 
+<p>Executes as an order is being cancelled</p>
+
 <h4 id="parameters-4">Parameters</h4>
 
 <table>
@@ -605,7 +609,7 @@ add_hook('AfterShoppingCartCheckout', 1, function($vars) {
 <tbody>
 <tr>
 <td>orderid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -667,6 +671,8 @@ add_hook('CartTotalAdjustment', 1, function($vars) {
 
 <h2 id="deleteorder">DeleteOrder</h2>
 
+<p>Executes as an order is being deleted</p>
+
 <h4 id="parameters-6">Parameters</h4>
 
 <table>
@@ -681,7 +687,7 @@ add_hook('CartTotalAdjustment', 1, function($vars) {
 <tbody>
 <tr>
 <td>orderid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -701,6 +707,8 @@ add_hook('DeleteOrder', 1, function($vars) {
 
 <h2 id="fraudorder">FraudOrder</h2>
 
+<p>Executes as an order is being marked fraud</p>
+
 <h4 id="parameters-7">Parameters</h4>
 
 <table>
@@ -715,7 +723,7 @@ add_hook('DeleteOrder', 1, function($vars) {
 <tbody>
 <tr>
 <td>orderid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -735,6 +743,8 @@ add_hook('FraudOrder', 1, function($vars) {
 
 <h2 id="orderaddonpricingoverride">OrderAddonPricingOverride</h2>
 
+<p>Executes as an addon price is being calculated in the cart.</p>
+
 <h4 id="parameters-8">Parameters</h4>
 
 <table>
@@ -749,27 +759,39 @@ add_hook('FraudOrder', 1, function($vars) {
 <tbody>
 <tr>
 <td>key</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The key for the product in the cart session</td>
+</tr>
+
+<tr>
+<td>pid</td>
+<td>int</td>
+<td>The product id</td>
 </tr>
 
 <tr>
 <td>addonid</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The addon id</td>
+</tr>
+
+<tr>
+<td>proddata</td>
+<td>array</td>
+<td>The product data for an addon with new product purchase</td>
 </tr>
 
 <tr>
 <td>serviceid</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The service id when purchasing an addon for existing service</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response-8">Response</h4>
 
-<p>No response supported</p>
+<p>Addon pricing can be overridden. Accepts a return of the keys &lsquo;setup&rsquo; and &lsquo;recurring&rsquo;. eg: return array(&lsquo;setup&rsquo; =&gt; 1.00, &lsquo;recurring&rsquo; =&gt; 12.00);</p>
 
 <h4 id="example-code-8">Example Code</h4>
 
@@ -780,6 +802,8 @@ add_hook('OrderAddonPricingOverride', 1, function($vars) {
 </code></pre>
 
 <h2 id="orderproductpricingoverride">OrderProductPricingOverride</h2>
+
+<p>Executes as a product price is being calculated in the cart.</p>
 
 <h4 id="parameters-9">Parameters</h4>
 
@@ -795,27 +819,27 @@ add_hook('OrderAddonPricingOverride', 1, function($vars) {
 <tbody>
 <tr>
 <td>key</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The key for the product in the cart session</td>
 </tr>
 
 <tr>
 <td>pid</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The product id</td>
 </tr>
 
 <tr>
 <td>proddata</td>
-<td></td>
-<td></td>
+<td>array</td>
+<td>The product data</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response-9">Response</h4>
 
-<p>No response supported</p>
+<p>Product pricing can be overridden. Accepts a return of the keys &lsquo;setup&rsquo; and &lsquo;recurring&rsquo;. eg: return array(&lsquo;setup&rsquo; =&gt; 1.00, &lsquo;recurring&rsquo; =&gt; 12.00);</p>
 
 <h4 id="example-code-9">Example Code</h4>
 
@@ -826,6 +850,8 @@ add_hook('OrderProductPricingOverride', 1, function($vars) {
 </code></pre>
 
 <h2 id="orderproductupgradeoverride">OrderProductUpgradeOverride</h2>
+
+<p>Executes as a product upgrade order is being calculated.</p>
 
 <h4 id="parameters-10">Parameters</h4>
 
@@ -840,8 +866,62 @@ add_hook('OrderProductPricingOverride', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>0</td>
+<td>oldproductid</td>
+<td>int</td>
 <td></td>
+</tr>
+
+<tr>
+<td>oldproductname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>newproductid</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>newproductname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>days</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>totaldays</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>newproductbillingcycle</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>price</td>
+<td>float</td>
+<td></td>
+</tr>
+
+<tr>
+<td>discount</td>
+<td>float</td>
+<td></td>
+</tr>
+
+<tr>
+<td>promoqualifies</td>
+<td>bool</td>
 <td></td>
 </tr>
 </tbody>
@@ -849,7 +929,7 @@ add_hook('OrderProductPricingOverride', 1, function($vars) {
 
 <h4 id="response-10">Response</h4>
 
-<p>No response supported</p>
+<p>Return any key -&gt; value pairs of the parameters to override. eg return array(&lsquo;discount&rsquo; =&gt; 10.00,);</p>
 
 <h4 id="example-code-10">Example Code</h4>
 
@@ -860,6 +940,8 @@ add_hook('OrderProductUpgradeOverride', 1, function($vars) {
 </code></pre>
 
 <h2 id="overrideordernumbergeneration">OverrideOrderNumberGeneration</h2>
+
+<p>Executes just before checkout occurs. All cart information is passed to the hook. Examples given here.</p>
 
 <h4 id="parameters-11">Parameters</h4>
 
@@ -874,16 +956,22 @@ add_hook('OrderProductUpgradeOverride', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>cart</td>
-<td></td>
-<td></td>
+<td>products</td>
+<td>array</td>
+<td>An indexed array of product information for each product in the cart.</td>
+</tr>
+
+<tr>
+<td>domains</td>
+<td>array</td>
+<td>An indexed array of domain information for each domain in the cart.</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response-11">Response</h4>
 
-<p>No response supported</p>
+<p>Return an overridden client displayed order number. eg: return array(123456788,);</p>
 
 <h4 id="example-code-11">Example Code</h4>
 
@@ -894,6 +982,8 @@ add_hook('OverrideOrderNumberGeneration', 1, function($vars) {
 </code></pre>
 
 <h2 id="pendingorder">PendingOrder</h2>
+
+<p>Executes as an order is being marked pending</p>
 
 <h4 id="parameters-12">Parameters</h4>
 
@@ -909,7 +999,7 @@ add_hook('OverrideOrderNumberGeneration', 1, function($vars) {
 <tbody>
 <tr>
 <td>orderid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -929,6 +1019,8 @@ add_hook('PendingOrder', 1, function($vars) {
 
 <h2 id="precalculatecarttotals">PreCalculateCartTotals</h2>
 
+<p>Executes as the cart totals are being calculated. All cart information is passed to the hook. Examples given here.</p>
+
 <h4 id="parameters-13">Parameters</h4>
 
 <table>
@@ -942,9 +1034,15 @@ add_hook('PendingOrder', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>cart</td>
-<td></td>
-<td></td>
+<td>products</td>
+<td>array</td>
+<td>An indexed array of product information for each product in the cart.</td>
+</tr>
+
+<tr>
+<td>domains</td>
+<td>array</td>
+<td>An indexed array of domain information for each domain in the cart.</td>
 </tr>
 </tbody>
 </table>
@@ -963,6 +1061,8 @@ add_hook('PreCalculateCartTotals', 1, function($vars) {
 
 <h2 id="preshoppingcartcheckout">PreShoppingCartCheckout</h2>
 
+<p>Executes just before checkout occurs. All cart information is passed to the hook. Examples given here.</p>
+
 <h4 id="parameters-14">Parameters</h4>
 
 <table>
@@ -976,9 +1076,15 @@ add_hook('PreCalculateCartTotals', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>cart</td>
-<td></td>
-<td></td>
+<td>products</td>
+<td>array</td>
+<td>An indexed array of product information for each product in the cart.</td>
+</tr>
+
+<tr>
+<td>domains</td>
+<td>array</td>
+<td>An indexed array of domain information for each domain in the cart.</td>
 </tr>
 </tbody>
 </table>
@@ -997,6 +1103,8 @@ add_hook('PreShoppingCartCheckout', 1, function($vars) {
 
 <h2 id="runfraudcheck">RunFraudCheck</h2>
 
+<p>Executes as the fraud module is being checked for an order.</p>
+
 <h4 id="parameters-15">Parameters</h4>
 
 <table>
@@ -1011,13 +1119,13 @@ add_hook('PreShoppingCartCheckout', 1, function($vars) {
 <tbody>
 <tr>
 <td>orderid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>userid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -1025,7 +1133,7 @@ add_hook('PreShoppingCartCheckout', 1, function($vars) {
 
 <h4 id="response-15">Response</h4>
 
-<p>No response supported</p>
+<p>Return any value to skip the fraud check</p>
 
 <h4 id="example-code-15">Example Code</h4>
 

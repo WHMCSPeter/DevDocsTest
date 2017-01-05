@@ -347,6 +347,8 @@
 
 <h2 id="addonactivated">AddonActivated</h2>
 
+<p>Executes when an addon is activated.</p>
+
 <h4 id="parameters">Parameters</h4>
 
 <table>
@@ -361,26 +363,26 @@
 <tbody>
 <tr>
 <td>id</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The addon ID (tblhostingaddons)</td>
 </tr>
 
 <tr>
 <td>userid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>serviceid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>addonid</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The predefined addon ID (tbladdons)</td>
 </tr>
 </tbody>
 </table>
@@ -399,6 +401,8 @@ add_hook('AddonActivated', 1, function($vars) {
 
 <h2 id="addonactivation">AddonActivation</h2>
 
+<p>Executes when an addon is activated.</p>
+
 <h4 id="parameters-1">Parameters</h4>
 
 <table>
@@ -413,26 +417,26 @@ add_hook('AddonActivated', 1, function($vars) {
 <tbody>
 <tr>
 <td>id</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The addon ID (tblhostingaddons)</td>
 </tr>
 
 <tr>
 <td>userid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>serviceid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>addonid</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The predefined addon ID (tbladdons)</td>
 </tr>
 </tbody>
 </table>
@@ -505,6 +509,8 @@ add_hook('AddonAdd', 1, function($vars) {
 
 <h2 id="addoncancelled">AddonCancelled</h2>
 
+<p>Executes when an addon is cancelled.</p>
+
 <h4 id="parameters-3">Parameters</h4>
 
 <table>
@@ -519,26 +525,26 @@ add_hook('AddonAdd', 1, function($vars) {
 <tbody>
 <tr>
 <td>id</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The addon ID (tblhostingaddons)</td>
 </tr>
 
 <tr>
 <td>userid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>serviceid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>addonid</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The predefined addon ID (tbladdons)</td>
 </tr>
 </tbody>
 </table>
@@ -665,6 +671,8 @@ add_hook('AddonDeleted', 1, function($vars) {
 
 <h2 id="addonedit">AddonEdit</h2>
 
+<p>Executes when an addon is modified or updated.</p>
+
 <h4 id="parameters-7">Parameters</h4>
 
 <table>
@@ -679,26 +687,26 @@ add_hook('AddonDeleted', 1, function($vars) {
 <tbody>
 <tr>
 <td>id</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The addon ID (tblhostingaddons)</td>
 </tr>
 
 <tr>
 <td>userid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>serviceid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>addonid</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The predefined addon ID (tbladdons)</td>
 </tr>
 </tbody>
 </table>
@@ -717,6 +725,8 @@ add_hook('AddonEdit', 1, function($vars) {
 
 <h2 id="addonsuspended">AddonSuspended</h2>
 
+<p>Executes when an addon is suspended.</p>
+
 <h4 id="parameters-8">Parameters</h4>
 
 <table>
@@ -731,26 +741,26 @@ add_hook('AddonEdit', 1, function($vars) {
 <tbody>
 <tr>
 <td>id</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The addon ID (tblhostingaddons)</td>
 </tr>
 
 <tr>
 <td>userid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>serviceid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>addonid</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The predefined addon ID (tbladdons)</td>
 </tr>
 </tbody>
 </table>
@@ -769,6 +779,8 @@ add_hook('AddonSuspended', 1, function($vars) {
 
 <h2 id="addonterminated">AddonTerminated</h2>
 
+<p>Executes when an addon is terminated.</p>
+
 <h4 id="parameters-9">Parameters</h4>
 
 <table>
@@ -783,26 +795,26 @@ add_hook('AddonSuspended', 1, function($vars) {
 <tbody>
 <tr>
 <td>id</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The addon ID (tblhostingaddons)</td>
 </tr>
 
 <tr>
 <td>userid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>serviceid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>addonid</td>
-<td></td>
-<td></td>
+<td>int</td>
+<td>The predefined addon ID (tbladdons)</td>
 </tr>
 </tbody>
 </table>
@@ -875,6 +887,8 @@ add_hook('AddonUnsuspended', 1, function($vars) {
 
 <h2 id="licensingaddonreissue">LicensingAddonReissue</h2>
 
+<p>Executes as a license is being reissued</p>
+
 <h4 id="parameters-11">Parameters</h4>
 
 <table>
@@ -889,25 +903,13 @@ add_hook('AddonUnsuspended', 1, function($vars) {
 <tbody>
 <tr>
 <td>licenseid</td>
-<td></td>
-<td></td>
-</tr>
-
-<tr>
-<td>id</td>
-<td></td>
-<td></td>
-</tr>
-
-<tr>
-<td>array(&ldquo;serviceid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>serviceid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -927,6 +929,8 @@ add_hook('LicensingAddonReissue', 1, function($vars) {
 
 <h2 id="licensingaddonverify">LicensingAddonVerify</h2>
 
+<p>Executes as a license remote check is being completed</p>
+
 <h4 id="parameters-12">Parameters</h4>
 
 <table>
@@ -941,27 +945,27 @@ add_hook('LicensingAddonReissue', 1, function($vars) {
 <tbody>
 <tr>
 <td>licenseid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>serviceid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 
 <tr>
 <td>xmlresponse</td>
-<td></td>
-<td></td>
+<td>string</td>
+<td>The current XML response</td>
 </tr>
 </tbody>
 </table>
 
 <h4 id="response-12">Response</h4>
 
-<p>No response supported</p>
+<p>Return key value pairs of additional items to be returned with the response.</p>
 
 <h4 id="example-code-12">Example Code</h4>
 

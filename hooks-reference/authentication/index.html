@@ -347,6 +347,8 @@
 
 <h2 id="adminlogout">AdminLogout</h2>
 
+<p>Executes on Admin log out</p>
+
 <h4 id="parameters">Parameters</h4>
 
 <table>
@@ -361,7 +363,7 @@
 <tbody>
 <tr>
 <td>adminid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
@@ -381,6 +383,8 @@ add_hook('AdminLogout', 1, function($vars) {
 
 <h2 id="clientlogin">ClientLogin</h2>
 
+<p>Executes when a client is logging into the Client Area.</p>
+
 <h4 id="parameters-1">Parameters</h4>
 
 <table>
@@ -395,7 +399,7 @@ add_hook('AdminLogout', 1, function($vars) {
 <tbody>
 <tr>
 <td>userid</td>
-<td></td>
+<td>int</td>
 <td></td>
 </tr>
 </tbody>
