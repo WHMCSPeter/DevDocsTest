@@ -311,7 +311,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/gettodoitemstatuses/&#34;&gt;GetToDoItemStatuses&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/logactivity/&#34;&gt;LogActivity&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/sendadminemail/&#34;&gt;SendAdminEmail&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/sendemail/&#34;&gt;SendAdminEmail&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/sendemail/&#34;&gt;SendEmail&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/setconfigurationvalue/&#34;&gt;SetConfigurationValue&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateadminnotes/&#34;&gt;UpdateAdminNotes&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateannouncement/&#34;&gt;UpdateAnnouncement&lt;/a&gt;
@@ -331,7 +331,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getclientsaddons/&#34;&gt;GetClientsAddons&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getclientsdetails/&#34;&gt;GetClientsDetails&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getclientsdomains/&#34;&gt;GetClientsDomains&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getclientsproducts/&#34;&gt;GetClientsDomains&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getclientsproducts/&#34;&gt;GetClientsProducts&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getcontacts/&#34;&gt;GetContacts&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getemails/&#34;&gt;GetEmails&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getemailtemplates/&#34;&gt;GetEmailTemplates&lt;/a&gt;

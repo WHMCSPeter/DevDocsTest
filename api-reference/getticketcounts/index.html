@@ -692,7 +692,7 @@
       
         <li class="" data-nav-id="/api-reference/getclientsproducts/">
           <a href="//developers.whmcs.com/api-reference/getclientsproducts/">
-            <span>GetClientsDomains</span>
+            <span>GetClientsProducts</span>
           </a>
         </li>
       
@@ -1068,7 +1068,7 @@
       
         <li class="" data-nav-id="/api-reference/sendemail/">
           <a href="//developers.whmcs.com/api-reference/sendemail/">
-            <span>SendAdminEmail</span>
+            <span>SendEmail</span>
           </a>
         </li>
       
@@ -1373,7 +1373,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'username' =&gt; 'ADMIN_USERNAME',
             'password' =&gt; 'ADMIN_PASSWORD',
             'ignoreDepartmentAssignments' =&gt; 'false',
-            'IncludeCountsByStatus' =&gt; 'true',
+            'includeCountsByStatus' =&gt; 'true',
             'responsetype' =&gt; 'json',
         )
     )
@@ -1387,7 +1387,7 @@ curl_close($ch);
 <pre><code>$command = 'GetTicketCounts';
 $postData = array(
     'ignoreDepartmentAssignments' =&gt; 'false',
-    'IncludeCountsByStatus' =&gt; 'true',
+    'includeCountsByStatus' =&gt; 'true',
 );
 $adminUsername = 'ADMIN_USERNAME';
 
@@ -1399,11 +1399,40 @@ print_r($results);
 
 <pre><code>{
     &quot;result&quot;: &quot;success&quot;,
-    &quot;filteredDepartments&quot;: &quot;[1, 2, 3]&quot;,
-    &quot;allActive&quot;: &quot;123&quot;,
-    &quot;awaitingReply&quot;: &quot;100&quot;,
-    &quot;flaggedTickets&quot;: &quot;15&quot;,
-    &quot;status&quot;: &quot;[{\&quot;title\&quot;: \&quot;Open\&quot;, \&quot;count\&quot;: \&quot;60\&quot;}, {\&quot;title\&quot;: \&quot;Answered\&quot;, \&quot;count\&quot;: \&quot;23\&quot;}, {\&quot;title\&quot;: \&quot;Customer-Reply\&quot;, \&quot;count\&quot;: \&quot;40\&quot;}]&quot;
+    &quot;filteredDepartments&quot;: [
+        1,
+        2,
+        3
+    ],
+    &quot;allActive&quot;: 123,
+    &quot;awaitingReply&quot;: 100,
+    &quot;flaggedTickets&quot;: 15,
+    &quot;status&quot;: {
+        &quot;open&quot;: {
+            &quot;title&quot;: &quot;Open&quot;,
+            &quot;count&quot;: 60
+        },
+        &quot;answered&quot;: {
+            &quot;title&quot;: &quot;Answered&quot;,
+            &quot;count&quot;: 23
+        },
+        &quot;customerreply&quot;: {
+            &quot;title&quot;: &quot;Customer-Reply&quot;,
+            &quot;count&quot;: 40
+        },
+        &quot;closed&quot;: {
+            &quot;title&quot;: &quot;Closed&quot;,
+            &quot;count&quot;: 4220
+        },
+        &quot;onhold&quot;: {
+            &quot;title&quot;: &quot;On Hold&quot;,
+            &quot;count&quot;: 10
+        },
+        &quot;inprogress&quot;: {
+            &quot;title&quot;: &quot;In Progress&quot;,
+            &quot;count&quot;: 0
+        }
+    }
 }
 </code></pre>
 

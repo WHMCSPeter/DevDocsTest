@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GetClientsDomains - WHMCS Developer Documentation</title>
+    <title>GetClientsProducts - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.16" />
 
     
@@ -692,7 +692,7 @@
       
         <li class="active" data-nav-id="/api-reference/getclientsproducts/">
           <a href="//developers.whmcs.com/api-reference/getclientsproducts/">
-            <span>GetClientsDomains</span>
+            <span>GetClientsProducts</span>
           </a>
         </li>
       
@@ -1068,7 +1068,7 @@
       
         <li class="" data-nav-id="/api-reference/sendemail/">
           <a href="//developers.whmcs.com/api-reference/sendemail/">
-            <span>SendAdminEmail</span>
+            <span>SendEmail</span>
           </a>
         </li>
       
@@ -1294,12 +1294,12 @@
                 
                   
                 
-                <span itemprop="title"> GetClientsDomains</span>
+                <span itemprop="title"> GetClientsProducts</span>
               </div>
             </div>
 
 
-			<h1>GetClientsDomains </h1>
+			<h1>GetClientsProducts </h1>
 
 			
 
@@ -1321,7 +1321,7 @@
 <tr>
 <td>action</td>
 <td>string</td>
-<td>&ldquo;GetClientsDomains&rdquo;</td>
+<td>&ldquo;GetClientsProducts&rdquo;</td>
 <td>Required</td>
 </tr>
 
@@ -1452,7 +1452,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' =&gt; 'GetClientsDomains',
+            'action' =&gt; 'GetClientsProducts',
             'username' =&gt; 'ADMIN_USERNAME',
             'password' =&gt; 'ADMIN_PASSWORD',
             'clientid' =&gt; '1',
@@ -1467,7 +1467,7 @@ curl_close($ch);
 
 <h3 id="example-request-local-api">Example Request (Local API)</h3>
 
-<pre><code>$command = 'GetClientsDomains';
+<pre><code>$command = 'GetClientsProducts';
 $postData = array(
     'clientid' =&gt; '1',
     'stats' =&gt; 'true',
@@ -1483,50 +1483,115 @@ print_r($results);
 <pre><code>{
     &quot;result&quot;: &quot;success&quot;,
     &quot;clientid&quot;: &quot;1&quot;,
-    &quot;domainid&quot;: &quot;&quot;,
-    &quot;totalresults&quot;: &quot;1&quot;,
-    &quot;startnumber&quot;: &quot;0&quot;,
-    &quot;numreturned&quot;: &quot;1&quot;,
-    &quot;products[product][0][id]&quot;: &quot;1&quot;,
-    &quot;products[product][0][clientid]&quot;: &quot;1&quot;,
-    &quot;products[product][0][orderid]&quot;: &quot;1&quot;,
-    &quot;products[product][0][pid]&quot;: &quot;1&quot;,
-    &quot;products[product][0][regdate]&quot;: &quot;2016-01-01&quot;,
-    &quot;products[product][0][name]&quot;: &quot;Intel Xeon Dual Core 2.3Ghz&quot;,
-    &quot;products[product][0][translated_name]&quot;: &quot;Intel Xeon Dual Core 2.3Ghz&quot;,
-    &quot;products[product][0][groupname]&quot;: &quot;Dedicated Servers&quot;,
-    &quot;products[product][0][translated_groupname]&quot;: &quot;Dedicated Servers&quot;,
-    &quot;products[product][0][domain]&quot;: &quot;whmcs.rocks&quot;,
-    &quot;products[product][0][dedicatedip]&quot;: &quot;&quot;,
-    &quot;products[product][0][serverid]&quot;: &quot;0&quot;,
-    &quot;products[product][0][servername]&quot;: &quot;&quot;,
-    &quot;products[product][0][serverip]&quot;: &quot;&quot;,
-    &quot;products[product][0][serverhostname]&quot;: &quot;&quot;,
-    &quot;products[product][0][suspensionreason]&quot;: &quot;&quot;,
-    &quot;products[product][0][firstpaymentamount]&quot;: &quot;174.00&quot;,
-    &quot;products[product][0][recurringamount]&quot;: &quot;174.00&quot;,
-    &quot;products[product][0][paymentmethod]&quot;: &quot;authorize&quot;,
-    &quot;products[product][0][paymentmethodname]&quot;: &quot;Credit Card&quot;,
-    &quot;products[product][0][billingcycle]&quot;: &quot;Monthly&quot;,
-    &quot;products[product][0][nextduedate]&quot;: &quot;2016-02-01&quot;,
-    &quot;products[product][0][status]&quot;: &quot;Active&quot;,
-    &quot;products[product][0][username]&quot;: &quot;&quot;,
-    &quot;products[product][0][password]&quot;: &quot;&quot;,
-    &quot;products[product][0][subscriptionid]&quot;: &quot;&quot;,
-    &quot;products[product][0][promoid]&quot;: &quot;0&quot;,
-    &quot;products[product][0][overideautosuspend]&quot;: &quot;0&quot;,
-    &quot;products[product][0][overidesuspenduntil]&quot;: &quot;0000-00-00&quot;,
-    &quot;products[product][0][ns1]&quot;: &quot;&quot;,
-    &quot;products[product][0][ns2]&quot;: &quot;&quot;,
-    &quot;products[product][0][assignedips]&quot;: &quot;&quot;,
-    &quot;products[product][0][notes]&quot;: &quot;&quot;,
-    &quot;products[product][0][diskusage]&quot;: &quot;0&quot;,
-    &quot;products[product][0][disklimit]&quot;: &quot;0&quot;,
-    &quot;products[product][0][bwusage]&quot;: &quot;0&quot;,
-    &quot;products[product][0][bwlimit]&quot;: &quot;0&quot;,
-    &quot;products[product][0][lastupdate]&quot;: &quot;0000-00-00 00:00:00&quot;,
-    &quot;products[product][0][customfields][customfield]&quot;: &quot;&quot;,
-    &quot;products[product][0][configoptions][configoption]&quot;: &quot;&quot;
+    &quot;serviceid&quot;: null,
+    &quot;pid&quot;: null,
+    &quot;domain&quot;: null,
+    &quot;totalresults&quot;: &quot;2&quot;,
+    &quot;startnumber&quot;: 0,
+    &quot;numreturned&quot;: 2,
+    &quot;products&quot;: {
+        &quot;product&quot;: [
+            {
+                &quot;id&quot;: &quot;1&quot;,
+                &quot;clientid&quot;: &quot;1&quot;,
+                &quot;orderid&quot;: &quot;1&quot;,
+                &quot;pid&quot;: &quot;1&quot;,
+                &quot;regdate&quot;: &quot;2015-01-01&quot;,
+                &quot;name&quot;: &quot;Starter&quot;,
+                &quot;translated_name&quot;: &quot;Starter&quot;,
+                &quot;groupname&quot;: &quot;Shared Hosting&quot;,
+                &quot;translated_groupname&quot;: &quot;Shared Hosting&quot;,
+                &quot;domain&quot;: &quot;demodomain.com&quot;,
+                &quot;dedicatedip&quot;: &quot;&quot;,
+                &quot;serverid&quot;: &quot;1&quot;,
+                &quot;servername&quot;: &quot;Saturn&quot;,
+                &quot;serverip&quot;: &quot;1.2.3.4&quot;,
+                &quot;serverhostname&quot;: &quot;saturn.example.com&quot;,
+                &quot;suspensionreason&quot;: &quot;&quot;,
+                &quot;firstpaymentamount&quot;: &quot;12.95&quot;,
+                &quot;recurringamount&quot;: &quot;12.95&quot;,
+                &quot;paymentmethod&quot;: &quot;authorize&quot;,
+                &quot;paymentmethodname&quot;: &quot;Credit Card&quot;,
+                &quot;billingcycle&quot;: &quot;Monthly&quot;,
+                &quot;nextduedate&quot;: &quot;2016-11-25&quot;,
+                &quot;status&quot;: &quot;Terminated&quot;,
+                &quot;username&quot;: &quot;demodoma&quot;,
+                &quot;password&quot;: &quot;xxxxxxxx&quot;,
+                &quot;subscriptionid&quot;: &quot;&quot;,
+                &quot;promoid&quot;: &quot;0&quot;,
+                &quot;overideautosuspend&quot;: &quot;&quot;,
+                &quot;overidesuspenduntil&quot;: &quot;0000-00-00&quot;,
+                &quot;ns1&quot;: &quot;&quot;,
+                &quot;ns2&quot;: &quot;&quot;,
+                &quot;assignedips&quot;: &quot;&quot;,
+                &quot;notes&quot;: &quot;&quot;,
+                &quot;diskusage&quot;: &quot;0&quot;,
+                &quot;disklimit&quot;: &quot;0&quot;,
+                &quot;bwusage&quot;: &quot;0&quot;,
+                &quot;bwlimit&quot;: &quot;0&quot;,
+                &quot;lastupdate&quot;: &quot;0000-00-00 00:00:00&quot;,
+                &quot;customfields&quot;: {
+                    &quot;customfield&quot;: []
+                },
+                &quot;configoptions&quot;: {
+                    &quot;configoption&quot;: []
+                }
+            },
+            {
+                &quot;id&quot;: &quot;2&quot;,
+                &quot;clientid&quot;: &quot;1&quot;,
+                &quot;orderid&quot;: &quot;2&quot;,
+                &quot;pid&quot;: &quot;3&quot;,
+                &quot;regdate&quot;: &quot;2015-05-20&quot;,
+                &quot;name&quot;: &quot;Plus&quot;,
+                &quot;translated_name&quot;: &quot;Plus&quot;,
+                &quot;groupname&quot;: &quot;Shared Hosting&quot;,
+                &quot;translated_groupname&quot;: &quot;Shared Hosting&quot;,
+                &quot;domain&quot;: &quot;demodomain2.net&quot;,
+                &quot;dedicatedip&quot;: &quot;&quot;,
+                &quot;serverid&quot;: &quot;2&quot;,
+                &quot;servername&quot;: &quot;Pluto&quot;,
+                &quot;serverip&quot;: &quot;2.3.4.5&quot;,
+                &quot;serverhostname&quot;: &quot;pluto.example.com&quot;,
+                &quot;suspensionreason&quot;: &quot;&quot;,
+                &quot;firstpaymentamount&quot;: &quot;24.95&quot;,
+                &quot;recurringamount&quot;: &quot;24.95&quot;,
+                &quot;paymentmethod&quot;: &quot;paypal&quot;,
+                &quot;paymentmethodname&quot;: &quot;PayPal&quot;,
+                &quot;billingcycle&quot;: &quot;Monthly&quot;,
+                &quot;nextduedate&quot;: &quot;2017-01-20&quot;,
+                &quot;status&quot;: &quot;Active&quot;,
+                &quot;username&quot;: &quot;demodom2&quot;,
+                &quot;password&quot;: &quot;xxxxxxxx&quot;,
+                &quot;subscriptionid&quot;: &quot;&quot;,
+                &quot;promoid&quot;: &quot;0&quot;,
+                &quot;overideautosuspend&quot;: &quot;&quot;,
+                &quot;overidesuspenduntil&quot;: &quot;0000-00-00&quot;,
+                &quot;ns1&quot;: &quot;&quot;,
+                &quot;ns2&quot;: &quot;&quot;,
+                &quot;assignedips&quot;: &quot;&quot;,
+                &quot;notes&quot;: &quot;&quot;,
+                &quot;diskusage&quot;: &quot;0&quot;,
+                &quot;disklimit&quot;: &quot;0&quot;,
+                &quot;bwusage&quot;: &quot;0&quot;,
+                &quot;bwlimit&quot;: &quot;0&quot;,
+                &quot;lastupdate&quot;: &quot;0000-00-00 00:00:00&quot;,
+                &quot;customfields&quot;: {
+                    &quot;customfield&quot;: []
+                },
+                &quot;configoptions&quot;: {
+                    &quot;configoption&quot;: [
+                        {
+                            &quot;id&quot;: &quot;1&quot;,
+                            &quot;option&quot;: &quot;Sample Config Option&quot;,
+                            &quot;type&quot;: &quot;dropdown&quot;,
+                            &quot;value&quot;: &quot;Selected option value&quot;
+                        }
+                    ]
+                }
+            }
+        ]
+    }
 }
 </code></pre>
 

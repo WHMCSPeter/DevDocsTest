@@ -2758,6 +2758,8 @@ add_hook(&#39;CustomFieldSave&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;emailprelog&#34;&gt;EmailPreLog&lt;/h2&gt;
 
+&lt;p&gt;Runs prior to email being logged.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-11&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -2771,8 +2773,44 @@ add_hook(&#39;CustomFieldSave&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;$emailData&lt;/td&gt;
+&lt;td&gt;userid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date&lt;/td&gt;
+&lt;td&gt;\timestamp&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;to&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Comma separated list of recipients&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cc&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Comma separated list of CC recipients&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;bcc&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Comma separated list of BCC recipients&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;subject&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;message&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -2780,7 +2818,7 @@ add_hook(&#39;CustomFieldSave&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response-11&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be logged. Use the same names as the input parameters. Return the key/value pair &lt;code&gt;abortLogging=true&lt;/code&gt; to abort logging of the email.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-11&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -2791,6 +2829,8 @@ add_hook(&#39;EmailPreLog&#39;, 1, function($vars) {
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;emailpresend&#34;&gt;EmailPreSend&lt;/h2&gt;
+
+&lt;p&gt;Runs prior to a client email being sent.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -2806,21 +2846,21 @@ add_hook(&#39;EmailPreLog&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;messagename&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The name of the email template being sent&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;relid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The related entity ID for the email being sent&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;An array of key/value pairs to be made available as additional email template merged fields. To abort the sending, return the key/value pair &lt;code&gt;abortsend=true&lt;/code&gt;&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
 
