@@ -384,8 +384,16 @@
 <h4 id="example-code">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('AdminAreaClientSummaryActionLinks', 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+
+    if ($vars['userid'] == 1) {
+        $return[] = '&lt;a href=&quot;http://www.whmcs.com/&quot;&gt;WHMCS&lt;/a&gt;';
+        $return[] = '&lt;a href=&quot;http://www.enom.com/&quot;&gt;eNom&lt;/a&gt;';
+    }
+
+    return $return;
 });
 </code></pre>
 
@@ -420,8 +428,9 @@ add_hook('AdminAreaClientSummaryActionLinks', 1, function($vars) {
 <h4 id="example-code-1">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('AdminAreaClientSummaryPage', 1, function($vars) {
-    // Perform hook code here...
+    return 'This message will be output on the Client Summary page. I can add HTML here';
 });
 </code></pre>
 
@@ -559,7 +568,12 @@ add_hook('AdminAreaClientSummaryPage', 1, function($vars) {
 
 <pre><code>&lt;?php
 add_hook('AdminAreaPage', 1, function($vars) {
-    // Perform hook code here...
+    $extraVariables = [];
+    if ($vars['filename'] == 'index.php') {
+        $extraVariables['newVariable1'] = 'thisValue';
+        $extraVariables['newVariable2'] = 'thatValue';
+    }
+    return $extraVariables;
 });
 </code></pre>
 
@@ -594,8 +608,12 @@ add_hook('AdminAreaPage', 1, function($vars) {
 <h4 id="example-code-3">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('AdminAreaViewQuotePage', 1, function($vars) {
-    // Perform hook code here...
+    return [
+        'This will be displayed on the Admin Area View Quote Page',
+        'This will also be displayed',
+    ];
 });
 </code></pre>
 
@@ -630,8 +648,12 @@ add_hook('AdminAreaViewQuotePage', 1, function($vars) {
 <h4 id="example-code-4">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('AdminClientDomainsTabFields', 1, function($vars) {
-    // Perform hook code here...
+    return [
+        'Additional Field 1' =&gt; '&lt;input type=&quot;text&quot; name=&quot;additionalFieldOne&quot; class=&quot;form-control input-150&quot; /&gt;',
+        'Additional Field 2' =&gt; '&lt;input type=&quot;text&quot; name=&quot;additionalFieldTwo&quot; class=&quot;form-control input-150&quot; /&gt;',
+    ];
 });
 </code></pre>
 
@@ -666,8 +688,14 @@ add_hook('AdminClientDomainsTabFields', 1, function($vars) {
 <h4 id="example-code-5">Example Code</h4>
 
 <pre><code>&lt;?php
+
+//Obtain the values defined in the AdminClientProfileTabFields hook point and save them as required
 add_hook('AdminClientDomainsTabFieldsSave', 1, function($vars) {
-    // Perform hook code here...
+    $domainId = $vars['id'];
+    $additionalFieldOne = App::getFromRequest('additionalFieldOne');
+    $additionalFieldTwo = App::getFromRequest('additionalFieldTwo');
+
+    //Save the data here
 });
 </code></pre>
 
@@ -960,8 +988,12 @@ add_hook('AdminClientFileUpload', 1, function($vars) {
 <h4 id="example-code-7">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('AdminClientProfileTabFields', 1, function($vars) {
-    // Perform hook code here...
+    return [
+        'Additional Field 1' =&gt; '&lt;input type=&quot;text&quot; name=&quot;additionalFieldOne&quot; class=&quot;form-control input-150&quot; /&gt;',
+        'Additional Field 2' =&gt; '&lt;input type=&quot;text&quot; name=&quot;additionalFieldTwo&quot; class=&quot;form-control input-150&quot; /&gt;',
+    ];
 });
 </code></pre>
 
@@ -996,8 +1028,14 @@ add_hook('AdminClientProfileTabFields', 1, function($vars) {
 <h4 id="example-code-8">Example Code</h4>
 
 <pre><code>&lt;?php
+
+//Obtain the values defined in the AdminClientProfileTabFields hook point and save them as required
 add_hook('AdminClientProfileTabFieldsSave', 1, function($vars) {
-    // Perform hook code here...
+    $userId = App::getFromRequest('userid');
+    $additionalFieldOne = App::getFromRequest('additionalFieldOne');
+    $additionalFieldTwo = App::getFromRequest('additionalFieldTwo');
+
+    //Save the data here
 });
 </code></pre>
 
@@ -1105,7 +1143,7 @@ add_hook('AdminClientServicesTabFieldsSave', 1, function($vars) {
 
 <pre><code>&lt;?php
 add_hook('AdminHomepage', 1, function($vars) {
-    // Perform hook code here...
+    return 'This message will appear on the Admin Homepage';
 });
 </code></pre>
 

@@ -427,7 +427,7 @@ add_hook('ClientAreaHomepage', 1, function($vars) {
 
 <h2 id="clientareahomepagepanels">ClientAreaHomepagePanels</h2>
 
-<p>Executes prior to rendering the Client Area Homepage panels. This can be used to manipulate and add additional panels. For more information on working with Homepage Panels, and further examples, please see Working with ClientArea Homepage Panels</p>
+<p>Executes prior to rendering the Client Area Homepage panels. This can be used to manipulate and add additional panels. For more information on working with Homepage Panels, and further examples, please see <a href="http://docs.whmcs.com/Working_With_Client_Area_Home_Page_Panels">Working with ClientArea Homepage Panels</a></p>
 
 <h4 id="parameters-2">Parameters</h4>
 
@@ -456,8 +456,32 @@ add_hook('ClientAreaHomepage', 1, function($vars) {
 <h4 id="example-code-2">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaHomepagePanels', 1, function($vars) {
-    // Perform hook code here...
+
+add_hook('ClientAreaHomepagePanels', 1, function($homePagePanels) {
+    $newPanel = $homePagePanels-&gt;addChild(
+        'unique-css-name',
+        array(
+            'name' =&gt; 'Friendly Name',
+            'label' =&gt; 'Translated Language String',
+            'icon' =&gt; 'fa-calendar-o', //see http://fortawesome.github.io/Font-Awesome/icons/
+            'order' =&gt; '99',
+            'extras' =&gt; array(
+                'color' =&gt; 'pomegranate', //see Panel Accents in template styles.css
+                'btn-link' =&gt; 'http://www.whmcs.com',
+                'btn-text' =&gt; Lang::trans('go'),
+                'btn-icon' =&gt; 'fa-arrow-right',
+            ),
+        )
+    );
+// Repeat as needed to add enough children
+    $newPanel-&gt;addChild(
+        'unique-css-name-id1',
+        array(
+            'label' =&gt; 'Panel Row Text Goes Here',
+            'uri' =&gt; 'index.php?m=yourmodule',
+            'order' =&gt; 10,
+        )
+    );
 });
 </code></pre>
 
@@ -642,8 +666,13 @@ add_hook('ClientAreaNavbars', 1, function($vars) {
 <h4 id="example-code-4">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageLogin', 1, function($vars) {
-    // Perform hook code here...
+
+add_hook('AdminAreaPage', 1, function($vars) {
+    $extraVariables = [
+        'newVariable1' =&gt; 'thisValue',
+        'newVariable2' =&gt; 'thatValue',
+    ];
+    return $extraVariables;
 });
 </code></pre>
 
@@ -678,8 +707,29 @@ add_hook('ClientAreaPageLogin', 1, function($vars) {
 <h4 id="example-code-5">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPrimaryNavbar', 1, function($vars) {
-    // Perform hook code here...
+
+add_hook('ClientAreaPrimaryNavbar', 1, function($primaryNavbar) {
+    /** @var \WHMCS\View\Menu\Item $primaryNavbar */
+    $newMenu = $primaryNavbar-&gt;addChild(
+        'uniqueMenuItemName',
+        array(
+            'name' =&gt; 'Home',
+            'label' =&gt; Lang::trans('languageStringVariable'),
+            'uri' =&gt; 'clientarea.php',
+            'order' =&gt; 99,
+            'icon' =&gt; 'fa-calendar-o',
+        )
+    );
+    $newMenu-&gt;addChild(
+        'uniqueSubMenuItemName',
+        array(
+            'name' =&gt; 'Item Name 1',
+            'label' =&gt; Lang::trans('languageStringVariable'),
+            'uri' =&gt; 'cart.php',
+            'order' =&gt; 10,
+            'icon' =&gt; 'fa-cart-plus',
+        )
+    );
 });
 </code></pre>
 
@@ -714,8 +764,29 @@ add_hook('ClientAreaPrimaryNavbar', 1, function($vars) {
 <h4 id="example-code-6">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPrimarySidebar', 1, function($vars) {
-    // Perform hook code here...
+
+add_hook('ClientAreaPrimarySidebar', 1, function($primarySidebar) {
+    /** @var \WHMCS\View\Menu\Item $primarySidebar */
+    $newMenu = $primarySidebar-&gt;addChild(
+        'uniqueMenuItemName',
+        array(
+            'name' =&gt; 'Home',
+            'label' =&gt; Lang::trans('languageStringVariable'),
+            'uri' =&gt; 'clientarea.php',
+            'order' =&gt; 99,
+            'icon' =&gt; 'fa-calendar-o',
+        )
+    );
+    $newMenu-&gt;addChild(
+        'uniqueSubMenuItemName',
+        array(
+            'name' =&gt; 'Item Name 1',
+            'label' =&gt; Lang::trans('languageStringVariable'),
+            'uri' =&gt; 'cart.php',
+            'order' =&gt; 10,
+            'icon' =&gt; 'fa-cart-plus',
+        )
+    );
 });
 </code></pre>
 
@@ -900,8 +971,29 @@ add_hook('ClientAreaRegister', 1, function($vars) {
 <h4 id="example-code-10">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaSecondaryNavbar', 1, function($vars) {
-    // Perform hook code here...
+
+add_hook('ClientAreaSecondaryNavbar', 1, function($secondaryNavbar) {
+    /** @var \WHMCS\View\Menu\Item $secondaryNavbar */
+    $newMenu = $secondaryNavbar-&gt;addChild(
+        'uniqueMenuItemName',
+        array(
+            'name' =&gt; 'Home',
+            'label' =&gt; Lang::trans('languageStringVariable'),
+            'uri' =&gt; 'clientarea.php',
+            'order' =&gt; 99,
+            'icon' =&gt; 'fa-calendar-o',
+        )
+    );
+    $newMenu-&gt;addChild(
+        'uniqueSubMenuItemName',
+        array(
+            'name' =&gt; 'Item Name 1',
+            'label' =&gt; Lang::trans('languageStringVariable'),
+            'uri' =&gt; 'cart.php',
+            'order' =&gt; 10,
+            'icon' =&gt; 'fa-cart-plus',
+        )
+    );
 });
 </code></pre>
 
@@ -936,8 +1028,29 @@ add_hook('ClientAreaSecondaryNavbar', 1, function($vars) {
 <h4 id="example-code-11">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaSecondarySidebar', 1, function($vars) {
-    // Perform hook code here...
+
+add_hook('ClientAreaSecondarySidebar', 1, function($secondarySidebar) {
+    /** @var \WHMCS\View\Menu\Item $secondarySidebar */
+    $newMenu = $secondarySidebar-&gt;addChild(
+        'uniqueMenuItemName',
+        array(
+            'name' =&gt; 'Home',
+            'label' =&gt; Lang::trans('languageStringVariable'),
+            'uri' =&gt; 'clientarea.php',
+            'order' =&gt; 99,
+            'icon' =&gt; 'fa-calendar-o',
+        )
+    );
+    $newMenu-&gt;addChild(
+        'uniqueSubMenuItemName',
+        array(
+            'name' =&gt; 'Item Name 1',
+            'label' =&gt; Lang::trans('languageStringVariable'),
+            'uri' =&gt; 'cart.php',
+            'order' =&gt; 10,
+            'icon' =&gt; 'fa-cart-plus',
+        )
+    );
 });
 </code></pre>
 

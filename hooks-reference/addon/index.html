@@ -600,8 +600,12 @@ add_hook('AddonCancelled', 1, function($vars) {
 <h4 id="example-code-4">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('AddonConfig', 1, function($vars) {
-    // Perform hook code here...
+    return [
+        'Additional Field 1' =&gt; '&lt;input type=&quot;text&quot; name=&quot;additionalFieldOne&quot; class=&quot;form-control input-150&quot; /&gt;',
+        'Additional Field 2' =&gt; '&lt;input type=&quot;text&quot; name=&quot;additionalFieldTwo&quot; class=&quot;form-control input-150&quot; /&gt;',
+    ];
 });
 </code></pre>
 
@@ -636,8 +640,14 @@ add_hook('AddonConfig', 1, function($vars) {
 <h4 id="example-code-5">Example Code</h4>
 
 <pre><code>&lt;?php
+
+//Obtain the values defined in the AddonConfig hook point and save them as required
 add_hook('AddonConfigSave', 1, function($vars) {
-    // Perform hook code here...
+    $addonId = $vars['id'];
+    $additionalFieldOne = App::getFromRequest('additionalFieldOne');
+    $additionalFieldTwo = App::getFromRequest('additionalFieldTwo');
+
+    //Save the data here
 });
 </code></pre>
 
@@ -978,8 +988,12 @@ add_hook('LicensingAddonReissue', 1, function($vars) {
 <h4 id="example-code-12">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('LicensingAddonVerify', 1, function($vars) {
-    // Perform hook code here...
+    return [
+        'myExtraVariable' =&gt; 'Yes',
+        'myOtherVariable' =&gt; 'Sure',
+    ];
 });
 </code></pre>
 

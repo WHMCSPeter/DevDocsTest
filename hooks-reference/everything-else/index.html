@@ -499,13 +499,31 @@ add_hook('AffiliateClickthru', 1, function($vars) {
 
 <h4 id="response-2">Response</h4>
 
-<p>Return boolean values to override &lsquo;skipCommission&rsquo; or &lsquo;payout&rsquo;. One or the other can be returned. eg: return array(&lsquo;payout&rsquo; =&gt; true,);</p>
+<p>Return boolean values to override &lsquo;skipCommission&rsquo; or &lsquo;payout&rsquo;.</p>
 
 <h4 id="example-code-2">Example Code</h4>
 
 <pre><code>&lt;?php
+
+//Skip applying the commission for affiliate 2
 add_hook('AffiliateCommission', 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+
+    if ($vars['affiliateId'] == 2) {
+        $return['skipCommission'] = true;
+    }
+    return $return;
+});
+
+
+//Ensure commission is applied for affiliate 3
+add_hook('AffiliateCommission', 1, function($vars) {
+    $return = [];
+
+    if ($vars['affiliateId'] == 3) {
+        $return['payout'] = true;
+    }
+    return $return;
 });
 </code></pre>
 
@@ -553,13 +571,20 @@ add_hook('AffiliateCommission', 1, function($vars) {
 
 <h4 id="response-3">Response</h4>
 
-<p>To skip creating a ticket for the request: return array(&lsquo;skipTicket&rsquo; =&gt; true);</p>
+<p>Use the return to skip creating a ticket. Return a boolean value of skipTicket.</p>
 
 <h4 id="example-code-3">Example Code</h4>
 
 <pre><code>&lt;?php
+
+//Do not open a ticket for affiliate 2
 add_hook('AffiliateWithdrawalRequest', 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+    if ($vars['affiliateId'] == 2) {
+        $return['skipTicket'] = true;
+    }
+
+    return $return;
 });
 </code></pre>
 
@@ -763,13 +788,14 @@ add_hook('CalcAffiliateCommission', 1, function($vars) {
 
 <h4 id="response-7">Response</h4>
 
-<p>Override the value of the custom field returning the &ldquo;value&rdquo; key. eg: return array(&lsquo;value&rsquo; =&gt; &lsquo;overridden value&rsquo;,);</p>
+<p>Override the value of the custom field returning the &ldquo;value&rdquo; key.</p>
 
 <h4 id="example-code-7">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('CustomFieldLoad', 1, function($vars) {
-    // Perform hook code here...
+    return array('value' =&gt; 'overridden value',);
 });
 </code></pre>
 
@@ -811,13 +837,14 @@ add_hook('CustomFieldLoad', 1, function($vars) {
 
 <h4 id="response-8">Response</h4>
 
-<p>Override the value of the custom field returning the &ldquo;value&rdquo; key. eg: return array(&lsquo;value&rsquo; =&gt; &lsquo;overridden value&rsquo;,);</p>
+<p>Override the value of the custom field returning the &ldquo;value&rdquo; key.</p>
 
 <h4 id="example-code-8">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('CustomFieldSave', 1, function($vars) {
-    // Perform hook code here...
+    return array('value' =&gt; 'overridden value',);
 });
 </code></pre>
 
@@ -845,8 +872,8 @@ add_hook('CustomFieldSave', 1, function($vars) {
 
 <tr>
 <td>date</td>
-<td>\timestamp</td>
-<td></td>
+<td>string</td>
+<td>Can be &lsquo;now()&rsquo; or a specific timestamp</td>
 </tr>
 
 <tr>
@@ -883,13 +910,32 @@ add_hook('CustomFieldSave', 1, function($vars) {
 
 <h4 id="response-9">Response</h4>
 
-<p>Accepts a return of key/value pairs to override the parameters to be logged. Use the same names as the input parameters. Return the key/value pair <code>abortLogging=true</code> to abort logging of the email.</p>
+<p>Accepts a return of key/value pairs to override the parameters to be logged. Use the same names as the input parameters. Return <code>abortLogging</code> to abort logging of the email.</p>
 
 <h4 id="example-code-9">Example Code</h4>
 
 <pre><code>&lt;?php
+
+//Do not log emails for userid 2
 add_hook('EmailPreLog', 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+
+    if ($vars['userid'] == 2) {
+        $return['abortLogging'] = true;
+    }
+
+    return $return;
+});
+
+//Override the saved subject of the email for userid 3
+add_hook('EmailPreLog', 1, function($vars) {
+    $return = [];
+
+    if ($vars['userid'] == 3) {
+        $return['subject'] = 'This subject is overridden';
+    }
+
+    return $return;
 });
 </code></pre>
 
@@ -930,8 +976,16 @@ add_hook('EmailPreLog', 1, function($vars) {
 <h4 id="example-code-10">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('EmailPreSend', 1, function($vars) {
-    // Perform hook code here...
+    $merge_fields = [];
+    $merge_fields['my_custom_var'] = &quot;My Custom Var&quot;;
+    $merge_fields['my_custom_var2'] = &quot;My Custom Var2&quot;;
+    if ($vars['messagename'] =='My Message Name' &amp;&amp; $vars['relid'] == 2) {
+        //Stop the email from sending a specific message and related id.
+        $merge_fields['abortsend'] = true;
+    }
+    return $merge_fields;
 });
 </code></pre>
 
@@ -966,8 +1020,13 @@ add_hook('EmailPreSend', 1, function($vars) {
 <h4 id="example-code-11">Example Code</h4>
 
 <pre><code>&lt;?php
+
+//Output additional merge fields in the list when editing an email template
 add_hook('EmailTplMergeFields', 1, function($vars) {
-    // Perform hook code here...
+    $merge_fields = [];
+    $merge_fields['my_custom_var'] = &quot;My Custom Var&quot;;
+    $merge_fields['my_custom_var2'] = &quot;My Custom Var2&quot;;
+    return $merge_fields;
 });
 </code></pre>
 
@@ -1008,8 +1067,13 @@ add_hook('EmailTplMergeFields', 1, function($vars) {
 <h4 id="example-code-12">Example Code</h4>
 
 <pre><code>&lt;?php
+
+//Return an exchange rate for the XBT currency
 add_hook('FetchCurrencyExchangeRates', 1, function($vars) {
-    // Perform hook code here...
+    //Code here to fetch the the current exchange rate relative to EUR
+
+    //Return exchange rate relative to 1 EUR
+    return ['XBT' =&gt; 927.121,];
 });
 </code></pre>
 

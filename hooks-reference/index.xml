@@ -283,8 +283,12 @@ add_hook(&#39;AddonCancelled&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;AddonConfig&#39;, 1, function($vars) {
-    // Perform hook code here...
+    return [
+        &#39;Additional Field 1&#39; =&amp;gt; &#39;&amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;additionalFieldOne&amp;quot; class=&amp;quot;form-control input-150&amp;quot; /&amp;gt;&#39;,
+        &#39;Additional Field 2&#39; =&amp;gt; &#39;&amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;additionalFieldTwo&amp;quot; class=&amp;quot;form-control input-150&amp;quot; /&amp;gt;&#39;,
+    ];
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -319,8 +323,14 @@ add_hook(&#39;AddonConfig&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+//Obtain the values defined in the AddonConfig hook point and save them as required
 add_hook(&#39;AddonConfigSave&#39;, 1, function($vars) {
-    // Perform hook code here...
+    $addonId = $vars[&#39;id&#39;];
+    $additionalFieldOne = App::getFromRequest(&#39;additionalFieldOne&#39;);
+    $additionalFieldTwo = App::getFromRequest(&#39;additionalFieldTwo&#39;);
+
+    //Save the data here
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -661,8 +671,12 @@ add_hook(&#39;LicensingAddonReissue&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;LicensingAddonVerify&#39;, 1, function($vars) {
-    // Perform hook code here...
+    return [
+        &#39;myExtraVariable&#39; =&amp;gt; &#39;Yes&#39;,
+        &#39;myOtherVariable&#39; =&amp;gt; &#39;Sure&#39;,
+    ];
 });
 &lt;/code&gt;&lt;/pre&gt;
 </description>
@@ -709,8 +723,16 @@ add_hook(&#39;LicensingAddonVerify&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;AdminAreaClientSummaryActionLinks&#39;, 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+
+    if ($vars[&#39;userid&#39;] == 1) {
+        $return[] = &#39;&amp;lt;a href=&amp;quot;http://www.whmcs.com/&amp;quot;&amp;gt;WHMCS&amp;lt;/a&amp;gt;&#39;;
+        $return[] = &#39;&amp;lt;a href=&amp;quot;http://www.enom.com/&amp;quot;&amp;gt;eNom&amp;lt;/a&amp;gt;&#39;;
+    }
+
+    return $return;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -745,8 +767,9 @@ add_hook(&#39;AdminAreaClientSummaryActionLinks&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-1&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;AdminAreaClientSummaryPage&#39;, 1, function($vars) {
-    // Perform hook code here...
+    return &#39;This message will be output on the Client Summary page. I can add HTML here&#39;;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -884,7 +907,12 @@ add_hook(&#39;AdminAreaClientSummaryPage&#39;, 1, function($vars) {
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;AdminAreaPage&#39;, 1, function($vars) {
-    // Perform hook code here...
+    $extraVariables = [];
+    if ($vars[&#39;filename&#39;] == &#39;index.php&#39;) {
+        $extraVariables[&#39;newVariable1&#39;] = &#39;thisValue&#39;;
+        $extraVariables[&#39;newVariable2&#39;] = &#39;thatValue&#39;;
+    }
+    return $extraVariables;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -919,8 +947,12 @@ add_hook(&#39;AdminAreaPage&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;AdminAreaViewQuotePage&#39;, 1, function($vars) {
-    // Perform hook code here...
+    return [
+        &#39;This will be displayed on the Admin Area View Quote Page&#39;,
+        &#39;This will also be displayed&#39;,
+    ];
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -955,8 +987,12 @@ add_hook(&#39;AdminAreaViewQuotePage&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;AdminClientDomainsTabFields&#39;, 1, function($vars) {
-    // Perform hook code here...
+    return [
+        &#39;Additional Field 1&#39; =&amp;gt; &#39;&amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;additionalFieldOne&amp;quot; class=&amp;quot;form-control input-150&amp;quot; /&amp;gt;&#39;,
+        &#39;Additional Field 2&#39; =&amp;gt; &#39;&amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;additionalFieldTwo&amp;quot; class=&amp;quot;form-control input-150&amp;quot; /&amp;gt;&#39;,
+    ];
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -991,8 +1027,14 @@ add_hook(&#39;AdminClientDomainsTabFields&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+//Obtain the values defined in the AdminClientProfileTabFields hook point and save them as required
 add_hook(&#39;AdminClientDomainsTabFieldsSave&#39;, 1, function($vars) {
-    // Perform hook code here...
+    $domainId = $vars[&#39;id&#39;];
+    $additionalFieldOne = App::getFromRequest(&#39;additionalFieldOne&#39;);
+    $additionalFieldTwo = App::getFromRequest(&#39;additionalFieldTwo&#39;);
+
+    //Save the data here
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -1285,8 +1327,12 @@ add_hook(&#39;AdminClientFileUpload&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;AdminClientProfileTabFields&#39;, 1, function($vars) {
-    // Perform hook code here...
+    return [
+        &#39;Additional Field 1&#39; =&amp;gt; &#39;&amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;additionalFieldOne&amp;quot; class=&amp;quot;form-control input-150&amp;quot; /&amp;gt;&#39;,
+        &#39;Additional Field 2&#39; =&amp;gt; &#39;&amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;additionalFieldTwo&amp;quot; class=&amp;quot;form-control input-150&amp;quot; /&amp;gt;&#39;,
+    ];
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -1321,8 +1367,14 @@ add_hook(&#39;AdminClientProfileTabFields&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-8&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+//Obtain the values defined in the AdminClientProfileTabFields hook point and save them as required
 add_hook(&#39;AdminClientProfileTabFieldsSave&#39;, 1, function($vars) {
-    // Perform hook code here...
+    $userId = App::getFromRequest(&#39;userid&#39;);
+    $additionalFieldOne = App::getFromRequest(&#39;additionalFieldOne&#39;);
+    $additionalFieldTwo = App::getFromRequest(&#39;additionalFieldTwo&#39;);
+
+    //Save the data here
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -1430,7 +1482,7 @@ add_hook(&#39;AdminClientServicesTabFieldsSave&#39;, 1, function($vars) {
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;AdminHomepage&#39;, 1, function($vars) {
-    // Perform hook code here...
+    return &#39;This message will appear on the Admin Homepage&#39;;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -1843,8 +1895,16 @@ add_hook(&#39;AfterClientMerge&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-1&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ClientAlert&#39;, 1, function($vars) {
-    // Perform hook code here...
+
+use WHMCS\User\Alert;
+
+add_hook(&#39;ClientAlert&#39;, 1, function($client) {
+    $firstName = $client-&amp;gt;firstName;
+    $lastName = $client-&amp;gt;lastName;
+    return new Alert(
+        &amp;quot;This is a test notification for {$firstName} {$lastName}&amp;quot;,
+        &#39;info&#39; //see http://getbootstrap.com/components/#alerts
+    );
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -2360,7 +2420,7 @@ add_hook(&#39;ClientAreaHomepage&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientareahomepagepanels&#34;&gt;ClientAreaHomepagePanels&lt;/h2&gt;
 
-&lt;p&gt;Executes prior to rendering the Client Area Homepage panels. This can be used to manipulate and add additional panels. For more information on working with Homepage Panels, and further examples, please see Working with ClientArea Homepage Panels&lt;/p&gt;
+&lt;p&gt;Executes prior to rendering the Client Area Homepage panels. This can be used to manipulate and add additional panels. For more information on working with Homepage Panels, and further examples, please see &lt;a href=&#34;http://docs.whmcs.com/Working_With_Client_Area_Home_Page_Panels&#34;&gt;Working with ClientArea Homepage Panels&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -2389,8 +2449,32 @@ add_hook(&#39;ClientAreaHomepage&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-2&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ClientAreaHomepagePanels&#39;, 1, function($vars) {
-    // Perform hook code here...
+
+add_hook(&#39;ClientAreaHomepagePanels&#39;, 1, function($homePagePanels) {
+    $newPanel = $homePagePanels-&amp;gt;addChild(
+        &#39;unique-css-name&#39;,
+        array(
+            &#39;name&#39; =&amp;gt; &#39;Friendly Name&#39;,
+            &#39;label&#39; =&amp;gt; &#39;Translated Language String&#39;,
+            &#39;icon&#39; =&amp;gt; &#39;fa-calendar-o&#39;, //see http://fortawesome.github.io/Font-Awesome/icons/
+            &#39;order&#39; =&amp;gt; &#39;99&#39;,
+            &#39;extras&#39; =&amp;gt; array(
+                &#39;color&#39; =&amp;gt; &#39;pomegranate&#39;, //see Panel Accents in template styles.css
+                &#39;btn-link&#39; =&amp;gt; &#39;http://www.whmcs.com&#39;,
+                &#39;btn-text&#39; =&amp;gt; Lang::trans(&#39;go&#39;),
+                &#39;btn-icon&#39; =&amp;gt; &#39;fa-arrow-right&#39;,
+            ),
+        )
+    );
+// Repeat as needed to add enough children
+    $newPanel-&amp;gt;addChild(
+        &#39;unique-css-name-id1&#39;,
+        array(
+            &#39;label&#39; =&amp;gt; &#39;Panel Row Text Goes Here&#39;,
+            &#39;uri&#39; =&amp;gt; &#39;index.php?m=yourmodule&#39;,
+            &#39;order&#39; =&amp;gt; 10,
+        )
+    );
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -2575,8 +2659,13 @@ add_hook(&#39;ClientAreaNavbars&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ClientAreaPageLogin&#39;, 1, function($vars) {
-    // Perform hook code here...
+
+add_hook(&#39;AdminAreaPage&#39;, 1, function($vars) {
+    $extraVariables = [
+        &#39;newVariable1&#39; =&amp;gt; &#39;thisValue&#39;,
+        &#39;newVariable2&#39; =&amp;gt; &#39;thatValue&#39;,
+    ];
+    return $extraVariables;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -2611,8 +2700,29 @@ add_hook(&#39;ClientAreaPageLogin&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ClientAreaPrimaryNavbar&#39;, 1, function($vars) {
-    // Perform hook code here...
+
+add_hook(&#39;ClientAreaPrimaryNavbar&#39;, 1, function($primaryNavbar) {
+    /** @var \WHMCS\View\Menu\Item $primaryNavbar */
+    $newMenu = $primaryNavbar-&amp;gt;addChild(
+        &#39;uniqueMenuItemName&#39;,
+        array(
+            &#39;name&#39; =&amp;gt; &#39;Home&#39;,
+            &#39;label&#39; =&amp;gt; Lang::trans(&#39;languageStringVariable&#39;),
+            &#39;uri&#39; =&amp;gt; &#39;clientarea.php&#39;,
+            &#39;order&#39; =&amp;gt; 99,
+            &#39;icon&#39; =&amp;gt; &#39;fa-calendar-o&#39;,
+        )
+    );
+    $newMenu-&amp;gt;addChild(
+        &#39;uniqueSubMenuItemName&#39;,
+        array(
+            &#39;name&#39; =&amp;gt; &#39;Item Name 1&#39;,
+            &#39;label&#39; =&amp;gt; Lang::trans(&#39;languageStringVariable&#39;),
+            &#39;uri&#39; =&amp;gt; &#39;cart.php&#39;,
+            &#39;order&#39; =&amp;gt; 10,
+            &#39;icon&#39; =&amp;gt; &#39;fa-cart-plus&#39;,
+        )
+    );
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -2647,8 +2757,29 @@ add_hook(&#39;ClientAreaPrimaryNavbar&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-6&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function($vars) {
-    // Perform hook code here...
+
+add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function($primarySidebar) {
+    /** @var \WHMCS\View\Menu\Item $primarySidebar */
+    $newMenu = $primarySidebar-&amp;gt;addChild(
+        &#39;uniqueMenuItemName&#39;,
+        array(
+            &#39;name&#39; =&amp;gt; &#39;Home&#39;,
+            &#39;label&#39; =&amp;gt; Lang::trans(&#39;languageStringVariable&#39;),
+            &#39;uri&#39; =&amp;gt; &#39;clientarea.php&#39;,
+            &#39;order&#39; =&amp;gt; 99,
+            &#39;icon&#39; =&amp;gt; &#39;fa-calendar-o&#39;,
+        )
+    );
+    $newMenu-&amp;gt;addChild(
+        &#39;uniqueSubMenuItemName&#39;,
+        array(
+            &#39;name&#39; =&amp;gt; &#39;Item Name 1&#39;,
+            &#39;label&#39; =&amp;gt; Lang::trans(&#39;languageStringVariable&#39;),
+            &#39;uri&#39; =&amp;gt; &#39;cart.php&#39;,
+            &#39;order&#39; =&amp;gt; 10,
+            &#39;icon&#39; =&amp;gt; &#39;fa-cart-plus&#39;,
+        )
+    );
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -2833,8 +2964,29 @@ add_hook(&#39;ClientAreaRegister&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-10&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ClientAreaSecondaryNavbar&#39;, 1, function($vars) {
-    // Perform hook code here...
+
+add_hook(&#39;ClientAreaSecondaryNavbar&#39;, 1, function($secondaryNavbar) {
+    /** @var \WHMCS\View\Menu\Item $secondaryNavbar */
+    $newMenu = $secondaryNavbar-&amp;gt;addChild(
+        &#39;uniqueMenuItemName&#39;,
+        array(
+            &#39;name&#39; =&amp;gt; &#39;Home&#39;,
+            &#39;label&#39; =&amp;gt; Lang::trans(&#39;languageStringVariable&#39;),
+            &#39;uri&#39; =&amp;gt; &#39;clientarea.php&#39;,
+            &#39;order&#39; =&amp;gt; 99,
+            &#39;icon&#39; =&amp;gt; &#39;fa-calendar-o&#39;,
+        )
+    );
+    $newMenu-&amp;gt;addChild(
+        &#39;uniqueSubMenuItemName&#39;,
+        array(
+            &#39;name&#39; =&amp;gt; &#39;Item Name 1&#39;,
+            &#39;label&#39; =&amp;gt; Lang::trans(&#39;languageStringVariable&#39;),
+            &#39;uri&#39; =&amp;gt; &#39;cart.php&#39;,
+            &#39;order&#39; =&amp;gt; 10,
+            &#39;icon&#39; =&amp;gt; &#39;fa-cart-plus&#39;,
+        )
+    );
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -2869,8 +3021,29 @@ add_hook(&#39;ClientAreaSecondaryNavbar&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-11&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ClientAreaSecondarySidebar&#39;, 1, function($vars) {
-    // Perform hook code here...
+
+add_hook(&#39;ClientAreaSecondarySidebar&#39;, 1, function($secondarySidebar) {
+    /** @var \WHMCS\View\Menu\Item $secondarySidebar */
+    $newMenu = $secondarySidebar-&amp;gt;addChild(
+        &#39;uniqueMenuItemName&#39;,
+        array(
+            &#39;name&#39; =&amp;gt; &#39;Home&#39;,
+            &#39;label&#39; =&amp;gt; Lang::trans(&#39;languageStringVariable&#39;),
+            &#39;uri&#39; =&amp;gt; &#39;clientarea.php&#39;,
+            &#39;order&#39; =&amp;gt; 99,
+            &#39;icon&#39; =&amp;gt; &#39;fa-calendar-o&#39;,
+        )
+    );
+    $newMenu-&amp;gt;addChild(
+        &#39;uniqueSubMenuItemName&#39;,
+        array(
+            &#39;name&#39; =&amp;gt; &#39;Item Name 1&#39;,
+            &#39;label&#39; =&amp;gt; Lang::trans(&#39;languageStringVariable&#39;),
+            &#39;uri&#39; =&amp;gt; &#39;cart.php&#39;,
+            &#39;order&#39; =&amp;gt; 10,
+            &#39;icon&#39; =&amp;gt; &#39;fa-cart-plus&#39;,
+        )
+    );
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -3818,13 +3991,31 @@ add_hook(&#39;AffiliateClickthru&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response-2&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;Return boolean values to override &amp;lsquo;skipCommission&amp;rsquo; or &amp;lsquo;payout&amp;rsquo;. One or the other can be returned. eg: return array(&amp;lsquo;payout&amp;rsquo; =&amp;gt; true,);&lt;/p&gt;
+&lt;p&gt;Return boolean values to override &amp;lsquo;skipCommission&amp;rsquo; or &amp;lsquo;payout&amp;rsquo;.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-2&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+//Skip applying the commission for affiliate 2
 add_hook(&#39;AffiliateCommission&#39;, 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+
+    if ($vars[&#39;affiliateId&#39;] == 2) {
+        $return[&#39;skipCommission&#39;] = true;
+    }
+    return $return;
+});
+
+
+//Ensure commission is applied for affiliate 3
+add_hook(&#39;AffiliateCommission&#39;, 1, function($vars) {
+    $return = [];
+
+    if ($vars[&#39;affiliateId&#39;] == 3) {
+        $return[&#39;payout&#39;] = true;
+    }
+    return $return;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -3872,13 +4063,20 @@ add_hook(&#39;AffiliateCommission&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response-3&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;To skip creating a ticket for the request: return array(&amp;lsquo;skipTicket&amp;rsquo; =&amp;gt; true);&lt;/p&gt;
+&lt;p&gt;Use the return to skip creating a ticket. Return a boolean value of skipTicket.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+//Do not open a ticket for affiliate 2
 add_hook(&#39;AffiliateWithdrawalRequest&#39;, 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+    if ($vars[&#39;affiliateId&#39;] == 2) {
+        $return[&#39;skipTicket&#39;] = true;
+    }
+
+    return $return;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -4082,13 +4280,14 @@ add_hook(&#39;CalcAffiliateCommission&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response-7&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;Override the value of the custom field returning the &amp;ldquo;value&amp;rdquo; key. eg: return array(&amp;lsquo;value&amp;rsquo; =&amp;gt; &amp;lsquo;overridden value&amp;rsquo;,);&lt;/p&gt;
+&lt;p&gt;Override the value of the custom field returning the &amp;ldquo;value&amp;rdquo; key.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;CustomFieldLoad&#39;, 1, function($vars) {
-    // Perform hook code here...
+    return array(&#39;value&#39; =&amp;gt; &#39;overridden value&#39;,);
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -4130,13 +4329,14 @@ add_hook(&#39;CustomFieldLoad&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response-8&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;Override the value of the custom field returning the &amp;ldquo;value&amp;rdquo; key. eg: return array(&amp;lsquo;value&amp;rsquo; =&amp;gt; &amp;lsquo;overridden value&amp;rsquo;,);&lt;/p&gt;
+&lt;p&gt;Override the value of the custom field returning the &amp;ldquo;value&amp;rdquo; key.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-8&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;CustomFieldSave&#39;, 1, function($vars) {
-    // Perform hook code here...
+    return array(&#39;value&#39; =&amp;gt; &#39;overridden value&#39;,);
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -4164,8 +4364,8 @@ add_hook(&#39;CustomFieldSave&#39;, 1, function($vars) {
 
 &lt;tr&gt;
 &lt;td&gt;date&lt;/td&gt;
-&lt;td&gt;\timestamp&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Can be &amp;lsquo;now()&amp;rsquo; or a specific timestamp&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -4202,13 +4402,32 @@ add_hook(&#39;CustomFieldSave&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response-9&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be logged. Use the same names as the input parameters. Return the key/value pair &lt;code&gt;abortLogging=true&lt;/code&gt; to abort logging of the email.&lt;/p&gt;
+&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be logged. Use the same names as the input parameters. Return &lt;code&gt;abortLogging&lt;/code&gt; to abort logging of the email.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-9&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+//Do not log emails for userid 2
 add_hook(&#39;EmailPreLog&#39;, 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+
+    if ($vars[&#39;userid&#39;] == 2) {
+        $return[&#39;abortLogging&#39;] = true;
+    }
+
+    return $return;
+});
+
+//Override the saved subject of the email for userid 3
+add_hook(&#39;EmailPreLog&#39;, 1, function($vars) {
+    $return = [];
+
+    if ($vars[&#39;userid&#39;] == 3) {
+        $return[&#39;subject&#39;] = &#39;This subject is overridden&#39;;
+    }
+
+    return $return;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -4249,8 +4468,16 @@ add_hook(&#39;EmailPreLog&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-10&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;EmailPreSend&#39;, 1, function($vars) {
-    // Perform hook code here...
+    $merge_fields = [];
+    $merge_fields[&#39;my_custom_var&#39;] = &amp;quot;My Custom Var&amp;quot;;
+    $merge_fields[&#39;my_custom_var2&#39;] = &amp;quot;My Custom Var2&amp;quot;;
+    if ($vars[&#39;messagename&#39;] ==&#39;My Message Name&#39; &amp;amp;&amp;amp; $vars[&#39;relid&#39;] == 2) {
+        //Stop the email from sending a specific message and related id.
+        $merge_fields[&#39;abortsend&#39;] = true;
+    }
+    return $merge_fields;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -4285,8 +4512,13 @@ add_hook(&#39;EmailPreSend&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-11&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+//Output additional merge fields in the list when editing an email template
 add_hook(&#39;EmailTplMergeFields&#39;, 1, function($vars) {
-    // Perform hook code here...
+    $merge_fields = [];
+    $merge_fields[&#39;my_custom_var&#39;] = &amp;quot;My Custom Var&amp;quot;;
+    $merge_fields[&#39;my_custom_var2&#39;] = &amp;quot;My Custom Var2&amp;quot;;
+    return $merge_fields;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -4327,8 +4559,13 @@ add_hook(&#39;EmailTplMergeFields&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+//Return an exchange rate for the XBT currency
 add_hook(&#39;FetchCurrencyExchangeRates&#39;, 1, function($vars) {
-    // Perform hook code here...
+    //Code here to fetch the the current exchange rate relative to EUR
+
+    //Return exchange rate relative to 1 EUR
+    return [&#39;XBT&#39; =&amp;gt; 927.121,];
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -5805,8 +6042,14 @@ add_hook(&#39;PreModule&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;AdminAreaFooterOutput&#39;, 1, function($vars) {
-    // Perform hook code here...
+    return &amp;lt;&amp;lt;&amp;lt;HTML
+&amp;lt;b&amp;gt;This is a custom output on the footer&amp;lt;/b&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+    //custom javascript here
+&amp;lt;/script&amp;gt;
+HTML;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -5943,8 +6186,15 @@ add_hook(&#39;AdminAreaFooterOutput&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-1&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;AdminAreaHeadOutput&#39;, 1, function($vars) {
-    // Perform hook code here...
+    return &amp;lt;&amp;lt;&amp;lt;HTML
+    &amp;lt;link href=&amp;quot;path/to/custom/css/custom.css&amp;quot; rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; /&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+//custom javascript here
+&amp;lt;/script&amp;gt;
+HTML;
+
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -6081,8 +6331,13 @@ add_hook(&#39;AdminAreaHeadOutput&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-2&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;AdminAreaHeaderOutput&#39;, 1, function($vars) {
-    // Perform hook code here...
+    $return = &#39;&#39;;
+    if (array_key_exists(&#39;project_management&#39;, $vars[&#39;addon_modules&#39;])) {
+        $return = &#39;&amp;lt;b&amp;gt;This is a custom output on the header when Project Management is enabled&amp;lt;/b&amp;gt;&#39;;
+    }
+    return $return;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -6177,8 +6432,14 @@ add_hook(&#39;AdminAreaHeaderOutput&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;AdminInvoicesControlsOutput&#39;, 1, function($vars) {
-    // Perform hook code here...
+    $return = &#39;&#39;;
+
+    if ($vars[&#39;paymentmethod&#39;] == &#39;mypaymentmethod&#39;) {
+        $return = &amp;quot;&amp;lt;br /&amp;gt;Field 1 Value &amp;lt;input type=\&amp;quot;text\&amp;quot; name=\&amp;quot;myPaymentMethodName\&amp;quot; value=\&amp;quot;xyz\&amp;quot; class=\&amp;quot;form-control input-150\&amp;quot; /&amp;gt;&amp;quot;;
+    }
+    return $return;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -6213,8 +6474,13 @@ add_hook(&#39;AdminInvoicesControlsOutput&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ClientAreaDomainDetailsOutput&#39;, 1, function($vars) {
-    // Perform hook code here...
+
+add_hook(&#39;ClientAreaDomainDetailsOutput&#39;, 1, function($domain) {
+    $domainName = $domain-&amp;gt;domain;
+    $clientModel = $domain-&amp;gt;client;
+    $domainStatus = $domain-&amp;gt;status;
+    $clientName = $clientModel-&amp;gt;firstName . &#39; &#39; . $clientModel-&amp;gt;lastName;
+    return &#39;You can place any HTML here that will be output in the $hookOutput smarty variable array&#39;;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -6363,8 +6629,11 @@ add_hook(&#39;ClientAreaDomainDetailsOutput&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;ClientAreaFooterOutput&#39;, 1, function($vars) {
-    // Perform hook code here...
+    $language = $vars[&#39;language&#39;];
+    $sslPage = $vars[&#39;servedOverSsl&#39;];
+    return &#39;&amp;lt;b&amp;gt;This is a custom output on the footer&amp;lt;/b&amp;gt;&#39;;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -6513,8 +6782,16 @@ add_hook(&#39;ClientAreaFooterOutput&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-6&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;ClientAreaHeadOutput&#39;, 1, function($vars) {
-    // Perform hook code here...
+    $template = $vars[&#39;template&#39;];
+    return &amp;lt;&amp;lt;&amp;lt;HTML
+    &amp;lt;link href=&amp;quot;path/to/custom/css/custom.css&amp;quot; rel=&amp;quot;stylesheet&amp;quot; type=&amp;quot;text/css&amp;quot; /&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+//custom javascript here
+&amp;lt;/script&amp;gt;
+HTML;
+
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -6663,8 +6940,17 @@ add_hook(&#39;ClientAreaHeadOutput&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 add_hook(&#39;ClientAreaHeaderOutput&#39;, 1, function($vars) {
-    // Perform hook code here...
+    $return = &#39;&#39;;
+    if (
+        $vars[&#39;filename&#39;] == &#39;index.php&#39;
+        &amp;amp;&amp;amp; App::isInRequest(&#39;m&#39;)
+        &amp;amp;&amp;amp; App::getFromRequest(&#39;m&#39;) == &#39;project_management&#39;
+    ) {
+        $return = &#39;&amp;lt;b&amp;gt;This is a custom output on the header when in the client area for Project Management&amp;lt;/b&amp;gt;&#39;;
+    }
+    return $return;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -6699,8 +6985,13 @@ add_hook(&#39;ClientAreaHeaderOutput&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-8&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ClientAreaProductDetailsOutput&#39;, 1, function($vars) {
-    // Perform hook code here...
+
+add_hook(&#39;ClientAreaProductDetailsOutput&#39;, 1, function($service) {
+    if (!is_null($service)) {
+        $orderID = $service[&#39;service&#39;]-&amp;gt;orderId;
+        return &#39;OrderID: &#39; . $orderID;
+    }
+    return &#39;&#39;;
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -7270,7 +7561,7 @@ add_hook(&#39;ServerEdit&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;afterregistrar&#34;&gt;AfterRegistrar&lt;/h2&gt;
 
-&lt;p&gt;Executes after any standard registrar module function call. Hook name is updated as appropriate.&lt;/p&gt;
+&lt;p&gt;Executes after any standard registrar module function call. Hook name is updated as appropriate. AfterRegistrarGetNameservers, AfterRegistrarSaveNameservers, AfterRegistrarGetRegistrarLock, AfterRegistrarSaveRegistrarLock, AfterRegistrarGetURLForwarding, AfterRegistrarSaveURLForwarding, AfterRegistrarGetEmailForwarding, AfterRegistrarSaveEmailForwarding, AfterRegistrarGetDNS, AfterRegistrarSaveDNS, AfterRegistrarRenewDomain, AfterRegistrarRegisterDomain, AfterRegistrarTransferDomain, AfterRegistrarGetContactDetails, AfterRegistrarSaveContactDetails, AfterRegistrarGetEPPCode, AfterRegistrarRequestDelete, AfterRegistrarReleaseDomain, AfterRegistrarRegisterNameserver, AfterRegistrarModifyNameserver, AfterRegistrarDeleteNameserver, AfterRegistrarIDProtectToggle, AfterRegistrarGetRegistrantContactEmailAddress&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -7317,8 +7608,23 @@ add_hook(&#39;ServerEdit&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;AfterRegistrar&#39;, 1, function($vars) {
-    // Perform hook code here...
+
+add_hook(&#39;AfterRegistrarGetNameservers&#39;, 1, function($vars)
+{
+    if (
+        $vars[&#39;functionExists&#39;]
+        &amp;amp;&amp;amp; !$vars[&#39;functionSuccessful&#39;]
+    ) {
+        //do something on function existing and failure
+        $domainName = $vars[&#39;params&#39;][&#39;sld&#39;] . &#39;.&#39; . $vars[&#39;params&#39;][&#39;tld&#39;];
+
+        if ($domainName == &#39;whmcs.com&#39;) {
+            return array(
+                &#39;abortWithError&#39; =&amp;gt; &#39;Show this message as an error&#39;,
+            );
+        }
+    }
+    return array();
 });
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -7556,7 +7862,7 @@ add_hook(&#39;AfterRegistrarTransferFailed&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;preregistrar&#34;&gt;PreRegistrar&lt;/h2&gt;
 
-&lt;p&gt;Executes before any standard registrar module function call. Hook name is updated as appropriate.&lt;/p&gt;
+&lt;p&gt;Executes before any standard registrar module function call. Hook name is updated as appropriate. PreRegistrarGetNameservers, PreRegistrarSaveNameservers, PreRegistrarGetRegistrarLock, PreRegistrarSaveRegistrarLock, PreRegistrarGetURLForwarding, PreRegistrarSaveURLForwarding, PreRegistrarGetEmailForwarding, PreRegistrarSaveEmailForwarding, PreRegistrarGetDNS, PreRegistrarSaveDNS, PreRegistrarRenewDomain, PreRegistrarRegisterDomain, PreRegistrarTransferDomain, PreRegistrarGetContactDetails, PreRegistrarSaveContactDetails, PreRegistrarGetEPPCode, PreRegistrarRequestDelete, PreRegistrarReleaseDomain, PreRegistrarRegisterNameserver, PreRegistrarModifyNameserver, PreRegistrarDeleteNameserver, PreRegistrarIDProtectToggle, PreRegistrarGetRegistrantContactEmailAddress&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -7585,9 +7891,16 @@ add_hook(&#39;AfterRegistrarTransferFailed&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;PreRegistrar&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
+
+add_hook(&#39;PreRegistrarGetNameservers&#39;, 1, function($vars)
+    {
+        $domainName = $vars[&#39;params&#39;][&#39;sld&#39;] . &#39;.&#39; . $vars[&#39;params&#39;][&#39;tld&#39;];
+        return array(
+            &#39;abortWithError&#39; =&amp;gt; &#39;Show this message as an error&#39;,
+        );
+        //return array(&#39;abortWithSuccess&#39; =&amp;gt; true);
+    }
+);
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

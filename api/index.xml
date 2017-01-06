@@ -25,7 +25,7 @@
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/authentication/&#34;&gt;Authentication&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how authentication works for the WHMCS API&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/access-control/&#34;&gt;Access Control&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how IP and Access Key control works for the WHMCS API&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/response-types/&#34;&gt;Response Types&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn about the different response types&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/sample/&#34;&gt;Sample Code&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;See sample code for remotely connecting to the WHMCS API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/sample-code/&#34;&gt;Sample Code&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;See sample code for remotely connecting to the WHMCS API&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/internal-api/&#34;&gt;Internal API&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;See sample code for using the Local WHMCS API&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api/api-index/&#34;&gt;API Index&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;A complete listing of all available API commands&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/api-reference/&#34;&gt;API Reference&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Visit the API Reference Manual&lt;/li&gt;
@@ -129,10 +129,10 @@
     
     <item>
       <title>Sample Code</title>
-      <link>//developers.whmcs.com/api/sample/</link>
+      <link>//developers.whmcs.com/api/sample-code/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//developers.whmcs.com/api/sample/</guid>
+      <guid>//developers.whmcs.com/api/sample-code/</guid>
       <description>&lt;p&gt;The following demonstrates how to connect to the WHMCS API from a PHP script using CURL.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php

@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Response Types - WHMCS Developer Documentation</title>
+    <title>Sample Hook - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.16" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/api/response-types/">
+    <link rel="canonical" href="//developers.whmcs.com/hooks/sample-hook/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -54,8 +54,8 @@
             <li class="visible-xs"><a href="//developers.whmcs.com/languages/">Languages</a></li>
             <li class="visible-xs"><a href="//developers.whmcs.com/modules/">Modules</a></li>
             <li class="visible-xs"><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
-            <li class="visible-xs"><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
-            <li class="visible-xs active"><a href="//developers.whmcs.com/api/">API</a></li>
+            <li class="visible-xs active"><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/api/">API</a></li>
             <li class="visible-xs"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -86,8 +86,8 @@
             <li><a href="//developers.whmcs.com/languages/">Languages</a></li>
             <li><a href="//developers.whmcs.com/modules/">Modules</a></li>
             <li><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
-            <li><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
-            <li class="active"><a href="//developers.whmcs.com/api/">API</a></li>
+            <li class="active"><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li><a href="//developers.whmcs.com/api/">API</a></li>
             <li><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
       </ul>
       <form class="navbar-form navbar-right" id="docsSearch">
@@ -115,13 +115,13 @@
         
           <ul class="sidebar-nav">
             
-  <li class="active parent" data-nav-id="/api/">
-    <a href="//developers.whmcs.com/api/">
+  <li class="active parent" data-nav-id="/hooks/">
+    <a href="//developers.whmcs.com/hooks/">
       <span>
         
-          <i class='fa fa-code fa-fw'></i>
+          <i class='fa fa-retweet fa-fw'></i>
         
-         API
+         Hooks
        </span>
     </a>
     
@@ -130,57 +130,41 @@
       
       
       
-        <li class="" data-nav-id="/api/getting-started/">
-          <a href="//developers.whmcs.com/api/getting-started/">
+        <li class="" data-nav-id="/hooks/getting-started/">
+          <a href="//developers.whmcs.com/hooks/getting-started/">
             <span>Getting Started</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/api/authentication/">
-          <a href="//developers.whmcs.com/api/authentication/">
-            <span>Authentication</span>
+        <li class="" data-nav-id="/hooks/priority/">
+          <a href="//developers.whmcs.com/hooks/priority/">
+            <span>Defining Priority</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/api/access-control/">
-          <a href="//developers.whmcs.com/api/access-control/">
-            <span>Access Control</span>
+        <li class="" data-nav-id="/hooks/module-hooks/">
+          <a href="//developers.whmcs.com/hooks/module-hooks/">
+            <span>Module Hooks</span>
           </a>
         </li>
       
       
       
-        <li class="active" data-nav-id="/api/response-types/">
-          <a href="//developers.whmcs.com/api/response-types/">
-            <span>Response Types</span>
+        <li class="active" data-nav-id="/hooks/sample-hook/">
+          <a href="//developers.whmcs.com/hooks/sample-hook/">
+            <span>Sample Hook</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/api/sample-code/">
-          <a href="//developers.whmcs.com/api/sample-code/">
-            <span>Sample Code</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api/internal-api/">
-          <a href="//developers.whmcs.com/api/internal-api/">
-            <span>Internal API</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api/api-index/">
-          <a href="//developers.whmcs.com/api/api-index/">
-            <span>API Index</span>
+        <li class="" data-nav-id="/hooks/hook-index/">
+          <a href="//developers.whmcs.com/hooks/hook-index/">
+            <span>Hook Index</span>
           </a>
         </li>
       
@@ -224,9 +208,17 @@
                   
                 
                   
+                
+                  
+                
+                  
+                
+                  
+                
+                  
                     
                     
-                <a href="//developers.whmcs.com/api/" itemprop="url"><span itemprop="title">API</span></a> <i class="fa fa-angle-right"></i>
+                <a href="//developers.whmcs.com/hooks/" itemprop="url"><span itemprop="title">Hooks</span></a> <i class="fa fa-angle-right"></i>
                     
                   
                 
@@ -246,41 +238,51 @@
                 
                   
                 
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                <span itemprop="title"> Response Types</span>
+                <span itemprop="title"> Sample Hook</span>
               </div>
             </div>
 
 
-			<h1>Response Types </h1>
+			<h1>Sample Hook </h1>
 
-			<p>The API supports 3 response types:</p>
+			<p><code>/includes/hooks/samplehook.php</code></p>
 
-<ul>
-<li>JSON <strong>(Recommended)</strong></li>
-<li>XML</li>
-<li>NVP <em>(Deprecated)</em></li>
-</ul>
+<pre><code>&lt;?php
+/**
+ * Register hook function call.
+ *
+ * @param string $hookPoint The hook point to call
+ * @param integer $priority The priority for the given hook function
+ * @param string|function Function name to call or anonymous function.
+ *
+ * @return Depends on hook function point.
+ */
+add_hook('ClientAdd', 1, function ($vars)
+{
+    $userid = $vars['userid'];
+    $firstname = $vars['firstname'];
+    $lastname = $vars['lastname'];
+    $email = $vars['email'];
+    $password = $vars['password'];
 
-<p>You can define the response type you wish to receive by including <code>responsetype=xxxx</code> in your request parameters.</p>
+    // Run code to create remote forum account here...
+});
+</code></pre>
+
+<div class="notice note" ><p>For a full list of available hooks, please refer to the <a href="//developers.whmcs.com/hooks/hook-index/">Hooks Index</a>.</p>
+</div>
+
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/api/access-control/">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/hooks/module-hooks">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/api/sample-code/">
+                    <a class="nav nav-next" href="//developers.whmcs.com/hooks/hook-index">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>

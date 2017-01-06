@@ -426,8 +426,16 @@ add_hook('AfterClientMerge', 1, function($vars) {
 <h4 id="example-code-1">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAlert', 1, function($vars) {
-    // Perform hook code here...
+
+use WHMCS\User\Alert;
+
+add_hook('ClientAlert', 1, function($client) {
+    $firstName = $client-&gt;firstName;
+    $lastName = $client-&gt;lastName;
+    return new Alert(
+        &quot;This is a test notification for {$firstName} {$lastName}&quot;,
+        'info' //see http://getbootstrap.com/components/#alerts
+    );
 });
 </code></pre>
 

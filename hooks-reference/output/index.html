@@ -486,8 +486,14 @@
 <h4 id="example-code">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('AdminAreaFooterOutput', 1, function($vars) {
-    // Perform hook code here...
+    return &lt;&lt;&lt;HTML
+&lt;b&gt;This is a custom output on the footer&lt;/b&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    //custom javascript here
+&lt;/script&gt;
+HTML;
 });
 </code></pre>
 
@@ -624,8 +630,15 @@ add_hook('AdminAreaFooterOutput', 1, function($vars) {
 <h4 id="example-code-1">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('AdminAreaHeadOutput', 1, function($vars) {
-    // Perform hook code here...
+    return &lt;&lt;&lt;HTML
+    &lt;link href=&quot;path/to/custom/css/custom.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+//custom javascript here
+&lt;/script&gt;
+HTML;
+
 });
 </code></pre>
 
@@ -762,8 +775,13 @@ add_hook('AdminAreaHeadOutput', 1, function($vars) {
 <h4 id="example-code-2">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('AdminAreaHeaderOutput', 1, function($vars) {
-    // Perform hook code here...
+    $return = '';
+    if (array_key_exists('project_management', $vars['addon_modules'])) {
+        $return = '&lt;b&gt;This is a custom output on the header when Project Management is enabled&lt;/b&gt;';
+    }
+    return $return;
 });
 </code></pre>
 
@@ -858,8 +876,14 @@ add_hook('AdminAreaHeaderOutput', 1, function($vars) {
 <h4 id="example-code-3">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('AdminInvoicesControlsOutput', 1, function($vars) {
-    // Perform hook code here...
+    $return = '';
+
+    if ($vars['paymentmethod'] == 'mypaymentmethod') {
+        $return = &quot;&lt;br /&gt;Field 1 Value &lt;input type=\&quot;text\&quot; name=\&quot;myPaymentMethodName\&quot; value=\&quot;xyz\&quot; class=\&quot;form-control input-150\&quot; /&gt;&quot;;
+    }
+    return $return;
 });
 </code></pre>
 
@@ -894,8 +918,13 @@ add_hook('AdminInvoicesControlsOutput', 1, function($vars) {
 <h4 id="example-code-4">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaDomainDetailsOutput', 1, function($vars) {
-    // Perform hook code here...
+
+add_hook('ClientAreaDomainDetailsOutput', 1, function($domain) {
+    $domainName = $domain-&gt;domain;
+    $clientModel = $domain-&gt;client;
+    $domainStatus = $domain-&gt;status;
+    $clientName = $clientModel-&gt;firstName . ' ' . $clientModel-&gt;lastName;
+    return 'You can place any HTML here that will be output in the $hookOutput smarty variable array';
 });
 </code></pre>
 
@@ -1044,8 +1073,11 @@ add_hook('ClientAreaDomainDetailsOutput', 1, function($vars) {
 <h4 id="example-code-5">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('ClientAreaFooterOutput', 1, function($vars) {
-    // Perform hook code here...
+    $language = $vars['language'];
+    $sslPage = $vars['servedOverSsl'];
+    return '&lt;b&gt;This is a custom output on the footer&lt;/b&gt;';
 });
 </code></pre>
 
@@ -1194,8 +1226,16 @@ add_hook('ClientAreaFooterOutput', 1, function($vars) {
 <h4 id="example-code-6">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('ClientAreaHeadOutput', 1, function($vars) {
-    // Perform hook code here...
+    $template = $vars['template'];
+    return &lt;&lt;&lt;HTML
+    &lt;link href=&quot;path/to/custom/css/custom.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+//custom javascript here
+&lt;/script&gt;
+HTML;
+
 });
 </code></pre>
 
@@ -1344,8 +1384,17 @@ add_hook('ClientAreaHeadOutput', 1, function($vars) {
 <h4 id="example-code-7">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('ClientAreaHeaderOutput', 1, function($vars) {
-    // Perform hook code here...
+    $return = '';
+    if (
+        $vars['filename'] == 'index.php'
+        &amp;&amp; App::isInRequest('m')
+        &amp;&amp; App::getFromRequest('m') == 'project_management'
+    ) {
+        $return = '&lt;b&gt;This is a custom output on the header when in the client area for Project Management&lt;/b&gt;';
+    }
+    return $return;
 });
 </code></pre>
 
@@ -1380,8 +1429,13 @@ add_hook('ClientAreaHeaderOutput', 1, function($vars) {
 <h4 id="example-code-8">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaProductDetailsOutput', 1, function($vars) {
-    // Perform hook code here...
+
+add_hook('ClientAreaProductDetailsOutput', 1, function($service) {
+    if (!is_null($service)) {
+        $orderID = $service['service']-&gt;orderId;
+        return 'OrderID: ' . $orderID;
+    }
+    return '';
 });
 </code></pre>
 

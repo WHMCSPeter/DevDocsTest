@@ -672,8 +672,31 @@ add_hook('CancelOrder', 1, function($vars) {
 <h4 id="example-code-5">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('CartTotalAdjustment', 1, function($vars) {
-    // Perform hook code here...
+    $cart_adjustments = array();
+
+    $products = $tlds = [];
+
+    foreach ($vars['products'] as $product) {
+        $products[] = $product['pid'];
+    }
+
+    foreach ($vars['domains'] as $domain) {
+        if ($domain['type'] == 'register') {
+            $domainParts = explode('.', $domain['domain'], 2);
+            $tlds[] = $domainParts[1];
+        }
+    }
+
+    if (in_array(1, $products) &amp;&amp; in_array('co.uk', $tlds)) {
+        $cart_adjustments = [
+            &quot;description&quot; =&gt; &quot;Custom discount for buying product 1 and a co.uk domain&quot;,
+            &quot;amount&quot; =&gt; &quot;-18.00&quot;,
+            &quot;taxed&quot; =&gt; false,
+        ];
+    }
+    return $cart_adjustments;
 });
 </code></pre>
 
@@ -799,13 +822,33 @@ add_hook('FraudOrder', 1, function($vars) {
 
 <h4 id="response-8">Response</h4>
 
-<p>Addon pricing can be overridden. Accepts a return of the keys &lsquo;setup&rsquo; and &lsquo;recurring&rsquo;. eg: return array(&lsquo;setup&rsquo; =&gt; 1.00, &lsquo;recurring&rsquo; =&gt; 12.00);</p>
+<p>Addon pricing can be overridden. Accepts a return of the keys &lsquo;setup&rsquo; and &lsquo;recurring&rsquo;.</p>
 
 <h4 id="example-code-8">Example Code</h4>
 
 <pre><code>&lt;?php
+
+use WHMCS\Service\Service;
+
 add_hook('OrderAddonPricingOverride', 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+    if (array_key_exists('proddata', $vars)) {
+        /**
+         * This is a product and addon purchase
+         */
+        if ($vars['addonid'] == 1 &amp;&amp; $vars['proddata']['pid'] == 1) {
+            $return = ['setup' =&gt; '1.00', 'recurring' =&gt; '5.00',];
+        }
+    } else {
+        /**
+         * This is an addon only purchase for existing service
+         */
+        $serviceData = Service::find($vars['serviceid']);
+        if ($serviceData &amp;&amp; $vars['addonid'] == 1 &amp;&amp; $serviceData-&gt;packageId == 1) {
+            $return = ['setup' =&gt; '1.00', 'recurring' =&gt; '5.00',];
+        }
+    }
+    return $return;
 });
 </code></pre>
 
@@ -852,8 +895,26 @@ add_hook('OrderAddonPricingOverride', 1, function($vars) {
 <h4 id="example-code-9">Example Code</h4>
 
 <pre><code>&lt;?php
+
+use WHMCS\Session;
+
 add_hook('OrderProductPricingOverride', 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+
+    /**
+     * Override the product price when ordering product 1 and the user has the id 10
+     */
+    if ($vars['pid'] == 1 &amp;&amp; Session::get('userid') == 10) {
+        $return = ['setup' =&gt; '0.00', 'recurring' =&gt; '0.00',];
+    }
+
+    /**
+     * Override the product price when user has the id 72
+     */
+    if (Session::get('userid') == 72) {
+        $return = ['setup' =&gt; '0.00', 'recurring' =&gt; '0.00',];
+    }
+    return $return;
 });
 </code></pre>
 
@@ -942,8 +1003,26 @@ add_hook('OrderProductPricingOverride', 1, function($vars) {
 <h4 id="example-code-10">Example Code</h4>
 
 <pre><code>&lt;?php
+
+use Carbon\Carbon;
+
 add_hook('OrderProductUpgradeOverride', 1, function($vars) {
-    // Perform hook code here...
+    $return = [];
+
+    if ($vars['newproductid'] == 15) {
+        /**
+         * No promotion should be applied to product 15
+         */
+        $return['promoqualifies'] = false;
+    }
+    if (Carbon::now()-&gt;toDateString() == '2016-12-25') {
+        /**
+         * Offer half price upgrade on Christmas Day
+         * This can also be done by halving the $vars['price'] and returning that.
+         */
+        $return['totaldays'] = round($vars['totaldays'] / 2);
+    }
+    return $return;
 });
 </code></pre>
 
@@ -984,8 +1063,12 @@ add_hook('OrderProductUpgradeOverride', 1, function($vars) {
 <h4 id="example-code-11">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('OverrideOrderNumberGeneration', 1, function($vars) {
-    // Perform hook code here...
+    /**
+     * The order number should be validated to ensure it is unique
+     */
+    return [time()];
 });
 </code></pre>
 
@@ -1218,8 +1301,12 @@ add_hook('RunFraudCheck', 1, function($vars) {
 <h4 id="example-code-16">Example Code</h4>
 
 <pre><code>&lt;?php
+
 add_hook('ShoppingCartCheckoutCompletePage', 1, function($vars) {
-    // Perform hook code here...
+    /**
+     * Redirect all orders to a different page after the order complete page is loaded.
+     */
+    return '&lt;META http-equiv=&quot;refresh&quot; content=&quot;5;URL=http://www.mydomain.com/ownpage.html&quot; /&gt;';
 });
 </code></pre>
 

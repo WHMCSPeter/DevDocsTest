@@ -384,9 +384,22 @@
 <h4 id="example-code">Example Code</h4>
 
 <pre><code>&lt;?php
+
+use WHMCS\Session;
+use WHMCS\Ticket\Watchers;
+
 add_hook('AdminAreaViewTicketPage', 1, function($vars) {
-    // Perform hook code here...
+    $return = '';
+    $adminId = Session::get('adminid');
+
+    $adminWatchingTickets = Watchers::byAdmin($adminId)-&gt;pluck('ticket_id')-&gt;toArray();
+
+    if (in_array($vars['ticketid'], $adminWatchingTickets)) {
+        $return = '&lt;div class=&quot;alert alert-info&quot; role=&quot;alert&quot;&gt;You are watching this ticket&lt;/div&gt;';
+    }
+    return $return;
 });
+
 </code></pre>
 
 <h2 id="submitticketanswersuggestions">SubmitTicketAnswerSuggestions</h2>

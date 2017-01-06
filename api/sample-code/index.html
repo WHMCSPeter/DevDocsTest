@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Response Types - WHMCS Developer Documentation</title>
+    <title>Sample Code - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.16" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/api/response-types/">
+    <link rel="canonical" href="//developers.whmcs.com/api/sample-code/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -154,7 +154,7 @@
       
       
       
-        <li class="active" data-nav-id="/api/response-types/">
+        <li class="" data-nav-id="/api/response-types/">
           <a href="//developers.whmcs.com/api/response-types/">
             <span>Response Types</span>
           </a>
@@ -162,7 +162,7 @@
       
       
       
-        <li class="" data-nav-id="/api/sample-code/">
+        <li class="active" data-nav-id="/api/sample-code/">
           <a href="//developers.whmcs.com/api/sample-code/">
             <span>Sample Code</span>
           </a>
@@ -254,33 +254,72 @@
                 
                   
                 
-                <span itemprop="title"> Response Types</span>
+                <span itemprop="title"> Sample Code</span>
               </div>
             </div>
 
 
-			<h1>Response Types </h1>
+			<h1>Sample Code </h1>
 
-			<p>The API supports 3 response types:</p>
+			<p>The following demonstrates how to connect to the WHMCS API from a PHP script using CURL.</p>
 
-<ul>
-<li>JSON <strong>(Recommended)</strong></li>
-<li>XML</li>
-<li>NVP <em>(Deprecated)</em></li>
-</ul>
+<pre><code>&lt;?php
+/**
+ * WHMCS Sample API Call
+ *
+ * @package    WHMCS
+ * @author     WHMCS Limited &lt;development@whmcs.com&gt;
+ * @copyright  Copyright (c) WHMCS Limited 2005-2016
+ * @license    http://www.whmcs.com/license/ WHMCS Eula
+ * @version    $Id$
+ * @link       http://www.whmcs.com/
+ */
 
-<p>You can define the response type you wish to receive by including <code>responsetype=xxxx</code> in your request parameters.</p>
+// API Connection Details
+$whmcsUrl = &quot;https://www.yourdomain.com/path/to/whmcs/&quot;;
+$username = &quot;yourusername&quot;;
+$password = &quot;yourpassword&quot;;
+
+// Set post values
+$postfields = array(
+    'username' =&gt; $username,
+    'password' =&gt; md5($password),
+    'action' =&gt; 'GetClients',
+    'responsetype' =&gt; 'json',
+);
+
+// Call the API
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $whmcsUrl . 'includes/api.php');
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
+$response = curl_exec($ch);
+if (curl_error($ch)) {
+    die('Unable to connect: ' . curl_errno($ch) . ' - ' . curl_error($ch));
+}
+curl_close($ch);
+
+// Decode response
+$jsonData = json_decode($response, true);
+
+// Dump array structure for inspection
+var_dump($jsonData);
+</code></pre>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/api/access-control/">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/api/response-types/">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/api/sample-code/">
+                    <a class="nav nav-next" href="//developers.whmcs.com/api/internal-api/">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>

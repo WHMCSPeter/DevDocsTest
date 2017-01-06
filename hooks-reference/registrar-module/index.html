@@ -355,7 +355,7 @@
 
 <h2 id="afterregistrar">AfterRegistrar</h2>
 
-<p>Executes after any standard registrar module function call. Hook name is updated as appropriate.</p>
+<p>Executes after any standard registrar module function call. Hook name is updated as appropriate. AfterRegistrarGetNameservers, AfterRegistrarSaveNameservers, AfterRegistrarGetRegistrarLock, AfterRegistrarSaveRegistrarLock, AfterRegistrarGetURLForwarding, AfterRegistrarSaveURLForwarding, AfterRegistrarGetEmailForwarding, AfterRegistrarSaveEmailForwarding, AfterRegistrarGetDNS, AfterRegistrarSaveDNS, AfterRegistrarRenewDomain, AfterRegistrarRegisterDomain, AfterRegistrarTransferDomain, AfterRegistrarGetContactDetails, AfterRegistrarSaveContactDetails, AfterRegistrarGetEPPCode, AfterRegistrarRequestDelete, AfterRegistrarReleaseDomain, AfterRegistrarRegisterNameserver, AfterRegistrarModifyNameserver, AfterRegistrarDeleteNameserver, AfterRegistrarIDProtectToggle, AfterRegistrarGetRegistrantContactEmailAddress</p>
 
 <h4 id="parameters">Parameters</h4>
 
@@ -402,8 +402,23 @@
 <h4 id="example-code">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('AfterRegistrar', 1, function($vars) {
-    // Perform hook code here...
+
+add_hook('AfterRegistrarGetNameservers', 1, function($vars)
+{
+    if (
+        $vars['functionExists']
+        &amp;&amp; !$vars['functionSuccessful']
+    ) {
+        //do something on function existing and failure
+        $domainName = $vars['params']['sld'] . '.' . $vars['params']['tld'];
+
+        if ($domainName == 'whmcs.com') {
+            return array(
+                'abortWithError' =&gt; 'Show this message as an error',
+            );
+        }
+    }
+    return array();
 });
 </code></pre>
 
@@ -641,7 +656,7 @@ add_hook('AfterRegistrarTransferFailed', 1, function($vars) {
 
 <h2 id="preregistrar">PreRegistrar</h2>
 
-<p>Executes before any standard registrar module function call. Hook name is updated as appropriate.</p>
+<p>Executes before any standard registrar module function call. Hook name is updated as appropriate. PreRegistrarGetNameservers, PreRegistrarSaveNameservers, PreRegistrarGetRegistrarLock, PreRegistrarSaveRegistrarLock, PreRegistrarGetURLForwarding, PreRegistrarSaveURLForwarding, PreRegistrarGetEmailForwarding, PreRegistrarSaveEmailForwarding, PreRegistrarGetDNS, PreRegistrarSaveDNS, PreRegistrarRenewDomain, PreRegistrarRegisterDomain, PreRegistrarTransferDomain, PreRegistrarGetContactDetails, PreRegistrarSaveContactDetails, PreRegistrarGetEPPCode, PreRegistrarRequestDelete, PreRegistrarReleaseDomain, PreRegistrarRegisterNameserver, PreRegistrarModifyNameserver, PreRegistrarDeleteNameserver, PreRegistrarIDProtectToggle, PreRegistrarGetRegistrantContactEmailAddress</p>
 
 <h4 id="parameters-7">Parameters</h4>
 
@@ -670,9 +685,16 @@ add_hook('AfterRegistrarTransferFailed', 1, function($vars) {
 <h4 id="example-code-7">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('PreRegistrar', 1, function($vars) {
-    // Perform hook code here...
-});
+
+add_hook('PreRegistrarGetNameservers', 1, function($vars)
+    {
+        $domainName = $vars['params']['sld'] . '.' . $vars['params']['tld'];
+        return array(
+            'abortWithError' =&gt; 'Show this message as an error',
+        );
+        //return array('abortWithSuccess' =&gt; true);
+    }
+);
 </code></pre>
 
 
