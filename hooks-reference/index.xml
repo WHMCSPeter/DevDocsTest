@@ -2514,9 +2514,9 @@ add_hook(&#39;ClientAreaNavbars&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;clientareapagelogin&#34;&gt;ClientAreaPageLogin&lt;/h2&gt;
+&lt;h2 id=&#34;clientareapage&#34;&gt;ClientAreaPage&lt;/h2&gt;
 
-&lt;p&gt;Executes on the login page of the client area. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+&lt;p&gt;Executes on all pages of the client area and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-4&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -2659,6 +2659,4356 @@ add_hook(&#39;ClientAreaNavbars&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPage&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageaddcontact&#34;&gt;ClientAreaPageAddContact&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area add contact page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-5&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-5&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageAddContact&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageaddfunds&#34;&gt;ClientAreaPageAddFunds&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area add funds page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-6&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-6&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageAddFunds&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageaffiliates&#34;&gt;ClientAreaPageAffiliates&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area affiliates page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-7&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageAffiliates&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageannouncements&#34;&gt;ClientAreaPageAnnouncements&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area announcements page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-8&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-8&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-8&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageAnnouncements&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagebanned&#34;&gt;ClientAreaPageBanned&lt;/h2&gt;
+
+&lt;p&gt;Executes on the banned user page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-9&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-9&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-9&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageBanned&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagebulkdomainmanagement&#34;&gt;ClientAreaPageBulkDomainManagement&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area bulk domain management page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-10&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-10&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-10&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageBulkDomainManagement&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagecancellation&#34;&gt;ClientAreaPageCancellation&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area cancellation request page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-11&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-11&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-11&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageCancellation&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagecart&#34;&gt;ClientAreaPageCart&lt;/h2&gt;
+
+&lt;p&gt;Executes on the shopping cart page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageCart&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagechangepassword&#34;&gt;ClientAreaPageChangePassword&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area change password page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-13&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-13&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-13&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageChangePassword&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageconfiguressl&#34;&gt;ClientAreaPageConfigureSSL&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area SSL configuration page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-14&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-14&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-14&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageConfigureSSL&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagecontact&#34;&gt;ClientAreaPageContact&lt;/h2&gt;
+
+&lt;p&gt;Executes on the contact form page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-15&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-15&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-15&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageContact&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagecontacts&#34;&gt;ClientAreaPageContacts&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area contacts/sub-accounts management page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-16&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-16&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-16&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageContacts&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagecreditcard&#34;&gt;ClientAreaPageCreditCard&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area manage credit card page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-17&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-17&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-17&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageCreditCard&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagecreditcardcheckout&#34;&gt;ClientAreaPageCreditCardCheckout&lt;/h2&gt;
+
+&lt;p&gt;Executes on the credit card payment page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-18&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-18&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-18&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageCreditCardCheckout&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagedomainaddons&#34;&gt;ClientAreaPageDomainAddons&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area domain add-ons page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-19&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-19&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-19&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageDomainAddons&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagedomainchecker&#34;&gt;ClientAreaPageDomainChecker&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area domain checker page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-20&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-20&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-20&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageDomainChecker&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagedomaincontacts&#34;&gt;ClientAreaPageDomainContacts&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area domain WHOIS contact information page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-21&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-21&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-21&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageDomainContacts&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagedomaindnsmanagement&#34;&gt;ClientAreaPageDomainDNSManagement&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area domain DNS Host Record management page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-22&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-22&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-22&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageDomainDNSManagement&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagedomaindetails&#34;&gt;ClientAreaPageDomainDetails&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area domain overview page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-23&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-23&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-23&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageDomainDetails&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagedomaineppcode&#34;&gt;ClientAreaPageDomainEPPCode&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area domain EPP Code page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-24&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-24&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-24&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageDomainEPPCode&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagedomainemailforwarding&#34;&gt;ClientAreaPageDomainEmailForwarding&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area domain Email Forwarding rules page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-25&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-25&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-25&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageDomainEmailForwarding&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagedomainregisternameservers&#34;&gt;ClientAreaPageDomainRegisterNameservers&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area domain Register Private Nameservers page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-26&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-26&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-26&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageDomainRegisterNameservers&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagedomains&#34;&gt;ClientAreaPageDomains&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area domains list page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-27&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-27&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-27&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageDomains&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagedownloads&#34;&gt;ClientAreaPageDownloads&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area downloads page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-28&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-28&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-28&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageDownloads&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageemails&#34;&gt;ClientAreaPageEmails&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area email history page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-29&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-29&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-29&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageEmails&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagehome&#34;&gt;ClientAreaPageHome&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area homepage and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-30&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-30&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-30&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageHome&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageinvoices&#34;&gt;ClientAreaPageInvoices&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area invoices page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-31&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-31&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-31&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageInvoices&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageknowledgebase&#34;&gt;ClientAreaPageKnowledgebase&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area knowledgebase page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-32&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-32&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-32&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageKnowledgebase&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagelogin&#34;&gt;ClientAreaPageLogin&lt;/h2&gt;
+
+&lt;p&gt;Executes on the login page of the client area. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-33&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-33&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-33&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
 
 add_hook(&#39;ClientAreaPageLogin&#39;, 1, function($vars) {
     $extraVariables = [
@@ -2669,11 +7019,2561 @@ add_hook(&#39;ClientAreaPageLogin&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;clientareapagelogout&#34;&gt;ClientAreaPageLogout&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area logout page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-34&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-34&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-34&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageLogout&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagemasspay&#34;&gt;ClientAreaPageMassPay&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area mass invoice payment page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-35&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-35&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-35&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageMassPay&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagenetworkissues&#34;&gt;ClientAreaPageNetworkIssues&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area network issues page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-36&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-36&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-36&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageNetworkIssues&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagepasswordreset&#34;&gt;ClientAreaPagePasswordReset&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area password reset page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-37&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-37&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-37&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPagePasswordReset&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageproductdetails&#34;&gt;ClientAreaPageProductDetails&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area product overview page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-38&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-38&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-38&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageProductDetails&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageproductsservices&#34;&gt;ClientAreaPageProductsServices&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area product and services list page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-39&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-39&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-39&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageProductsServices&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageprofile&#34;&gt;ClientAreaPageProfile&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area profile page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-40&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-40&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-40&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageProfile&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagequotes&#34;&gt;ClientAreaPageQuotes&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area quotes page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-41&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-41&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-41&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageQuotes&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageregister&#34;&gt;ClientAreaPageRegister&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client registration page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-42&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-42&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-42&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageRegister&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapagesecurity&#34;&gt;ClientAreaPageSecurity&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area security page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-43&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-43&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-43&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageSecurity&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageserverstatus&#34;&gt;ClientAreaPageServerStatus&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area server status page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-44&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-44&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-44&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageServerStatus&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageunsubscribe&#34;&gt;ClientAreaPageUnsubscribe&lt;/h2&gt;
+
+&lt;p&gt;Executes on the email unsubscribe page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-45&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-45&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-45&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageUnsubscribe&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageupgrade&#34;&gt;ClientAreaPageUpgrade&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area upgrade/downgrade page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-46&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-46&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-46&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageUpgrade&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageviewemail&#34;&gt;ClientAreaPageViewEmail&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area view email page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-47&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-47&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-47&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageViewEmail&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageviewinvoice&#34;&gt;ClientAreaPageViewInvoice&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area view invoice page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-48&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-48&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-48&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageViewInvoice&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageviewquote&#34;&gt;ClientAreaPageViewQuote&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area view quote page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-49&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-49&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-49&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageViewQuote&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;clientareapageviewwhois&#34;&gt;ClientAreaPageViewWHOIS&lt;/h2&gt;
+
+&lt;p&gt;Executes on the client area view WHOIS information page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-50&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;charset&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pagetitle&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;filename&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;template&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Active language translation strings&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;todaysdate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Human friendly formatted version of todays date&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_day&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current day of the month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_month&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current month&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date_year&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current year&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;WEB_ROOT&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The web path to the WHMCS doc root&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_CSS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_JS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_FONTS&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;BASE_PATH_IMG&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;token&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;CSRF token value&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;servedOverSsl&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;True if page was loaded via &lt;code&gt;https://&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-50&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;A key/value pair array of additional template variables to define.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-50&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientAreaPageViewWHOIS&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;clientareaprimarynavbar&#34;&gt;ClientAreaPrimaryNavbar&lt;/h2&gt;
 
 &lt;p&gt;Executes when generating the primary navigation bar in the client area&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-5&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-51&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -2693,11 +9593,11 @@ add_hook(&#39;ClientAreaPageLogin&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-5&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-51&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-51&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 
@@ -2730,7 +9630,7 @@ add_hook(&#39;ClientAreaPrimaryNavbar&#39;, 1, function($primaryNavbar) {
 
 &lt;p&gt;Executes when generating the primary side bar in the client area&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-52&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -2750,11 +9650,11 @@ add_hook(&#39;ClientAreaPrimaryNavbar&#39;, 1, function($primaryNavbar) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-6&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-52&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-6&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-52&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 
@@ -2787,7 +9687,7 @@ add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function($primarySidebar) {
 
 &lt;p&gt;Executes when the product details page is loaded within the client area. This hook runs regardless of service status, so be sure to check for the appropriate statuses if required.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-53&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -2807,11 +9707,11 @@ add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function($primarySidebar) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-7&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-53&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-53&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;ClientAreaProductDetails&#39;, 1, function($vars) {
@@ -2823,7 +9723,7 @@ add_hook(&#39;ClientAreaProductDetails&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when rendering the client area product details page prior to module template invokation allowing to define additional template parameters.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-8&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-54&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -2885,11 +9785,11 @@ add_hook(&#39;ClientAreaProductDetails&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-8&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-54&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;Return an array of template parameters to make available to the template.&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-8&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-54&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;ClientAreaProductDetailsPreModuleTemplate&#39;, 1, function($vars) {
@@ -2901,7 +9801,7 @@ add_hook(&#39;ClientAreaProductDetailsPreModuleTemplate&#39;, 1, function($vars)
 
 &lt;p&gt;Executes after a client has used the register.php file to create a client account.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-9&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-55&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -2921,11 +9821,11 @@ add_hook(&#39;ClientAreaProductDetailsPreModuleTemplate&#39;, 1, function($vars)
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-9&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-55&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-9&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-55&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;ClientAreaRegister&#39;, 1, function($vars) {
@@ -2937,7 +9837,7 @@ add_hook(&#39;ClientAreaRegister&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when generating the secondary navigation bar in the client area&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-10&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-56&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -2957,11 +9857,11 @@ add_hook(&#39;ClientAreaRegister&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-10&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-56&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-10&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-56&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 
@@ -2994,7 +9894,7 @@ add_hook(&#39;ClientAreaSecondaryNavbar&#39;, 1, function($secondaryNavbar) {
 
 &lt;p&gt;Executes when generating the secondary side bar in the client area&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-11&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-57&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -3014,11 +9914,11 @@ add_hook(&#39;ClientAreaSecondaryNavbar&#39;, 1, function($secondaryNavbar) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-11&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-57&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-11&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-57&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 
@@ -3051,7 +9951,7 @@ add_hook(&#39;ClientAreaSecondarySidebar&#39;, 1, function($secondarySidebar) {
 
 &lt;p&gt;Executes when generating the side bars in the client area&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-58&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -3071,11 +9971,11 @@ add_hook(&#39;ClientAreaSecondarySidebar&#39;, 1, function($secondarySidebar) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-58&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-58&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;ClientAreaSidebars&#39;, 1, function($vars) {
@@ -5737,9 +12637,9 @@ add_hook(&#39;acceptQuote&#39;, 1, function($vars) {
 
 &lt;p&gt;The following hooks are provided for Module related events.&lt;/p&gt;
 
-&lt;h2 id=&#34;aftermodule&#34;&gt;AfterModule&lt;/h2&gt;
+&lt;h2 id=&#34;aftermodulechangepackage&#34;&gt;AfterModuleChangePackage&lt;/h2&gt;
 
-&lt;p&gt;Executes after any standard service module function call has failed. Hook name is updated as appropriate.&lt;/p&gt;
+&lt;p&gt;Executes upon successful completion of the module function.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -5754,15 +12654,9 @@ add_hook(&#39;acceptQuote&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;failureResponseMessage&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The response message from the function call.&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;The parameters passed to the module function call.&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -5774,14 +12668,56 @@ add_hook(&#39;acceptQuote&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;AfterModule&#39;, 1, function($vars) {
+add_hook(&#39;AfterModuleChangePackage&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;aftermodulechangepackagefailed&#34;&gt;AfterModuleChangePackageFailed&lt;/h2&gt;
+
+&lt;p&gt;Executes upon failure of the module function to complete successfully. The failure reason is provided in the input parameters.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;failureResponseMessage&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The failure reason error string returned by the provisioning module&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-1&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-1&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterModuleChangePackageFailed&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;aftermodulechangepassword&#34;&gt;AfterModuleChangePassword&lt;/h2&gt;
 
-&lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -5813,14 +12749,368 @@ add_hook(&#39;AfterModule&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-1&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-2&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-1&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-2&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;AfterModuleChangePassword&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;aftermodulechangepasswordfailed&#34;&gt;AfterModuleChangePasswordFailed&lt;/h2&gt;
+
+&lt;p&gt;Executes upon failure of the module function to complete successfully. The failure reason is provided in the input parameters.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-3&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;failureResponseMessage&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The failure reason error string returned by the provisioning module&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-3&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterModuleChangePasswordFailed&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;aftermodulecreate&#34;&gt;AfterModuleCreate&lt;/h2&gt;
+
+&lt;p&gt;Executes upon successful completion of the module function.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-4&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-4&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterModuleCreate&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;aftermodulecreatefailed&#34;&gt;AfterModuleCreateFailed&lt;/h2&gt;
+
+&lt;p&gt;Executes upon failure of the module function to complete successfully. The failure reason is provided in the input parameters.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-5&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;failureResponseMessage&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The failure reason error string returned by the provisioning module&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-5&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterModuleCreateFailed&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;aftermodulesuspend&#34;&gt;AfterModuleSuspend&lt;/h2&gt;
+
+&lt;p&gt;Executes upon successful completion of the module function.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-6&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-6&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterModuleSuspend&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;aftermodulesuspendfailed&#34;&gt;AfterModuleSuspendFailed&lt;/h2&gt;
+
+&lt;p&gt;Executes upon failure of the module function to complete successfully. The failure reason is provided in the input parameters.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;failureResponseMessage&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The failure reason error string returned by the provisioning module&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-7&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterModuleSuspendFailed&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;aftermoduleterminate&#34;&gt;AfterModuleTerminate&lt;/h2&gt;
+
+&lt;p&gt;Executes upon successful completion of the module function.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-8&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-8&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-8&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterModuleTerminate&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;aftermoduleterminatefailed&#34;&gt;AfterModuleTerminateFailed&lt;/h2&gt;
+
+&lt;p&gt;Executes upon failure of the module function to complete successfully. The failure reason is provided in the input parameters.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-9&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;failureResponseMessage&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The failure reason error string returned by the provisioning module&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-9&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-9&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterModuleTerminateFailed&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;aftermoduleunsuspend&#34;&gt;AfterModuleUnsuspend&lt;/h2&gt;
+
+&lt;p&gt;Executes upon successful completion of the module function.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-10&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-10&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-10&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterModuleUnsuspend&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;aftermoduleunsuspendfailed&#34;&gt;AfterModuleUnsuspendFailed&lt;/h2&gt;
+
+&lt;p&gt;Executes upon failure of the module function to complete successfully. The failure reason is provided in the input parameters.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-11&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;failureResponseMessage&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The failure reason error string returned by the provisioning module&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-11&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-11&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterModuleUnsuspendFailed&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
@@ -5829,7 +13119,7 @@ add_hook(&#39;AfterModuleChangePassword&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes as a username is being generated on module creation.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -5849,11 +13139,11 @@ add_hook(&#39;AfterModuleChangePassword&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-2&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;Return the new username to be used. Eg: return array(&amp;lsquo;newusername&amp;rsquo;);&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-2&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;OverrideModuleUsernameGeneration&#39;, 1, function($vars) {
@@ -5861,11 +13151,11 @@ add_hook(&#39;OverrideModuleUsernameGeneration&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;premodule&#34;&gt;PreModule&lt;/h2&gt;
+&lt;h2 id=&#34;premodulechangepackage&#34;&gt;PreModuleChangePackage&lt;/h2&gt;
 
-&lt;p&gt;Executes before any standard service module function call. Hook name is updated as appropriate.&lt;/p&gt;
+&lt;p&gt;Executes prior to the module change package function being run for a service. Allows the action to be aborted.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-3&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-13&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -5880,19 +13170,199 @@ add_hook(&#39;OverrideModuleUsernameGeneration&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;The parameters passed to the module function call.&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-3&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-13&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;Return boolean abortcmd to stop the command being run. eg: return array(&amp;lsquo;abortcmd&amp;rsquo; =&amp;gt; true,);&lt;/p&gt;
+&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be used in account upgrade or downgrade. Use the same names as the input parameters. Return &lt;code&gt;abortcmd=true&lt;/code&gt; to abort the action.&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-13&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;PreModule&#39;, 1, function($vars) {
+add_hook(&#39;PreModuleChangePackage&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;premodulechangepassword&#34;&gt;PreModuleChangePassword&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the module change password function being run for a service. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-14&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-14&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be used in account password reset. Use the same names as the input parameters. Return &lt;code&gt;abortcmd=true&lt;/code&gt; to abort the action.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-14&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreModuleChangePassword&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;premodulecreate&#34;&gt;PreModuleCreate&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the module create function being run for a service. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-15&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-15&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be used in account creation. Use the same names as the input parameters. Return &lt;code&gt;abortcmd=true&lt;/code&gt; to abort the action.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-15&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreModuleCreate&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;premodulesuspend&#34;&gt;PreModuleSuspend&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the module suspend function being run for a service. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-16&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-16&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be used in account suspension. Use the same names as the input parameters. Return &lt;code&gt;abortcmd=true&lt;/code&gt; to abort the action.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-16&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreModuleSuspend&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;premoduleterminate&#34;&gt;PreModuleTerminate&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the module terminate function being run for a service. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-17&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-17&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be used in account termination. Use the same names as the input parameters. Return &lt;code&gt;abortcmd=true&lt;/code&gt; to abort the action.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-17&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreModuleTerminate&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;premoduleunsuspend&#34;&gt;PreModuleUnsuspend&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the module unsuspend function being run for a service. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-18&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-18&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be used in account unsuspension. Use the same names as the input parameters. Return &lt;code&gt;abortcmd=true&lt;/code&gt; to abort the action.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-18&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreModuleUnsuspend&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;

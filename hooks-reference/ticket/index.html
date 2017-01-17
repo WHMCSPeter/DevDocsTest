@@ -402,11 +402,461 @@ add_hook('AdminAreaViewTicketPage', 1, function($vars) {
 
 </code></pre>
 
+<h2 id="clientareapagesubmitticket">ClientAreaPageSubmitTicket</h2>
+
+<p>Executes on the client area ticket submission page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+
+<h4 id="parameters-1">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>companyname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>logo</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>systemurl</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>charset</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>pagetitle</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>filename</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>template</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>language</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>LANG</td>
+<td>array</td>
+<td>Active language translation strings</td>
+</tr>
+
+<tr>
+<td>todaysdate</td>
+<td>string</td>
+<td>Human friendly formatted version of todays date</td>
+</tr>
+
+<tr>
+<td>date_day</td>
+<td>string</td>
+<td>Current day of the month</td>
+</tr>
+
+<tr>
+<td>date_month</td>
+<td>string</td>
+<td>Current month</td>
+</tr>
+
+<tr>
+<td>date_year</td>
+<td>string</td>
+<td>Current year</td>
+</tr>
+
+<tr>
+<td>WEB_ROOT</td>
+<td>string</td>
+<td>The web path to the WHMCS doc root</td>
+</tr>
+
+<tr>
+<td>BASE_PATH_CSS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_JS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_FONTS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_IMG</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>token</td>
+<td>string</td>
+<td>CSRF token value</td>
+</tr>
+
+<tr>
+<td>servedOverSsl</td>
+<td>bool</td>
+<td>True if page was loaded via <code>https://</code></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-1">Response</h4>
+
+<p>A key/value pair array of additional template variables to define.</p>
+
+<h4 id="example-code-1">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAreaPageSubmitTicket', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientareapagesupporttickets">ClientAreaPageSupportTickets</h2>
+
+<p>Executes on the client area support tickets overview page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+
+<h4 id="parameters-2">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>companyname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>logo</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>systemurl</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>charset</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>pagetitle</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>filename</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>template</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>language</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>LANG</td>
+<td>array</td>
+<td>Active language translation strings</td>
+</tr>
+
+<tr>
+<td>todaysdate</td>
+<td>string</td>
+<td>Human friendly formatted version of todays date</td>
+</tr>
+
+<tr>
+<td>date_day</td>
+<td>string</td>
+<td>Current day of the month</td>
+</tr>
+
+<tr>
+<td>date_month</td>
+<td>string</td>
+<td>Current month</td>
+</tr>
+
+<tr>
+<td>date_year</td>
+<td>string</td>
+<td>Current year</td>
+</tr>
+
+<tr>
+<td>WEB_ROOT</td>
+<td>string</td>
+<td>The web path to the WHMCS doc root</td>
+</tr>
+
+<tr>
+<td>BASE_PATH_CSS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_JS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_FONTS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_IMG</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>token</td>
+<td>string</td>
+<td>CSRF token value</td>
+</tr>
+
+<tr>
+<td>servedOverSsl</td>
+<td>bool</td>
+<td>True if page was loaded via <code>https://</code></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-2">Response</h4>
+
+<p>A key/value pair array of additional template variables to define.</p>
+
+<h4 id="example-code-2">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAreaPageSupportTickets', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientareapageviewticket">ClientAreaPageViewTicket</h2>
+
+<p>Executes on the client area view ticket page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+
+<h4 id="parameters-3">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>companyname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>logo</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>systemurl</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>charset</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>pagetitle</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>filename</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>template</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>language</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>LANG</td>
+<td>array</td>
+<td>Active language translation strings</td>
+</tr>
+
+<tr>
+<td>todaysdate</td>
+<td>string</td>
+<td>Human friendly formatted version of todays date</td>
+</tr>
+
+<tr>
+<td>date_day</td>
+<td>string</td>
+<td>Current day of the month</td>
+</tr>
+
+<tr>
+<td>date_month</td>
+<td>string</td>
+<td>Current month</td>
+</tr>
+
+<tr>
+<td>date_year</td>
+<td>string</td>
+<td>Current year</td>
+</tr>
+
+<tr>
+<td>WEB_ROOT</td>
+<td>string</td>
+<td>The web path to the WHMCS doc root</td>
+</tr>
+
+<tr>
+<td>BASE_PATH_CSS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_JS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_FONTS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_IMG</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>token</td>
+<td>string</td>
+<td>CSRF token value</td>
+</tr>
+
+<tr>
+<td>servedOverSsl</td>
+<td>bool</td>
+<td>True if page was loaded via <code>https://</code></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-3">Response</h4>
+
+<p>A key/value pair array of additional template variables to define.</p>
+
+<h4 id="example-code-3">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAreaPageViewTicket', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
 <h2 id="submitticketanswersuggestions">SubmitTicketAnswerSuggestions</h2>
 
 <p>Executes prior to looking up knowledgebase article suggestions related to the message body of a ticket. Can be used to override the default knowledgebase lookup. If fewer than 5 results are returned, WHMCS will search the knowldebase and add its own results to the output.</p>
 
-<h4 id="parameters-1">Parameters</h4>
+<h4 id="parameters-4">Parameters</h4>
 
 <table>
 <thead>
@@ -426,11 +876,11 @@ add_hook('AdminAreaViewTicketPage', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <p>An array of knowledgebase article IDs.</p>
 
-<h4 id="example-code-1">Example Code</h4>
+<h4 id="example-code-4">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('SubmitTicketAnswerSuggestions', 1, function($vars) {
@@ -442,7 +892,7 @@ add_hook('SubmitTicketAnswerSuggestions', 1, function($vars) {
 
 <p>Executes when a reply is added to a ticket by an admin user.</p>
 
-<h4 id="parameters-2">Parameters</h4>
+<h4 id="parameters-5">Parameters</h4>
 
 <table>
 <thead>
@@ -510,11 +960,11 @@ add_hook('SubmitTicketAnswerSuggestions', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-2">Example Code</h4>
+<h4 id="example-code-5">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TicketAdminReply', 1, function($vars) {
@@ -526,7 +976,7 @@ add_hook('TicketAdminReply', 1, function($vars) {
 
 <p>Executes when a ticket is closed.</p>
 
-<h4 id="parameters-3">Parameters</h4>
+<h4 id="parameters-6">Parameters</h4>
 
 <table>
 <thead>
@@ -546,11 +996,11 @@ add_hook('TicketAdminReply', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-6">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-3">Example Code</h4>
+<h4 id="example-code-6">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TicketClose', 1, function($vars) {
@@ -562,7 +1012,7 @@ add_hook('TicketClose', 1, function($vars) {
 
 <p>Executes when a ticket is deleted.</p>
 
-<h4 id="parameters-4">Parameters</h4>
+<h4 id="parameters-7">Parameters</h4>
 
 <table>
 <thead>
@@ -588,11 +1038,11 @@ add_hook('TicketClose', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response-7">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-4">Example Code</h4>
+<h4 id="example-code-7">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TicketDelete', 1, function($vars) {
@@ -604,7 +1054,7 @@ add_hook('TicketDelete', 1, function($vars) {
 
 <p>Executes when a ticket reply is deleted.</p>
 
-<h4 id="parameters-5">Parameters</h4>
+<h4 id="parameters-8">Parameters</h4>
 
 <table>
 <thead>
@@ -636,14 +1086,62 @@ add_hook('TicketDelete', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-8">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-5">Example Code</h4>
+<h4 id="example-code-8">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TicketDeleteReply', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="ticketdepartmentchange">TicketDepartmentChange</h2>
+
+<p>Executes as a ticket department is changed</p>
+
+<h4 id="parameters-9">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>ticketid</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>deptid</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>deptname</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-9">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-9">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('TicketDepartmentChange', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
@@ -652,7 +1150,7 @@ add_hook('TicketDeleteReply', 1, function($vars) {
 
 <p>Executes when a ticket is opened by an end user.</p>
 
-<h4 id="parameters-6">Parameters</h4>
+<h4 id="parameters-10">Parameters</h4>
 
 <table>
 <thead>
@@ -708,11 +1206,11 @@ add_hook('TicketDeleteReply', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-6">Response</h4>
+<h4 id="response-10">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-6">Example Code</h4>
+<h4 id="example-code-10">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TicketOpen', 1, function($vars) {
@@ -724,7 +1222,7 @@ add_hook('TicketOpen', 1, function($vars) {
 
 <p>Executes when a ticket is opened by an admin user.</p>
 
-<h4 id="parameters-7">Parameters</h4>
+<h4 id="parameters-11">Parameters</h4>
 
 <table>
 <thead>
@@ -780,11 +1278,11 @@ add_hook('TicketOpen', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-7">Response</h4>
+<h4 id="response-11">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-7">Example Code</h4>
+<h4 id="example-code-11">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TicketOpenAdmin', 1, function($vars) {
@@ -796,7 +1294,7 @@ add_hook('TicketOpenAdmin', 1, function($vars) {
 
 <p>Executes when a ticket is being imported via email.</p>
 
-<h4 id="parameters-8">Parameters</h4>
+<h4 id="parameters-12">Parameters</h4>
 
 <table>
 <thead>
@@ -846,11 +1344,11 @@ add_hook('TicketOpenAdmin', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-8">Response</h4>
+<h4 id="response-12">Response</h4>
 
 <p>Return skipProcessing=true to abort importing of the given email.</p>
 
-<h4 id="example-code-8">Example Code</h4>
+<h4 id="example-code-12">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TicketPiping', 1, function($vars) {
@@ -862,7 +1360,7 @@ add_hook('TicketPiping', 1, function($vars) {
 
 <p>Executes as a ticket status is changed.</p>
 
-<h4 id="parameters-9">Parameters</h4>
+<h4 id="parameters-13">Parameters</h4>
 
 <table>
 <thead>
@@ -894,11 +1392,11 @@ add_hook('TicketPiping', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-9">Response</h4>
+<h4 id="response-13">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-9">Example Code</h4>
+<h4 id="example-code-13">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TicketStatusChange', 1, function($vars) {
@@ -910,7 +1408,7 @@ add_hook('TicketStatusChange', 1, function($vars) {
 
 <p>Executes when a reply is added to a ticket by an end user.</p>
 
-<h4 id="parameters-10">Parameters</h4>
+<h4 id="parameters-14">Parameters</h4>
 
 <table>
 <thead>
@@ -978,11 +1476,11 @@ add_hook('TicketStatusChange', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-10">Response</h4>
+<h4 id="response-14">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-10">Example Code</h4>
+<h4 id="example-code-14">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TicketUserReply', 1, function($vars) {
@@ -994,7 +1492,7 @@ add_hook('TicketUserReply', 1, function($vars) {
 
 <p>Invoked when a ticket is imported from email.</p>
 
-<h4 id="parameters-11">Parameters</h4>
+<h4 id="parameters-15">Parameters</h4>
 
 <table>
 <thead>
@@ -1020,11 +1518,11 @@ add_hook('TicketUserReply', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-11">Response</h4>
+<h4 id="response-15">Response</h4>
 
 <p>Override the global variables $subject and $message to manipulate.</p>
 
-<h4 id="example-code-11">Example Code</h4>
+<h4 id="example-code-15">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TransliterateTicketText', 1, function($vars) {
