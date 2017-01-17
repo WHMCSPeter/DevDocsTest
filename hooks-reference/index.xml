@@ -2660,7 +2660,7 @@ add_hook(&#39;ClientAreaNavbars&#39;, 1, function($vars) {
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 
-add_hook(&#39;AdminAreaPage&#39;, 1, function($vars) {
+add_hook(&#39;ClientAreaPageLogin&#39;, 1, function($vars) {
     $extraVariables = [
         &#39;newVariable1&#39; =&amp;gt; &#39;thisValue&#39;,
         &#39;newVariable2&#39; =&amp;gt; &#39;thatValue&#39;,

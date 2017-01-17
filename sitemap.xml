@@ -134,10 +134,6 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/api-reference/updateinvoice/</loc>
-  </url>
-  
-  <url>
     <loc>//developers.whmcs.com/api-reference/createoauthcredential/</loc>
   </url>
   
@@ -579,6 +575,10 @@
   
   <url>
     <loc>//developers.whmcs.com/api-reference/updatecontact/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updateinvoice/</loc>
   </url>
   
   <url>

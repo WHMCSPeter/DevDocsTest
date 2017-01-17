@@ -268,7 +268,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getquotes/&#34;&gt;GetQuotes&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/gettransactions/&#34;&gt;GetTransactions&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/sendquote/&#34;&gt;SendQuote&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateinvoice/&#34;&gt;CreateInvoice&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateinvoice/&#34;&gt;UpdateInvoice&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updatequote/&#34;&gt;UpdateQuote&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updatetransaction/&#34;&gt;UpdateTransaction&lt;/a&gt;
 &lt;/ul&gt;

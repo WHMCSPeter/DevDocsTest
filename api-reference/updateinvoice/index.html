@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CreateInvoice - WHMCS Developer Documentation</title>
+    <title>UpdateInvoice - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.16" />
 
     
@@ -324,14 +324,6 @@
       
         <li class="" data-nav-id="/api-reference/createinvoice/">
           <a href="//developers.whmcs.com/api-reference/createinvoice/">
-            <span>CreateInvoice</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="active" data-nav-id="/api-reference/updateinvoice/">
-          <a href="//developers.whmcs.com/api-reference/updateinvoice/">
             <span>CreateInvoice</span>
           </a>
         </li>
@@ -1146,6 +1138,14 @@
       
       
       
+        <li class="active" data-nav-id="/api-reference/updateinvoice/">
+          <a href="//developers.whmcs.com/api-reference/updateinvoice/">
+            <span>UpdateInvoice</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/updatemoduleconfiguration/">
           <a href="//developers.whmcs.com/api-reference/updatemoduleconfiguration/">
             <span>UpdateModuleConfiguration</span>
@@ -1294,12 +1294,12 @@
                 
                   
                 
-                <span itemprop="title"> CreateInvoice</span>
+                <span itemprop="title"> UpdateInvoice</span>
               </div>
             </div>
 
 
-			<h1>CreateInvoice </h1>
+			<h1>UpdateInvoice </h1>
 
 			
 
@@ -1321,7 +1321,7 @@
 <tr>
 <td>action</td>
 <td>string</td>
-<td>&ldquo;CreateInvoice&rdquo;</td>
+<td>&ldquo;UpdateInvoice&rdquo;</td>
 <td>Required</td>
 </tr>
 
@@ -1508,7 +1508,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' =&gt; 'CreateInvoice',
+            'action' =&gt; 'UpdateInvoice',
             'username' =&gt; 'ADMIN_USERNAME',
             'password' =&gt; 'ADMIN_PASSWORD',
             'status' =&gt; 'Unpaid',
@@ -1525,7 +1525,7 @@ curl_close($ch);
 
 <h3 id="example-request-local-api">Example Request (Local API)</h3>
 
-<pre><code>$command = 'CreateInvoice';
+<pre><code>$command = 'UpdateInvoice';
 $postData = array(
     'status' =&gt; 'Unpaid',
     'itemdescription[13]' =&gt; 'Sample Updated Invoice Item',
