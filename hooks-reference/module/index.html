@@ -592,9 +592,15 @@ add_hook('AfterModuleCreate', 1, function($vars) {
 <h4 id="example-code-5">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('AfterModuleCreateFailed', 1, function($vars) {
-    // Perform hook code here...
-});
+add_hook('AfterModuleCreateFailed', 1, function($vars)
+    {
+        // Fetch failure response message &amp; module parameters
+        $failureResponseMessage = $vars['failureResponseMessage'];
+        $moduleParameters = $vars['params'];
+
+        // Execute your post failure code here
+    }
+);
 </code></pre>
 
 <h2 id="aftermodulesuspend">AfterModuleSuspend</h2>
@@ -970,9 +976,13 @@ add_hook('PreModuleChangePassword', 1, function($vars) {
 <h4 id="example-code-15">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('PreModuleCreate', 1, function($vars) {
-    // Perform hook code here...
-});
+add_hook('PreModuleCreate', 1, function($vars)
+    {
+        return array(
+            'abortcmd' =&gt; true,
+        );
+    }
+);
 </code></pre>
 
 <h2 id="premodulesuspend">PreModuleSuspend</h2>

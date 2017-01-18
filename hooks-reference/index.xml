@@ -10732,6 +10732,124 @@ add_hook(&#39;PreDomainTransfer&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;preregistrarregisterdomain&#34;&gt;PreRegistrarRegisterDomain&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-5&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-5&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts an optional array return. Return &lt;code&gt;abortWithSuccess=true&lt;/code&gt; to abort the action and treat it as successful. Return &lt;code&gt;abortWithError=Error messages goes here&lt;/code&gt; to abort the action and treat it as failed.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreRegistrarRegisterDomain&#39;, 1, function($vars)
+    {
+        $domainName = $vars[&#39;params&#39;][&#39;sld&#39;] . &#39;.&#39; . $vars[&#39;params&#39;][&#39;tld&#39;];
+
+        return array(
+            &#39;abortWithError&#39; =&amp;gt; &#39;Error message to display goes here&#39;,
+        );
+
+        //return array(
+        //    &#39;abortWithSuccess&#39; =&amp;gt; true,
+        //);
+    }
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;preregistrarrenewdomain&#34;&gt;PreRegistrarRenewDomain&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-6&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts an optional array return. Return &lt;code&gt;abortWithSuccess=true&lt;/code&gt; to abort the action and treat it as successful. Return &lt;code&gt;abortWithError=Error messages goes here&lt;/code&gt; to abort the action and treat it as failed.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-6&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreRegistrarRenewDomain&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;preregistrartransferdomain&#34;&gt;PreRegistrarTransferDomain&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-7&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts an optional array return. Return &lt;code&gt;abortWithSuccess=true&lt;/code&gt; to abort the action and treat it as successful. Return &lt;code&gt;abortWithError=Error messages goes here&lt;/code&gt; to abort the action and treat it as failed.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreRegistrarTransferDomain&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -11659,11 +11777,53 @@ add_hook(&#39;PreAutomationTask&#39;, 1, function($vars) {
 
 &lt;p&gt;The following hooks are provided for Invoices and Quotes related events.&lt;/p&gt;
 
+&lt;h2 id=&#34;acceptquote&#34;&gt;AcceptQuote&lt;/h2&gt;
+
+&lt;p&gt;Executes when a client is accepting a quote.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;quoteid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the quote being accepted.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;invoiceid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the invoice created for the quote (if applicable).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AcceptQuote&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;addinvoicelatefee&#34;&gt;AddInvoiceLateFee&lt;/h2&gt;
 
 &lt;p&gt;Executes when a late fee has been added to an invoice&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -11683,11 +11843,11 @@ add_hook(&#39;PreAutomationTask&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-1&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-1&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;AddInvoiceLateFee&#39;, 1, function($vars) {
@@ -11699,7 +11859,7 @@ add_hook(&#39;AddInvoiceLateFee&#39;, 1, function($vars) {
 
 &lt;p&gt;Invoked when a payment is applied to an invoice (including partial payments).&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -11719,11 +11879,11 @@ add_hook(&#39;AddInvoiceLateFee&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-1&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-2&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-1&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-2&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;AddInvoicePayment&#39;, 1, function($vars) {
@@ -11735,7 +11895,7 @@ add_hook(&#39;AddInvoicePayment&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when a transaction is created. Can be a payment or a refund.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-3&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -11827,11 +11987,11 @@ add_hook(&#39;AddInvoicePayment&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-2&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-3&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-2&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;AddTransaction&#39;, 1, function($vars) {
@@ -11843,7 +12003,7 @@ add_hook(&#39;AddTransaction&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes after invoice generation allowing for after invoicing clean-up.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-3&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-4&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -11863,11 +12023,11 @@ add_hook(&#39;AddTransaction&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-3&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-4&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;AfterInvoicingGenerateInvoiceItems&#39;, 1, function($vars) {
@@ -11879,7 +12039,7 @@ add_hook(&#39;AfterInvoicingGenerateInvoiceItems&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when an invoice is being cancelled&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-4&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-5&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -11899,11 +12059,11 @@ add_hook(&#39;AfterInvoicingGenerateInvoiceItems&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-4&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-5&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;InvoiceCancelled&#39;, 1, function($vars) {
@@ -11915,7 +12075,7 @@ add_hook(&#39;InvoiceCancelled&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when changing the gateway on an invoice if the client area.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-5&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -11941,11 +12101,11 @@ add_hook(&#39;InvoiceCancelled&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-5&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-6&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-6&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;InvoiceChangeGateway&#39;, 1, function($vars) {
@@ -11956,60 +12116,6 @@ add_hook(&#39;InvoiceChangeGateway&#39;, 1, function($vars) {
 &lt;h2 id=&#34;invoicecreated&#34;&gt;InvoiceCreated&lt;/h2&gt;
 
 &lt;p&gt;Executes when an invoice is created following sending the Invoice Created email.&lt;/p&gt;
-
-&lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;source&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;user&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;invoiceid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The invoice ID that was created&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;status&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The status of the new invoice&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;response-6&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code-6&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;InvoiceCreated&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;invoicecreation&#34;&gt;InvoiceCreation&lt;/h2&gt;
-
-&lt;p&gt;Executes when an invoice is first created. The invoice has not been delivered to the client at this point.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -12056,14 +12162,14 @@ add_hook(&#39;InvoiceCreated&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;InvoiceCreation&#39;, 1, function($vars) {
+add_hook(&#39;InvoiceCreated&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;invoicecreationpreemail&#34;&gt;InvoiceCreationPreEmail&lt;/h2&gt;
+&lt;h2 id=&#34;invoicecreation&#34;&gt;InvoiceCreation&lt;/h2&gt;
 
-&lt;p&gt;Executes when an invoice is created immediately prior to sending the Invoice Created email.&lt;/p&gt;
+&lt;p&gt;Executes when an invoice is first created. The invoice has not been delivered to the client at this point.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-8&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -12110,14 +12216,14 @@ add_hook(&#39;InvoiceCreation&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-8&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;InvoiceCreationPreEmail&#39;, 1, function($vars) {
+add_hook(&#39;InvoiceCreation&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;invoicepaid&#34;&gt;InvoicePaid&lt;/h2&gt;
+&lt;h2 id=&#34;invoicecreationpreemail&#34;&gt;InvoiceCreationPreEmail&lt;/h2&gt;
 
-&lt;p&gt;Executes when an invoice is Paid following the email receipt having been sent and any automation tasks associated with the payment action having been run.&lt;/p&gt;
+&lt;p&gt;Executes when an invoice is created immediately prior to sending the Invoice Created email.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-9&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -12132,9 +12238,27 @@ add_hook(&#39;InvoiceCreationPreEmail&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
+&lt;td&gt;source&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;user&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;invoiceid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;The invoice ID that was created&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;status&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The status of the new invoice&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -12146,14 +12270,14 @@ add_hook(&#39;InvoiceCreationPreEmail&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-9&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;InvoicePaid&#39;, 1, function($vars) {
+add_hook(&#39;InvoiceCreationPreEmail&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;invoicepaidpreemail&#34;&gt;InvoicePaidPreEmail&lt;/h2&gt;
+&lt;h2 id=&#34;invoicepaid&#34;&gt;InvoicePaid&lt;/h2&gt;
 
-&lt;p&gt;Executes when an invoice is Paid prior to any email or automation tasks associated with the payment action having been run.&lt;/p&gt;
+&lt;p&gt;Executes when an invoice is Paid following the email receipt having been sent and any automation tasks associated with the payment action having been run.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-10&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -12182,6 +12306,42 @@ add_hook(&#39;InvoicePaid&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-10&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;InvoicePaid&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;invoicepaidpreemail&#34;&gt;InvoicePaidPreEmail&lt;/h2&gt;
+
+&lt;p&gt;Executes when an invoice is Paid prior to any email or automation tasks associated with the payment action having been run.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-11&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;invoiceid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-11&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-11&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;InvoicePaidPreEmail&#39;, 1, function($vars) {
     // Perform hook code here...
 });
@@ -12191,7 +12351,7 @@ add_hook(&#39;InvoicePaidPreEmail&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when an invoice status is changed to Refunded.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-11&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -12211,11 +12371,11 @@ add_hook(&#39;InvoicePaidPreEmail&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-11&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-11&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;InvoiceRefunded&#39;, 1, function($vars) {
@@ -12227,7 +12387,7 @@ add_hook(&#39;InvoiceRefunded&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes as an invoice is being split&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-13&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -12253,11 +12413,11 @@ add_hook(&#39;InvoiceRefunded&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-13&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-13&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;InvoiceSplit&#39;, 1, function($vars) {
@@ -12269,7 +12429,7 @@ add_hook(&#39;InvoiceSplit&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when an invoice is being marked as Unpaid&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-13&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-14&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -12289,11 +12449,11 @@ add_hook(&#39;InvoiceSplit&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-13&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-14&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-13&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-14&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;InvoiceUnpaid&#39;, 1, function($vars) {
@@ -12305,7 +12465,7 @@ add_hook(&#39;InvoiceUnpaid&#39;, 1, function($vars) {
 
 &lt;p&gt;Runs any time a payment gateway callback is received and logged.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-14&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-15&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -12337,11 +12497,11 @@ add_hook(&#39;InvoiceUnpaid&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-14&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-15&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-14&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-15&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;LogTransaction&#39;, 1, function($vars) {
@@ -12353,7 +12513,7 @@ add_hook(&#39;LogTransaction&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when an invoice is refunded via the Manual Refund option.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-15&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-16&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -12379,11 +12539,11 @@ add_hook(&#39;LogTransaction&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-15&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-16&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-15&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-16&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;ManualRefund&#39;, 1, function($vars) {
@@ -12395,7 +12555,7 @@ add_hook(&#39;ManualRefund&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes prior to invoice generation allowing for manipulation of items prior to invoice generation.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-16&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-17&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -12415,11 +12575,11 @@ add_hook(&#39;ManualRefund&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-16&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-17&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-16&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-17&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;PreInvoicingGenerateInvoiceItems&#39;, 1, function($vars) {
@@ -12430,48 +12590,6 @@ add_hook(&#39;PreInvoicingGenerateInvoiceItems&#39;, 1, function($vars) {
 &lt;h2 id=&#34;quotecreated&#34;&gt;QuoteCreated&lt;/h2&gt;
 
 &lt;p&gt;Executes when a new quote is created.&lt;/p&gt;
-
-&lt;h4 id=&#34;parameters-17&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;quoteid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;status&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;response-17&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code-17&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;QuoteCreated&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;quotestatuschange&#34;&gt;QuoteStatusChange&lt;/h2&gt;
-
-&lt;p&gt;Executes when a quote status is updated&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-18&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -12506,6 +12624,48 @@ add_hook(&#39;QuoteCreated&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-18&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;QuoteCreated&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;quotestatuschange&#34;&gt;QuoteStatusChange&lt;/h2&gt;
+
+&lt;p&gt;Executes when a quote status is updated&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-19&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;quoteid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;status&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-19&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-19&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;QuoteStatusChange&#39;, 1, function($vars) {
     // Perform hook code here...
 });
@@ -12515,7 +12675,7 @@ add_hook(&#39;QuoteStatusChange&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when an invoice is updated with changes to or additions of line items. Can be used to manipulate the invoice.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-19&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-20&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -12535,11 +12695,11 @@ add_hook(&#39;QuoteStatusChange&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-19&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-20&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-19&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-20&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;UpdateInvoiceTotal&#39;, 1, function($vars) {
@@ -12551,7 +12711,7 @@ add_hook(&#39;UpdateInvoiceTotal&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes as the invoice is being viewed as a client&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-20&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-21&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -12571,48 +12731,6 @@ add_hook(&#39;UpdateInvoiceTotal&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-20&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code-20&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ViewInvoiceDetailsPage&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;acceptquote&#34;&gt;acceptQuote&lt;/h2&gt;
-
-&lt;p&gt;Executes when a client is accepting a quote.&lt;/p&gt;
-
-&lt;h4 id=&#34;parameters-21&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;quoteid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The id of the quote being accepted.&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;invoiceid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The id of the invoice created for the quote (if applicable).&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
 &lt;h4 id=&#34;response-21&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
@@ -12620,7 +12738,7 @@ add_hook(&#39;ViewInvoiceDetailsPage&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-21&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;acceptQuote&#39;, 1, function($vars) {
+add_hook(&#39;ViewInvoiceDetailsPage&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
@@ -12876,9 +12994,15 @@ add_hook(&#39;AfterModuleCreate&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;AfterModuleCreateFailed&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
+add_hook(&#39;AfterModuleCreateFailed&#39;, 1, function($vars)
+    {
+        // Fetch failure response message &amp;amp; module parameters
+        $failureResponseMessage = $vars[&#39;failureResponseMessage&#39;];
+        $moduleParameters = $vars[&#39;params&#39;];
+
+        // Execute your post failure code here
+    }
+);
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;aftermodulesuspend&#34;&gt;AfterModuleSuspend&lt;/h2&gt;
@@ -13254,9 +13378,13 @@ add_hook(&#39;PreModuleChangePassword&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-15&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;PreModuleCreate&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
+add_hook(&#39;PreModuleCreate&#39;, 1, function($vars)
+    {
+        return array(
+            &#39;abortcmd&#39; =&amp;gt; true,
+        );
+    }
+);
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;premodulesuspend&#34;&gt;PreModuleSuspend&lt;/h2&gt;
@@ -15029,9 +15157,9 @@ add_hook(&#39;ServerEdit&#39;, 1, function($vars) {
 
 &lt;p&gt;The following hooks are provided for Registrar Module related events.&lt;/p&gt;
 
-&lt;h2 id=&#34;afterregistrar&#34;&gt;AfterRegistrar&lt;/h2&gt;
+&lt;h2 id=&#34;afterregistrargetcontactdetails&#34;&gt;AfterRegistrarGetContactDetails&lt;/h2&gt;
 
-&lt;p&gt;Executes after any standard registrar module function call. Hook name is updated as appropriate. AfterRegistrarGetNameservers, AfterRegistrarSaveNameservers, AfterRegistrarGetRegistrarLock, AfterRegistrarSaveRegistrarLock, AfterRegistrarGetURLForwarding, AfterRegistrarSaveURLForwarding, AfterRegistrarGetEmailForwarding, AfterRegistrarSaveEmailForwarding, AfterRegistrarGetDNS, AfterRegistrarSaveDNS, AfterRegistrarRenewDomain, AfterRegistrarRegisterDomain, AfterRegistrarTransferDomain, AfterRegistrarGetContactDetails, AfterRegistrarSaveContactDetails, AfterRegistrarGetEPPCode, AfterRegistrarRequestDelete, AfterRegistrarReleaseDomain, AfterRegistrarRegisterNameserver, AfterRegistrarModifyNameserver, AfterRegistrarDeleteNameserver, AfterRegistrarIDProtectToggle, AfterRegistrarGetRegistrantContactEmailAddress&lt;/p&gt;
+&lt;p&gt;Executes upon completion of the registrar module function. Will execute regardless of success state.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -15048,59 +15176,44 @@ add_hook(&#39;ServerEdit&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Common domain registrar parameters. See &lt;a href=&#34;http://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;http://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;results&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;An array of results returned from the registrar function call&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;functionExists&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar module supports the given action&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;functionSuccessful&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar function completed without error&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;Return boolean to &amp;lsquo;abortWithSuccess&amp;rsquo; or string &amp;lsquo;abortWithError&amp;rsquo;. Eg: return array(&amp;lsquo;abortWithSuccess&amp;rsquo; =&amp;gt; true,); return array(&amp;lsquo;abortWithError&amp;rsquo; =&amp;gt; &amp;lsquo;This is an error&amp;rsquo;,);&lt;/p&gt;
+&lt;p&gt;No response supported&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-
-add_hook(&#39;AfterRegistrarGetNameservers&#39;, 1, function($vars)
-{
-    if (
-        $vars[&#39;functionExists&#39;]
-        &amp;amp;&amp;amp; !$vars[&#39;functionSuccessful&#39;]
-    ) {
-        //do something on function existing and failure
-        $domainName = $vars[&#39;params&#39;][&#39;sld&#39;] . &#39;.&#39; . $vars[&#39;params&#39;][&#39;tld&#39;];
-
-        if ($domainName == &#39;whmcs.com&#39;) {
-            return array(
-                &#39;abortWithError&#39; =&amp;gt; &#39;Show this message as an error&#39;,
-            );
-        }
-    }
-    return array();
+add_hook(&#39;AfterRegistrarGetContactDetails&#39;, 1, function($vars) {
+    // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;afterregistrarregistration&#34;&gt;AfterRegistrarRegistration&lt;/h2&gt;
+&lt;h2 id=&#34;afterregistrargetdns&#34;&gt;AfterRegistrarGetDNS&lt;/h2&gt;
 
-&lt;p&gt;Executes after a successful domain register command&lt;/p&gt;
+&lt;p&gt;Executes upon completion of the registrar module function. Will execute regardless of success state.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -15117,7 +15230,25 @@ add_hook(&#39;AfterRegistrarGetNameservers&#39;, 1, function($vars)
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Common domain registrar parameters. See &lt;a href=&#34;http://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;http://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;results&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of results returned from the registrar function call&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionExists&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar module supports the given action&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionSuccessful&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar function completed without error&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -15129,14 +15260,14 @@ add_hook(&#39;AfterRegistrarGetNameservers&#39;, 1, function($vars)
 &lt;h4 id=&#34;example-code-1&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;AfterRegistrarRegistration&#39;, 1, function($vars) {
+add_hook(&#39;AfterRegistrarGetDNS&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;afterregistrarregistrationfailed&#34;&gt;AfterRegistrarRegistrationFailed&lt;/h2&gt;
+&lt;h2 id=&#34;afterregistrargeteppcode&#34;&gt;AfterRegistrarGetEPPCode&lt;/h2&gt;
 
-&lt;p&gt;Executes after a failed domain register command&lt;/p&gt;
+&lt;p&gt;Executes upon completion of the registrar module function. Will execute regardless of success state.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -15153,13 +15284,25 @@ add_hook(&#39;AfterRegistrarRegistration&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Common domain registrar parameters. See &lt;a href=&#34;http://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;http://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;error&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;results&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of results returned from the registrar function call&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionExists&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar module supports the given action&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionSuccessful&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar function completed without error&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -15171,14 +15314,14 @@ add_hook(&#39;AfterRegistrarRegistration&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-2&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;AfterRegistrarRegistrationFailed&#39;, 1, function($vars) {
+add_hook(&#39;AfterRegistrarGetEPPCode&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;afterregistrarrenewal&#34;&gt;AfterRegistrarRenewal&lt;/h2&gt;
+&lt;h2 id=&#34;afterregistrargetnameservers&#34;&gt;AfterRegistrarGetNameservers&lt;/h2&gt;
 
-&lt;p&gt;Executes after a successful domain renewal command&lt;/p&gt;
+&lt;p&gt;Executes upon completion of the registrar module function. Will execute regardless of success state.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-3&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -15195,7 +15338,25 @@ add_hook(&#39;AfterRegistrarRegistrationFailed&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Common domain registrar parameters. See &lt;a href=&#34;http://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;http://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;results&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of results returned from the registrar function call&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionExists&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar module supports the given action&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionSuccessful&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar function completed without error&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -15207,14 +15368,14 @@ add_hook(&#39;AfterRegistrarRegistrationFailed&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;AfterRegistrarRenewal&#39;, 1, function($vars) {
+add_hook(&#39;AfterRegistrarGetNameservers&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;afterregistrarrenewalfailed&#34;&gt;AfterRegistrarRenewalFailed&lt;/h2&gt;
+&lt;h2 id=&#34;afterregistrarregister&#34;&gt;AfterRegistrarRegister&lt;/h2&gt;
 
-&lt;p&gt;Executes after a failed domain renewal command&lt;/p&gt;
+&lt;p&gt;Executes upon completion of the registrar module function. Will execute regardless of success state.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-4&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -15231,13 +15392,25 @@ add_hook(&#39;AfterRegistrarRenewal&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Common domain registrar parameters. See &lt;a href=&#34;http://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;http://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;error&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;results&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of results returned from the registrar function call&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionExists&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar module supports the given action&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionSuccessful&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar function completed without error&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -15249,12 +15422,14 @@ add_hook(&#39;AfterRegistrarRenewal&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;AfterRegistrarRenewalFailed&#39;, 1, function($vars) {
+add_hook(&#39;AfterRegistrarRegister&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;afterregistrartransfer&#34;&gt;AfterRegistrarTransfer&lt;/h2&gt;
+&lt;h2 id=&#34;afterregistrarregistration&#34;&gt;AfterRegistrarRegistration&lt;/h2&gt;
+
+&lt;p&gt;Executes after a successful domain register command&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-5&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -15270,8 +15445,8 @@ add_hook(&#39;AfterRegistrarRenewalFailed&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Common domain registrar parameters. See &lt;a href=&#34;http://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;http://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -15283,14 +15458,14 @@ add_hook(&#39;AfterRegistrarRenewalFailed&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;AfterRegistrarTransfer&#39;, 1, function($vars) {
+add_hook(&#39;AfterRegistrarRegistration&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;afterregistrartransferfailed&#34;&gt;AfterRegistrarTransferFailed&lt;/h2&gt;
+&lt;h2 id=&#34;afterregistrarregistrationfailed&#34;&gt;AfterRegistrarRegistrationFailed&lt;/h2&gt;
 
-&lt;p&gt;Executes after a failed domain transfer command&lt;/p&gt;
+&lt;p&gt;Executes after a failed domain register command&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -15325,16 +15500,70 @@ add_hook(&#39;AfterRegistrarTransfer&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-6&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;AfterRegistrarTransferFailed&#39;, 1, function($vars) {
+add_hook(&#39;AfterRegistrarRegistrationFailed&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;preregistrar&#34;&gt;PreRegistrar&lt;/h2&gt;
+&lt;h2 id=&#34;afterregistrarrenew&#34;&gt;AfterRegistrarRenew&lt;/h2&gt;
 
-&lt;p&gt;Executes before any standard registrar module function call. Hook name is updated as appropriate. PreRegistrarGetNameservers, PreRegistrarSaveNameservers, PreRegistrarGetRegistrarLock, PreRegistrarSaveRegistrarLock, PreRegistrarGetURLForwarding, PreRegistrarSaveURLForwarding, PreRegistrarGetEmailForwarding, PreRegistrarSaveEmailForwarding, PreRegistrarGetDNS, PreRegistrarSaveDNS, PreRegistrarRenewDomain, PreRegistrarRegisterDomain, PreRegistrarTransferDomain, PreRegistrarGetContactDetails, PreRegistrarSaveContactDetails, PreRegistrarGetEPPCode, PreRegistrarRequestDelete, PreRegistrarReleaseDomain, PreRegistrarRegisterNameserver, PreRegistrarModifyNameserver, PreRegistrarDeleteNameserver, PreRegistrarIDProtectToggle, PreRegistrarGetRegistrantContactEmailAddress&lt;/p&gt;
+&lt;p&gt;Executes upon completion of the registrar module function. Will execute regardless of success state.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;results&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of results returned from the registrar function call&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionExists&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar module supports the given action&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionSuccessful&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar function completed without error&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-7&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterRegistrarRenew&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;afterregistrarrenewal&#34;&gt;AfterRegistrarRenewal&lt;/h2&gt;
+
+&lt;p&gt;Executes after a successful domain renewal command&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-8&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -15354,23 +15583,712 @@ add_hook(&#39;AfterRegistrarTransferFailed&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-7&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-8&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;Return boolean to &amp;lsquo;abortWithSuccess&amp;rsquo; or string &amp;lsquo;abortWithError&amp;rsquo;. Eg: return array(&amp;lsquo;abortWithSuccess&amp;rsquo; =&amp;gt; true,); return array(&amp;lsquo;abortWithError&amp;rsquo; =&amp;gt; &amp;lsquo;This is an error&amp;rsquo;,);&lt;/p&gt;
+&lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-8&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterRegistrarRenewal&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
 
-add_hook(&#39;PreRegistrarGetNameservers&#39;, 1, function($vars)
-    {
-        $domainName = $vars[&#39;params&#39;][&#39;sld&#39;] . &#39;.&#39; . $vars[&#39;params&#39;][&#39;tld&#39;];
-        return array(
-            &#39;abortWithError&#39; =&amp;gt; &#39;Show this message as an error&#39;,
-        );
-        //return array(&#39;abortWithSuccess&#39; =&amp;gt; true);
-    }
-);
+&lt;h2 id=&#34;afterregistrarrenewalfailed&#34;&gt;AfterRegistrarRenewalFailed&lt;/h2&gt;
+
+&lt;p&gt;Executes after a failed domain renewal command&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-9&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Common domain registrar parameters. See &lt;a href=&#34;http://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;http://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;error&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-9&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-9&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterRegistrarRenewalFailed&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;afterregistrarrequestdelete&#34;&gt;AfterRegistrarRequestDelete&lt;/h2&gt;
+
+&lt;p&gt;Executes upon completion of the registrar module function. Will execute regardless of success state.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-10&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;results&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of results returned from the registrar function call&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionExists&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar module supports the given action&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionSuccessful&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar function completed without error&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-10&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-10&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterRegistrarRequestDelete&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;afterregistrarsavecontactdetails&#34;&gt;AfterRegistrarSaveContactDetails&lt;/h2&gt;
+
+&lt;p&gt;Executes upon completion of the registrar module function. Will execute regardless of success state.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-11&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;results&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of results returned from the registrar function call&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionExists&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar module supports the given action&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionSuccessful&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar function completed without error&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-11&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-11&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterRegistrarSaveContactDetails&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;afterregistrarsavedns&#34;&gt;AfterRegistrarSaveDNS&lt;/h2&gt;
+
+&lt;p&gt;Executes upon completion of the registrar module function. Will execute regardless of success state.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;results&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of results returned from the registrar function call&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionExists&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar module supports the given action&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionSuccessful&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar function completed without error&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterRegistrarSaveDNS&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;afterregistrarsavenameservers&#34;&gt;AfterRegistrarSaveNameservers&lt;/h2&gt;
+
+&lt;p&gt;Executes upon completion of the registrar module function. Will execute regardless of success state.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-13&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;results&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of results returned from the registrar function call&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionExists&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar module supports the given action&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionSuccessful&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar function completed without error&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-13&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-13&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterRegistrarSaveNameservers&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;afterregistrartransfer&#34;&gt;AfterRegistrarTransfer&lt;/h2&gt;
+
+&lt;p&gt;Executes upon completion of the registrar module function. Will execute regardless of success state.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-14&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;results&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of results returned from the registrar function call&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionExists&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar module supports the given action&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionSuccessful&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar function completed without error&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-14&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-14&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterRegistrarTransfer&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;afterregistrartransfer-1&#34;&gt;AfterRegistrarTransfer&lt;/h2&gt;
+
+&lt;p&gt;Executes upon completion of the registrar module function. Will execute regardless of success state.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-15&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;results&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of results returned from the registrar function call&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionExists&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar module supports the given action&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;functionSuccessful&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Returns true if the registrar function completed without error&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-15&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-15&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterRegistrarTransfer&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;afterregistrartransferfailed&#34;&gt;AfterRegistrarTransferFailed&lt;/h2&gt;
+
+&lt;p&gt;Executes after a failed domain transfer command&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-16&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Common domain registrar parameters. See &lt;a href=&#34;http://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;http://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;error&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-16&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-16&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterRegistrarTransferFailed&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;preregistrargetcontactdetails&#34;&gt;PreRegistrarGetContactDetails&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-17&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-17&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts an optional array return. Return &lt;code&gt;abortWithSuccess=true&lt;/code&gt; to abort the action and treat it as successful. Return &lt;code&gt;abortWithError=Error messages goes here&lt;/code&gt; to abort the action and treat it as failed.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-17&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreRegistrarGetContactDetails&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;preregistrargetdns&#34;&gt;PreRegistrarGetDNS&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-18&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-18&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts an optional array return. Return &lt;code&gt;abortWithSuccess=true&lt;/code&gt; to abort the action and treat it as successful. Return &lt;code&gt;abortWithError=Error messages goes here&lt;/code&gt; to abort the action and treat it as failed.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-18&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreRegistrarGetDNS&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;preregistrargeteppcode&#34;&gt;PreRegistrarGetEPPCode&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-19&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-19&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts an optional array return. Return &lt;code&gt;abortWithSuccess=true&lt;/code&gt; to abort the action and treat it as successful. Return &lt;code&gt;abortWithError=Error messages goes here&lt;/code&gt; to abort the action and treat it as failed.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-19&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreRegistrarGetEPPCode&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;preregistrargetnameservers&#34;&gt;PreRegistrarGetNameservers&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-20&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-20&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts an optional array return. Return &lt;code&gt;abortWithSuccess=true&lt;/code&gt; to abort the action and treat it as successful. Return &lt;code&gt;abortWithError=Error messages goes here&lt;/code&gt; to abort the action and treat it as failed.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-20&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreRegistrarGetNameservers&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;preregistrarrequestdelete&#34;&gt;PreRegistrarRequestDelete&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-21&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-21&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts an optional array return. Return &lt;code&gt;abortWithSuccess=true&lt;/code&gt; to abort the action and treat it as successful. Return &lt;code&gt;abortWithError=Error messages goes here&lt;/code&gt; to abort the action and treat it as failed.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-21&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreRegistrarRequestDelete&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;preregistrarsavecontactdetails&#34;&gt;PreRegistrarSaveContactDetails&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-22&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-22&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts an optional array return. Return &lt;code&gt;abortWithSuccess=true&lt;/code&gt; to abort the action and treat it as successful. Return &lt;code&gt;abortWithError=Error messages goes here&lt;/code&gt; to abort the action and treat it as failed.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-22&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreRegistrarSaveContactDetails&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;preregistrarsavedns&#34;&gt;PreRegistrarSaveDNS&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-23&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-23&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts an optional array return. Return &lt;code&gt;abortWithSuccess=true&lt;/code&gt; to abort the action and treat it as successful. Return &lt;code&gt;abortWithError=Error messages goes here&lt;/code&gt; to abort the action and treat it as failed.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-23&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreRegistrarSaveDNS&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;preregistrarsavenameservers&#34;&gt;PreRegistrarSaveNameservers&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-24&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-24&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts an optional array return. Return &lt;code&gt;abortWithSuccess=true&lt;/code&gt; to abort the action and treat it as successful. Return &lt;code&gt;abortWithError=Error messages goes here&lt;/code&gt; to abort the action and treat it as failed.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-24&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreRegistrarSaveNameservers&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

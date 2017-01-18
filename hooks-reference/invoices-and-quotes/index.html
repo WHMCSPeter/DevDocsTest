@@ -353,11 +353,53 @@
 
 <p>The following hooks are provided for Invoices and Quotes related events.</p>
 
+<h2 id="acceptquote">AcceptQuote</h2>
+
+<p>Executes when a client is accepting a quote.</p>
+
+<h4 id="parameters">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>quoteid</td>
+<td>int</td>
+<td>The id of the quote being accepted.</td>
+</tr>
+
+<tr>
+<td>invoiceid</td>
+<td>int</td>
+<td>The id of the invoice created for the quote (if applicable).</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('AcceptQuote', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
 <h2 id="addinvoicelatefee">AddInvoiceLateFee</h2>
 
 <p>Executes when a late fee has been added to an invoice</p>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters-1">Parameters</h4>
 
 <table>
 <thead>
@@ -377,11 +419,11 @@
 </tbody>
 </table>
 
-<h4 id="response">Response</h4>
+<h4 id="response-1">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code">Example Code</h4>
+<h4 id="example-code-1">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AddInvoiceLateFee', 1, function($vars) {
@@ -393,7 +435,7 @@ add_hook('AddInvoiceLateFee', 1, function($vars) {
 
 <p>Invoked when a payment is applied to an invoice (including partial payments).</p>
 
-<h4 id="parameters-1">Parameters</h4>
+<h4 id="parameters-2">Parameters</h4>
 
 <table>
 <thead>
@@ -413,11 +455,11 @@ add_hook('AddInvoiceLateFee', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-1">Example Code</h4>
+<h4 id="example-code-2">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AddInvoicePayment', 1, function($vars) {
@@ -429,7 +471,7 @@ add_hook('AddInvoicePayment', 1, function($vars) {
 
 <p>Executes when a transaction is created. Can be a payment or a refund.</p>
 
-<h4 id="parameters-2">Parameters</h4>
+<h4 id="parameters-3">Parameters</h4>
 
 <table>
 <thead>
@@ -521,11 +563,11 @@ add_hook('AddInvoicePayment', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-2">Example Code</h4>
+<h4 id="example-code-3">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AddTransaction', 1, function($vars) {
@@ -537,7 +579,7 @@ add_hook('AddTransaction', 1, function($vars) {
 
 <p>Executes after invoice generation allowing for after invoicing clean-up.</p>
 
-<h4 id="parameters-3">Parameters</h4>
+<h4 id="parameters-4">Parameters</h4>
 
 <table>
 <thead>
@@ -557,11 +599,11 @@ add_hook('AddTransaction', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-3">Example Code</h4>
+<h4 id="example-code-4">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AfterInvoicingGenerateInvoiceItems', 1, function($vars) {
@@ -573,7 +615,7 @@ add_hook('AfterInvoicingGenerateInvoiceItems', 1, function($vars) {
 
 <p>Executes when an invoice is being cancelled</p>
 
-<h4 id="parameters-4">Parameters</h4>
+<h4 id="parameters-5">Parameters</h4>
 
 <table>
 <thead>
@@ -593,11 +635,11 @@ add_hook('AfterInvoicingGenerateInvoiceItems', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-4">Example Code</h4>
+<h4 id="example-code-5">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('InvoiceCancelled', 1, function($vars) {
@@ -609,7 +651,7 @@ add_hook('InvoiceCancelled', 1, function($vars) {
 
 <p>Executes when changing the gateway on an invoice if the client area.</p>
 
-<h4 id="parameters-5">Parameters</h4>
+<h4 id="parameters-6">Parameters</h4>
 
 <table>
 <thead>
@@ -635,11 +677,11 @@ add_hook('InvoiceCancelled', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-6">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-5">Example Code</h4>
+<h4 id="example-code-6">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('InvoiceChangeGateway', 1, function($vars) {
@@ -650,60 +692,6 @@ add_hook('InvoiceChangeGateway', 1, function($vars) {
 <h2 id="invoicecreated">InvoiceCreated</h2>
 
 <p>Executes when an invoice is created following sending the Invoice Created email.</p>
-
-<h4 id="parameters-6">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>source</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>user</td>
-<td>string</td>
-<td>int</td>
-</tr>
-
-<tr>
-<td>invoiceid</td>
-<td>int</td>
-<td>The invoice ID that was created</td>
-</tr>
-
-<tr>
-<td>status</td>
-<td>string</td>
-<td>The status of the new invoice</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-6">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-6">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('InvoiceCreated', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="invoicecreation">InvoiceCreation</h2>
-
-<p>Executes when an invoice is first created. The invoice has not been delivered to the client at this point.</p>
 
 <h4 id="parameters-7">Parameters</h4>
 
@@ -750,14 +738,14 @@ add_hook('InvoiceCreated', 1, function($vars) {
 <h4 id="example-code-7">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('InvoiceCreation', 1, function($vars) {
+add_hook('InvoiceCreated', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="invoicecreationpreemail">InvoiceCreationPreEmail</h2>
+<h2 id="invoicecreation">InvoiceCreation</h2>
 
-<p>Executes when an invoice is created immediately prior to sending the Invoice Created email.</p>
+<p>Executes when an invoice is first created. The invoice has not been delivered to the client at this point.</p>
 
 <h4 id="parameters-8">Parameters</h4>
 
@@ -804,14 +792,14 @@ add_hook('InvoiceCreation', 1, function($vars) {
 <h4 id="example-code-8">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('InvoiceCreationPreEmail', 1, function($vars) {
+add_hook('InvoiceCreation', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="invoicepaid">InvoicePaid</h2>
+<h2 id="invoicecreationpreemail">InvoiceCreationPreEmail</h2>
 
-<p>Executes when an invoice is Paid following the email receipt having been sent and any automation tasks associated with the payment action having been run.</p>
+<p>Executes when an invoice is created immediately prior to sending the Invoice Created email.</p>
 
 <h4 id="parameters-9">Parameters</h4>
 
@@ -826,9 +814,27 @@ add_hook('InvoiceCreationPreEmail', 1, function($vars) {
 
 <tbody>
 <tr>
+<td>source</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>user</td>
+<td>string</td>
+<td>int</td>
+</tr>
+
+<tr>
 <td>invoiceid</td>
 <td>int</td>
-<td></td>
+<td>The invoice ID that was created</td>
+</tr>
+
+<tr>
+<td>status</td>
+<td>string</td>
+<td>The status of the new invoice</td>
 </tr>
 </tbody>
 </table>
@@ -840,14 +846,14 @@ add_hook('InvoiceCreationPreEmail', 1, function($vars) {
 <h4 id="example-code-9">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('InvoicePaid', 1, function($vars) {
+add_hook('InvoiceCreationPreEmail', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="invoicepaidpreemail">InvoicePaidPreEmail</h2>
+<h2 id="invoicepaid">InvoicePaid</h2>
 
-<p>Executes when an invoice is Paid prior to any email or automation tasks associated with the payment action having been run.</p>
+<p>Executes when an invoice is Paid following the email receipt having been sent and any automation tasks associated with the payment action having been run.</p>
 
 <h4 id="parameters-10">Parameters</h4>
 
@@ -876,6 +882,42 @@ add_hook('InvoicePaid', 1, function($vars) {
 <h4 id="example-code-10">Example Code</h4>
 
 <pre><code>&lt;?php
+add_hook('InvoicePaid', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="invoicepaidpreemail">InvoicePaidPreEmail</h2>
+
+<p>Executes when an invoice is Paid prior to any email or automation tasks associated with the payment action having been run.</p>
+
+<h4 id="parameters-11">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>invoiceid</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-11">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-11">Example Code</h4>
+
+<pre><code>&lt;?php
 add_hook('InvoicePaidPreEmail', 1, function($vars) {
     // Perform hook code here...
 });
@@ -885,7 +927,7 @@ add_hook('InvoicePaidPreEmail', 1, function($vars) {
 
 <p>Executes when an invoice status is changed to Refunded.</p>
 
-<h4 id="parameters-11">Parameters</h4>
+<h4 id="parameters-12">Parameters</h4>
 
 <table>
 <thead>
@@ -905,11 +947,11 @@ add_hook('InvoicePaidPreEmail', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-11">Response</h4>
+<h4 id="response-12">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-11">Example Code</h4>
+<h4 id="example-code-12">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('InvoiceRefunded', 1, function($vars) {
@@ -921,7 +963,7 @@ add_hook('InvoiceRefunded', 1, function($vars) {
 
 <p>Executes as an invoice is being split</p>
 
-<h4 id="parameters-12">Parameters</h4>
+<h4 id="parameters-13">Parameters</h4>
 
 <table>
 <thead>
@@ -947,11 +989,11 @@ add_hook('InvoiceRefunded', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-12">Response</h4>
+<h4 id="response-13">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-12">Example Code</h4>
+<h4 id="example-code-13">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('InvoiceSplit', 1, function($vars) {
@@ -963,7 +1005,7 @@ add_hook('InvoiceSplit', 1, function($vars) {
 
 <p>Executes when an invoice is being marked as Unpaid</p>
 
-<h4 id="parameters-13">Parameters</h4>
+<h4 id="parameters-14">Parameters</h4>
 
 <table>
 <thead>
@@ -983,11 +1025,11 @@ add_hook('InvoiceSplit', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-13">Response</h4>
+<h4 id="response-14">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-13">Example Code</h4>
+<h4 id="example-code-14">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('InvoiceUnpaid', 1, function($vars) {
@@ -999,7 +1041,7 @@ add_hook('InvoiceUnpaid', 1, function($vars) {
 
 <p>Runs any time a payment gateway callback is received and logged.</p>
 
-<h4 id="parameters-14">Parameters</h4>
+<h4 id="parameters-15">Parameters</h4>
 
 <table>
 <thead>
@@ -1031,11 +1073,11 @@ add_hook('InvoiceUnpaid', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-14">Response</h4>
+<h4 id="response-15">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-14">Example Code</h4>
+<h4 id="example-code-15">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('LogTransaction', 1, function($vars) {
@@ -1047,7 +1089,7 @@ add_hook('LogTransaction', 1, function($vars) {
 
 <p>Executes when an invoice is refunded via the Manual Refund option.</p>
 
-<h4 id="parameters-15">Parameters</h4>
+<h4 id="parameters-16">Parameters</h4>
 
 <table>
 <thead>
@@ -1073,11 +1115,11 @@ add_hook('LogTransaction', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-15">Response</h4>
+<h4 id="response-16">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-15">Example Code</h4>
+<h4 id="example-code-16">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ManualRefund', 1, function($vars) {
@@ -1089,7 +1131,7 @@ add_hook('ManualRefund', 1, function($vars) {
 
 <p>Executes prior to invoice generation allowing for manipulation of items prior to invoice generation.</p>
 
-<h4 id="parameters-16">Parameters</h4>
+<h4 id="parameters-17">Parameters</h4>
 
 <table>
 <thead>
@@ -1109,11 +1151,11 @@ add_hook('ManualRefund', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-16">Response</h4>
+<h4 id="response-17">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-16">Example Code</h4>
+<h4 id="example-code-17">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreInvoicingGenerateInvoiceItems', 1, function($vars) {
@@ -1124,48 +1166,6 @@ add_hook('PreInvoicingGenerateInvoiceItems', 1, function($vars) {
 <h2 id="quotecreated">QuoteCreated</h2>
 
 <p>Executes when a new quote is created.</p>
-
-<h4 id="parameters-17">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>quoteid</td>
-<td>int</td>
-<td></td>
-</tr>
-
-<tr>
-<td>status</td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-17">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-17">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('QuoteCreated', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="quotestatuschange">QuoteStatusChange</h2>
-
-<p>Executes when a quote status is updated</p>
 
 <h4 id="parameters-18">Parameters</h4>
 
@@ -1200,6 +1200,48 @@ add_hook('QuoteCreated', 1, function($vars) {
 <h4 id="example-code-18">Example Code</h4>
 
 <pre><code>&lt;?php
+add_hook('QuoteCreated', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="quotestatuschange">QuoteStatusChange</h2>
+
+<p>Executes when a quote status is updated</p>
+
+<h4 id="parameters-19">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>quoteid</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>status</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-19">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-19">Example Code</h4>
+
+<pre><code>&lt;?php
 add_hook('QuoteStatusChange', 1, function($vars) {
     // Perform hook code here...
 });
@@ -1209,7 +1251,7 @@ add_hook('QuoteStatusChange', 1, function($vars) {
 
 <p>Executes when an invoice is updated with changes to or additions of line items. Can be used to manipulate the invoice.</p>
 
-<h4 id="parameters-19">Parameters</h4>
+<h4 id="parameters-20">Parameters</h4>
 
 <table>
 <thead>
@@ -1229,11 +1271,11 @@ add_hook('QuoteStatusChange', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-19">Response</h4>
+<h4 id="response-20">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-19">Example Code</h4>
+<h4 id="example-code-20">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('UpdateInvoiceTotal', 1, function($vars) {
@@ -1245,7 +1287,7 @@ add_hook('UpdateInvoiceTotal', 1, function($vars) {
 
 <p>Executes as the invoice is being viewed as a client</p>
 
-<h4 id="parameters-20">Parameters</h4>
+<h4 id="parameters-21">Parameters</h4>
 
 <table>
 <thead>
@@ -1265,48 +1307,6 @@ add_hook('UpdateInvoiceTotal', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-20">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-20">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ViewInvoiceDetailsPage', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="acceptquote">acceptQuote</h2>
-
-<p>Executes when a client is accepting a quote.</p>
-
-<h4 id="parameters-21">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>quoteid</td>
-<td>int</td>
-<td>The id of the quote being accepted.</td>
-</tr>
-
-<tr>
-<td>invoiceid</td>
-<td>int</td>
-<td>The id of the invoice created for the quote (if applicable).</td>
-</tr>
-</tbody>
-</table>
-
 <h4 id="response-21">Response</h4>
 
 <p>No response supported</p>
@@ -1314,7 +1314,7 @@ add_hook('ViewInvoiceDetailsPage', 1, function($vars) {
 <h4 id="example-code-21">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('acceptQuote', 1, function($vars) {
+add_hook('ViewInvoiceDetailsPage', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>

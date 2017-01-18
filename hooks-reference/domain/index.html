@@ -551,6 +551,124 @@ add_hook('PreDomainTransfer', 1, function($vars) {
 });
 </code></pre>
 
+<h2 id="preregistrarregisterdomain">PreRegistrarRegisterDomain</h2>
+
+<p>Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.</p>
+
+<h4 id="parameters-5">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>Array of common module parameters. See <a href="https://developers.whmcs.com/domain-registrars/module-parameters/">https://developers.whmcs.com/domain-registrars/module-parameters/</a></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-5">Response</h4>
+
+<p>Accepts an optional array return. Return <code>abortWithSuccess=true</code> to abort the action and treat it as successful. Return <code>abortWithError=Error messages goes here</code> to abort the action and treat it as failed.</p>
+
+<h4 id="example-code-5">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreRegistrarRegisterDomain', 1, function($vars)
+    {
+        $domainName = $vars['params']['sld'] . '.' . $vars['params']['tld'];
+
+        return array(
+            'abortWithError' =&gt; 'Error message to display goes here',
+        );
+
+        //return array(
+        //    'abortWithSuccess' =&gt; true,
+        //);
+    }
+);
+</code></pre>
+
+<h2 id="preregistrarrenewdomain">PreRegistrarRenewDomain</h2>
+
+<p>Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.</p>
+
+<h4 id="parameters-6">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>Array of common module parameters. See <a href="https://developers.whmcs.com/domain-registrars/module-parameters/">https://developers.whmcs.com/domain-registrars/module-parameters/</a></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-6">Response</h4>
+
+<p>Accepts an optional array return. Return <code>abortWithSuccess=true</code> to abort the action and treat it as successful. Return <code>abortWithError=Error messages goes here</code> to abort the action and treat it as failed.</p>
+
+<h4 id="example-code-6">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreRegistrarRenewDomain', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="preregistrartransferdomain">PreRegistrarTransferDomain</h2>
+
+<p>Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.</p>
+
+<h4 id="parameters-7">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>Array of common module parameters. See <a href="https://developers.whmcs.com/domain-registrars/module-parameters/">https://developers.whmcs.com/domain-registrars/module-parameters/</a></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-7">Response</h4>
+
+<p>Accepts an optional array return. Return <code>abortWithSuccess=true</code> to abort the action and treat it as successful. Return <code>abortWithError=Error messages goes here</code> to abort the action and treat it as failed.</p>
+
+<h4 id="example-code-7">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreRegistrarTransferDomain', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
 
 			<div class="topic-navigation clearfix">
                 
