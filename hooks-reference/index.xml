@@ -12774,7 +12774,7 @@ add_hook(&#39;ViewInvoiceDetailsPage&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -12810,7 +12810,7 @@ add_hook(&#39;AfterModuleChangePackage&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -12898,7 +12898,7 @@ add_hook(&#39;AfterModuleChangePassword&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -12940,7 +12940,7 @@ add_hook(&#39;AfterModuleChangePasswordFailed&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -12976,7 +12976,7 @@ add_hook(&#39;AfterModuleCreate&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -13024,7 +13024,7 @@ add_hook(&#39;AfterModuleCreateFailed&#39;, 1, function($vars)
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13060,7 +13060,7 @@ add_hook(&#39;AfterModuleSuspend&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -13102,7 +13102,7 @@ add_hook(&#39;AfterModuleSuspendFailed&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13138,7 +13138,7 @@ add_hook(&#39;AfterModuleTerminate&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -13180,7 +13180,7 @@ add_hook(&#39;AfterModuleTerminateFailed&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13216,7 +13216,7 @@ add_hook(&#39;AfterModuleUnsuspend&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -13294,7 +13294,7 @@ add_hook(&#39;OverrideModuleUsernameGeneration&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13330,7 +13330,7 @@ add_hook(&#39;PreModuleChangePackage&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13366,7 +13366,7 @@ add_hook(&#39;PreModuleChangePassword&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13406,7 +13406,7 @@ add_hook(&#39;PreModuleCreate&#39;, 1, function($vars)
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13442,7 +13442,7 @@ add_hook(&#39;PreModuleSuspend&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13478,7 +13478,7 @@ add_hook(&#39;PreModuleTerminate&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;http://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;http://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
