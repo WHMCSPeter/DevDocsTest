@@ -389,11 +389,84 @@ add_hook('ClientLogin', 1, function($vars) {
 });
 </code></pre>
 
+<h2 id="clientloginshare">ClientLoginShare</h2>
+
+<p>Executes as part of client login if user does not exist.</p>
+
+<h4 id="parameters-1">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>password</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-1">Response</h4>
+
+<p>Return data to create a user or refer to an existing client to be logged in as. id for existing user, email, boolean create to create new user, firstname, lastname etc to create a client.</p>
+
+<h4 id="example-code-1">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientLoginShare', 1, function($vars) {
+    // Perform custom authentication logic here
+    // There are 4 supported return values, each demonstrated below.
+
+    // User not found
+    return false;
+
+    // Login as existing WHMCS Client ID
+    return array(
+        'id' =&gt; '123',
+    );
+
+    // Login as existing WHMCS Client by Email Address
+    return array(
+        'email' =&gt; 'demo@whmcs.com',
+    );
+
+    // Create a new client and login
+    return array(
+        'create' =&gt; true,
+        'email' =&gt; 'demo@whmcs.com',
+        'firstname' =&gt; 'Demo',
+        'lastname' =&gt; 'User',
+        'companyname' =&gt; 'Demo Company',
+        'address1' =&gt; '123 Demo Street',
+        'address2' =&gt; '',
+        'city' =&gt; 'Demo',
+        'state' =&gt; 'Demo',
+        'postcode' =&gt; '12345',
+        'country' =&gt; 'US',
+        'phonenumber' =&gt; '11111111111',
+        'password' =&gt; 'xxxxxxxx',
+    );
+});
+</code></pre>
+
 <h2 id="clientlogout">ClientLogout</h2>
 
 <p>Executes when a client is logging out of the client area</p>
 
-<h4 id="parameters-1">Parameters</h4>
+<h4 id="parameters-2">Parameters</h4>
 
 <table>
 <thead>
@@ -413,11 +486,11 @@ add_hook('ClientLogin', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-1">Example Code</h4>
+<h4 id="example-code-2">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientLogout', 1, function($vars) {

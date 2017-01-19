@@ -1774,11 +1774,84 @@ add_hook(&#39;ClientLogin&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;clientloginshare&#34;&gt;ClientLoginShare&lt;/h2&gt;
+
+&lt;p&gt;Executes as part of client login if user does not exist.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;username&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;password&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-1&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Return data to create a user or refer to an existing client to be logged in as. id for existing user, email, boolean create to create new user, firstname, lastname etc to create a client.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-1&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ClientLoginShare&#39;, 1, function($vars) {
+    // Perform custom authentication logic here
+    // There are 4 supported return values, each demonstrated below.
+
+    // User not found
+    return false;
+
+    // Login as existing WHMCS Client ID
+    return array(
+        &#39;id&#39; =&amp;gt; &#39;123&#39;,
+    );
+
+    // Login as existing WHMCS Client by Email Address
+    return array(
+        &#39;email&#39; =&amp;gt; &#39;demo@whmcs.com&#39;,
+    );
+
+    // Create a new client and login
+    return array(
+        &#39;create&#39; =&amp;gt; true,
+        &#39;email&#39; =&amp;gt; &#39;demo@whmcs.com&#39;,
+        &#39;firstname&#39; =&amp;gt; &#39;Demo&#39;,
+        &#39;lastname&#39; =&amp;gt; &#39;User&#39;,
+        &#39;companyname&#39; =&amp;gt; &#39;Demo Company&#39;,
+        &#39;address1&#39; =&amp;gt; &#39;123 Demo Street&#39;,
+        &#39;address2&#39; =&amp;gt; &#39;&#39;,
+        &#39;city&#39; =&amp;gt; &#39;Demo&#39;,
+        &#39;state&#39; =&amp;gt; &#39;Demo&#39;,
+        &#39;postcode&#39; =&amp;gt; &#39;12345&#39;,
+        &#39;country&#39; =&amp;gt; &#39;US&#39;,
+        &#39;phonenumber&#39; =&amp;gt; &#39;11111111111&#39;,
+        &#39;password&#39; =&amp;gt; &#39;xxxxxxxx&#39;,
+    );
+});
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;clientlogout&#34;&gt;ClientLogout&lt;/h2&gt;
 
 &lt;p&gt;Executes when a client is logging out of the client area&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -1798,11 +1871,11 @@ add_hook(&#39;ClientLogin&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-1&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-2&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-1&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-2&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;ClientLogout&#39;, 1, function($vars) {
@@ -12835,6 +12908,8 @@ add_hook(&#39;AfterModuleChangePackageFailed&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;aftermodulechangepassword&#34;&gt;AfterModuleChangePassword&lt;/h2&gt;
 
+&lt;p&gt;Executes upon successful completion of a remote module API password change.&lt;/p&gt;
+
 &lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -12849,19 +12924,19 @@ add_hook(&#39;AfterModuleChangePackageFailed&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;serviceid&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;oldpassword&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;newpassword&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;newspassword&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

@@ -359,6 +359,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;h3&gt;Authentication&lt;/h3&gt;
 
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#clientlogin&#34;&gt;ClientLogin&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#clientloginshare&#34;&gt;ClientLoginShare&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#clientlogout&#34;&gt;ClientLogout&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Client Area Interface&lt;/h3&gt;
