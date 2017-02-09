@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin Area - WHMCS Developer Documentation</title>
-    <meta name="generator" content="Hugo 0.16" />
+    <meta name="generator" content="Hugo 0.18.1" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
@@ -1147,9 +1147,9 @@ add_hook('AdminHomepage', 1, function($vars) {
 });
 </code></pre>
 
-<h2 id="adminlogout">AdminLogout</h2>
+<h2 id="adminlogin">AdminLogin</h2>
 
-<p>Executes on Admin log out</p>
+<p>Executes on Admin log in</p>
 
 <h4 id="parameters-12">Parameters</h4>
 
@@ -1173,19 +1173,19 @@ add_hook('AdminHomepage', 1, function($vars) {
 
 <h4 id="response-12">Response</h4>
 
-<p>No response supported</p>
+<p>No Response supported</p>
 
-<h4 id="example-code-12">Example Code</h4>
+<h4 id="example-code-12">Example code</h4>
 
 <pre><code>&lt;?php
-add_hook('AdminLogout', 1, function($vars) {
+add_hook('AdminLogin', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="adminproductconfigfields">AdminProductConfigFields</h2>
+<h2 id="adminlogout">AdminLogout</h2>
 
-<p>Executes as a product is being edited.</p>
+<p>Executes on Admin log out</p>
 
 <h4 id="parameters-13">Parameters</h4>
 
@@ -1200,7 +1200,7 @@ add_hook('AdminLogout', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>pid</td>
+<td>adminid</td>
 <td>int</td>
 <td></td>
 </tr>
@@ -1209,19 +1209,19 @@ add_hook('AdminLogout', 1, function($vars) {
 
 <h4 id="response-13">Response</h4>
 
-<p>An array of key -&gt; value pairs to display on the Other tab.</p>
+<p>No response supported</p>
 
 <h4 id="example-code-13">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('AdminProductConfigFields', 1, function($vars) {
+add_hook('AdminLogout', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="adminproductconfigfieldssave">AdminProductConfigFieldsSave</h2>
+<h2 id="adminproductconfigfields">AdminProductConfigFields</h2>
 
-<p>Executes as a product is being saved. Access The Request variables to save custom config fields.</p>
+<p>Executes as a product is being edited.</p>
 
 <h4 id="parameters-14">Parameters</h4>
 
@@ -1245,9 +1245,45 @@ add_hook('AdminProductConfigFields', 1, function($vars) {
 
 <h4 id="response-14">Response</h4>
 
-<p>No response supported</p>
+<p>An array of key -&gt; value pairs to display on the Other tab.</p>
 
 <h4 id="example-code-14">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('AdminProductConfigFields', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="adminproductconfigfieldssave">AdminProductConfigFieldsSave</h2>
+
+<p>Executes as a product is being saved. Access The Request variables to save custom config fields.</p>
+
+<h4 id="parameters-15">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>pid</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-15">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-15">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AdminProductConfigFieldsSave', 1, function($vars) {
@@ -1259,7 +1295,7 @@ add_hook('AdminProductConfigFieldsSave', 1, function($vars) {
 
 <p>Executes as the service is being saved, after any changes have been made.</p>
 
-<h4 id="parameters-15">Parameters</h4>
+<h4 id="parameters-16">Parameters</h4>
 
 <table>
 <thead>
@@ -1285,11 +1321,11 @@ add_hook('AdminProductConfigFieldsSave', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-15">Response</h4>
+<h4 id="response-16">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-15">Example Code</h4>
+<h4 id="example-code-16">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AdminServiceEdit', 1, function($vars) {
@@ -1301,7 +1337,7 @@ add_hook('AdminServiceEdit', 1, function($vars) {
 
 <p>Executes when an invoice is first created by an admin user. The invoice has not been delivered to the client at this point.</p>
 
-<h4 id="parameters-16">Parameters</h4>
+<h4 id="parameters-17">Parameters</h4>
 
 <table>
 <thead>
@@ -1339,11 +1375,11 @@ add_hook('AdminServiceEdit', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-16">Response</h4>
+<h4 id="response-17">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-16">Example Code</h4>
+<h4 id="example-code-17">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('InvoiceCreationAdminArea', 1, function($vars) {
@@ -1355,7 +1391,7 @@ add_hook('InvoiceCreationAdminArea', 1, function($vars) {
 
 <p>Executes as the service is being saved, before any changes have been made.</p>
 
-<h4 id="parameters-17">Parameters</h4>
+<h4 id="parameters-18">Parameters</h4>
 
 <table>
 <thead>
@@ -1375,11 +1411,11 @@ add_hook('InvoiceCreationAdminArea', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-17">Response</h4>
+<h4 id="response-18">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-17">Example Code</h4>
+<h4 id="example-code-18">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreAdminServiceEdit', 1, function($vars) {

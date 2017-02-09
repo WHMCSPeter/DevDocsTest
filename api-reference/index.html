@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>API Reference - WHMCS Developer Documentation</title>
-    <meta name="generator" content="Hugo 0.16" />
+    <title>Api-references - WHMCS Developer Documentation</title>
+    <meta name="generator" content="Hugo 0.18.1" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
@@ -22,6 +22,9 @@
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
 
+    
+    <link href="//developers.whmcs.com/api-reference/index.xml" rel="alternate" type="application/rss+xml" title="WHMCS Developer Documentation" />
+    <link href="//developers.whmcs.com/api-reference/index.xml" rel="feed" type="application/rss+xml" title="WHMCS Developer Documentation" />
     
 
   </head>
@@ -109,1224 +112,1439 @@
 <main class="main">
 
   <div class="container">
-    <div class="row row-offcanvas row-offcanvas-left">
-      <div class="col-sm-3 sidebar-offcanvas">
+    <div class="row">
+      <div class="col-sm-3">
 
         
           <ul class="sidebar-nav">
-            
-  <li class="active parent" data-nav-id="/api-reference/">
-    <a href="//developers.whmcs.com/api-reference/">
-      <span>
-        
-          
-        
-         API Reference
-       </span>
-    </a>
-    
-    <ul>
-      
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/acceptorder/">
-          <a href="//developers.whmcs.com/api-reference/acceptorder/">
-            <span>AcceptOrder</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/acceptquote/">
-          <a href="//developers.whmcs.com/api-reference/acceptquote/">
-            <span>AcceptQuote</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/activatemodule/">
-          <a href="//developers.whmcs.com/api-reference/activatemodule/">
-            <span>ActivateModule</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addannouncement/">
-          <a href="//developers.whmcs.com/api-reference/addannouncement/">
-            <span>AddAnnouncement</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addbannedip/">
-          <a href="//developers.whmcs.com/api-reference/addbannedip/">
-            <span>AddBannedIp</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addbillableitem/">
-          <a href="//developers.whmcs.com/api-reference/addbillableitem/">
-            <span>AddBillableItem</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addcancelrequest/">
-          <a href="//developers.whmcs.com/api-reference/addcancelrequest/">
-            <span>AddCancelRequest</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addclient/">
-          <a href="//developers.whmcs.com/api-reference/addclient/">
-            <span>AddClient</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addclientnote/">
-          <a href="//developers.whmcs.com/api-reference/addclientnote/">
-            <span>AddClientNote</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addcontact/">
-          <a href="//developers.whmcs.com/api-reference/addcontact/">
-            <span>AddContact</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addcredit/">
-          <a href="//developers.whmcs.com/api-reference/addcredit/">
-            <span>AddCredit</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addinvoicepayment/">
-          <a href="//developers.whmcs.com/api-reference/addinvoicepayment/">
-            <span>AddInvoicePayment</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addorder/">
-          <a href="//developers.whmcs.com/api-reference/addorder/">
-            <span>AddOrder</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addproduct/">
-          <a href="//developers.whmcs.com/api-reference/addproduct/">
-            <span>AddProduct</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addprojectmessage/">
-          <a href="//developers.whmcs.com/api-reference/addprojectmessage/">
-            <span>AddProjectMessage</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addprojecttask/">
-          <a href="//developers.whmcs.com/api-reference/addprojecttask/">
-            <span>AddProjectTask</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addticketnote/">
-          <a href="//developers.whmcs.com/api-reference/addticketnote/">
-            <span>AddTicketNote</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addticketreply/">
-          <a href="//developers.whmcs.com/api-reference/addticketreply/">
-            <span>AddTicketReply</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/addtransaction/">
-          <a href="//developers.whmcs.com/api-reference/addtransaction/">
-            <span>AddTransaction</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/affiliateactivate/">
-          <a href="//developers.whmcs.com/api-reference/affiliateactivate/">
-            <span>AffiliateActivate</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/applycredit/">
-          <a href="//developers.whmcs.com/api-reference/applycredit/">
-            <span>ApplyCredit</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/cancelorder/">
-          <a href="//developers.whmcs.com/api-reference/cancelorder/">
-            <span>CancelOrder</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/capturepayment/">
-          <a href="//developers.whmcs.com/api-reference/capturepayment/">
-            <span>CapturePayment</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/closeclient/">
-          <a href="//developers.whmcs.com/api-reference/closeclient/">
-            <span>CloseClient</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/createinvoice/">
-          <a href="//developers.whmcs.com/api-reference/createinvoice/">
-            <span>CreateInvoice</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/createoauthcredential/">
-          <a href="//developers.whmcs.com/api-reference/createoauthcredential/">
-            <span>CreateOAuthCredential</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/createproject/">
-          <a href="//developers.whmcs.com/api-reference/createproject/">
-            <span>CreateProject</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/createquote/">
-          <a href="//developers.whmcs.com/api-reference/createquote/">
-            <span>CreateQuote</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/deactivatemodule/">
-          <a href="//developers.whmcs.com/api-reference/deactivatemodule/">
-            <span>DeactivateModule</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/decryptpassword/">
-          <a href="//developers.whmcs.com/api-reference/decryptpassword/">
-            <span>DecryptPassword</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/deleteannouncement/">
-          <a href="//developers.whmcs.com/api-reference/deleteannouncement/">
-            <span>DeleteAnnouncement</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/deleteclient/">
-          <a href="//developers.whmcs.com/api-reference/deleteclient/">
-            <span>DeleteClient</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/deletecontact/">
-          <a href="//developers.whmcs.com/api-reference/deletecontact/">
-            <span>DeleteContact</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/deleteoauthcredential/">
-          <a href="//developers.whmcs.com/api-reference/deleteoauthcredential/">
-            <span>DeleteOAuthCredential</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/deleteorder/">
-          <a href="//developers.whmcs.com/api-reference/deleteorder/">
-            <span>DeleteOrder</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/deleteprojecttask/">
-          <a href="//developers.whmcs.com/api-reference/deleteprojecttask/">
-            <span>DeleteProjectTask</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/deletequote/">
-          <a href="//developers.whmcs.com/api-reference/deletequote/">
-            <span>DeleteProjectTask</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/deleteticket/">
-          <a href="//developers.whmcs.com/api-reference/deleteticket/">
-            <span>DeleteTicket</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/deleteticketnote/">
-          <a href="//developers.whmcs.com/api-reference/deleteticketnote/">
-            <span>DeleteTicketNote</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/domaingetlockingstatus/">
-          <a href="//developers.whmcs.com/api-reference/domaingetlockingstatus/">
-            <span>DomainGetLockingStatus</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/domaingetnameservers/">
-          <a href="//developers.whmcs.com/api-reference/domaingetnameservers/">
-            <span>DomainGetNameservers</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/domaingetwhoisinfo/">
-          <a href="//developers.whmcs.com/api-reference/domaingetwhoisinfo/">
-            <span>DomainGetWhoisInfo</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/domainregister/">
-          <a href="//developers.whmcs.com/api-reference/domainregister/">
-            <span>DomainRegister</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/domainrelease/">
-          <a href="//developers.whmcs.com/api-reference/domainrelease/">
-            <span>DomainRelease</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/domainrenew/">
-          <a href="//developers.whmcs.com/api-reference/domainrenew/">
-            <span>DomainRenew</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/domainrequestepp/">
-          <a href="//developers.whmcs.com/api-reference/domainrequestepp/">
-            <span>DomainRequestEPP</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/domaintoggleidprotect/">
-          <a href="//developers.whmcs.com/api-reference/domaintoggleidprotect/">
-            <span>DomainToggleIdProtect</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/domaintransfer/">
-          <a href="//developers.whmcs.com/api-reference/domaintransfer/">
-            <span>DomainTransfer</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/domainupdatelockingstatus/">
-          <a href="//developers.whmcs.com/api-reference/domainupdatelockingstatus/">
-            <span>DomainUpdateLockingStatus</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/domainupdatenameservers/">
-          <a href="//developers.whmcs.com/api-reference/domainupdatenameservers/">
-            <span>DomainUpdateNameservers</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/domainupdatewhoisinfo/">
-          <a href="//developers.whmcs.com/api-reference/domainupdatewhoisinfo/">
-            <span>DomainUpdateWhoisInfo</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/domainwhois/">
-          <a href="//developers.whmcs.com/api-reference/domainwhois/">
-            <span>DomainWhois</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/encryptpassword/">
-          <a href="//developers.whmcs.com/api-reference/encryptpassword/">
-            <span>EncryptPassword</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/endtasktimer/">
-          <a href="//developers.whmcs.com/api-reference/endtasktimer/">
-            <span>EndTaskTimer</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/starttasktimer/">
-          <a href="//developers.whmcs.com/api-reference/starttasktimer/">
-            <span>EndTaskTimer</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/fraudorder/">
-          <a href="//developers.whmcs.com/api-reference/fraudorder/">
-            <span>FraudOrder</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/geninvoices/">
-          <a href="//developers.whmcs.com/api-reference/geninvoices/">
-            <span>GenInvoices</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getactivitylog/">
-          <a href="//developers.whmcs.com/api-reference/getactivitylog/">
-            <span>GetActivityLog</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getadmindetails/">
-          <a href="//developers.whmcs.com/api-reference/getadmindetails/">
-            <span>GetAdminDetails</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getaffiliates/">
-          <a href="//developers.whmcs.com/api-reference/getaffiliates/">
-            <span>GetAffiliates</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getannouncements/">
-          <a href="//developers.whmcs.com/api-reference/getannouncements/">
-            <span>GetAnnouncements</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getautomationlog/">
-          <a href="//developers.whmcs.com/api-reference/getautomationlog/">
-            <span>GetAutomationLog</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getcancelledpackages/">
-          <a href="//developers.whmcs.com/api-reference/getcancelledpackages/">
-            <span>GetCancelledPackages</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getclientgroups/">
-          <a href="//developers.whmcs.com/api-reference/getclientgroups/">
-            <span>GetClientGroups</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getclientpassword/">
-          <a href="//developers.whmcs.com/api-reference/getclientpassword/">
-            <span>GetClientPassword</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getclients/">
-          <a href="//developers.whmcs.com/api-reference/getclients/">
-            <span>GetClients</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getclientsaddons/">
-          <a href="//developers.whmcs.com/api-reference/getclientsaddons/">
-            <span>GetClientsAddons</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getclientsdetails/">
-          <a href="//developers.whmcs.com/api-reference/getclientsdetails/">
-            <span>GetClientsDetails</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getclientsdomains/">
-          <a href="//developers.whmcs.com/api-reference/getclientsdomains/">
-            <span>GetClientsDomains</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getclientsproducts/">
-          <a href="//developers.whmcs.com/api-reference/getclientsproducts/">
-            <span>GetClientsProducts</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getconfigurationvalue/">
-          <a href="//developers.whmcs.com/api-reference/getconfigurationvalue/">
-            <span>GetConfigurationValue</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getcontacts/">
-          <a href="//developers.whmcs.com/api-reference/getcontacts/">
-            <span>GetContacts</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getcredits/">
-          <a href="//developers.whmcs.com/api-reference/getcredits/">
-            <span>GetCredits</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getcurrencies/">
-          <a href="//developers.whmcs.com/api-reference/getcurrencies/">
-            <span>GetCurrencies</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getemailtemplates/">
-          <a href="//developers.whmcs.com/api-reference/getemailtemplates/">
-            <span>GetEmailTemplates</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getemails/">
-          <a href="//developers.whmcs.com/api-reference/getemails/">
-            <span>GetEmails</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/gethealthstatus/">
-          <a href="//developers.whmcs.com/api-reference/gethealthstatus/">
-            <span>GetHealthStatus</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getinvoice/">
-          <a href="//developers.whmcs.com/api-reference/getinvoice/">
-            <span>GetInvoice</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getinvoices/">
-          <a href="//developers.whmcs.com/api-reference/getinvoices/">
-            <span>GetInvoices</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getmoduleconfigurationparameters/">
-          <a href="//developers.whmcs.com/api-reference/getmoduleconfigurationparameters/">
-            <span>GetModuleConfigurationParameters</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getmodulequeue/">
-          <a href="//developers.whmcs.com/api-reference/getmodulequeue/">
-            <span>GetModuleQueue</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getorderstatuses/">
-          <a href="//developers.whmcs.com/api-reference/getorderstatuses/">
-            <span>GetOrderStatuses</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getorders/">
-          <a href="//developers.whmcs.com/api-reference/getorders/">
-            <span>GetOrders</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getpaymentmethods/">
-          <a href="//developers.whmcs.com/api-reference/getpaymentmethods/">
-            <span>GetPaymentMethods</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getproducts/">
-          <a href="//developers.whmcs.com/api-reference/getproducts/">
-            <span>GetProducts</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getproject/">
-          <a href="//developers.whmcs.com/api-reference/getproject/">
-            <span>GetProject</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getprojects/">
-          <a href="//developers.whmcs.com/api-reference/getprojects/">
-            <span>GetProjects</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getpromotions/">
-          <a href="//developers.whmcs.com/api-reference/getpromotions/">
-            <span>GetPromotions</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getquotes/">
-          <a href="//developers.whmcs.com/api-reference/getquotes/">
-            <span>GetQuotes</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getservers/">
-          <a href="//developers.whmcs.com/api-reference/getservers/">
-            <span>GetServers</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getstaffonline/">
-          <a href="//developers.whmcs.com/api-reference/getstaffonline/">
-            <span>GetStaffOnline</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getstats/">
-          <a href="//developers.whmcs.com/api-reference/getstats/">
-            <span>GetStats</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getsupportdepartments/">
-          <a href="//developers.whmcs.com/api-reference/getsupportdepartments/">
-            <span>GetSupportDepartments</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getsupportstatuses/">
-          <a href="//developers.whmcs.com/api-reference/getsupportstatuses/">
-            <span>GetSupportStatuses</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getticket/">
-          <a href="//developers.whmcs.com/api-reference/getticket/">
-            <span>GetTicket</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getticketcounts/">
-          <a href="//developers.whmcs.com/api-reference/getticketcounts/">
-            <span>GetTicketCounts</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getticketnotes/">
-          <a href="//developers.whmcs.com/api-reference/getticketnotes/">
-            <span>GetTicketNotes</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getticketpredefinedcats/">
-          <a href="//developers.whmcs.com/api-reference/getticketpredefinedcats/">
-            <span>GetTicketPredefinedCats</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/getticketpredefinedreplies/">
-          <a href="//developers.whmcs.com/api-reference/getticketpredefinedreplies/">
-            <span>GetTicketPredefinedReplies</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/gettickets/">
-          <a href="//developers.whmcs.com/api-reference/gettickets/">
-            <span>GetTickets</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/gettodoitemstatuses/">
-          <a href="//developers.whmcs.com/api-reference/gettodoitemstatuses/">
-            <span>GetToDoItemStatuses</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/gettodoitems/">
-          <a href="//developers.whmcs.com/api-reference/gettodoitems/">
-            <span>GetToDoList</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/gettransactions/">
-          <a href="//developers.whmcs.com/api-reference/gettransactions/">
-            <span>GetTransactions</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/listoauthcredentials/">
-          <a href="//developers.whmcs.com/api-reference/listoauthcredentials/">
-            <span>ListOAuthCredentials</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/logactivity/">
-          <a href="//developers.whmcs.com/api-reference/logactivity/">
-            <span>LogActivity</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/modulechangepackage/">
-          <a href="//developers.whmcs.com/api-reference/modulechangepackage/">
-            <span>ModuleChangePackage</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/modulechangepw/">
-          <a href="//developers.whmcs.com/api-reference/modulechangepw/">
-            <span>ModuleChangePw</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/modulecreate/">
-          <a href="//developers.whmcs.com/api-reference/modulecreate/">
-            <span>ModuleCreate</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/modulecustom/">
-          <a href="//developers.whmcs.com/api-reference/modulecustom/">
-            <span>ModuleCustom</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/modulesuspend/">
-          <a href="//developers.whmcs.com/api-reference/modulesuspend/">
-            <span>ModuleSuspend</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/moduleterminate/">
-          <a href="//developers.whmcs.com/api-reference/moduleterminate/">
-            <span>ModuleTerminate</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/moduleunsuspend/">
-          <a href="//developers.whmcs.com/api-reference/moduleunsuspend/">
-            <span>ModuleUnsuspend</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/openticket/">
-          <a href="//developers.whmcs.com/api-reference/openticket/">
-            <span>OpenTicket</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/orderfraudcheck/">
-          <a href="//developers.whmcs.com/api-reference/orderfraudcheck/">
-            <span>OrderFraudCheck</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/pendingorder/">
-          <a href="//developers.whmcs.com/api-reference/pendingorder/">
-            <span>PendingOrder</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/sendadminemail/">
-          <a href="//developers.whmcs.com/api-reference/sendadminemail/">
-            <span>SendAdminEmail</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/sendemail/">
-          <a href="//developers.whmcs.com/api-reference/sendemail/">
-            <span>SendEmail</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/sendquote/">
-          <a href="//developers.whmcs.com/api-reference/sendquote/">
-            <span>SendQuote</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/setconfigurationvalue/">
-          <a href="//developers.whmcs.com/api-reference/setconfigurationvalue/">
-            <span>SetConfigurationValue</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updateadminnotes/">
-          <a href="//developers.whmcs.com/api-reference/updateadminnotes/">
-            <span>UpdateAdminNotes</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updateannouncement/">
-          <a href="//developers.whmcs.com/api-reference/updateannouncement/">
-            <span>UpdateAnnouncement</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updateclient/">
-          <a href="//developers.whmcs.com/api-reference/updateclient/">
-            <span>UpdateClient</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updateclientaddon/">
-          <a href="//developers.whmcs.com/api-reference/updateclientaddon/">
-            <span>UpdateClientAddon</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updateclientdomain/">
-          <a href="//developers.whmcs.com/api-reference/updateclientdomain/">
-            <span>UpdateClientDomain</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updateclientproduct/">
-          <a href="//developers.whmcs.com/api-reference/updateclientproduct/">
-            <span>UpdateClientProduct</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updatecontact/">
-          <a href="//developers.whmcs.com/api-reference/updatecontact/">
-            <span>UpdateContact</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updateinvoice/">
-          <a href="//developers.whmcs.com/api-reference/updateinvoice/">
-            <span>UpdateInvoice</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updatemoduleconfiguration/">
-          <a href="//developers.whmcs.com/api-reference/updatemoduleconfiguration/">
-            <span>UpdateModuleConfiguration</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updateoauthcredential/">
-          <a href="//developers.whmcs.com/api-reference/updateoauthcredential/">
-            <span>UpdateOAuthCredential</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updateproject/">
-          <a href="//developers.whmcs.com/api-reference/updateproject/">
-            <span>UpdateProject</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updateprojecttask/">
-          <a href="//developers.whmcs.com/api-reference/updateprojecttask/">
-            <span>UpdateProjectTask</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updatequote/">
-          <a href="//developers.whmcs.com/api-reference/updatequote/">
-            <span>UpdateQuote</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updateticket/">
-          <a href="//developers.whmcs.com/api-reference/updateticket/">
-            <span>UpdateTicket</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updatetodoitem/">
-          <a href="//developers.whmcs.com/api-reference/updatetodoitem/">
-            <span>UpdateToDoItem</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/updatetransaction/">
-          <a href="//developers.whmcs.com/api-reference/updatetransaction/">
-            <span>UpdateTransaction</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/upgradeproduct/">
-          <a href="//developers.whmcs.com/api-reference/upgradeproduct/">
-            <span>UpgradeProduct</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/validatelogin/">
-          <a href="//developers.whmcs.com/api-reference/validatelogin/">
-            <span>ValidateLogin</span>
-          </a>
-        </li>
-      
-      
-    </ul>
-    
-  </li>
-
-
           </ul>
         
 
       </div>
       <div class="col-sm-9">
 
-        <div class="breadcrumb-nav">
-
-            <div class="pull-right">
-              <a class="suggest-an-edit" href="https://github.com/WHMCS/developer-docs" target="blank">
-                <i class="fa fa-code-fork"></i>
-                <span class="hidden-xs">Suggest an edit</span>
-              </a>
-            </div>
-
-            <div class="visible-xs pull-left">
-                <button type="button" class="btn btn-toggle-sidebar" data-toggle="offcanvas">
-                    <i class="fa fa-list-alt"></i>
-                </button>
-            </div>
-
-            <div id="breadcrumbs">
-                
-                
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                    
-                    
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                <span itemprop="title"> API Reference</span>
-              </div>
-            </div>
-
-
-			<h1>API Reference </h1>
+			<h1>Pages in Api-reference</h1>
 
 			
+			<a href="//developers.whmcs.com/api-reference/" title="API Reference">
+				<h2>API Reference</h2>
+			</a>
 
-<h2 id="introduction">Introduction</h2>
+			<br>
+			Introduction The WHMCS API provides an interface to allow you to access and perform actions in WHMCS both from external applications and scripts as well as internal modules and addons.
+Choose a category from the left to browse the available API commands.
+Learn more about the API
 
-<p>The WHMCS API provides an interface to allow you to access and perform actions in WHMCS both from external applications and scripts as well as internal modules and addons.</p>
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/acceptorder/" title="AcceptOrder">
+				<h2>AcceptOrder</h2>
+			</a>
 
-<p>Choose a category from the left to browse the available API commands.</p>
+			<br>
+			Accepts a pending order
+Request Parameters    Parameter Type Description Required     action string &ldquo;AcceptOrder&rdquo; Required   orderid int The order id to be accepted Required   serverid int The specific server to assign to products within the order Optional   serviceusername string The specific username to assign to products within the order Optional   servicepassword string The specific password to assign to products within the order Optional   registrar string The specific registrar to assign to domains within the order Optional   sendregistrar bool Send the request to the registrar to register the domain.
 
-<p><a href="//developers.whmcs.com/api/">Learn more about the API</a></p>
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/acceptquote/" title="AcceptQuote">
+				<h2>AcceptQuote</h2>
+			</a>
 
+			<br>
+			Accepts a quote
+Request Parameters    Parameter Type Description Required     action string &ldquo;AcceptQuote&rdquo; Required   quoteid int The quote id to be accepted and converted to an invoice Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   invoiceid int The newly created invoice id    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
 
-			<div class="topic-navigation clearfix">
-                
-                
-            </div>
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/activatemodule/" title="ActivateModule">
+				<h2>ActivateModule</h2>
+			</a>
 
-	<div class="results" role="status" aria-live="polite">
-		<div class="scrollable">
-			<div class="wrapper">
-				<div class="meta"></div>
-				<div class="list"></div>
-			</div>
-		</div>
-	</div>
+			<br>
+			Activates a given module.
+Request Parameters    Parameter Type Description Required     action string &ldquo;ActivateModule&rdquo; Required   moduleType string The module type to be activated Required   moduleName string The module name to be activated Required   parameters array An array of configuration parameters to set for the given module. Use GetModuleConfigurationParameters to obtain a list of fields for a given module.
 
-        </div>
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addannouncement/" title="AddAnnouncement">
+				<h2>AddAnnouncement</h2>
+			</a>
+
+			<br>
+			Adds an announcement.
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddAnnouncement&rdquo; Required   date \datetime Date in the format YYYY-MM-DD HH:MM:SS Required   title string  Required   announcement string Announcement text Required   published bool Pass as true to publish Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   announcementid int The id of the new announcement    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addbannedip/" title="AddBannedIp">
+				<h2>AddBannedIp</h2>
+			</a>
+
+			<br>
+			Adds an IP to the ban list.
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddBannedIp&rdquo; Required   ip string  Required   reason string Admin only reason Required   days int If passed, expires date is auto calculated Required   expires \datetime YYYY-MM-DD HH:MM:SS Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   banid int The id of the new ban entry    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addbillableitem/" title="AddBillableItem">
+				<h2>AddBillableItem</h2>
+			</a>
+
+			<br>
+			Adds a Billable Item
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddBillableItem&rdquo; Required   clientid int The client to add the item to Required   description string The description of the Billable Item. This will appear on the invoice Required   amount float the total amount to invoice for Required   invoiceaction string One of &lsquo;noinvoice&rsquo;, &lsquo;nextcron&rsquo;, &lsquo;nextinvoice&rsquo;, &lsquo;duedate&rsquo;, &lsquo;recur&rsquo; Optional   recur int When $invoiceaction=recur.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addcancelrequest/" title="AddCancelRequest">
+				<h2>AddCancelRequest</h2>
+			</a>
+
+			<br>
+			Adds a Cancellation Request
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddCancelRequest&rdquo; Required   serviceid int The Service ID to cancel Required   type string The type of cancellation. &lsquo;Immediate&rsquo; or &lsquo;End of Billing Period&rsquo; Optional   reason string The customer reason for cancellation Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   serviceid int The id of the service the request was for   userid int The id of the user the service belongs to    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addclient/" title="AddClient">
+				<h2>AddClient</h2>
+			</a>
+
+			<br>
+			Adds a client.
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddClient&rdquo; Required   firstname string  Required   lastname string  Required   companyname string  Optional   email string  Required   address1 string  Required   address2 string  Optional   city string  Required   state string  Required   postcode string  Required   country string 2 character ISO country code Required   phonenumber string  Required   password2 string  Required   securityqid int Security Question ID from tbladminsecurityquestions Optional   securityqans string Security Question Answer Optional   cardtype string Credit card type.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addclientnote/" title="AddClientNote">
+				<h2>AddClientNote</h2>
+			</a>
+
+			<br>
+			Adds a Client Note
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddClientNote&rdquo; Required   userid int The Client ID to apply the note to Required   notes string The note to add Required   sticky bool Should the note be made sticky. Makes the note &lsquo;sticky&rsquo; and displays the note throughout the client&rsquo;s account and on any tickets they submit in the admin area Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   noteid int The id of the newly created note    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addcontact/" title="AddContact">
+				<h2>AddContact</h2>
+			</a>
+
+			<br>
+			Adds a contact to a client account.
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddContact&rdquo; Required   clientid int  Required   firstname string  Optional   lastname string  Optional   companyname string  Optional   email string Email address to identify the contact. This should be unique if the contact will be a sub-account Optional   address1 string  Optional   address2 string  Optional   city string  Optional   state string  Optional   postcode string  Optional   country string 2 character ISO country code Optional   phonenumber string  Optional   password2 string if creating a sub-account Optional   generalemails bool set true to receive general email types Optional   productemails bool set true to receive product related emails Optional   domainemails bool set true to receive domain related emails Optional   invoiceemails bool set true to receive billing related emails Optional   supportemails bool set true to receive support ticket related emails Optional   permissions string A comma separated list of sub-account permissions.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addcredit/" title="AddCredit">
+				<h2>AddCredit</h2>
+			</a>
+
+			<br>
+			Adds credit to a given client.
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddCredit&rdquo; Required   clientid int  Required   description string Admin only notes for credit justification Required   amount float  Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   newbalance float The new total credit balance    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addinvoicepayment/" title="AddInvoicePayment">
+				<h2>AddInvoicePayment</h2>
+			</a>
+
+			<br>
+			Adds payment to a given invoice.
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddInvoicePayment&rdquo; Required   invoiceid int  Required   transid string The unique transaction id that should be applied to the payment Required   gateway string the gateway used in system name format, eg. paypal, authorize Required   date \Carbon\Carbon The date that the payment should have assigned.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addorder/" title="AddOrder">
+				<h2>AddOrder</h2>
+			</a>
+
+			<br>
+			Adds an order to a client.
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddOrder&rdquo; Required   clientid int  Required   paymentmethod string The payment method for the order in the system format. eg. paypal, mailin Required   pid int[] The array of product ids to add the order for Optional   domain string[] The array of domain names associated with the products/domains Optional   billingcycle string[] The array of billing cycles for the products Optional   domaintype string[] For domain registrations, an array of register or transfer values Optional   regperiod int[] For domain registrations, the registration periods for the domains in the order Optional   eppcode string[] For domain transfers.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addproduct/" title="AddProduct">
+				<h2>AddProduct</h2>
+			</a>
+
+			<br>
+			Adds a product to the system to be available for purchase
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddProduct&rdquo; Required   name string The name of the product to be added Required   gid int The id of the product group to add the product Required   type string One of &lsquo;hostingaccount&rsquo;, &lsquo;reselleraccount&rsquo;, &lsquo;server&rsquo; or &lsquo;other&rsquo; Optional   stockcontrol bool Set to true to enable stock control on the product Optional   qty int How much of this product is in stock Optional   paytype string The payment type of the product.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addprojectmessage/" title="AddProjectMessage">
+				<h2>AddProjectMessage</h2>
+			</a>
+
+			<br>
+			Adds a Message to a project
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddProjectMessage&rdquo; Required   projectid int The id of the project the message is for Required   message string The message to add to the project Required   adminid int Override the admin id for the message. Not passing will set to the adminid of the api request Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   message string &lsquo;Message has been added&rsquo;    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addprojecttask/" title="AddProjectTask">
+				<h2>AddProjectTask</h2>
+			</a>
+
+			<br>
+			Adds a Task to a project
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddProjectTask&rdquo; Required   projectid int The id of the project the task is for Required   duedate \Carbon\Carbon The duedate for the task. Format YYYY-mm-dd Required   adminid int The admin id to associate the task with Optional   task string The task title Optional   notes string The notes for the task Optional   completed bool Has the task been completed Optional   billed bool Has the task been billed Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   message string &lsquo;Task has been added&rsquo;    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addticketnote/" title="AddTicketNote">
+				<h2>AddTicketNote</h2>
+			</a>
+
+			<br>
+			Add a note to a ticket by Ticket ID or Ticket Number.
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddTicketNote&rdquo; Required   message string The content of the ticket note Required   ticketnum string The Client Ticket Number ID to apply the note to Optional   ticketid int The id of the ticket in the database. Either $ticketnum or $ticketid is required Optional   markdown bool Should markdown be used on the ticket note output Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addticketreply/" title="AddTicketReply">
+				<h2>AddTicketReply</h2>
+			</a>
+
+			<br>
+			Add a reply to a ticket by Ticket ID.
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddTicketReply&rdquo; Required   ticketid int The id of the ticket in the database. Either $ticketnum or $ticketid is required Required   message string The content of the ticket reply Required   useMarkdown bool Should markdown be used on the ticket reply output Optional   userid int Pass a userid to associate the ticket reply with a specific client Optional   contactid int Pass a contactid to associate the ticket reply with a specific contact belonging to $userid Optional   adminusername string The admin username to associate the ticket reply with Optional   name string The name to associate with the ticket reply if not an admin or client response Optional   email string The email to associate with the ticket reply if not an admin or client response Optional   status string The status to set on the ticket after the reply is made if the default status on admin/client response is not required.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/addtransaction/" title="AddTransaction">
+				<h2>AddTransaction</h2>
+			</a>
+
+			<br>
+			Add a transaction to the system
+Request Parameters    Parameter Type Description Required     action string &ldquo;AddTransaction&rdquo; Required   paymentmethod string The payment method of the transaction in system format Required   userid int The ID of the user to apply the transaction to Optional   invoiceid int The ID of the invoice the transaction is for Optional   transid string The unique transaction id for this payment Optional   date string The date of the transaction in your Localisation Format (eg DD/MM/YYYY) Optional   currencyid int The currency id for the transaction if not associated with a user Optional   description string The description of the transaction Optional   amountin float The amount received by the payment Optional   fees float The amount of fee charged on the transaction by the merchant - This can be negative Optional   amountout float The amount paid out by the payment Optional   rate float The exchange rate for the payment based on the default currency Optional   credit bool Should the payment be applied to credit on the client account.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/affiliateactivate/" title="AffiliateActivate">
+				<h2>AffiliateActivate</h2>
+			</a>
+
+			<br>
+			Activate affiliate referrals for a client.
+Request Parameters    Parameter Type Description Required     action string &ldquo;AffiliateActivate&rdquo; Required   userid int The client ID to activate affiliate status for Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/applycredit/" title="ApplyCredit">
+				<h2>ApplyCredit</h2>
+			</a>
+
+			<br>
+			Applies the Client&rsquo;s Credit to an invoice
+Request Parameters    Parameter Type Description Required     action string &ldquo;ApplyCredit&rdquo; Required   invoiceid int The ID of the invoice to apply credit Required   amount float string The amount of credit to apply to the invoice.   noemail bool Set to true to stop the invoice payment email being sent if the invoice becomes paid Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   invoiceid int The id of the invoice the credit has been applied to   amount float The amount of credit applied   invoicepaid string true/false string    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/cancelorder/" title="CancelOrder">
+				<h2>CancelOrder</h2>
+			</a>
+
+			<br>
+			Cancel a Pending Order
+Request Parameters    Parameter Type Description Required     action string &ldquo;CancelOrder&rdquo; Required   orderid int The ID of the pending order Required   cancelsub bool Attempt to cancel the subscription associated with the products Optional   noemail bool Set to true to stop the invoice payment email being sent if the invoice becomes paid Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/capturepayment/" title="CapturePayment">
+				<h2>CapturePayment</h2>
+			</a>
+
+			<br>
+			Attempt to capture a payment on an unpaid CC Invoice
+Request Parameters    Parameter Type Description Required     action string &ldquo;CapturePayment&rdquo; Required   invoiceid int The ID of the pending order Required   cvv  string The CVV Number for the card being attempted Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/closeclient/" title="CloseClient">
+				<h2>CloseClient</h2>
+			</a>
+
+			<br>
+			Close a Client.
+This will close the client, cancel any invoices and set the status of all products to Cancelled or Terminated.
+Request Parameters    Parameter Type Description Required     action string &ldquo;CloseClient&rdquo; Required   clientid int The ID of the client to close Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   clientid int The ID of the client that was closed.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/createinvoice/" title="CreateInvoice">
+				<h2>CreateInvoice</h2>
+			</a>
+
+			<br>
+			Create an invoice using the provided parameters.
+Request Parameters    Parameter Type Description Required     action string &ldquo;CreateInvoice&rdquo; Required   userid int The ID of the client to close Required   status string The status of the invoice being created (Defaults to Unpaid) Optional   draft bool Should the invoice be created in draft status (No need to pass $status also) Optional   sendinvoice bool Should the Invoice Created Email be sent to the client (cannot be used with $draft) Optional   paymentmethod string The payment method of the created invoice in system format Optional   taxrate float The first level tax rate to apply to the invoice to override the system default Optional   taxrate2 float The second level tax rate to apply to the invoice to override the system default Optional   date \Carbon\Carbon The date that the invoice should show as created YYYY-mm-dd Optional   duedate \Carbon\Carbon The due date of the newly created invoice YYYY-mm-dd Optional   notes string The notes to appear on the created invoice Optional   itemdescriptionx string The line items description X is an integer to add multiple invoice items Optional   itemamountx float The line items amount Optional   itemtaxedx bool The line items is taxed value Optional   autoapplycredit bool Should credit on the client account be automatically applied to the invoice Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   invoiceid int The ID of the newly created invoice   status string The status of the newly created invoice    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/createoauthcredential/" title="CreateOAuthCredential">
+				<h2>CreateOAuthCredential</h2>
+			</a>
+
+			<br>
+			Create an OAuth Credential
+Request Parameters    Parameter Type Description Required     action string &ldquo;CreateOAuthCredential&rdquo; Required   grantType string One of &lsquo;authorization_code&rsquo; or &lsquo;single_sign_on&rsquo; Required   scope string A space separated list of valid scopes from tbloauthserver_scopes Required   name string The name to give the oAuth Credential for the authorization_code $grantType Optional   serviceId int The id of the service for the single_sign_on $grantType Optional   description string The description of the OAuth Credential Optional   logoUri string URL or Path Relative to the Base WHMCS Client Area Directory to a logo image file for this application.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/createproject/" title="CreateProject">
+				<h2>CreateProject</h2>
+			</a>
+
+			<br>
+			Creates a new project
+Request Parameters    Parameter Type Description Required     action string &ldquo;CreateProject&rdquo; Required   title string The title of the new project Required   adminid int The adminId the project will be associated with Required   userid int The user that the project is for Optional   status string The status of the project as defined in Project Management Settings Optional   created \Carbon\Carbon The created date of the project in Y-m-d format Optional   duedate \Carbon\Carbon The duedate date of the project in Y-m-d format Optional   completed bool Is the project completed Optional   ticketids string A comma separated list of ticket IDs to associate with the project Optional   invoiceids string A comma separated list of invoice IDs to associate with the project Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   message string &lsquo;Project has been created&rsquo;    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/createquote/" title="CreateQuote">
+				<h2>CreateQuote</h2>
+			</a>
+
+			<br>
+			Creates a new quote
+Request Parameters    Parameter Type Description Required     action string &ldquo;CreateQuote&rdquo; Required   subject string The subject of the new quote Required   stage string The current stage of the quote (&lsquo;Draft&rsquo;,&lsquo;Delivered&rsquo;,&lsquo;On Hold&rsquo;,&lsquo;Accepted&rsquo;,&lsquo;Lost&rsquo;,&lsquo;Dead&rsquo;) Required   validuntil string The date the quote is valid until in localised format (eg DD/MM/YYYY) Required   datecreated string The date the quote was created in localised format (eg DD/MM/YYYY) Optional   lineitems array A base64 encoded serialized array containing the following keys: Optional   lineitems[x][desc] string For $lineitems.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/deactivatemodule/" title="DeactivateModule">
+				<h2>DeactivateModule</h2>
+			</a>
+
+			<br>
+			Deactivates a given module.
+Request Parameters    Parameter Type Description Required     action string &ldquo;DeactivateModule&rdquo; Required   moduleType string The module type to be deactivated Required   moduleName string The module name to be deactivated Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/decryptpassword/" title="DecryptPassword">
+				<h2>DecryptPassword</h2>
+			</a>
+
+			<br>
+			Decrypt an encrypted string
+Request Parameters    Parameter Type Description Required     action string &ldquo;DecryptPassword&rdquo; Required   password2 string The string to decrypt Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www.example.com/includes/api.php'">https://www.example.com/includes/api.php'</a>); curl_setopt($ch, CURLOPT_POST, 1); curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query( array( &lsquo;action&rsquo; =&gt; &lsquo;DecryptPassword&rsquo;, &lsquo;username&rsquo; =&gt; &lsquo;ADMIN_USERNAME&rsquo;, &lsquo;password&rsquo; =&gt; &lsquo;ADMIN_PASSWORD&rsquo;, &lsquo;password2&rsquo; =&gt; &lsquo;vNRQzRPKQA6obJpHMHCBivS0D9/Pf532oArYvewP&rsquo;, &lsquo;responsetype&rsquo; =&gt; &lsquo;json&rsquo;, ) ) ); $response = curl_exec($ch); curl_close($ch);  Example Request (Local API) $command = &lsquo;DecryptPassword&rsquo;; $postData = array( &lsquo;password2&rsquo; =&gt; &lsquo;vNRQzRPKQA6obJpHMHCBivS0D9/Pf532oArYvewP&rsquo;, ); $adminUsername = &lsquo;ADMIN_USERNAME&rsquo;; $results = localAPI($command, $postData, $adminUsername); print_r($results);  Example Response JSON { &quot;result&quot;: &quot;success&quot;, &quot;password&quot;: &quot;teststring&quot; }  Version History    Version Changelog     1.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/deleteannouncement/" title="DeleteAnnouncement">
+				<h2>DeleteAnnouncement</h2>
+			</a>
+
+			<br>
+			Delete an announcement
+Request Parameters    Parameter Type Description Required     action string &ldquo;DeleteAnnouncement&rdquo; Required   announcementid int The id of the announcement to be deleted Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/deleteclient/" title="DeleteClient">
+				<h2>DeleteClient</h2>
+			</a>
+
+			<br>
+			Deletes a client.
+Removes client record and all associated data. This action cannot be undone.
+Request Parameters    Parameter Type Description Required     action string &ldquo;DeleteClient&rdquo; Required   clientid int The client id to be deleted Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   clientid int The client id that was deleted    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/deletecontact/" title="DeleteContact">
+				<h2>DeleteContact</h2>
+			</a>
+
+			<br>
+			Deletes a contact.
+Removes contact record. This action cannot be undone.
+Request Parameters    Parameter Type Description Required     action string &ldquo;DeleteContact&rdquo; Required   contactid int The contact id to be deleted Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   contactid int The contact id that was deleted    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/deleteoauthcredential/" title="DeleteOAuthCredential">
+				<h2>DeleteOAuthCredential</h2>
+			</a>
+
+			<br>
+			Deletes an OAuth Credential Record.
+Removes OAuth Credential record. This action cannot be undone.
+Request Parameters    Parameter Type Description Required     action string &ldquo;DeleteOAuthCredential&rdquo; Required   credentialId int The credential id to be deleted Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   credentialId int The credential id that was deleted    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/deleteorder/" title="DeleteOrder">
+				<h2>DeleteOrder</h2>
+			</a>
+
+			<br>
+			Deletes a cancelled or fraud order.
+Removes an order from the system. This cannot be undone. This will remove all items associated with the order (services, addons, domains, invoices etc)
+Request Parameters    Parameter Type Description Required     action string &ldquo;DeleteOrder&rdquo; Required   orderid int The order to be deleted Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/deleteprojecttask/" title="DeleteProjectTask">
+				<h2>DeleteProjectTask</h2>
+			</a>
+
+			<br>
+			Deletes a task associated with a project
+Removes a task from the system. This cannot be undone
+Request Parameters    Parameter Type Description Required     action string &ldquo;DeleteProjectTask&rdquo; Required   projectid int The project that owns the task being deleted Required   taskid int The task to be deleted Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   message string Task has been deleted    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/deletequote/" title="DeleteProjectTask">
+				<h2>DeleteProjectTask</h2>
+			</a>
+
+			<br>
+			Deletes a quote.
+Removes a quote from the system. This cannot be undone
+Request Parameters    Parameter Type Description Required     action string &ldquo;DeleteProjectTask&rdquo; Required   quoteid int The quote id to be deleted Required   taskid int The task to be deleted Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   message string Task has been deleted    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/deleteticket/" title="DeleteTicket">
+				<h2>DeleteTicket</h2>
+			</a>
+
+			<br>
+			Deletes a ticket.
+Removes a ticket and all replies from the system. This cannot be undone.
+Request Parameters    Parameter Type Description Required     action string &ldquo;DeleteTicket&rdquo; Required   ticketid int The ticket to be deleted Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/deleteticketnote/" title="DeleteTicketNote">
+				<h2>DeleteTicketNote</h2>
+			</a>
+
+			<br>
+			Deletes a ticket note.
+Removes a ticket note from the system. This cannot be undone.
+Request Parameters    Parameter Type Description Required     action string &ldquo;DeleteTicketNote&rdquo; Required   noteid int The ticket note to be deleted Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/domaingetlockingstatus/" title="DomainGetLockingStatus">
+				<h2>DomainGetLockingStatus</h2>
+			</a>
+
+			<br>
+			Obtains the current lock status of the domain.
+Connects to the registrar and obtains the current lock status of the domain
+Request Parameters    Parameter Type Description Required     action string &ldquo;DomainGetLockingStatus&rdquo; Required   domainid int The id of the domain to obtain the lock status for Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   lockstatus string The current status of the lock.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/domaingetnameservers/" title="DomainGetNameservers">
+				<h2>DomainGetNameservers</h2>
+			</a>
+
+			<br>
+			Obtains the current nameservers for the domain.
+Connects to the registrar and obtains the nameservers for the domain
+Request Parameters    Parameter Type Description Required     action string &ldquo;DomainGetNameservers&rdquo; Required   domainid int The id of the domain to obtain the nameservers for Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   ns1 string The first nameserver on the domain   ns2 string The second nameserver on the domain   ns3 string The third nameserver on the domain   ns4 string The fourth nameserver on the domain   ns5 string The fifth nameserver on the domain    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/domaingetwhoisinfo/" title="DomainGetWhoisInfo">
+				<h2>DomainGetWhoisInfo</h2>
+			</a>
+
+			<br>
+			Obtains the current whois information for the domain.
+Connects to the registrar and obtains the whois information for the domain
+Request Parameters    Parameter Type Description Required     action string &ldquo;DomainGetWhoisInfo&rdquo; Required   domainid int The id of the domain to obtain the whois information for Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   Registrant array The registrant contact details   Admin array The admin contact details   Tech array The registrant contact details    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/domainregister/" title="DomainRegister">
+				<h2>DomainRegister</h2>
+			</a>
+
+			<br>
+			Sends the Register command to the registrar for the domain
+Connects to the registrar and attempts to register the domain.
+Request Parameters    Parameter Type Description Required     action string &ldquo;DomainRegister&rdquo; Required   domainid int The id of the domain to obtain the whois information for recommended Optional   domain string The domain name to be registered. This or $domainid is required Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/domainrelease/" title="DomainRelease">
+				<h2>DomainRelease</h2>
+			</a>
+
+			<br>
+			Sends the Release command to the registrar for the domain to a new tag
+Connects to the registrar and attempts to release the domain.
+Request Parameters    Parameter Type Description Required     action string &ldquo;DomainRelease&rdquo; Required   domainid int The id of the domain to obtain the whois information for recommended Optional   domain string The domain name to be registered. This or $domainid is required Optional   newtag string The receiving tag for the domain Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/domainrenew/" title="DomainRenew">
+				<h2>DomainRenew</h2>
+			</a>
+
+			<br>
+			Sends the Renew command to the registrar for the domain
+Connects to the registrar and attempts to renew the domain.
+Request Parameters    Parameter Type Description Required     action string &ldquo;DomainRenew&rdquo; Required   domainid int The id of the domain to obtain the whois information for recommended Optional   domain string The domain name to be registered. This or $domainid is required Optional   regperiod int How long to renew the domain for.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/domainrequestepp/" title="DomainRequestEPP">
+				<h2>DomainRequestEPP</h2>
+			</a>
+
+			<br>
+			Sends the Request EPP command to the registrar for the domain
+Connects to the registrar and attempts to obtain the EPP Code for the domain. Not all registrars return the EPP code but send them directly to the client.
+Request Parameters    Parameter Type Description Required     action string &ldquo;DomainRequestEPP&rdquo; Required   domainid int The id of the domain to obtain the whois information for Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   eppcode string If supported, the epp code.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/domaintoggleidprotect/" title="DomainToggleIdProtect">
+				<h2>DomainToggleIdProtect</h2>
+			</a>
+
+			<br>
+			Sends the Toggle ID Protect command to the registrar for the domain
+Connects to the registrar and attempts to toggle the ID Protect state
+Request Parameters    Parameter Type Description Required     action string &ldquo;DomainToggleIdProtect&rdquo; Required   domainid int The id of the domain to obtain the whois information for Required   idprotect bool Should ID Protection be turned on Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/domaintransfer/" title="DomainTransfer">
+				<h2>DomainTransfer</h2>
+			</a>
+
+			<br>
+			Sends the Transfer command to the registrar for the domain
+Connects to the registrar and attempts to start the transfer process.
+Request Parameters    Parameter Type Description Required     action string &ldquo;DomainTransfer&rdquo; Required   domainid int The id of the domain to obtain the whois information for recommended Optional   domain string The domain name to be registered. This or $domainid is required Optional   eppcode int Provide a new EPP Code for the Transfer Request Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/domainupdatelockingstatus/" title="DomainUpdateLockingStatus">
+				<h2>DomainUpdateLockingStatus</h2>
+			</a>
+
+			<br>
+			Sends the Update Lock command to the registrar for the domain
+Connects to the registrar and attempts to update the lock
+Request Parameters    Parameter Type Description Required     action string &ldquo;DomainUpdateLockingStatus&rdquo; Required   domainid int The id of the domain to obtain the whois information for Required   lockstatus bool Should the domain lock be turned on Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/domainupdatenameservers/" title="DomainUpdateNameservers">
+				<h2>DomainUpdateNameservers</h2>
+			</a>
+
+			<br>
+			Sends the Save Nameservers command to the registrar for the domain
+Connects to the registrar and attempts to update the nameservers with those provided.
+Request Parameters    Parameter Type Description Required     action string &ldquo;DomainUpdateNameservers&rdquo; Required   domainid int The id of the domain to obtain the whois information for recommended Optional   domain string The domain name to be registered. This or $domainid is required Optional   ns1 string The first nameserver Required   ns2 string The second nameserver Required   ns3 string The third nameserver Optional   ns4 string The fourth nameserver Optional   ns5 string The fifth nameserver Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/domainupdatewhoisinfo/" title="DomainUpdateWhoisInfo">
+				<h2>DomainUpdateWhoisInfo</h2>
+			</a>
+
+			<br>
+			Sends the Save Whois command to the registrar for the domain
+Connects to the registrar and attempts to update the WHOIS Information
+Request Parameters    Parameter Type Description Required     action string &ldquo;DomainUpdateWhoisInfo&rdquo; Required   domainid int The id of the domain to obtain the whois information for Required   xml string The xml of the details to update. See DomainGetWhoisInfo Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/domainwhois/" title="DomainWhois">
+				<h2>DomainWhois</h2>
+			</a>
+
+			<br>
+			Retrieve domain whois information.
+Request Parameters    Parameter Type Description Required     action string &ldquo;DomainWhois&rdquo; Required   domain string The domain name to lookup Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   status string The registration status: available or unavailable   whois string Whois server response    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/encryptpassword/" title="EncryptPassword">
+				<h2>EncryptPassword</h2>
+			</a>
+
+			<br>
+			Encrypt a string.
+Encrypting the same string twice will return different values. You will need to decrypt an encrypted string to compare values.
+Request Parameters    Parameter Type Description Required     action string &ldquo;EncryptPassword&rdquo; Required   password2 string The string to encrypt Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/endtasktimer/" title="EndTaskTimer">
+				<h2>EndTaskTimer</h2>
+			</a>
+
+			<br>
+			Ends a started timer for a project
+Request Parameters    Parameter Type Description Required     action string &ldquo;EndTaskTimer&rdquo; Required   timerid int The id of the task to be ended Required   projectid int The id of the project for the task timer Optional   adminid int The admin id to associate the timer with Optional   end_time int The end time as a unix time stamp.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/starttasktimer/" title="EndTaskTimer">
+				<h2>EndTaskTimer</h2>
+			</a>
+
+			<br>
+			Starts a timer for a project
+Request Parameters    Parameter Type Description Required     action string &ldquo;EndTaskTimer&rdquo; Required   timerid int The id of the task to be ended Required   projectid int The id of the project for the task timer Required   adminid int The admin id to associate the timer with Optional   start_time int The start time as a unix time stamp.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/fraudorder/" title="FraudOrder">
+				<h2>FraudOrder</h2>
+			</a>
+
+			<br>
+			Marks an order as fraudulent.
+Request Parameters    Parameter Type Description Required     action string &ldquo;FraudOrder&rdquo; Required   orderid int The Order ID to set as fraud Required   cancelsub bool Pass as true to cancel any PayPal Subscription(s) associated with the products &amp; services that belong to the given order. Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/geninvoices/" title="GenInvoices">
+				<h2>GenInvoices</h2>
+			</a>
+
+			<br>
+			Generate any invoices that are due to be generated
+Request Parameters    Parameter Type Description Required     action string &ldquo;GenInvoices&rdquo; Required   noemails bool Stop any invoice created emails being sent Optional   clientid int Pass to generate invoices only for a single client id Optional   serviceids int[] An array of service ids to generate invoices for Optional   domainids int[] An array of domain ids to generate invoices for Optional   addonids int[] An array of addon ids to generate invoices for Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   numcreated int The number of invoices generated   latestinvoiceid int When generating for a specific client, the last invoice id generated.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getactivitylog/" title="GetActivityLog">
+				<h2>GetActivityLog</h2>
+			</a>
+
+			<br>
+			Obtain the Activity Log that matches passed criteria
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetActivityLog&rdquo; Required   limitstart int The offset for the returned log data (default: 0) Optional   limitnum int The number of records to return (default: 25) Optional   userid int The ID of the user to obtain the log for Optional   date string The date of the activity log to retrieve in localised format (eg 01/01/2016) Optional   user string The name of the user to retrieve the log entries for Optional   description string Search the log for a specific string Optional   ipaddress string The IP Address to search the activity log for Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   startnumber int The starting number for the returned results   activity array The activity log entries returned    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getadmindetails/" title="GetAdminDetails">
+				<h2>GetAdminDetails</h2>
+			</a>
+
+			<br>
+			Obtain the details for the current Admin User
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetAdminDetails&rdquo; Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   adminid int The current user admin id   name string The &ldquo;full name&rdquo; of the admin user   notes string The current notes for the admin user   signature string The support ticket signature   allowedpermissions string A comma separated list of all permissions available for the admin user   departments string A comma separated list of all support departments the admin user belongs to   requesttime \Carbon\Carbon The date/time of the request    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getaffiliates/" title="GetAffiliates">
+				<h2>GetAffiliates</h2>
+			</a>
+
+			<br>
+			Obtain an array of affiliates
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetAffiliates&rdquo; Required   limitstart int The offset for the returned affiliate data (default: 0) Optional   limitnum int The number of records to return (default: 25) Optional   userid int Obtain affiliate data for a specific client account Optional   visitors int Provide affiliates that match a specific visitor count Optional   paytype string Provide affiliates matching the paytype provided.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getannouncements/" title="GetAnnouncements">
+				<h2>GetAnnouncements</h2>
+			</a>
+
+			<br>
+			Obtain an array of announcements
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetAnnouncements&rdquo; Required   limitstart int The offset for the returned announcement data (default: 0) Optional   limitnum int The number of records to return (default: 25) Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   startnumber int The starting number for the returned results   numreturned int The number of results returned   announcements array The announcement entries returned    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getautomationlog/" title="GetAutomationLog">
+				<h2>GetAutomationLog</h2>
+			</a>
+
+			<br>
+			Get Automation Task Log.
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetAutomationLog&rdquo; Required   startdate string Defaults to today Optional   enddate string Defaults to today Optional   namespace string Optional filter for a specific namespace Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   currentDatetime string The current system datetime.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getcancelledpackages/" title="GetCancelledPackages">
+				<h2>GetCancelledPackages</h2>
+			</a>
+
+			<br>
+			Obtain an array of cancellation requests
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetCancelledPackages&rdquo; Required   limitstart int The offset for the returned cancellation request data (default: 0) Optional   limitnum int The number of records to return (default: 25) Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   startnumber int The starting number for the returned results   numreturned int The number of results returned   packages array The cancellation request entries returned    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getclientgroups/" title="GetClientGroups">
+				<h2>GetClientGroups</h2>
+			</a>
+
+			<br>
+			Obtain an array of client groups
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetClientGroups&rdquo; Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   groups array The client group entries returned    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getclientpassword/" title="GetClientPassword">
+				<h2>GetClientPassword</h2>
+			</a>
+
+			<br>
+			Obtain the encrypted client password
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetClientPassword&rdquo; Required   userid int The userid to obtain the password for Optional   email string The email address to obtain the password for Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   password string The clients encrypted password    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getclients/" title="GetClients">
+				<h2>GetClients</h2>
+			</a>
+
+			<br>
+			Obtain the Clients that match passed criteria
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetClients&rdquo; Required   limitstart int The offset for the returned log data (default: 0) Optional   limitnum int The number of records to return (default: 25) Optional   sorting string The direction to sort the results. ASC or DESC. Default: ASC Optional   search string The search term to look for at the start of email, firstname, lastname, fullname or companyname Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   startnumber int The starting number for the returned results   numreturned int The number of results returned   clients array The client entries returned    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getclientsaddons/" title="GetClientsAddons">
+				<h2>GetClientsAddons</h2>
+			</a>
+
+			<br>
+			Obtain the Clients Product Addons that match passed criteria
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetClientsAddons&rdquo; Required   serviceid int string The service id(s) to obtain the client product addons for. Single number or comma separated list   clientid int The client to obtain the client product addons for Optional   addonid int The predefined addon id to obtain the client product addons for Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   serviceid int The specific service id searched for   clientid int The specific client id searched for   addons array The client product addons list    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getclientsdetails/" title="GetClientsDetails">
+				<h2>GetClientsDetails</h2>
+			</a>
+
+			<br>
+			Obtain the Clients Details for a specific client
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetClientsDetails&rdquo; Required   clientid int The client id to obtain the details for. $clientid or $email is required Optional   email string The email address of the client to search for Optional   stats bool Also return additional client statistics. Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   client array The information on the client.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getclientsdomains/" title="GetClientsDomains">
+				<h2>GetClientsDomains</h2>
+			</a>
+
+			<br>
+			Obtain a list of Client Purchased Domains matching the provided criteria
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetClientsDomains&rdquo; Required   limitstart int The offset for the returned log data (default: 0) Optional   limitnum int The number of records to return (default: 25) Optional   clientid int The client id to obtain the details for. Optional   domainid int The specific domain id to obtain the details for Optional   domain string The specific domain to obtain the details for Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   clientid int The specific client id searched for   domainid int The specific domain id searched for   totalresults int The total number of results available   startnumber int The starting number for the returned results   numreturned int The total number of results returned   domains array The domains that match the criteria passed    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getclientsproducts/" title="GetClientsProducts">
+				<h2>GetClientsProducts</h2>
+			</a>
+
+			<br>
+			Obtain a list of Client Purchased Products matching the provided criteria
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetClientsProducts&rdquo; Required   limitstart int The offset for the returned log data (default: 0) Optional   limitnum int The number of records to return (default: 25) Optional   clientid int The client id to obtain the details for. Optional   serviceid int The specific service id to obtain the details for Optional   pid int The specific product id to obtain the details for Optional   domain string The specific domain to obtain the service details for Optional   username2 string The specific username to obtain the details for Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   clientid int The specific client id searched for   serviceid int The specific service id searched for   pid int The specific product id searched for   domain string The specific domain searched for   totalresults int The total number of results available   startnumber int The starting number for the returned results   numreturned int The total number of results returned   products array The products returned matching the criteria passed    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getconfigurationvalue/" title="GetConfigurationValue">
+				<h2>GetConfigurationValue</h2>
+			</a>
+
+			<br>
+			Retrieve a System Configuration Value.
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetConfigurationValue&rdquo; Required   setting string The name of the setting to be obtained Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   setting string The setting name   value string The setting value    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getcontacts/" title="GetContacts">
+				<h2>GetContacts</h2>
+			</a>
+
+			<br>
+			Obtain the Client Contacts that match passed criteria
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetContacts&rdquo; Required   limitstart int The offset for the returned log data (default: 0) Optional   limitnum int The number of records to return (default: 25) Optional   userid int Find contacts for a specific client id Optional   firstname string Find contacts with a specific first name Optional   lastname string Find contacts with a specific last name Optional   companyname string Find contacts with a specific company name Optional   email string Find contacts with a specific email address Optional   address1 string Find contacts with a specific address line 1 Optional   address2 string Find contacts with a specific address line 2 Optional   city string Find contacts with a specific city Optional   state string Find contacts with a specific state Optional   postcode string Find contacts with a specific post/zip code Optional   country string Find contacts with a specific country Optional   phonenumber string Find contacts with a specific phone number Optional   subaccount bool Search for sub-accounts Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   startnumber int The starting number for the returned results   numreturned int The number of results returned   contacts array The contact entries returned    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getcredits/" title="GetCredits">
+				<h2>GetCredits</h2>
+			</a>
+
+			<br>
+			Obtain the Credit Log for a Client Account
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetCredits&rdquo; Required   clientid int The Client to obtain the log for Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   clientid int The client the log is for   credits array The credit log entries returned    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getcurrencies/" title="GetCurrencies">
+				<h2>GetCurrencies</h2>
+			</a>
+
+			<br>
+			Obtain the Currencies configured in the System
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetCurrencies&rdquo; Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   currencies array The currency entries returned    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getemailtemplates/" title="GetEmailTemplates">
+				<h2>GetEmailTemplates</h2>
+			</a>
+
+			<br>
+			Obtain a list of email templates from the system
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetEmailTemplates&rdquo; Required   type string The type of email template to retrieve Optional   language string The language of the email template to retrieve Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results returned   emailtemplates array The email templates entries returned    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getemails/" title="GetEmails">
+				<h2>GetEmails</h2>
+			</a>
+
+			<br>
+			Obtain a list of emails sent to a specific Client ID
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetEmails&rdquo; Required   clientid int The Client ID to retrieve the emails for Required   limitstart int The offset for the returned log data (default: 0) Optional   limitnum int The number of records to return (default: 25) Optional   date \Carbon\Carbon The date to retrieve emails for.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/gethealthstatus/" title="GetHealthStatus">
+				<h2>GetHealthStatus</h2>
+			</a>
+
+			<br>
+			Get health status.
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetHealthStatus&rdquo; Required   fetchStatus bool Pass as true to attempt to fetch server status values. Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getinvoice/" title="GetInvoice">
+				<h2>GetInvoice</h2>
+			</a>
+
+			<br>
+			Retrieve a specific invoice
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetInvoice&rdquo; Required   invoiceid int The ID of the invoice to retrieve Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   invoiceid int The id of the invoice   invoicenum string The Sequential Invoice Number assigned (if enabled)   userid int The id of the user owning this invoice   date \Carbon\Carbon The date of the invoice YYYY-MM-DD   duedate \Carbon\Carbon The due date of the invoice YYYY-MM-DD   datepaid \Carbon\Carbon The date the invoice was paid YYYY-MM-DD HH:ii:ss   subtotal float The subtotal on the invoice   credit float The amount of credit assigned to the invoice   tax float The amount of first level tax charged on the invoice   tax2 float The amount of second level tax charged on the invoice   total float The total of the invoice   balance float The amount left to pay on the invoice   taxrate float The rate of the first level tax   taxrate2 float The rate of the second level tax   status string The status of the invoice   paymentmethod string The payment method on the invoice in system format   notes string The notes associated with the invoice   ccgateway bool Is the payment method associated with the invoice a CC Gateway   items array The items on the invoice   transactions array The transactions on the invoice    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getinvoices/" title="GetInvoices">
+				<h2>GetInvoices</h2>
+			</a>
+
+			<br>
+			Retrieve a specific invoice
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetInvoices&rdquo; Required   limitstart int The offset for the returned invoice data (default: 0) Optional   limitnum int The number of records to return (default: 25) Optional   userid int Find invoices for a specific client id Optional   status string Find invoices for a specific status.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getmoduleconfigurationparameters/" title="GetModuleConfigurationParameters">
+				<h2>GetModuleConfigurationParameters</h2>
+			</a>
+
+			<br>
+			Obtains the Module Configuration Parameters
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetModuleConfigurationParameters&rdquo; Required   moduleType string The module type to be activated Required   moduleName string The module name to be activated Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   parameters array An array of configuration parameters available to be set for the given module.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getmodulequeue/" title="GetModuleQueue">
+				<h2>GetModuleQueue</h2>
+			</a>
+
+			<br>
+			Obtains the Module Queue for Incomplete Failed Actions
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetModuleQueue&rdquo; Required   serviceType string The type of service to load (&lsquo;domain&rsquo;, &lsquo;service&rsquo; or &ldquo;)) Optional   moduleName string The module name to obtain the queue for in system format. eg cpanel Optional   moduleAction string The module action to obtain the queue for.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getorderstatuses/" title="GetOrderStatuses">
+				<h2>GetOrderStatuses</h2>
+			</a>
+
+			<br>
+			Retrieve Order Status and number in those statuses
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetOrderStatuses&rdquo; Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   statuses array An array of order statuses    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getorders/" title="GetOrders">
+				<h2>GetOrders</h2>
+			</a>
+
+			<br>
+			Obtain orders matching the passed criteria
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetOrders&rdquo; Required   limitstart int The offset for the returned order data (default: 0) Optional   limitnum int The number of records to return (default: 25) Optional   id int Find orders for a specific id Optional   userid int Find orders for a specific client id Optional   status string Find orders for a specific status Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   startnumber int The starting number for the returned results   numreturned int The number of results returned   invoices array An array of invoices matching the criteria passed    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getpaymentmethods/" title="GetPaymentMethods">
+				<h2>GetPaymentMethods</h2>
+			</a>
+
+			<br>
+			Retrieve Activated Payment Methods
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetPaymentMethods&rdquo; Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   paymentmethods array An array of available payment methods    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getproducts/" title="GetProducts">
+				<h2>GetProducts</h2>
+			</a>
+
+			<br>
+			Retrieve configured products matching provided criteria
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetProducts&rdquo; Required   pid int string Obtain a specific product id configuration. Can be a list of ids comma separated   gid int Retrieve products in a specific group id Optional   module string Retrieve products utilising a specific module Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   startnumber int The starting number for the returned results   numreturned int The number of results returned   products array An array of products matching the criteria passed    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getproject/" title="GetProject">
+				<h2>GetProject</h2>
+			</a>
+
+			<br>
+			Retrieve a specific Project
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetProject&rdquo; Required   projectid int The project id to obtain Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   projectinfo array The project data   tasks array The project tasks and data   messages array The project messages and data    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getprojects/" title="GetProjects">
+				<h2>GetProjects</h2>
+			</a>
+
+			<br>
+			Obtain orders matching the passed criteria
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetProjects&rdquo; Required   limitstart int The offset for the returned project data (default: 0) Optional   limitnum int The number of records to return (default: 25) Optional   userid int Find projects for a specific client id Optional   title string Find projects with a specific title Optional   ticketids string Find projects with specific ticketids Optional   invoiceids string Find projects with specific invoiceids Optional   notes string Find projects with specific notes Optional   adminid int Find projects assigned to a specific admin id Optional   status string Find projects with a specific status Optional   created \Carbon\Carbon Find projects with a specific creation date Optional   duedate \Carbon\Carbon Find projects with a specific due date Optional   completed bool Find projects that are/aren&rsquo;t completed Optional   lastmodified \Carbon\Carbon Find projects with a specific last modified date Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   startnumber int The starting number for the returned results   numreturned int The number of results returned   invoices array An array of invoices matching the criteria passed    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getpromotions/" title="GetPromotions">
+				<h2>GetPromotions</h2>
+			</a>
+
+			<br>
+			Obtain promotions matching the passed criteria
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetPromotions&rdquo; Required   code string Retrieve a specific promotion code. Do not pass to retrieve all Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   promotions array An array of promotional codes matching the criteria passed    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getquotes/" title="GetQuotes">
+				<h2>GetQuotes</h2>
+			</a>
+
+			<br>
+			Obtain quotes matching the passed criteria
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetQuotes&rdquo; Required   limitstart int The offset for the returned quote data (default: 0) Optional   limitnum int The number of records to return (default: 25) Optional   quoteid int Obtain a specific quote id Optional   userid int Find quotes for a specific client id Optional   subject string Find quotes for a specific subject Optional   stage string Find quotes for a specific stage (&lsquo;Draft&rsquo;,&lsquo;Delivered&rsquo;,&lsquo;On Hold&rsquo;,&lsquo;Accepted&rsquo;,&lsquo;Lost&rsquo;,&lsquo;Dead&rsquo;) Optional   datecreated \Carbon\Carbon Find quotes for a specific created date.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getservers/" title="GetServers">
+				<h2>GetServers</h2>
+			</a>
+
+			<br>
+			Get servers.
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetServers&rdquo; Required   fetchStatus bool Pass as true to attempt to fetch server status values. Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getstaffonline/" title="GetStaffOnline">
+				<h2>GetStaffOnline</h2>
+			</a>
+
+			<br>
+			Retrieve a list of currently logged in admin users.
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetStaffOnline&rdquo; Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int Total number of users online   staffonline array An array of online staff and login details    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getstats/" title="GetStats">
+				<h2>GetStats</h2>
+			</a>
+
+			<br>
+			Obtain system statistics
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetStats&rdquo; Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   income_today float The total income today   income_thismonth float The total income this month   income_thisyear float The total income this year   income_alltime float The total income for all time   orders_pending int The count of pending orders   orders_today_cancelled int The count of cancelled orders with todays date   orders_today_pending int The count of pending orders with todays date   orders_today_fraud int The count of fraud orders with todays date   orders_today_active int The count of active orders with todays date   orders_today_total int The count of orders with todays date   orders_yesterday_cancelled int The count of cancelled orders with yesterdays date   orders_yesterday_pending int The count of pending orders with yesterdays date   orders_yesterday_fraud int The count of fraud orders with yesterdays date   orders_yesterday_active int The count of active orders with yesterdays date   orders_yesterday_total int The count of orders with yesterdays date   orders_thismonth_total int The count of orders for this month   orders_thisyear_total int The count of orders for this year   tickets_allactive int The count of active tickets   tickets_awaitingreply int The count of awaiting reply tickets   tickets_flaggedtickets int The count of tickets flagged to the admin user making the api call   tickets_open int The count of tickets in Open status   tickets_answered int The count of tickets in Answered status   tickets_customerreply int The count of tickets in Customer Reply status   tickets_closed int The count of tickets in Closed status   tickets_onhold int The count of tickets in On Hold status   tickets_inprogress int The count of tickets in In Progress status   cancellations_pending int The count of pending cancellations   todoitems_due int The count of to do items due   networkissues_open int The count open network issues   quotes_valid int The count of valid quotes   staff_online int The count of staff online    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getsupportdepartments/" title="GetSupportDepartments">
+				<h2>GetSupportDepartments</h2>
+			</a>
+
+			<br>
+			Get the support departments and associated ticket counts
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetSupportDepartments&rdquo; Required   ignore_dept_assignments bool Pass as true to not adhere to the departments the API user is a member of. Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   departments array An array of department information    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getsupportstatuses/" title="GetSupportStatuses">
+				<h2>GetSupportStatuses</h2>
+			</a>
+
+			<br>
+			Get the support statuses and number of tickets in each status
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetSupportStatuses&rdquo; Required   deptid int Obtain counts for a specific department id Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   statuses array An array of status information    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getticket/" title="GetTicket">
+				<h2>GetTicket</h2>
+			</a>
+
+			<br>
+			Obtain a specific ticket
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetTicket&rdquo; Required   ticketnum string Obtain the ticket for the specific Client Ticket Number Optional   ticketid int Obtain the ticket for the specific ticket id (Either $ticketnum or $ticketid is required) Optional   repliessort string ASC or DESC. Which order to organise the ticket replies Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   ticketid int The unique Id of the ticket   ticketnum string The client unique id of the ticket   c string The client unique access of the ticket   deptid int The id of the department the ticket belongs to   deptname string The name of the department the ticket belongs to   userid int The user id the ticket belongs to   contactid int The contact id the ticket was opened by   name string The name of the user   email string The email address of the user   cc string The cc email addresses for the ticket   date \Carbon\Carbon The date the ticket was opened Y-m-d H:i:s   subject string The subject of the ticket   status string The status of the ticket   priority string The priority of the ticket   admin string The name of the admin user who opened the ticket   admin string The name of the admin user who opened the ticket   lastreply \Carbon\Carbon The date the ticket was last replied to Y-m-d H:i:s   flag int The id of the admin user a ticket is flagged to   service string The id of the service associated with the ticket.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getticketcounts/" title="GetTicketCounts">
+				<h2>GetTicketCounts</h2>
+			</a>
+
+			<br>
+			Get ticket counts.
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetTicketCounts&rdquo; Required   ignoreDepartmentAssignments bool Pass as true to not adhere to the departments the API user is a member of. Optional   includeCountsByStatus bool Pass as true to not adhere to the departments the API user is a member of. Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getticketnotes/" title="GetTicketNotes">
+				<h2>GetTicketNotes</h2>
+			</a>
+
+			<br>
+			Obtain a specific ticket notes
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetTicketNotes&rdquo; Required   ticketid int Obtain the ticket for the specific ticket id Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results being returned   notes array An array of notes information    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getticketpredefinedcats/" title="GetTicketPredefinedCats">
+				<h2>GetTicketPredefinedCats</h2>
+			</a>
+
+			<br>
+			Obtain the Predefined Ticket Reply Categories
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetTicketPredefinedCats&rdquo; Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results being returned   categories array An array of the reply categories    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/getticketpredefinedreplies/" title="GetTicketPredefinedReplies">
+				<h2>GetTicketPredefinedReplies</h2>
+			</a>
+
+			<br>
+			Obtain the Predefined Ticket Replies
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetTicketPredefinedReplies&rdquo; Required   catid int Obtain predefined replies for a specific category id Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results returned   predefinedreplies array An array of predefined replies    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/gettickets/" title="GetTickets">
+				<h2>GetTickets</h2>
+			</a>
+
+			<br>
+			Obtain tickets matching the passed criteria
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetTickets&rdquo; Required   limitstart int The offset for the returned quote data (default: 0) Optional   limitnum int The number of records to return (default: 25) Optional   deptid int Obtain tickets in a specific department Optional   clientid int Find tickets for a specific client id Optional   email string Find tickets for a specific non-client email address Optional   status string Find tickets matching a specific status.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/gettodoitemstatuses/" title="GetToDoItemStatuses">
+				<h2>GetToDoItemStatuses</h2>
+			</a>
+
+			<br>
+			Obtain To Do item statuses and counts
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetToDoItemStatuses&rdquo; Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   todoitemstatuses array An array of to do item statuses and counts    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/gettodoitems/" title="GetToDoList">
+				<h2>GetToDoList</h2>
+			</a>
+
+			<br>
+			Get To-Do List Items.
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetToDoList&rdquo; Required   limitstart int The offset for the returned log data (default: 0) Optional   limitnum int The number of records to return (default: 25) Optional   status string Status to filter for. Possible values include: Incomplete, New, Pending, In Progress, Completed Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   startnumber int The starting number for the returned results   items array The to-do list entries    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/gettransactions/" title="GetTransactions">
+				<h2>GetTransactions</h2>
+			</a>
+
+			<br>
+			Obtain transactions matching the passed criteria
+Request Parameters    Parameter Type Description Required     action string &ldquo;GetTransactions&rdquo; Required   invoiceid int Obtain transactions for a specific invoice id Optional   clientid int Find transactions for a specific client id Optional   transid string Find transactions for a specific transaction id Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   totalresults int The total number of results available   startnumber int The starting number for the returned results   numreturned int The number of results returned   transactions array An array of transactions matching the criteria passed    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/listoauthcredentials/" title="ListOAuthCredentials">
+				<h2>ListOAuthCredentials</h2>
+			</a>
+
+			<br>
+			List OAuth Credentials matching passed criteria
+Request Parameters    Parameter Type Description Required     action string &ldquo;ListOAuthCredentials&rdquo; Required   grantType string Find credentials for a specific grant type Optional   sortField string Sort the response using the passed field Optional   sortOrder string The direction of the sort order (&lsquo;ASC&rsquo;, &lsquo;DESC&rsquo;) Optional   limit int To limit the number of returned credentials Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   clients array An array of client oAuth credentials    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/logactivity/" title="LogActivity">
+				<h2>LogActivity</h2>
+			</a>
+
+			<br>
+			Creates an activity log entry.
+Request Parameters    Parameter Type Description Required     action string &ldquo;LogActivity&rdquo; Required   userid int  Optional   description string  Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/modulechangepackage/" title="ModuleChangePackage">
+				<h2>ModuleChangePackage</h2>
+			</a>
+
+			<br>
+			Runs a change package action for a given service.
+Request Parameters    Parameter Type Description Required     action string &ldquo;ModuleChangePackage&rdquo; Required   accountid int The service ID to run the action for Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/modulechangepw/" title="ModuleChangePw">
+				<h2>ModuleChangePw</h2>
+			</a>
+
+			<br>
+			Runs a change password action for a given service.
+Request Parameters    Parameter Type Description Required     action string &ldquo;ModuleChangePw&rdquo; Required   accountid int The service ID to run the action for Required   servicepassword string A new password to assign to the service Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/modulecreate/" title="ModuleCreate">
+				<h2>ModuleCreate</h2>
+			</a>
+
+			<br>
+			Runs the module create action for a given service.
+Request Parameters    Parameter Type Description Required     action string &ldquo;ModuleCreate&rdquo; Required   accountid int The service ID to run the action for Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/modulecustom/" title="ModuleCustom">
+				<h2>ModuleCustom</h2>
+			</a>
+
+			<br>
+			Runs a custom module action for a given service.
+Request Parameters    Parameter Type Description Required     action string &ldquo;ModuleCustom&rdquo; Required   accountid int The service ID to run the action for Required   func_name string The name of the custom function to run Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/modulesuspend/" title="ModuleSuspend">
+				<h2>ModuleSuspend</h2>
+			</a>
+
+			<br>
+			Runs the module suspend action for a given service.
+Request Parameters    Parameter Type Description Required     action string &ldquo;ModuleSuspend&rdquo; Required   accountid int The service ID to run the action for Required   suspendreason string A reason for the suspension Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/moduleterminate/" title="ModuleTerminate">
+				<h2>ModuleTerminate</h2>
+			</a>
+
+			<br>
+			Runs a terminate action for a given service.
+Request Parameters    Parameter Type Description Required     action string &ldquo;ModuleTerminate&rdquo; Required   accountid int The service ID to run the action for Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/moduleunsuspend/" title="ModuleUnsuspend">
+				<h2>ModuleUnsuspend</h2>
+			</a>
+
+			<br>
+			Runs an unsuspend action for a given service.
+Request Parameters    Parameter Type Description Required     action string &ldquo;ModuleUnsuspend&rdquo; Required   accountid int The service ID to run the action for Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/openticket/" title="OpenTicket">
+				<h2>OpenTicket</h2>
+			</a>
+
+			<br>
+			Open a new ticket
+Request Parameters    Parameter Type Description Required     action string &ldquo;OpenTicket&rdquo; Required   deptid int The department to open the ticket in Required   subject string The subject of the ticket Required   message string The message of the ticket Required   clientid int If applicable, the Client ID to create the ticket for. Optional   contactid int If applicable, the Contact ID to create the ticket for (only if $clientid is passed).
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/orderfraudcheck/" title="OrderFraudCheck">
+				<h2>OrderFraudCheck</h2>
+			</a>
+
+			<br>
+			Run a fraud check on a passed Order ID
+Request Parameters    Parameter Type Description Required     action string &ldquo;OrderFraudCheck&rdquo; Required   orderid int The order id to complete the fraud check on Required   ipaddress string To override the IP address on the fraud check Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   status string The status of the fraud check   results string The serialised results of the fraud check    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/pendingorder/" title="PendingOrder">
+				<h2>PendingOrder</h2>
+			</a>
+
+			<br>
+			Sets an order, and all associated order items to Pending status
+Request Parameters    Parameter Type Description Required     action string &ldquo;PendingOrder&rdquo; Required   orderid int The order id to be accepted Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/sendadminemail/" title="SendAdminEmail">
+				<h2>SendAdminEmail</h2>
+			</a>
+
+			<br>
+			Send an Admin Email Notification
+Request Parameters    Parameter Type Description Required     action string &ldquo;SendAdminEmail&rdquo; Required   messagename string The name of the admin email template to send Optional   custommessage string The HTML message body to send for a custom email Optional   customsubject string The subject to send for a custom email Optional   type string Which type of admin notification will be sent (&lsquo;system&rsquo;, &lsquo;account&rsquo;, &lsquo;support&rsquo;) Optional   deptid int The Id of the department the notification is for if &lsquo;support&rsquo; $type Optional   mergefields array The merge fields to be used in the email template Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/sendemail/" title="SendEmail">
+				<h2>SendEmail</h2>
+			</a>
+
+			<br>
+			Send a client Email Notification
+Request Parameters    Parameter Type Description Required     action string &ldquo;SendEmail&rdquo; Required   messagename string The name of the client email template to send Optional   id int The related id for the type of email template. Eg this should be the client id for a general type email Optional   customtype string The type of custom email template to send (&lsquo;general&rsquo;, &lsquo;product&rsquo;, &lsquo;domain&rsquo;, &lsquo;invoice&rsquo;, &lsquo;support&rsquo;, &lsquo;affiliate&rsquo;) Optional   custommessage string The HTML message body to send for a custom email Optional   customsubject string The subject to send for a custom email Optional   customvars array The custom variables to provide to the email template.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/sendquote/" title="SendQuote">
+				<h2>SendQuote</h2>
+			</a>
+
+			<br>
+			Send a quote to the associated client
+Request Parameters    Parameter Type Description Required     action string &ldquo;SendQuote&rdquo; Required   quoteid int The id of the quote to send Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/setconfigurationvalue/" title="SetConfigurationValue">
+				<h2>SetConfigurationValue</h2>
+			</a>
+
+			<br>
+			Set a System Configuration Value via the local API only.
+Request Parameters    Parameter Type Description Required     action string &ldquo;SetConfigurationValue&rdquo; Required   setting string The setting name to change Required   value string The value to set. Leave value blank to unset. Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   value_changed bool Confirmation that the value was changed    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updateadminnotes/" title="UpdateAdminNotes">
+				<h2>UpdateAdminNotes</h2>
+			</a>
+
+			<br>
+			Update the admin notes
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateAdminNotes&rdquo; Required   notes string The new value for the admin notes Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updateannouncement/" title="UpdateAnnouncement">
+				<h2>UpdateAnnouncement</h2>
+			</a>
+
+			<br>
+			Update a specific announcement
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateAnnouncement&rdquo; Required   announcementid string The id of the announcement to update Required   title string The title of the announcement (if required to change) Optional   announcement string The message of the announcement (if required to change) Optional   date \Carbon\Carbon The date of the announcement (if required to change) (Y-m-d H:i:s) Optional   published bool Publish the announcement 1&frasl;0 (if required to change) Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   announcementid int The id of the announcement updated    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updateclient/" title="UpdateClient">
+				<h2>UpdateClient</h2>
+			</a>
+
+			<br>
+			Updates a client with the passed parameters.
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateClient&rdquo; Required   clientid int The id of the client to update Optional   clientemail string The email address of the client to update. Either $clientid or $clientemail is required Optional   firstname string  Optional   lastname string  Optional   companyname string  Optional   email string  Optional   address1 string  Optional   address2 string  Optional   city string  Optional   state string  Optional   postcode string  Optional   country string 2 character ISO country code Optional   phonenumber string  Optional   password2 string  Optional   securityqid int Security Question ID from tbladminsecurityquestions Optional   securityqans string Security Question Answer Optional   cardtype string Credit card type.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updateclientaddon/" title="UpdateClientAddon">
+				<h2>UpdateClientAddon</h2>
+			</a>
+
+			<br>
+			Updates a Client Addon
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateClientAddon&rdquo; Required   id int The id of the client addon to update Required   status string The status to change the addon to Optional   terminationDate \Carbon\Carbon The termination date of the addon Y-m-d Optional   addonid int The configured addon id to update the client addon to Optional   name string The custom name to apply to the addon Optional   setupfee float The setup fee for the client addon Optional   recurring float The recurring amount for the client addon Optional   billingcycle string The billing cycle for the addon Optional   nextduedate \Carbon\Carbon The next due date for the addon Y-m-d Optional   nextinvoicedate \Carbon\Carbon The next invoice date for the addon Y-m-d Optional   terminationDate \Carbon\Carbon The termination date of the addon Y-m-d Optional   notes string The admin notes to associate with the addon Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   id int The Id of the updated addon    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updateclientdomain/" title="UpdateClientDomain">
+				<h2>UpdateClientDomain</h2>
+			</a>
+
+			<br>
+			Updates a Client Domain
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateClientDomain&rdquo; Required   domainid int The id of the client domain to update Required   dnsmanagement bool Enable/Disable DNS Management Optional   emailforwarding bool Enable/Disable Email Forwarding Optional   idprotection bool Enable/Disable ID Protection Optional   donotrenew bool Enable/Disable Do Not Renew Optional   type string The type of domain order.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updateclientproduct/" title="UpdateClientProduct">
+				<h2>UpdateClientProduct</h2>
+			</a>
+
+			<br>
+			Updates a Client Service
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateClientProduct&rdquo; Required   serviceid int The id of the client service to update Required   pid int The package id to associate with the service Optional   serverid int The server id to associate with the service Optional   nextduedate \Carbon\Carbon The next due date of the service (Y-m-d) Optional   terminationDate \Carbon\Carbon Update the termination date of the service (Y-m-d) Optional   completedDate \Carbon\Carbon Update the completed date of the service (Y-m-d) Optional   domain string The domain name to be changed to Optional   firstpaymentamount float The first payment amount on the service Optional   recurringamount float The recurring amount for automatic renewal invoices Optional   paymentmethod string The payment method to associate in system format (eg paypal) Optional   subscriptionid string The subscription ID to associate with the service Optional   status string The status to change the service to Optional   notes string The admin notes for the service Optional   serviceusername string The service username Optional   servicepassword string The service password Optional   overideautosuspend string Should override auto suspend be provided (&lsquo;on&rsquo; or &lsquo;off&rsquo;) Optional   overidesuspenduntil \Carbon\Carbon Update the Override Suspend date of the service (Y-m-d) Optional   ns1 string (VPS/Dedicated servers only) Optional   ns2 string (VPS/Dedicated servers only) Optional   dedicatedip string  Optional   assignedips string (VPS/Dedicated servers only) Optional   diskusage int The disk usage in bytes Optional   disklimit int The disk limit in bytes Optional   bwusage int The bandwidth usage in bytes Optional   bwlimit int The bandwidth limit in bytes Optional   overidesuspenduntil \Carbon\Carbon  Optional   suspendreason string  Optional   promoid int The promotion Id to associate Optional   unset array An array of items to unset.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updatecontact/" title="UpdateContact">
+				<h2>UpdateContact</h2>
+			</a>
+
+			<br>
+			Updates a contact with the passed parameters.
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateContact&rdquo; Required   contactid int The id of the contact to update Required   subaccount bool Is the contact a subaccount Optional   firstname string  Optional   lastname string  Optional   companyname string  Optional   email string  Optional   address1 string  Optional   address2 string  Optional   city string  Optional   state string  Optional   postcode string  Optional   country string 2 character ISO country code Optional   phonenumber string  Optional   password2 string (sub-account only) Optional   generalemails bool Should the contact receive general emails Optional   productemails bool Should the contact receive product emails Optional   domainemails bool Should the contact receive domain emails Optional   invoiceemails bool Should the contact receive invoice emails Optional   supportemails bool Should the contact receive support emails Optional   permissions string A comma separated list of sub-account permissions.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updateinvoice/" title="UpdateInvoice">
+				<h2>UpdateInvoice</h2>
+			</a>
+
+			<br>
+			Create an invoice using the provided parameters.
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateInvoice&rdquo; Required   invoiceid int The ID of the invoice to update Required   status string The status of the invoice being Optional   paymentmethod string The payment method of the invoice in system format Optional   taxrate float The first level tax rate to apply to the invoice to override the system default Optional   taxrate2 float The second level tax rate to apply to the invoice to override the system default Optional   subtotal float Update the subtotal of the invoice Optional   total float Update the total of the invoice Optional   credit float Update the credit applied to the invoice Optional   date \Carbon\Carbon The date that the invoice should show as created YYYY-mm-dd Optional   duedate \Carbon\Carbon The due date of the invoice YYYY-mm-dd Optional   datepaid \Carbon\Carbon The date paid of the invoice YYYY-mm-dd Optional   notes string The notes to appear on the invoice Optional   itemdescription string[] An array of lineItemId =&gt; Description of items to change Optional   itemamount float[] An array of lineItemId =&gt; amount of items to change Optional   itemtaxed bool[] An array of lineItemId =&gt; taxed of items to change Optional   newitemdescription string[] The line items description Optional   newitemamount float[] The line items amount Optional   newitemtaxed bool[] The line items is taxed value Optional   deletelineids int[] An array of line item ids to remove from the invoice Optional   publish bool Publish the invoice Optional   publishandsendemail bool Publish and email the invoice Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   invoiceid int The ID of the update invoice    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updatemoduleconfiguration/" title="UpdateModuleConfiguration">
+				<h2>UpdateModuleConfiguration</h2>
+			</a>
+
+			<br>
+			Activates a given module.
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateModuleConfiguration&rdquo; Required   moduleType string The module type to be activated Required   moduleName string The module name to be activated Required   parameters array An array of configuration parameters to set for the given module. Use GetModuleConfigurationParameters to obtain a list of fields for a given module.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updateoauthcredential/" title="UpdateOAuthCredential">
+				<h2>UpdateOAuthCredential</h2>
+			</a>
+
+			<br>
+			Updates a given OAuth API Client Credential.
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateOAuthCredential&rdquo; Required   credentialId int The auto increment ID of the credential set to be updated Required   clientApiIdentifier string The OAuth API Client Credential Unique Identifier (Client ID) to be updated. Only required if credentialId is not known/passed. Optional   name string The name to assign Optional   description string The description to assign Optional   grantType string The grant type for which the credential set is valid for.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updateproject/" title="UpdateProject">
+				<h2>UpdateProject</h2>
+			</a>
+
+			<br>
+			Updates a project
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateProject&rdquo; Required   projectid int The project ID to update Required   adminid int The adminId the project will be associated with Optional   userid int The user that the project is for Optional   status string The status of the project as defined in Project Management Settings Optional   created \Carbon\Carbon The created date of the project in Y-m-d format Optional   duedate \Carbon\Carbon The duedate date of the project in Y-m-d format Optional   completed bool Is the project completed Optional   title string The title of the project Optional   ticketids string A comma separated list of ticket IDs to associate with the project Optional   invoiceids string A comma separated list of invoice IDs to associate with the project Optional   notes string The notes to associate with the project Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   message string &lsquo;Project Has Been Updated&rsquo;    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updateprojecttask/" title="UpdateProjectTask">
+				<h2>UpdateProjectTask</h2>
+			</a>
+
+			<br>
+			Adds a Task to a project
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateProjectTask&rdquo; Required   taskid int The id of the project task to update Required   projectid int Change the project a task is assigned to Optional   duedate \Carbon\Carbon The duedate for the task. Format YYYY-mm-dd Optional   adminid int The admin id to associate the task with Optional   task string The task title Optional   notes string The notes for the task Optional   completed bool Has the task been completed Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   message string &lsquo;Task has been updated&rsquo;    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updatequote/" title="UpdateQuote">
+				<h2>UpdateQuote</h2>
+			</a>
+
+			<br>
+			Updates an existing quote
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateQuote&rdquo; Required   quoteid int The ID of the quote to update Required   subject string The subject of the quote Optional   stage string The current stage of the quote (&lsquo;Draft&rsquo;,&lsquo;Delivered&rsquo;,&lsquo;On Hold&rsquo;,&lsquo;Accepted&rsquo;,&lsquo;Lost&rsquo;,&lsquo;Dead&rsquo;) Optional   validuntil string The date the quote is valid until in localised format (eg DD/MM/YYYY) Optional   datecreated string The date the quote was created in localised format (eg DD/MM/YYYY) Optional   lineitems array A base64 encoded serialized array containing the following keys: Optional   lineitems[x][id] int For $lineitems.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updateticket/" title="UpdateTicket">
+				<h2>UpdateTicket</h2>
+			</a>
+
+			<br>
+			Updates an existing ticket
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateTicket&rdquo; Required   ticketid int The ticket Id to update Required   deptid int The department id of the ticket Optional   status string The status of the ticket Optional   subject string The subject of the ticket Optional   userid int If applicable, the Client ID to update the ticket for.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updatetodoitem/" title="UpdateToDoItem">
+				<h2>UpdateToDoItem</h2>
+			</a>
+
+			<br>
+			Update To-Do Item.
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateToDoItem&rdquo; Required   itemid int The id of the To-Do item to be updated. Optional   adminid int The admin id performing the update. Optional   status string The status of the to-do item. Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   itemid int The To-Do item ID affected.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/updatetransaction/" title="UpdateTransaction">
+				<h2>UpdateTransaction</h2>
+			</a>
+
+			<br>
+			Updates a transaction in the system
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpdateTransaction&rdquo; Required   transactionid int The unique id of the transaction to update Required   refundid int The unique id of the transaction that this transaction refunds Optional   userid int The ID of the user to apply the transaction to Optional   invoiceid int The ID of the invoice the transaction is for Optional   transid string The unique transaction id for this payment Optional   date \Carbon\Carbon The date of the transaction Y-m-d Optional   gateway string The gateway of the transaction in system format Optional   currency int The currency id for the transaction if not associated with a user Optional   description string The description of the transaction Optional   amountin float The amount received by the payment Optional   fees float The amount of fee charged on the transaction by the merchant - This can be negative Optional   amountout float The amount paid out by the payment Optional   rate float The exchange rate for the payment based on the default currency Optional   credit bool Should the payment be applied to credit on the client account.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/upgradeproduct/" title="UpgradeProduct">
+				<h2>UpgradeProduct</h2>
+			</a>
+
+			<br>
+			Upgrade, or calculate an upgrade on, a product
+Request Parameters    Parameter Type Description Required     action string &ldquo;UpgradeProduct&rdquo; Required   serviceid int The ID of the service to update Required   calconly bool Only calculate the upgrade amount Optional   paymentmethod string The upgrade payment method in system format (e.g. paypal) Required   type string The type of upgrade (&lsquo;product&rsquo;, &lsquo;configoptions&rsquo;) Required   newproductid int The Id of the new product Optional   newproductbillingcycle string The new products billing cycle Optional   promocode string The promotion code to apply to the upgrade Optional   configoptions array An array of config options to upgrade Optional   configoptions[id] int The id of the config option Optional   configoptions[optiontype] int The config option type Optional   configoptions[selectedvalue] int The config option selected value Optional   configoptions[selectedqty] int The config option quantity selected Optional    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   upgradeinprogress bool Is an upgrade in progress (for calconly)    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/api-reference/validatelogin/" title="ValidateLogin">
+				<h2>ValidateLogin</h2>
+			</a>
+
+			<br>
+			Validate client login credentials.
+This command can be used to validate an email address and password against a registered user in WHMCS. On success, the userid and password hash will be returned which can be used to create an authenticated session.
+Request Parameters    Parameter Type Description Required     action string &ldquo;ValidateLogin&rdquo; Required   email string Client or Sub-Account Email Address Required   password2 string Password to validate Required    Response Parameters    Parameter Type Description     result string The result of the operation: success or error   userid int Client ID   contactid int Contact ID if credentials match with a Sub-Account   passwordhash string Password hash    Example Request (CURL) $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, &lsquo;<a href="https://www">https://www</a>.
+
+			<hr>
+			
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2017 Released under the MIT license &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+      </div>
+    </div>
   </div>
-</div>
+
 </main>
 
 

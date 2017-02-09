@@ -2,10 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hooks-references on WHMCS Developer Documentation</title>
-    <link>//developers.whmcs.com/hooks-reference/</link>
+    <link>//developers.whmcs.com/hooks-reference/index.xml</link>
     <description>Recent content in Hooks-references on WHMCS Developer Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Released under the MIT license</copyright>
     <atom:link href="//developers.whmcs.com/hooks-reference/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -1486,9 +1487,9 @@ add_hook(&#39;AdminHomepage&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;adminlogout&#34;&gt;AdminLogout&lt;/h2&gt;
+&lt;h2 id=&#34;adminlogin&#34;&gt;AdminLogin&lt;/h2&gt;
 
-&lt;p&gt;Executes on Admin log out&lt;/p&gt;
+&lt;p&gt;Executes on Admin log in&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -1512,19 +1513,19 @@ add_hook(&#39;AdminHomepage&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;No Response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-12&#34;&gt;Example code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;AdminLogout&#39;, 1, function($vars) {
+add_hook(&#39;AdminLogin&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;adminproductconfigfields&#34;&gt;AdminProductConfigFields&lt;/h2&gt;
+&lt;h2 id=&#34;adminlogout&#34;&gt;AdminLogout&lt;/h2&gt;
 
-&lt;p&gt;Executes as a product is being edited.&lt;/p&gt;
+&lt;p&gt;Executes on Admin log out&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-13&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -1539,7 +1540,7 @@ add_hook(&#39;AdminLogout&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;pid&lt;/td&gt;
+&lt;td&gt;adminid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -1548,19 +1549,19 @@ add_hook(&#39;AdminLogout&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response-13&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;An array of key -&amp;gt; value pairs to display on the Other tab.&lt;/p&gt;
+&lt;p&gt;No response supported&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-13&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;AdminProductConfigFields&#39;, 1, function($vars) {
+add_hook(&#39;AdminLogout&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;adminproductconfigfieldssave&#34;&gt;AdminProductConfigFieldsSave&lt;/h2&gt;
+&lt;h2 id=&#34;adminproductconfigfields&#34;&gt;AdminProductConfigFields&lt;/h2&gt;
 
-&lt;p&gt;Executes as a product is being saved. Access The Request variables to save custom config fields.&lt;/p&gt;
+&lt;p&gt;Executes as a product is being edited.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-14&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -1584,9 +1585,45 @@ add_hook(&#39;AdminProductConfigFields&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response-14&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;An array of key -&amp;gt; value pairs to display on the Other tab.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-14&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AdminProductConfigFields&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;adminproductconfigfieldssave&#34;&gt;AdminProductConfigFieldsSave&lt;/h2&gt;
+
+&lt;p&gt;Executes as a product is being saved. Access The Request variables to save custom config fields.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-15&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;pid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-15&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-15&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;AdminProductConfigFieldsSave&#39;, 1, function($vars) {
@@ -1598,7 +1635,7 @@ add_hook(&#39;AdminProductConfigFieldsSave&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes as the service is being saved, after any changes have been made.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-15&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-16&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -1624,11 +1661,11 @@ add_hook(&#39;AdminProductConfigFieldsSave&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-15&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-16&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-15&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-16&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;AdminServiceEdit&#39;, 1, function($vars) {
@@ -1640,7 +1677,7 @@ add_hook(&#39;AdminServiceEdit&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when an invoice is first created by an admin user. The invoice has not been delivered to the client at this point.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-16&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-17&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -1678,11 +1715,11 @@ add_hook(&#39;AdminServiceEdit&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-16&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-17&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-16&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-17&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;InvoiceCreationAdminArea&#39;, 1, function($vars) {
@@ -1694,7 +1731,7 @@ add_hook(&#39;InvoiceCreationAdminArea&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes as the service is being saved, before any changes have been made.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-17&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-18&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -1714,11 +1751,11 @@ add_hook(&#39;InvoiceCreationAdminArea&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-17&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-18&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-17&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-18&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;PreAdminServiceEdit&#39;, 1, function($vars) {

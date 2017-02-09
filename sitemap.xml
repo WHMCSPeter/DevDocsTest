@@ -2,626 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>//developers.whmcs.com/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/README/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/about/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/acceptorder/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/acceptquote/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/activatemodule/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addannouncement/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addbannedip/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addbillableitem/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addcancelrequest/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addclient/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addclientnote/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addcontact/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addcredit/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addinvoicepayment/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addorder/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addproduct/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addprojectmessage/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addprojecttask/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addticketnote/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addticketreply/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/addtransaction/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/addon-modules/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/advanced/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/affiliateactivate/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/applycredit/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/cancelorder/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/capturepayment/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/classes-reference/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/closeclient/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/createinvoice/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/createoauthcredential/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/createproject/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/createquote/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/deactivatemodule/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/decryptpassword/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/deleteannouncement/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/deleteclient/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/deletecontact/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/deleteoauthcredential/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/deleteorder/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/deleteprojecttask/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/deletequote/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/deleteticket/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/deleteticketnote/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/domain-registrars/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/domaingetlockingstatus/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/domaingetnameservers/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/domaingetwhoisinfo/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/domainregister/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/domainrelease/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/domainrenew/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/domainrequestepp/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/domaintoggleidprotect/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/domaintransfer/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/domainupdatelockingstatus/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/domainupdatenameservers/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/domainupdatewhoisinfo/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/domainwhois/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/encryptpassword/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/endtasktimer/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/starttasktimer/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/fraudorder/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/geninvoices/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getactivitylog/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getadmindetails/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getaffiliates/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getannouncements/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getautomationlog/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getcancelledpackages/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getclientgroups/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getclientpassword/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getclients/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getclientsaddons/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getclientsdetails/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getclientsdomains/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getclientsproducts/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getconfigurationvalue/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getcontacts/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getcredits/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getcurrencies/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getemailtemplates/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getemails/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/gethealthstatus/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getinvoice/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getinvoices/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getmoduleconfigurationparameters/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getmodulequeue/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getorderstatuses/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getorders/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getpaymentmethods/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getproducts/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getproject/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getprojects/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getpromotions/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getquotes/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getservers/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getstaffonline/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getstats/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getsupportdepartments/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getsupportstatuses/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getticket/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getticketcounts/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getticketnotes/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getticketpredefinedcats/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/getticketpredefinedreplies/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/gettickets/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/gettodoitemstatuses/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/gettodoitems/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/gettransactions/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/hooks/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/hooks-reference/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/intro/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/languages/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/listoauthcredentials/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/logactivity/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/modulechangepackage/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/modulechangepw/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/modulecreate/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/modulecustom/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/modulesuspend/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/moduleterminate/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/moduleunsuspend/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/modules/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/oauth/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/openticket/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/orderfraudcheck/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/payment-gateways/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/pendingorder/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/provisioning-modules/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/sendadminemail/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/sendemail/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/sendquote/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/setconfigurationvalue/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/themes/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updateadminnotes/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updateannouncement/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updateclient/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updateclientaddon/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updateclientdomain/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updateclientproduct/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updatecontact/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updateinvoice/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updatemoduleconfiguration/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updateoauthcredential/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updateproject/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updateprojecttask/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updatequote/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updateticket/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updatetodoitem/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/updatetransaction/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/upgradeproduct/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/validatelogin/</loc>
-  </url>
-  
-  <url>
     <loc>//developers.whmcs.com/hooks/getting-started/</loc>
   </url>
   
@@ -1043,6 +423,707 @@
   
   <url>
     <loc>//developers.whmcs.com/themes/github/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/README/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/about/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/about/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/acceptorder/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/acceptquote/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/activatemodule/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addannouncement/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addbannedip/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addbillableitem/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addcancelrequest/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addclient/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addclientnote/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addcontact/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addcredit/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addinvoicepayment/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addorder/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addproduct/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addprojectmessage/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addprojecttask/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addticketnote/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addticketreply/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/addtransaction/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/addon-modules/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/addon-modules/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/advanced/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/advanced/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/affiliateactivate/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/applycredit/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/cancelorder/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/capturepayment/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/classes-reference/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/classes-reference/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/closeclient/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/createinvoice/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/createoauthcredential/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/createproject/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/createquote/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/deactivatemodule/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/decryptpassword/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/deleteannouncement/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/deleteclient/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/deletecontact/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/deleteoauthcredential/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/deleteorder/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/deleteprojecttask/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/deletequote/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/deleteticket/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/deleteticketnote/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/domain-registrars/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/domain-registrars/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/domaingetlockingstatus/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/domaingetnameservers/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/domaingetwhoisinfo/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/domainregister/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/domainrelease/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/domainrenew/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/domainrequestepp/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/domaintoggleidprotect/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/domaintransfer/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/domainupdatelockingstatus/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/domainupdatenameservers/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/domainupdatewhoisinfo/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/domainwhois/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/encryptpassword/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/endtasktimer/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/starttasktimer/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/fraudorder/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/geninvoices/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getactivitylog/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getadmindetails/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getaffiliates/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getannouncements/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getautomationlog/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getcancelledpackages/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getclientgroups/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getclientpassword/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getclients/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getclientsaddons/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getclientsdetails/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getclientsdomains/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getclientsproducts/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getconfigurationvalue/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getcontacts/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getcredits/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getcurrencies/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getemailtemplates/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getemails/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/gethealthstatus/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getinvoice/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getinvoices/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getmoduleconfigurationparameters/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getmodulequeue/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getorderstatuses/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getorders/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getpaymentmethods/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getproducts/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getproject/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getprojects/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getpromotions/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getquotes/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getservers/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getstaffonline/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getstats/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getsupportdepartments/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getsupportstatuses/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getticket/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getticketcounts/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getticketnotes/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getticketpredefinedcats/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getticketpredefinedreplies/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/gettickets/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/gettodoitemstatuses/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/gettodoitems/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/gettransactions/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/hooks/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/hooks/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/hooks-reference/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/hooks-reference/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/intro/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/intro/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/languages/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/languages/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/listoauthcredentials/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/logactivity/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/modulechangepackage/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/modulechangepw/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/modulecreate/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/modulecustom/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/modulesuspend/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/moduleterminate/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/moduleunsuspend/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/modules/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/modules/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/oauth/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/oauth/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/openticket/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/orderfraudcheck/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/payment-gateways/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/payment-gateways/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/pendingorder/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/provisioning-modules/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/provisioning-modules/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/sendadminemail/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/sendemail/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/sendquote/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/setconfigurationvalue/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/themes/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/themes/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updateadminnotes/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updateannouncement/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updateclient/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updateclientaddon/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updateclientdomain/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updateclientproduct/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updatecontact/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updateinvoice/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updatemoduleconfiguration/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updateoauthcredential/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updateproject/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updateprojecttask/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updatequote/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updateticket/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updatetodoitem/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updatetransaction/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/upgradeproduct/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/validatelogin/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>

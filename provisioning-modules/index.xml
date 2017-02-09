@@ -2,10 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Provisioning-modules on WHMCS Developer Documentation</title>
-    <link>//developers.whmcs.com/provisioning-modules/</link>
+    <link>//developers.whmcs.com/provisioning-modules/index.xml</link>
     <description>Recent content in Provisioning-modules on WHMCS Developer Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>Released under the MIT license</copyright>
     <atom:link href="//developers.whmcs.com/provisioning-modules/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
@@ -314,7 +315,7 @@ The parameters also contains the settings from the product itself.&lt;/p&gt;
 
 &lt;tr&gt;
 &lt;td&gt;producttype&lt;/td&gt;
-&lt;td&gt;The product type which can be one of sharedhosting, reselleraccount, server or other.&lt;/td&gt;
+&lt;td&gt;The product type which can be one of hostingaccount, reselleraccount, server or other.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
