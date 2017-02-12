@@ -112,26 +112,16 @@
 <main class="main">
 
   <div class="container">
-    <div class="row">
-      <div class="col-sm-3">
 
-        
-          <ul class="sidebar-nav">
-          </ul>
-        
+	<h1>Pages in Api</h1>
 
-      </div>
-      <div class="col-sm-9">
+	
+	<a href="//developers.whmcs.com/api/" title="API">
+		<h2>API</h2>
+	</a>
 
-			<h1>Pages in Api</h1>
-
-			
-			<a href="//developers.whmcs.com/api/" title="API">
-				<h2>API</h2>
-			</a>
-
-			<br>
-			Introduction The WHMCS API allows you to perform operations and actions within WHMCS from external third party and custom code.
+	<br>
+	Introduction The WHMCS API allows you to perform operations and actions within WHMCS from external third party and custom code.
  Getting Started
 Learn about how to get started with the API Authentication
 Learn how authentication works for the WHMCS API Access Control
@@ -139,99 +129,87 @@ Learn how IP and Access Key control works for the WHMCS API Response Types
 Learn about the different response types Sample Code
 See sample code for remotely connecting to the WHMCS API Internal API
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/api/getting-started/" title="Getting Started">
-				<h2>Getting Started</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/api/getting-started/" title="Getting Started">
+		<h2>Getting Started</h2>
+	</a>
 
-			<br>
-			Two methods are provided for accessing the API.
+	<br>
+	Two methods are provided for accessing the API.
 External API The External API should be used when the system making the call is hosted remotely from the WHMCS installation.
 This API accepts POST requests to the API endpoint located at:
  <a href="https://www.yourdomain.com/path/to/whmcs/includes/api.php">https://www.yourdomain.com/path/to/whmcs/includes/api.php</a>
  Internal API The Internal API should be used when making API calls from within the WHMCS system.
 For instance from modules, hooks, or other custom code local to the WHMCS installation.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/api/authentication/" title="Authentication">
-				<h2>Authentication</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/api/authentication/" title="Authentication">
+		<h2>Authentication</h2>
+	</a>
 
-			<br>
-			Use of the API requires admin user credentials.
+	<br>
+	Use of the API requires admin user credentials.
 The admin username and a hashed version of the password must be passed in every API call.
 The admin user must have the API Access permission granted to their admin role group.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/api/access-control/" title="Access Control">
-				<h2>Access Control</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/api/access-control/" title="Access Control">
+		<h2>Access Control</h2>
+	</a>
 
-			<br>
-			Access to the API by default is restricted by IP.
+	<br>
+	Access to the API by default is restricted by IP.
 For situations where IP access control is not feasible, an Access Key can also be configured.
 Managing Allowed IPs To configure the Allowed IPs, login to the WHMCS admin area and navigate to Setup &gt; General Settings &gt; Security.
 There you can add and remove IPs, along with a note referencing.
 Configuring an Access Key Alternatively an access key can be configured to allow IP restrictions to be bypassed.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/api/response-types/" title="Response Types">
-				<h2>Response Types</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/api/response-types/" title="Response Types">
+		<h2>Response Types</h2>
+	</a>
 
-			<br>
-			The API supports 3 response types:
+	<br>
+	The API supports 3 response types:
  JSON (Recommended) XML NVP (Deprecated)  You can define the response type you wish to receive by including responsetype=xxxx in your request parameters.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/api/sample-code/" title="Sample Code">
-				<h2>Sample Code</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/api/sample-code/" title="Sample Code">
+		<h2>Sample Code</h2>
+	</a>
 
-			<br>
-			The following demonstrates how to connect to the WHMCS API from a PHP script using CURL.
+	<br>
+	The following demonstrates how to connect to the WHMCS API from a PHP script using CURL.
 &lt;?php /** * WHMCS Sample API Call * * @package WHMCS * @author WHMCS Limited &lt;development@whmcs.com&gt; * @copyright Copyright &copy; WHMCS Limited 2005-2016 * @license <a href="http://www.whmcs.com/license/">http://www.whmcs.com/license/</a> WHMCS Eula * @version $Id$ * @link <a href="http://www.whmcs.com/">http://www.whmcs.com/</a> */ // API Connection Details $whmcsUrl = &quot;<a href="https://www.yourdomain.com/path/to/whmcs/&quot;">https://www.yourdomain.com/path/to/whmcs/&quot;</a>; $username = &quot;yourusername&quot;; $password = &quot;yourpassword&quot;; // Set post values $postfields = array( &lsquo;username&rsquo; =&gt; $username, &lsquo;password&rsquo; =&gt; md5($password), &lsquo;action&rsquo; =&gt; &lsquo;GetClients&rsquo;, &lsquo;responsetype&rsquo; =&gt; &lsquo;json&rsquo;, ); // Call the API $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, $whmcsUrl .
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/api/internal-api/" title="Internal API">
-				<h2>Internal API</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/api/internal-api/" title="Internal API">
+		<h2>Internal API</h2>
+	</a>
 
-			<br>
-			The Internal API should be used when making API calls from within the WHMCS system.
+	<br>
+	The Internal API should be used when making API calls from within the WHMCS system.
 Common uses for this include from modules, hooks, or other custom code local to the WHMCS installation.
 Usage Example &lt;?php /** * WHMCS Sample Local API Call * * @package WHMCS * @author WHMCS Limited &lt;development@whmcs.com&gt; * @copyright Copyright &copy; WHMCS Limited 2005-2016 * @license <a href="http://www.whmcs.com/license/">http://www.whmcs.com/license/</a> WHMCS Eula * @version $Id$ * @link <a href="http://www.whmcs.com/">http://www.whmcs.com/</a> */ // Define parameters $command = &lsquo;SendEmail&rsquo;; $values = array( &lsquo;messagename&rsquo; =&gt; &lsquo;Test Template&rsquo;, &lsquo;id&rsquo; =&gt; &lsquo;1&rsquo;, ); $adminuser = &lsquo;AdminUsername&rsquo;; // Call the localAPI function $results = localAPI($command, $values, $adminuser); if ($results[&lsquo;result&rsquo;] == &lsquo;success&rsquo;) { echo &lsquo;Message sent successfully!
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/api/api-index/" title="API Index">
-				<h2>API Index</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/api/api-index/" title="API Index">
+		<h2>API Index</h2>
+	</a>
 
-			<br>
-			Orders  AcceptOrder  AddOrder  CancelOrder  DeleteOrder  FraudOrder  GetOrders  GetOrderStatuses  GetProducts  GetPromotions  OrderFraudCheck  PendingOrder  Billing  AcceptQuote  AddBillableItem  AddCredit  AddInvoicePayment  AddTransaction  ApplyCredit  CapturePayment  CreateInvoice  CreateQuote  GenInvoices  GetCredits  GetInvoice  GetInvoices  GetQuotes  GetTransactions  SendQuote  UpdateInvoice  UpdateQuote  UpdateTransaction  Module  ActivateModule  DeactivateModule  GetModuleConfigurationParameters  GetModuleQueue  UpdateModuleConfiguration  Support  AddAnnouncement  AddCancelRequest  AddClientNote  AddTicketNote  AddTicketReply  DeleteAnnouncement  DeleteTicket  DeleteTicketNote  GetAnnouncements  OpenTicket  UpdateTicket  System  AddBannedIp  DecryptPassword  EncryptPassword  GetActivityLog  GetAdminDetails  GetAutomationLog  GetConfigurationValue  GetCurrencies  GetPaymentMethods  GetStaffOnline  GetStats  GetToDoList  GetToDoItemStatuses  LogActivity  SendAdminEmail  SendEmail  SetConfigurationValue  UpdateAdminNotes  UpdateAnnouncement  UpdateToDoItem  Client  AddClient  AddContact  CloseClient  DeleteClient  DeleteContact  GetCancelledPackages  GetClientGroups  GetClientPassword  GetClients  GetClientsAddons  GetClientsDetails  GetClientsDomains  GetClientsProducts  GetContacts  GetEmails  GetEmailTemplates  UpdateClient  UpdateContact  Products  AddProduct  Project Management  AddProjectMessage  AddProjectTask  CreateProject  DeleteProjectTask  DeleteProjectTask  EndTaskTimer  GetProject  GetProjects  EndTaskTimer  UpdateProject  UpdateProjectTask  Affiliates  AffiliateActivate  GetAffiliates  Authentication  CreateOAuthCredential  DeleteOAuthCredential  ListOAuthCredentials  UpdateOAuthCredential  ValidateLogin  Domains  DomainGetLockingStatus  DomainGetNameservers  DomainGetWhoisInfo  DomainRegister  DomainRelease  DomainRenew  DomainRequestEPP  DomainToggleIdProtect  DomainTransfer  DomainUpdateLockingStatus  DomainUpdateNameservers  DomainUpdateWhoisInfo  DomainWhois  UpdateClientDomain  Servers  GetHealthStatus  GetServers  Tickets  GetSupportDepartments  GetSupportStatuses  GetTicket  GetTicketCounts  GetTicketNotes  GetTicketPredefinedCats  GetTicketPredefinedReplies  GetTickets  Service  ModuleChangePackage  ModuleChangePw  ModuleCreate  ModuleCustom  ModuleSuspend  ModuleTerminate  ModuleUnsuspend  UpdateClientProduct  UpgradeProduct  Addons  UpdateClientAddon
+	<br>
+	Orders  AcceptOrder  AddOrder  CancelOrder  DeleteOrder  FraudOrder  GetOrders  GetOrderStatuses  GetProducts  GetPromotions  OrderFraudCheck  PendingOrder  Billing  AcceptQuote  AddBillableItem  AddCredit  AddInvoicePayment  AddTransaction  ApplyCredit  CapturePayment  CreateInvoice  CreateQuote  GenInvoices  GetCredits  GetInvoice  GetInvoices  GetQuotes  GetTransactions  SendQuote  UpdateInvoice  UpdateQuote  UpdateTransaction  Module  ActivateModule  DeactivateModule  GetModuleConfigurationParameters  GetModuleQueue  UpdateModuleConfiguration  Support  AddAnnouncement  AddCancelRequest  AddClientNote  AddTicketNote  AddTicketReply  DeleteAnnouncement  DeleteTicket  DeleteTicketNote  GetAnnouncements  OpenTicket  UpdateTicket  System  AddBannedIp  DecryptPassword  EncryptPassword  GetActivityLog  GetAdminDetails  GetAutomationLog  GetConfigurationValue  GetCurrencies  GetPaymentMethods  GetStaffOnline  GetStats  GetToDoList  GetToDoItemStatuses  LogActivity  SendAdminEmail  SendEmail  SetConfigurationValue  UpdateAdminNotes  UpdateAnnouncement  UpdateToDoItem  Client  AddClient  AddContact  CloseClient  DeleteClient  DeleteContact  GetCancelledPackages  GetClientGroups  GetClientPassword  GetClients  GetClientsAddons  GetClientsDetails  GetClientsDomains  GetClientsProducts  GetContacts  GetEmails  GetEmailTemplates  UpdateClient  UpdateContact  Products  AddProduct  Project Management  AddProjectMessage  AddProjectTask  CreateProject  DeleteProjectTask  DeleteProjectTask  EndTaskTimer  GetProject  GetProjects  EndTaskTimer  UpdateProject  UpdateProjectTask  Affiliates  AffiliateActivate  GetAffiliates  Authentication  CreateOAuthCredential  DeleteOAuthCredential  ListOAuthCredentials  UpdateOAuthCredential  ValidateLogin  Domains  DomainGetLockingStatus  DomainGetNameservers  DomainGetWhoisInfo  DomainRegister  DomainRelease  DomainRenew  DomainRequestEPP  DomainToggleIdProtect  DomainTransfer  DomainUpdateLockingStatus  DomainUpdateNameservers  DomainUpdateWhoisInfo  DomainWhois  UpdateClientDomain  Servers  GetHealthStatus  GetServers  Tickets  GetSupportDepartments  GetSupportStatuses  GetTicket  GetTicketCounts  GetTicketNotes  GetTicketPredefinedCats  GetTicketPredefinedReplies  GetTickets  Service  ModuleChangePackage  ModuleChangePw  ModuleCreate  ModuleCustom  ModuleSuspend  ModuleTerminate  ModuleUnsuspend  UpdateClientProduct  UpgradeProduct  Addons  UpdateClientAddon
 
-			<hr>
-			
+	<hr>
+	
 
-			<aside class="copyright" role="note">
-				
-				&copy; 2017 Released under the MIT license &ndash;
-				
-				Documentation built with
-				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
-				using the
-				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
-			</aside>
-
-      </div>
-    </div>
   </div>
 
 </main>

@@ -112,178 +112,156 @@
 <main class="main">
 
   <div class="container">
-    <div class="row">
-      <div class="col-sm-3">
 
-        
-          <ul class="sidebar-nav">
-          </ul>
-        
+	<h1>Pages in Provisioning-module</h1>
 
-      </div>
-      <div class="col-sm-9">
+	
+	<a href="//developers.whmcs.com/provisioning-modules/" title="Provisioning Modules">
+		<h2>Provisioning Modules</h2>
+	</a>
 
-			<h1>Pages in Provisioning-module</h1>
-
-			
-			<a href="//developers.whmcs.com/provisioning-modules/" title="Provisioning Modules">
-				<h2>Provisioning Modules</h2>
-			</a>
-
-			<br>
-			Introduction Provisioning Modules, enable provisioning and management of services in WHMCS.
+	<br>
+	Introduction Provisioning Modules, enable provisioning and management of services in WHMCS.
 Provisioning Modules are also referred to as Product or Server Modules.
 The core function of a module is creating, suspending, unsuspending, and terminating of products. This happens as various events occur. These events include:
  New order payment Items becoming overdue Overdue invoice payment Cancellation requests.  A WHMCS module can do much more than just that including:
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/provisioning-modules/getting-started/" title="Getting Started">
-				<h2>Getting Started</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/provisioning-modules/getting-started/" title="Getting Started">
+		<h2>Getting Started</h2>
+	</a>
 
-			<br>
-			Github We make available a sample provisioning module on Github. We recommend using this as a starting point for a custom module.
+	<br>
+	Github We make available a sample provisioning module on Github. We recommend using this as a starting point for a custom module.
  <a href="https://github.com/WHMCS/sample-provisioning-module">https://github.com/WHMCS/sample-provisioning-module</a>
  Choosing a Name Provisioning Modules are located in the /modules/servers/ directory.
 Module names should be a single word, consisting of only lowercase letters and numbers. The name must start with a letter, and must be unique.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/provisioning-modules/config-options/" title="Configuration Options">
-				<h2>Configuration Options</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/provisioning-modules/config-options/" title="Configuration Options">
+		<h2>Configuration Options</h2>
+	</a>
 
-			<br>
-			This function defines the settings that can be configured on a per product basis for your module.
+	<br>
+	This function defines the settings that can be configured on a per product basis for your module.
 The name of this function must be yourmodulename_ConfigOptions.
 The supported configuration field types include the following:
  Text Password Yes/No Checkboxes Dropdown Menus Radio Buttons Text Areas  Below are examples of the available parameters for each type of field. Provisioning modules support up to 24 options defined in this way.
 function yourmodulename_ConfigOptions() { return [ &quot;username&quot; =&gt; [ &quot;FriendlyName&quot; =&gt; &quot;UserName&quot;, &quot;Type&quot; =&gt; &quot;text&quot;, # Text Box &quot;Size&quot; =&gt; &quot;25&quot;, # Defines the Field Width &quot;Description&quot; =&gt; &quot;Textbox&quot;, &quot;Default&quot; =&gt; &quot;Example&quot;, ], &quot;password&quot; =&gt; [ &quot;FriendlyName&quot; =&gt; &quot;Password&quot;, &quot;Type&quot; =&gt; &quot;password&quot;, # Password Field &quot;Size&quot; =&gt; &quot;25&quot;, # Defines the Field Width &quot;Description&quot; =&gt; &quot;Password&quot;, &quot;Default&quot; =&gt; &quot;Example&quot;, ], &quot;usessl&quot; =&gt; [ &quot;FriendlyName&quot; =&gt; &quot;Enable SSL&quot;, &quot;Type&quot; =&gt; &quot;yesno&quot;, # Yes/No Checkbox &quot;Description&quot; =&gt; &quot;Tick to use secure connections&quot;, ], &quot;package&quot; =&gt; [ &quot;FriendlyName&quot; =&gt; &quot;Package Name&quot;, &quot;Type&quot; =&gt; &quot;dropdown&quot;, # Dropdown Choice of Options &quot;Options&quot; =&gt; &quot;Starter,Advanced,Ultimate&quot;, &quot;Description&quot; =&gt; &quot;Sample Dropdown&quot;, &quot;Default&quot; =&gt; &quot;Advanced&quot;, ], &quot;packageWithNVP&quot; =&gt; [ &quot;FriendlyName&quot; =&gt; &quot;Package Name v2&quot;, &quot;Type&quot; =&gt; &quot;dropdown&quot;, # Dropdown Choice of Options &quot;Options&quot; =&gt; [ &lsquo;package1&rsquo; =&gt; &lsquo;Starter&rsquo;, &lsquo;package2&rsquo; =&gt; &lsquo;Advanced&rsquo;, &lsquo;package3&rsquo; =&gt; &lsquo;Ultimate&rsquo;, ], &quot;Description&quot; =&gt; &quot;Sample Dropdown&quot;, &quot;Default&quot; =&gt; &quot;package2&quot;, ], &quot;disk&quot; =&gt; [ &quot;FriendlyName&quot; =&gt; &quot;Disk Space&quot;, &quot;Type&quot; =&gt; &quot;radio&quot;, # Radio Selection of Options &quot;Options&quot; =&gt; &quot;100MB,200MB,300MB&quot;, &quot;Description&quot; =&gt; &quot;Radio Options Demo&quot;, &quot;Default&quot; =&gt; &quot;200MB&quot;, ], &quot;comments&quot; =&gt; [ &quot;FriendlyName&quot; =&gt; &quot;Notes&quot;, &quot;Type&quot; =&gt; &quot;textarea&quot;, # Textarea &quot;Rows&quot; =&gt; &quot;3&quot;, # Number of Rows &quot;Cols&quot; =&gt; &quot;50&quot;, # Number of Columns &quot;Description&quot; =&gt; &quot;Description goes here&quot;, &quot;Default&quot; =&gt; &quot;Enter notes here&quot;, ], ]; }
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/provisioning-modules/supported-functions/" title="Supported Functions">
-				<h2>Supported Functions</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/provisioning-modules/supported-functions/" title="Supported Functions">
+		<h2>Supported Functions</h2>
+	</a>
 
-			<br>
-			Here is an overview of all functions that a WHMCS provisioning module can contain. Functions within a module are optional and need not be in the module if they don’t apply. Remember, all functions should have the prefix filename_ and then the function name. The function name is the header below.
+	<br>
+	Here is an overview of all functions that a WHMCS provisioning module can contain. Functions within a module are optional and need not be in the module if they don’t apply. Remember, all functions should have the prefix filename_ and then the function name. The function name is the header below.
 CreateAccount  This function runs when a new product provisions. This can be by WHMCS upon checkout or payment for a new order.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/provisioning-modules/module-parameters/" title="Module Parameters">
-				<h2>Module Parameters</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/provisioning-modules/module-parameters/" title="Module Parameters">
+		<h2>Module Parameters</h2>
+	</a>
 
-			<br>
-			The module parameters are the data/values passed into each function when called. Every provisioning module function receives the same parameters. These parameters provide information about the specific product/service the module command runs for. The parameters also contains the settings from the product itself.
+	<br>
+	The module parameters are the data/values passed into each function when called. Every provisioning module function receives the same parameters. These parameters provide information about the specific product/service the module command runs for. The parameters also contains the settings from the product itself.
    Variable Name Description     serviceid The unique ID of the service.
 Database Field: tblhosting.id   pid The product ID for the service.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/provisioning-modules/core-module-functions/" title="Core Module Functions">
-				<h2>Core Module Functions</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/provisioning-modules/core-module-functions/" title="Core Module Functions">
+		<h2>Core Module Functions</h2>
+	</a>
 
-			<br>
-			The core module functions are Create, Suspend, Unsuspend, Terminate, Renew, ChangePassword and ChangePackage.
+	<br>
+	The core module functions are Create, Suspend, Unsuspend, Terminate, Renew, ChangePassword and ChangePackage.
 These 7 functions all operate in a similar manner. They can run both manually and automatically. Each expected to return either a success or error response.
 Response Handling  Each of these functions after running actions must either return a success or error.
 For a successful result the code must actually return the word &ldquo;success&rdquo; to end the function.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/provisioning-modules/single-sign-on/" title="Single Sign-On">
-				<h2>Single Sign-On</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/provisioning-modules/single-sign-on/" title="Single Sign-On">
+		<h2>Single Sign-On</h2>
+	</a>
 
-			<br>
-			Single sign-on can occur for a service or server.
+	<br>
+	Single sign-on can occur for a service or server.
 Whichever method being used, the return should be the same.
 The return from either function should always be an array and contain two keys of a possible three.
  success - This is a boolean value and should indicate success or failure redirectTo - This should be a fully formatted URL return from your SSO request errorMsg - Any appropriate error message to be displayed to whoever is making the request  Service Single Sign-On  Service single sign-on is to allow admin and client users to login to the control panel of the service automatically.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/provisioning-modules/usage-update/" title="Usage Update">
-				<h2>Usage Update</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/provisioning-modules/usage-update/" title="Usage Update">
+		<h2>Usage Update</h2>
+	</a>
 
-			<br>
-			The UsageUpdate function performs a daily import of the disk and bandwidth usage for accounts of a server. The data imported is then used to display the usage stats both within the client and admin areas of WHMCS. The data is also used in disk and bandwidth overage billing calculations if enabled for a product.
+	<br>
+	The UsageUpdate function performs a daily import of the disk and bandwidth usage for accounts of a server. The data imported is then used to display the usage stats both within the client and admin areas of WHMCS. The data is also used in disk and bandwidth overage billing calculations if enabled for a product.
 The UsageUpdate function runs via WHMCS Cron, for any active, enabled server.
 Important: Runs per server not per product
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/provisioning-modules/custom-functions/" title="Custom Functions">
-				<h2>Custom Functions</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/provisioning-modules/custom-functions/" title="Custom Functions">
+		<h2>Custom Functions</h2>
+	</a>
 
-			<br>
-			Custom functions allow definition of extra operations that run using the module. The custom functions can perform actions, or define extra client area pages/output. Permissions can be granted for who can use each custom function, be it just clients, just admins, or both.
+	<br>
+	Custom functions allow definition of extra operations that run using the module. The custom functions can perform actions, or define extra client area pages/output. Permissions can be granted for who can use each custom function, be it just clients, just admins, or both.
 The convention for custom function names follow the same as any other function of a module. It must begin with the module filename_, and then the custom function name.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/provisioning-modules/client-area-output/" title="Client Area Output">
-				<h2>Client Area Output</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/provisioning-modules/client-area-output/" title="Client Area Output">
+		<h2>Client Area Output</h2>
+	</a>
 
-			<br>
-			Another key function of a module is to give clients access to extra options and output within the client area. Done either on the product details page (using the ClientArea function of a module), or as a custom function/action.
+	<br>
+	Another key function of a module is to give clients access to extra options and output within the client area. Done either on the product details page (using the ClientArea function of a module), or as a custom function/action.
 Product Details Page Output  Creating output to display on the same page as the product details in the client area is easy. Create a template file named “clientarea.tpl” within the module folder.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/provisioning-modules/admin-services-tab/" title="Admin Services Tab">
-				<h2>Admin Services Tab</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/provisioning-modules/admin-services-tab/" title="Admin Services Tab">
+		<h2>Admin Services Tab</h2>
+	</a>
 
-			<br>
-			Admin Services Tab functions allow definition of extra fields to appear on the product details in the admin area. Used for informational output, or for settings and values stored in custom tables or outside WHMCS.
+	<br>
+	Admin Services Tab functions allow definition of extra fields to appear on the product details in the admin area. Used for informational output, or for settings and values stored in custom tables or outside WHMCS.
 WHMCS uses this in the core system for our licensing addon module. The license specific fields of the allowed system are set and viewed from the product details.
 There are 2 functions relating to the services tab - AdminServicesTabFields and AdminServicesTabFieldsSave.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/provisioning-modules/admin-dashboard-widgets/" title="Admin Dashboard Widgets">
-				<h2>Admin Dashboard Widgets</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/provisioning-modules/admin-dashboard-widgets/" title="Admin Dashboard Widgets">
+		<h2>Admin Dashboard Widgets</h2>
+	</a>
 
-			<br>
-			Admin Dashboard Widgets are displayed on the admin area homepage.
+	<br>
+	Admin Dashboard Widgets are displayed on the admin area homepage.
 They allow you to provide convenient access to key information and functionality from your module within the admin homepage dashboard.
 Below is an example of how a dashboard widget is defined.
 &lt;?php add_hook(&lsquo;AdminHomeWidgets&rsquo;, 1, function() { return new HelloWorldWidget(); }); /** * Hello World Widget. */ class HelloWorldWidget extends \WHMCS\Module\AbstractWidget { protected $title = &lsquo;Hello World&rsquo;; protected $description = &ldquo;; protected $weight = 150; protected $columns = 1; protected $cache = false; protected $cacheExpiry = 120; protected $requiredPermission = &ldquo;; public function getData() { return array(); } public function generateOutput($data) { return &lt;&lt;&lt;EOF &lt;div class=&quot;widget-content-padded&quot;&gt; Hello World!
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/provisioning-modules/module-logging/" title="Module Logging">
-				<h2>Module Logging</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/provisioning-modules/module-logging/" title="Module Logging">
+		<h2>Module Logging</h2>
+	</a>
 
-			<br>
-			To make reviewing and debugging module calls easier, WHMCS has a built in logging function. This allows the record of the request and response strings for every call the module makes. This becomes available in an accessible way via the WHMCS admin interface. If you plan to release the module, this allows end users to troubleshoot and debug issues experienced using the module. This also allows you to be able to debug issues experienced while using it.
+	<br>
+	To make reviewing and debugging module calls easier, WHMCS has a built in logging function. This allows the record of the request and response strings for every call the module makes. This becomes available in an accessible way via the WHMCS admin interface. If you plan to release the module, this allows end users to troubleshoot and debug issues experienced using the module. This also allows you to be able to debug issues experienced while using it.
 
-			<hr>
-			
+	<hr>
+	
 
-			<aside class="copyright" role="note">
-				
-				&copy; 2017 Released under the MIT license &ndash;
-				
-				Documentation built with
-				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
-				using the
-				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
-			</aside>
-
-      </div>
-    </div>
   </div>
 
 </main>

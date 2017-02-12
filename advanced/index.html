@@ -112,26 +112,16 @@
 <main class="main">
 
   <div class="container">
-    <div class="row">
-      <div class="col-sm-3">
 
-        
-          <ul class="sidebar-nav">
-          </ul>
-        
+	<h1>Pages in Advanced</h1>
 
-      </div>
-      <div class="col-sm-9">
+	
+	<a href="//developers.whmcs.com/advanced/" title="Advanced">
+		<h2>Advanced</h2>
+	</a>
 
-			<h1>Pages in Advanced</h1>
-
-			
-			<a href="//developers.whmcs.com/advanced/" title="Advanced">
-				<h2>Advanced</h2>
-			</a>
-
-			<br>
-			Introduction The following are some advanced customisation options.
+	<br>
+	Introduction The following are some advanced customisation options.
  Creating Pages
 Learn how to create additional pages within the WHMCS client area Interacting with the Database
 Learn how to interact with the WHMCS database Date Functions
@@ -139,74 +129,62 @@ Learn how to use the date helper functions in WHMCS Currency Formatting
 Learn how to use the currency formatting helper functions in WHMCS Logging
 Learn how to use the logging helper functions in WHMCS
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/advanced/creating-pages/" title="Creating Pages">
-				<h2>Creating Pages</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/advanced/creating-pages/" title="Creating Pages">
+		<h2>Creating Pages</h2>
+	</a>
 
-			<br>
-			Creating your own client area pages should orindarily be done by creating an Addon Module with client area output.
+	<br>
+	Creating your own client area pages should orindarily be done by creating an Addon Module with client area output.
 However, if you wish to, you can create a standalone page using the following template.
 &lt;?php use WHMCS\ClientArea; use WHMCS\Database\Capsule; define(&lsquo;CLIENTAREA&rsquo;, true); require <strong>DIR</strong> . &lsquo;/init.php&rsquo;; $ca = new ClientArea(); $ca-&gt;setPageTitle(&lsquo;Your Page Title Goes Here&rsquo;); $ca-&gt;addToBreadCrumb(&lsquo;index.php&rsquo;, Lang::trans(&lsquo;globalsystemname&rsquo;)); $ca-&gt;addToBreadCrumb(&lsquo;mypage.php&rsquo;, &lsquo;Your Custom Page Name&rsquo;); $ca-&gt;initPage(); //$ca-&gt;requireLogin(); // Uncomment this line to require a login to access this page // To assign variables to the template system use the following syntax.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/advanced/db-interaction/" title="Interacting with the Database">
-				<h2>Interacting with the Database</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/advanced/db-interaction/" title="Interacting with the Database">
+		<h2>Interacting with the Database</h2>
+	</a>
 
-			<br>
-			WHMCS 6.0 and later leverages a database connection library to ensure compatibility with modern PHP environments and best practices. It is based on the Laravel framework&rsquo;s database component. This library includes a Database Abstraction Layer (DBAL) called &ldquo;Capsule&rdquo; and an Object Relational Mapping (ORM) library called &ldquo;Eloquent&rdquo;.
+	<br>
+	WHMCS 6.0 and later leverages a database connection library to ensure compatibility with modern PHP environments and best practices. It is based on the Laravel framework&rsquo;s database component. This library includes a Database Abstraction Layer (DBAL) called &ldquo;Capsule&rdquo; and an Object Relational Mapping (ORM) library called &ldquo;Eloquent&rdquo;.
 The Capsule DBAL component introduces two libraries to WHMCS, a query manager for running database queries and a schema manager for an abstracted API to table management.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/advanced/date-functions/" title="Date Functions">
-				<h2>Date Functions</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/advanced/date-functions/" title="Date Functions">
+		<h2>Date Functions</h2>
+	</a>
 
-			<br>
-			The following date helper functions are made available to make it easier to work with dates in WHMCS.
+	<br>
+	The following date helper functions are made available to make it easier to work with dates in WHMCS.
 Todays Date /** * Returns todays date * * By default returns the format defined in General Settings &gt; Localisation &gt; Date Format * * @param bool $applyClientDateFormat Set true to apply Localisation &gt; Client Date Format * * @return string */ $todaysdate = getTodaysDate($applyClientDateFormat);  From MySQL Date /** * Formats a MySQL Date/Timestamp value to system settings * * @param string $datetimestamp The MySQL Date/Timestamp value * @param bool $includeTime Pass true to include the time in the result * @param bool $applyClientDateFormat Set true to apply Localisation &gt; Client Date Format * * @return string */ $date = fromMySQLDate($date, $includeTime, $applyClientDateFormat);  To MySQL Date /** * Converts a date entered in the system setting format to a MySQL Date/Timestamp * * @param string $userInputDate * * @return string Format: 2016-12-30 23:59:59 */ $date = toMySQLDate($date);
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/advanced/currency-formatting/" title="Currency Formatting">
-				<h2>Currency Formatting</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/advanced/currency-formatting/" title="Currency Formatting">
+		<h2>Currency Formatting</h2>
+	</a>
 
-			<br>
-			The following helper functions are provided for formatting currency values.
+	<br>
+	The following helper functions are provided for formatting currency values.
 Get Clients Currency /** * Get clients currency * * Required before making a call to formatCurrency * * @param int $userId * * @return array */ $currencyData = getCurrency($userId);  Format Currency /** * Format currency * * @param float $amount * @param mixed $currencyData * * @return \WHMCS\View\Formatter\Price */ $price = formatCurrency($amount, $currencyData);  The $price value returned will be an object.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/advanced/logging/" title="Logging">
-				<h2>Logging</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/advanced/logging/" title="Logging">
+		<h2>Logging</h2>
+	</a>
 
-			<br>
-			The following logging helper methods are made available in WHMCS.
+	<br>
+	The following logging helper methods are made available in WHMCS.
 Log Activity A helper method is available for adding entries to the activity log.
 This function is available to all hooks, modules and template files throughout the WHMCS system.
 /** * Log activity. * * @param string $message The message to log * @param int $userId An optional user id to which the log entry relates */ logActivity(&lsquo;Message goes here&rsquo;, 0);  Log Module Call We recommend making use of the module log to record all external API calls and requests.
 
-			<hr>
-			
+	<hr>
+	
 
-			<aside class="copyright" role="note">
-				
-				&copy; 2017 Released under the MIT license &ndash;
-				
-				Documentation built with
-				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
-				using the
-				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
-			</aside>
-
-      </div>
-    </div>
   </div>
 
 </main>

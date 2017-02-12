@@ -112,173 +112,151 @@
 <main class="main">
 
   <div class="container">
-    <div class="row">
-      <div class="col-sm-3">
 
-        
-          <ul class="sidebar-nav">
-          </ul>
-        
+	<h1>Pages in Domain-registrar</h1>
 
-      </div>
-      <div class="col-sm-9">
+	
+	<a href="//developers.whmcs.com/domain-registrars/" title="Domain Registrars">
+		<h2>Domain Registrars</h2>
+	</a>
 
-			<h1>Pages in Domain-registrar</h1>
-
-			
-			<a href="//developers.whmcs.com/domain-registrars/" title="Domain Registrars">
-				<h2>Domain Registrars</h2>
-			</a>
-
-			<br>
-			Introduction Registrar Modules allow for the registration and management of domains within WHMCS.
+	<br>
+	Introduction Registrar Modules allow for the registration and management of domains within WHMCS.
 Registrar Modules are also referred to as Domain Modules.
 The core function of a registrar module is registering, transferring and renewing of domains. These are triggered when payments are made within WHMCS for domain purchases or renewals.
 Other functionality a registrar module can provide includes the following:
  checking availability of domains providing domain name suggestions viewing and updating of nameservers viewing and updating of WHOIS information viewing and management of DNS Host Records viewing and management of Email Forwarding services fetching of the EPP Code / Domain Release management of Registrar Lock status registering, modification and deletion of Private Nameservers enable/disable of ID Protection domain expiry date and status syncronisation transfer status monitoring deletion requests  Unlimited custom additional functionality can also be implemented using custom methods.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/domain-registrars/getting-started/" title="Getting Started">
-				<h2>Getting Started</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/domain-registrars/getting-started/" title="Getting Started">
+		<h2>Getting Started</h2>
+	</a>
 
-			<br>
-			Github We make available a sample provisioning module on Github. We recommend using this as a starting point for a custom module.
+	<br>
+	Github We make available a sample provisioning module on Github. We recommend using this as a starting point for a custom module.
  <a href="https://github.com/WHMCS/sample-registrar-module">https://github.com/WHMCS/sample-registrar-module</a>
  Choosing a Name Registrar Modules are located in the /modules/registrars/ directory.
 Module names should be a single word, consisting of only lowercase letters and numbers. The name must start with a letter, and must be unique.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/domain-registrars/config-options/" title="Configuration Options">
-				<h2>Configuration Options</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/domain-registrars/config-options/" title="Configuration Options">
+		<h2>Configuration Options</h2>
+	</a>
 
-			<br>
-			As with all modules in WHMCS, the configuration function is a required function of all registrar modules.
+	<br>
+	As with all modules in WHMCS, the configuration function is a required function of all registrar modules.
 This defines the settings that are available for your registrar module. The name of this function must be yourmodulename_getConfigArray.
 The supported configuration field types include the following:
  Text Password Yes/No Checkboxes Dropdown Menus Radio Buttons Text Areas  Below are examples of the available parameters for each field type. Provisioning modules support up to 24 options defined in this way.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/domain-registrars/function-index/" title="Function Index">
-				<h2>Function Index</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/domain-registrars/function-index/" title="Function Index">
+		<h2>Function Index</h2>
+	</a>
 
-			<br>
-			The following is an index of all prescribed supported functions for a registrar module.
+	<br>
+	The following is an index of all prescribed supported functions for a registrar module.
 Your registrar module should only define the functions that your module supports.
 Remember, all functions should have the prefix yourmodulename_ and then the function name.
    Parameter Description     RegisterDomain Called when the registration of a new domain comes from WHMCS.   TransferDomain Called when an existing domain transfer request comes from WHMCS.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/domain-registrars/domain-syncing/" title="Domain Syncronisation">
-				<h2>Domain Syncronisation</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/domain-registrars/domain-syncing/" title="Domain Syncronisation">
+		<h2>Domain Syncronisation</h2>
+	</a>
 
-			<br>
-			The domain syncronisation functions allow you to propogate any domain expiry date and status changes at the registry level to WHMCS. This is particularly useful for domain transfers where completion of the transfer and expiry dates can not be known by WHMCS automatically without it.
+	<br>
+	The domain syncronisation functions allow you to propogate any domain expiry date and status changes at the registry level to WHMCS. This is particularly useful for domain transfers where completion of the transfer and expiry dates can not be known by WHMCS automatically without it.
 Domain Syncing Domain syncing is performed in batches. When defined in your module, the Sync function will be called for 50 domains on a rolling basis each time the domain sync cron is invoked.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/domain-registrars/module-parameters/" title="Module Parameters">
-				<h2>Module Parameters</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/domain-registrars/module-parameters/" title="Module Parameters">
+		<h2>Module Parameters</h2>
+	</a>
 
-			<br>
-			The module parameters are the data values passed into each registrar module function when called.
+	<br>
+	The module parameters are the data values passed into each registrar module function when called.
 Registrar module functions all receive the same common set of parameters. These parameters provide information about the specific domain the module command is being invoked for. The parameters also contain the settings defined for the module itself.
 Additional variables specific to the action being performed such as EPP code, nameservers and WHOIS contact information may be available depending upon the function being called.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/domain-registrars/module-functions/" title="Module Functions">
-				<h2>Module Functions</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/domain-registrars/module-functions/" title="Module Functions">
+		<h2>Module Functions</h2>
+	</a>
 
-			<br>
-			Registrar module functions are expected to return data and information to WHMCS for rendering to the end user.
+	<br>
+	Registrar module functions are expected to return data and information to WHMCS for rendering to the end user.
 The data should be returned as part of a structured array. The exact format varies depending upon the registrar module function being invoked, and the data it returns. For specific details of the expected and supported values, please refer to the sample registrar module.
 Error Handling Registrar module functions will assume success providing no error message is returned.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/domain-registrars/availability-checks/" title="Availability Checks">
-				<h2>Availability Checks</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/domain-registrars/availability-checks/" title="Availability Checks">
+		<h2>Availability Checks</h2>
+	</a>
 
-			<br>
-			In WHMCS 7.1 and later, domain registrar modules can take control of Domain Availability checks and lookups.
+	<br>
+	In WHMCS 7.1 and later, domain registrar modules can take control of Domain Availability checks and lookups.
 There are two supported functions: CheckAvailability and GetSuggestions
 Check Availability The purpose of this function is to check if a domain is available for registration or transfer.
 Input Parameters In addition to the regular Common Module Parameters, the CheckAvailability function is passed the following input parameters.
    Variable Type Description     searchTerm string The search term provided by the end user   punyCodeSearchTerm string For an IDN domain, the puny code encoded search term   tldsToInclude array An array of TLDs/extensions to perform the availability check for   isIdnDomain bool If IDN Domains are enabled for this WHMCS installation   premiumEnabled bool If Premium Domains are enabled for this WHMCS installation    For performance reasons, we recommending performing the lookup for all requested extensions at the same time if the registrar supports it.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/domain-registrars/premium-domains/" title="Premium Domains">
-				<h2>Premium Domains</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/domain-registrars/premium-domains/" title="Premium Domains">
+		<h2>Premium Domains</h2>
+	</a>
 
-			<br>
-			In WHMCS 7.1 and later, registrar modules can include support for the selling of Premium Domains.
+	<br>
+	In WHMCS 7.1 and later, registrar modules can include support for the selling of Premium Domains.
 Premium Domains cannot be detected with traditional WHOIS lookups, and therefore to use Premium Domains, it requires a registrar module to implement the Availability Check functions.
 How It Works Premium Domain functionality must be enabled by admin users before it can be used. The status is passed as a boolean value to both the CheckAvailability and GetSuggestions registrar module functions under the parameter premiumEnabled.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/domain-registrars/extending-further/" title="Extending Further">
-				<h2>Extending Further</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/domain-registrars/extending-further/" title="Extending Further">
+		<h2>Extending Further</h2>
+	</a>
 
-			<br>
-			Custom functions allow you to define extra operations that can be performed using the module. The custom functions can perform actions, or define extra client area pages/output. Permissions can be granted for who can use each custom function, be it just clients, just admins, or both.
+	<br>
+	Custom functions allow you to define extra operations that can be performed using the module. The custom functions can perform actions, or define extra client area pages/output. Permissions can be granted for who can use each custom function, be it just clients, just admins, or both.
 The convention for custom function names follow the same as any other function of a module. It must begin with yourmodulename_, and then the custom function name.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/domain-registrars/hooks/" title="Hooks">
-				<h2>Hooks</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/domain-registrars/hooks/" title="Hooks">
+		<h2>Hooks</h2>
+	</a>
 
-			<br>
-			Registrar modules can also define hook functions.
+	<br>
+	Registrar modules can also define hook functions.
 Hooks allow you to integrate with events and actions that occur inside WHMCS.
  Hooks for your registrar module should be defined in a file named hooks.php within your registrar module directory. These hooks will then be auto-detected and loaded throughout WHMCS.
 The hook functions within that file should be defined in exactly the same way as normal.
 Please refer to Hook Documentation for more info on creating and working with hooks in WHMCS.
 
-			<hr>
-			
-			<a href="//developers.whmcs.com/domain-registrars/module-logging/" title="Module Logging">
-				<h2>Module Logging</h2>
-			</a>
+	<hr>
+	
+	<a href="//developers.whmcs.com/domain-registrars/module-logging/" title="Module Logging">
+		<h2>Module Logging</h2>
+	</a>
 
-			<br>
-			We recommend you make use of the built in module logging functionality for WHMCS modules.
+	<br>
+	We recommend you make use of the built in module logging functionality for WHMCS modules.
 This makes debugging the external API calls your module makes follow the standardised pattern and makes it easier to debug.
 Please refer to the URL below for more details on how to do this.
 <a href="http://docs.whmcs.com/Provisioning_Module_Developer_Docs#Module_Logging">http://docs.whmcs.com/Provisioning_Module_Developer_Docs#Module_Logging</a>
 
-			<hr>
-			
+	<hr>
+	
 
-			<aside class="copyright" role="note">
-				
-				&copy; 2017 Released under the MIT license &ndash;
-				
-				Documentation built with
-				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
-				using the
-				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
-			</aside>
-
-      </div>
-    </div>
   </div>
 
 </main>
