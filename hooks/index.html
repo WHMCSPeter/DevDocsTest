@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
 
     
+    <link href="//developers.whmcs.com/hooks/index.xml" rel="alternate" type="application/rss+xml" title="WHMCS Developer Documentation" />
+    <link href="//developers.whmcs.com/hooks/index.xml" rel="feed" type="application/rss+xml" title="WHMCS Developer Documentation" />
+    
 
   </head>
   <body class="language-php">
@@ -109,178 +112,106 @@
 <main class="main">
 
   <div class="container">
-    <div class="row row-offcanvas row-offcanvas-left">
-      <div class="col-sm-3 sidebar-offcanvas">
+    <div class="row">
+      <div class="col-sm-3">
 
         
           <ul class="sidebar-nav">
-            
-  <li class="active parent" data-nav-id="/hooks/">
-    <a href="//developers.whmcs.com/hooks/">
-      <span>
-        
-          <i class='fa fa-retweet fa-fw'></i>
-        
-         Hooks
-       </span>
-    </a>
-    
-    <ul>
-      
-      
-      
-      
-        <li class="" data-nav-id="/hooks/getting-started/">
-          <a href="//developers.whmcs.com/hooks/getting-started/">
-            <span>Getting Started</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/hooks/priority/">
-          <a href="//developers.whmcs.com/hooks/priority/">
-            <span>Defining Priority</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/hooks/module-hooks/">
-          <a href="//developers.whmcs.com/hooks/module-hooks/">
-            <span>Module Hooks</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/hooks/sample-hook/">
-          <a href="//developers.whmcs.com/hooks/sample-hook/">
-            <span>Sample Hook</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/hooks/hook-index/">
-          <a href="//developers.whmcs.com/hooks/hook-index/">
-            <span>Hook Index</span>
-          </a>
-        </li>
-      
-      
-    </ul>
-    
-  </li>
-
-
           </ul>
         
 
       </div>
       <div class="col-sm-9">
 
-        <div class="breadcrumb-nav">
-
-            <div class="pull-right">
-              <a class="suggest-an-edit" href="https://github.com/WHMCS/developer-docs" target="blank">
-                <i class="fa fa-code-fork"></i>
-                <span class="hidden-xs">Suggest an edit</span>
-              </a>
-            </div>
-
-            <div class="visible-xs pull-left">
-                <button type="button" class="btn btn-toggle-sidebar" data-toggle="offcanvas">
-                    <i class="fa fa-list-alt"></i>
-                </button>
-            </div>
-
-            <div id="breadcrumbs">
-                
-                
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                    
-                    
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                <span itemprop="title"> Hooks</span>
-              </div>
-            </div>
-
-
-			<h1>Hooks </h1>
+			<h1>Pages in Hook</h1>
 
 			
+			<a href="//developers.whmcs.com/hooks/" title="Hooks">
+				<h2>Hooks</h2>
+			</a>
 
-<h2 id="introduction">Introduction</h2>
+			<br>
+			Introduction Hooks allow you to execute your own code when events occur inside WHMCS.
+ Getting Started
+Learn how to create a hook in WHMCS Defining Priority
+Priorities allow you to define in which order hooks execute Module Hooks
+Learn how modules can take advantage of hooks Sample Hook
+View sample code for creating a hook Hook Index
+A complete listing of all available hook points Hook Reference
+Visit the Hook Reference Manual
 
-<p>Hooks allow you to execute your own code when events occur inside WHMCS.</p>
+			<hr>
+			
+			<a href="//developers.whmcs.com/hooks/getting-started/" title="Getting Started">
+				<h2>Getting Started</h2>
+			</a>
 
-<ul>
-<li><strong><a href="//developers.whmcs.com/hooks/getting-started/">Getting Started</a></strong><br>Learn how to create a hook in WHMCS</li>
-<li><strong><a href="//developers.whmcs.com/hooks/priority/">Defining Priority</a></strong><br>Priorities allow you to define in which order hooks execute</li>
-<li><strong><a href="//developers.whmcs.com/hooks/module-hooks/">Module Hooks</a></strong><br>Learn how modules can take advantage of hooks</li>
-<li><strong><a href="//developers.whmcs.com/hooks/sample-hook/">Sample Hook</a></strong><br>View sample code for creating a hook</li>
-<li><strong><a href="//developers.whmcs.com/hooks/hook-index/">Hook Index</a></strong><br>A complete listing of all available hook points</li>
-<li><strong><a href="//developers.whmcs.com/hooks-reference/">Hook Reference</a></strong><br>Visit the Hook Reference Manual</li>
-</ul>
+			<br>
+			The following steps demonstrate how to create a hook function in WHMCS.
+Create your Hook File Hooks live inside files located within the /includes/hooks/ directory (or as part of a module - see module hooks).
+Begin by creating a file named helloworld.php:
+touch ~/includes/hooks/helloworld.php  Add your Hook Function Hook functions can be either named functions or closures.
+Below is an example hook that will execute whenever the ClientAdd event occurs.
 
+			<hr>
+			
+			<a href="//developers.whmcs.com/hooks/priority/" title="Defining Priority">
+				<h2>Defining Priority</h2>
+			</a>
 
-			<div class="topic-navigation clearfix">
-                
-                
-                    <a class="nav nav-next" href="//developers.whmcs.com/hooks/getting-started">
-                        <i class="fa fa-arrow-circle-right"></i>
-                        Next
-                    </a>
-                
-            </div>
+			<br>
+			Every hook function must be registered with a priority.
+The priority defines the order in which hooks should run when multiple hooks are registered for the same hook point.
+The priority can be any valid integer value.
 
-	<div class="results" role="status" aria-live="polite">
-		<div class="scrollable">
-			<div class="wrapper">
-				<div class="meta"></div>
-				<div class="list"></div>
-			</div>
-		</div>
-	</div>
+			<hr>
+			
+			<a href="//developers.whmcs.com/hooks/module-hooks/" title="Module Hooks">
+				<h2>Module Hooks</h2>
+			</a>
 
-        </div>
+			<br>
+			Module hooks follow all the same principles as regular hooks.
+Defining Hooks within a Module To provide hooks as part of a module, create a file named hooks.php in the root of your module directory.
+This hooks file will be detected and loaded by WHMCS on every page load.
+Hook files are only detected at the time a module is activated and configured. If you add your hook file after the module has already been activated, you may need to deactivate and reactivate your module in order for WHMCS to recognise it.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/hooks/sample-hook/" title="Sample Hook">
+				<h2>Sample Hook</h2>
+			</a>
+
+			<br>
+			/includes/hooks/samplehook.php
+&lt;?php /** * Register hook function call. * * @param string $hookPoint The hook point to call * @param integer $priority The priority for the given hook function * @param string|function Function name to call or anonymous function. * * @return Depends on hook function point. */ add_hook(&lsquo;ClientAdd&rsquo;, 1, function ($vars) { $userid = $vars[&lsquo;userid&rsquo;]; $firstname = $vars[&lsquo;firstname&rsquo;]; $lastname = $vars[&lsquo;lastname&rsquo;]; $email = $vars[&lsquo;email&rsquo;]; $password = $vars[&lsquo;password&rsquo;]; // Run code to create remote forum account here.
+
+			<hr>
+			
+			<a href="//developers.whmcs.com/hooks/hook-index/" title="Hook Index">
+				<h2>Hook Index</h2>
+			</a>
+
+			<br>
+			Invoices and Quotes  AcceptQuote  AddInvoiceLateFee  AddInvoicePayment  AddTransaction  AfterInvoicingGenerateInvoiceItems  InvoiceCancelled  InvoiceChangeGateway  InvoiceCreated  InvoiceCreation  InvoiceCreationPreEmail  InvoicePaid  InvoicePaidPreEmail  InvoiceRefunded  InvoiceSplit  InvoiceUnpaid  LogTransaction  ManualRefund  PreInvoicingGenerateInvoiceItems  QuoteCreated  QuoteStatusChange  UpdateInvoiceTotal  ViewInvoiceDetailsPage  Shopping Cart  AcceptOrder  AddonFraud  AfterFraudCheck  AfterShoppingCartCheckout  CancelOrder  CartTotalAdjustment  DeleteOrder  FraudOrder  OrderAddonPricingOverride  OrderProductPricingOverride  OrderProductUpgradeOverride  OverrideOrderNumberGeneration  PendingOrder  PreCalculateCartTotals  PreShoppingCartCheckout  RunFraudCheck  ShoppingCartCheckoutCompletePage  ViewOrderDetailsPage  Service  CancellationRequest  PreServiceEdit  ServiceDelete  ServiceEdit  ServiceRecurringCompleted  Module  AfterModuleChangePackage  AfterModuleChangePackageFailed  AfterModuleChangePassword  AfterModuleChangePasswordFailed  AfterModuleCreate  AfterModuleCreateFailed  AfterModuleSuspend  AfterModuleSuspendFailed  AfterModuleTerminate  AfterModuleTerminateFailed  AfterModuleUnsuspend  AfterModuleUnsuspendFailed  OverrideModuleUsernameGeneration  PreModuleChangePackage  PreModuleChangePassword  PreModuleCreate  PreModuleSuspend  PreModuleTerminate  PreModuleUnsuspend  Domain  DomainDelete  DomainEdit  DomainValidation  PreDomainRegister  PreDomainTransfer  PreRegistrarRegisterDomain  PreRegistrarRenewDomain  PreRegistrarTransferDomain  Registrar Module  AfterRegistrarGetContactDetails  AfterRegistrarGetDNS  AfterRegistrarGetEPPCode  AfterRegistrarGetNameservers  AfterRegistrarRegister  AfterRegistrarRegistration  AfterRegistrarRegistrationFailed  AfterRegistrarRenew  AfterRegistrarRenewal  AfterRegistrarRenewalFailed  AfterRegistrarRequestDelete  AfterRegistrarSaveContactDetails  AfterRegistrarSaveDNS  AfterRegistrarSaveNameservers  AfterRegistrarTransfer  AfterRegistrarTransfer  AfterRegistrarTransferFailed  PreRegistrarGetContactDetails  PreRegistrarGetDNS  PreRegistrarGetEPPCode  PreRegistrarGetNameservers  PreRegistrarRequestDelete  PreRegistrarSaveContactDetails  PreRegistrarSaveDNS  PreRegistrarSaveNameservers  Addon  AddonActivated  AddonActivation  AddonAdd  AddonCancelled  AddonConfig  AddonConfigSave  AddonDeleted  AddonEdit  AddonSuspended  AddonTerminated  AddonUnsuspended  LicensingAddonReissue  LicensingAddonVerify  Client  AfterClientMerge  ClientAlert  ClientChangePassword  ClientClose  ClientDelete  ClientEdit  ClientEmailVerificationComplete  PreDeleteClient  Contact  ContactAdd  ContactChangePassword  ContactEdit  Products and Services  AfterProductUpgrade  ProductDelete  ProductEdit  ServerAdd  ServerDelete  ServerEdit  Ticket  AdminAreaViewTicketPage  ClientAreaPageSubmitTicket  ClientAreaPageSupportTickets  ClientAreaPageViewTicket  SubmitTicketAnswerSuggestions  TicketAdminReply  TicketClose  TicketDelete  TicketDeleteReply  TicketDepartmentChange  TicketOpen  TicketOpenAdmin  TicketPiping  TicketStatusChange  TicketUserReply  TransliterateTicketText  Support Tools  AnnouncementAdd  AnnouncementEdit  FileDownload  NetworkIssueAdd  NetworkIssueClose  NetworkIssueDelete  NetworkIssueEdit  NetworkIssueReopen  Authentication  ClientLogin  ClientLoginShare  ClientLogout  Client Area Interface  ClientAreaDomainDetails  ClientAreaHomepage  ClientAreaHomepagePanels  ClientAreaNavbars  ClientAreaPage  ClientAreaPageAddContact  ClientAreaPageAddFunds  ClientAreaPageAffiliates  ClientAreaPageAnnouncements  ClientAreaPageBanned  ClientAreaPageBulkDomainManagement  ClientAreaPageCancellation  ClientAreaPageCart  ClientAreaPageChangePassword  ClientAreaPageConfigureSSL  ClientAreaPageContact  ClientAreaPageContacts  ClientAreaPageCreditCard  ClientAreaPageCreditCardCheckout  ClientAreaPageDomainAddons  ClientAreaPageDomainChecker  ClientAreaPageDomainContacts  ClientAreaPageDomainDNSManagement  ClientAreaPageDomainDetails  ClientAreaPageDomainEPPCode  ClientAreaPageDomainEmailForwarding  ClientAreaPageDomainRegisterNameservers  ClientAreaPageDomains  ClientAreaPageDownloads  ClientAreaPageEmails  ClientAreaPageHome  ClientAreaPageInvoices  ClientAreaPageKnowledgebase  ClientAreaPageLogin  ClientAreaPageLogout  ClientAreaPageMassPay  ClientAreaPageNetworkIssues  ClientAreaPagePasswordReset  ClientAreaPageProductDetails  ClientAreaPageProductsServices  ClientAreaPageProfile  ClientAreaPageQuotes  ClientAreaPageRegister  ClientAreaPageSecurity  ClientAreaPageServerStatus  ClientAreaPageUnsubscribe  ClientAreaPageUpgrade  ClientAreaPageViewEmail  ClientAreaPageViewInvoice  ClientAreaPageViewQuote  ClientAreaPageViewWHOIS  ClientAreaPrimaryNavbar  ClientAreaPrimarySidebar  ClientAreaProductDetails  ClientAreaProductDetailsPreModuleTemplate  ClientAreaRegister  ClientAreaSecondaryNavbar  ClientAreaSecondarySidebar  ClientAreaSidebars  Admin Area  AdminAreaClientSummaryActionLinks  AdminAreaClientSummaryPage  AdminAreaPage  AdminAreaViewQuotePage  AdminClientDomainsTabFields  AdminClientDomainsTabFieldsSave  AdminClientFileUpload  AdminClientProfileTabFields  AdminClientProfileTabFieldsSave  AdminClientServicesTabFields  AdminClientServicesTabFieldsSave  AdminHomepage  AdminLogin  AdminLogout  AdminProductConfigFields  AdminProductConfigFieldsSave  AdminServiceEdit  InvoiceCreationAdminArea  PreAdminServiceEdit  Output  AdminAreaFooterOutput  AdminAreaHeadOutput  AdminAreaHeaderOutput  AdminInvoicesControlsOutput  ClientAreaDomainDetailsOutput  ClientAreaFooterOutput  ClientAreaHeadOutput  ClientAreaHeaderOutput  ClientAreaProductDetailsOutput  ReportViewPostOutput  ReportViewPreOutput  Cron  AfterCronJob  DailyCronJob  DailyCronJobPreEmail  PreCronJob  Everything Else  AffiliateActivation  AffiliateClickthru  AffiliateCommission  AffiliateWithdrawalRequest  AfterConfigOptionsUpgrade  CCUpdate  CalcAffiliateCommission  CustomFieldLoad  CustomFieldSave  EmailPreLog  EmailPreSend  EmailTplMergeFields  FetchCurrencyExchangeRates  IntelligentSearch  LinkTracker  LogActivity  PreAutomationTask
+
+			<hr>
+			
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2017 Released under the MIT license &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+      </div>
+    </div>
   </div>
-</div>
+
 </main>
 
 
