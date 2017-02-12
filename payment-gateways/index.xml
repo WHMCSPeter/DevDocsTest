@@ -88,8 +88,8 @@ The payment processes in the background.
 Can also include 3D Secure where the user leaves your site.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;For a Third Party gateway go to &lt;a href=&#34;//developers.whmcs.com/gateway-modules/third-party-gateway&#34; title=&#34;Third Party Gateway&#34;&gt;Third Party Gateway&lt;/a&gt;.
-For a merchant gateway go to &lt;a href=&#34;//developers.whmcs.com/gateway-modules/merchant-gateway&#34; title=&#34;Merchant Gateway&#34;&gt;Merchant Gateway&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For a Third Party gateway go to &lt;a href=&#34;//developers.whmcs.com/payment-gateways/third-party-gateway&#34; title=&#34;Third Party Gateway&#34;&gt;Third Party Gateway&lt;/a&gt;.
+For a merchant gateway go to &lt;a href=&#34;//developers.whmcs.com/payment-gateways/merchant-gateway&#34; title=&#34;Merchant Gateway&#34;&gt;Merchant Gateway&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -146,7 +146,7 @@ $params[&#39;systemurl&#39;] # the url to the Client Area
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Processing of a payment is in a callback file separate from the module.
-(see &lt;a href=&#34;//developers.whmcs.com/gateway-modules/callbacks&#34; title=&#34;Callback Files&#34;&gt;here&lt;/a&gt; for more information).&lt;/p&gt;&lt;/li&gt;
+(see &lt;a href=&#34;//developers.whmcs.com/payment-gateways/callbacks&#34; title=&#34;Callback Files&#34;&gt;here&lt;/a&gt; for more information).&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;If the gateway won&amp;rsquo;t support automated refunds, delete the _refund function.
 Otherwise, refer to the Refund section on page 7 of the sample module.&lt;/p&gt;&lt;/li&gt;
@@ -320,8 +320,8 @@ The last variable should be the result or status to show in the log.&lt;/p&gt;
 An example of this is below:&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;The &lt;strong&gt;_3dsecure&lt;/strong&gt; function is passed all the same &lt;a href=&#34;//developers.whmcs.com/gateway-modules/merchant-gateways#variables&#34; title=&#34;Merchant Gateway Variables&#34;&gt;variables&lt;/a&gt; that the &lt;strong&gt;_capture&lt;/strong&gt; function is.
-The return url should be a &lt;a href=&#34;//developers.whmcs.com/gateway-modules/callbacks&#34; title=&#34;Callback Files&#34;&gt;callback file&lt;/a&gt; to handle the response.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;_3dsecure&lt;/strong&gt; function is passed all the same &lt;a href=&#34;//developers.whmcs.com/payment-gateways/merchant-gateways#variables&#34; title=&#34;Merchant Gateway Variables&#34;&gt;variables&lt;/a&gt; that the &lt;strong&gt;_capture&lt;/strong&gt; function is.
+The return url should be a &lt;a href=&#34;//developers.whmcs.com/payment-gateways/callbacks&#34; title=&#34;Callback Files&#34;&gt;callback file&lt;/a&gt; to handle the response.&lt;/p&gt;
 
 &lt;h2 id=&#34;example-function-a-id-example-function-a&#34;&gt;Example Function &lt;a id=&#34;example-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
 
