@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Addon-modules - WHMCS Developer Documentation</title>
-    <meta name="generator" content="Hugo 0.18.1" />
+    <title>Addon Modules - WHMCS Developer Documentation</title>
+    <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
@@ -22,9 +22,6 @@
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
 
-    
-    <link href="//developers.whmcs.com/addon-modules/index.xml" rel="alternate" type="application/rss+xml" title="WHMCS Developer Documentation" />
-    <link href="//developers.whmcs.com/addon-modules/index.xml" rel="feed" type="application/rss+xml" title="WHMCS Developer Documentation" />
     
 
   </head>
@@ -112,132 +109,221 @@
 <main class="main">
 
   <div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-sm-3 sidebar-offcanvas">
 
-	<h1>Pages in Addon-module</h1>
+        
+          <ul class="sidebar-nav">
+            
+  <li class="active parent" data-nav-id="/addon-modules/">
+    <a href="//developers.whmcs.com/addon-modules/">
+      <span>
+        
+          <i class='fa fa-file-o fa-fw'></i>
+        
+         Addon Modules
+       </span>
+    </a>
+    
+    <ul>
+      
+      
+      
+      
+        <li class="" data-nav-id="/addon-modules/getting-started/">
+          <a href="//developers.whmcs.com/addon-modules/getting-started/">
+            <span>Getting Started</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/addon-modules/configuration/">
+          <a href="//developers.whmcs.com/addon-modules/configuration/">
+            <span>Configuration</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/addon-modules/installation-uninstallation/">
+          <a href="//developers.whmcs.com/addon-modules/installation-uninstallation/">
+            <span>Installation &amp; Uninstallation</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/addon-modules/admin-area-output/">
+          <a href="//developers.whmcs.com/addon-modules/admin-area-output/">
+            <span>Admin Area Content/Output</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/addon-modules/client-area-output/">
+          <a href="//developers.whmcs.com/addon-modules/client-area-output/">
+            <span>Client Area Output</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/addon-modules/multi-language/">
+          <a href="//developers.whmcs.com/addon-modules/multi-language/">
+            <span>Multi-Language Support</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/addon-modules/hooks/">
+          <a href="//developers.whmcs.com/addon-modules/hooks/">
+            <span>Hooks</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/addon-modules/admin-dashboard-widgets/">
+          <a href="//developers.whmcs.com/addon-modules/admin-dashboard-widgets/">
+            <span>Admin Dashboard Widgets</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/addon-modules/upgrades/">
+          <a href="//developers.whmcs.com/addon-modules/upgrades/">
+            <span>Upgrades</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/addon-modules/whmcs-marketplace/">
+          <a href="//developers.whmcs.com/addon-modules/whmcs-marketplace/">
+            <span>WHMCS Marketplace</span>
+          </a>
+        </li>
+      
+      
+    </ul>
+    
+  </li>
 
-	
-	<a href="//developers.whmcs.com/addon-modules/" title="Addon Modules">
-		<h2>Addon Modules</h2>
-	</a>
 
-	<br>
-	Introduction Addon modules allow you to create both admin pages and hooks to extend WHMCS further.
-Addon Modules can consist of just an admin page, just hooks, or both. They are all managed through the Setup &gt; Addon Modules interface.
-There are other types of module in WHMCS. These are Payment Gateways, Provisioning Modules and Registrar Modules.
-Once activated, modules will display in the &ldquo;Addons&rdquo; menu within the admin area for access from any page.
+          </ul>
+        
 
-	<hr>
-	
-	<a href="//developers.whmcs.com/addon-modules/getting-started/" title="Getting Started">
-		<h2>Getting Started</h2>
-	</a>
+      </div>
+      <div class="col-sm-9">
 
-	<br>
-	To get started, you need to begin by choosing a name for your module. The module name chosen must be unique and should be all lowercase. The name must only contain letters &amp; numbers whilst always starting with a letter. Underscore is the only accepted special character. For example, valid names would be:
-mymodulename OR my_module_name OR my_module
-Once you have chosen your name, you need to create a directory and module file for it.
+        <div class="breadcrumb-nav">
 
-	<hr>
-	
-	<a href="//developers.whmcs.com/addon-modules/configuration/" title="Configuration">
-		<h2>Configuration</h2>
-	</a>
+            <div class="pull-right">
+              <a class="suggest-an-edit" href="https://github.com/WHMCS/developer-docs" target="blank">
+                <i class="fa fa-code-fork"></i>
+                <span class="hidden-xs">Suggest an edit</span>
+              </a>
+            </div>
 
-	<br>
-	The first step in the module is defining the configuration data. This includes the module name, version number, author, description. Also, this contains any custom configuration fields. Below is an example of the config function:
-Config Function Example  function demo_config() { $configarray = array( &quot;name&quot; =&gt; &quot;Addon Example&quot;, &quot;description&quot; =&gt; &quot;This is a sample config function for an addon module&quot;, &quot;version&quot; =&gt; &quot;1.0&quot;, &quot;author&quot; =&gt; &quot;WHMCS&quot;, &quot;fields&quot; =&gt; array( &quot;option1&quot; =&gt; array (&quot;FriendlyName&quot; =&gt; &quot;Option1&quot;, &quot;Type&quot; =&gt; &quot;text&quot;, &quot;Size&quot; =&gt; &quot;25&quot;, &quot;Description&quot; =&gt; &quot;Textbox&quot;, &quot;Default&quot; =&gt; &quot;Example&quot;, ), &quot;option2&quot; =&gt; array (&quot;FriendlyName&quot; =&gt; &quot;Option2&quot;, &quot;Type&quot; =&gt; &quot;password&quot;, &quot;Size&quot; =&gt; &quot;25&quot;, &quot;Description&quot; =&gt; &quot;Password&quot;, ), &quot;option3&quot; =&gt; array (&quot;FriendlyName&quot; =&gt; &quot;Option3&quot;, &quot;Type&quot; =&gt; &quot;yesno&quot;, &quot;Size&quot; =&gt; &quot;25&quot;, &quot;Description&quot; =&gt; &quot;Sample Check Box&quot;, ), &quot;option4&quot; =&gt; array (&quot;FriendlyName&quot; =&gt; &quot;Option4&quot;, &quot;Type&quot; =&gt; &quot;dropdown&quot;, &quot;Options&quot; =&gt; &quot;1,2,3,4,5&quot;, &quot;Description&quot; =&gt; &quot;Sample Dropdown&quot;, &quot;Default&quot; =&gt; &quot;3&quot;, ), &quot;option5&quot; =&gt; array (&quot;FriendlyName&quot; =&gt; &quot;Option5&quot;, &quot;Type&quot; =&gt; &quot;radio&quot;, &quot;Options&quot; =&gt; &quot;Demo1,Demo2,Demo3&quot;, &quot;Description&quot; =&gt; &quot;Radio Options Demo&quot;, ), &quot;option6&quot; =&gt; array (&quot;FriendlyName&quot; =&gt; &quot;Option6&quot;, &quot;Type&quot; =&gt; &quot;textarea&quot;, &quot;Rows&quot; =&gt; &quot;3&quot;, &quot;Cols&quot; =&gt; &quot;50&quot;, &quot;Description&quot; =&gt; &quot;Description goes here&quot;, &quot;Default&quot; =&gt; &quot;Test&quot;, ), )); return $configarray; }  The first 4 fields: name, version, author &amp; description should all be self-explanatory.
+            <div class="visible-xs pull-left">
+                <button type="button" class="btn btn-toggle-sidebar" data-toggle="offcanvas">
+                    <i class="fa fa-list-alt"></i>
+                </button>
+            </div>
 
-	<hr>
-	
-	<a href="//developers.whmcs.com/addon-modules/installation-uninstallation/" title="Installation &amp; Uninstallation">
-		<h2>Installation &amp; Uninstallation</h2>
-	</a>
+            <div id="breadcrumbs">
+                
+                
+                
+                  
+                
+                  
+                
+                  
+                    
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                <span itemprop="title"> Addon Modules</span>
+              </div>
+            </div>
 
-	<br>
-	Modules can contain both activate and deactivate functions. These functions run when an admin user activates or deactivates the module in the Addon Modules configuration area.
-These functions can be used run any code required when activating or deactivating the module. For example, to create custom tables, database entries, or perform license checks. They can also be used to return messages, or errors to a user. So, if you want to fail the process due to a problem, or want to notify the user of a missing requirement or license issue.
 
-	<hr>
-	
-	<a href="//developers.whmcs.com/addon-modules/admin-area-output/" title="Admin Area Content/Output">
-		<h2>Admin Area Content/Output</h2>
-	</a>
+			<h1>Addon Modules </h1>
 
-	<br>
-	The output from modules is defined in the function your_module_name_output. This should be actually output (i.e. echo’d) and not returned. All output is captured by WHMCS and displayed within the admin interface template.
-Variables  The output function is passed all the fields defined in your modules configuration function, along with the values users have set for them, as well as a modulelink parameter which provides the URI to link back to the module.
+			
 
-	<hr>
-	
-	<a href="//developers.whmcs.com/addon-modules/client-area-output/" title="Client Area Output">
-		<h2>Client Area Output</h2>
-	</a>
+<h2 id="introduction">Introduction</h2>
 
-	<br>
-	Addon Modules also support generating client area output. This is done with the use of an _clientarea function within the module.
-The functionality allows for modules to return output in the form of template files. The template files are stored within the module folder.
-You can return a page title, breadcrumb path, and template variables. You can also require a client login with a simple true/false response. Language strings from the modules language file (see here) are also available.
+<p>Addon modules allow you to create both admin pages and hooks to extend WHMCS further.</p>
 
-	<hr>
-	
-	<a href="//developers.whmcs.com/addon-modules/multi-language/" title="Multi-Language Support">
-		<h2>Multi-Language Support</h2>
-	</a>
+<p>Addon Modules can consist of just an admin page, just hooks, or both.
+They are all managed through the <strong>Setup</strong> &gt; <strong>Addon Modules</strong> interface.</p>
 
-	<br>
-	Modules can support multiple languages should you wish.
-For this, the addon module needs a lang subfolder created within it. Within that, language files can be created matching the names of the main WHMCS admin area language files. The admin language files are located in the /admin/lang/ folder.
-WHMCS has the language variables for custom modules separate to make installation and updating easier.
-If language files exist, WHMCS will then load these whenever the custom module is accessed.
+<p>There are other types of module in WHMCS. These are <a href="gateway-modules" title="Gateway Module Documentation">Payment Gateways</a>, <a href="provisioning-modules" title="Provisioning Module Developer Documentation">Provisioning Modules</a> and <a href="registrar-modules" title="Registrar Module Developer Documentation">Registrar Modules</a>.</p>
 
-	<hr>
-	
-	<a href="//developers.whmcs.com/addon-modules/hooks/" title="Hooks">
-		<h2>Hooks</h2>
-	</a>
+<p>Once activated, modules will display in the &ldquo;Addons&rdquo; menu within the admin area for access from any page.</p>
 
-	<br>
-	Hooks that the module should define within WHMCS are defined in a file named “hooks.php”. This should be within your custom module folder. That will then become detected and any hooks that exist will be loaded on every page of WHMCS.
-The hook functions within that file should be defined in exactly the same way as normal.
-Please refer to Hook Documentation for more info on creating and working with hooks in WHMCS.
+<p>Management options consist of activating and deactivating of the modules.
+Access control allows full admins to define which of the administrator roles can access each addon module.</p>
 
-	<hr>
-	
-	<a href="//developers.whmcs.com/addon-modules/admin-dashboard-widgets/" title="Admin Dashboard Widgets">
-		<h2>Admin Dashboard Widgets</h2>
-	</a>
+<p>We have a <strong>Video Tutorial</strong> demonstrating addon module management &amp; access control <a href="https://www.youtube.com/watch?v=39TpVTs8onE" title="Addon Modules">here</a></p>
 
-	<br>
-	Admin Dashboard Widgets are displayed on the admin area homepage.
-They allow you to provide convenient access to key information and functionality from your module within the admin homepage dashboard.
-Below is an example of how a dashboard widget is defined.
-&lt;?php add_hook(&lsquo;AdminHomeWidgets&rsquo;, 1, function() { return new HelloWorldWidget(); }); /** * Hello World Widget. */ class HelloWorldWidget extends \WHMCS\Module\AbstractWidget { protected $title = &lsquo;Hello World&rsquo;; protected $description = &ldquo;; protected $weight = 150; protected $columns = 1; protected $cache = false; protected $cacheExpiry = 120; protected $requiredPermission = &ldquo;; public function getData() { return array(); } public function generateOutput($data) { return &lt;&lt;&lt;EOF &lt;div class=&quot;widget-content-padded&quot;&gt; Hello World!
 
-	<hr>
-	
-	<a href="//developers.whmcs.com/addon-modules/upgrades/" title="Upgrades">
-		<h2>Upgrades</h2>
-	</a>
+			<div class="topic-navigation clearfix">
+                
+                
+                    <a class="nav nav-next" href="//developers.whmcs.com/addon-modules/getting-started">
+                        <i class="fa fa-arrow-circle-right"></i>
+                        Next
+                    </a>
+                
+            </div>
 
-	<br>
-	Releasing updates and upgrades to custom modules is likely something that is needed to be done at some point. If those modules need to modify the database structure or perform other functions that would be handled in the _activate function, then you need some way of handling that.
-With the Addon Modules system, this is a breeze with the upgrade function. The upgrade function is called the first time a module is accessed following an update.
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
 
-	<hr>
-	
-	<a href="//developers.whmcs.com/addon-modules/whmcs-marketplace/" title="WHMCS Marketplace">
-		<h2>WHMCS Marketplace</h2>
-	</a>
-
-	<br>
-	WHMCS offers a Marketplace which accepts submission of the completed module. Displayed listed are found under the Addons tab within the administration area and online. This is a great way to make WHMCS users aware of the module.
-For help using the Marketplace please click here. We aim to review submissions in 1-2 weeks.
-
-	<hr>
-	
-
+        </div>
   </div>
-
+</div>
 </main>
 
 
