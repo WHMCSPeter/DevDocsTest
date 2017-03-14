@@ -351,6 +351,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteprojecttask/&#34;&gt;DeleteProjectTask&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deletequote/&#34;&gt;DeleteProjectTask&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/endtasktimer/&#34;&gt;EndTaskTimer&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/starttasktimer/&#34;&gt;StartTaskTimer&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getproject/&#34;&gt;GetProject&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getprojects/&#34;&gt;GetProjects&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/starttasktimer/&#34;&gt;EndTaskTimer&lt;/a&gt;

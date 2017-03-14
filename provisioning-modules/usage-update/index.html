@@ -146,6 +146,14 @@
       
       
       
+        <li class="" data-nav-id="/provisioning-modules/meta-data-params/">
+          <a href="//developers.whmcs.com/provisioning-modules/meta-data-params/">
+            <span>Meta Data Parameters</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/provisioning-modules/supported-functions/">
           <a href="//developers.whmcs.com/provisioning-modules/supported-functions/">
             <span>Supported Functions</span>
@@ -320,7 +328,7 @@ The database update should be a single call for speed and efficiency.</p>
 <h2 id="example-usage-update-function-a-id-example-function-a">Example Usage Update Function <a id="example-function"></a></h2>
 
 <pre><code>function mymodule_UsageUpdate($params) {
- 
+
 	$serverid = $params['serverid'];
 	$serverhostname = $params['serverhostname'];
 	$serverip = $params['serverip'];
@@ -328,7 +336,7 @@ The database update should be a single call for speed and efficiency.</p>
 	$serverpassword = $params['serverpassword'];
 	$serveraccesshash = $params['serveraccesshash'];
 	$serversecure = $params['serversecure'];
- 
+
 	# Run connection to retrieve usage for all domains/accounts on $serverid
 
 	# Now loop through results and update DB
@@ -342,7 +350,7 @@ The database update should be a single call for speed and efficiency.</p>
          &quot;lastupdate&quot;=&gt;&quot;now()&quot;,
         ),array(&quot;server&quot;=&gt;$serverid,&quot;domain&quot;=&gt;$values['domain']));
     }
- 
+
 }
 </code></pre>
 

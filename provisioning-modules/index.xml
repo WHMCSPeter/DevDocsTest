@@ -157,6 +157,88 @@ These events include:&lt;/p&gt;
     </item>
     
     <item>
+      <title>Meta Data Parameters</title>
+      <link>//developers.whmcs.com/provisioning-modules/meta-data-params/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/meta-data-params/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;//developers.whmcs.com/provisioning-modules&#34; title=&#34;Provisioning Modules&#34;&gt;Provisioning Modules&lt;/a&gt; support a number of meta data configuration parameters.&lt;/p&gt;
+
+&lt;p&gt;They include:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Supported As Of&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DisplayName&lt;/td&gt;
+&lt;td&gt;Text&lt;/td&gt;
+&lt;td&gt;6.0&lt;/td&gt;
+&lt;td&gt;Module Name&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;An alternate display name that will be used instead of the filename if defined&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;APIVersion&lt;/td&gt;
+&lt;td&gt;Text&lt;/td&gt;
+&lt;td&gt;5.2&lt;/td&gt;
+&lt;td&gt;1.1&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Defines API Version the module uses. Use &lt;code&gt;1.1&lt;/code&gt; unless you have a need specific to use &lt;code&gt;1.0&lt;/code&gt;&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;RequiresServer&lt;/td&gt;
+&lt;td&gt;Boolean&lt;/td&gt;
+&lt;td&gt;6.0&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Defines whether the module requires servers to function. A lot of modules these days don&amp;rsquo;t require servers be configured so setting this to false prevents users from creating servers assigned to it.&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;DefaultNonSSLPort&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;6.0&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;If specified, will display by default when configuring a server with the module when &lt;code&gt;Use SSL&lt;/code&gt; is disabled and will allow a user to override it should they wish.  Use this if your API can operate on varying port numbers.&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;DefaultSSLPort&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;6.0&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;If specified, will display by default when configuring a server with the module when &lt;code&gt;Use SSL&lt;/code&gt; is disabled and will allow a user to override it should they wish.  Use this if your API can operate on varying port numbers.&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ServiceSingleSignOnLabel&lt;/td&gt;
+&lt;td&gt;Text&lt;/td&gt;
+&lt;td&gt;6.0&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;For use with Single Sign-On, define here what you want to show as the text label for the Single Sign-On option for an instance of a service under a client.&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;AdminSingleSignOnLabel&lt;/td&gt;
+&lt;td&gt;Text&lt;/td&gt;
+&lt;td&gt;6.0&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;For use with Single Sign-On, define here what you want to show as the text label for the Single Sign-On option for a server assigned to the module within the admin area.&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Supported Functions</title>
       <link>//developers.whmcs.com/provisioning-modules/supported-functions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -601,7 +683,7 @@ The database update should be a single call for speed and efficiency.&lt;/p&gt;
 &lt;h2 id=&#34;example-usage-update-function-a-id-example-function-a&#34;&gt;Example Usage Update Function &lt;a id=&#34;example-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;function mymodule_UsageUpdate($params) {
- 
+
 	$serverid = $params[&#39;serverid&#39;];
 	$serverhostname = $params[&#39;serverhostname&#39;];
 	$serverip = $params[&#39;serverip&#39;];
@@ -609,7 +691,7 @@ The database update should be a single call for speed and efficiency.&lt;/p&gt;
 	$serverpassword = $params[&#39;serverpassword&#39;];
 	$serveraccesshash = $params[&#39;serveraccesshash&#39;];
 	$serversecure = $params[&#39;serversecure&#39;];
- 
+
 	# Run connection to retrieve usage for all domains/accounts on $serverid
 
 	# Now loop through results and update DB
@@ -623,7 +705,7 @@ The database update should be a single call for speed and efficiency.&lt;/p&gt;
          &amp;quot;lastupdate&amp;quot;=&amp;gt;&amp;quot;now()&amp;quot;,
         ),array(&amp;quot;server&amp;quot;=&amp;gt;$serverid,&amp;quot;domain&amp;quot;=&amp;gt;$values[&#39;domain&#39;]));
     }
- 
+
 }
 &lt;/code&gt;&lt;/pre&gt;
 </description>
@@ -651,7 +733,7 @@ It must begin with the module &lt;strong&gt;filename_&lt;/strong&gt;, and then t
 &lt;p&gt;Let’s take an example of a reboot &amp;amp; shutdown function in a VM/VPS system.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;function mymodule_reboot($params) {
- 
+
 	# Code to perform reboot action goes here...
 
     if ($successful) {
@@ -660,11 +742,11 @@ It must begin with the module &lt;strong&gt;filename_&lt;/strong&gt;, and then t
 		$result = &amp;quot;Error Message Goes Here...&amp;quot;;
 	}
 	return $result;
- 
+
 }
- 
+
 function mymodule_shutdown($params) {
- 
+
 	# Code to perform shutdown action goes here...
 
     if ($successful) {
@@ -673,7 +755,7 @@ function mymodule_shutdown($params) {
 		$result = &amp;quot;Error Message Goes Here...&amp;quot;;
 	}
 	return $result;
- 
+
 }
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -687,7 +769,7 @@ If we wanted to allow clients to perform reboots, but only admins to be able to 
 	);
 	return $buttonarray;
 }
- 
+
 function mymodule_AdminCustomButtonArray() {
     $buttonarray = array(
 	 &amp;quot;Reboot Server&amp;quot; =&amp;gt; &amp;quot;reboot&amp;quot;,
@@ -797,7 +879,7 @@ The examples continues to update them in a custom table of the database via the 
 &lt;h2 id=&#34;example-admin-services-tab-function-a-id-example-function-a&#34;&gt;Example Admin Services Tab Function &lt;a id=&#34;example-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;function mymodule_AdminServicesTabFields($params) {
- 
+
     $result = select_query(
         &amp;quot;mod_customtable&amp;quot;,
         &amp;quot;&amp;quot;,
@@ -808,7 +890,7 @@ The examples continues to update them in a custom table of the database via the 
     $var2 = $data[&#39;var2&#39;];
     $var3 = $data[&#39;var3&#39;];
     $var4 = $data[&#39;var4&#39;];
- 
+
     $fieldsarray = array(
      &#39;Field 1&#39; =&amp;gt; &#39;&amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;modulefields[0]&amp;quot; size=&amp;quot;30&amp;quot; value=&amp;quot;&#39;.$var1.&#39;&amp;quot; /&amp;gt;&#39;,
      &#39;Field 2&#39; =&amp;gt; &#39;&amp;lt;select name=&amp;quot;modulefields[1]&amp;quot;&amp;gt;&amp;lt;option&amp;gt;Val1&amp;lt;/option&amp;lt;/select&amp;gt;&#39;,
@@ -816,9 +898,9 @@ The examples continues to update them in a custom table of the database via the 
      &#39;Field 4&#39; =&amp;gt; $var4, # Info Output Only
     );
     return $fieldsarray;
- 
+
 }
- 
+
 function mymodule_AdminServicesTabFieldsSave($params) {
     update_query(&amp;quot;mod_customtable&amp;quot;,array(
         &amp;quot;var1&amp;quot;=&amp;gt;$_POST[&#39;modulefields&#39;][0],

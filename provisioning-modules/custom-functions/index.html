@@ -146,6 +146,14 @@
       
       
       
+        <li class="" data-nav-id="/provisioning-modules/meta-data-params/">
+          <a href="//developers.whmcs.com/provisioning-modules/meta-data-params/">
+            <span>Meta Data Parameters</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/provisioning-modules/supported-functions/">
           <a href="//developers.whmcs.com/provisioning-modules/supported-functions/">
             <span>Supported Functions</span>
@@ -317,7 +325,7 @@ It must begin with the module <strong>filename_</strong>, and then the custom fu
 <p>Let’s take an example of a reboot &amp; shutdown function in a VM/VPS system.</p>
 
 <pre><code>function mymodule_reboot($params) {
- 
+
 	# Code to perform reboot action goes here...
 
     if ($successful) {
@@ -326,11 +334,11 @@ It must begin with the module <strong>filename_</strong>, and then the custom fu
 		$result = &quot;Error Message Goes Here...&quot;;
 	}
 	return $result;
- 
+
 }
- 
+
 function mymodule_shutdown($params) {
- 
+
 	# Code to perform shutdown action goes here...
 
     if ($successful) {
@@ -339,7 +347,7 @@ function mymodule_shutdown($params) {
 		$result = &quot;Error Message Goes Here...&quot;;
 	}
 	return $result;
- 
+
 }
 </code></pre>
 
@@ -353,7 +361,7 @@ If we wanted to allow clients to perform reboots, but only admins to be able to 
 	);
 	return $buttonarray;
 }
- 
+
 function mymodule_AdminCustomButtonArray() {
     $buttonarray = array(
 	 &quot;Reboot Server&quot; =&gt; &quot;reboot&quot;,

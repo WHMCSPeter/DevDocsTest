@@ -254,10 +254,6 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/api-reference/starttasktimer/</loc>
-  </url>
-  
-  <url>
     <loc>//developers.whmcs.com/api-reference/fraudorder/</loc>
   </url>
   
@@ -546,6 +542,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/api-reference/starttasktimer/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/themes/</loc>
   </url>
   
@@ -802,15 +802,19 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/provisioning-modules/meta-data-params/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/hooks/sample-hook/</loc>
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/provisioning-modules/supported-functions/</loc>
+    <loc>//developers.whmcs.com/payment-gateways/third-party-gateway/</loc>
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/payment-gateways/third-party-gateway/</loc>
+    <loc>//developers.whmcs.com/provisioning-modules/supported-functions/</loc>
   </url>
   
   <url>

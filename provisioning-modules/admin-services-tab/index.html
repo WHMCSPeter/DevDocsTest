@@ -146,6 +146,14 @@
       
       
       
+        <li class="" data-nav-id="/provisioning-modules/meta-data-params/">
+          <a href="//developers.whmcs.com/provisioning-modules/meta-data-params/">
+            <span>Meta Data Parameters</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/provisioning-modules/supported-functions/">
           <a href="//developers.whmcs.com/provisioning-modules/supported-functions/">
             <span>Supported Functions</span>
@@ -320,7 +328,7 @@ The examples continues to update them in a custom table of the database via the 
 <h2 id="example-admin-services-tab-function-a-id-example-function-a">Example Admin Services Tab Function <a id="example-function"></a></h2>
 
 <pre><code>function mymodule_AdminServicesTabFields($params) {
- 
+
     $result = select_query(
         &quot;mod_customtable&quot;,
         &quot;&quot;,
@@ -331,7 +339,7 @@ The examples continues to update them in a custom table of the database via the 
     $var2 = $data['var2'];
     $var3 = $data['var3'];
     $var4 = $data['var4'];
- 
+
     $fieldsarray = array(
      'Field 1' =&gt; '&lt;input type=&quot;text&quot; name=&quot;modulefields[0]&quot; size=&quot;30&quot; value=&quot;'.$var1.'&quot; /&gt;',
      'Field 2' =&gt; '&lt;select name=&quot;modulefields[1]&quot;&gt;&lt;option&gt;Val1&lt;/option&lt;/select&gt;',
@@ -339,9 +347,9 @@ The examples continues to update them in a custom table of the database via the 
      'Field 4' =&gt; $var4, # Info Output Only
     );
     return $fieldsarray;
- 
+
 }
- 
+
 function mymodule_AdminServicesTabFieldsSave($params) {
     update_query(&quot;mod_customtable&quot;,array(
         &quot;var1&quot;=&gt;$_POST['modulefields'][0],
@@ -360,7 +368,7 @@ function mymodule_AdminServicesTabFieldsSave($params) {
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/provisioning-modules/module-logging">
+                    <a class="nav nav-next" href="//developers.whmcs.com/provisioning-modules/admin-dashboard-widgets">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>
