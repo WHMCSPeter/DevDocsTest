@@ -1219,11 +1219,53 @@ add_hook('LogActivity', 1, function($vars) {
 });
 </code></pre>
 
+<h2 id="postautomationtask">PostAutomationTask</h2>
+
+<p>Executes after an automation task occurs</p>
+
+<h4 id="parameters-16">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>task</td>
+<td>\Collection</td>
+<td></td>
+</tr>
+
+<tr>
+<td>completed</td>
+<td>bool</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-16">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-16">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PostAutomationTask', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
 <h2 id="preautomationtask">PreAutomationTask</h2>
 
 <p>Executes before an automation task occurs</p>
 
-<h4 id="parameters-16">Parameters</h4>
+<h4 id="parameters-17">Parameters</h4>
 
 <table>
 <thead>
@@ -1243,14 +1285,150 @@ add_hook('LogActivity', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-16">Response</h4>
+<h4 id="response-17">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-16">Example Code</h4>
+<h4 id="example-code-17">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreAutomationTask', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="premiumpriceoverride">PremiumPriceOverride</h2>
+
+<p>Executes when searching for a premium domain. The return can alter the registration &amp; renewal costs, stop the domain being available for purchase or force the client to contact support.</p>
+
+<h4 id="parameters-18">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>domainName</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>tld</td>
+<td>string</td>
+<td>eg com in whmcs.com</td>
+</tr>
+
+<tr>
+<td>sld</td>
+<td>string</td>
+<td>eg whmcs in whmcs.com</td>
+</tr>
+
+<tr>
+<td>register</td>
+<td>float</td>
+<td>If a registration, the registration price of the premium domain</td>
+</tr>
+
+<tr>
+<td>transfer</td>
+<td>float</td>
+<td>If a transfer, the transfer price of the premium domain</td>
+</tr>
+
+<tr>
+<td>renew</td>
+<td>float</td>
+<td>The renewal price of the premium domain</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-18">Response</h4>
+
+<p>Accepts returns to override register, transfer or renew pricing. Also boolean values of noSale or contactUs to stop the sale of the domain with different messages</p>
+
+<h4 id="example-code-18">Example Code</h4>
+
+<pre><code>&lt;?php
+
+//Stop the Domain Purchase for this Premium Domain
+add_hook('PremiumPriceOverride', 1, function($vars) {
+    return ['noSale' =&gt; true,];
+});
+
+//Force the Client to Contact Support to Purchase Domain
+add_hook('PremiumPriceOverride', 1, function($vars) {
+    return ['contactUs' =&gt; true,];
+});
+
+//Override the Register and Renew Pricing &amp; Skip Markup Application
+add_hook('PremiumPriceOverride', 1, function($vars) {
+    return [
+        'register' =&gt; 150.00,
+        'renew' =&gt; 200.00,
+        'skipMarkup' =&gt; true,
+    ];
+});
+</code></pre>
+
+<h2 id="premiumpricerecalculationoverride">PremiumPriceRecalculationOverride</h2>
+
+<p>Executes when a premium domain price is being automatically recalculated.</p>
+
+<h4 id="parameters-19">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>domainName</td>
+<td>string</td>
+<td>The full domain name</td>
+</tr>
+
+<tr>
+<td>tld</td>
+<td>string</td>
+<td>The tld of the domain eg com in whmcs.com</td>
+</tr>
+
+<tr>
+<td>sld</td>
+<td>string</td>
+<td>The sld of the domain eg whmcs in whmcs.com</td>
+</tr>
+
+<tr>
+<td>renew</td>
+<td>float</td>
+<td>The current renewal cost of the domain before any applied markup.</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-19">Response</h4>
+
+<p>Return is accepted to override the renewal price or skip applying markup. eg: return array(&lsquo;renew&rsquo; =&gt; 50.00, &lsquo;skipMarkup&rsquo; =&gt; true);</p>
+
+<h4 id="example-code-19">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PremiumPriceRecalculationOverride', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>

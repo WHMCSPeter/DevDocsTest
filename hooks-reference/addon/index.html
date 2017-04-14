@@ -409,7 +409,7 @@ add_hook('AddonActivated', 1, function($vars) {
 
 <h2 id="addonactivation">AddonActivation</h2>
 
-<p>Executes when an addon is activated.</p>
+<p>Executes when a product addon is being automatically activated as part of an invoice payment or order acceptance. Runs following the welcome email having been sent.</p>
 
 <h4 id="parameters-1">Parameters</h4>
 
@@ -851,7 +851,7 @@ add_hook('AddonTerminated', 1, function($vars) {
 
 <h2 id="addonunsuspended">AddonUnsuspended</h2>
 
-<p>Executes when a product addon is being unsuspended and set to Active status.</p>
+<p>Executes when an addon is unsuspended.</p>
 
 <h4 id="parameters-10">Parameters</h4>
 
@@ -927,6 +927,12 @@ add_hook('AddonUnsuspended', 1, function($vars) {
 
 <tr>
 <td>serviceid</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>addon_id</td>
 <td>int</td>
 <td></td>
 </tr>

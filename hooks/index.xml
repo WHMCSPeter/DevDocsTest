@@ -184,6 +184,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicecreationpreemail&#34;&gt;InvoiceCreationPreEmail&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicepaid&#34;&gt;InvoicePaid&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicepaidpreemail&#34;&gt;InvoicePaidPreEmail&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicepaymentreminder&#34;&gt;InvoicePaymentReminder&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicerefunded&#34;&gt;InvoiceRefunded&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicesplit&#34;&gt;InvoiceSplit&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoiceunpaid&#34;&gt;InvoiceUnpaid&lt;/a&gt;
@@ -206,6 +207,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#deleteorder&#34;&gt;DeleteOrder&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#fraudorder&#34;&gt;FraudOrder&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#orderaddonpricingoverride&#34;&gt;OrderAddonPricingOverride&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#orderdomainpricingoverride&#34;&gt;OrderDomainPricingOverride&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#orderproductpricingoverride&#34;&gt;OrderProductPricingOverride&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#orderproductupgradeoverride&#34;&gt;OrderProductUpgradeOverride&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#overrideordernumbergeneration&#34;&gt;OverrideOrderNumberGeneration&lt;/a&gt;
@@ -214,6 +216,10 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#preshoppingcartcheckout&#34;&gt;PreShoppingCartCheckout&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#runfraudcheck&#34;&gt;RunFraudCheck&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#shoppingcartcheckoutcompletepage&#34;&gt;ShoppingCartCheckoutCompletePage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#shoppingcartvalidatecheckout&#34;&gt;ShoppingCartValidateCheckout&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#shoppingcartvalidatedomain&#34;&gt;ShoppingCartValidateDomain&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#shoppingcartvalidatedomainsconfig&#34;&gt;ShoppingCartValidateDomainsConfig&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#shoppingcartvalidateproductupdate&#34;&gt;ShoppingCartValidateProductUpdate&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#vieworderdetailspage&#34;&gt;ViewOrderDetailsPage&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Service&lt;/h3&gt;
@@ -304,10 +310,12 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;h3&gt;Client&lt;/h3&gt;
 
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#afterclientmerge&#34;&gt;AfterClientMerge&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientadd&#34;&gt;ClientAdd&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientalert&#34;&gt;ClientAlert&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientchangepassword&#34;&gt;ClientChangePassword&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientclose&#34;&gt;ClientClose&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientdelete&#34;&gt;ClientDelete&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientdetailsvalidation&#34;&gt;ClientDetailsValidation&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientedit&#34;&gt;ClientEdit&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientemailverificationcomplete&#34;&gt;ClientEmailVerificationComplete&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#predeleteclient&#34;&gt;PreDeleteClient&lt;/a&gt;
@@ -316,6 +324,8 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/contact/#contactadd&#34;&gt;ContactAdd&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/contact/#contactchangepassword&#34;&gt;ContactChangePassword&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/contact/#contactdelete&#34;&gt;ContactDelete&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/contact/#contactdetailsvalidation&#34;&gt;ContactDetailsValidation&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/contact/#contactedit&#34;&gt;ContactEdit&lt;/a&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;div class=&#34;col-sm-6&#34;&gt;&lt;h3&gt;Products and Services&lt;/h3&gt;
@@ -334,15 +344,19 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#clientareapagesupporttickets&#34;&gt;ClientAreaPageSupportTickets&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#clientareapageviewticket&#34;&gt;ClientAreaPageViewTicket&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#submitticketanswersuggestions&#34;&gt;SubmitTicketAnswerSuggestions&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketaddnote&#34;&gt;TicketAddNote&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketadminreply&#34;&gt;TicketAdminReply&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketclose&#34;&gt;TicketClose&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketdelete&#34;&gt;TicketDelete&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketdeletereply&#34;&gt;TicketDeleteReply&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketdepartmentchange&#34;&gt;TicketDepartmentChange&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketflagged&#34;&gt;TicketFlagged&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketopen&#34;&gt;TicketOpen&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketopenadmin&#34;&gt;TicketOpenAdmin&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketpiping&#34;&gt;TicketPiping&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketprioritychange&#34;&gt;TicketPriorityChange&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketstatuschange&#34;&gt;TicketStatusChange&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketsubjectchange&#34;&gt;TicketSubjectChange&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketuserreply&#34;&gt;TicketUserReply&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#transliteratetickettext&#34;&gt;TransliterateTicketText&lt;/a&gt;
 &lt;/ul&gt;
@@ -444,6 +458,8 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminproductconfigfields&#34;&gt;AdminProductConfigFields&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminproductconfigfieldssave&#34;&gt;AdminProductConfigFieldsSave&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#adminserviceedit&#34;&gt;AdminServiceEdit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#authadmin&#34;&gt;AuthAdmin&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#authadminapi&#34;&gt;AuthAdminApi&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#invoicecreationadminarea&#34;&gt;InvoiceCreationAdminArea&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#preadminserviceedit&#34;&gt;PreAdminServiceEdit&lt;/a&gt;
 &lt;/ul&gt;
@@ -460,6 +476,10 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#clientareaproductdetailsoutput&#34;&gt;ClientAreaProductDetailsOutput&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#reportviewpostoutput&#34;&gt;ReportViewPostOutput&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#reportviewpreoutput&#34;&gt;ReportViewPreOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#shoppingcartcheckoutoutput&#34;&gt;ShoppingCartCheckoutOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#shoppingcartviewcartoutput&#34;&gt;ShoppingCartViewCartOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#shoppingcartviewcategoryaboveproductsoutput&#34;&gt;ShoppingCartViewCategoryAboveProductsOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#shoppingcartviewcategorybelowproductsoutput&#34;&gt;ShoppingCartViewCategoryBelowProductsOutput&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Cron&lt;/h3&gt;
 
@@ -486,7 +506,10 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#intelligentsearch&#34;&gt;IntelligentSearch&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#linktracker&#34;&gt;LinkTracker&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#logactivity&#34;&gt;LogActivity&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#postautomationtask&#34;&gt;PostAutomationTask&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preautomationtask&#34;&gt;PreAutomationTask&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#premiumpriceoverride&#34;&gt;PremiumPriceOverride&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#premiumpricerecalculationoverride&#34;&gt;PremiumPriceRecalculationOverride&lt;/a&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/div&gt;
 </description>

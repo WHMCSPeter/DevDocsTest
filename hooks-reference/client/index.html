@@ -395,11 +395,179 @@ add_hook('AfterClientMerge', 1, function($vars) {
 });
 </code></pre>
 
+<h2 id="clientadd">ClientAdd</h2>
+
+<p>Executes as a client is being added to WHMCS.</p>
+
+<h4 id="parameters-1">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>userid</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>firstname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>lastname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>companyname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>email</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>address1</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>address2</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>city</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>state</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>postcode</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>country</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>phonenumber</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>password</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>customFields</td>
+<td>array</td>
+<td></td>
+</tr>
+
+<tr>
+<td>taxexempt</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>latefeeoveride</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>overideduenotices</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>separateinvoices</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>disableautocc</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>emailoptout</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>overrideautoclose</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>notes</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>groupid</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-1">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-1">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAdd', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
 <h2 id="clientalert">ClientAlert</h2>
 
 <p>Executes when Client Alerts are being defined</p>
 
-<h4 id="parameters-1">Parameters</h4>
+<h4 id="parameters-2">Parameters</h4>
 
 <table>
 <thead>
@@ -419,11 +587,11 @@ add_hook('AfterClientMerge', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <p>Return a new alert object for rendering.</p>
 
-<h4 id="example-code-1">Example Code</h4>
+<h4 id="example-code-2">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -443,7 +611,7 @@ add_hook('ClientAlert', 1, function($client) {
 
 <p>Executed when a change of password occurs for a client.</p>
 
-<h4 id="parameters-2">Parameters</h4>
+<h4 id="parameters-3">Parameters</h4>
 
 <table>
 <thead>
@@ -469,11 +637,11 @@ add_hook('ClientAlert', 1, function($client) {
 </tbody>
 </table>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-2">Example Code</h4>
+<h4 id="example-code-3">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientChangePassword', 1, function($vars) {
@@ -484,42 +652,6 @@ add_hook('ClientChangePassword', 1, function($vars) {
 <h2 id="clientclose">ClientClose</h2>
 
 <p>Executes after a client has been closed</p>
-
-<h4 id="parameters-3">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>userid</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-3">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-3">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ClientClose', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="clientdelete">ClientDelete</h2>
-
-<p>Executes as a client is deleted.</p>
 
 <h4 id="parameters-4">Parameters</h4>
 
@@ -548,8 +680,168 @@ add_hook('ClientClose', 1, function($vars) {
 <h4 id="example-code-4">Example Code</h4>
 
 <pre><code>&lt;?php
+add_hook('ClientClose', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientdelete">ClientDelete</h2>
+
+<p>Executes as a client is deleted.</p>
+
+<h4 id="parameters-5">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>userid</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-5">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-5">Example Code</h4>
+
+<pre><code>&lt;?php
 add_hook('ClientDelete', 1, function($vars) {
     // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientdetailsvalidation">ClientDetailsValidation</h2>
+
+<p>Executes before adding a client or updating a client through the Admin or Client area.</p>
+
+<h4 id="parameters-6">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>firstname</td>
+<td>string</td>
+<td>The client&rsquo;s firstname</td>
+</tr>
+
+<tr>
+<td>lastname</td>
+<td>string</td>
+<td>The client&rsquo;s lastname</td>
+</tr>
+
+<tr>
+<td>companyname</td>
+<td>string</td>
+<td>The client&rsquo;s company, if entered</td>
+</tr>
+
+<tr>
+<td>email</td>
+<td>string</td>
+<td>The client&rsquo;s email</td>
+</tr>
+
+<tr>
+<td>address1</td>
+<td>string</td>
+<td>The client&rsquo;s address1</td>
+</tr>
+
+<tr>
+<td>address2</td>
+<td>string</td>
+<td>The client&rsquo;s address2, if entered</td>
+</tr>
+
+<tr>
+<td>city</td>
+<td>string</td>
+<td>The client&rsquo;s city</td>
+</tr>
+
+<tr>
+<td>state</td>
+<td>string</td>
+<td>The client&rsquo;s state</td>
+</tr>
+
+<tr>
+<td>postcode</td>
+<td>string</td>
+<td>The client&rsquo;s postcode/zipcode</td>
+</tr>
+
+<tr>
+<td>country</td>
+<td>string</td>
+<td>The client&rsquo;s country (2 character code)</td>
+</tr>
+
+<tr>
+<td>phonenumber</td>
+<td>string</td>
+<td>The client&rsquo;s phone number</td>
+</tr>
+
+<tr>
+<td>paymentmethod</td>
+<td>string</td>
+<td>If selected, the client&rsquo;s default payment method</td>
+</tr>
+
+<tr>
+<td>customfield</td>
+<td>string</td>
+<td>An array of Key =&gt; Value pairs</td>
+</tr>
+
+<tr>
+<td>securityqid</td>
+<td>int</td>
+<td>Only from Admin Area or when registering</td>
+</tr>
+
+<tr>
+<td>securityqans</td>
+<td>string</td>
+<td>Only from Admin Area or when registering</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-6">Response</h4>
+
+<p>Return accepts both a <code>string</code> or an <code>array</code>. Use a string for <code>single</code> error message or an <code>array</code> of strings for multiple error messages.</p>
+
+<h4 id="example-code-6">Example Code</h4>
+
+<pre><code>&lt;?php
+
+add_hook('ClientDetailsValidation', 1, function($vars) {
+    return [
+        'Error message feedback error 1',
+        'Error message feedback error 2',
+    ];
 });
 </code></pre>
 
@@ -557,7 +849,7 @@ add_hook('ClientDelete', 1, function($vars) {
 
 <p>Executes when a client is edited.</p>
 
-<h4 id="parameters-5">Parameters</h4>
+<h4 id="parameters-7">Parameters</h4>
 
 <table>
 <thead>
@@ -781,11 +1073,11 @@ add_hook('ClientDelete', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-7">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-5">Example Code</h4>
+<h4 id="example-code-7">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientEdit', 1, function($vars) {
@@ -797,7 +1089,7 @@ add_hook('ClientEdit', 1, function($vars) {
 
 <p>Executes upon successful completion of email verification by a client user.</p>
 
-<h4 id="parameters-6">Parameters</h4>
+<h4 id="parameters-8">Parameters</h4>
 
 <table>
 <thead>
@@ -817,11 +1109,11 @@ add_hook('ClientEdit', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-6">Response</h4>
+<h4 id="response-8">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-6">Example Code</h4>
+<h4 id="example-code-8">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientEmailVerificationComplete', 1, function($vars) {
@@ -833,7 +1125,7 @@ add_hook('ClientEmailVerificationComplete', 1, function($vars) {
 
 <p>Executes immediately before a client is deleted</p>
 
-<h4 id="parameters-7">Parameters</h4>
+<h4 id="parameters-9">Parameters</h4>
 
 <table>
 <thead>
@@ -853,11 +1145,11 @@ add_hook('ClientEmailVerificationComplete', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-7">Response</h4>
+<h4 id="response-9">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-7">Example Code</h4>
+<h4 id="example-code-9">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreDeleteClient', 1, function($vars) {
