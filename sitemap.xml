@@ -254,6 +254,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/api-reference/starttasktimer/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/api-reference/fraudorder/</loc>
   </url>
   
@@ -410,6 +414,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/api-reference/gettldpricing/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/api-reference/getticket/</loc>
   </url>
   
@@ -539,10 +547,6 @@
   
   <url>
     <loc>//developers.whmcs.com/api-reference/setconfigurationvalue/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/api-reference/starttasktimer/</loc>
   </url>
   
   <url>

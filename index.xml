@@ -215,8 +215,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             &#39;action&#39; =&amp;gt; &#39;AcceptOrder&#39;,
-            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
-            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            // See https://developers.whmcs.com/api/authentication
+            &#39;username&#39; =&amp;gt; &#39;IDENTIFIER_OR_ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;orderid&#39; =&amp;gt; &#39;1&#39;,
             &#39;registrar&#39; =&amp;gt; &#39;enom&#39;,
             &#39;autosetup&#39; =&amp;gt; &#39;1&#39;,
@@ -238,7 +239,7 @@ $postData = array(
     &#39;autosetup&#39; =&amp;gt; &#39;1&#39;,
     &#39;sendemail&#39; =&amp;gt; &#39;1&#39;,
 );
-$adminUsername = &#39;ADMIN_USERNAME&#39;;
+$adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);
@@ -353,8 +354,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             &#39;action&#39; =&amp;gt; &#39;AcceptQuote&#39;,
-            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
-            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            // See https://developers.whmcs.com/api/authentication
+            &#39;username&#39; =&amp;gt; &#39;IDENTIFIER_OR_ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;quoteid&#39; =&amp;gt; &#39;1&#39;,
             &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
         )
@@ -370,7 +372,7 @@ curl_close($ch);
 $postData = array(
     &#39;quoteid&#39; =&amp;gt; &#39;1&#39;,
 );
-$adminUsername = &#39;ADMIN_USERNAME&#39;;
+$adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);
@@ -493,8 +495,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             &#39;action&#39; =&amp;gt; &#39;ActivateModule&#39;,
-            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
-            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            // See https://developers.whmcs.com/api/authentication
+            &#39;username&#39; =&amp;gt; &#39;IDENTIFIER_OR_ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;moduleType&#39; =&amp;gt; &#39;gateway&#39;,
             &#39;moduleName&#39; =&amp;gt; &#39;paypal&#39;,
             &#39;parameters[email]&#39; =&amp;gt; &#39;billing@example.com&#39;,
@@ -516,7 +519,7 @@ $postData = array(
     &#39;parameters[email]&#39; =&amp;gt; &#39;billing@example.com&#39;,
     &#39;parameters[forcesubscriptions]&#39; =&amp;gt; &#39;true&#39;,
 );
-$adminUsername = &#39;ADMIN_USERNAME&#39;;
+$adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);
@@ -656,8 +659,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             &#39;action&#39; =&amp;gt; &#39;AddAnnouncement&#39;,
-            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
-            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            // See https://developers.whmcs.com/api/authentication
+            &#39;username&#39; =&amp;gt; &#39;IDENTIFIER_OR_ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;date&#39; =&amp;gt; &#39;2016-01-01 15:30:00&#39;,
             &#39;title&#39; =&amp;gt; &#39;Sample announcement&#39;,
             &#39;announcement&#39; =&amp;gt; &#39;Text goes here...&#39;,
@@ -679,7 +683,7 @@ $postData = array(
     &#39;announcement&#39; =&amp;gt; &#39;Text goes here...&#39;,
     &#39;published&#39; =&amp;gt; &#39;1&#39;,
 );
-$adminUsername = &#39;ADMIN_USERNAME&#39;;
+$adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);
@@ -808,8 +812,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             &#39;action&#39; =&amp;gt; &#39;AddBannedIp&#39;,
-            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
-            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            // See https://developers.whmcs.com/api/authentication
+            &#39;username&#39; =&amp;gt; &#39;IDENTIFIER_OR_ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;ip&#39; =&amp;gt; &#39;1.2.3.4&#39;,
             &#39;reason&#39; =&amp;gt; &#39;Abuse&#39;,
             &#39;days&#39; =&amp;gt; &#39;30&#39;,
@@ -829,7 +834,7 @@ $postData = array(
     &#39;reason&#39; =&amp;gt; &#39;Abuse&#39;,
     &#39;days&#39; =&amp;gt; &#39;30&#39;,
 );
-$adminUsername = &#39;ADMIN_USERNAME&#39;;
+$adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);
@@ -993,8 +998,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             &#39;action&#39; =&amp;gt; &#39;AddBillableItem&#39;,
-            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
-            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            // See https://developers.whmcs.com/api/authentication
+            &#39;username&#39; =&amp;gt; &#39;IDENTIFIER_OR_ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
             &#39;description&#39; =&amp;gt; &#39;This is a billable item&#39;,
             &#39;amount&#39; =&amp;gt; &#39;10.00&#39;,
@@ -1024,7 +1030,7 @@ $postData = array(
     &#39;recurfor&#39; =&amp;gt; &#39;12&#39;,
     &#39;duedate&#39; =&amp;gt; &#39;2016-01-01&#39;,
 );
-$adminUsername = &#39;ADMIN_USERNAME&#39;;
+$adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);
@@ -1164,8 +1170,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             &#39;action&#39; =&amp;gt; &#39;AddCancelRequest&#39;,
-            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
-            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            // See https://developers.whmcs.com/api/authentication
+            &#39;username&#39; =&amp;gt; &#39;IDENTIFIER_OR_ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;serviceid&#39; =&amp;gt; &#39;1&#39;,
             &#39;type&#39; =&amp;gt; &#39;Immediate&#39;,
             &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
@@ -1183,7 +1190,7 @@ $postData = array(
     &#39;serviceid&#39; =&amp;gt; &#39;1&#39;,
     &#39;type&#39; =&amp;gt; &#39;Immediate&#39;,
 );
-$adminUsername = &#39;ADMIN_USERNAME&#39;;
+$adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);
@@ -1484,8 +1491,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             &#39;action&#39; =&amp;gt; &#39;AddClient&#39;,
-            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
-            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            // See https://developers.whmcs.com/api/authentication
+            &#39;username&#39; =&amp;gt; &#39;IDENTIFIER_OR_ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;firstname&#39; =&amp;gt; &#39;John&#39;,
             &#39;lastname&#39; =&amp;gt; &#39;Doe&#39;,
             &#39;email&#39; =&amp;gt; &#39;john.doe@example.com&#39;,
@@ -1527,7 +1535,7 @@ $postData = array(
     &#39;expdate&#39; =&amp;gt; &#39;0721&#39;,
     &#39;clientip&#39; =&amp;gt; &#39;1.2.3.4&#39;,
 );
-$adminUsername = &#39;ADMIN_USERNAME&#39;;
+$adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);
@@ -1668,8 +1676,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             &#39;action&#39; =&amp;gt; &#39;AddClientNote&#39;,
-            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
-            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            // See https://developers.whmcs.com/api/authentication
+            &#39;username&#39; =&amp;gt; &#39;IDENTIFIER_OR_ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;userid&#39; =&amp;gt; &#39;1&#39;,
             &#39;notes&#39; =&amp;gt; &#39;Note to add&#39;,
             &#39;sticky&#39; =&amp;gt; &#39;true&#39;,
@@ -1689,7 +1698,7 @@ $postData = array(
     &#39;notes&#39; =&amp;gt; &#39;Note to add&#39;,
     &#39;sticky&#39; =&amp;gt; &#39;true&#39;,
 );
-$adminUsername = &#39;ADMIN_USERNAME&#39;;
+$adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);
@@ -1932,8 +1941,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             &#39;action&#39; =&amp;gt; &#39;AddContact&#39;,
-            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
-            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            // See https://developers.whmcs.com/api/authentication
+            &#39;username&#39; =&amp;gt; &#39;IDENTIFIER_OR_ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
             &#39;firstname&#39; =&amp;gt; &#39;Jane&#39;,
             &#39;lastname&#39; =&amp;gt; &#39;Doe&#39;,
@@ -1955,7 +1965,7 @@ $postData = array(
     &#39;lastname&#39; =&amp;gt; &#39;Doe&#39;,
     &#39;email&#39; =&amp;gt; &#39;jane.doe@example.com&#39;,
 );
-$adminUsername = &#39;ADMIN_USERNAME&#39;;
+$adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);
@@ -2086,8 +2096,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             &#39;action&#39; =&amp;gt; &#39;AddCredit&#39;,
-            &#39;username&#39; =&amp;gt; &#39;ADMIN_USERNAME&#39;,
-            &#39;password&#39; =&amp;gt; &#39;ADMIN_PASSWORD&#39;,
+            // See https://developers.whmcs.com/api/authentication
+            &#39;username&#39; =&amp;gt; &#39;IDENTIFIER_OR_ADMIN_USERNAME&#39;,
+            &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
             &#39;description&#39; =&amp;gt; &#39;Adding funds via api&#39;,
             &#39;amount&#39; =&amp;gt; &#39;12.34&#39;,
@@ -2107,7 +2118,7 @@ $postData = array(
     &#39;description&#39; =&amp;gt; &#39;Adding funds via api&#39;,
     &#39;amount&#39; =&amp;gt; &#39;12.34&#39;,
 );
-$adminUsername = &#39;ADMIN_USERNAME&#39;;
+$adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);

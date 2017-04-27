@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ApplyCredit - WHMCS Developer Documentation</title>
+    <title>GetTLDPricing - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/api-reference/applycredit/">
+    <link rel="canonical" href="//developers.whmcs.com/api-reference/gettldpricing/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -290,7 +290,7 @@
       
       
       
-        <li class="active" data-nav-id="/api-reference/applycredit/">
+        <li class="" data-nav-id="/api-reference/applycredit/">
           <a href="//developers.whmcs.com/api-reference/applycredit/">
             <span>ApplyCredit</span>
           </a>
@@ -882,7 +882,7 @@
       
       
       
-        <li class="" data-nav-id="/api-reference/gettldpricing/">
+        <li class="active" data-nav-id="/api-reference/gettldpricing/">
           <a href="//developers.whmcs.com/api-reference/gettldpricing/">
             <span>GetTLDPricing</span>
           </a>
@@ -1302,16 +1302,16 @@
                 
                   
                 
-                <span itemprop="title"> ApplyCredit</span>
+                <span itemprop="title"> GetTLDPricing</span>
               </div>
             </div>
 
 
-			<h1>ApplyCredit </h1>
+			<h1>GetTLDPricing </h1>
 
 			
 
-<p>Applies the Client&rsquo;s Credit to an invoice</p>
+<p>Retrieve TLD pricing</p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -1329,28 +1329,21 @@
 <tr>
 <td>action</td>
 <td>string</td>
-<td>&ldquo;ApplyCredit&rdquo;</td>
+<td>&ldquo;GetTLDPricing&rdquo;</td>
 <td>Required</td>
 </tr>
 
 <tr>
-<td>invoiceid</td>
+<td>currencyid</td>
 <td>int</td>
-<td>The ID of the invoice to apply credit</td>
-<td>Required</td>
+<td>The currency ID to fetch pricing for</td>
+<td>Optional</td>
 </tr>
 
 <tr>
-<td>amount</td>
-<td>float</td>
-<td>string</td>
-<td>The amount of credit to apply to the invoice.</td>
-</tr>
-
-<tr>
-<td>noemail</td>
-<td>bool</td>
-<td>Set to true to stop the invoice payment email being sent if the invoice becomes paid</td>
+<td>clientid</td>
+<td>int</td>
+<td>The id of the client to fetch pricing for. Pass one or the other. clientid being passed will override currencyid</td>
 <td>Optional</td>
 </tr>
 </tbody>
@@ -1373,24 +1366,6 @@
 <td>string</td>
 <td>The result of the operation: success or error</td>
 </tr>
-
-<tr>
-<td>invoiceid</td>
-<td>int</td>
-<td>The id of the invoice the credit has been applied to</td>
-</tr>
-
-<tr>
-<td>amount</td>
-<td>float</td>
-<td>The amount of credit applied</td>
-</tr>
-
-<tr>
-<td>invoicepaid</td>
-<td>string</td>
-<td>true/false string</td>
-</tr>
 </tbody>
 </table>
 
@@ -1402,12 +1377,11 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' =&gt; 'ApplyCredit',
+            'action' =&gt; 'GetTLDPricing',
             // See https://developers.whmcs.com/api/authentication
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
-            'invoiceid' =&gt; '1',
-            'amount' =&gt; '10.00',
+            'currencyid' =&gt; '1',
             'responsetype' =&gt; 'json',
         )
     )
@@ -1418,10 +1392,9 @@ curl_close($ch);
 
 <h3 id="example-request-local-api">Example Request (Local API)</h3>
 
-<pre><code>$command = 'ApplyCredit';
+<pre><code>$command = 'GetTLDPricing';
 $postData = array(
-    'invoiceid' =&gt; '1',
-    'amount' =&gt; '10.00',
+    'currencyid' =&gt; '1',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -1432,24 +1405,87 @@ print_r($results);
 <h3 id="example-response-json">Example Response JSON</h3>
 
 <pre><code>{
-    &quot;result&quot;: &quot;success&quot;,
-    &quot;invoiceid&quot;: &quot;1&quot;,
-    &quot;amount&quot;: &quot;10.00&quot;,
-    &quot;invoicepaid&quot;: &quot;false&quot;
+    &quot;currency&quot;: {
+        &quot;id&quot;: &quot;1&quot;,
+        &quot;code&quot;: &quot;USD&quot;,
+        &quot;prefix&quot;: &quot;$&quot;,
+        &quot;suffix&quot;: &quot; USD&quot;,
+        &quot;format&quot;: &quot;2&quot;,
+        &quot;rate&quot;: &quot;1.00000&quot;
+    },
+    &quot;pricing&quot;: {
+        &quot;com&quot;: {
+            &quot;categories&quot;: [
+                &quot;Popular&quot;,
+                &quot;gTLD&quot;
+            ],
+            &quot;addons&quot;: {
+                &quot;dns&quot;: true,
+                &quot;email&quot;: true,
+                &quot;idprotect&quot;: true
+            },
+            &quot;group&quot;: &quot;new&quot;,
+            &quot;register&quot;: {
+                &quot;1&quot;: &quot;9.95&quot;,
+                &quot;2&quot;: &quot;19.90&quot;,
+                &quot;3&quot;: &quot;29.85&quot;
+            },
+            &quot;transfer&quot;: {
+                &quot;1&quot;: &quot;9.95&quot;,
+                &quot;2&quot;: &quot;15.00&quot;,
+                &quot;3&quot;: &quot;25.00&quot;
+            },
+            &quot;renew&quot;: {
+                &quot;1&quot;: &quot;9.95&quot;,
+                &quot;2&quot;: &quot;15.00&quot;,
+                &quot;3&quot;: &quot;25.00&quot;
+            }
+        },
+        &quot;net&quot;: {
+            &quot;categories&quot;: [
+                &quot;Popular&quot;,
+                &quot;gTLD&quot;
+            ],
+            &quot;addons&quot;: {
+                &quot;dns&quot;: false,
+                &quot;email&quot;: false,
+                &quot;idprotect&quot;: false
+            },
+            &quot;group&quot;: &quot;sale&quot;,
+            &quot;register&quot;: {
+                &quot;1&quot;: &quot;9.00&quot;
+            },
+            &quot;transfer&quot;: {
+                &quot;1&quot;: &quot;11.95&quot;
+            },
+            &quot;renew&quot;: {
+                &quot;1&quot;: &quot;11.95&quot;
+            }
+        },
+        &quot;org&quot;: {
+            &quot;categories&quot;: [
+                &quot;Popular&quot;,
+                &quot;gTLD&quot;
+            ],
+            &quot;addons&quot;: {
+                &quot;dns&quot;: false,
+                &quot;email&quot;: false,
+                &quot;idprotect&quot;: false
+            },
+            &quot;group&quot;: &quot;hot&quot;,
+            &quot;register&quot;: {
+                &quot;1&quot;: &quot;11.95&quot;
+            },
+            &quot;transfer&quot;: {
+                &quot;1&quot;: &quot;11.95&quot;
+            },
+            &quot;renew&quot;: {
+                &quot;1&quot;: &quot;11.95&quot;
+            }
+        }
+    }
 }
 </code></pre>
-
-<h3 id="error-responses">Error Responses</h3>
-
-<p>Possible error condition responses include:</p>
-
-<ul>
-<li>Invoice ID Not Found</li>
-<li>Invoice Not in Unpaid Status</li>
-<li>Amount exceeds customer credit balance</li>
-<li>Amount Exceeds Invoice Balance</li>
-<li>Credit Amount to apply must be greater than zero</li>
-</ul>
 
 <h3 id="version-history">Version History</h3>
 

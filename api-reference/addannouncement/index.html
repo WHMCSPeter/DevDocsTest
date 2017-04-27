@@ -562,6 +562,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/starttasktimer/">
+          <a href="//developers.whmcs.com/api-reference/starttasktimer/">
+            <span>EndTaskTimer</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/fraudorder/">
           <a href="//developers.whmcs.com/api-reference/fraudorder/">
             <span>FraudOrder</span>
@@ -874,6 +882,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/gettldpricing/">
+          <a href="//developers.whmcs.com/api-reference/gettldpricing/">
+            <span>GetTLDPricing</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/getticket/">
           <a href="//developers.whmcs.com/api-reference/getticket/">
             <span>GetTicket</span>
@@ -1069,14 +1085,6 @@
         <li class="" data-nav-id="/api-reference/setconfigurationvalue/">
           <a href="//developers.whmcs.com/api-reference/setconfigurationvalue/">
             <span>SetConfigurationValue</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/starttasktimer/">
-          <a href="//developers.whmcs.com/api-reference/starttasktimer/">
-            <span>StartTaskTimer</span>
           </a>
         </li>
       
@@ -1390,8 +1398,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             'action' =&gt; 'AddAnnouncement',
-            'username' =&gt; 'ADMIN_USERNAME',
-            'password' =&gt; 'ADMIN_PASSWORD',
+            // See https://developers.whmcs.com/api/authentication
+            'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'date' =&gt; '2016-01-01 15:30:00',
             'title' =&gt; 'Sample announcement',
             'announcement' =&gt; 'Text goes here...',
@@ -1413,7 +1422,7 @@ $postData = array(
     'announcement' =&gt; 'Text goes here...',
     'published' =&gt; '1',
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);

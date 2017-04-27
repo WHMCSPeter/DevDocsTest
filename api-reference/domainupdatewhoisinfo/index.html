@@ -562,6 +562,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/starttasktimer/">
+          <a href="//developers.whmcs.com/api-reference/starttasktimer/">
+            <span>EndTaskTimer</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/fraudorder/">
           <a href="//developers.whmcs.com/api-reference/fraudorder/">
             <span>FraudOrder</span>
@@ -874,6 +882,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/gettldpricing/">
+          <a href="//developers.whmcs.com/api-reference/gettldpricing/">
+            <span>GetTLDPricing</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/getticket/">
           <a href="//developers.whmcs.com/api-reference/getticket/">
             <span>GetTicket</span>
@@ -1069,14 +1085,6 @@
         <li class="" data-nav-id="/api-reference/setconfigurationvalue/">
           <a href="//developers.whmcs.com/api-reference/setconfigurationvalue/">
             <span>SetConfigurationValue</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/starttasktimer/">
-          <a href="//developers.whmcs.com/api-reference/starttasktimer/">
-            <span>StartTaskTimer</span>
           </a>
         </li>
       
@@ -1372,8 +1380,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
             'action' =&gt; 'DomainUpdateWhoisInfo',
-            'username' =&gt; 'ADMIN_USERNAME',
-            'password' =&gt; 'ADMIN_PASSWORD',
+            // See https://developers.whmcs.com/api/authentication
+            'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
+            'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'domainid' =&gt; '1',
             'xml' =&gt; '&lt;contactdetails&gt;&lt;Registrant&gt;&lt;Name&gt;Test Client&lt;/Name&gt;&lt;Email&gt;test@testemail.com&lt;/Email&gt;&lt;Company&gt;WHMCS&lt;/Company&gt;&lt;Address1&gt;123 Test Street&lt;/Address1&gt;&lt;Address2&gt;&lt;/Address2&gt;&lt;Address3&gt;&lt;/Address3&gt;&lt;City&gt;Test&lt;/City&gt;&lt;State&gt;Test&lt;/State&gt;&lt;Zip&gt;TE5 5ST&lt;/Zip&gt;&lt;Country&gt;GB&lt;/Country&gt;&lt;Tel_Country_Code&gt;44&lt;/Tel_Country_Code&gt;&lt;Telephone&gt;1234567890&lt;/Telephone&gt;&lt;/Registrant&gt;&lt;/contactdetails&gt;',
             'responsetype' =&gt; 'json',
@@ -1391,7 +1400,7 @@ $postData = array(
     'domainid' =&gt; '1',
     'xml' =&gt; '&lt;contactdetails&gt;&lt;Registrant&gt;&lt;Name&gt;Test Client&lt;/Name&gt;&lt;Email&gt;test@testemail.com&lt;/Email&gt;&lt;Company&gt;WHMCS&lt;/Company&gt;&lt;Address1&gt;123 Test Street&lt;/Address1&gt;&lt;Address2&gt;&lt;/Address2&gt;&lt;Address3&gt;&lt;/Address3&gt;&lt;City&gt;Test&lt;/City&gt;&lt;State&gt;Test&lt;/State&gt;&lt;Zip&gt;TE5 5ST&lt;/Zip&gt;&lt;Country&gt;GB&lt;/Country&gt;&lt;Tel_Country_Code&gt;44&lt;/Tel_Country_Code&gt;&lt;Telephone&gt;1234567890&lt;/Telephone&gt;&lt;/Registrant&gt;&lt;/contactdetails&gt;',
 );
-$adminUsername = 'ADMIN_USERNAME';
+$adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
 $results = localAPI($command, $postData, $adminUsername);
 print_r($results);
