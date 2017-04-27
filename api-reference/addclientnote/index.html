@@ -1396,7 +1396,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'userid' =&gt; '1',
             'notes' =&gt; 'Note to add',
-            'sticky' =&gt; 'true',
+            'sticky' =&gt; true,
             'responsetype' =&gt; 'json',
         )
     )
@@ -1411,7 +1411,7 @@ curl_close($ch);
 $postData = array(
     'userid' =&gt; '1',
     'notes' =&gt; 'Note to add',
-    'sticky' =&gt; 'true',
+    'sticky' =&gt; true,
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

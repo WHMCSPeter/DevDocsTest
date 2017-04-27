@@ -1374,7 +1374,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
-            'fetchStatus' =&gt; 'false',
+            'fetchStatus' =&gt; false,
             'responsetype' =&gt; 'json',
         )
     )
@@ -1387,7 +1387,7 @@ curl_close($ch);
 
 <pre><code>$command = 'GetHealthStatus';
 $postData = array(
-    'fetchStatus' =&gt; 'false',
+    'fetchStatus' =&gt; false,
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

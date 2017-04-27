@@ -1384,7 +1384,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'domainid' =&gt; '1',
-            'lockstatus' =&gt; 'true',
+            'lockstatus' =&gt; true,
             'responsetype' =&gt; 'json',
         )
     )
@@ -1398,7 +1398,7 @@ curl_close($ch);
 <pre><code>$command = 'DomainUpdateLockingStatus';
 $postData = array(
     'domainid' =&gt; '1',
-    'lockstatus' =&gt; 'true',
+    'lockstatus' =&gt; true,
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

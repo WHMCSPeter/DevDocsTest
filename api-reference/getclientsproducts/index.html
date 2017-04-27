@@ -1465,7 +1465,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'clientid' =&gt; '1',
-            'stats' =&gt; 'true',
+            'stats' =&gt; true,
             'responsetype' =&gt; 'json',
         )
     )
@@ -1479,7 +1479,7 @@ curl_close($ch);
 <pre><code>$command = 'GetClientsProducts';
 $postData = array(
     'clientid' =&gt; '1',
-    'stats' =&gt; 'true',
+    'stats' =&gt; true,
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

@@ -1451,7 +1451,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'credentialId' =&gt; '1',
             'name' =&gt; 'Credential name',
-            'resetSecret' =&gt; 'true',
+            'resetSecret' =&gt; true,
             'responsetype' =&gt; 'json',
         )
     )
@@ -1466,7 +1466,7 @@ curl_close($ch);
 $postData = array(
     'credentialId' =&gt; '1',
     'name' =&gt; 'Credential name',
-    'resetSecret' =&gt; 'true',
+    'resetSecret' =&gt; true,
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

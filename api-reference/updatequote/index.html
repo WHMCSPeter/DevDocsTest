@@ -1558,9 +1558,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'subject' =&gt; 'Test Quote Subject',
             'stage' =&gt; 'Draft',
-            'lineitems' =&gt; 'base64_encode(serialize(array(array(&quot;id&quot;=&gt;1,&quot;desc&quot;=&gt;&quot;Test Description 1&quot;,&quot;qty&quot;=&gt;1,&quot;up&quot;=&gt;&quot;10.00&quot;,&quot;discount&quot;=&gt;&quot;10.00&quot;,
+            'lineitems' =&gt; base64_encode(serialize(array(array(&quot;id&quot;=&gt;1,&quot;desc&quot;=&gt;&quot;Test Description 1&quot;,&quot;qty&quot;=&gt;1,&quot;up&quot;=&gt;&quot;10.00&quot;,&quot;discount&quot;=&gt;&quot;10.00&quot;,
 &quot;taxable&quot;=&gt;true),array(&quot;desc&quot;=&gt;&quot;Test Description 2&quot;,&quot;qty&quot;=&gt;4,&quot;up&quot;=&gt;&quot;15.00&quot;,&quot;discount&quot;=&gt;&quot;0.00&quot;,
-&quot;taxable&quot;=&gt;false))));',
+&quot;taxable&quot;=&gt;false))));,
             'responsetype' =&gt; 'json',
         )
     )
@@ -1575,9 +1575,9 @@ curl_close($ch);
 $postData = array(
     'subject' =&gt; 'Test Quote Subject',
     'stage' =&gt; 'Draft',
-    'lineitems' =&gt; 'base64_encode(serialize(array(array(&quot;id&quot;=&gt;1,&quot;desc&quot;=&gt;&quot;Test Description 1&quot;,&quot;qty&quot;=&gt;1,&quot;up&quot;=&gt;&quot;10.00&quot;,&quot;discount&quot;=&gt;&quot;10.00&quot;,
+    'lineitems' =&gt; base64_encode(serialize(array(array(&quot;id&quot;=&gt;1,&quot;desc&quot;=&gt;&quot;Test Description 1&quot;,&quot;qty&quot;=&gt;1,&quot;up&quot;=&gt;&quot;10.00&quot;,&quot;discount&quot;=&gt;&quot;10.00&quot;,
 &quot;taxable&quot;=&gt;true),array(&quot;desc&quot;=&gt;&quot;Test Description 2&quot;,&quot;qty&quot;=&gt;4,&quot;up&quot;=&gt;&quot;15.00&quot;,&quot;discount&quot;=&gt;&quot;0.00&quot;,
-&quot;taxable&quot;=&gt;false))));',
+&quot;taxable&quot;=&gt;false))));,
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

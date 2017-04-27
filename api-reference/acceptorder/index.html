@@ -1425,8 +1425,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'orderid' =&gt; '1',
             'registrar' =&gt; 'enom',
-            'autosetup' =&gt; '1',
-            'sendemail' =&gt; '1',
+            'autosetup' =&gt; true,
+            'sendemail' =&gt; true,
             'responsetype' =&gt; 'json',
         )
     )
@@ -1441,8 +1441,8 @@ curl_close($ch);
 $postData = array(
     'orderid' =&gt; '1',
     'registrar' =&gt; 'enom',
-    'autosetup' =&gt; '1',
-    'sendemail' =&gt; '1',
+    'autosetup' =&gt; true,
+    'sendemail' =&gt; true,
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

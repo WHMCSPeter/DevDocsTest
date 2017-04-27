@@ -1552,9 +1552,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'stage' =&gt; 'Draft',
             'userid' =&gt; '1',
             'validuntil' =&gt; '01/01/2016',
-            'lineitems' =&gt; 'base64_encode(serialize(array(array(&quot;desc&quot;=&gt;&quot;Test Description 1&quot;,&quot;qty&quot;=&gt;1,&quot;up&quot;=&gt;&quot;10.00&quot;,&quot;discount&quot;=&gt;&quot;10.00&quot;,
+            'lineitems' =&gt; base64_encode(serialize(array(array(&quot;desc&quot;=&gt;&quot;Test Description 1&quot;,&quot;qty&quot;=&gt;1,&quot;up&quot;=&gt;&quot;10.00&quot;,&quot;discount&quot;=&gt;&quot;10.00&quot;,
 &quot;taxable&quot;=&gt;true),array(&quot;desc&quot;=&gt;&quot;Test Description 2&quot;,&quot;qty&quot;=&gt;4,&quot;up&quot;=&gt;&quot;15.00&quot;,&quot;discount&quot;=&gt;&quot;0.00&quot;,
-&quot;taxable&quot;=&gt;false))));',
+&quot;taxable&quot;=&gt;false))));,
             'responsetype' =&gt; 'json',
         )
     )
@@ -1571,9 +1571,9 @@ $postData = array(
     'stage' =&gt; 'Draft',
     'userid' =&gt; '1',
     'validuntil' =&gt; '01/01/2016',
-    'lineitems' =&gt; 'base64_encode(serialize(array(array(&quot;desc&quot;=&gt;&quot;Test Description 1&quot;,&quot;qty&quot;=&gt;1,&quot;up&quot;=&gt;&quot;10.00&quot;,&quot;discount&quot;=&gt;&quot;10.00&quot;,
+    'lineitems' =&gt; base64_encode(serialize(array(array(&quot;desc&quot;=&gt;&quot;Test Description 1&quot;,&quot;qty&quot;=&gt;1,&quot;up&quot;=&gt;&quot;10.00&quot;,&quot;discount&quot;=&gt;&quot;10.00&quot;,
 &quot;taxable&quot;=&gt;true),array(&quot;desc&quot;=&gt;&quot;Test Description 2&quot;,&quot;qty&quot;=&gt;4,&quot;up&quot;=&gt;&quot;15.00&quot;,&quot;discount&quot;=&gt;&quot;0.00&quot;,
-&quot;taxable&quot;=&gt;false))));',
+&quot;taxable&quot;=&gt;false))));,
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

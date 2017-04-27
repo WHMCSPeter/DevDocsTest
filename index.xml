@@ -220,8 +220,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;orderid&#39; =&amp;gt; &#39;1&#39;,
             &#39;registrar&#39; =&amp;gt; &#39;enom&#39;,
-            &#39;autosetup&#39; =&amp;gt; &#39;1&#39;,
-            &#39;sendemail&#39; =&amp;gt; &#39;1&#39;,
+            &#39;autosetup&#39; =&amp;gt; true,
+            &#39;sendemail&#39; =&amp;gt; true,
             &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
         )
     )
@@ -236,8 +236,8 @@ curl_close($ch);
 $postData = array(
     &#39;orderid&#39; =&amp;gt; &#39;1&#39;,
     &#39;registrar&#39; =&amp;gt; &#39;enom&#39;,
-    &#39;autosetup&#39; =&amp;gt; &#39;1&#39;,
-    &#39;sendemail&#39; =&amp;gt; &#39;1&#39;,
+    &#39;autosetup&#39; =&amp;gt; true,
+    &#39;sendemail&#39; =&amp;gt; true,
 );
 $adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
@@ -501,7 +501,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             &#39;moduleType&#39; =&amp;gt; &#39;gateway&#39;,
             &#39;moduleName&#39; =&amp;gt; &#39;paypal&#39;,
             &#39;parameters[email]&#39; =&amp;gt; &#39;billing@example.com&#39;,
-            &#39;parameters[forcesubscriptions]&#39; =&amp;gt; &#39;true&#39;,
+            &#39;parameters[forcesubscriptions]&#39; =&amp;gt; true,
             &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
         )
     )
@@ -517,7 +517,7 @@ $postData = array(
     &#39;moduleType&#39; =&amp;gt; &#39;gateway&#39;,
     &#39;moduleName&#39; =&amp;gt; &#39;paypal&#39;,
     &#39;parameters[email]&#39; =&amp;gt; &#39;billing@example.com&#39;,
-    &#39;parameters[forcesubscriptions]&#39; =&amp;gt; &#39;true&#39;,
+    &#39;parameters[forcesubscriptions]&#39; =&amp;gt; true,
 );
 $adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
@@ -1681,7 +1681,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;userid&#39; =&amp;gt; &#39;1&#39;,
             &#39;notes&#39; =&amp;gt; &#39;Note to add&#39;,
-            &#39;sticky&#39; =&amp;gt; &#39;true&#39;,
+            &#39;sticky&#39; =&amp;gt; true,
             &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
         )
     )
@@ -1696,7 +1696,7 @@ curl_close($ch);
 $postData = array(
     &#39;userid&#39; =&amp;gt; &#39;1&#39;,
     &#39;notes&#39; =&amp;gt; &#39;Note to add&#39;,
-    &#39;sticky&#39; =&amp;gt; &#39;true&#39;,
+    &#39;sticky&#39; =&amp;gt; true,
 );
 $adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
