@@ -162,6 +162,14 @@
       
       
       
+        <li class="" data-nav-id="/payment-gateways/reversals/">
+          <a href="//developers.whmcs.com/payment-gateways/reversals/">
+            <span>Payment Reversals</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/payment-gateways/3d-secure/">
           <a href="//developers.whmcs.com/payment-gateways/3d-secure/">
             <span>3D Secure Process</span>
@@ -181,14 +189,6 @@
         <li class="active" data-nav-id="/payment-gateways/installation-activation/">
           <a href="//developers.whmcs.com/payment-gateways/installation-activation/">
             <span>Installation &amp; Activation</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/payment-gateways/errors/">
-          <a href="//developers.whmcs.com/payment-gateways/errors/">
-            <span>Blank Screen/Errors</span>
           </a>
         </li>
       
@@ -269,11 +269,25 @@
 
 			<h1>Installation &amp; Activation </h1>
 
-			<p>To install the new module, upload it to the <code>/modules/gateways/</code> folder.
-Once uploaded, go to <strong>Setup</strong> &gt; <strong>Payment Gateways</strong> to activate.
-If there is a callback file, that should be uploaded to the <code>/modules/gateways/callback/</code> folder.
-<strong>Important</strong>: It is important that the gateway is not activated until step 1 is complete for either the third party or merchant gateway modules.
-This is because the type of module created is stored in the database upon activation.</p>
+			
+
+<p>To install the new module, upload it to the <code>/modules/gateways/</code> folder of your WHMCS installation.</p>
+
+<p>If the module includes a callback file, that should be uploaded to the <code>/modules/gateways/callback/</code> folder.</p>
+
+<p>Once uploaded, navigate to <strong>Setup &gt; Payment Gateways</strong> to activate and configure the new module.</p>
+
+<div class="notice info" ><p><strong>Important Note</strong> The process of activating a module detects the type of module that has been created. Therefore if you experience unexpected behaviours, please try deactivating and reactivating your module before continuing.</p>
+</div>
+
+
+<h2 id="troubleshooting-errors-during-activation">Troubleshooting errors during activation</h2>
+
+<p>If you receive a blank page or error message within the <strong>Setup &gt; Payment Gateways</strong> page upon uploading your new payment gateway module, this indicates there could be a syntax error within the new code.</p>
+
+<p>To debug this, you can turn on error reporting.  To do this, navigate to <strong>Setup &gt; General Settings &gt; Other</strong> and check the <strong>Display Errors</strong> setting.</p>
+
+<p>This enables PHP error reporting and should show the cause of any issues. Once resolved, remember to disable Display Errors again.</p>
 
 
 			<div class="topic-navigation clearfix">
@@ -283,11 +297,6 @@ This is because the type of module created is stored in the database upon activa
                         Previous
                     </a>
                 
-                
-                    <a class="nav nav-next" href="//developers.whmcs.com/payment-gateways/errors">
-                        <i class="fa fa-arrow-circle-right"></i>
-                        Next
-                    </a>
                 
             </div>
 

@@ -162,6 +162,14 @@
       
       
       
+        <li class="" data-nav-id="/payment-gateways/reversals/">
+          <a href="//developers.whmcs.com/payment-gateways/reversals/">
+            <span>Payment Reversals</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="active" data-nav-id="/payment-gateways/3d-secure/">
           <a href="//developers.whmcs.com/payment-gateways/3d-secure/">
             <span>3D Secure Process</span>
@@ -181,14 +189,6 @@
         <li class="" data-nav-id="/payment-gateways/installation-activation/">
           <a href="//developers.whmcs.com/payment-gateways/installation-activation/">
             <span>Installation &amp; Activation</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/payment-gateways/errors/">
-          <a href="//developers.whmcs.com/payment-gateways/errors/">
-            <span>Blank Screen/Errors</span>
           </a>
         </li>
       
@@ -282,7 +282,7 @@ An example of this is below:</li>
 <p>The <strong>_3dsecure</strong> function is passed all the same <a href="//developers.whmcs.com/payment-gateways/merchant-gateways#variables" title="Merchant Gateway Variables">variables</a> that the <strong>_capture</strong> function is.
 The return url should be a <a href="//developers.whmcs.com/payment-gateways/callbacks" title="Callback Files">callback file</a> to handle the response.</p>
 
-<h2 id="example-function-a-id-example-function-a">Example Function <a id="example-function"></a></h2>
+<h2 id="example-function">Example Function</h2>
 
 <pre><code>&lt;?php
 function yourgatewayname_3dsecure(array $params = array()) {

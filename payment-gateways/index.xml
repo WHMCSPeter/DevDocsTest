@@ -38,12 +38,12 @@ With that, module creation is ready to begin.&lt;/p&gt;
       <guid>//developers.whmcs.com/payment-gateways/getting-started/</guid>
       <description>
 
-&lt;h2 id=&#34;introduction-a-id-introduction-a&#34;&gt;Introduction &lt;a id=&#34;introduction&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 
 &lt;p&gt;Gateway modules allow a connection between WHMCS and merchants that aren&amp;rsquo;t supported in WHMCS.
 This documentation will explain a module&amp;rsquo;s structure and everything needed to create a gateway module for WHMCS.&lt;/p&gt;
 
-&lt;h2 id=&#34;getting-started-a-id-getting-started-a&#34;&gt;Getting Started &lt;a id=&#34;getting-started&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
 
 &lt;p&gt;To get started, begin by downloading the module development kit from our GitHub site.
 There are two sample modules available, depending upon the &lt;a href=&#34;#module-type&#34;&gt;type of gateway&lt;/a&gt; being developed:&lt;/p&gt;
@@ -58,7 +58,7 @@ It should be all lowercase and must start with a letter.
 Prefix all functions within a gateway module with the filename.
 Open the file and replace all occurrences of &lt;strong&gt;template_&lt;/strong&gt; with &lt;strong&gt;yourgatewayname_&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;config-array-a-id-config-array-a&#34;&gt;Config Array &lt;a id=&#34;config-array&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;config-array&#34;&gt;Config Array&lt;/h2&gt;
 
 &lt;p&gt;Configure the yourgatewayname_config array.
 This function is the primary function required by all gateway modules.
@@ -77,7 +77,7 @@ The general formula:&lt;/p&gt;
 &lt;p&gt;Any fields defined here will be available in all gateway module functions in the $params array.
 Avoid common names like currency, invoiceid, etc, as these will conflict with the standard variables.&lt;/p&gt;
 
-&lt;h2 id=&#34;module-type-a-id-module-type-a&#34;&gt;Module Type &lt;a id=&#34;module-type&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;module-type&#34;&gt;Module Type&lt;/h2&gt;
 
 &lt;p&gt;Determine which type of module needs to be created from the 2 core types:&lt;/p&gt;
 
@@ -112,9 +112,9 @@ An example of this step is in the gateway module template supplied with the dev 
 The code output by this function is HTML, usually for a &amp;lt;&lt;strong&gt;form&lt;/strong&gt;&amp;gt; with a post method.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;variables-a-id-variables-a&#34;&gt;Variables &lt;a id=&#34;variables&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;variables&#34;&gt;Variables&lt;/h2&gt;
 
-&lt;h3 id=&#34;invoice-variables-a-id-invoice-variables-a&#34;&gt;Invoice Variables &lt;a id=&#34;invoice-variables&#34;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;invoice-variables&#34;&gt;Invoice Variables&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;$params[&#39;invoiceid&#39;] # Invoice ID Number
 $params[&#39;description&#39;] # Description (eg. Company Name - Invoice #xxx)
@@ -122,7 +122,7 @@ $params[&#39;amount&#39;] # Format: xxx.xx
 $params[&#39;currency&#39;] # Currency Code (eg. GBD, USD, etc...)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;client-variables-a-id-client-variables-a&#34;&gt;Client Variables &lt;a id=&#34;client-variables&#34;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;client-variables&#34;&gt;Client Variables&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;$params[&#39;clientdetails&#39;][&#39;firstname&#39;] # Client&#39;s First Name
 $params[&#39;clientdetails&#39;][&#39;lastname&#39;] # Client&#39;s Last Name
@@ -136,13 +136,13 @@ $params[&#39;clientdetails&#39;][&#39;country&#39;]
 $params[&#39;clientdetails&#39;][&#39;phonenumber&#39;]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;system-variables-a-id-system-variables-a&#34;&gt;System Variables &lt;a id=&#34;system-variables&#34;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;system-variables&#34;&gt;System Variables&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;$params[&#39;companyname&#39;] # your Company Name setting in WHMCS
 $params[&#39;systemurl&#39;] # the url to the Client Area
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;additional-information-a-id-additional-information-a&#34;&gt;Additional Information &lt;a id=&#34;additional-information&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;additional-information&#34;&gt;Additional Information&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Processing of a payment is in a callback file separate from the module.
@@ -171,9 +171,9 @@ To create one: Delete the _link function before activating the new module in WHM
 Generally, this takes the format of an HTTP/Curl request to the gateway provider&amp;rsquo;s API.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;variables-a-id-variables-a&#34;&gt;Variables &lt;a id=&#34;variables&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;variables&#34;&gt;Variables&lt;/h2&gt;
 
-&lt;h3 id=&#34;invoice-variables-a-id-invoice-variables-a&#34;&gt;Invoice Variables &lt;a id=&#34;invoice-variables&#34;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;invoice-variables&#34;&gt;Invoice Variables&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;$params[&#39;invoiceid&#39;] # Invoice ID Number
 $params[&#39;description&#39;] # Description (eg. Company Name - Invoice #xxx)
@@ -181,7 +181,7 @@ $params[&#39;amount&#39;] # Format: xxx.xx
 $params[&#39;currency&#39;] # Currency Code (eg. GBD, USD, etc...)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;client-variables-a-id-client-variables-a&#34;&gt;Client Variables &lt;a id=&#34;client-variables&#34;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;client-variables&#34;&gt;Client Variables&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;$params[&#39;clientdetails&#39;][&#39;firstname&#39;] # Client&#39;s First Name
 $params[&#39;clientdetails&#39;][&#39;lastname&#39;] # Client&#39;s Last Name
@@ -195,24 +195,24 @@ $params[&#39;clientdetails&#39;][&#39;country&#39;]
 $params[&#39;clientdetails&#39;][&#39;phonenumber&#39;]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;system-variables-a-id-system-variables-a&#34;&gt;System Variables &lt;a id=&#34;system-variables&#34;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;system-variables&#34;&gt;System Variables&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;$params[&#39;companyname&#39;] # your Company Name setting in WHMCS
 $params[&#39;systemurl&#39;] # the url to the Client Area
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;card-details-a-id-card-details-a&#34;&gt;Card Details &lt;a id=&#34;card-details&#34;&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;card-details&#34;&gt;Card Details&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;$params[&#39;cardtype&#39;] # the Card Type (Visa, MasterCard, etc…) 
-$params[&#39;cardnum&#39;] # the Card Number 
-$params[&#39;cardexp&#39;] # the Card’s Expiry Date (Format: MMYY) 
-$params[&#39;cardstart&#39;] # the Card’s Start Date (Format: MMYY) 
-$params[&#39;cardissuenum&#39;] # the Card’s Issue Number (Switch/Solo Cards) 
-$params[&#39;cccvv&#39;] # Not always present (recurring transactions) 
+&lt;pre&gt;&lt;code&gt;$params[&#39;cardtype&#39;] # the Card Type (Visa, MasterCard, etc…)
+$params[&#39;cardnum&#39;] # the Card Number
+$params[&#39;cardexp&#39;] # the Card’s Expiry Date (Format: MMYY)
+$params[&#39;cardstart&#39;] # the Card’s Start Date (Format: MMYY)
+$params[&#39;cardissuenum&#39;] # the Card’s Issue Number (Switch/Solo Cards)
+$params[&#39;cccvv&#39;] # Not always present (recurring transactions)
 # but would always be present for client initiated attempts
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;responses-a-id-responses-a&#34;&gt;Responses &lt;a id=&#34;responses&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;responses&#34;&gt;Responses&lt;/h2&gt;
 
 &lt;h3 id=&#34;success&#34;&gt;Success&lt;/h3&gt;
 
@@ -242,7 +242,7 @@ The rawdata key should be an array of the data returned from the gateway for sto
 
 &lt;p&gt;If the gateway supports 3D Secure (Verified by Visa or MasterCard Secure Code) then please refer &lt;a href=&#34;//developers.whmcs.com/provisioning-modules/3d-secure&#34; title=&#34;3D Secure Process&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;refunds-a-id-refunds-a&#34;&gt;Refunds &lt;a id=&#34;refunds&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;refunds&#34;&gt;Refunds&lt;/h2&gt;
 
 &lt;p&gt;Code for processing a refund goes into the &lt;strong&gt;_refund&lt;/strong&gt; function.
 This receives the same variables as the &lt;strong&gt;_capture&lt;/strong&gt; function, but with an added transaction id:&lt;/p&gt;
@@ -273,7 +273,7 @@ An included sample callback file is in the dev kit for this purpose named &lt;st
 &lt;li&gt;Modify it to match the variables that the specific gateway returns.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&#34;helper-functions-a-id-helper-functions-a&#34;&gt;Helper Functions &lt;a id=&#34;helper-functions&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;helper-functions&#34;&gt;Helper Functions&lt;/h2&gt;
 
 &lt;p&gt;Included in the sample file are a number of helper functions.&lt;/p&gt;
 
@@ -305,6 +305,57 @@ The last variable should be the result or status to show in the log.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Payment Reversals</title>
+      <link>//developers.whmcs.com/payment-gateways/reversals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/payment-gateways/reversals/</guid>
+      <description>
+
+&lt;p&gt;WHMCS 7.2 and later supports payment reversal callbacks.&lt;/p&gt;
+
+&lt;p&gt;If your payment gateway provider supports sending notifications when a payment dispute or chargeback is initiated, you can leverage this to have automated actions performed within WHMCS including reverting of next due date increments, changing the invoice status to Collections and sending administrative users an email notification.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
+
+&lt;p&gt;Supported as part of the callback file, you can trigger a payment reversal action within WHMCS by executing the following function call.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Reverse a payment.
+ *
+ * @param string $reverseTransactionId
+ * @param string $originalTransactionId
+ *
+ * @throws Exception
+ */
+try {
+    $reverseTransactionId = &#39;10643229BD2660707&#39;;
+    $originalTransactionId = &#39;7WA952319L375522P&#39;;
+    paymentReversed($reverseTransactionId, $originalTransactionId);
+} catch (\Exception $e) {
+    // Transaction could not be found or already reversed
+    $errorMessage = $e-&amp;gt;getMessage();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There are two required input parameters:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;reverseTransactionId&lt;/code&gt; - The unique transaction ID assigned to the reversal action&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;originalTransactionId&lt;/code&gt; - The unique transaction ID of the original transaction to be reversed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The function will throw exceptions under the following conditions:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Multiple Original Transaction ID matches found - in the case of more than one transaction being found for a given original Transaction ID, the reversal cannot be processed automatically&lt;/li&gt;
+&lt;li&gt;Original Transaction Not Found - occurs when the original Transaction ID is not found in the database&lt;/li&gt;
+&lt;li&gt;Transaction Already Reversed - occurs when the original Transaction ID has already been refunded, or the reversal Transaction ID already exists in the database&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>3D Secure Process</title>
       <link>//developers.whmcs.com/payment-gateways/3d-secure/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -323,7 +374,7 @@ An example of this is below:&lt;/li&gt;
 &lt;p&gt;The &lt;strong&gt;_3dsecure&lt;/strong&gt; function is passed all the same &lt;a href=&#34;//developers.whmcs.com/payment-gateways/merchant-gateways#variables&#34; title=&#34;Merchant Gateway Variables&#34;&gt;variables&lt;/a&gt; that the &lt;strong&gt;_capture&lt;/strong&gt; function is.
 The return url should be a &lt;a href=&#34;//developers.whmcs.com/payment-gateways/callbacks&#34; title=&#34;Callback Files&#34;&gt;callback file&lt;/a&gt; to handle the response.&lt;/p&gt;
 
-&lt;h2 id=&#34;example-function-a-id-example-function-a&#34;&gt;Example Function &lt;a id=&#34;example-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;example-function&#34;&gt;Example Function&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 function yourgatewayname_3dsecure(array $params = array()) {
@@ -374,19 +425,19 @@ Add a function named &lt;strong&gt;_storeremote&lt;/strong&gt; to the custom gat
 This function will override the default storage when entering new credit card details.
 Instead of saving in the database, &lt;strong&gt;_storeremote&lt;/strong&gt; communicates with the gateways API, and returns a token that gets assigned to WHMCS.&lt;/p&gt;
 
-&lt;h2 id=&#34;variables-a-id-variables-a&#34;&gt;Variables &lt;a id=&#34;variables&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;variables&#34;&gt;Variables&lt;/h2&gt;
 
 &lt;p&gt;A number of variables as passed into the &lt;strong&gt;_storeremote&lt;/strong&gt; function as follows.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$params[&#39;gatewayid&#39;] # the token stored for the client 
-$params[&#39;cardtype&#39;] #the Card Type (Visa, MasterCard, etc…) 
+&lt;pre&gt;&lt;code&gt;$params[&#39;gatewayid&#39;] # the token stored for the client
+$params[&#39;cardtype&#39;] #the Card Type (Visa, MasterCard, etc…)
 $params[&#39;cardnum&#39;] # the Card Number
-$params[&#39;cardexp&#39;] # the Card’s Expiry Date (Format: MMYY) 
-$params[&#39;cardstart&#39;] # the Card’s Start Date (Format: MMYY) 
+$params[&#39;cardexp&#39;] # the Card’s Expiry Date (Format: MMYY)
+$params[&#39;cardstart&#39;] # the Card’s Start Date (Format: MMYY)
 $params[&#39;cardissuenum&#39;] # the Card’s Issue Number (Switch/Solo Cards)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;calling-a-id-calling-a&#34;&gt;Calling &lt;a id=&#34;calling&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;calling&#34;&gt;Calling&lt;/h2&gt;
 
 &lt;p&gt;On the first call, the gatewayid will be empty.
 When empty, create a new profile at the gateway.
@@ -419,25 +470,25 @@ Then within the capture function, instead of &lt;code&gt;$params[‘cardnum’]&
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/payment-gateways/installation-activation/</guid>
-      <description>&lt;p&gt;To install the new module, upload it to the &lt;code&gt;/modules/gateways/&lt;/code&gt; folder.
-Once uploaded, go to &lt;strong&gt;Setup&lt;/strong&gt; &amp;gt; &lt;strong&gt;Payment Gateways&lt;/strong&gt; to activate.
-If there is a callback file, that should be uploaded to the &lt;code&gt;/modules/gateways/callback/&lt;/code&gt; folder.
-&lt;strong&gt;Important&lt;/strong&gt;: It is important that the gateway is not activated until step 1 is complete for either the third party or merchant gateway modules.
-This is because the type of module created is stored in the database upon activation.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Blank Screen/Errors</title>
-      <link>//developers.whmcs.com/payment-gateways/errors/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//developers.whmcs.com/payment-gateways/errors/</guid>
-      <description>&lt;p&gt;If there is a blank page or error within the &lt;strong&gt;Setup&lt;/strong&gt; &amp;gt; &lt;strong&gt;Payment Gateways&lt;/strong&gt; page after uploading the new module file, then there is a syntax error within the new code.
-To debug the new file, turn on error reporting.
-Enable this in &lt;strong&gt;Setup&lt;/strong&gt; &amp;gt; &lt;strong&gt;General Settings&lt;/strong&gt; &amp;gt; &lt;strong&gt;Other&lt;/strong&gt;.
-This enables PHP error reporting and should show the cause of any issues.
-Once resolved, disable Error Reporting again.&lt;/p&gt;
+      <description>
+
+&lt;p&gt;To install the new module, upload it to the &lt;code&gt;/modules/gateways/&lt;/code&gt; folder of your WHMCS installation.&lt;/p&gt;
+
+&lt;p&gt;If the module includes a callback file, that should be uploaded to the &lt;code&gt;/modules/gateways/callback/&lt;/code&gt; folder.&lt;/p&gt;
+
+&lt;p&gt;Once uploaded, navigate to &lt;strong&gt;Setup &amp;gt; Payment Gateways&lt;/strong&gt; to activate and configure the new module.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;&lt;strong&gt;Important Note&lt;/strong&gt; The process of activating a module detects the type of module that has been created. Therefore if you experience unexpected behaviours, please try deactivating and reactivating your module before continuing.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;troubleshooting-errors-during-activation&#34;&gt;Troubleshooting errors during activation&lt;/h2&gt;
+
+&lt;p&gt;If you receive a blank page or error message within the &lt;strong&gt;Setup &amp;gt; Payment Gateways&lt;/strong&gt; page upon uploading your new payment gateway module, this indicates there could be a syntax error within the new code.&lt;/p&gt;
+
+&lt;p&gt;To debug this, you can turn on error reporting.  To do this, navigate to &lt;strong&gt;Setup &amp;gt; General Settings &amp;gt; Other&lt;/strong&gt; and check the &lt;strong&gt;Display Errors&lt;/strong&gt; setting.&lt;/p&gt;
+
+&lt;p&gt;This enables PHP error reporting and should show the cause of any issues. Once resolved, remember to disable Display Errors again.&lt;/p&gt;
 </description>
     </item>
     

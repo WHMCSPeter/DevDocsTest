@@ -422,7 +422,7 @@ The parameters also contains the settings from the product itself.&lt;/p&gt;
 
 &lt;tr&gt;
 &lt;td&gt;configoptions&lt;/td&gt;
-&lt;td&gt;Contains an array of all the configurable options defined on the product.  &lt;br /&gt;Again the key being the option name in this case - $params[&amp;lsquo;configoption&amp;rsquo;][&amp;lsquo;Option Name Here&amp;rsquo;].&lt;/td&gt;
+&lt;td&gt;Contains an array of all the configurable options defined on the product.  &lt;br /&gt;Again the key being the option name in this case - $params[&amp;lsquo;configoptions&amp;rsquo;][&amp;lsquo;Option Name Here&amp;rsquo;].&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;

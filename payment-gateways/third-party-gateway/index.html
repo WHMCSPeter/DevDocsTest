@@ -162,6 +162,14 @@
       
       
       
+        <li class="" data-nav-id="/payment-gateways/reversals/">
+          <a href="//developers.whmcs.com/payment-gateways/reversals/">
+            <span>Payment Reversals</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/payment-gateways/3d-secure/">
           <a href="//developers.whmcs.com/payment-gateways/3d-secure/">
             <span>3D Secure Process</span>
@@ -181,14 +189,6 @@
         <li class="" data-nav-id="/payment-gateways/installation-activation/">
           <a href="//developers.whmcs.com/payment-gateways/installation-activation/">
             <span>Installation &amp; Activation</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/payment-gateways/errors/">
-          <a href="//developers.whmcs.com/payment-gateways/errors/">
-            <span>Blank Screen/Errors</span>
           </a>
         </li>
       
@@ -282,9 +282,9 @@ An example of this step is in the gateway module template supplied with the dev 
 The code output by this function is HTML, usually for a &lt;<strong>form</strong>&gt; with a post method.</li>
 </ol>
 
-<h2 id="variables-a-id-variables-a">Variables <a id="variables"></a></h2>
+<h2 id="variables">Variables</h2>
 
-<h3 id="invoice-variables-a-id-invoice-variables-a">Invoice Variables <a id="invoice-variables"></a></h3>
+<h3 id="invoice-variables">Invoice Variables</h3>
 
 <pre><code>$params['invoiceid'] # Invoice ID Number
 $params['description'] # Description (eg. Company Name - Invoice #xxx)
@@ -292,7 +292,7 @@ $params['amount'] # Format: xxx.xx
 $params['currency'] # Currency Code (eg. GBD, USD, etc...)
 </code></pre>
 
-<h3 id="client-variables-a-id-client-variables-a">Client Variables <a id="client-variables"></a></h3>
+<h3 id="client-variables">Client Variables</h3>
 
 <pre><code>$params['clientdetails']['firstname'] # Client's First Name
 $params['clientdetails']['lastname'] # Client's Last Name
@@ -306,13 +306,13 @@ $params['clientdetails']['country']
 $params['clientdetails']['phonenumber']
 </code></pre>
 
-<h3 id="system-variables-a-id-system-variables-a">System Variables <a id="system-variables"></a></h3>
+<h3 id="system-variables">System Variables</h3>
 
 <pre><code>$params['companyname'] # your Company Name setting in WHMCS
 $params['systemurl'] # the url to the Client Area
 </code></pre>
 
-<h2 id="additional-information-a-id-additional-information-a">Additional Information <a id="additional-information"></a></h2>
+<h2 id="additional-information">Additional Information</h2>
 
 <ol>
 <li><p>Processing of a payment is in a callback file separate from the module.

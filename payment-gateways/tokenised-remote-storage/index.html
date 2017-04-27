@@ -162,6 +162,14 @@
       
       
       
+        <li class="" data-nav-id="/payment-gateways/reversals/">
+          <a href="//developers.whmcs.com/payment-gateways/reversals/">
+            <span>Payment Reversals</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/payment-gateways/3d-secure/">
           <a href="//developers.whmcs.com/payment-gateways/3d-secure/">
             <span>3D Secure Process</span>
@@ -181,14 +189,6 @@
         <li class="" data-nav-id="/payment-gateways/installation-activation/">
           <a href="//developers.whmcs.com/payment-gateways/installation-activation/">
             <span>Installation &amp; Activation</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/payment-gateways/errors/">
-          <a href="//developers.whmcs.com/payment-gateways/errors/">
-            <span>Blank Screen/Errors</span>
           </a>
         </li>
       
@@ -280,19 +280,19 @@ Add a function named <strong>_storeremote</strong> to the custom gateway module.
 This function will override the default storage when entering new credit card details.
 Instead of saving in the database, <strong>_storeremote</strong> communicates with the gateways API, and returns a token that gets assigned to WHMCS.</p>
 
-<h2 id="variables-a-id-variables-a">Variables <a id="variables"></a></h2>
+<h2 id="variables">Variables</h2>
 
 <p>A number of variables as passed into the <strong>_storeremote</strong> function as follows.</p>
 
-<pre><code>$params['gatewayid'] # the token stored for the client 
-$params['cardtype'] #the Card Type (Visa, MasterCard, etc…) 
+<pre><code>$params['gatewayid'] # the token stored for the client
+$params['cardtype'] #the Card Type (Visa, MasterCard, etc…)
 $params['cardnum'] # the Card Number
-$params['cardexp'] # the Card’s Expiry Date (Format: MMYY) 
-$params['cardstart'] # the Card’s Start Date (Format: MMYY) 
+$params['cardexp'] # the Card’s Expiry Date (Format: MMYY)
+$params['cardstart'] # the Card’s Start Date (Format: MMYY)
 $params['cardissuenum'] # the Card’s Issue Number (Switch/Solo Cards)
 </code></pre>
 
-<h2 id="calling-a-id-calling-a">Calling <a id="calling"></a></h2>
+<h2 id="calling">Calling</h2>
 
 <p>On the first call, the gatewayid will be empty.
 When empty, create a new profile at the gateway.

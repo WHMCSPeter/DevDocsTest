@@ -24,7 +24,7 @@
 &lt;p&gt;Addon Modules can consist of just an admin page, just hooks, or both.
 They are all managed through the &lt;strong&gt;Setup&lt;/strong&gt; &amp;gt; &lt;strong&gt;Addon Modules&lt;/strong&gt; interface.&lt;/p&gt;
 
-&lt;p&gt;There are other types of module in WHMCS. These are &lt;a href=&#34;gateway-modules&#34; title=&#34;Gateway Module Documentation&#34;&gt;Payment Gateways&lt;/a&gt;, &lt;a href=&#34;provisioning-modules&#34; title=&#34;Provisioning Module Developer Documentation&#34;&gt;Provisioning Modules&lt;/a&gt; and &lt;a href=&#34;registrar-modules&#34; title=&#34;Registrar Module Developer Documentation&#34;&gt;Registrar Modules&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There are other types of module in WHMCS. These are &lt;a href=&#34;../payment-gateways&#34; title=&#34;Gateway Module Documentation&#34;&gt;Payment Gateways&lt;/a&gt;, &lt;a href=&#34;../provisioning-modules&#34; title=&#34;Provisioning Module Developer Documentation&#34;&gt;Provisioning Modules&lt;/a&gt; and &lt;a href=&#34;../domain-registrars&#34; title=&#34;Registrar Module Developer Documentation&#34;&gt;Registrar Modules&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Once activated, modules will display in the &amp;ldquo;Addons&amp;rdquo; menu within the admin area for access from any page.&lt;/p&gt;
 

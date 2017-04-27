@@ -162,6 +162,14 @@
       
       
       
+        <li class="" data-nav-id="/payment-gateways/reversals/">
+          <a href="//developers.whmcs.com/payment-gateways/reversals/">
+            <span>Payment Reversals</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/payment-gateways/3d-secure/">
           <a href="//developers.whmcs.com/payment-gateways/3d-secure/">
             <span>3D Secure Process</span>
@@ -181,14 +189,6 @@
         <li class="" data-nav-id="/payment-gateways/installation-activation/">
           <a href="//developers.whmcs.com/payment-gateways/installation-activation/">
             <span>Installation &amp; Activation</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/payment-gateways/errors/">
-          <a href="//developers.whmcs.com/payment-gateways/errors/">
-            <span>Blank Screen/Errors</span>
           </a>
         </li>
       
@@ -271,12 +271,12 @@
 
 			
 
-<h2 id="introduction-a-id-introduction-a">Introduction <a id="introduction"></a></h2>
+<h2 id="introduction">Introduction</h2>
 
 <p>Gateway modules allow a connection between WHMCS and merchants that aren&rsquo;t supported in WHMCS.
 This documentation will explain a module&rsquo;s structure and everything needed to create a gateway module for WHMCS.</p>
 
-<h2 id="getting-started-a-id-getting-started-a">Getting Started <a id="getting-started"></a></h2>
+<h2 id="getting-started">Getting Started</h2>
 
 <p>To get started, begin by downloading the module development kit from our GitHub site.
 There are two sample modules available, depending upon the <a href="#module-type">type of gateway</a> being developed:</p>
@@ -291,7 +291,7 @@ It should be all lowercase and must start with a letter.
 Prefix all functions within a gateway module with the filename.
 Open the file and replace all occurrences of <strong>template_</strong> with <strong>yourgatewayname_</strong></p>
 
-<h2 id="config-array-a-id-config-array-a">Config Array <a id="config-array"></a></h2>
+<h2 id="config-array">Config Array</h2>
 
 <p>Configure the yourgatewayname_config array.
 This function is the primary function required by all gateway modules.
@@ -310,7 +310,7 @@ The general formula:</p>
 <p>Any fields defined here will be available in all gateway module functions in the $params array.
 Avoid common names like currency, invoiceid, etc, as these will conflict with the standard variables.</p>
 
-<h2 id="module-type-a-id-module-type-a">Module Type <a id="module-type"></a></h2>
+<h2 id="module-type">Module Type</h2>
 
 <p>Determine which type of module needs to be created from the 2 core types:</p>
 

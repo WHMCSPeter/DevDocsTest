@@ -890,6 +890,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/payment-gateways/reversals/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/themes/sidebars/</loc>
   </url>
   
@@ -987,10 +991,6 @@
   
   <url>
     <loc>//developers.whmcs.com/addon-modules/admin-dashboard-widgets/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/payment-gateways/errors/</loc>
   </url>
   
   <url>
