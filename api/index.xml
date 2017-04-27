@@ -68,11 +68,44 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/api/authentication/</guid>
-      <description>&lt;p&gt;Use of the API requires admin user credentials.&lt;/p&gt;
+      <description>
 
-&lt;p&gt;The admin username and a hashed version of the password must be passed in every API call.&lt;/p&gt;
+&lt;p&gt;Use of the API requires API Authentication Credentials.  As well, the associated admin user must have the &lt;code&gt;API Access&lt;/code&gt; permission granted to their admin role group.&lt;/p&gt;
 
-&lt;p&gt;The admin user must have the &lt;code&gt;API Access&lt;/code&gt; permission granted to their admin role group.&lt;/p&gt;
+&lt;p&gt;API Authentication Credentials can be generated for an admin user within the Admin area as described in the &lt;a href=&#34;http://docs.whmcs.com/API_Authentication_Credentials&#34;&gt;WHMCS Documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Authentication is required for each API request.&lt;/p&gt;
+
+&lt;h2 id=&#34;authenticating-with-api-credentials&#34;&gt;Authenticating with API Credentials&lt;/h2&gt;
+
+&lt;p&gt;API requests will be authenticated based on the request parameters &lt;code&gt;identifier&lt;/code&gt; and &lt;code&gt;secret&lt;/code&gt; as provisioned when &lt;a href=&#34;http://docs.whmcs.com/API_Authentication_Credentials#Creating_Admin_API_Authentication_Credentials&#34;&gt;Creating Admin API Authentication Credentials&lt;/a&gt; within the WHMCS Admin Area.&lt;/p&gt;
+$api_identifier = &#39;D4j1dKYE3g40VROOPCGyJ9zRwP0ADJIv&#39;;
+$api_secret = &#39;F1CKGXRIpylMfsrig3mwwdSdYUdLiFlo&#39;;
+
+$postfields = array(
+    &#39;identifier&#39; =&gt; $api_identifier,
+    &#39;secret&#39; =&gt; $api_secret,
+    &#39;action&#39; =&gt; $api_call,
+    &#39;responsetype&#39; =&gt; $response_type,
+);
+
+&lt;p&gt;For forwards compatibility with existing integrations, the &lt;code&gt;identifier&lt;/code&gt; and &lt;code&gt;secret&lt;/code&gt; may also be passed in the &lt;code&gt;username&lt;/code&gt; and &lt;code&gt;password&lt;/code&gt; fields respectively. A valid identifier and secret combination passed in this way will also result in successful authentication.&lt;/p&gt;
+
+&lt;h2 id=&#34;authenticating-with-login-credentials&#34;&gt;Authenticating with Login Credentials&lt;/h2&gt;
+
+&lt;p&gt;Prior to WHMCS verison 7.2, authentication was validated based on admin login credentials, and not API Authentication Credentials.
+This method of authentication is still supported for backwards compatibility but may be deprecated in a future version of WHMCS.&lt;/p&gt;
+
+&lt;p&gt;To authenticate with the admin login credentials, pass the admin &lt;code&gt;username&lt;/code&gt; and the MD5 hashed value of the respective admin&amp;rsquo;s &lt;code&gt;password&lt;/code&gt;.&lt;/p&gt;
+$username = &#34;your_admin_login_username&#34;;
+$password = &#34;your_admin_login_password&#34;;
+
+$postfields = array(
+    &#39;username&#39; =&gt; $username,
+    &#39;password&#39; =&gt; md5($password),
+    &#39;action&#39; =&gt; $api_call,
+    &#39;responsetype&#39; =&gt; $response_type,
+);
 </description>
     </item>
     
@@ -150,13 +183,17 @@
 
 // API Connection Details
 $whmcsUrl = &amp;quot;https://www.yourdomain.com/path/to/whmcs/&amp;quot;;
-$username = &amp;quot;yourusername&amp;quot;;
-$password = &amp;quot;yourpassword&amp;quot;;
+
+// For WHMCS 7.2 and later, we recommend using an API Authentication Credential pair.
+// Learn more at http://docs.whmcs.com/API_Authentication_Credentials
+// Prior to WHMCS 7.2, an admin username and md5 hash of the admin password may be used.
+$username = &amp;quot;your_api_credential_identifier&amp;quot;;
+$password = &amp;quot;your_api_credential_secret&amp;quot;;
 
 // Set post values
 $postfields = array(
     &#39;username&#39; =&amp;gt; $username,
-    &#39;password&#39; =&amp;gt; md5($password),
+    &#39;password&#39; =&amp;gt; $password,
     &#39;action&#39; =&amp;gt; &#39;GetClients&#39;,
     &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
 );
