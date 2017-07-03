@@ -138,6 +138,22 @@
       
       
       
+        <li class="" data-nav-id="/payment-gateways/meta-data-params/">
+          <a href="//developers.whmcs.com/payment-gateways/meta-data-params/">
+            <span>Meta Data Parameters</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/payment-gateways/configuration/">
+          <a href="//developers.whmcs.com/payment-gateways/configuration/">
+            <span>Configuration</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/payment-gateways/third-party-gateway/">
           <a href="//developers.whmcs.com/payment-gateways/third-party-gateway/">
             <span>Third Party Gateway</span>
@@ -157,6 +173,14 @@
         <li class="" data-nav-id="/payment-gateways/callbacks/">
           <a href="//developers.whmcs.com/payment-gateways/callbacks/">
             <span>Callback Files</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/payment-gateways/refunds/">
+          <a href="//developers.whmcs.com/payment-gateways/refunds/">
+            <span>Refunds</span>
           </a>
         </li>
       
@@ -271,13 +295,18 @@
 
 			
 
-<p>A merchant gateway is where the customer enters their card details via the client area.
-To create one: Delete the _link function before activating the new module in WHMCS.</p>
+<p>Follow the steps below to create a third party gateway module.</p>
+
+<div class="notice info" ><p>A Merchant Gateway is one where a customer enters credit card details in WHMCS. The payment processes in the background. Can also include 3D Secure where the user leaves your site. Examples include PayPal Pro, Authorize.net AIM</p>
+</div>
+
+
+<h2 id="getting-started">Getting Started</h2>
 
 <ol>
-<li>Delete the _link function from the module template.</li>
+<li>Delete the <code>_link</code> function from the module template.</li>
 <li>Enter the gateway-specific code for processing the payment into the _capture function.
-Generally, this takes the format of an HTTP/Curl request to the gateway provider&rsquo;s API.</li>
+Typically this takes the format of an HTTP/Curl request to the gateway provider&rsquo;s API.</li>
 </ol>
 
 <h2 id="variables">Variables</h2>

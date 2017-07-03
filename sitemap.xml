@@ -770,7 +770,15 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/payment-gateways/meta-data-params/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/hooks/module-hooks/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/payment-gateways/configuration/</loc>
   </url>
   
   <url>
@@ -891,6 +899,10 @@
   
   <url>
     <loc>//developers.whmcs.com/api/response-types/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/payment-gateways/refunds/</loc>
   </url>
   
   <url>

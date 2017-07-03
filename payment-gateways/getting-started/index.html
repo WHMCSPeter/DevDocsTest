@@ -138,6 +138,22 @@
       
       
       
+        <li class="" data-nav-id="/payment-gateways/meta-data-params/">
+          <a href="//developers.whmcs.com/payment-gateways/meta-data-params/">
+            <span>Meta Data Parameters</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/payment-gateways/configuration/">
+          <a href="//developers.whmcs.com/payment-gateways/configuration/">
+            <span>Configuration</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/payment-gateways/third-party-gateway/">
           <a href="//developers.whmcs.com/payment-gateways/third-party-gateway/">
             <span>Third Party Gateway</span>
@@ -157,6 +173,14 @@
         <li class="" data-nav-id="/payment-gateways/callbacks/">
           <a href="//developers.whmcs.com/payment-gateways/callbacks/">
             <span>Callback Files</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/payment-gateways/refunds/">
+          <a href="//developers.whmcs.com/payment-gateways/refunds/">
+            <span>Refunds</span>
           </a>
         </li>
       
@@ -271,58 +295,44 @@
 
 			
 
-<h2 id="introduction">Introduction</h2>
+<p>Payment gateway modules allow you to connect and integrate WHMCS with additional payment service providers.</p>
 
-<p>Gateway modules allow a connection between WHMCS and merchants that aren&rsquo;t supported in WHMCS.
-This documentation will explain a module&rsquo;s structure and everything needed to create a gateway module for WHMCS.</p>
+<h2 id="types-of-payment-gateway">Types of payment gateway</h2>
+
+<p>Before you begin, you need to determine the type of payment gateway module you will be creating.</p>
+
+<p>There are 3 primary types of payment gateway module:</p>
+
+<ol>
+<li><p><strong>Third Party Gateways</strong> – Where a customer leaves the site to pay and returns when the payment process is complete. Examples include PayPal Standard, 2Checkout</p></li>
+
+<li><p><strong>Merchant Gateways</strong> – Where a customer enters credit card details in WHMCS. The payment processes in the background. Can also include 3D Secure where the user leaves your site. Examples include PayPal Pro, Authorize.net AIM</p></li>
+
+<li><p><strong>Tokenised Gateways</strong> - A variation of a merchant gateway where credit card details are not stored locally. Tokenised Gateways can be further broken down into two groups:</p>
+
+<p>i. Remote Storage - Where the customer enters credit card details within WHMCS but the card details are not stored locally within the database instead being submitted immediately to the payment gateway and only a token returned by the gateway being stored.</p>
+
+<p>ii. iFrame Gateways - Where the gateway payment checkout process is loaded within an iframe. Examples include SagePay Form, Quantum Vault</p></li>
+</ol>
 
 <h2 id="getting-started">Getting Started</h2>
 
-<p>To get started, begin by downloading the module development kit from our GitHub site.
-There are two sample modules available, depending upon the <a href="#module-type">type of gateway</a> being developed:</p>
+<p>To get started, begin by downloading the appropriate sample module from our <a href="https://github.com/whmcs">Github page</a>.</p>
 
 <ul>
 <li>Third Party Gateway: <a href="https://github.com/WHMCS/sample-gateway-module">https://github.com/WHMCS/sample-gateway-module</a></li>
 <li>Merchant Gateway: <a href="https://github.com/WHMCS/sample-merchant-gateway">https://github.com/WHMCS/sample-merchant-gateway</a></li>
 </ul>
 
-<p>Take the gateway module template &ldquo;template.php&rdquo; from this download and rename it to &ldquo;yourgatewayname.php&rdquo;.
-It should be all lowercase and must start with a letter.
-Prefix all functions within a gateway module with the filename.
-Open the file and replace all occurrences of <strong>template_</strong> with <strong>yourgatewayname_</strong></p>
+<p>Take the gateway module example file within the repo and rename it to <code>yourgatewayname.php</code>.</p>
 
-<h2 id="config-array">Config Array</h2>
+<p>The filename should be all lowercase and must start with a letter.</p>
 
-<p>Configure the yourgatewayname_config array.
-This function is the primary function required by all gateway modules.
-The function defines both the display name for the module, and any settings that the gateway module requires.
-The available field types are &ldquo;text&rdquo;, &ldquo;dropdown&rdquo;, &ldquo;textarea&rdquo; and &ldquo;yesno&rdquo; (checkboxes).
-The sample config array in &ldquo;template.php&rdquo; demonstrates how to use each of these types.
-The general formula:</p>
+<p>After renaming it, open the file and replace all occurrences of <code>gatewaymodule_</code> with <code>yourgatewayname_</code>.</p>
 
-<ol>
-<li>Specify a system name (all in lowercase for the setting to be referenced by in the module code itself)</li>
-<li>A FriendlyName</li>
-<li>Type</li>
-<li>Any settings specific to that field type.</li>
-</ol>
+<div class="notice info" ><p>We recommend prefixing all functions within a gateway module with the filename to avoid naming conflicts.</p>
+</div>
 
-<p>Any fields defined here will be available in all gateway module functions in the $params array.
-Avoid common names like currency, invoiceid, etc, as these will conflict with the standard variables.</p>
-
-<h2 id="module-type">Module Type</h2>
-
-<p>Determine which type of module needs to be created from the 2 core types:</p>
-
-<ol>
-<li><strong>Third Party Gateways</strong> – Where a customer leaves the site to pay and returns when the payment process completes.</li>
-<li><strong>Merchant Gateways</strong> – Where a customer enters credit card details in WHMCS.
-The payment processes in the background.
-Can also include 3D Secure where the user leaves your site.</li>
-</ol>
-
-<p>For a Third Party gateway go to <a href="//developers.whmcs.com/payment-gateways/third-party-gateway" title="Third Party Gateway">Third Party Gateway</a>.
-For a merchant gateway go to <a href="//developers.whmcs.com/payment-gateways/merchant-gateway" title="Merchant Gateway">Merchant Gateway</a>.</p>
 
 
 			<div class="topic-navigation clearfix">
@@ -333,7 +343,7 @@ For a merchant gateway go to <a href="//developers.whmcs.com/payment-gateways/me
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/payment-gateways/third-party-gateway">
+                    <a class="nav nav-next" href="//developers.whmcs.com/payment-gateways/meta-data-params">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>

@@ -138,6 +138,22 @@
       
       
       
+        <li class="" data-nav-id="/payment-gateways/meta-data-params/">
+          <a href="//developers.whmcs.com/payment-gateways/meta-data-params/">
+            <span>Meta Data Parameters</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/payment-gateways/configuration/">
+          <a href="//developers.whmcs.com/payment-gateways/configuration/">
+            <span>Configuration</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="active" data-nav-id="/payment-gateways/third-party-gateway/">
           <a href="//developers.whmcs.com/payment-gateways/third-party-gateway/">
             <span>Third Party Gateway</span>
@@ -157,6 +173,14 @@
         <li class="" data-nav-id="/payment-gateways/callbacks/">
           <a href="//developers.whmcs.com/payment-gateways/callbacks/">
             <span>Callback Files</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/payment-gateways/refunds/">
+          <a href="//developers.whmcs.com/payment-gateways/refunds/">
+            <span>Refunds</span>
           </a>
         </li>
       
@@ -271,15 +295,17 @@
 
 			
 
-<p>Follow the steps below to create a third party gateway module.
-A module where the customer leaves WHMCS to make the payment.
-Delete the _capture function before activating the new gateway module in WHMCS.</p>
+<p>Follow the steps below to create a third party gateway module.</p>
+
+<div class="notice info" ><p>A Third Party Gateway module is one where a customer leaves the site to pay and returns when the payment process is complete. Examples include PayPal Standard, 2Checkout</p>
+</div>
+
+
+<h2 id="getting-started">Getting Started</h2>
 
 <ol>
-<li>Delete the <strong>_capture</strong> function from the module template.</li>
-<li>Enter the gateway-specific code for taking the user to the payment process within the _link function.
-An example of this step is in the gateway module template supplied with the dev kit.
-The code output by this function is HTML, usually for a &lt;<strong>form</strong>&gt; with a post method.</li>
+<li>Delete the <code>_capture</code> function from the module template.</li>
+<li>Define the HTML code that will forward the user to the payment gateway to complete the payment process inside the <code>_link</code> function. This is typically done by way of an HTML form utilizing the <strong>POST</strong> method.</li>
 </ol>
 
 <h2 id="variables">Variables</h2>
@@ -315,17 +341,15 @@ $params['systemurl'] # the url to the Client Area
 <h2 id="additional-information">Additional Information</h2>
 
 <ol>
-<li><p>Processing of a payment is in a callback file separate from the module.
-(see <a href="//developers.whmcs.com/payment-gateways/callbacks" title="Callback Files">here</a> for more information).</p></li>
+<li><p>Processing of payment notifications can be done in a callback file. See <a href="//developers.whmcs.com/payment-gateways/callbacks" title="Callback Files">here</a> for more information.</p></li>
 
-<li><p>If the gateway won&rsquo;t support automated refunds, delete the _refund function.
-Otherwise, refer to the Refund section on page 7 of the sample module.</p></li>
+<li><p>Support for refunding of transactions can be implemented using a refund routine. See <a href="//developers.whmcs.com/payment-gateways/refunds" title="Refunding Transactions">here</a> for more information.</p></li>
 </ol>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/payment-gateways/getting-started">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/payment-gateways/configuration">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>

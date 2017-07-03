@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Currency Formatting - WHMCS Developer Documentation</title>
+    <title>Configuration - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/advanced/currency-formatting/">
+    <link rel="canonical" href="//developers.whmcs.com/payment-gateways/configuration/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -56,7 +56,7 @@
             <li class="visible-xs"><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
             <li class="visible-xs"><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
             <li class="visible-xs"><a href="//developers.whmcs.com/api/">API</a></li>
-            <li class="visible-xs active"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
@@ -88,7 +88,7 @@
             <li><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
             <li><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
             <li><a href="//developers.whmcs.com/api/">API</a></li>
-            <li class="active"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+            <li><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
       </ul>
       <form class="navbar-form navbar-right" id="docsSearch">
         <div class="input-group">
@@ -115,13 +115,13 @@
         
           <ul class="sidebar-nav">
             
-  <li class="active parent" data-nav-id="/advanced/">
-    <a href="//developers.whmcs.com/advanced/">
+  <li class="active parent" data-nav-id="/payment-gateways/">
+    <a href="//developers.whmcs.com/payment-gateways/">
       <span>
         
-          <i class='fa fa-code fa-fw'></i>
+          <i class='fa fa-money fa-fw'></i>
         
-         Advanced
+         Payment Gateways
        </span>
     </a>
     
@@ -130,41 +130,89 @@
       
       
       
-        <li class="" data-nav-id="/advanced/creating-pages/">
-          <a href="//developers.whmcs.com/advanced/creating-pages/">
-            <span>Creating Pages</span>
+        <li class="" data-nav-id="/payment-gateways/getting-started/">
+          <a href="//developers.whmcs.com/payment-gateways/getting-started/">
+            <span>Getting Started</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/advanced/db-interaction/">
-          <a href="//developers.whmcs.com/advanced/db-interaction/">
-            <span>Interacting with the Database</span>
+        <li class="" data-nav-id="/payment-gateways/meta-data-params/">
+          <a href="//developers.whmcs.com/payment-gateways/meta-data-params/">
+            <span>Meta Data Parameters</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/advanced/date-functions/">
-          <a href="//developers.whmcs.com/advanced/date-functions/">
-            <span>Date Functions</span>
+        <li class="active" data-nav-id="/payment-gateways/configuration/">
+          <a href="//developers.whmcs.com/payment-gateways/configuration/">
+            <span>Configuration</span>
           </a>
         </li>
       
       
       
-        <li class="active" data-nav-id="/advanced/currency-formatting/">
-          <a href="//developers.whmcs.com/advanced/currency-formatting/">
-            <span>Currency Formatting</span>
+        <li class="" data-nav-id="/payment-gateways/third-party-gateway/">
+          <a href="//developers.whmcs.com/payment-gateways/third-party-gateway/">
+            <span>Third Party Gateway</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/advanced/logging/">
-          <a href="//developers.whmcs.com/advanced/logging/">
-            <span>Logging</span>
+        <li class="" data-nav-id="/payment-gateways/merchant-gateway/">
+          <a href="//developers.whmcs.com/payment-gateways/merchant-gateway/">
+            <span>Merchant Gateway</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/payment-gateways/callbacks/">
+          <a href="//developers.whmcs.com/payment-gateways/callbacks/">
+            <span>Callback Files</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/payment-gateways/refunds/">
+          <a href="//developers.whmcs.com/payment-gateways/refunds/">
+            <span>Refunds</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/payment-gateways/reversals/">
+          <a href="//developers.whmcs.com/payment-gateways/reversals/">
+            <span>Payment Reversals</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/payment-gateways/3d-secure/">
+          <a href="//developers.whmcs.com/payment-gateways/3d-secure/">
+            <span>3D Secure Process</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/payment-gateways/tokenised-remote-storage/">
+          <a href="//developers.whmcs.com/payment-gateways/tokenised-remote-storage/">
+            <span>Tokenised Remote Storage</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/payment-gateways/installation-activation/">
+          <a href="//developers.whmcs.com/payment-gateways/installation-activation/">
+            <span>Installation &amp; Activation</span>
           </a>
         </li>
       
@@ -206,9 +254,31 @@
                   
                 
                   
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
                     
                     
-                <a href="//developers.whmcs.com/advanced/" itemprop="url"><span itemprop="title">Advanced</span></a> <i class="fa fa-angle-right"></i>
+                <a href="//developers.whmcs.com/payment-gateways/" itemprop="url"><span itemprop="title">Payment Gateways</span></a> <i class="fa fa-angle-right"></i>
                     
                   
                 
@@ -216,80 +286,69 @@
                 
                   
                 
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                <span itemprop="title"> Currency Formatting</span>
+                <span itemprop="title"> Configuration</span>
               </div>
             </div>
 
 
-			<h1>Currency Formatting </h1>
+			<h1>Configuration </h1>
 
 			
 
-<p>The following helper functions are provided for formatting currency values.</p>
+<h2 id="configuration">Configuration</h2>
 
-<h2 id="get-clients-currency">Get Clients Currency</h2>
+<p>A payment gateway module can have user configurable options that are set via the WHMCS admin interface.</p>
 
-<pre><code>/**
- * Get clients currency
- *
- * Required before making a call to formatCurrency
- *
- * @param int $userId
- *
- * @return array
- */
-$currencyData = getCurrency($userId);
+<p>These are defined in the <code>_config</code> function of the module which is a required function for all gateway modules.</p>
+
+<p>The function defines both the display name for the module, and any settings that the gateway module requires.</p>
+
+<h3 id="defining-configuration-fields">Defining configuration fields</h3>
+
+<p>The sample gateway module demonstrates each type of field and the options available for them.</p>
+
+<p>Below is an example field definition:</p>
+
+<pre><code>'accountID' =&gt; array(
+    'FriendlyName' =&gt; 'Account ID',
+    'Type' =&gt; 'text',
+    'Size' =&gt; '25',
+    'Default' =&gt; '',
+    'Description' =&gt; 'Enter your account ID here',
+),
 </code></pre>
 
-<h2 id="format-currency">Format Currency</h2>
+<p>Each field includes:</p>
 
-<pre><code>/**
- * Format currency
- *
- * @param float $amount
- * @param int   $currencyId
- *
- * @return \WHMCS\View\Formatter\Price
- */
-$price = formatCurrency($amount, $currencyData['id']);
-</code></pre>
+<ol>
+<li>A system name - a normalized name by which the field can be referenced in module code</li>
+<li>A FriendlyName - a human readable friendly display name for the field</li>
+<li>Type - The type of field. The available field types are &ldquo;text&rdquo;, &ldquo;dropdown&rdquo;, &ldquo;textarea&rdquo; and &ldquo;yesno&rdquo; (checkboxes).</li>
+<li>Any settings specific to that field type including Size, Default Value and Description</li>
+</ol>
 
-<p>The <code>$price</code> value returned will be an object. The default <code>__toString</code> response format is a fully formatted price output including prefix and suffix.</p>
+<p>Any fields defined here will be available along with their configured values in all gateway module functions in the $params array.</p>
 
-<p>See <a href="http://docs.whmcs.com/classes/7.0/WHMCS/View/Formatter/Price.html">http://docs.whmcs.com/classes/7.0/WHMCS/View/Formatter/Price.html</a> for more information.</p>
+<div class="notice info" ><p>Avoid common names like currency, invoiceid, etc, as these may conflict with the standard variables.</p>
+</div>
+
+
+<h2 id="build-your-gateway">Build your gateway</h2>
+
+<p>Now it&rsquo;s time to integrate your payment gateway provider.</p>
+
+<p>For a Third Party Gateway, <a href="//developers.whmcs.com/payment-gateways/third-party-gateway" title="Third Party Gateway">click here</a>. For a Merchant Gateway, <a href="//developers.whmcs.com/payment-gateways/merchant-gateway" title="Merchant Gateway">click here</a>.</p>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/advanced/date-functions/">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/payment-gateways/meta-data-params">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/advanced/logging/">
+                    <a class="nav nav-next" href="//developers.whmcs.com/payment-gateways/third-party-gateway">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>

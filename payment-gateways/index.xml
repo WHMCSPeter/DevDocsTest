@@ -15,18 +15,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/payment-gateways/</guid>
-      <description>&lt;p&gt;Creating a gateway module allows connection from WHMCS to providers that aren’t supported in a default installation.
-There are 2 core types of gateway modules:&lt;/p&gt;
+      <description>&lt;p&gt;Creating a payment gateway module allows you to connect and integrate WHMCS with additional payment service providers.&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Third Party Gateways – Where a customer leaves the site to pay and returns when the payment process completes.&lt;/li&gt;
-&lt;li&gt;Merchant Gateways – Where a customer enters credit card details in WHMCS.
-The payment processes in the background.
-Can also include 3D Secure where the user leaves your site.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;The following guide assumes you have downloaded and are using one of the sample modules made available via our &lt;a href=&#34;https://github.com/whmcs&#34;&gt;Github page&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Before starting development of the module for WHMCS, decide which type of gateway module to create.
-With that, module creation is ready to begin.&lt;/p&gt;
+&lt;p&gt;To get started, continue to the Getting Started page.&lt;/p&gt;
 </description>
     </item>
     
@@ -38,58 +31,156 @@ With that, module creation is ready to begin.&lt;/p&gt;
       <guid>//developers.whmcs.com/payment-gateways/getting-started/</guid>
       <description>
 
-&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Payment gateway modules allow you to connect and integrate WHMCS with additional payment service providers.&lt;/p&gt;
 
-&lt;p&gt;Gateway modules allow a connection between WHMCS and merchants that aren&amp;rsquo;t supported in WHMCS.
-This documentation will explain a module&amp;rsquo;s structure and everything needed to create a gateway module for WHMCS.&lt;/p&gt;
+&lt;h2 id=&#34;types-of-payment-gateway&#34;&gt;Types of payment gateway&lt;/h2&gt;
+
+&lt;p&gt;Before you begin, you need to determine the type of payment gateway module you will be creating.&lt;/p&gt;
+
+&lt;p&gt;There are 3 primary types of payment gateway module:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Third Party Gateways&lt;/strong&gt; – Where a customer leaves the site to pay and returns when the payment process is complete. Examples include PayPal Standard, 2Checkout&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Merchant Gateways&lt;/strong&gt; – Where a customer enters credit card details in WHMCS. The payment processes in the background. Can also include 3D Secure where the user leaves your site. Examples include PayPal Pro, Authorize.net AIM&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tokenised Gateways&lt;/strong&gt; - A variation of a merchant gateway where credit card details are not stored locally. Tokenised Gateways can be further broken down into two groups:&lt;/p&gt;
+
+&lt;p&gt;i. Remote Storage - Where the customer enters credit card details within WHMCS but the card details are not stored locally within the database instead being submitted immediately to the payment gateway and only a token returned by the gateway being stored.&lt;/p&gt;
+
+&lt;p&gt;ii. iFrame Gateways - Where the gateway payment checkout process is loaded within an iframe. Examples include SagePay Form, Quantum Vault&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
 
-&lt;p&gt;To get started, begin by downloading the module development kit from our GitHub site.
-There are two sample modules available, depending upon the &lt;a href=&#34;#module-type&#34;&gt;type of gateway&lt;/a&gt; being developed:&lt;/p&gt;
+&lt;p&gt;To get started, begin by downloading the appropriate sample module from our &lt;a href=&#34;https://github.com/whmcs&#34;&gt;Github page&lt;/a&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Third Party Gateway: &lt;a href=&#34;https://github.com/WHMCS/sample-gateway-module&#34;&gt;https://github.com/WHMCS/sample-gateway-module&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Merchant Gateway: &lt;a href=&#34;https://github.com/WHMCS/sample-merchant-gateway&#34;&gt;https://github.com/WHMCS/sample-merchant-gateway&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Take the gateway module template &amp;ldquo;template.php&amp;rdquo; from this download and rename it to &amp;ldquo;yourgatewayname.php&amp;rdquo;.
-It should be all lowercase and must start with a letter.
-Prefix all functions within a gateway module with the filename.
-Open the file and replace all occurrences of &lt;strong&gt;template_&lt;/strong&gt; with &lt;strong&gt;yourgatewayname_&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Take the gateway module example file within the repo and rename it to &lt;code&gt;yourgatewayname.php&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;config-array&#34;&gt;Config Array&lt;/h2&gt;
+&lt;p&gt;The filename should be all lowercase and must start with a letter.&lt;/p&gt;
 
-&lt;p&gt;Configure the yourgatewayname_config array.
-This function is the primary function required by all gateway modules.
-The function defines both the display name for the module, and any settings that the gateway module requires.
-The available field types are &amp;ldquo;text&amp;rdquo;, &amp;ldquo;dropdown&amp;rdquo;, &amp;ldquo;textarea&amp;rdquo; and &amp;ldquo;yesno&amp;rdquo; (checkboxes).
-The sample config array in &amp;ldquo;template.php&amp;rdquo; demonstrates how to use each of these types.
-The general formula:&lt;/p&gt;
+&lt;p&gt;After renaming it, open the file and replace all occurrences of &lt;code&gt;gatewaymodule_&lt;/code&gt; with &lt;code&gt;yourgatewayname_&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;We recommend prefixing all functions within a gateway module with the filename to avoid naming conflicts.&lt;/p&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Meta Data Parameters</title>
+      <link>//developers.whmcs.com/payment-gateways/meta-data-params/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/payment-gateways/meta-data-params/</guid>
+      <description>&lt;p&gt;The meta data function allows you to define module related capabilities and settings.&lt;/p&gt;
+
+&lt;p&gt;Payment Gateway Modules support the following meta data configuration parameters.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Supported As Of&lt;/th&gt;
+&lt;th&gt;Default&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DisplayName&lt;/td&gt;
+&lt;td&gt;Text&lt;/td&gt;
+&lt;td&gt;6.0&lt;/td&gt;
+&lt;td&gt;Module Name&lt;/td&gt;
+&lt;td&gt;An alternate display name that will be used instead of the filename if defined&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;APIVersion&lt;/td&gt;
+&lt;td&gt;Text&lt;/td&gt;
+&lt;td&gt;5.2&lt;/td&gt;
+&lt;td&gt;1.1&lt;/td&gt;
+&lt;td&gt;Defines API Version the module uses. Use &lt;code&gt;1.1&lt;/code&gt; unless you have a need specific to use &lt;code&gt;1.0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;DisableLocalCreditCardInput&lt;/td&gt;
+&lt;td&gt;Boolean&lt;/td&gt;
+&lt;td&gt;7.1&lt;/td&gt;
+&lt;td&gt;false&lt;/td&gt;
+&lt;td&gt;Set to true if credit card input should not be allowed locally for this payment gateway module.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;TokenisedStorage&lt;/td&gt;
+&lt;td&gt;Boolean&lt;/td&gt;
+&lt;td&gt;7.1&lt;/td&gt;
+&lt;td&gt;false&lt;/td&gt;
+&lt;td&gt;Set to true if this payment gateway module leverages tokenised storage for credit card information.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Configuration</title>
+      <link>//developers.whmcs.com/payment-gateways/configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/payment-gateways/configuration/</guid>
+      <description>
+
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
+
+&lt;p&gt;A payment gateway module can have user configurable options that are set via the WHMCS admin interface.&lt;/p&gt;
+
+&lt;p&gt;These are defined in the &lt;code&gt;_config&lt;/code&gt; function of the module which is a required function for all gateway modules.&lt;/p&gt;
+
+&lt;p&gt;The function defines both the display name for the module, and any settings that the gateway module requires.&lt;/p&gt;
+
+&lt;h3 id=&#34;defining-configuration-fields&#34;&gt;Defining configuration fields&lt;/h3&gt;
+
+&lt;p&gt;The sample gateway module demonstrates each type of field and the options available for them.&lt;/p&gt;
+
+&lt;p&gt;Below is an example field definition:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&#39;accountID&#39; =&amp;gt; array(
+    &#39;FriendlyName&#39; =&amp;gt; &#39;Account ID&#39;,
+    &#39;Type&#39; =&amp;gt; &#39;text&#39;,
+    &#39;Size&#39; =&amp;gt; &#39;25&#39;,
+    &#39;Default&#39; =&amp;gt; &#39;&#39;,
+    &#39;Description&#39; =&amp;gt; &#39;Enter your account ID here&#39;,
+),
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Each field includes:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Specify a system name (all in lowercase for the setting to be referenced by in the module code itself)&lt;/li&gt;
-&lt;li&gt;A FriendlyName&lt;/li&gt;
-&lt;li&gt;Type&lt;/li&gt;
-&lt;li&gt;Any settings specific to that field type.&lt;/li&gt;
+&lt;li&gt;A system name - a normalized name by which the field can be referenced in module code&lt;/li&gt;
+&lt;li&gt;A FriendlyName - a human readable friendly display name for the field&lt;/li&gt;
+&lt;li&gt;Type - The type of field. The available field types are &amp;ldquo;text&amp;rdquo;, &amp;ldquo;dropdown&amp;rdquo;, &amp;ldquo;textarea&amp;rdquo; and &amp;ldquo;yesno&amp;rdquo; (checkboxes).&lt;/li&gt;
+&lt;li&gt;Any settings specific to that field type including Size, Default Value and Description&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Any fields defined here will be available in all gateway module functions in the $params array.
-Avoid common names like currency, invoiceid, etc, as these will conflict with the standard variables.&lt;/p&gt;
+&lt;p&gt;Any fields defined here will be available along with their configured values in all gateway module functions in the $params array.&lt;/p&gt;
 
-&lt;h2 id=&#34;module-type&#34;&gt;Module Type&lt;/h2&gt;
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;Avoid common names like currency, invoiceid, etc, as these may conflict with the standard variables.&lt;/p&gt;
+&lt;/div&gt;
 
-&lt;p&gt;Determine which type of module needs to be created from the 2 core types:&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Third Party Gateways&lt;/strong&gt; – Where a customer leaves the site to pay and returns when the payment process completes.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Merchant Gateways&lt;/strong&gt; – Where a customer enters credit card details in WHMCS.
-The payment processes in the background.
-Can also include 3D Secure where the user leaves your site.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&#34;build-your-gateway&#34;&gt;Build your gateway&lt;/h2&gt;
 
-&lt;p&gt;For a Third Party gateway go to &lt;a href=&#34;//developers.whmcs.com/payment-gateways/third-party-gateway&#34; title=&#34;Third Party Gateway&#34;&gt;Third Party Gateway&lt;/a&gt;.
-For a merchant gateway go to &lt;a href=&#34;//developers.whmcs.com/payment-gateways/merchant-gateway&#34; title=&#34;Merchant Gateway&#34;&gt;Merchant Gateway&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Now it&amp;rsquo;s time to integrate your payment gateway provider.&lt;/p&gt;
+
+&lt;p&gt;For a Third Party Gateway, &lt;a href=&#34;//developers.whmcs.com/payment-gateways/third-party-gateway&#34; title=&#34;Third Party Gateway&#34;&gt;click here&lt;/a&gt;. For a Merchant Gateway, &lt;a href=&#34;//developers.whmcs.com/payment-gateways/merchant-gateway&#34; title=&#34;Merchant Gateway&#34;&gt;click here&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -101,15 +192,17 @@ For a merchant gateway go to &lt;a href=&#34;//developers.whmcs.com/payment-gate
       <guid>//developers.whmcs.com/payment-gateways/third-party-gateway/</guid>
       <description>
 
-&lt;p&gt;Follow the steps below to create a third party gateway module.
-A module where the customer leaves WHMCS to make the payment.
-Delete the _capture function before activating the new gateway module in WHMCS.&lt;/p&gt;
+&lt;p&gt;Follow the steps below to create a third party gateway module.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;A Third Party Gateway module is one where a customer leaves the site to pay and returns when the payment process is complete. Examples include PayPal Standard, 2Checkout&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Delete the &lt;strong&gt;_capture&lt;/strong&gt; function from the module template.&lt;/li&gt;
-&lt;li&gt;Enter the gateway-specific code for taking the user to the payment process within the _link function.
-An example of this step is in the gateway module template supplied with the dev kit.
-The code output by this function is HTML, usually for a &amp;lt;&lt;strong&gt;form&lt;/strong&gt;&amp;gt; with a post method.&lt;/li&gt;
+&lt;li&gt;Delete the &lt;code&gt;_capture&lt;/code&gt; function from the module template.&lt;/li&gt;
+&lt;li&gt;Define the HTML code that will forward the user to the payment gateway to complete the payment process inside the &lt;code&gt;_link&lt;/code&gt; function. This is typically done by way of an HTML form utilizing the &lt;strong&gt;POST&lt;/strong&gt; method.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&#34;variables&#34;&gt;Variables&lt;/h2&gt;
@@ -145,11 +238,9 @@ $params[&#39;systemurl&#39;] # the url to the Client Area
 &lt;h2 id=&#34;additional-information&#34;&gt;Additional Information&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Processing of a payment is in a callback file separate from the module.
-(see &lt;a href=&#34;//developers.whmcs.com/payment-gateways/callbacks&#34; title=&#34;Callback Files&#34;&gt;here&lt;/a&gt; for more information).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Processing of payment notifications can be done in a callback file. See &lt;a href=&#34;//developers.whmcs.com/payment-gateways/callbacks&#34; title=&#34;Callback Files&#34;&gt;here&lt;/a&gt; for more information.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;If the gateway won&amp;rsquo;t support automated refunds, delete the _refund function.
-Otherwise, refer to the Refund section on page 7 of the sample module.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Support for refunding of transactions can be implemented using a refund routine. See &lt;a href=&#34;//developers.whmcs.com/payment-gateways/refunds&#34; title=&#34;Refunding Transactions&#34;&gt;here&lt;/a&gt; for more information.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
     </item>
@@ -162,13 +253,18 @@ Otherwise, refer to the Refund section on page 7 of the sample module.&lt;/p&gt;
       <guid>//developers.whmcs.com/payment-gateways/merchant-gateway/</guid>
       <description>
 
-&lt;p&gt;A merchant gateway is where the customer enters their card details via the client area.
-To create one: Delete the _link function before activating the new module in WHMCS.&lt;/p&gt;
+&lt;p&gt;Follow the steps below to create a third party gateway module.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;A Merchant Gateway is one where a customer enters credit card details in WHMCS. The payment processes in the background. Can also include 3D Secure where the user leaves your site. Examples include PayPal Pro, Authorize.net AIM&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Delete the _link function from the module template.&lt;/li&gt;
+&lt;li&gt;Delete the &lt;code&gt;_link&lt;/code&gt; function from the module template.&lt;/li&gt;
 &lt;li&gt;Enter the gateway-specific code for processing the payment into the _capture function.
-Generally, this takes the format of an HTTP/Curl request to the gateway provider&amp;rsquo;s API.&lt;/li&gt;
+Typically this takes the format of an HTTP/Curl request to the gateway provider&amp;rsquo;s API.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&#34;variables&#34;&gt;Variables&lt;/h2&gt;
@@ -263,44 +359,175 @@ If the gateway module will not support refunds, delete the &lt;strong&gt;_refund
       <guid>//developers.whmcs.com/payment-gateways/callbacks/</guid>
       <description>
 
-&lt;p&gt;If a gateway provider supports notifying when a payment is successful, WHMCS uses a callback file to receive those.
-A callback will process the response and apply a payment as required.
-An included sample callback file is in the dev kit for this purpose named &lt;strong&gt;callback.php&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;If you are building a payment gateway that supports notifying you when a payment is successful you should create a callback file as part of your module to receive and handle those notifications.&lt;/p&gt;
+
+&lt;p&gt;A callback file should process and validate the notification and then call one of several functions made available by WHMCS to log and apply the payment.&lt;/p&gt;
+
+&lt;h2 id=&#34;creating-a-callback-file&#34;&gt;Creating a callback file&lt;/h2&gt;
+
+&lt;p&gt;A sample callback file is included in the sample gateway module named &lt;code&gt;callback/gatewaymodule.php&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;We recommend using the sample file as a starting point for your creating your own gateway callback file. Rename it to match the name of your own gateway module.&lt;/p&gt;
+
+&lt;p&gt;Most callback files should use the following workflow:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Rename it to match the gateway module.&lt;/li&gt;
-&lt;li&gt;Modify the variables within it, as per the comments in the code.&lt;/li&gt;
-&lt;li&gt;Modify it to match the variables that the specific gateway returns.&lt;/li&gt;
+&lt;li&gt;Implement logic to validate the authenticity of the payment gateway callback and prevent abuse.&lt;/li&gt;
+&lt;li&gt;Validate the invoice ID the callback relates to using the &lt;code&gt;checkCbInvoiceID&lt;/code&gt; helper method.&lt;/li&gt;
+&lt;li&gt;Verify the transaction ID has not already been recorded using the &lt;code&gt;checkCbTransID&lt;/code&gt; helper method.&lt;/li&gt;
+&lt;li&gt;Log the transaction to the WHMCS Gateway Log using the &lt;code&gt;logTransaction&lt;/code&gt; helper method.&lt;/li&gt;
+&lt;li&gt;Apply the payment to the invoice using the &lt;code&gt;addInvoicePayment&lt;/code&gt; helper method.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&#34;helper-functions&#34;&gt;Helper Functions&lt;/h2&gt;
 
-&lt;p&gt;Included in the sample file are a number of helper functions.&lt;/p&gt;
+&lt;p&gt;The following helper functions are made available for use in payment gateway callback files.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;$GATEWAY = getGatewayVariables(‘yourgatewayname’);&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;get-gateway-variables&#34;&gt;Get Gateway Variables&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Get Gateway Variables.
+ *
+ * Retrieves configuration setting values for a given module name.
+ *
+ * @param string $gatewayName
+ */
+$gatewayParams = getGatewayVariables(&#39;yourgatewayname&#39;);
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;This function can be used to retrieve the configuration data for a module as specified in the &lt;strong&gt;_config&lt;/strong&gt; array.
 For example, it might be needed to get a gateway username or secret key to validate a callback.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;$invoiceid = checkCbInvoiceID($invoiceid, $GATEWAY[‘name’]);&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;validate-callback-invoice-id&#34;&gt;Validate Callback Invoice ID&lt;/h3&gt;
 
-&lt;p&gt;Use this function can to check that the invoice ID received back is valid.
+&lt;pre&gt;&lt;code&gt;/**
+ * Validate Callback Invoice ID.
+ *
+ * Checks invoice ID is a valid invoice number. Note it will count an
+ * invoice in any status as valid.
+ *
+ * Performs a die upon encountering an invalid Invoice ID.
+ *
+ * Returns a normalised invoice ID.
+ *
+ * @param int $invoiceId
+ * @param string $gatewayName
+ */
+$invoiceId = checkCbInvoiceID($invoiceId, $gatewayName);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Use this function to verify that the invoice ID received in a callback is valid.
 Pass the $invoiceid and the gateway name into the function.
-If the invoice number is valid, the script will continue executing.
-Otherwise, the script will halt and an appropriate gateway log entry created.&lt;/p&gt;
+If the invoice number is invalid, the callback script execution will be halted.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;checkCbTransID($transid);&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;validate-callback-transaction-id&#34;&gt;Validate Callback Transaction ID&lt;/h3&gt;
 
-&lt;p&gt;Use this function can to check for any existing transactions for a given transaction ID.
-This protects against duplicate callbacks.
-If the transaction ID is already in the database, the callback script execution will halt.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/**
+ * Check Callback Transaction ID.
+ *
+ * Performs a check for any existing transactions with the same given
+ * transaction number.
+ *
+ * Performs a die upon encountering a duplicate.
 
-&lt;p&gt;&lt;code&gt;logTransaction($GATEWAY[‘name’], $_POST, &amp;quot;Successful&amp;quot;);&lt;/code&gt;&lt;/p&gt;
+ * @param string $transactionId
+ */
+checkCbTransID($transactionId);
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Use this function can to create a gateway log entry.
-The first variable needs to be the name of the gateway module.
-The second should be an array of data, such as the &lt;strong&gt;$_POST&lt;/strong&gt; or &lt;strong&gt;$_REQUEST&lt;/strong&gt; super globals.
-The last variable should be the result or status to show in the log.&lt;/p&gt;
+&lt;p&gt;Use this function to check for any existing transactions for a given transaction ID.
+This protects against duplicate callbacks for the same transaction.
+If the transaction ID is already in the database, the callback script execution will be halted.&lt;/p&gt;
+
+&lt;h3 id=&#34;log-transaction&#34;&gt;Log Transaction&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Log Transaction.
+ *
+ * Add an entry to the Gateway Log for debugging purposes.
+ *
+ * The debug data can be a string or an array.
+ *
+ * @param string $gatewayName Display label
+ * @param string|array $debugData Data to log
+ * @param string $transactionStatus Status
+ */
+logTransaction($gatewayName, $_POST, $transactionStatus);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Use this function to create a gateway log entry.
+The first input parameter should be the name of the gateway module.
+The second input parameter should be an array of data received, such as the &lt;strong&gt;$_POST&lt;/strong&gt; or &lt;strong&gt;$_REQUEST&lt;/strong&gt; super globals.
+The last input parameter should be the human readable result/status to display in the log.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Refunds</title>
+      <link>//developers.whmcs.com/payment-gateways/refunds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/payment-gateways/refunds/</guid>
+      <description>
+
+&lt;p&gt;This function will be called any time a transaction is requested to be refunded from within WHMCS.&lt;/p&gt;
+
+&lt;p&gt;It is supported by all payment gateway module types.  If your payment gateway module does not support refunds, simply do not define this function within your module.&lt;/p&gt;
+
+&lt;p&gt;Like with a capture attempt, upon completion of the refund, you are expected to return an array containing the transaction details consisting of the status, and if successful a transaction ID and optionally some data to be recorded to the gateway log for debugging purposes.&lt;/p&gt;
+
+&lt;h2 id=&#34;variables&#34;&gt;Variables&lt;/h2&gt;
+
+&lt;p&gt;The following parameters are made available in the parameters passed to the refund function.&lt;/p&gt;
+
+&lt;h3 id=&#34;invoice-variables&#34;&gt;Invoice Variables&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$params[&#39;invoiceid&#39;] # Invoice ID Number
+$params[&#39;transid&#39;] # Transaction ID to be refunded
+$params[&#39;amount&#39;] # Amount to be refunded (Format: xxx.xx)
+$params[&#39;currency&#39;] # Currency Code (eg. GBD, USD, etc...)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;client-variables&#34;&gt;Client Variables&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$params[&#39;clientdetails&#39;][&#39;firstname&#39;] # Client&#39;s First Name
+$params[&#39;clientdetails&#39;][&#39;lastname&#39;] # Client&#39;s Last Name
+$params[&#39;clientdetails&#39;][&#39;email&#39;] # Client&#39;s Email Address
+$params[&#39;clientdetails&#39;][&#39;address1&#39;] # Client&#39;s Address
+$params[&#39;clientdetails&#39;][&#39;address2&#39;]
+$params[&#39;clientdetails&#39;][&#39;city&#39;]
+$params[&#39;clientdetails&#39;][&#39;state&#39;]
+$params[&#39;clientdetails&#39;][&#39;postcode&#39;]
+$params[&#39;clientdetails&#39;][&#39;country&#39;]
+$params[&#39;clientdetails&#39;][&#39;phonenumber&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;system-variables&#34;&gt;System Variables&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$params[&#39;companyname&#39;] # your Company Name setting in WHMCS
+$params[&#39;systemurl&#39;] # the url to the Client Area
+$params[&#39;name&#39;] # Module Display Name
+$params[&#39;moduleName&#39;] # Module System Name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;response-format&#34;&gt;Response Format&lt;/h2&gt;
+
+&lt;p&gt;Upon completion of the refund attempt, return the results in the following format:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;return array(
+    &#39;status&#39; =&amp;gt; &#39;success&#39;,
+    &#39;rawdata&#39; =&amp;gt; $responseData,
+    &#39;transid&#39; =&amp;gt; $refundTransactionId,
+    &#39;fees&#39; =&amp;gt; $feeAmount,
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;status&lt;/strong&gt; - &lt;code&gt;success&lt;/code&gt; if successful, otherwise &lt;code&gt;declined&lt;/code&gt; or &lt;code&gt;error&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rawdata&lt;/strong&gt; - data to be recorded in the gateway log for debugging purposes&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;transid&lt;/strong&gt; - Unique Transaction ID for the refund transaction&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;fees&lt;/strong&gt; - Optional fee amount for the fee value refunded&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
