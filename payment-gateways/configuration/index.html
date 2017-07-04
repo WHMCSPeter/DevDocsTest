@@ -297,34 +297,95 @@
 
 <h2 id="configuration">Configuration</h2>
 
-<p>A payment gateway module can have user configurable options that are set via the WHMCS admin interface.</p>
+<p>A payment gateway module can have user configurable settings that are set via the WHMCS admin interface.</p>
 
-<p>These are defined in the <code>_config</code> function of the module which is a required function for all gateway modules.</p>
+<p>These are defined in the <code>yourmodulename_config</code> function of the module which is a required function for all gateway modules.</p>
 
-<p>The function defines both the display name for the module, and any settings that the gateway module requires.</p>
+<p>This function should define both the display name for the module (for backwards compatiblity), and any settings that the gateway module requires.</p>
 
 <h3 id="defining-configuration-fields">Defining configuration fields</h3>
 
-<p>The sample gateway module demonstrates each type of field and the options available for them.</p>
+<p>The supported configuration field types include the following:</p>
 
-<p>Below is an example field definition:</p>
+<ul>
+<li>Text</li>
+<li>Password</li>
+<li>Yes/No Checkboxes</li>
+<li>Dropdown Menus</li>
+<li>Radio Buttons</li>
+<li>Text Areas</li>
+</ul>
 
-<pre><code>'accountID' =&gt; array(
-    'FriendlyName' =&gt; 'Account ID',
-    'Type' =&gt; 'text',
-    'Size' =&gt; '25',
-    'Default' =&gt; '',
-    'Description' =&gt; 'Enter your account ID here',
-),
+<p>Below is an example config function that demonstrates each type of field and the parameters available for them.</p>
+
+<pre><code>function yourmodulename_config()
+{
+    return array(
+        // the friendly display name for a payment gateway should be
+        // defined here for backwards compatibility
+        'FriendlyName' =&gt; array(
+            'Type' =&gt; 'System',
+            'Value' =&gt; 'Sample Third Party Payment Gateway Module',
+        ),
+        // a text field type allows for single line text input
+        'accountID' =&gt; array(
+            'FriendlyName' =&gt; 'Account ID',
+            'Type' =&gt; 'text',
+            'Size' =&gt; '25',
+            'Default' =&gt; '',
+            'Description' =&gt; 'Enter your account ID here',
+        ),
+        // a password field type allows for masked text input
+        'secretKey' =&gt; array(
+            'FriendlyName' =&gt; 'Secret Key',
+            'Type' =&gt; 'password',
+            'Size' =&gt; '25',
+            'Default' =&gt; '',
+            'Description' =&gt; 'Enter secret key here',
+        ),
+        // the yesno field type displays a single checkbox option
+        'testMode' =&gt; array(
+            'FriendlyName' =&gt; 'Test Mode',
+            'Type' =&gt; 'yesno',
+            'Description' =&gt; 'Tick to enable test mode',
+        ),
+        // the dropdown field type renders a select menu of options
+        'dropdownField' =&gt; array(
+            'FriendlyName' =&gt; 'Dropdown Field',
+            'Type' =&gt; 'dropdown',
+            'Options' =&gt; array(
+                'option1' =&gt; 'Display Value 1',
+                'option2' =&gt; 'Second Option',
+                'option3' =&gt; 'Another Option',
+            ),
+            'Description' =&gt; 'Choose one',
+        ),
+        // the radio field type displays a series of radio button options
+        'radioField' =&gt; array(
+            'FriendlyName' =&gt; 'Radio Field',
+            'Type' =&gt; 'radio',
+            'Options' =&gt; 'First Option,Second Option,Third Option',
+            'Description' =&gt; 'Choose your option!',
+        ),
+        // the textarea field type allows for multi-line text input
+        'textareaField' =&gt; array(
+            'FriendlyName' =&gt; 'Textarea Field',
+            'Type' =&gt; 'textarea',
+            'Rows' =&gt; '3',
+            'Cols' =&gt; '60',
+            'Description' =&gt; 'Freeform multi-line text input field',
+        ),
+    );
+}
 </code></pre>
 
 <p>Each field includes:</p>
 
 <ol>
-<li>A system name - a normalized name by which the field can be referenced in module code</li>
-<li>A FriendlyName - a human readable friendly display name for the field</li>
-<li>Type - The type of field. The available field types are &ldquo;text&rdquo;, &ldquo;dropdown&rdquo;, &ldquo;textarea&rdquo; and &ldquo;yesno&rdquo; (checkboxes).</li>
-<li>Any settings specific to that field type including Size, Default Value and Description</li>
+<li><strong>System Name</strong> - a normalized name by which the field can be referenced in module code</li>
+<li><strong>Friendly Name</strong> - a human readable friendly display name for the field</li>
+<li><strong>Type</strong> - The type of field. The available field types are &ldquo;text&rdquo;, &ldquo;password&rdquo;, &ldquo;yesno&rdquo; (checkbox), &ldquo;dropdown&rdquo;, &ldquo;radio&rdquo; and &ldquo;textarea&rdquo;</li>
+<li>Any settings specific to that field type such as Size, Rows, Cols, Default Value and Description</li>
 </ol>
 
 <p>Any fields defined here will be available along with their configured values in all gateway module functions in the $params array.</p>
@@ -378,9 +439,9 @@
                     <h3>Learn</h3>
                     <ul>
                         <li><a href="//developers.whmcs.com/about/">About WHMCS</a></li>
-                        <li><a href="//developers.whmcs.com/quick-start/">Quick start</a></li>
+                        <li><a href="//developers.whmcs.com/about/quick-start/">Quick start</a></li>
                         <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
-                        <li><a href="//docs.whmcs.com/classes/">Classes Reference</a></li>
+                        <li><a href="https://docs.whmcs.com/classes/">Classes Reference</a></li>
                         <li><a href="//developers.whmcs.com/about/faq/">FAQ</a></li>
                     </ul>
                 </div>

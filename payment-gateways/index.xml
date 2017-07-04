@@ -140,34 +140,95 @@
 
 &lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 
-&lt;p&gt;A payment gateway module can have user configurable options that are set via the WHMCS admin interface.&lt;/p&gt;
+&lt;p&gt;A payment gateway module can have user configurable settings that are set via the WHMCS admin interface.&lt;/p&gt;
 
-&lt;p&gt;These are defined in the &lt;code&gt;_config&lt;/code&gt; function of the module which is a required function for all gateway modules.&lt;/p&gt;
+&lt;p&gt;These are defined in the &lt;code&gt;yourmodulename_config&lt;/code&gt; function of the module which is a required function for all gateway modules.&lt;/p&gt;
 
-&lt;p&gt;The function defines both the display name for the module, and any settings that the gateway module requires.&lt;/p&gt;
+&lt;p&gt;This function should define both the display name for the module (for backwards compatiblity), and any settings that the gateway module requires.&lt;/p&gt;
 
 &lt;h3 id=&#34;defining-configuration-fields&#34;&gt;Defining configuration fields&lt;/h3&gt;
 
-&lt;p&gt;The sample gateway module demonstrates each type of field and the options available for them.&lt;/p&gt;
+&lt;p&gt;The supported configuration field types include the following:&lt;/p&gt;
 
-&lt;p&gt;Below is an example field definition:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Text&lt;/li&gt;
+&lt;li&gt;Password&lt;/li&gt;
+&lt;li&gt;Yes/No Checkboxes&lt;/li&gt;
+&lt;li&gt;Dropdown Menus&lt;/li&gt;
+&lt;li&gt;Radio Buttons&lt;/li&gt;
+&lt;li&gt;Text Areas&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;pre&gt;&lt;code&gt;&#39;accountID&#39; =&amp;gt; array(
-    &#39;FriendlyName&#39; =&amp;gt; &#39;Account ID&#39;,
-    &#39;Type&#39; =&amp;gt; &#39;text&#39;,
-    &#39;Size&#39; =&amp;gt; &#39;25&#39;,
-    &#39;Default&#39; =&amp;gt; &#39;&#39;,
-    &#39;Description&#39; =&amp;gt; &#39;Enter your account ID here&#39;,
-),
+&lt;p&gt;Below is an example config function that demonstrates each type of field and the parameters available for them.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function yourmodulename_config()
+{
+    return array(
+        // the friendly display name for a payment gateway should be
+        // defined here for backwards compatibility
+        &#39;FriendlyName&#39; =&amp;gt; array(
+            &#39;Type&#39; =&amp;gt; &#39;System&#39;,
+            &#39;Value&#39; =&amp;gt; &#39;Sample Third Party Payment Gateway Module&#39;,
+        ),
+        // a text field type allows for single line text input
+        &#39;accountID&#39; =&amp;gt; array(
+            &#39;FriendlyName&#39; =&amp;gt; &#39;Account ID&#39;,
+            &#39;Type&#39; =&amp;gt; &#39;text&#39;,
+            &#39;Size&#39; =&amp;gt; &#39;25&#39;,
+            &#39;Default&#39; =&amp;gt; &#39;&#39;,
+            &#39;Description&#39; =&amp;gt; &#39;Enter your account ID here&#39;,
+        ),
+        // a password field type allows for masked text input
+        &#39;secretKey&#39; =&amp;gt; array(
+            &#39;FriendlyName&#39; =&amp;gt; &#39;Secret Key&#39;,
+            &#39;Type&#39; =&amp;gt; &#39;password&#39;,
+            &#39;Size&#39; =&amp;gt; &#39;25&#39;,
+            &#39;Default&#39; =&amp;gt; &#39;&#39;,
+            &#39;Description&#39; =&amp;gt; &#39;Enter secret key here&#39;,
+        ),
+        // the yesno field type displays a single checkbox option
+        &#39;testMode&#39; =&amp;gt; array(
+            &#39;FriendlyName&#39; =&amp;gt; &#39;Test Mode&#39;,
+            &#39;Type&#39; =&amp;gt; &#39;yesno&#39;,
+            &#39;Description&#39; =&amp;gt; &#39;Tick to enable test mode&#39;,
+        ),
+        // the dropdown field type renders a select menu of options
+        &#39;dropdownField&#39; =&amp;gt; array(
+            &#39;FriendlyName&#39; =&amp;gt; &#39;Dropdown Field&#39;,
+            &#39;Type&#39; =&amp;gt; &#39;dropdown&#39;,
+            &#39;Options&#39; =&amp;gt; array(
+                &#39;option1&#39; =&amp;gt; &#39;Display Value 1&#39;,
+                &#39;option2&#39; =&amp;gt; &#39;Second Option&#39;,
+                &#39;option3&#39; =&amp;gt; &#39;Another Option&#39;,
+            ),
+            &#39;Description&#39; =&amp;gt; &#39;Choose one&#39;,
+        ),
+        // the radio field type displays a series of radio button options
+        &#39;radioField&#39; =&amp;gt; array(
+            &#39;FriendlyName&#39; =&amp;gt; &#39;Radio Field&#39;,
+            &#39;Type&#39; =&amp;gt; &#39;radio&#39;,
+            &#39;Options&#39; =&amp;gt; &#39;First Option,Second Option,Third Option&#39;,
+            &#39;Description&#39; =&amp;gt; &#39;Choose your option!&#39;,
+        ),
+        // the textarea field type allows for multi-line text input
+        &#39;textareaField&#39; =&amp;gt; array(
+            &#39;FriendlyName&#39; =&amp;gt; &#39;Textarea Field&#39;,
+            &#39;Type&#39; =&amp;gt; &#39;textarea&#39;,
+            &#39;Rows&#39; =&amp;gt; &#39;3&#39;,
+            &#39;Cols&#39; =&amp;gt; &#39;60&#39;,
+            &#39;Description&#39; =&amp;gt; &#39;Freeform multi-line text input field&#39;,
+        ),
+    );
+}
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Each field includes:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;A system name - a normalized name by which the field can be referenced in module code&lt;/li&gt;
-&lt;li&gt;A FriendlyName - a human readable friendly display name for the field&lt;/li&gt;
-&lt;li&gt;Type - The type of field. The available field types are &amp;ldquo;text&amp;rdquo;, &amp;ldquo;dropdown&amp;rdquo;, &amp;ldquo;textarea&amp;rdquo; and &amp;ldquo;yesno&amp;rdquo; (checkboxes).&lt;/li&gt;
-&lt;li&gt;Any settings specific to that field type including Size, Default Value and Description&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;System Name&lt;/strong&gt; - a normalized name by which the field can be referenced in module code&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Friendly Name&lt;/strong&gt; - a human readable friendly display name for the field&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Type&lt;/strong&gt; - The type of field. The available field types are &amp;ldquo;text&amp;rdquo;, &amp;ldquo;password&amp;rdquo;, &amp;ldquo;yesno&amp;rdquo; (checkbox), &amp;ldquo;dropdown&amp;rdquo;, &amp;ldquo;radio&amp;rdquo; and &amp;ldquo;textarea&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Any settings specific to that field type such as Size, Rows, Cols, Default Value and Description&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Any fields defined here will be available along with their configured values in all gateway module functions in the $params array.&lt;/p&gt;
@@ -198,14 +259,18 @@
 &lt;/div&gt;
 
 
-&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
+&lt;h2 id=&#34;implementation-guide&#34;&gt;Implementation guide&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Delete the &lt;code&gt;_capture&lt;/code&gt; function from the module template.&lt;/li&gt;
-&lt;li&gt;Define the HTML code that will forward the user to the payment gateway to complete the payment process inside the &lt;code&gt;_link&lt;/code&gt; function. This is typically done by way of an HTML form utilizing the &lt;strong&gt;POST&lt;/strong&gt; method.&lt;/li&gt;
+&lt;li&gt;Delete the &lt;code&gt;yourmodulename_capture&lt;/code&gt; function from the module template since this is only required for &lt;a href=&#34;//developers.whmcs.com/payment-gateways/merchant-gateway&#34; title=&#34;Merchant Gateways&#34;&gt;Merchant Gateway&lt;/a&gt; modules.&lt;/li&gt;
+&lt;li&gt;Define and return the HTML code that will forward the user to the payment gateway to complete the payment process inside the &lt;code&gt;yourmodulename_link&lt;/code&gt; function. This is typically done by way of an HTML form utilizing the &lt;strong&gt;POST&lt;/strong&gt; method.&lt;/li&gt;
+&lt;li&gt;Optionally if your payment gateway supports sending notifications upon successful receipt of payments, create a &lt;a href=&#34;//developers.whmcs.com/payment-gateways/callbacks&#34; title=&#34;Callback Files&#34;&gt;Callback File&lt;/a&gt; to receive and handle those.&lt;/li&gt;
+&lt;li&gt;If your payment gateway supports refunds, implement support for &lt;a href=&#34;//developers.whmcs.com/payment-gateways/refunds&#34; title=&#34;Refunding Transactions&#34;&gt;Refunds&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&#34;variables&#34;&gt;Variables&lt;/h2&gt;
+
+&lt;p&gt;The following parameters are passed to the &lt;code&gt;_link&lt;/code&gt; function along with all &lt;a href=&#34;//developers.whmcs.com/payment-gateways/configuration&#34; title=&#34;Configuration Parameters&#34;&gt;defined configuration parameters&lt;/a&gt; and their values.&lt;/p&gt;
 
 &lt;h3 id=&#34;invoice-variables&#34;&gt;Invoice Variables&lt;/h3&gt;
 
@@ -232,16 +297,32 @@ $params[&#39;clientdetails&#39;][&#39;phonenumber&#39;]
 &lt;h3 id=&#34;system-variables&#34;&gt;System Variables&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;$params[&#39;companyname&#39;] # your Company Name setting in WHMCS
-$params[&#39;systemurl&#39;] # the url to the Client Area
+$params[&#39;systemurl&#39;] # the url to the WHMCS Client Area
+$params[&#39;returnurl&#39;] # the return url to the invoice
+$params[&#39;langpaynow&#39;] # Language string for &amp;quot;Pay Now&amp;quot;
+$params[&#39;name&#39;] # Module display name
+$params[&#39;paymentmethod&#39;] # Module name
+$params[&#39;whmcsVersion&#39;] # WHMCS Version Number
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;additional-information&#34;&gt;Additional Information&lt;/h2&gt;
+&lt;h2 id=&#34;response-format&#34;&gt;Response Format&lt;/h2&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Processing of payment notifications can be done in a callback file. See &lt;a href=&#34;//developers.whmcs.com/payment-gateways/callbacks&#34; title=&#34;Callback Files&#34;&gt;here&lt;/a&gt; for more information.&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;The &lt;code&gt;_link&lt;/code&gt; function should return an HTML code block that can be rendered to the user. This should typically take the format of an HTML form.&lt;/p&gt;
 
-&lt;li&gt;&lt;p&gt;Support for refunding of transactions can be implemented using a refund routine. See &lt;a href=&#34;//developers.whmcs.com/payment-gateways/refunds&#34; title=&#34;Refunding Transactions&#34;&gt;here&lt;/a&gt; for more information.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&#34;simple-example&#34;&gt;Simple Example&lt;/h2&gt;
+
+&lt;p&gt;Below is a very simple demonstration of a link function that forwards the end user to &lt;code&gt;https://www.example.com/checkout&lt;/code&gt; using a form post containing the invoice data. For a more complete example, please refer to the &lt;a href=&#34;https://github.com/WHMCS/sample-gateway-module&#34; title=&#34;Sample Third Party Gateway module on Github&#34;&gt;Sample Third Party Gateway module on Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function yourmodulename_link($params) {
+    return &#39;&amp;lt;form method=&amp;quot;post&amp;quot; action=&amp;quot;https://www.example.com/checkout&amp;quot;&amp;gt;
+        &amp;lt;input type=&amp;quot;invoice_number&amp;quot; value=&amp;quot;&#39; . $params[&#39;invoiceid&#39;] . &#39;&amp;quot; /&amp;gt;
+        &amp;lt;input type=&amp;quot;description&amp;quot; value=&amp;quot;&#39; . $params[&#39;description&#39;] . &#39;&amp;quot; /&amp;gt;
+        &amp;lt;input type=&amp;quot;amount&amp;quot; value=&amp;quot;&#39; . $params[&#39;amount&#39;] . &#39;&amp;quot; /&amp;gt;
+        &amp;lt;input type=&amp;quot;currency&amp;quot; value=&amp;quot;&#39; . $params[&#39;currency&#39;] . &#39;&amp;quot; /&amp;gt;
+        &amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;&#39; . $params[&#39;langpaynow&#39;] . &#39;&amp;quot; /&amp;gt;
+        &amp;lt;/form&amp;gt;&#39;;
+}
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -259,15 +340,18 @@ $params[&#39;systemurl&#39;] # the url to the Client Area
 &lt;/div&gt;
 
 
-&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
+&lt;h2 id=&#34;implementation-guide&#34;&gt;Implementation guide&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Delete the &lt;code&gt;_link&lt;/code&gt; function from the module template.&lt;/li&gt;
-&lt;li&gt;Enter the gateway-specific code for processing the payment into the _capture function.
-Typically this takes the format of an HTTP/Curl request to the gateway provider&amp;rsquo;s API.&lt;/li&gt;
+&lt;li&gt;Delete the &lt;code&gt;yourmodulename_link&lt;/code&gt; function from the module template since this is only required for &lt;a href=&#34;//developers.whmcs.com/payment-gateways/third-party-gateways&#34; title=&#34;Third Party Gateways&#34;&gt;Third Party Gateway&lt;/a&gt; modules.&lt;/li&gt;
+&lt;li&gt;Enter the gateway-specific code for processing the payment capture into the &lt;code&gt;yourmodulename_capture&lt;/code&gt; function. Typically this takes the format of an HTTP/Curl request to the gateway provider&amp;rsquo;s API.&lt;/li&gt;
+&lt;li&gt;If the gateway supports 3D Secure (Verified by Visa or MasterCard Secure Code) then please refer to &lt;a href=&#34;//developers.whmcs.com/provisioning-modules/3d-secure&#34; title=&#34;3D Secure Process&#34;&gt;3D Secure&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;If your payment gateway supports refunds, implement support for &lt;a href=&#34;//developers.whmcs.com/payment-gateways/refunds&#34; title=&#34;Refunding Transactions&#34;&gt;Refunds&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&#34;variables&#34;&gt;Variables&lt;/h2&gt;
+
+&lt;p&gt;The following parameters are passed to the &lt;code&gt;_capture&lt;/code&gt; function along with all &lt;a href=&#34;//developers.whmcs.com/payment-gateways/configuration&#34; title=&#34;Configuration Parameters&#34;&gt;defined configuration parameters&lt;/a&gt; and their values.&lt;/p&gt;
 
 &lt;h3 id=&#34;invoice-variables&#34;&gt;Invoice Variables&lt;/h3&gt;
 
@@ -275,6 +359,17 @@ Typically this takes the format of an HTTP/Curl request to the gateway provider&
 $params[&#39;description&#39;] # Description (eg. Company Name - Invoice #xxx)
 $params[&#39;amount&#39;] # Format: xxx.xx
 $params[&#39;currency&#39;] # Currency Code (eg. GBD, USD, etc...)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;card-details&#34;&gt;Card Details&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$params[&#39;cardtype&#39;] # the Card Type (Visa, MasterCard, etc…)
+$params[&#39;cardnum&#39;] # the Card Number
+$params[&#39;cardexp&#39;] # the Card’s Expiry Date (Format: MMYY)
+$params[&#39;cardstart&#39;] # the Card’s Start Date (Format: MMYY)
+$params[&#39;cardissuenum&#39;] # the Card’s Issue Number (Switch/Solo Cards)
+$params[&#39;cccvv&#39;] # Not always present (recurring transactions)
+# but would always be present for client initiated attempts
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;client-variables&#34;&gt;Client Variables&lt;/h3&gt;
@@ -297,57 +392,55 @@ $params[&#39;clientdetails&#39;][&#39;phonenumber&#39;]
 $params[&#39;systemurl&#39;] # the url to the Client Area
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;card-details&#34;&gt;Card Details&lt;/h3&gt;
+&lt;h2 id=&#34;response-format&#34;&gt;Response Format&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;$params[&#39;cardtype&#39;] # the Card Type (Visa, MasterCard, etc…)
-$params[&#39;cardnum&#39;] # the Card Number
-$params[&#39;cardexp&#39;] # the Card’s Expiry Date (Format: MMYY)
-$params[&#39;cardstart&#39;] # the Card’s Start Date (Format: MMYY)
-$params[&#39;cardissuenum&#39;] # the Card’s Issue Number (Switch/Solo Cards)
-$params[&#39;cccvv&#39;] # Not always present (recurring transactions)
-# but would always be present for client initiated attempts
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;responses&#34;&gt;Responses&lt;/h2&gt;
-
-&lt;h3 id=&#34;success&#34;&gt;Success&lt;/h3&gt;
-
-&lt;p&gt;Once processed, and the transaction has a response, return an array with the results to WHMCS.
-For a successful capture, use the following format:&lt;/p&gt;
+&lt;p&gt;The capture function should always return an array containing information about the transaction attempt.  This should take the following format:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;return array(
-    &amp;quot;status&amp;quot; =&amp;gt; &amp;quot;success&amp;quot;, # The status index must be success to tell WHMCS that the capture was successful.
-    &amp;quot;transid&amp;quot; =&amp;gt; $results[&amp;quot;transid&amp;quot;], # The transid key should be the value of the transaction ID that came back from the gateway.
-    &amp;quot;rawdata&amp;quot; =&amp;gt; $results, # The rawdata key should be an array of the data returned from the gateway for storage in the WHMCS Gateway Log.
+    &#39;status&#39; =&amp;gt; &#39;success&#39;,
+    &#39;rawdata&#39; =&amp;gt; $responseData,
+    &#39;transid&#39; =&amp;gt; $transactionId,
+    &#39;fees&#39; =&amp;gt; $feeAmount,
 );
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;failure&#34;&gt;Failure&lt;/h3&gt;
+&lt;p&gt;For a successful capture, the status should be returned as the string &lt;code&gt;success&lt;/code&gt;.  For anything else, return a status that indicates the reason for failure.  Common failure response status values include &lt;code&gt;declined&lt;/code&gt; and &lt;code&gt;error&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;If the transaction were to fail, use the following format:&lt;/p&gt;
+&lt;p&gt;The raw data you return will be recorded to the gateway log to aide in debugging. It can accept either a string or array.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;return array(
-    &amp;quot;status&amp;quot; =&amp;gt; &amp;quot;declined&amp;quot;,
-    &amp;quot;rawdata&amp;quot; =&amp;gt; $results,
-);
+&lt;h2 id=&#34;simple-example&#34;&gt;Simple Example&lt;/h2&gt;
+
+&lt;p&gt;Below is a very simple demonstration of a capture function that submits a payment capture request and receives a JSON response. For a more complete example, please refer to the &lt;a href=&#34;https://github.com/WHMCS/sample-merchant-gateway&#34; title=&#34;Sample Merchant Gateway module on Github&#34;&gt;Sample Merchant Gateway module on Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function yourmodulename_capture($params) {
+
+    $postfields = [
+        &#39;invoiceid&#39; =&amp;gt; $params[&#39;invoiceid&#39;],
+        &#39;amount&#39; =&amp;gt; $params[&#39;amount&#39;],
+        &#39;currency&#39; =&amp;gt; $params[&#39;currency&#39;],
+        &#39;cardnumber&#39; =&amp;gt; $params[&#39;cardnum&#39;],
+        &#39;cardexpiry&#39; =&amp;gt; $params[&#39;cardexp&#39;],
+        &#39;cardcvv&#39; =&amp;gt; $params[&#39;cccvv&#39;],
+    ];
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/api/capture&#39;);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $data = json_docode($response);
+
+    return array(
+        &#39;status&#39; =&amp;gt; ($data-&amp;gt;success == 1) ? &#39;success&#39; : &#39;declined&#39;,
+        &#39;rawdata&#39; =&amp;gt; $data,
+        &#39;transid&#39; =&amp;gt; $data-&amp;gt;transaction_id,
+        &#39;fees&#39; =&amp;gt; $data-&amp;gt;fees,
+    );
+}
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The status key can be any value (declined, error, invalid hash, etc).
-This value will display as the reason for failure, in the gateway log.
-The rawdata key should be an array of the data returned from the gateway for storage in the WHMCS Gateway Log.&lt;/p&gt;
-
-&lt;p&gt;If the gateway supports 3D Secure (Verified by Visa or MasterCard Secure Code) then please refer &lt;a href=&#34;//developers.whmcs.com/provisioning-modules/3d-secure&#34; title=&#34;3D Secure Process&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;refunds&#34;&gt;Refunds&lt;/h2&gt;
-
-&lt;p&gt;Code for processing a refund goes into the &lt;strong&gt;_refund&lt;/strong&gt; function.
-This receives the same variables as the &lt;strong&gt;_capture&lt;/strong&gt; function, but with an added transaction id:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$params[&#39;transid&#39;] # the transaction ID of the original transaction to refund
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The return arrays for a success or failure should be exactly the same as described above for the &lt;strong&gt;_capture&lt;/strong&gt; function.
-If the gateway module will not support refunds, delete the &lt;strong&gt;_refund&lt;/strong&gt; function from the module file.&lt;/p&gt;
 </description>
     </item>
     
@@ -598,7 +691,7 @@ try {
 An example of this is below:&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;The &lt;strong&gt;_3dsecure&lt;/strong&gt; function is passed all the same &lt;a href=&#34;//developers.whmcs.com/payment-gateways/merchant-gateways#variables&#34; title=&#34;Merchant Gateway Variables&#34;&gt;variables&lt;/a&gt; that the &lt;strong&gt;_capture&lt;/strong&gt; function is.
+&lt;p&gt;The &lt;strong&gt;_3dsecure&lt;/strong&gt; function is passed all the same &lt;a href=&#34;//developers.whmcs.com/payment-gateways/merchant-gateway#variables&#34; title=&#34;Merchant Gateway Variables&#34;&gt;variables&lt;/a&gt; that the &lt;strong&gt;_capture&lt;/strong&gt; function is.
 The return url should be a &lt;a href=&#34;//developers.whmcs.com/payment-gateways/callbacks&#34; title=&#34;Callback Files&#34;&gt;callback file&lt;/a&gt; to handle the response.&lt;/p&gt;
 
 &lt;h2 id=&#34;example-function&#34;&gt;Example Function&lt;/h2&gt;

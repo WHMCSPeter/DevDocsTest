@@ -38,6 +38,32 @@ United States&lt;/p&gt;
     </item>
     
     <item>
+      <title>Quick Start</title>
+      <link>//developers.whmcs.com/about/quick-start/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/about/quick-start/</guid>
+      <description>
+
+&lt;h2 id=&#34;what-would-you-like-to-do&#34;&gt;What would you like to do?&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/themes/getting-started&#34;&gt;Create a custom WHMCS client area theme&lt;/a&gt;&lt;br&gt;A theme in WHMCS controls the client facing user interface. Create a seamless experience for your visitors by creating a custom client area theme that matches the rest of your website.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/provisioning-modules&#34;&gt;Create a Provisioning Module&lt;/a&gt;&lt;br&gt;Provisioning Modules enable provisioning and management of services in WHMCS. They are also sometimes referred to as Product or Server Modules.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/addon-modules&#34;&gt;Create an Addon Module&lt;/a&gt;&lt;br&gt;Addon modules allow you to create both admin pages and hooks to extend WHMCS further.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/domain-registrars&#34;&gt;Create a Domain Registar Module&lt;/a&gt;&lt;br&gt;Registrar Modules allow for the registration and management of domains within WHMCS. Registrar Modules are also referred to as Domain Modules.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/payment-gateways&#34;&gt;Create a Payment Gateway Module&lt;/a&gt;&lt;br&gt;Creating a payment gateway module allows you to connect and integrate WHMCS with additional payment service providers.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/api&#34;&gt;Integrate WHMCS with 3rd party systems using the API&lt;/a&gt;&lt;br&gt;The WHMCS API allows you to perform operations and actions within WHMCS from external third party and custom code.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/api-reference&#34;&gt;Browse the API Reference&lt;/a&gt;&lt;br&gt;A complete listing of API functions available in WHMCS.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/hooks&#34;&gt;Integrate 3rd party systems into WHMCS using Hooks&lt;/a&gt;&lt;br&gt;Hooks allow you to execute your own code when events occur inside WHMCS.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/hooks-reference&#34;&gt;Browse the Hook Reference&lt;/a&gt;&lt;br&gt;A complete listing of Hook Points available in WHMCS.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/db-interaction&#34;&gt;Interact and retrieve data from the WHMCS Database&lt;/a&gt;&lt;br&gt;Learn how to interact with the WHMCS database.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/languages/adding-a-language&#34;&gt;Create a new language&lt;/a&gt;&lt;br&gt;Create your own additional language translations.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Contribute</title>
       <link>//developers.whmcs.com/about/contribute/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

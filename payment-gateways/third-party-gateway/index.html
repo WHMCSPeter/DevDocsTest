@@ -301,14 +301,18 @@
 </div>
 
 
-<h2 id="getting-started">Getting Started</h2>
+<h2 id="implementation-guide">Implementation guide</h2>
 
 <ol>
-<li>Delete the <code>_capture</code> function from the module template.</li>
-<li>Define the HTML code that will forward the user to the payment gateway to complete the payment process inside the <code>_link</code> function. This is typically done by way of an HTML form utilizing the <strong>POST</strong> method.</li>
+<li>Delete the <code>yourmodulename_capture</code> function from the module template since this is only required for <a href="//developers.whmcs.com/payment-gateways/merchant-gateway" title="Merchant Gateways">Merchant Gateway</a> modules.</li>
+<li>Define and return the HTML code that will forward the user to the payment gateway to complete the payment process inside the <code>yourmodulename_link</code> function. This is typically done by way of an HTML form utilizing the <strong>POST</strong> method.</li>
+<li>Optionally if your payment gateway supports sending notifications upon successful receipt of payments, create a <a href="//developers.whmcs.com/payment-gateways/callbacks" title="Callback Files">Callback File</a> to receive and handle those.</li>
+<li>If your payment gateway supports refunds, implement support for <a href="//developers.whmcs.com/payment-gateways/refunds" title="Refunding Transactions">Refunds</a>.</li>
 </ol>
 
 <h2 id="variables">Variables</h2>
+
+<p>The following parameters are passed to the <code>_link</code> function along with all <a href="//developers.whmcs.com/payment-gateways/configuration" title="Configuration Parameters">defined configuration parameters</a> and their values.</p>
 
 <h3 id="invoice-variables">Invoice Variables</h3>
 
@@ -335,16 +339,32 @@ $params['clientdetails']['phonenumber']
 <h3 id="system-variables">System Variables</h3>
 
 <pre><code>$params['companyname'] # your Company Name setting in WHMCS
-$params['systemurl'] # the url to the Client Area
+$params['systemurl'] # the url to the WHMCS Client Area
+$params['returnurl'] # the return url to the invoice
+$params['langpaynow'] # Language string for &quot;Pay Now&quot;
+$params['name'] # Module display name
+$params['paymentmethod'] # Module name
+$params['whmcsVersion'] # WHMCS Version Number
 </code></pre>
 
-<h2 id="additional-information">Additional Information</h2>
+<h2 id="response-format">Response Format</h2>
 
-<ol>
-<li><p>Processing of payment notifications can be done in a callback file. See <a href="//developers.whmcs.com/payment-gateways/callbacks" title="Callback Files">here</a> for more information.</p></li>
+<p>The <code>_link</code> function should return an HTML code block that can be rendered to the user. This should typically take the format of an HTML form.</p>
 
-<li><p>Support for refunding of transactions can be implemented using a refund routine. See <a href="//developers.whmcs.com/payment-gateways/refunds" title="Refunding Transactions">here</a> for more information.</p></li>
-</ol>
+<h2 id="simple-example">Simple Example</h2>
+
+<p>Below is a very simple demonstration of a link function that forwards the end user to <code>https://www.example.com/checkout</code> using a form post containing the invoice data. For a more complete example, please refer to the <a href="https://github.com/WHMCS/sample-gateway-module" title="Sample Third Party Gateway module on Github">Sample Third Party Gateway module on Github</a>.</p>
+
+<pre><code>function yourmodulename_link($params) {
+    return '&lt;form method=&quot;post&quot; action=&quot;https://www.example.com/checkout&quot;&gt;
+        &lt;input type=&quot;invoice_number&quot; value=&quot;' . $params['invoiceid'] . '&quot; /&gt;
+        &lt;input type=&quot;description&quot; value=&quot;' . $params['description'] . '&quot; /&gt;
+        &lt;input type=&quot;amount&quot; value=&quot;' . $params['amount'] . '&quot; /&gt;
+        &lt;input type=&quot;currency&quot; value=&quot;' . $params['currency'] . '&quot; /&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;' . $params['langpaynow'] . '&quot; /&gt;
+        &lt;/form&gt;';
+}
+</code></pre>
 
 
 			<div class="topic-navigation clearfix">
@@ -385,9 +405,9 @@ $params['systemurl'] # the url to the Client Area
                     <h3>Learn</h3>
                     <ul>
                         <li><a href="//developers.whmcs.com/about/">About WHMCS</a></li>
-                        <li><a href="//developers.whmcs.com/quick-start/">Quick start</a></li>
+                        <li><a href="//developers.whmcs.com/about/quick-start/">Quick start</a></li>
                         <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
-                        <li><a href="//docs.whmcs.com/classes/">Classes Reference</a></li>
+                        <li><a href="https://docs.whmcs.com/classes/">Classes Reference</a></li>
                         <li><a href="//developers.whmcs.com/about/faq/">FAQ</a></li>
                     </ul>
                 </div>

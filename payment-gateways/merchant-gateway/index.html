@@ -301,15 +301,18 @@
 </div>
 
 
-<h2 id="getting-started">Getting Started</h2>
+<h2 id="implementation-guide">Implementation guide</h2>
 
 <ol>
-<li>Delete the <code>_link</code> function from the module template.</li>
-<li>Enter the gateway-specific code for processing the payment into the _capture function.
-Typically this takes the format of an HTTP/Curl request to the gateway provider&rsquo;s API.</li>
+<li>Delete the <code>yourmodulename_link</code> function from the module template since this is only required for <a href="//developers.whmcs.com/payment-gateways/third-party-gateways" title="Third Party Gateways">Third Party Gateway</a> modules.</li>
+<li>Enter the gateway-specific code for processing the payment capture into the <code>yourmodulename_capture</code> function. Typically this takes the format of an HTTP/Curl request to the gateway provider&rsquo;s API.</li>
+<li>If the gateway supports 3D Secure (Verified by Visa or MasterCard Secure Code) then please refer to <a href="//developers.whmcs.com/provisioning-modules/3d-secure" title="3D Secure Process">3D Secure</a>.</li>
+<li>If your payment gateway supports refunds, implement support for <a href="//developers.whmcs.com/payment-gateways/refunds" title="Refunding Transactions">Refunds</a>.</li>
 </ol>
 
 <h2 id="variables">Variables</h2>
+
+<p>The following parameters are passed to the <code>_capture</code> function along with all <a href="//developers.whmcs.com/payment-gateways/configuration" title="Configuration Parameters">defined configuration parameters</a> and their values.</p>
 
 <h3 id="invoice-variables">Invoice Variables</h3>
 
@@ -317,6 +320,17 @@ Typically this takes the format of an HTTP/Curl request to the gateway provider&
 $params['description'] # Description (eg. Company Name - Invoice #xxx)
 $params['amount'] # Format: xxx.xx
 $params['currency'] # Currency Code (eg. GBD, USD, etc...)
+</code></pre>
+
+<h3 id="card-details">Card Details</h3>
+
+<pre><code>$params['cardtype'] # the Card Type (Visa, MasterCard, etc…)
+$params['cardnum'] # the Card Number
+$params['cardexp'] # the Card’s Expiry Date (Format: MMYY)
+$params['cardstart'] # the Card’s Start Date (Format: MMYY)
+$params['cardissuenum'] # the Card’s Issue Number (Switch/Solo Cards)
+$params['cccvv'] # Not always present (recurring transactions)
+# but would always be present for client initiated attempts
 </code></pre>
 
 <h3 id="client-variables">Client Variables</h3>
@@ -339,57 +353,55 @@ $params['clientdetails']['phonenumber']
 $params['systemurl'] # the url to the Client Area
 </code></pre>
 
-<h3 id="card-details">Card Details</h3>
+<h2 id="response-format">Response Format</h2>
 
-<pre><code>$params['cardtype'] # the Card Type (Visa, MasterCard, etc…)
-$params['cardnum'] # the Card Number
-$params['cardexp'] # the Card’s Expiry Date (Format: MMYY)
-$params['cardstart'] # the Card’s Start Date (Format: MMYY)
-$params['cardissuenum'] # the Card’s Issue Number (Switch/Solo Cards)
-$params['cccvv'] # Not always present (recurring transactions)
-# but would always be present for client initiated attempts
-</code></pre>
-
-<h2 id="responses">Responses</h2>
-
-<h3 id="success">Success</h3>
-
-<p>Once processed, and the transaction has a response, return an array with the results to WHMCS.
-For a successful capture, use the following format:</p>
+<p>The capture function should always return an array containing information about the transaction attempt.  This should take the following format:</p>
 
 <pre><code>return array(
-    &quot;status&quot; =&gt; &quot;success&quot;, # The status index must be success to tell WHMCS that the capture was successful.
-    &quot;transid&quot; =&gt; $results[&quot;transid&quot;], # The transid key should be the value of the transaction ID that came back from the gateway.
-    &quot;rawdata&quot; =&gt; $results, # The rawdata key should be an array of the data returned from the gateway for storage in the WHMCS Gateway Log.
+    'status' =&gt; 'success',
+    'rawdata' =&gt; $responseData,
+    'transid' =&gt; $transactionId,
+    'fees' =&gt; $feeAmount,
 );
 </code></pre>
 
-<h3 id="failure">Failure</h3>
+<p>For a successful capture, the status should be returned as the string <code>success</code>.  For anything else, return a status that indicates the reason for failure.  Common failure response status values include <code>declined</code> and <code>error</code>.</p>
 
-<p>If the transaction were to fail, use the following format:</p>
+<p>The raw data you return will be recorded to the gateway log to aide in debugging. It can accept either a string or array.</p>
 
-<pre><code>return array(
-    &quot;status&quot; =&gt; &quot;declined&quot;,
-    &quot;rawdata&quot; =&gt; $results,
-);
+<h2 id="simple-example">Simple Example</h2>
+
+<p>Below is a very simple demonstration of a capture function that submits a payment capture request and receives a JSON response. For a more complete example, please refer to the <a href="https://github.com/WHMCS/sample-merchant-gateway" title="Sample Merchant Gateway module on Github">Sample Merchant Gateway module on Github</a>.</p>
+
+<pre><code>function yourmodulename_capture($params) {
+
+    $postfields = [
+        'invoiceid' =&gt; $params['invoiceid'],
+        'amount' =&gt; $params['amount'],
+        'currency' =&gt; $params['currency'],
+        'cardnumber' =&gt; $params['cardnum'],
+        'cardexpiry' =&gt; $params['cardexp'],
+        'cardcvv' =&gt; $params['cccvv'],
+    ];
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, 'https://www.example.com/api/capture');
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $data = json_docode($response);
+
+    return array(
+        'status' =&gt; ($data-&gt;success == 1) ? 'success' : 'declined',
+        'rawdata' =&gt; $data,
+        'transid' =&gt; $data-&gt;transaction_id,
+        'fees' =&gt; $data-&gt;fees,
+    );
+}
 </code></pre>
-
-<p>The status key can be any value (declined, error, invalid hash, etc).
-This value will display as the reason for failure, in the gateway log.
-The rawdata key should be an array of the data returned from the gateway for storage in the WHMCS Gateway Log.</p>
-
-<p>If the gateway supports 3D Secure (Verified by Visa or MasterCard Secure Code) then please refer <a href="//developers.whmcs.com/provisioning-modules/3d-secure" title="3D Secure Process">here</a>.</p>
-
-<h2 id="refunds">Refunds</h2>
-
-<p>Code for processing a refund goes into the <strong>_refund</strong> function.
-This receives the same variables as the <strong>_capture</strong> function, but with an added transaction id:</p>
-
-<pre><code>$params['transid'] # the transaction ID of the original transaction to refund
-</code></pre>
-
-<p>The return arrays for a success or failure should be exactly the same as described above for the <strong>_capture</strong> function.
-If the gateway module will not support refunds, delete the <strong>_refund</strong> function from the module file.</p>
 
 
 			<div class="topic-navigation clearfix">
@@ -430,9 +442,9 @@ If the gateway module will not support refunds, delete the <strong>_refund</stro
                     <h3>Learn</h3>
                     <ul>
                         <li><a href="//developers.whmcs.com/about/">About WHMCS</a></li>
-                        <li><a href="//developers.whmcs.com/quick-start/">Quick start</a></li>
+                        <li><a href="//developers.whmcs.com/about/quick-start/">Quick start</a></li>
                         <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
-                        <li><a href="//docs.whmcs.com/classes/">Classes Reference</a></li>
+                        <li><a href="https://docs.whmcs.com/classes/">Classes Reference</a></li>
                         <li><a href="//developers.whmcs.com/about/faq/">FAQ</a></li>
                     </ul>
                 </div>
