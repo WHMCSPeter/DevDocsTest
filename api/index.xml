@@ -461,10 +461,6 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateclientaddon/&#34;&gt;UpdateClientAddon&lt;/a&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Uncategorised&lt;/h3&gt;
-
-&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/zapier/&#34;&gt;Zapier&lt;/a&gt;
-&lt;/ul&gt;
 &lt;/div&gt;&lt;/div&gt;
 </description>
     </item>
