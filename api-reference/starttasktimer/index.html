@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EndTaskTimer - WHMCS Developer Documentation</title>
+    <title>StartTaskTimer - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
@@ -420,7 +420,7 @@
       
         <li class="" data-nav-id="/api-reference/deletequote/">
           <a href="//developers.whmcs.com/api-reference/deletequote/">
-            <span>DeleteProjectTask</span>
+            <span>DeleteQuote</span>
           </a>
         </li>
       
@@ -556,14 +556,6 @@
       
         <li class="" data-nav-id="/api-reference/endtasktimer/">
           <a href="//developers.whmcs.com/api-reference/endtasktimer/">
-            <span>EndTaskTimer</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="active" data-nav-id="/api-reference/starttasktimer/">
-          <a href="//developers.whmcs.com/api-reference/starttasktimer/">
             <span>EndTaskTimer</span>
           </a>
         </li>
@@ -1090,6 +1082,14 @@
       
       
       
+        <li class="active" data-nav-id="/api-reference/starttasktimer/">
+          <a href="//developers.whmcs.com/api-reference/starttasktimer/">
+            <span>StartTaskTimer</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/updateadminnotes/">
           <a href="//developers.whmcs.com/api-reference/updateadminnotes/">
             <span>UpdateAdminNotes</span>
@@ -1302,12 +1302,12 @@
                 
                   
                 
-                <span itemprop="title"> EndTaskTimer</span>
+                <span itemprop="title"> StartTaskTimer</span>
               </div>
             </div>
 
 
-			<h1>EndTaskTimer </h1>
+			<h1>StartTaskTimer </h1>
 
 			
 
@@ -1329,7 +1329,7 @@
 <tr>
 <td>action</td>
 <td>string</td>
-<td>&ldquo;EndTaskTimer&rdquo;</td>
+<td>&ldquo;StartTaskTimer&rdquo;</td>
 <td>Required</td>
 </tr>
 
@@ -1404,7 +1404,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' =&gt; 'EndTaskTimer',
+            'action' =&gt; 'StartTaskTimer',
             // See https://developers.whmcs.com/api/authentication
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
@@ -1421,7 +1421,7 @@ curl_close($ch);
 
 <h3 id="example-request-local-api">Example Request (Local API)</h3>
 
-<pre><code>$command = 'EndTaskTimer';
+<pre><code>$command = 'StartTaskTimer';
 $postData = array(
     'projectid' =&gt; '1',
     'timerid' =&gt; '1',

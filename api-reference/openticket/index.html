@@ -420,7 +420,7 @@
       
         <li class="" data-nav-id="/api-reference/deletequote/">
           <a href="//developers.whmcs.com/api-reference/deletequote/">
-            <span>DeleteProjectTask</span>
+            <span>DeleteQuote</span>
           </a>
         </li>
       
@@ -556,14 +556,6 @@
       
         <li class="" data-nav-id="/api-reference/endtasktimer/">
           <a href="//developers.whmcs.com/api-reference/endtasktimer/">
-            <span>EndTaskTimer</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/starttasktimer/">
-          <a href="//developers.whmcs.com/api-reference/starttasktimer/">
             <span>EndTaskTimer</span>
           </a>
         </li>
@@ -1090,6 +1082,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/starttasktimer/">
+          <a href="//developers.whmcs.com/api-reference/starttasktimer/">
+            <span>StartTaskTimer</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/updateadminnotes/">
           <a href="//developers.whmcs.com/api-reference/updateadminnotes/">
             <span>UpdateAdminNotes</span>
@@ -1411,7 +1411,7 @@
 </tr>
 
 <tr>
-<td>useMarkdown</td>
+<td>markdown</td>
 <td>bool</td>
 <td>Should markdown be used on the ticket output</td>
 <td>Optional</td>
@@ -1463,7 +1463,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'message' =&gt; 'This is a **sample** ticket message',
             'clientid' =&gt; '1',
             'priority' =&gt; 'Medium',
-            'useMarkdown' =&gt; true,
+            'markdown' =&gt; true,
             'responsetype' =&gt; 'json',
         )
     )
@@ -1481,7 +1481,7 @@ $postData = array(
     'message' =&gt; 'This is a **sample** ticket message',
     'clientid' =&gt; '1',
     'priority' =&gt; 'Medium',
-    'useMarkdown' =&gt; true,
+    'markdown' =&gt; true,
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

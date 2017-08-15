@@ -303,6 +303,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/capturepayment/&#34;&gt;CapturePayment&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/createinvoice/&#34;&gt;CreateInvoice&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/createquote/&#34;&gt;CreateQuote&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deletequote/&#34;&gt;DeleteQuote&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/geninvoices/&#34;&gt;GenInvoices&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getcredits/&#34;&gt;GetCredits&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getinvoice/&#34;&gt;GetInvoice&lt;/a&gt;
@@ -390,12 +391,10 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addprojecttask/&#34;&gt;AddProjectTask&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/createproject/&#34;&gt;CreateProject&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteprojecttask/&#34;&gt;DeleteProjectTask&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deletequote/&#34;&gt;DeleteProjectTask&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/endtasktimer/&#34;&gt;EndTaskTimer&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/starttasktimer/&#34;&gt;StartTaskTimer&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getproject/&#34;&gt;GetProject&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getprojects/&#34;&gt;GetProjects&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/starttasktimer/&#34;&gt;EndTaskTimer&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/starttasktimer/&#34;&gt;StartTaskTimer&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateproject/&#34;&gt;UpdateProject&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateprojecttask/&#34;&gt;UpdateProjectTask&lt;/a&gt;
 &lt;/ul&gt;
@@ -427,6 +426,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domainupdatenameservers/&#34;&gt;DomainUpdateNameservers&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domainupdatewhoisinfo/&#34;&gt;DomainUpdateWhoisInfo&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domainwhois/&#34;&gt;DomainWhois&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/gettldpricing/&#34;&gt;GetTLDPricing&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateclientdomain/&#34;&gt;UpdateClientDomain&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Servers&lt;/h3&gt;
@@ -460,6 +460,10 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;h3&gt;Addons&lt;/h3&gt;
 
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateclientaddon/&#34;&gt;UpdateClientAddon&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Uncategorised&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/zapier/&#34;&gt;Zapier&lt;/a&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/div&gt;
 </description>

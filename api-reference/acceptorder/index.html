@@ -420,7 +420,7 @@
       
         <li class="" data-nav-id="/api-reference/deletequote/">
           <a href="//developers.whmcs.com/api-reference/deletequote/">
-            <span>DeleteProjectTask</span>
+            <span>DeleteQuote</span>
           </a>
         </li>
       
@@ -556,14 +556,6 @@
       
         <li class="" data-nav-id="/api-reference/endtasktimer/">
           <a href="//developers.whmcs.com/api-reference/endtasktimer/">
-            <span>EndTaskTimer</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/starttasktimer/">
-          <a href="//developers.whmcs.com/api-reference/starttasktimer/">
             <span>EndTaskTimer</span>
           </a>
         </li>
@@ -1090,6 +1082,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/starttasktimer/">
+          <a href="//developers.whmcs.com/api-reference/starttasktimer/">
+            <span>StartTaskTimer</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/updateadminnotes/">
           <a href="//developers.whmcs.com/api-reference/updateadminnotes/">
             <span>UpdateAdminNotes</span>
@@ -1425,8 +1425,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'orderid' =&gt; '1',
             'registrar' =&gt; 'enom',
-            'autosetup' =&gt; true,
-            'sendemail' =&gt; true,
+            'autosetup' =&gt; '1',
+            'sendemail' =&gt; '1',
             'responsetype' =&gt; 'json',
         )
     )
@@ -1441,8 +1441,8 @@ curl_close($ch);
 $postData = array(
     'orderid' =&gt; '1',
     'registrar' =&gt; 'enom',
-    'autosetup' =&gt; true,
-    'sendemail' =&gt; true,
+    'autosetup' =&gt; '1',
+    'sendemail' =&gt; '1',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

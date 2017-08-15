@@ -254,10 +254,6 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/api-reference/starttasktimer/</loc>
-  </url>
-  
-  <url>
     <loc>//developers.whmcs.com/api-reference/fraudorder/</loc>
   </url>
   
@@ -547,6 +543,10 @@
   
   <url>
     <loc>//developers.whmcs.com/api-reference/setconfigurationvalue/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/starttasktimer/</loc>
   </url>
   
   <url>

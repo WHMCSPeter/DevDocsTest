@@ -420,7 +420,7 @@
       
         <li class="" data-nav-id="/api-reference/deletequote/">
           <a href="//developers.whmcs.com/api-reference/deletequote/">
-            <span>DeleteProjectTask</span>
+            <span>DeleteQuote</span>
           </a>
         </li>
       
@@ -556,14 +556,6 @@
       
         <li class="" data-nav-id="/api-reference/endtasktimer/">
           <a href="//developers.whmcs.com/api-reference/endtasktimer/">
-            <span>EndTaskTimer</span>
-          </a>
-        </li>
-      
-      
-      
-        <li class="" data-nav-id="/api-reference/starttasktimer/">
-          <a href="//developers.whmcs.com/api-reference/starttasktimer/">
             <span>EndTaskTimer</span>
           </a>
         </li>
@@ -1090,6 +1082,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/starttasktimer/">
+          <a href="//developers.whmcs.com/api-reference/starttasktimer/">
+            <span>StartTaskTimer</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/updateadminnotes/">
           <a href="//developers.whmcs.com/api-reference/updateadminnotes/">
             <span>UpdateAdminNotes</span>
@@ -1311,7 +1311,40 @@
 
 			
 
-<p>Send a client Email Notification</p>
+<p>Send a client Email Notification.</p>
+
+<p>The following email templates cannot be sent in this way:</p>
+
+<ul>
+<li>Automated Password Reset</li>
+<li>Order Confirmation</li>
+<li>Password Reset Confirmation</li>
+<li>Password Reset Validation</li>
+<li>Quote Accepted</li>
+<li>Quote Accepted Notification</li>
+<li>Quote Delivery with PDF</li>
+<li>Clients Only Bounce Message</li>
+<li>Replies Only Bounce Message</li>
+<li>Affiliate Monthly Referrals Report</li>
+</ul>
+
+<p>What you must provide for the Related ID depends upon the type of email being sent.
+The available options are:
+* General Email Type = Client ID (tblclients.id)
+* Product Email Type = Service ID (tblhosting.id)
+* Domain Email Type = Domain ID (tbldomains.id)
+* Invoice Email Type = Invoice ID (tblinvoices.id)
+* Support Email Type = Ticket ID (tbltickets.id)
+* Affiliate Email Type = Affiliate ID (tblaffiliates.id)</p>
+
+<p><strong>Sending Failed</strong></p>
+
+<p>The generic Sending Failed error response can be caused by one of five possible conditions. They are:
+* Invalid related ID
+* Email template contains no body content after processing (typically a Smarty error)
+* Welcome email requested for product which has none set
+* Hook aborted the sending
+* PHPMailer Sending Error - in this failure condition, an activity log entry will be created recording the error message that occurred</p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -1409,8 +1442,14 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
+            '//example1' =&gt; 'example',
             'messagename' =&gt; 'Client Signup Email',
             'id' =&gt; '1',
+            '//example2' =&gt; 'example',
+            'customtype' =&gt; 'product',
+            'customsubject' =&gt; 'Product Welcome Email',
+            'custommessage' =&gt; '&lt;p&gt;Thank you for choosing us&lt;/p&gt;&lt;p&gt;Your custom is appreciated&lt;/p&gt;&lt;p&gt;{$custommerge}&lt;br /&gt;{$custommerge2}&lt;/p&gt;',
+            'customvars' =&gt; base64_encode(serialize(array(&quot;custommerge&quot;=&gt;$populatedvar1, &quot;custommerge2&quot;=&gt;$populatedvar2))),
             'responsetype' =&gt; 'json',
         )
     )
@@ -1423,8 +1462,14 @@ curl_close($ch);
 
 <pre><code>$command = 'SendEmail';
 $postData = array(
+    '//example1' =&gt; 'example',
     'messagename' =&gt; 'Client Signup Email',
     'id' =&gt; '1',
+    '//example2' =&gt; 'example',
+    'customtype' =&gt; 'product',
+    'customsubject' =&gt; 'Product Welcome Email',
+    'custommessage' =&gt; '&lt;p&gt;Thank you for choosing us&lt;/p&gt;&lt;p&gt;Your custom is appreciated&lt;/p&gt;&lt;p&gt;{$custommerge}&lt;br /&gt;{$custommerge2}&lt;/p&gt;',
+    'customvars' =&gt; base64_encode(serialize(array(&quot;custommerge&quot;=&gt;$populatedvar1, &quot;custommerge2&quot;=&gt;$populatedvar2))),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
