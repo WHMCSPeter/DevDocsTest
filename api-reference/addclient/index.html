@@ -940,7 +940,7 @@
       
         <li class="" data-nav-id="/api-reference/gettodoitems/">
           <a href="//developers.whmcs.com/api-reference/gettodoitems/">
-            <span>GetToDoList</span>
+            <span>GetToDoItems</span>
           </a>
         </li>
       
@@ -1568,7 +1568,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'email' =&gt; 'john.doe@example.com',
             'address1' =&gt; '123 Main Street',
             'city' =&gt; 'Anytown',
-            'state' =&gt; 'ST',
+            'state' =&gt; 'State',
             'postcode' =&gt; '12345',
             'country' =&gt; 'US',
             'phonenumber' =&gt; '800-555-1234',
@@ -1594,7 +1594,7 @@ $postData = array(
     'email' =&gt; 'john.doe@example.com',
     'address1' =&gt; '123 Main Street',
     'city' =&gt; 'Anytown',
-    'state' =&gt; 'ST',
+    'state' =&gt; 'State',
     'postcode' =&gt; '12345',
     'country' =&gt; 'US',
     'phonenumber' =&gt; '800-555-1234',
@@ -1635,6 +1635,7 @@ print_r($results);
 <li>You did not enter your country</li>
 <li>You did not enter your phone number</li>
 <li>Invalid telephone phone number</li>
+<li>You did not provide required custom field value for</li>
 </ul>
 
 <h3 id="version-history">Version History</h3>

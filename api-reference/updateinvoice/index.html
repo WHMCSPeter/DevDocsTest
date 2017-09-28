@@ -940,7 +940,7 @@
       
         <li class="" data-nav-id="/api-reference/gettodoitems/">
           <a href="//developers.whmcs.com/api-reference/gettodoitems/">
-            <span>GetToDoList</span>
+            <span>GetToDoItems</span>
           </a>
         </li>
       
@@ -1521,9 +1521,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'status' =&gt; 'Unpaid',
-            'itemdescription[13]' =&gt; 'Sample Updated Invoice Item',
-            'itemamount[13]' =&gt; '16.95',
-            'itemtaxed[13]' =&gt; '0',
+            'itemdescription' =&gt; array(13 =&gt; 'Sample Updated Invoice Item'),
+            'itemamount' =&gt; array(13 =&gt; 16.95),
+            'itemtaxed' =&gt; array(13 =&gt; false),
             'responsetype' =&gt; 'json',
         )
     )
@@ -1537,9 +1537,9 @@ curl_close($ch);
 <pre><code>$command = 'UpdateInvoice';
 $postData = array(
     'status' =&gt; 'Unpaid',
-    'itemdescription[13]' =&gt; 'Sample Updated Invoice Item',
-    'itemamount[13]' =&gt; '16.95',
-    'itemtaxed[13]' =&gt; '0',
+    'itemdescription' =&gt; array(13 =&gt; 'Sample Updated Invoice Item'),
+    'itemamount' =&gt; array(13 =&gt; 16.95),
+    'itemtaxed' =&gt; array(13 =&gt; false),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

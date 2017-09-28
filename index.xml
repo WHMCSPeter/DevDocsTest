@@ -500,8 +500,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;moduleType&#39; =&amp;gt; &#39;gateway&#39;,
             &#39;moduleName&#39; =&amp;gt; &#39;paypal&#39;,
-            &#39;parameters[email]&#39; =&amp;gt; &#39;billing@example.com&#39;,
-            &#39;parameters[forcesubscriptions]&#39; =&amp;gt; true,
+            &#39;parameters&#39; =&amp;gt; array(&#39;email&#39; =&amp;gt; &#39;billing@example.com&#39;, &#39;forcesubscriptions&#39; =&amp;gt; true),
             &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
         )
     )
@@ -516,8 +515,7 @@ curl_close($ch);
 $postData = array(
     &#39;moduleType&#39; =&amp;gt; &#39;gateway&#39;,
     &#39;moduleName&#39; =&amp;gt; &#39;paypal&#39;,
-    &#39;parameters[email]&#39; =&amp;gt; &#39;billing@example.com&#39;,
-    &#39;parameters[forcesubscriptions]&#39; =&amp;gt; true,
+    &#39;parameters&#39; =&amp;gt; array(&#39;email&#39; =&amp;gt; &#39;billing@example.com&#39;, &#39;forcesubscriptions&#39; =&amp;gt; true),
 );
 $adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
@@ -1499,7 +1497,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             &#39;email&#39; =&amp;gt; &#39;john.doe@example.com&#39;,
             &#39;address1&#39; =&amp;gt; &#39;123 Main Street&#39;,
             &#39;city&#39; =&amp;gt; &#39;Anytown&#39;,
-            &#39;state&#39; =&amp;gt; &#39;ST&#39;,
+            &#39;state&#39; =&amp;gt; &#39;State&#39;,
             &#39;postcode&#39; =&amp;gt; &#39;12345&#39;,
             &#39;country&#39; =&amp;gt; &#39;US&#39;,
             &#39;phonenumber&#39; =&amp;gt; &#39;800-555-1234&#39;,
@@ -1525,7 +1523,7 @@ $postData = array(
     &#39;email&#39; =&amp;gt; &#39;john.doe@example.com&#39;,
     &#39;address1&#39; =&amp;gt; &#39;123 Main Street&#39;,
     &#39;city&#39; =&amp;gt; &#39;Anytown&#39;,
-    &#39;state&#39; =&amp;gt; &#39;ST&#39;,
+    &#39;state&#39; =&amp;gt; &#39;State&#39;,
     &#39;postcode&#39; =&amp;gt; &#39;12345&#39;,
     &#39;country&#39; =&amp;gt; &#39;US&#39;,
     &#39;phonenumber&#39; =&amp;gt; &#39;800-555-1234&#39;,
@@ -1566,6 +1564,7 @@ print_r($results);
 &lt;li&gt;You did not enter your country&lt;/li&gt;
 &lt;li&gt;You did not enter your phone number&lt;/li&gt;
 &lt;li&gt;Invalid telephone phone number&lt;/li&gt;
+&lt;li&gt;You did not provide required custom field value for&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
@@ -2138,6 +2137,7 @@ print_r($results);
 
 &lt;ul&gt;
 &lt;li&gt;Client ID Not Found&lt;/li&gt;
+&lt;li&gt;No Amount Provided&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;

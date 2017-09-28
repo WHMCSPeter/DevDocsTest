@@ -350,7 +350,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getpaymentmethods/&#34;&gt;GetPaymentMethods&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getstaffonline/&#34;&gt;GetStaffOnline&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getstats/&#34;&gt;GetStats&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/gettodoitems/&#34;&gt;GetToDoList&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/gettodoitems/&#34;&gt;GetToDoItems&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/gettodoitemstatuses/&#34;&gt;GetToDoItemStatuses&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/logactivity/&#34;&gt;LogActivity&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/sendadminemail/&#34;&gt;SendAdminEmail&lt;/a&gt;

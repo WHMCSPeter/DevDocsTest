@@ -940,7 +940,7 @@
       
         <li class="" data-nav-id="/api-reference/gettodoitems/">
           <a href="//developers.whmcs.com/api-reference/gettodoitems/">
-            <span>GetToDoList</span>
+            <span>GetToDoItems</span>
           </a>
         </li>
       
@@ -1390,8 +1390,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'moduleType' =&gt; 'gateway',
             'moduleName' =&gt; 'paypal',
-            'parameters[email]' =&gt; 'billing@example.com',
-            'parameters[forcesubscriptions]' =&gt; true,
+            'parameters' =&gt; array('email' =&gt; 'billing@example.com', 'forcesubscriptions' =&gt; true),
             'responsetype' =&gt; 'json',
         )
     )
@@ -1406,8 +1405,7 @@ curl_close($ch);
 $postData = array(
     'moduleType' =&gt; 'gateway',
     'moduleName' =&gt; 'paypal',
-    'parameters[email]' =&gt; 'billing@example.com',
-    'parameters[forcesubscriptions]' =&gt; true,
+    'parameters' =&gt; array('email' =&gt; 'billing@example.com', 'forcesubscriptions' =&gt; true),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

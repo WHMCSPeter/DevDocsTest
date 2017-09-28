@@ -940,7 +940,7 @@
       
         <li class="" data-nav-id="/api-reference/gettodoitems/">
           <a href="//developers.whmcs.com/api-reference/gettodoitems/">
-            <span>GetToDoList</span>
+            <span>GetToDoItems</span>
           </a>
         </li>
       
@@ -1567,10 +1567,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'name' =&gt; 'Sample Product',
             'welcomeemail' =&gt; '5',
             'paytype' =&gt; 'recurring',
-            'pricing[1][monthly]' =&gt; '5.00',
-            'pricing[1][annually]' =&gt; '50.00',
-            'pricing[2][monthly]' =&gt; '8.00',
-            'pricing[2][annually]' =&gt; '80.00',
+            'pricing' =&gt; array(2 =&gt; array('monthly' =&gt; 8.00, 'annually' =&gt; 80.00)),
             'responsetype' =&gt; 'json',
         )
     )
@@ -1588,10 +1585,7 @@ $postData = array(
     'name' =&gt; 'Sample Product',
     'welcomeemail' =&gt; '5',
     'paytype' =&gt; 'recurring',
-    'pricing[1][monthly]' =&gt; '5.00',
-    'pricing[1][annually]' =&gt; '50.00',
-    'pricing[2][monthly]' =&gt; '8.00',
-    'pricing[2][annually]' =&gt; '80.00',
+    'pricing' =&gt; array(2 =&gt; array('monthly' =&gt; 8.00, 'annually' =&gt; 80.00)),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

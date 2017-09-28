@@ -940,7 +940,7 @@
       
         <li class="" data-nav-id="/api-reference/gettodoitems/">
           <a href="//developers.whmcs.com/api-reference/gettodoitems/">
-            <span>GetToDoList</span>
+            <span>GetToDoItems</span>
           </a>
         </li>
       
@@ -1678,28 +1678,17 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'clientid' =&gt; '1',
-            'pid[0]' =&gt; '1',
-            'domain[0]' =&gt; 'domain1.com',
-            'billingcycle[0]' =&gt; 'monthly',
-            'addons[0]' =&gt; '1,3,9',
-            'customfields[0]' =&gt; base64_encode(serialize(array(1 =&gt; 'Google'))),
-            'configoptions[0]' =&gt; base64_encode(serialize(array(1 =&gt; 999))),
-            'domaintype[0]' =&gt; 'register',
-            'regperiod[0]' =&gt; '1',
-            'domain[1]' =&gt; 'domain2.com',
-            'domaintype[1]' =&gt; 'register',
-            'regperiod[1]' =&gt; '1',
-            'dnsmanagement[1]' =&gt; true,
+            'pid' =&gt; array(1,1),
+            'domain' =&gt; array('domain1.com', 'domain2.com'),
+            'billingcycle' =&gt; array('monthly','semi-annually'),
+            'addons' =&gt; array('1,3,9', ''),
+            'customfields' =&gt; array(base64_encode(serialize(array(&quot;1&quot; =&gt; &quot;Google&quot;))), base64_encode(serialize(array(&quot;1&quot; =&gt; &quot;Google&quot;)))),
+            'configoptions' =&gt; array(base64_encode(serialize(array(&quot;1&quot; =&gt; 999))), base64_encode(serialize(array(&quot;1&quot; =&gt; 999)))),
+            'domaintype' =&gt; array('register', 'register'),
+            'regperiod' =&gt; array(1, 2),
+            'dnsmanagement' =&gt; array(0 =&gt; false, 1 =&gt; true),
             'nameserver1' =&gt; 'ns1.demo.com',
             'nameserver2' =&gt; 'ns2.demo.com',
-            'addonid' =&gt; '1',
-            'serviceid' =&gt; '1',
-            'addonids[0]' =&gt; '3',
-            'serviceids[0]' =&gt; '1',
-            'addonids[1]' =&gt; '9',
-            'serviceids[1]' =&gt; '1',
-            'domainrenewals[domain3.com]' =&gt; '1',
-            'domainrenewals[domain4.com]' =&gt; '2',
             'paymentmethod' =&gt; 'mailin',
             'responsetype' =&gt; 'json',
         )
@@ -1714,28 +1703,17 @@ curl_close($ch);
 <pre><code>$command = 'AddOrder';
 $postData = array(
     'clientid' =&gt; '1',
-    'pid[0]' =&gt; '1',
-    'domain[0]' =&gt; 'domain1.com',
-    'billingcycle[0]' =&gt; 'monthly',
-    'addons[0]' =&gt; '1,3,9',
-    'customfields[0]' =&gt; base64_encode(serialize(array(1 =&gt; 'Google'))),
-    'configoptions[0]' =&gt; base64_encode(serialize(array(1 =&gt; 999))),
-    'domaintype[0]' =&gt; 'register',
-    'regperiod[0]' =&gt; '1',
-    'domain[1]' =&gt; 'domain2.com',
-    'domaintype[1]' =&gt; 'register',
-    'regperiod[1]' =&gt; '1',
-    'dnsmanagement[1]' =&gt; true,
+    'pid' =&gt; array(1,1),
+    'domain' =&gt; array('domain1.com', 'domain2.com'),
+    'billingcycle' =&gt; array('monthly','semi-annually'),
+    'addons' =&gt; array('1,3,9', ''),
+    'customfields' =&gt; array(base64_encode(serialize(array(&quot;1&quot; =&gt; &quot;Google&quot;))), base64_encode(serialize(array(&quot;1&quot; =&gt; &quot;Google&quot;)))),
+    'configoptions' =&gt; array(base64_encode(serialize(array(&quot;1&quot; =&gt; 999))), base64_encode(serialize(array(&quot;1&quot; =&gt; 999)))),
+    'domaintype' =&gt; array('register', 'register'),
+    'regperiod' =&gt; array(1, 2),
+    'dnsmanagement' =&gt; array(0 =&gt; false, 1 =&gt; true),
     'nameserver1' =&gt; 'ns1.demo.com',
     'nameserver2' =&gt; 'ns2.demo.com',
-    'addonid' =&gt; '1',
-    'serviceid' =&gt; '1',
-    'addonids[0]' =&gt; '3',
-    'serviceids[0]' =&gt; '1',
-    'addonids[1]' =&gt; '9',
-    'serviceids[1]' =&gt; '1',
-    'domainrenewals[domain3.com]' =&gt; '1',
-    'domainrenewals[domain4.com]' =&gt; '2',
     'paymentmethod' =&gt; 'mailin',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
@@ -1749,9 +1727,9 @@ print_r($results);
 <pre><code>{
     &quot;result&quot;: &quot;success&quot;,
     &quot;orderid&quot;: &quot;1&quot;,
-    &quot;productids&quot;: &quot;2&quot;,
-    &quot;addonids&quot;: &quot;1,2,3,4,5,6&quot;,
-    &quot;domainids&quot;: &quot;3,4&quot;,
+    &quot;productids&quot;: &quot;1,2&quot;,
+    &quot;addonids&quot;: &quot;1,2,3&quot;,
+    &quot;domainids&quot;: &quot;1,2&quot;,
     &quot;invoiceid&quot;: &quot;1&quot;
 }
 </code></pre>

@@ -940,7 +940,7 @@
       
         <li class="" data-nav-id="/api-reference/gettodoitems/">
           <a href="//developers.whmcs.com/api-reference/gettodoitems/">
-            <span>GetToDoList</span>
+            <span>GetToDoItems</span>
           </a>
         </li>
       
@@ -1410,10 +1410,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'messagename' =&gt; 'Service Unsuspension Successful',
-            'mergefields[client_id]' =&gt; '1',
-            'mergefields[service_id]' =&gt; '1',
-            'mergefields[service_product]' =&gt; 'This is a product',
-            'mergefields[service_domain]' =&gt; 'sampledomain.com',
+            'mergefields' =&gt; array('client_id' =&gt; 1, 'service_id' =&gt; 1, 'service_product' =&gt; 'This is a product', 'service_domain' =&gt; 'sampledomain.com'),
             'responsetype' =&gt; 'json',
         )
     )
@@ -1427,10 +1424,7 @@ curl_close($ch);
 <pre><code>$command = 'SendAdminEmail';
 $postData = array(
     'messagename' =&gt; 'Service Unsuspension Successful',
-    'mergefields[client_id]' =&gt; '1',
-    'mergefields[service_id]' =&gt; '1',
-    'mergefields[service_product]' =&gt; 'This is a product',
-    'mergefields[service_domain]' =&gt; 'sampledomain.com',
+    'mergefields' =&gt; array('client_id' =&gt; 1, 'service_id' =&gt; 1, 'service_product' =&gt; 'This is a product', 'service_domain' =&gt; 'sampledomain.com'),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
