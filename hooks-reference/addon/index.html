@@ -409,7 +409,7 @@ add_hook('AddonActivated', 1, function($vars) {
 
 <h2 id="addonactivation">AddonActivation</h2>
 
-<p>Executes when a product addon is being automatically activated as part of an invoice payment or order acceptance. Runs following the welcome email having been sent.</p>
+<p>Executes when an addon is activated.</p>
 
 <h4 id="parameters-1">Parameters</h4>
 
@@ -653,7 +653,7 @@ add_hook('AddonConfigSave', 1, function($vars) {
 
 <h2 id="addondeleted">AddonDeleted</h2>
 
-<p>Executes when an addon is being deleted.</p>
+<p>Executes when an addon has been deleted.</p>
 
 <h4 id="parameters-6">Parameters</h4>
 
@@ -670,7 +670,7 @@ add_hook('AddonConfigSave', 1, function($vars) {
 <tr>
 <td>id</td>
 <td>int</td>
-<td>the id of the addon being removed. tblhostingaddons</td>
+<td>The id of the addong that has been deleted. tblhostingaddons</td>
 </tr>
 </tbody>
 </table>
@@ -741,9 +741,9 @@ add_hook('AddonEdit', 1, function($vars) {
 });
 </code></pre>
 
-<h2 id="addonsuspended">AddonSuspended</h2>
+<h2 id="addonrenewal">AddonRenewal</h2>
 
-<p>Executes when an addon is suspended.</p>
+<p>Executes when a product addon is being automatically renewed as part of an invoice payment.</p>
 
 <h4 id="parameters-8">Parameters</h4>
 
@@ -790,14 +790,14 @@ add_hook('AddonEdit', 1, function($vars) {
 <h4 id="example-code-8">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('AddonSuspended', 1, function($vars) {
+add_hook('AddonRenewal', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="addonterminated">AddonTerminated</h2>
+<h2 id="addonsuspended">AddonSuspended</h2>
 
-<p>Executes when an addon is terminated.</p>
+<p>Executes when an addon is suspended.</p>
 
 <h4 id="parameters-9">Parameters</h4>
 
@@ -844,14 +844,14 @@ add_hook('AddonSuspended', 1, function($vars) {
 <h4 id="example-code-9">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('AddonTerminated', 1, function($vars) {
+add_hook('AddonSuspended', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="addonunsuspended">AddonUnsuspended</h2>
+<h2 id="addonterminated">AddonTerminated</h2>
 
-<p>Executes when an addon is unsuspended.</p>
+<p>Executes when an addon is terminated.</p>
 
 <h4 id="parameters-10">Parameters</h4>
 
@@ -898,7 +898,97 @@ add_hook('AddonTerminated', 1, function($vars) {
 <h4 id="example-code-10">Example Code</h4>
 
 <pre><code>&lt;?php
+add_hook('AddonTerminated', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="addonunsuspended">AddonUnsuspended</h2>
+
+<p>Executes when an addon is unsuspended.</p>
+
+<h4 id="parameters-11">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>The addon ID (tblhostingaddons)</td>
+</tr>
+
+<tr>
+<td>userid</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>serviceid</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>addonid</td>
+<td>int</td>
+<td>The predefined addon ID (tbladdons)</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-11">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-11">Example Code</h4>
+
+<pre><code>&lt;?php
 add_hook('AddonUnsuspended', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="afteraddonupgrade">AfterAddonUpgrade</h2>
+
+<p>Executes after an addon upgrade has been processed.</p>
+
+<h4 id="parameters-12">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>upgradeid</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-12">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-12">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('AfterAddonUpgrade', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
@@ -907,7 +997,7 @@ add_hook('AddonUnsuspended', 1, function($vars) {
 
 <p>Executes as a license is being reissued</p>
 
-<h4 id="parameters-11">Parameters</h4>
+<h4 id="parameters-13">Parameters</h4>
 
 <table>
 <thead>
@@ -939,11 +1029,11 @@ add_hook('AddonUnsuspended', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-11">Response</h4>
+<h4 id="response-13">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-11">Example Code</h4>
+<h4 id="example-code-13">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('LicensingAddonReissue', 1, function($vars) {
@@ -955,7 +1045,7 @@ add_hook('LicensingAddonReissue', 1, function($vars) {
 
 <p>Executes as a license remote check is being completed</p>
 
-<h4 id="parameters-12">Parameters</h4>
+<h4 id="parameters-14">Parameters</h4>
 
 <table>
 <thead>
@@ -987,11 +1077,11 @@ add_hook('LicensingAddonReissue', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-12">Response</h4>
+<h4 id="response-14">Response</h4>
 
 <p>Return key value pairs of additional items to be returned with the response.</p>
 
-<h4 id="example-code-12">Example Code</h4>
+<h4 id="example-code-14">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -1000,6 +1090,42 @@ add_hook('LicensingAddonVerify', 1, function($vars) {
         'myExtraVariable' =&gt; 'Yes',
         'myOtherVariable' =&gt; 'Sure',
     ];
+});
+</code></pre>
+
+<h2 id="productaddondelete">ProductAddonDelete</h2>
+
+<p>Executes when a product addon is being deleted.</p>
+
+<h4 id="parameters-15">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>addonId</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-15">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-15">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ProductAddonDelete', 1, function($vars) {
+    // Perform hook code here...
 });
 </code></pre>
 

@@ -443,11 +443,47 @@ add_hook('AddonFraud', 1, function($vars) {
 });
 </code></pre>
 
+<h2 id="aftercalculatecarttotals">AfterCalculateCartTotals</h2>
+
+<p>Executes after the cart totals have been calculated.</p>
+
+<h4 id="parameters-2">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>total</td>
+<td>\Price</td>
+<td>Total due today</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-2">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-2">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('AfterCalculateCartTotals', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
 <h2 id="afterfraudcheck">AfterFraudCheck</h2>
 
 <p>Executes after a fraud check has been completed</p>
 
-<h4 id="parameters-2">Parameters</h4>
+<h4 id="parameters-3">Parameters</h4>
 
 <table>
 <thead>
@@ -503,11 +539,11 @@ add_hook('AddonFraud', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-2">Example Code</h4>
+<h4 id="example-code-3">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AfterFraudCheck', 1, function($vars) {
@@ -519,7 +555,7 @@ add_hook('AfterFraudCheck', 1, function($vars) {
 
 <p>Upon completion of checkout once the order has been created, invoice generated and all email notifications sent.</p>
 
-<h4 id="parameters-3">Parameters</h4>
+<h4 id="parameters-4">Parameters</h4>
 
 <table>
 <thead>
@@ -587,11 +623,11 @@ add_hook('AfterFraudCheck', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-3">Example Code</h4>
+<h4 id="example-code-4">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AfterShoppingCartCheckout', 1, function($vars) {
@@ -601,9 +637,9 @@ add_hook('AfterShoppingCartCheckout', 1, function($vars) {
 
 <h2 id="cancelorder">CancelOrder</h2>
 
-<p>Executes as an order is being cancelled</p>
+<p>Runs when an order is requested to be cancelled, prior to the change of status actually occurring.</p>
 
-<h4 id="parameters-4">Parameters</h4>
+<h4 id="parameters-5">Parameters</h4>
 
 <table>
 <thead>
@@ -618,16 +654,16 @@ add_hook('AfterShoppingCartCheckout', 1, function($vars) {
 <tr>
 <td>orderid</td>
 <td>int</td>
-<td></td>
+<td>The order ID</td>
 </tr>
 </tbody>
 </table>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-4">Example Code</h4>
+<h4 id="example-code-5">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('CancelOrder', 1, function($vars) {
@@ -639,7 +675,7 @@ add_hook('CancelOrder', 1, function($vars) {
 
 <p>Invoked as the order total is being calculated, this can be used to manipulate the final total.</p>
 
-<h4 id="parameters-5">Parameters</h4>
+<h4 id="parameters-6">Parameters</h4>
 
 <table>
 <thead>
@@ -665,11 +701,11 @@ add_hook('CancelOrder', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-6">Response</h4>
 
 <p>Return an array consisting of adjustment <code>description</code>, <code>amount</code> and <code>taxed</code> (bool)</p>
 
-<h4 id="example-code-5">Example Code</h4>
+<h4 id="example-code-6">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -702,43 +738,7 @@ add_hook('CartTotalAdjustment', 1, function($vars) {
 
 <h2 id="deleteorder">DeleteOrder</h2>
 
-<p>Executes as an order is being deleted</p>
-
-<h4 id="parameters-6">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>orderid</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-6">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-6">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('DeleteOrder', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="fraudorder">FraudOrder</h2>
-
-<p>Executes as an order is being marked fraud</p>
+<p>Runs when an order is requested to be deleted, prior to the deletion actually occurring.</p>
 
 <h4 id="parameters-7">Parameters</h4>
 
@@ -755,7 +755,7 @@ add_hook('DeleteOrder', 1, function($vars) {
 <tr>
 <td>orderid</td>
 <td>int</td>
-<td></td>
+<td>The order ID</td>
 </tr>
 </tbody>
 </table>
@@ -767,6 +767,258 @@ add_hook('DeleteOrder', 1, function($vars) {
 <h4 id="example-code-7">Example Code</h4>
 
 <pre><code>&lt;?php
+add_hook('DeleteOrder', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="fraudcheckawaitinguserinput">FraudCheckAwaitingUserInput</h2>
+
+<p>Executes when the fraud check is awaiting user input.</p>
+
+<h4 id="parameters-8">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>orderid</td>
+<td>int</td>
+<td>The id of the order that has been fraud checked</td>
+</tr>
+
+<tr>
+<td>ordernumber</td>
+<td>int</td>
+<td>The order number</td>
+</tr>
+
+<tr>
+<td>invoiceid</td>
+<td>int</td>
+<td>The ID of the invoice generated on order</td>
+</tr>
+
+<tr>
+<td>amount</td>
+<td>float</td>
+<td>The amount the order was for</td>
+</tr>
+
+<tr>
+<td>fraudresults</td>
+<td>array</td>
+<td>The full result from the fraud check</td>
+</tr>
+
+<tr>
+<td>isfraud</td>
+<td>array</td>
+<td>The details of the fraud check if an error occurs</td>
+</tr>
+
+<tr>
+<td>clientdetails</td>
+<td>array</td>
+<td>The full details of the client the order is for</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-8">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-8">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('FraudCheckAwaitingUserInput', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="fraudcheckfailed">FraudCheckFailed</h2>
+
+<p>Executes when the fraud check fails for a new order.</p>
+
+<h4 id="parameters-9">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>orderid</td>
+<td>int</td>
+<td>The id of the order that has been fraud checked</td>
+</tr>
+
+<tr>
+<td>ordernumber</td>
+<td>int</td>
+<td>The order number</td>
+</tr>
+
+<tr>
+<td>invoiceid</td>
+<td>int</td>
+<td>The ID of the invoice generated on order</td>
+</tr>
+
+<tr>
+<td>amount</td>
+<td>float</td>
+<td>The amount the order was for</td>
+</tr>
+
+<tr>
+<td>fraudresults</td>
+<td>array</td>
+<td>The full result from the fraud check</td>
+</tr>
+
+<tr>
+<td>isfraud</td>
+<td>array</td>
+<td>The details of the fraud check if an error occurs</td>
+</tr>
+
+<tr>
+<td>clientdetails</td>
+<td>array</td>
+<td>The full details of the client the order is for</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-9">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-9">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('FraudCheckFailed', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="fraudcheckpassed">FraudCheckPassed</h2>
+
+<p>Executes when the fraud check passes successfully for a new order.</p>
+
+<h4 id="parameters-10">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>orderid</td>
+<td>int</td>
+<td>The id of the order that has been fraud checked</td>
+</tr>
+
+<tr>
+<td>ordernumber</td>
+<td>int</td>
+<td>The order number</td>
+</tr>
+
+<tr>
+<td>invoiceid</td>
+<td>int</td>
+<td>The ID of the invoice generated on order</td>
+</tr>
+
+<tr>
+<td>amount</td>
+<td>float</td>
+<td>The amount the order was for</td>
+</tr>
+
+<tr>
+<td>fraudresults</td>
+<td>array</td>
+<td>The full result from the fraud check</td>
+</tr>
+
+<tr>
+<td>isfraud</td>
+<td>array</td>
+<td>The details of the fraud check if an error occurs</td>
+</tr>
+
+<tr>
+<td>clientdetails</td>
+<td>array</td>
+<td>The full details of the client the order is for</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-10">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-10">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('FraudCheckPassed', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="fraudorder">FraudOrder</h2>
+
+<p>Runs when an order is requested to be set as fraud, prior to the change of status actually occurring.</p>
+
+<h4 id="parameters-11">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>orderid</td>
+<td>int</td>
+<td>The order ID</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-11">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-11">Example Code</h4>
+
+<pre><code>&lt;?php
 add_hook('FraudOrder', 1, function($vars) {
     // Perform hook code here...
 });
@@ -776,7 +1028,7 @@ add_hook('FraudOrder', 1, function($vars) {
 
 <p>Executes as an addon price is being calculated in the cart.</p>
 
-<h4 id="parameters-8">Parameters</h4>
+<h4 id="parameters-12">Parameters</h4>
 
 <table>
 <thead>
@@ -820,11 +1072,11 @@ add_hook('FraudOrder', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-8">Response</h4>
+<h4 id="response-12">Response</h4>
 
 <p>Addon pricing can be overridden. Accepts a return of the keys &lsquo;setup&rsquo; and &lsquo;recurring&rsquo;.</p>
 
-<h4 id="example-code-8">Example Code</h4>
+<h4 id="example-code-12">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -856,7 +1108,7 @@ add_hook('OrderAddonPricingOverride', 1, function($vars) {
 
 <p>Executes as a domain price is being calculated in the cart. This hook is run independelty for each domain added to the cart.</p>
 
-<h4 id="parameters-9">Parameters</h4>
+<h4 id="parameters-13">Parameters</h4>
 
 <table>
 <thead>
@@ -918,11 +1170,11 @@ add_hook('OrderAddonPricingOverride', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-9">Response</h4>
+<h4 id="response-13">Response</h4>
 
 <p>Return a valid price to override the cost of the domain.</p>
 
-<h4 id="example-code-9">Example Code</h4>
+<h4 id="example-code-13">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -932,11 +1184,59 @@ add_hook('OrderDomainPricingOverride', 1, function($vars) {
 });
 </code></pre>
 
+<h2 id="orderpaid">OrderPaid</h2>
+
+<p>Executes when the first invoice for a new order is marked paid. This will execute in addition to the regular invoice payment hooks.</p>
+
+<h4 id="parameters-14">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>orderId</td>
+<td>int</td>
+<td>The unique identifier for the order</td>
+</tr>
+
+<tr>
+<td>userId</td>
+<td>int</td>
+<td>The unique identifier for the client</td>
+</tr>
+
+<tr>
+<td>invoiceId</td>
+<td>int</td>
+<td>The unique identifier for the invoice</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-14">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-14">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('OrderPaid', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
 <h2 id="orderproductpricingoverride">OrderProductPricingOverride</h2>
 
 <p>Executes as a product price is being calculated in the cart.</p>
 
-<h4 id="parameters-10">Parameters</h4>
+<h4 id="parameters-15">Parameters</h4>
 
 <table>
 <thead>
@@ -968,11 +1268,11 @@ add_hook('OrderDomainPricingOverride', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-10">Response</h4>
+<h4 id="response-15">Response</h4>
 
 <p>Product pricing can be overridden. Accepts a return of the keys &lsquo;setup&rsquo; and &lsquo;recurring&rsquo;. eg: return array(&lsquo;setup&rsquo; =&gt; 1.00, &lsquo;recurring&rsquo; =&gt; 12.00);</p>
 
-<h4 id="example-code-10">Example Code</h4>
+<h4 id="example-code-15">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -1002,7 +1302,7 @@ add_hook('OrderProductPricingOverride', 1, function($vars) {
 
 <p>Executes as a product upgrade order is being calculated.</p>
 
-<h4 id="parameters-11">Parameters</h4>
+<h4 id="parameters-16">Parameters</h4>
 
 <table>
 <thead>
@@ -1076,11 +1376,11 @@ add_hook('OrderProductPricingOverride', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-11">Response</h4>
+<h4 id="response-16">Response</h4>
 
 <p>Return any key -&gt; value pairs of the parameters to override. eg return array(&lsquo;discount&rsquo; =&gt; 10.00,);</p>
 
-<h4 id="example-code-11">Example Code</h4>
+<h4 id="example-code-16">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -1110,7 +1410,7 @@ add_hook('OrderProductUpgradeOverride', 1, function($vars) {
 
 <p>Executes just before checkout occurs. All cart information is passed to the hook. Examples given here.</p>
 
-<h4 id="parameters-12">Parameters</h4>
+<h4 id="parameters-17">Parameters</h4>
 
 <table>
 <thead>
@@ -1136,11 +1436,11 @@ add_hook('OrderProductUpgradeOverride', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-12">Response</h4>
+<h4 id="response-17">Response</h4>
 
 <p>Return an overridden client displayed order number. eg: return array(123456788,);</p>
 
-<h4 id="example-code-12">Example Code</h4>
+<h4 id="example-code-17">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -1154,9 +1454,9 @@ add_hook('OverrideOrderNumberGeneration', 1, function($vars) {
 
 <h2 id="pendingorder">PendingOrder</h2>
 
-<p>Executes as an order is being marked pending</p>
+<p>Runs when an order is requested to be set back to pending, prior to the change of status actually occurring.</p>
 
-<h4 id="parameters-13">Parameters</h4>
+<h4 id="parameters-18">Parameters</h4>
 
 <table>
 <thead>
@@ -1171,16 +1471,16 @@ add_hook('OverrideOrderNumberGeneration', 1, function($vars) {
 <tr>
 <td>orderid</td>
 <td>int</td>
-<td></td>
+<td>The order ID</td>
 </tr>
 </tbody>
 </table>
 
-<h4 id="response-13">Response</h4>
+<h4 id="response-18">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-13">Example Code</h4>
+<h4 id="example-code-18">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PendingOrder', 1, function($vars) {
@@ -1192,7 +1492,7 @@ add_hook('PendingOrder', 1, function($vars) {
 
 <p>Executes as the cart totals are being calculated. All cart information is passed to the hook. Examples given here.</p>
 
-<h4 id="parameters-14">Parameters</h4>
+<h4 id="parameters-19">Parameters</h4>
 
 <table>
 <thead>
@@ -1218,11 +1518,11 @@ add_hook('PendingOrder', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-14">Response</h4>
+<h4 id="response-19">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-14">Example Code</h4>
+<h4 id="example-code-19">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreCalculateCartTotals', 1, function($vars) {
@@ -1234,7 +1534,7 @@ add_hook('PreCalculateCartTotals', 1, function($vars) {
 
 <p>Executes just before checkout occurs. All cart information is passed to the hook. Examples given here.</p>
 
-<h4 id="parameters-15">Parameters</h4>
+<h4 id="parameters-20">Parameters</h4>
 
 <table>
 <thead>
@@ -1260,11 +1560,11 @@ add_hook('PreCalculateCartTotals', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-15">Response</h4>
+<h4 id="response-20">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-15">Example Code</h4>
+<h4 id="example-code-20">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreShoppingCartCheckout', 1, function($vars) {
@@ -1276,7 +1576,7 @@ add_hook('PreShoppingCartCheckout', 1, function($vars) {
 
 <p>Executes as the fraud module is being checked for an order.</p>
 
-<h4 id="parameters-16">Parameters</h4>
+<h4 id="parameters-21">Parameters</h4>
 
 <table>
 <thead>
@@ -1302,11 +1602,11 @@ add_hook('PreShoppingCartCheckout', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-16">Response</h4>
+<h4 id="response-21">Response</h4>
 
 <p>Return any value to skip the fraud check</p>
 
-<h4 id="example-code-16">Example Code</h4>
+<h4 id="example-code-21">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('RunFraudCheck', 1, function($vars) {
@@ -1318,7 +1618,7 @@ add_hook('RunFraudCheck', 1, function($vars) {
 
 <p>Executes when the Complete Page is displayed on checkout.</p>
 
-<h4 id="parameters-17">Parameters</h4>
+<h4 id="parameters-22">Parameters</h4>
 
 <table>
 <thead>
@@ -1374,11 +1674,11 @@ add_hook('RunFraudCheck', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-17">Response</h4>
+<h4 id="response-22">Response</h4>
 
 <p>HTML to be displayed on the order complete page.</p>
 
-<h4 id="example-code-17">Example Code</h4>
+<h4 id="example-code-22">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -1394,7 +1694,7 @@ add_hook('ShoppingCartCheckoutCompletePage', 1, function($vars) {
 
 <p>Executes on checkout via the shopping cart. The <code>$_SESSION['cart']</code> varible contains the products in the cart and associated configuration. See <code>PreCalculateCartTotals</code> for more details on cart session data.</p>
 
-<h4 id="parameters-18">Parameters</h4>
+<h4 id="parameters-23">Parameters</h4>
 
 <table>
 <thead>
@@ -1588,11 +1888,11 @@ add_hook('ShoppingCartCheckoutCompletePage', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-18">Response</h4>
+<h4 id="response-23">Response</h4>
 
 <p>Return accepts both a <code>string</code> or an <code>array</code>. Use a string for <code>single</code> error message or an <code>array</code> of strings for multiple error messages.</p>
 
-<h4 id="example-code-18">Example Code</h4>
+<h4 id="example-code-23">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -1608,7 +1908,7 @@ add_hook('ShoppingCartValidateCheckout', 1, function($vars) {
 
 <p>Executes when Cart Domain Validation is occurring</p>
 
-<h4 id="parameters-19">Parameters</h4>
+<h4 id="parameters-24">Parameters</h4>
 
 <table>
 <thead>
@@ -1640,11 +1940,11 @@ add_hook('ShoppingCartValidateCheckout', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-19">Response</h4>
+<h4 id="response-24">Response</h4>
 
 <p>Return accepts both a <code>string</code> or an <code>array</code>. Use a string for <code>single</code> error message or an <code>array</code> of strings for multiple error messages.</p>
 
-<h4 id="example-code-19">Example Code</h4>
+<h4 id="example-code-24">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -1660,7 +1960,7 @@ add_hook('ShoppingCartValidateDomain', 1, function($vars) {
 
 <p>Executes when Domain Update is occurring</p>
 
-<h4 id="parameters-20">Parameters</h4>
+<h4 id="parameters-25">Parameters</h4>
 
 <table>
 <thead>
@@ -1680,11 +1980,11 @@ add_hook('ShoppingCartValidateDomain', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-20">Response</h4>
+<h4 id="response-25">Response</h4>
 
 <p>Return accepts both a <code>string</code> or an <code>array</code>. Use a string for <code>single</code> error message or an <code>array</code> of strings for multiple error messages.</p>
 
-<h4 id="example-code-20">Example Code</h4>
+<h4 id="example-code-25">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -1700,7 +2000,7 @@ add_hook('ShoppingCartValidateDomainsConfig', 1, function($vars) {
 
 <p>Executes when Product Update is occurring</p>
 
-<h4 id="parameters-21">Parameters</h4>
+<h4 id="parameters-26">Parameters</h4>
 
 <table>
 <thead>
@@ -1720,11 +2020,11 @@ add_hook('ShoppingCartValidateDomainsConfig', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-21">Response</h4>
+<h4 id="response-26">Response</h4>
 
 <p>Return accepts both a <code>string</code> or an <code>array</code>. Use a string for <code>single</code> error message or an <code>array</code> of strings for multiple error messages.</p>
 
-<h4 id="example-code-21">Example Code</h4>
+<h4 id="example-code-26">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -1740,7 +2040,7 @@ add_hook('ShoppingCartValidateProductUpdate', 1, function($vars) {
 
 <p>Executes as the order details page is being displayed</p>
 
-<h4 id="parameters-22">Parameters</h4>
+<h4 id="parameters-27">Parameters</h4>
 
 <table>
 <thead>
@@ -1796,11 +2096,11 @@ add_hook('ShoppingCartValidateProductUpdate', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-22">Response</h4>
+<h4 id="response-27">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-22">Example Code</h4>
+<h4 id="example-code-27">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ViewOrderDetailsPage', 1, function($vars) {

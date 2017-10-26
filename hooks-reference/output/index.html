@@ -1571,11 +1571,51 @@ add_hook('ShoppingCartCheckoutOutput', 1, function($vars) {
 });
 </code></pre>
 
+<h2 id="shoppingcartconfigureproductaddonsoutput">ShoppingCartConfigureProductAddonsOutput</h2>
+
+<h4 id="parameters-12">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>billingCycle</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>selectedAddons</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-12">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-12">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ShoppingCartConfigureProductAddonsOutput', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
 <h2 id="shoppingcartviewcartoutput">ShoppingCartViewCartOutput</h2>
 
 <p>Allows returning of output for display on the Shopping Cart View Cart page.</p>
 
-<h4 id="parameters-12">Parameters</h4>
+<h4 id="parameters-13">Parameters</h4>
 
 <table>
 <thead>
@@ -1595,11 +1635,11 @@ add_hook('ShoppingCartCheckoutOutput', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-12">Response</h4>
+<h4 id="response-13">Response</h4>
 
 <p>Return the HTML to be output on the page.</p>
 
-<h4 id="example-code-12">Example Code</h4>
+<h4 id="example-code-13">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ShoppingCartViewCartOutput', 1, function($vars) {
@@ -1608,40 +1648,6 @@ add_hook('ShoppingCartViewCartOutput', 1, function($vars) {
 </code></pre>
 
 <h2 id="shoppingcartviewcategoryaboveproductsoutput">ShoppingCartViewCategoryAboveProductsOutput</h2>
-
-<h4 id="parameters-13">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>cart</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-13">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-13">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ShoppingCartViewCategoryAboveProductsOutput', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="shoppingcartviewcategorybelowproductsoutput">ShoppingCartViewCategoryBelowProductsOutput</h2>
 
 <h4 id="parameters-14">Parameters</h4>
 
@@ -1668,6 +1674,40 @@ add_hook('ShoppingCartViewCategoryAboveProductsOutput', 1, function($vars) {
 <p>No response supported</p>
 
 <h4 id="example-code-14">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ShoppingCartViewCategoryAboveProductsOutput', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="shoppingcartviewcategorybelowproductsoutput">ShoppingCartViewCategoryBelowProductsOutput</h2>
+
+<h4 id="parameters-15">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>cart</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-15">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-15">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ShoppingCartViewCategoryBelowProductsOutput', 1, function($vars) {

@@ -1299,7 +1299,7 @@ add_hook('AdminProductConfigFieldsSave', 1, function($vars) {
 
 <h2 id="adminserviceedit">AdminServiceEdit</h2>
 
-<p>Executes as the service is being saved, after any changes have been made.</p>
+<p>Executes when the Service has been edited. After the changes have been made.</p>
 
 <h4 id="parameters-16">Parameters</h4>
 
@@ -1453,7 +1453,7 @@ add_hook('AuthAdminApi', 1, function($vars) {
 
 <h2 id="invoicecreationadminarea">InvoiceCreationAdminArea</h2>
 
-<p>Executes when an invoice is first created by an admin user. The invoice has not been delivered to the client at this point.</p>
+<p>Executes as an invoice is being created in the admin area</p>
 
 <h4 id="parameters-19">Parameters</h4>
 
@@ -1470,25 +1470,25 @@ add_hook('AuthAdminApi', 1, function($vars) {
 <tr>
 <td>source</td>
 <td>string</td>
-<td></td>
+<td>When the invoice is being created</td>
 </tr>
 
 <tr>
 <td>user</td>
-<td>string</td>
 <td>int</td>
+<td>string</td>
 </tr>
 
 <tr>
 <td>invoiceid</td>
 <td>int</td>
-<td>The invoice ID that was created</td>
+<td>The id of the newly created invoice</td>
 </tr>
 
 <tr>
 <td>status</td>
 <td>string</td>
-<td>The status of the new invoice</td>
+<td>The status of the newly created invoice</td>
 </tr>
 </tbody>
 </table>

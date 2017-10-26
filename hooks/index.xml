@@ -177,6 +177,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#addinvoicepayment&#34;&gt;AddInvoicePayment&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#addtransaction&#34;&gt;AddTransaction&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#afterinvoicinggenerateinvoiceitems&#34;&gt;AfterInvoicingGenerateInvoiceItems&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#cancelandrefundorder&#34;&gt;CancelAndRefundOrder&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicecancelled&#34;&gt;InvoiceCancelled&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicechangegateway&#34;&gt;InvoiceChangeGateway&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/invoices-and-quotes/#invoicecreated&#34;&gt;InvoiceCreated&lt;/a&gt;
@@ -200,14 +201,19 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#acceptorder&#34;&gt;AcceptOrder&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#addonfraud&#34;&gt;AddonFraud&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#aftercalculatecarttotals&#34;&gt;AfterCalculateCartTotals&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#afterfraudcheck&#34;&gt;AfterFraudCheck&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#aftershoppingcartcheckout&#34;&gt;AfterShoppingCartCheckout&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#cancelorder&#34;&gt;CancelOrder&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#carttotaladjustment&#34;&gt;CartTotalAdjustment&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#deleteorder&#34;&gt;DeleteOrder&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#fraudcheckawaitinguserinput&#34;&gt;FraudCheckAwaitingUserInput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#fraudcheckfailed&#34;&gt;FraudCheckFailed&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#fraudcheckpassed&#34;&gt;FraudCheckPassed&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#fraudorder&#34;&gt;FraudOrder&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#orderaddonpricingoverride&#34;&gt;OrderAddonPricingOverride&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#orderdomainpricingoverride&#34;&gt;OrderDomainPricingOverride&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#orderpaid&#34;&gt;OrderPaid&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#orderproductpricingoverride&#34;&gt;OrderProductPricingOverride&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#orderproductupgradeoverride&#34;&gt;OrderProductUpgradeOverride&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#overrideordernumbergeneration&#34;&gt;OverrideOrderNumberGeneration&lt;/a&gt;
@@ -256,12 +262,18 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#domaindelete&#34;&gt;DomainDelete&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#domainedit&#34;&gt;DomainEdit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#domaintransfercompleted&#34;&gt;DomainTransferCompleted&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#domaintransferfailed&#34;&gt;DomainTransferFailed&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#domainvalidation&#34;&gt;DomainValidation&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#predomainregister&#34;&gt;PreDomainRegister&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#predomaintransfer&#34;&gt;PreDomainTransfer&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#preregistrarregisterdomain&#34;&gt;PreRegistrarRegisterDomain&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#preregistrarrenewdomain&#34;&gt;PreRegistrarRenewDomain&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#preregistrartransferdomain&#34;&gt;PreRegistrarTransferDomain&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#topleveldomainadd&#34;&gt;TopLevelDomainAdd&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#topleveldomaindelete&#34;&gt;TopLevelDomainDelete&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#topleveldomainpricingupdate&#34;&gt;TopLevelDomainPricingUpdate&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/domain/#topleveldomainupdate&#34;&gt;TopLevelDomainUpdate&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Registrar Module&lt;/h3&gt;
 
@@ -301,11 +313,14 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addonconfigsave&#34;&gt;AddonConfigSave&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addondeleted&#34;&gt;AddonDeleted&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addonedit&#34;&gt;AddonEdit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addonrenewal&#34;&gt;AddonRenewal&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addonsuspended&#34;&gt;AddonSuspended&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addonterminated&#34;&gt;AddonTerminated&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#addonunsuspended&#34;&gt;AddonUnsuspended&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#afteraddonupgrade&#34;&gt;AfterAddonUpgrade&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#licensingaddonreissue&#34;&gt;LicensingAddonReissue&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#licensingaddonverify&#34;&gt;LicensingAddonVerify&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/addon/#productaddondelete&#34;&gt;ProductAddonDelete&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Client&lt;/h3&gt;
 
@@ -477,6 +492,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#reportviewpostoutput&#34;&gt;ReportViewPostOutput&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#reportviewpreoutput&#34;&gt;ReportViewPreOutput&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#shoppingcartcheckoutoutput&#34;&gt;ShoppingCartCheckoutOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#shoppingcartconfigureproductaddonsoutput&#34;&gt;ShoppingCartConfigureProductAddonsOutput&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#shoppingcartviewcartoutput&#34;&gt;ShoppingCartViewCartOutput&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#shoppingcartviewcategoryaboveproductsoutput&#34;&gt;ShoppingCartViewCategoryAboveProductsOutput&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#shoppingcartviewcategorybelowproductsoutput&#34;&gt;ShoppingCartViewCategoryBelowProductsOutput&lt;/a&gt;

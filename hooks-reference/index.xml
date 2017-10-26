@@ -93,7 +93,7 @@ add_hook(&#39;AddonActivated&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;addonactivation&#34;&gt;AddonActivation&lt;/h2&gt;
 
-&lt;p&gt;Executes when a product addon is being automatically activated as part of an invoice payment or order acceptance. Runs following the welcome email having been sent.&lt;/p&gt;
+&lt;p&gt;Executes when an addon is activated.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -337,7 +337,7 @@ add_hook(&#39;AddonConfigSave&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;addondeleted&#34;&gt;AddonDeleted&lt;/h2&gt;
 
-&lt;p&gt;Executes when an addon is being deleted.&lt;/p&gt;
+&lt;p&gt;Executes when an addon has been deleted.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -354,7 +354,7 @@ add_hook(&#39;AddonConfigSave&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;id&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;the id of the addon being removed. tblhostingaddons&lt;/td&gt;
+&lt;td&gt;The id of the addong that has been deleted. tblhostingaddons&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -425,9 +425,9 @@ add_hook(&#39;AddonEdit&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;addonsuspended&#34;&gt;AddonSuspended&lt;/h2&gt;
+&lt;h2 id=&#34;addonrenewal&#34;&gt;AddonRenewal&lt;/h2&gt;
 
-&lt;p&gt;Executes when an addon is suspended.&lt;/p&gt;
+&lt;p&gt;Executes when a product addon is being automatically renewed as part of an invoice payment.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-8&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -474,14 +474,14 @@ add_hook(&#39;AddonEdit&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-8&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;AddonSuspended&#39;, 1, function($vars) {
+add_hook(&#39;AddonRenewal&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;addonterminated&#34;&gt;AddonTerminated&lt;/h2&gt;
+&lt;h2 id=&#34;addonsuspended&#34;&gt;AddonSuspended&lt;/h2&gt;
 
-&lt;p&gt;Executes when an addon is terminated.&lt;/p&gt;
+&lt;p&gt;Executes when an addon is suspended.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-9&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -528,14 +528,14 @@ add_hook(&#39;AddonSuspended&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-9&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;AddonTerminated&#39;, 1, function($vars) {
+add_hook(&#39;AddonSuspended&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;addonunsuspended&#34;&gt;AddonUnsuspended&lt;/h2&gt;
+&lt;h2 id=&#34;addonterminated&#34;&gt;AddonTerminated&lt;/h2&gt;
 
-&lt;p&gt;Executes when an addon is unsuspended.&lt;/p&gt;
+&lt;p&gt;Executes when an addon is terminated.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-10&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -582,7 +582,97 @@ add_hook(&#39;AddonTerminated&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-10&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AddonTerminated&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;addonunsuspended&#34;&gt;AddonUnsuspended&lt;/h2&gt;
+
+&lt;p&gt;Executes when an addon is unsuspended.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-11&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;id&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The addon ID (tblhostingaddons)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;userid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serviceid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;addonid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The predefined addon ID (tbladdons)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-11&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-11&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;AddonUnsuspended&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;afteraddonupgrade&#34;&gt;AfterAddonUpgrade&lt;/h2&gt;
+
+&lt;p&gt;Executes after an addon upgrade has been processed.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;upgradeid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;AfterAddonUpgrade&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
@@ -591,7 +681,7 @@ add_hook(&#39;AddonUnsuspended&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes as a license is being reissued&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-11&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-13&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -623,11 +713,11 @@ add_hook(&#39;AddonUnsuspended&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-11&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-13&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-11&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-13&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;LicensingAddonReissue&#39;, 1, function($vars) {
@@ -639,7 +729,7 @@ add_hook(&#39;LicensingAddonReissue&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes as a license remote check is being completed&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-14&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -671,11 +761,11 @@ add_hook(&#39;LicensingAddonReissue&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-14&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;Return key value pairs of additional items to be returned with the response.&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-14&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 
@@ -684,6 +774,42 @@ add_hook(&#39;LicensingAddonVerify&#39;, 1, function($vars) {
         &#39;myExtraVariable&#39; =&amp;gt; &#39;Yes&#39;,
         &#39;myOtherVariable&#39; =&amp;gt; &#39;Sure&#39;,
     ];
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;productaddondelete&#34;&gt;ProductAddonDelete&lt;/h2&gt;
+
+&lt;p&gt;Executes when a product addon is being deleted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-15&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;addonId&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-15&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-15&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ProductAddonDelete&#39;, 1, function($vars) {
+    // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 </description>
@@ -1645,7 +1771,7 @@ add_hook(&#39;AdminProductConfigFieldsSave&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;adminserviceedit&#34;&gt;AdminServiceEdit&lt;/h2&gt;
 
-&lt;p&gt;Executes as the service is being saved, after any changes have been made.&lt;/p&gt;
+&lt;p&gt;Executes when the Service has been edited. After the changes have been made.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-16&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -1799,7 +1925,7 @@ add_hook(&#39;AuthAdminApi&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;invoicecreationadminarea&#34;&gt;InvoiceCreationAdminArea&lt;/h2&gt;
 
-&lt;p&gt;Executes when an invoice is first created by an admin user. The invoice has not been delivered to the client at this point.&lt;/p&gt;
+&lt;p&gt;Executes as an invoice is being created in the admin area&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-19&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -1816,25 +1942,25 @@ add_hook(&#39;AuthAdminApi&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;source&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;When the invoice is being created&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;user&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;invoiceid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The invoice ID that was created&lt;/td&gt;
+&lt;td&gt;The id of the newly created invoice&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;status&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The status of the new invoice&lt;/td&gt;
+&lt;td&gt;The status of the newly created invoice&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1919,6 +2045,12 @@ add_hook(&#39;PreAdminServiceEdit&#39;, 1, function($vars) {
 &lt;td&gt;userid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;contactid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Contact ID will be present if the login was performed by a contact/sub-account&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2010,7 +2142,7 @@ add_hook(&#39;ClientLoginShare&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientlogout&#34;&gt;ClientLogout&lt;/h2&gt;
 
-&lt;p&gt;Executes when a client is logging out of the client area&lt;/p&gt;
+&lt;p&gt;Executes when a client is logging into the Client Area.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -2028,6 +2160,12 @@ add_hook(&#39;ClientLoginShare&#39;, 1, function($vars) {
 &lt;td&gt;userid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;contactid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Contact ID will be present if the login was performed by a contact/sub-account&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -11145,7 +11283,7 @@ add_hook(&#39;PreCronJob&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;domaindelete&#34;&gt;DomainDelete&lt;/h2&gt;
 
-&lt;p&gt;Executes when a service is being deleted.&lt;/p&gt;
+&lt;p&gt;Executes when a domain is being deleted from the client account.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -11187,7 +11325,7 @@ add_hook(&#39;DomainDelete&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;domainedit&#34;&gt;DomainEdit&lt;/h2&gt;
 
-&lt;p&gt;Executes as the domain is being saved, before any changes have been made.&lt;/p&gt;
+&lt;p&gt;Executes when the domain is being edited.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -11227,11 +11365,131 @@ add_hook(&#39;DomainEdit&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;domaintransfercompleted&#34;&gt;DomainTransferCompleted&lt;/h2&gt;
+
+&lt;p&gt;Executes when a domain transfer is set to completed by the domain sync cron.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;domainid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The unique identifier for the domain&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;domain&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The domain name&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;registrationPeriod&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The registration period&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;expiryDate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The expiry date (if returned by the registrar)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;registrar&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The registrar used&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-2&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-2&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;DomainTransferCompleted&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;domaintransferfailed&#34;&gt;DomainTransferFailed&lt;/h2&gt;
+
+&lt;p&gt;Executes when a domain transfer is set to failed by the domain sync cron.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-3&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;domainid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The unique identifier for the domain&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;domain&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The domain name&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;registrationPeriod&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The registration period&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;expiryDate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The expiry date (if returned by the registrar)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;registrar&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The registrar used&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-3&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;DomainTransferFailed&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;domainvalidation&#34;&gt;DomainValidation&lt;/h2&gt;
 
 &lt;p&gt;Executes as domain validation is being run&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-4&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -11257,11 +11515,11 @@ add_hook(&#39;DomainEdit&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-2&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-4&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-2&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;DomainValidation&#39;, 1, function($vars) {
@@ -11272,78 +11530,6 @@ add_hook(&#39;DomainValidation&#39;, 1, function($vars) {
 &lt;h2 id=&#34;predomainregister&#34;&gt;PreDomainRegister&lt;/h2&gt;
 
 &lt;p&gt;Executes before a domain register command&lt;/p&gt;
-
-&lt;h4 id=&#34;parameters-3&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;params&lt;/td&gt;
-&lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Common domain registrar parameters. See &lt;a href=&#34;http://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;http://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;response-3&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;PreDomainRegister&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;predomaintransfer&#34;&gt;PreDomainTransfer&lt;/h2&gt;
-
-&lt;p&gt;Executes before a domain transfer command&lt;/p&gt;
-
-&lt;h4 id=&#34;parameters-4&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;params&lt;/td&gt;
-&lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Common domain registrar parameters. See &lt;a href=&#34;http://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;http://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;response-4&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;PreDomainTransfer&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;preregistrarregisterdomain&#34;&gt;PreRegistrarRegisterDomain&lt;/h2&gt;
-
-&lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-5&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -11360,36 +11546,26 @@ add_hook(&#39;PreDomainTransfer&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Common domain registrar parameters. See &lt;a href=&#34;http://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;http://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-5&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;Accepts an optional array return. Return &lt;code&gt;abortWithSuccess=true&lt;/code&gt; to abort the action and treat it as successful. Return &lt;code&gt;abortWithError=Error messages goes here&lt;/code&gt; to abort the action and treat it as failed.&lt;/p&gt;
+&lt;p&gt;No response supported&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;PreRegistrarRegisterDomain&#39;, 1, function($vars)
-    {
-        $domainName = $vars[&#39;params&#39;][&#39;sld&#39;] . &#39;.&#39; . $vars[&#39;params&#39;][&#39;tld&#39;];
-
-        return array(
-            &#39;abortWithError&#39; =&amp;gt; &#39;Error message to display goes here&#39;,
-        );
-
-        //return array(
-        //    &#39;abortWithSuccess&#39; =&amp;gt; true,
-        //);
-    }
-);
+add_hook(&#39;PreDomainRegister&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;preregistrarrenewdomain&#34;&gt;PreRegistrarRenewDomain&lt;/h2&gt;
+&lt;h2 id=&#34;predomaintransfer&#34;&gt;PreDomainTransfer&lt;/h2&gt;
 
-&lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
+&lt;p&gt;Executes before a domain transfer command&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -11406,24 +11582,24 @@ add_hook(&#39;PreRegistrarRegisterDomain&#39;, 1, function($vars)
 &lt;tr&gt;
 &lt;td&gt;params&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Common domain registrar parameters. See &lt;a href=&#34;http://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;http://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-6&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;Accepts an optional array return. Return &lt;code&gt;abortWithSuccess=true&lt;/code&gt; to abort the action and treat it as successful. Return &lt;code&gt;abortWithError=Error messages goes here&lt;/code&gt; to abort the action and treat it as failed.&lt;/p&gt;
+&lt;p&gt;No response supported&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-6&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;PreRegistrarRenewDomain&#39;, 1, function($vars) {
+add_hook(&#39;PreDomainTransfer&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;preregistrartransferdomain&#34;&gt;PreRegistrarTransferDomain&lt;/h2&gt;
+&lt;h2 id=&#34;preregistrarregisterdomain&#34;&gt;PreRegistrarRegisterDomain&lt;/h2&gt;
 
 &lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
 
@@ -11454,7 +11630,263 @@ add_hook(&#39;PreRegistrarRenewDomain&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreRegistrarRegisterDomain&#39;, 1, function($vars)
+    {
+        $domainName = $vars[&#39;params&#39;][&#39;sld&#39;] . &#39;.&#39; . $vars[&#39;params&#39;][&#39;tld&#39;];
+
+        return array(
+            &#39;abortWithError&#39; =&amp;gt; &#39;Error message to display goes here&#39;,
+        );
+
+        //return array(
+        //    &#39;abortWithSuccess&#39; =&amp;gt; true,
+        //);
+    }
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;preregistrarrenewdomain&#34;&gt;PreRegistrarRenewDomain&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-8&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-8&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts an optional array return. Return &lt;code&gt;abortWithSuccess=true&lt;/code&gt; to abort the action and treat it as successful. Return &lt;code&gt;abortWithError=Error messages goes here&lt;/code&gt; to abort the action and treat it as failed.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-8&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreRegistrarRenewDomain&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;preregistrartransferdomain&#34;&gt;PreRegistrarTransferDomain&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the registrar function being executed for a domain. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-9&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;https://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-9&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts an optional array return. Return &lt;code&gt;abortWithSuccess=true&lt;/code&gt; to abort the action and treat it as successful. Return &lt;code&gt;abortWithError=Error messages goes here&lt;/code&gt; to abort the action and treat it as failed.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-9&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;PreRegistrarTransferDomain&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;topleveldomainadd&#34;&gt;TopLevelDomainAdd&lt;/h2&gt;
+
+&lt;p&gt;Executes when a new domain extension is added.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-10&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;tld&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;supportsDnsManagement&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;supportsEmailForwarding&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;supportsIdProtection&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;requiresEppCode&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;automaticRegistrar&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-10&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-10&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;TopLevelDomainAdd&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;topleveldomaindelete&#34;&gt;TopLevelDomainDelete&lt;/h2&gt;
+
+&lt;p&gt;Executes when a domain extension is deleted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-11&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;tld&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-11&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-11&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;TopLevelDomainDelete&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;topleveldomainpricingupdate&#34;&gt;TopLevelDomainPricingUpdate&lt;/h2&gt;
+
+&lt;p&gt;Executes when domain extension pricing is updated.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;tld&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;TopLevelDomainPricingUpdate&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;topleveldomainupdate&#34;&gt;TopLevelDomainUpdate&lt;/h2&gt;
+
+&lt;p&gt;Executes when domain extensions configuration is updated.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-13&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;modifiedTlds&lt;/td&gt;
+&lt;td&gt;string[]&lt;/td&gt;
+&lt;td&gt;An array of domain extensions that have been modified.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-13&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-13&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;TopLevelDomainUpdate&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
@@ -12821,11 +13253,47 @@ add_hook(&#39;AfterInvoicingGenerateInvoiceItems&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;cancelandrefundorder&#34;&gt;CancelAndRefundOrder&lt;/h2&gt;
+
+&lt;p&gt;Runs when an order is requested to be cancelled and refunded, prior to the change of status actually occurring.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-5&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;orderid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The order ID&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-5&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;CancelAndRefundOrder&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;invoicecancelled&#34;&gt;InvoiceCancelled&lt;/h2&gt;
 
 &lt;p&gt;Executes when an invoice is being cancelled&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-5&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -12845,11 +13313,11 @@ add_hook(&#39;AfterInvoicingGenerateInvoiceItems&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-5&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-6&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-6&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;InvoiceCancelled&#39;, 1, function($vars) {
@@ -12859,9 +13327,9 @@ add_hook(&#39;InvoiceCancelled&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;invoicechangegateway&#34;&gt;InvoiceChangeGateway&lt;/h2&gt;
 
-&lt;p&gt;Executes when changing the gateway on an invoice if the client area.&lt;/p&gt;
+&lt;p&gt;Executes when changing the gateway on an invoice.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -12887,11 +13355,11 @@ add_hook(&#39;InvoiceCancelled&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-6&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-7&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-6&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;InvoiceChangeGateway&#39;, 1, function($vars) {
@@ -12902,60 +13370,6 @@ add_hook(&#39;InvoiceChangeGateway&#39;, 1, function($vars) {
 &lt;h2 id=&#34;invoicecreated&#34;&gt;InvoiceCreated&lt;/h2&gt;
 
 &lt;p&gt;Executes when an invoice is created following sending the Invoice Created email.&lt;/p&gt;
-
-&lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;source&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;user&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;invoiceid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The invoice ID that was created&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;status&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The status of the new invoice&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;response-7&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code-7&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;InvoiceCreated&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;invoicecreation&#34;&gt;InvoiceCreation&lt;/h2&gt;
-
-&lt;p&gt;Executes when an invoice is first created. The invoice has not been delivered to the client at this point.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-8&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -13002,14 +13416,14 @@ add_hook(&#39;InvoiceCreated&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-8&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;InvoiceCreation&#39;, 1, function($vars) {
+add_hook(&#39;InvoiceCreated&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;invoicecreationpreemail&#34;&gt;InvoiceCreationPreEmail&lt;/h2&gt;
+&lt;h2 id=&#34;invoicecreation&#34;&gt;InvoiceCreation&lt;/h2&gt;
 
-&lt;p&gt;Executes when an invoice is created immediately prior to sending the Invoice Created email.&lt;/p&gt;
+&lt;p&gt;Executes as an invoice is being created in the admin area&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-9&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -13026,25 +13440,25 @@ add_hook(&#39;InvoiceCreation&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;source&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;When the invoice is being created&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;user&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;invoiceid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The invoice ID that was created&lt;/td&gt;
+&lt;td&gt;The id of the newly created invoice&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;status&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The status of the new invoice&lt;/td&gt;
+&lt;td&gt;The status of the newly created invoice&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13056,14 +13470,14 @@ add_hook(&#39;InvoiceCreation&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-9&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;InvoiceCreationPreEmail&#39;, 1, function($vars) {
+add_hook(&#39;InvoiceCreation&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;invoicepaid&#34;&gt;InvoicePaid&lt;/h2&gt;
+&lt;h2 id=&#34;invoicecreationpreemail&#34;&gt;InvoiceCreationPreEmail&lt;/h2&gt;
 
-&lt;p&gt;Executes when an invoice is Paid following the email receipt having been sent and any automation tasks associated with the payment action having been run.&lt;/p&gt;
+&lt;p&gt;Executes as an invoice is being created in the admin area before the email is being sent&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-10&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -13078,9 +13492,27 @@ add_hook(&#39;InvoiceCreationPreEmail&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
+&lt;td&gt;source&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;When the invoice is being created&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;user&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;invoiceid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;The id of the newly created invoice&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;status&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The status of the newly created invoice&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13092,14 +13524,14 @@ add_hook(&#39;InvoiceCreationPreEmail&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-10&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;InvoicePaid&#39;, 1, function($vars) {
+add_hook(&#39;InvoiceCreationPreEmail&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;invoicepaidpreemail&#34;&gt;InvoicePaidPreEmail&lt;/h2&gt;
+&lt;h2 id=&#34;invoicepaid&#34;&gt;InvoicePaid&lt;/h2&gt;
 
-&lt;p&gt;Executes when an invoice is Paid prior to any email or automation tasks associated with the payment action having been run.&lt;/p&gt;
+&lt;p&gt;Executes when an invoice is Paid following the email receipt having been sent and any automation tasks associated with the payment action having been run.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-11&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -13128,6 +13560,42 @@ add_hook(&#39;InvoicePaid&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-11&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;InvoicePaid&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;invoicepaidpreemail&#34;&gt;InvoicePaidPreEmail&lt;/h2&gt;
+
+&lt;p&gt;Executes when an invoice is Paid prior to any email or automation tasks associated with the payment action having been run.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;invoiceid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;InvoicePaidPreEmail&#39;, 1, function($vars) {
     // Perform hook code here...
 });
@@ -13137,7 +13605,7 @@ add_hook(&#39;InvoicePaidPreEmail&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when an invoice payment reminder is sent&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-13&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -13163,11 +13631,11 @@ add_hook(&#39;InvoicePaidPreEmail&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-13&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-13&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;InvoicePaymentReminder&#39;, 1, function($vars) {
@@ -13179,7 +13647,7 @@ add_hook(&#39;InvoicePaymentReminder&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when an invoice status is changed to Refunded.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-13&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-14&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -13199,11 +13667,11 @@ add_hook(&#39;InvoicePaymentReminder&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-13&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-14&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-13&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-14&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;InvoiceRefunded&#39;, 1, function($vars) {
@@ -13215,7 +13683,7 @@ add_hook(&#39;InvoiceRefunded&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes as an invoice is being split&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-14&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-15&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -13241,11 +13709,11 @@ add_hook(&#39;InvoiceRefunded&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-14&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-15&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-14&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-15&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;InvoiceSplit&#39;, 1, function($vars) {
@@ -13257,7 +13725,7 @@ add_hook(&#39;InvoiceSplit&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when an invoice is being marked as Unpaid&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-15&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-16&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -13277,11 +13745,11 @@ add_hook(&#39;InvoiceSplit&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-15&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-16&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-15&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-16&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;InvoiceUnpaid&#39;, 1, function($vars) {
@@ -13293,7 +13761,7 @@ add_hook(&#39;InvoiceUnpaid&#39;, 1, function($vars) {
 
 &lt;p&gt;Runs any time a payment gateway callback is received and logged.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-16&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-17&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -13325,11 +13793,11 @@ add_hook(&#39;InvoiceUnpaid&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-16&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-17&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-16&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-17&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;LogTransaction&#39;, 1, function($vars) {
@@ -13341,7 +13809,7 @@ add_hook(&#39;LogTransaction&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when an invoice is refunded via the Manual Refund option.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-17&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-18&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -13367,11 +13835,11 @@ add_hook(&#39;LogTransaction&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-17&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-18&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-17&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-18&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;ManualRefund&#39;, 1, function($vars) {
@@ -13383,7 +13851,7 @@ add_hook(&#39;ManualRefund&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes prior to invoice generation allowing for manipulation of items prior to invoice generation.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-18&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-19&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -13403,11 +13871,11 @@ add_hook(&#39;ManualRefund&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-18&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-19&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-18&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-19&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;PreInvoicingGenerateInvoiceItems&#39;, 1, function($vars) {
@@ -13418,48 +13886,6 @@ add_hook(&#39;PreInvoicingGenerateInvoiceItems&#39;, 1, function($vars) {
 &lt;h2 id=&#34;quotecreated&#34;&gt;QuoteCreated&lt;/h2&gt;
 
 &lt;p&gt;Executes when a new quote is created.&lt;/p&gt;
-
-&lt;h4 id=&#34;parameters-19&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;quoteid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;status&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;response-19&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code-19&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;QuoteCreated&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;quotestatuschange&#34;&gt;QuoteStatusChange&lt;/h2&gt;
-
-&lt;p&gt;Executes when a quote status is updated&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-20&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -13494,6 +13920,48 @@ add_hook(&#39;QuoteCreated&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-20&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;QuoteCreated&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;quotestatuschange&#34;&gt;QuoteStatusChange&lt;/h2&gt;
+
+&lt;p&gt;Executes when a quote status is updated&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-21&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;quoteid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;status&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-21&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-21&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;QuoteStatusChange&#39;, 1, function($vars) {
     // Perform hook code here...
 });
@@ -13503,7 +13971,7 @@ add_hook(&#39;QuoteStatusChange&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when an invoice is updated with changes to or additions of line items. Can be used to manipulate the invoice.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-21&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-22&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -13523,11 +13991,11 @@ add_hook(&#39;QuoteStatusChange&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-21&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-22&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-21&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-22&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;UpdateInvoiceTotal&#39;, 1, function($vars) {
@@ -13539,7 +14007,7 @@ add_hook(&#39;UpdateInvoiceTotal&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes as the invoice is being viewed as a client&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-22&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-23&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -13559,11 +14027,11 @@ add_hook(&#39;UpdateInvoiceTotal&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-22&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-23&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-22&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-23&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;ViewInvoiceDetailsPage&#39;, 1, function($vars) {
@@ -15555,11 +16023,51 @@ add_hook(&#39;ShoppingCartCheckoutOutput&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;shoppingcartconfigureproductaddonsoutput&#34;&gt;ShoppingCartConfigureProductAddonsOutput&lt;/h2&gt;
+
+&lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;billingCycle&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;selectedAddons&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ShoppingCartConfigureProductAddonsOutput&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;shoppingcartviewcartoutput&#34;&gt;ShoppingCartViewCartOutput&lt;/h2&gt;
 
 &lt;p&gt;Allows returning of output for display on the Shopping Cart View Cart page.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-13&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -15579,11 +16087,11 @@ add_hook(&#39;ShoppingCartCheckoutOutput&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-12&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-13&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;Return the HTML to be output on the page.&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-13&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;ShoppingCartViewCartOutput&#39;, 1, function($vars) {
@@ -15592,40 +16100,6 @@ add_hook(&#39;ShoppingCartViewCartOutput&#39;, 1, function($vars) {
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;shoppingcartviewcategoryaboveproductsoutput&#34;&gt;ShoppingCartViewCategoryAboveProductsOutput&lt;/h2&gt;
-
-&lt;h4 id=&#34;parameters-13&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;cart&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;response-13&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code-13&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ShoppingCartViewCategoryAboveProductsOutput&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;shoppingcartviewcategorybelowproductsoutput&#34;&gt;ShoppingCartViewCategoryBelowProductsOutput&lt;/h2&gt;
 
 &lt;h4 id=&#34;parameters-14&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -15652,6 +16126,40 @@ add_hook(&#39;ShoppingCartViewCategoryAboveProductsOutput&#39;, 1, function($var
 &lt;p&gt;No response supported&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-14&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ShoppingCartViewCategoryAboveProductsOutput&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;shoppingcartviewcategorybelowproductsoutput&#34;&gt;ShoppingCartViewCategoryBelowProductsOutput&lt;/h2&gt;
+
+&lt;h4 id=&#34;parameters-15&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cart&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-15&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-15&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;ShoppingCartViewCategoryBelowProductsOutput&#39;, 1, function($vars) {

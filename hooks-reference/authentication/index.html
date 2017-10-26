@@ -374,6 +374,12 @@
 <td>int</td>
 <td></td>
 </tr>
+
+<tr>
+<td>contactid</td>
+<td>int</td>
+<td>Contact ID will be present if the login was performed by a contact/sub-account</td>
+</tr>
 </tbody>
 </table>
 
@@ -464,7 +470,7 @@ add_hook('ClientLoginShare', 1, function($vars) {
 
 <h2 id="clientlogout">ClientLogout</h2>
 
-<p>Executes when a client is logging out of the client area</p>
+<p>Executes when a client is logging into the Client Area.</p>
 
 <h4 id="parameters-2">Parameters</h4>
 
@@ -482,6 +488,12 @@ add_hook('ClientLoginShare', 1, function($vars) {
 <td>userid</td>
 <td>int</td>
 <td></td>
+</tr>
+
+<tr>
+<td>contactid</td>
+<td>int</td>
+<td>Contact ID will be present if the login was performed by a contact/sub-account</td>
 </tr>
 </tbody>
 </table>
