@@ -39,19 +39,19 @@
 
 &lt;h2 id=&#34;choosing-a-name&#34;&gt;Choosing a Name&lt;/h2&gt;
 
-&lt;p&gt;Notification Modules are located in the &lt;code&gt;/modules/notifications/&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;Notification Modules are stored in the &lt;code&gt;/modules/notifications/&lt;/code&gt; directory.&lt;/p&gt;
 
 &lt;p&gt;Each module has its own subdirectory within which all files relating to that module should be stored.&lt;/p&gt;
 
-&lt;p&gt;At its simplest, a notification module is a PHP file containing a class that implements the &lt;code&gt;NotificationModuleInterface&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;At its simplest, a notification module is a PHP file containing a class that implements the &lt;a href=&#34;https://docs.whmcs.com/classes/7.4/WHMCS/Module/Contracts/NotificationModuleInterface.html&#34;&gt;NotificationModuleInterface&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;To get started creating a new plugin, follow the steps below.&lt;/p&gt;
+&lt;p&gt;To get started creating a new notification module, follow the steps below.&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Choose a name for your module. Module names should be a single word, consisting of only letters and numbers. Names must begin with a letter, and must be unique.&lt;/li&gt;
-&lt;li&gt;Create a new directory using your desired module name.&lt;/li&gt;
-&lt;li&gt;Create a new file within the directory with the filename &lt;code&gt;Yourmodulename.php&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Add the following code to the file, replacing all instances of &lt;code&gt;Yourmodulename&lt;/code&gt; with the name of your module as appropriate.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Choose a name&lt;/em&gt; for your module. Module names should be a single word, consisting of only letters and numbers. Names must begin with a letter, and must be unique.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Create a new directory&lt;/em&gt; using your desired module name.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Create a new file&lt;/em&gt; within the directory with the filename &lt;code&gt;Yourmodulename.php&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Add the following code&lt;/em&gt; to the file, replacing all instances of &lt;code&gt;Yourmodulename&lt;/code&gt; with the name of your module as appropriate.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
@@ -81,11 +81,11 @@ class Yourmodulename implements NotificationModuleInterface
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/notification-providers/initialisation/</guid>
-      <description>&lt;p&gt;Notification modules should have a display name and logo defined for them.&lt;/p&gt;
+      <description>&lt;p&gt;Notification modules require a display name and logo to be defined for them.&lt;/p&gt;
 
 &lt;p&gt;It is recommended to set these values during object instantiation.&lt;/p&gt;
 
-&lt;p&gt;A DescriptionTrait is made available which provides methods to fulfill this requirement.&lt;/p&gt;
+&lt;p&gt;A &lt;a href=&#34;https://docs.whmcs.com/classes/7.4/WHMCS/Module/Notification/DescriptionTrait.html&#34;&gt;DescriptionTrait&lt;/a&gt; is made available which provides methods to fulfill this requirement.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;use DescriptionTrait;
 
@@ -114,13 +114,17 @@ public function __construct()
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/notification-providers/provider-settings/</guid>
-      <description>&lt;p&gt;A notification provider supports settings required for the notification module to function.&lt;/p&gt;
+      <description>
 
-&lt;p&gt;For example, if the module connects to a remote messaging service this might be a username and password, or OAuth toked, required to authenticate to that service.&lt;/p&gt;
+&lt;p&gt;A notification provider can define settings required for the notification module to be activated.&lt;/p&gt;
 
-&lt;p&gt;The field definitions you return from this method are used to build a form in the admin user interface.&lt;/p&gt;
+&lt;p&gt;The field definitions you return from this method are used to build a form in the admin user interface that must be filled out in order to activate the notification provider module.&lt;/p&gt;
+
+&lt;p&gt;For example, if the module connects to a remote messaging service, this might be a username/password or OAuth token required to authenticate to that service.&lt;/p&gt;
 
 &lt;p&gt;Supported field types are: text, password, yesno, dropdown, radio &amp;amp; textarea.&lt;/p&gt;
+
+&lt;p&gt;Below is an example of two fields defined, with the names &lt;code&gt;api_username&lt;/code&gt; and &lt;code&gt;api_password&lt;/code&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;/**
  * Provider settings.
@@ -144,9 +148,11 @@ public function settings()
 }
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;validating-user-supplied-setting-values&#34;&gt;Validating User Supplied Setting Values&lt;/h2&gt;
+
 &lt;p&gt;Upon submission of provider settings, the user provided values can be validated using the &lt;code&gt;testConnection&lt;/code&gt; method.&lt;/p&gt;
 
-&lt;p&gt;If validation fails, throw an exception to abort the save action and display an error message to the end user. The error message will be the message provided within the exception.&lt;/p&gt;
+&lt;p&gt;If validation fails, simply throw an exception to abort the save action and display an error message to the end user. The error message will be the message provided within the exception so make it user friendly!&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;/**
  * Test connection.
@@ -175,13 +181,13 @@ public function testConnection($settings)
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/notification-providers/notification-settings/</guid>
-      <description>&lt;p&gt;Notification Settings are the customisable settings for each individual notification rule.&lt;/p&gt;
+      <description>&lt;p&gt;Notification Settings are configured on a per notification rule basis.&lt;/p&gt;
 
-&lt;p&gt;They can be used for user configurable settings that are specific to a given notification.&lt;/p&gt;
+&lt;p&gt;Notification Settings should be used for user configurable settings that are specific to an individual notification. For settings that are the same for all notification rules, &lt;a href=&#34;//developers.whmcs.com/notification-providers/provider-settings&#34;&gt;Provider Settings&lt;/a&gt; should be used instead.&lt;/p&gt;
 
-&lt;p&gt;For example in the case of our HipChat and Slack notification providers, these settings consist of the ability to choose the Channel/Room to notify, as well as the ability to customise the notification message body.&lt;/p&gt;
+&lt;p&gt;In the case of our HipChat and Slack notification providers, examples of Notification Settings are fields for defining the Channel/Room to notify, as well as the ability to customise the notification message body.&lt;/p&gt;
 
-&lt;p&gt;The field definitions you return from this method are used to build a form in the admin user interface.&lt;/p&gt;
+&lt;p&gt;The field definitions you return from this method are used to build a form in the admin notification rule user interface.&lt;/p&gt;
 
 &lt;p&gt;Supported field types are: text, password, yesno, dropdown, radio, textarea and dynamic.&lt;/p&gt;
 
@@ -214,11 +220,11 @@ public function testConnection($settings)
       <guid>//developers.whmcs.com/notification-providers/dynamic-fields/</guid>
       <description>&lt;p&gt;Dynamic fields are a special type of notification setting.&lt;/p&gt;
 
-&lt;p&gt;A dynamic field is rendered as a dropdown menu of choices and is recommended for dropdown menus where the list of options needs to be populated with a poll or fetch from a remote service.&lt;/p&gt;
+&lt;p&gt;A dynamic field is rendered as a dropdown menu and is recommended for settings where the list of options and choices need to be populated with a poll or fetch from a remote service or API.&lt;/p&gt;
 
-&lt;p&gt;An example use case is demonstrated in our HipChat and Slack notification providers, where dynamic fields are used to provide a list of Channels and Rooms that is searchable and .&lt;/p&gt;
+&lt;p&gt;An example use case is demonstrated in our HipChat and Slack notification providers, where Dynamic Fields are used to provide a list of Channels and Rooms that are fetched in real-time from the respective APIs.&lt;/p&gt;
 
-&lt;p&gt;Below is an example of how a dynamic field can be implemented into your notification settings method.&lt;/p&gt;
+&lt;p&gt;Below is an example of a &amp;ldquo;channel&amp;rdquo; dynamic field.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;public function notificationSettings()
 {
@@ -233,18 +239,25 @@ public function testConnection($settings)
 
 public function getDynamicField($fieldName, $settings)
 {
+    $values = [];
+
     if ($fieldName == &#39;channel&#39;) {
-        $channels = [];
 
         // Perform remote API call, query or database fetch and build an array:
-        // $channels[] = [
+        //
+        // $values[] = [
         //     &#39;id&#39; =&amp;gt; &#39;123&#39;,
         //     &#39;name&#39; =&amp;gt; &#39;Demo Room&#39;,
         //     &#39;description&#39; =&amp;gt; &#39;Room ID&#39;,
         // ];
 
-        return [&#39;values&#39; =&amp;gt; $values];
+    } elseif ($fieldName == &#39;...&#39;) {
+        // ....
     }
+
+    return [
+        &#39;values&#39; =&amp;gt; $values,
+    ];
 }
 &lt;/code&gt;&lt;/pre&gt;
 </description>
@@ -265,7 +278,7 @@ public function getDynamicField($fieldName, $settings)
 &lt;p&gt;The method receives 3 input arguments:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;em&gt;$notification&lt;/em&gt; - A notification to send. This will be an instance of the &lt;a href=&#34;https://docs.whmcs.com/classes/7.4/WHMCS/Notification/Contracts/NotificationInterface.html&#34;&gt;NotificationInterface&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;$notification&lt;/em&gt; - A notification to send. This will be an instance of the &lt;a href=&#34;https://docs.whmcs.com/classes/7.4/WHMCS/Notification/Contracts/NotificationInterface.html&#34;&gt;NotificationInterface&lt;/a&gt; class.&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;$moduleSettings&lt;/em&gt; - An array containing all the provider settings defined for your notification module in the Provider Settings method.&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;$notificationSettings&lt;/em&gt; - An array containing all the notification settings defined for the currently triggered notification rule.&lt;/li&gt;
 &lt;/ol&gt;
@@ -279,7 +292,6 @@ public function getDynamicField($fieldName, $settings)
     $channel = $notificationSettings[&#39;channel&#39;];
 
     // Build API Request to remote service
-    // The following is a basic example
 
     $postData = [
         &#39;username&#39; =&amp;gt; $api_username,
@@ -292,6 +304,7 @@ public function getDynamicField($fieldName, $settings)
         &#39;attributes&#39; =&amp;gt; [],
     ];
 
+    // Attributes vary depending on the event trigger. Loop through as necessary.
     foreach ($notification-&amp;gt;getAttributes() as $attribute) {
         $postData[&#39;attributes&#39;][] = [
             &#39;label&#39; =&amp;gt; $attribute-&amp;gt;getLabel(),
@@ -303,10 +316,12 @@ public function getDynamicField($fieldName, $settings)
     }
 
     // Call the remote API
-    $response = curlCall(&#39;x&#39;, $postData);
+    $response = file_get_contents(&#39;https://www.example.com/?&#39; . http_build_query($postData));
 
-    // Throw an error on failure
-    throw new Exception(&#39;Human friendly error response&#39;);
+    if (!$response) {
+        // Throw a human friendly exception on error
+        throw new Exception(&#39;No response received from API&#39;);
+    }
 }
 &lt;/code&gt;&lt;/pre&gt;
 </description>

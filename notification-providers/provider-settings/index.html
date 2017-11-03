@@ -255,13 +255,17 @@
 
 			<h1>Provider Settings </h1>
 
-			<p>A notification provider supports settings required for the notification module to function.</p>
+			
 
-<p>For example, if the module connects to a remote messaging service this might be a username and password, or OAuth toked, required to authenticate to that service.</p>
+<p>A notification provider can define settings required for the notification module to be activated.</p>
 
-<p>The field definitions you return from this method are used to build a form in the admin user interface.</p>
+<p>The field definitions you return from this method are used to build a form in the admin user interface that must be filled out in order to activate the notification provider module.</p>
+
+<p>For example, if the module connects to a remote messaging service, this might be a username/password or OAuth token required to authenticate to that service.</p>
 
 <p>Supported field types are: text, password, yesno, dropdown, radio &amp; textarea.</p>
+
+<p>Below is an example of two fields defined, with the names <code>api_username</code> and <code>api_password</code>.</p>
 
 <pre><code>/**
  * Provider settings.
@@ -285,9 +289,11 @@ public function settings()
 }
 </code></pre>
 
+<h2 id="validating-user-supplied-setting-values">Validating User Supplied Setting Values</h2>
+
 <p>Upon submission of provider settings, the user provided values can be validated using the <code>testConnection</code> method.</p>
 
-<p>If validation fails, throw an exception to abort the save action and display an error message to the end user. The error message will be the message provided within the exception.</p>
+<p>If validation fails, simply throw an exception to abort the save action and display an error message to the end user. The error message will be the message provided within the exception so make it user friendly!</p>
 
 <pre><code>/**
  * Test connection.

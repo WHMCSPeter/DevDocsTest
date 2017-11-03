@@ -264,7 +264,7 @@
 <p>The method receives 3 input arguments:</p>
 
 <ol>
-<li><em>$notification</em> - A notification to send. This will be an instance of the <a href="https://docs.whmcs.com/classes/7.4/WHMCS/Notification/Contracts/NotificationInterface.html">NotificationInterface</a></li>
+<li><em>$notification</em> - A notification to send. This will be an instance of the <a href="https://docs.whmcs.com/classes/7.4/WHMCS/Notification/Contracts/NotificationInterface.html">NotificationInterface</a> class.</li>
 <li><em>$moduleSettings</em> - An array containing all the provider settings defined for your notification module in the Provider Settings method.</li>
 <li><em>$notificationSettings</em> - An array containing all the notification settings defined for the currently triggered notification rule.</li>
 </ol>
@@ -278,7 +278,6 @@
     $channel = $notificationSettings['channel'];
 
     // Build API Request to remote service
-    // The following is a basic example
 
     $postData = [
         'username' =&gt; $api_username,
@@ -291,6 +290,7 @@
         'attributes' =&gt; [],
     ];
 
+    // Attributes vary depending on the event trigger. Loop through as necessary.
     foreach ($notification-&gt;getAttributes() as $attribute) {
         $postData['attributes'][] = [
             'label' =&gt; $attribute-&gt;getLabel(),
@@ -302,10 +302,12 @@
     }
 
     // Call the remote API
-    $response = curlCall('x', $postData);
+    $response = file_get_contents('https://www.example.com/?' . http_build_query($postData));
 
-    // Throw an error on failure
-    throw new Exception('Human friendly error response');
+    if (!$response) {
+        // Throw a human friendly exception on error
+        throw new Exception('No response received from API');
+    }
 }
 </code></pre>
 

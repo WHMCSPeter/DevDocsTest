@@ -257,11 +257,11 @@
 
 			<p>Dynamic fields are a special type of notification setting.</p>
 
-<p>A dynamic field is rendered as a dropdown menu of choices and is recommended for dropdown menus where the list of options needs to be populated with a poll or fetch from a remote service.</p>
+<p>A dynamic field is rendered as a dropdown menu and is recommended for settings where the list of options and choices need to be populated with a poll or fetch from a remote service or API.</p>
 
-<p>An example use case is demonstrated in our HipChat and Slack notification providers, where dynamic fields are used to provide a list of Channels and Rooms that is searchable and .</p>
+<p>An example use case is demonstrated in our HipChat and Slack notification providers, where Dynamic Fields are used to provide a list of Channels and Rooms that are fetched in real-time from the respective APIs.</p>
 
-<p>Below is an example of how a dynamic field can be implemented into your notification settings method.</p>
+<p>Below is an example of a &ldquo;channel&rdquo; dynamic field.</p>
 
 <pre><code>public function notificationSettings()
 {
@@ -276,18 +276,25 @@
 
 public function getDynamicField($fieldName, $settings)
 {
+    $values = [];
+
     if ($fieldName == 'channel') {
-        $channels = [];
 
         // Perform remote API call, query or database fetch and build an array:
-        // $channels[] = [
+        //
+        // $values[] = [
         //     'id' =&gt; '123',
         //     'name' =&gt; 'Demo Room',
         //     'description' =&gt; 'Room ID',
         // ];
 
-        return ['values' =&gt; $values];
+    } elseif ($fieldName == '...') {
+        // ....
     }
+
+    return [
+        'values' =&gt; $values,
+    ];
 }
 </code></pre>
 

@@ -255,13 +255,13 @@
 
 			<h1>Notification Settings </h1>
 
-			<p>Notification Settings are the customisable settings for each individual notification rule.</p>
+			<p>Notification Settings are configured on a per notification rule basis.</p>
 
-<p>They can be used for user configurable settings that are specific to a given notification.</p>
+<p>Notification Settings should be used for user configurable settings that are specific to an individual notification. For settings that are the same for all notification rules, <a href="//developers.whmcs.com/notification-providers/provider-settings">Provider Settings</a> should be used instead.</p>
 
-<p>For example in the case of our HipChat and Slack notification providers, these settings consist of the ability to choose the Channel/Room to notify, as well as the ability to customise the notification message body.</p>
+<p>In the case of our HipChat and Slack notification providers, examples of Notification Settings are fields for defining the Channel/Room to notify, as well as the ability to customise the notification message body.</p>
 
-<p>The field definitions you return from this method are used to build a form in the admin user interface.</p>
+<p>The field definitions you return from this method are used to build a form in the admin notification rule user interface.</p>
 
 <p>Supported field types are: text, password, yesno, dropdown, radio, textarea and dynamic.</p>
 

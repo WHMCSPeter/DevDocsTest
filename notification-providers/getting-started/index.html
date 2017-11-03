@@ -267,19 +267,19 @@
 
 <h2 id="choosing-a-name">Choosing a Name</h2>
 
-<p>Notification Modules are located in the <code>/modules/notifications/</code> directory.</p>
+<p>Notification Modules are stored in the <code>/modules/notifications/</code> directory.</p>
 
 <p>Each module has its own subdirectory within which all files relating to that module should be stored.</p>
 
-<p>At its simplest, a notification module is a PHP file containing a class that implements the <code>NotificationModuleInterface</code>.</p>
+<p>At its simplest, a notification module is a PHP file containing a class that implements the <a href="https://docs.whmcs.com/classes/7.4/WHMCS/Module/Contracts/NotificationModuleInterface.html">NotificationModuleInterface</a>.</p>
 
-<p>To get started creating a new plugin, follow the steps below.</p>
+<p>To get started creating a new notification module, follow the steps below.</p>
 
 <ol>
-<li>Choose a name for your module. Module names should be a single word, consisting of only letters and numbers. Names must begin with a letter, and must be unique.</li>
-<li>Create a new directory using your desired module name.</li>
-<li>Create a new file within the directory with the filename <code>Yourmodulename.php</code></li>
-<li>Add the following code to the file, replacing all instances of <code>Yourmodulename</code> with the name of your module as appropriate.</li>
+<li><em>Choose a name</em> for your module. Module names should be a single word, consisting of only letters and numbers. Names must begin with a letter, and must be unique.</li>
+<li><em>Create a new directory</em> using your desired module name.</li>
+<li><em>Create a new file</em> within the directory with the filename <code>Yourmodulename.php</code></li>
+<li><em>Add the following code</em> to the file, replacing all instances of <code>Yourmodulename</code> with the name of your module as appropriate.</li>
 </ol>
 
 <pre><code>&lt;?php
