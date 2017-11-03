@@ -506,6 +506,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/notification-providers/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/oauth/</loc>
   </url>
   
@@ -714,6 +718,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/notification-providers/getting-started/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/payment-gateways/getting-started/</loc>
   </url>
   
@@ -810,6 +818,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/notification-providers/initialisation/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/advanced/db-interaction/</loc>
   </url>
   
@@ -866,6 +878,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/notification-providers/provider-settings/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/modules/style-guide/</loc>
   </url>
   
@@ -898,6 +914,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/notification-providers/notification-settings/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/languages/overrides/</loc>
   </url>
   
@@ -923,6 +943,10 @@
   
   <url>
     <loc>//developers.whmcs.com/addon-modules/client-area-output/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/notification-providers/dynamic-fields/</loc>
   </url>
   
   <url>
@@ -967,6 +991,10 @@
   
   <url>
     <loc>//developers.whmcs.com/addon-modules/multi-language/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/notification-providers/send-notification/</loc>
   </url>
   
   <url>

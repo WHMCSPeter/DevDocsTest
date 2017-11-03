@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notification-providers-rsses on WHMCS Developer Documentation</title>
+    <link>//developers.whmcs.com/notification-providers/index.xml</link>
+    <description>Recent content in Notification-providers-rsses on WHMCS Developer Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Released under the MIT license</copyright>
+    <atom:link href="//developers.whmcs.com/notification-providers/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Notification Providers</title>
+      <link>//developers.whmcs.com/notification-providers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/notification-providers/</guid>
+      <description>&lt;p&gt;Notification Providers define how WHMCS can transmit notifications when Notification Rules are met.&lt;/p&gt;
+
+&lt;p&gt;You can learn more about Notifications in WHMCS at &lt;a href=&#34;https://docs.whmcs.com/Notifications&#34;&gt;https://docs.whmcs.com/Notifications&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>//developers.whmcs.com/notification-providers/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/notification-providers/getting-started/</guid>
+      <description>
+
+&lt;h2 id=&#34;sample-module&#34;&gt;Sample Module&lt;/h2&gt;
+
+&lt;p&gt;We make available a sample notification module on Github. We recommend using this as a starting point for a custom module.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/WHMCS/sample-notification-module&#34;&gt;https://github.com/WHMCS/sample-notification-module&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;choosing-a-name&#34;&gt;Choosing a Name&lt;/h2&gt;
+
+&lt;p&gt;Notification Modules are located in the &lt;code&gt;/modules/notifications/&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;p&gt;Each module has its own subdirectory within which all files relating to that module should be stored.&lt;/p&gt;
+
+&lt;p&gt;At its simplest, a notification module is a PHP file containing a class that implements the &lt;code&gt;NotificationModuleInterface&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To get started creating a new plugin, follow the steps below.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Choose a name for your module. Module names should be a single word, consisting of only letters and numbers. Names must begin with a letter, and must be unique.&lt;/li&gt;
+&lt;li&gt;Create a new directory using your desired module name.&lt;/li&gt;
+&lt;li&gt;Create a new file within the directory with the filename &lt;code&gt;Yourmodulename.php&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Add the following code to the file, replacing all instances of &lt;code&gt;Yourmodulename&lt;/code&gt; with the name of your module as appropriate.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+namespace WHMCS\Module\Notification\Yourmodulename;
+
+use WHMCS\Module\Contracts\NotificationModuleInterface;
+
+/**
+ * Yourmodulename
+ *
+ * @copyright Copyright (c) WHMCS Limited 2005-2017
+ * @license http://www.example.com/
+ */
+class Yourmodulename implements NotificationModuleInterface
+{
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For more information on the NotificationModuleInterface, please refer to &lt;a href=&#34;https://docs.whmcs.com/classes/7.4/WHMCS/Module/Contracts/NotificationModuleInterface.html&#34;&gt;https://docs.whmcs.com/classes/7.4/WHMCS/Module/Contracts/NotificationModuleInterface.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Initialisation</title>
+      <link>//developers.whmcs.com/notification-providers/initialisation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/notification-providers/initialisation/</guid>
+      <description>&lt;p&gt;Notification modules should have a display name and logo defined for them.&lt;/p&gt;
+
+&lt;p&gt;It is recommended to set these values during object instantiation.&lt;/p&gt;
+
+&lt;p&gt;A DescriptionTrait is made available which provides methods to fulfill this requirement.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;use DescriptionTrait;
+
+/**
+ * Constructor
+ */
+public function __construct()
+{
+    $this-&amp;gt;setDisplayName(&#39;Your Friendly Display Name&#39;)
+        -&amp;gt;setLogoFileName(&#39;logo.png&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The display name should be a human friendly version of your module name.&lt;/li&gt;
+&lt;li&gt;The logo filename should be a path relative to the base directory of the module.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For more information on the description trait, please refer to &lt;a href=&#34;https://docs.whmcs.com/classes/7.4/WHMCS/Module/Notification/DescriptionTrait.html&#34;&gt;https://docs.whmcs.com/classes/7.4/WHMCS/Module/Notification/DescriptionTrait.html&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Provider Settings</title>
+      <link>//developers.whmcs.com/notification-providers/provider-settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/notification-providers/provider-settings/</guid>
+      <description>&lt;p&gt;A notification provider supports settings required for the notification module to function.&lt;/p&gt;
+
+&lt;p&gt;For example, if the module connects to a remote messaging service this might be a username and password, or OAuth toked, required to authenticate to that service.&lt;/p&gt;
+
+&lt;p&gt;The field definitions you return from this method are used to build a form in the admin user interface.&lt;/p&gt;
+
+&lt;p&gt;Supported field types are: text, password, yesno, dropdown, radio &amp;amp; textarea.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Provider settings.
+ *
+ * @return array
+ */
+public function settings()
+{
+    return [
+        &#39;api_username&#39; =&amp;gt; [
+            &#39;FriendlyName&#39; =&amp;gt; &#39;API Username&#39;,
+            &#39;Type&#39; =&amp;gt; &#39;text&#39;,
+            &#39;Description&#39; =&amp;gt; &#39;Required username to authenticate with messaging service&#39;,
+        ],
+        &#39;api_password&#39; =&amp;gt; [
+            &#39;FriendlyName&#39; =&amp;gt; &#39;API Password&#39;,
+            &#39;Type&#39; =&amp;gt; &#39;password&#39;,
+            &#39;Description&#39; =&amp;gt; &#39;Required password to authenticate with messaging service&#39;,
+        ],
+    ];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Upon submission of provider settings, the user provided values can be validated using the &lt;code&gt;testConnection&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;p&gt;If validation fails, throw an exception to abort the save action and display an error message to the end user. The error message will be the message provided within the exception.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Test connection.
+ *
+ * @param array $settings
+ *
+ * @return array
+ */
+public function testConnection($settings)
+{
+    $api_username = $settings[&#39;api_username&#39;];
+    $api_password = $settings[&#39;api_password&#39;];
+
+    // Attempt to connect to API service to verify input credentials
+    // and upon error, throw an exception.
+
+    throw new \Exception(&#39;Unable to authenticate with supplied API username and password&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Notification Settings</title>
+      <link>//developers.whmcs.com/notification-providers/notification-settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/notification-providers/notification-settings/</guid>
+      <description>&lt;p&gt;Notification Settings are the customisable settings for each individual notification rule.&lt;/p&gt;
+
+&lt;p&gt;They can be used for user configurable settings that are specific to a given notification.&lt;/p&gt;
+
+&lt;p&gt;For example in the case of our HipChat and Slack notification providers, these settings consist of the ability to choose the Channel/Room to notify, as well as the ability to customise the notification message body.&lt;/p&gt;
+
+&lt;p&gt;The field definitions you return from this method are used to build a form in the admin user interface.&lt;/p&gt;
+
+&lt;p&gt;Supported field types are: text, password, yesno, dropdown, radio, textarea and dynamic.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public function notificationSettings()
+{
+    return [
+        &#39;priority&#39; =&amp;gt; [
+            &#39;FriendlyName&#39; =&amp;gt; &#39;Notification Priority&#39;,
+            &#39;Type&#39; =&amp;gt; &#39;dropdown&#39;,
+            &#39;Options&#39; =&amp;gt; [
+                &#39;Low&#39;,
+                &#39;Medium&#39;,
+                &#39;High&#39;,
+            ],
+            &#39;Description&#39; =&amp;gt; &#39;Choose the notification priority for the alert.&#39;,
+        ],
+    ];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;See also &lt;a href=&#34;//developers.whmcs.com/notification-providers/dynamic-fields&#34;&gt;Dyanmic Fields&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dynamic Fields</title>
+      <link>//developers.whmcs.com/notification-providers/dynamic-fields/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/notification-providers/dynamic-fields/</guid>
+      <description>&lt;p&gt;Dynamic fields are a special type of notification setting.&lt;/p&gt;
+
+&lt;p&gt;A dynamic field is rendered as a dropdown menu of choices and is recommended for dropdown menus where the list of options needs to be populated with a poll or fetch from a remote service.&lt;/p&gt;
+
+&lt;p&gt;An example use case is demonstrated in our HipChat and Slack notification providers, where dynamic fields are used to provide a list of Channels and Rooms that is searchable and .&lt;/p&gt;
+
+&lt;p&gt;Below is an example of how a dynamic field can be implemented into your notification settings method.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public function notificationSettings()
+{
+    return [
+        &#39;channel&#39; =&amp;gt; [
+            &#39;FriendlyName&#39; =&amp;gt; &#39;Notification Channel&#39;,
+            &#39;Type&#39; =&amp;gt; &#39;dynamic&#39;,
+            &#39;Description&#39; =&amp;gt; &#39;Choose the notification channel for the alert.&#39;,
+        ],
+    ];
+}
+
+public function getDynamicField($fieldName, $settings)
+{
+    if ($fieldName == &#39;channel&#39;) {
+        $channels = [];
+
+        // Perform remote API call, query or database fetch and build an array:
+        // $channels[] = [
+        //     &#39;id&#39; =&amp;gt; &#39;123&#39;,
+        //     &#39;name&#39; =&amp;gt; &#39;Demo Room&#39;,
+        //     &#39;description&#39; =&amp;gt; &#39;Room ID&#39;,
+        // ];
+
+        return [&#39;values&#39; =&amp;gt; $values];
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Send Notification</title>
+      <link>//developers.whmcs.com/notification-providers/send-notification/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/notification-providers/send-notification/</guid>
+      <description>&lt;p&gt;The &lt;code&gt;sendNotification&lt;/code&gt; method is responsible for delivering a notification to the end user.&lt;/p&gt;
+
+&lt;p&gt;This method will be called by WHMCS when a notification rule is triggered and all conditions for it are met.&lt;/p&gt;
+
+&lt;p&gt;In this method, you should craft an appropriately formatted message and transmit it to the messaging service.&lt;/p&gt;
+
+&lt;p&gt;The method receives 3 input arguments:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;$notification&lt;/em&gt; - A notification to send. This will be an instance of the &lt;a href=&#34;https://docs.whmcs.com/classes/7.4/WHMCS/Notification/Contracts/NotificationInterface.html&#34;&gt;NotificationInterface&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;$moduleSettings&lt;/em&gt; - An array containing all the provider settings defined for your notification module in the Provider Settings method.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;$notificationSettings&lt;/em&gt; - An array containing all the notification settings defined for the currently triggered notification rule.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;public function sendNotification(NotificationInterface $notification, $moduleSettings, $notificationSettings)
+{
+    $api_username = $moduleSettings[&#39;api_username&#39;];
+    $api_password = $moduleSettings[&#39;api_password&#39;];
+
+    $priority = $notificationSettings[&#39;priority&#39;];
+    $channel = $notificationSettings[&#39;channel&#39;];
+
+    // Build API Request to remote service
+    // The following is a basic example
+
+    $postData = [
+        &#39;username&#39; =&amp;gt; $api_username,
+        &#39;password&#39; =&amp;gt; $api_password,
+        &#39;priority&#39; =&amp;gt; $priority,
+        &#39;channel&#39; =&amp;gt; $channel,
+        &#39;title&#39; =&amp;gt; $notification-&amp;gt;getTitle(),
+        &#39;message&#39; =&amp;gt; $notification-&amp;gt;getMessage(),
+        &#39;url&#39; =&amp;gt; $notification-&amp;gt;getUrl(),
+        &#39;attributes&#39; =&amp;gt; [],
+    ];
+
+    foreach ($notification-&amp;gt;getAttributes() as $attribute) {
+        $postData[&#39;attributes&#39;][] = [
+            &#39;label&#39; =&amp;gt; $attribute-&amp;gt;getLabel(),
+            &#39;value&#39; =&amp;gt; $attribute-&amp;gt;getValue(),
+            &#39;url&#39; =&amp;gt; $attribute-&amp;gt;getUrl(),
+            &#39;style&#39; =&amp;gt; $attribute-&amp;gt;getStyle(),
+            &#39;icon&#39; =&amp;gt; $attribute-&amp;gt;getIcon(),
+        ];
+    }
+
+    // Call the remote API
+    $response = curlCall(&#39;x&#39;, $postData);
+
+    // Throw an error on failure
+    throw new Exception(&#39;Human friendly error response&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
