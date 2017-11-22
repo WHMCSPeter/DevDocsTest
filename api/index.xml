@@ -356,6 +356,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/sendadminemail/&#34;&gt;SendAdminEmail&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/sendemail/&#34;&gt;SendEmail&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/setconfigurationvalue/&#34;&gt;SetConfigurationValue&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/triggernotificationevent/&#34;&gt;TriggerNotificationEvent&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateadminnotes/&#34;&gt;UpdateAdminNotes&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateannouncement/&#34;&gt;UpdateAnnouncement&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updatetodoitem/&#34;&gt;UpdateToDoItem&lt;/a&gt;

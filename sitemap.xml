@@ -558,6 +558,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/api-reference/triggernotificationevent/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/api-reference/updateadminnotes/</loc>
   </url>
   

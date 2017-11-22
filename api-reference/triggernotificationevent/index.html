@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ListOAuthCredentials - WHMCS Developer Documentation</title>
+    <title>TriggerNotificationEvent - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/api-reference/listoauthcredentials/">
+    <link rel="canonical" href="//developers.whmcs.com/api-reference/triggernotificationevent/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -954,7 +954,7 @@
       
       
       
-        <li class="active" data-nav-id="/api-reference/listoauthcredentials/">
+        <li class="" data-nav-id="/api-reference/listoauthcredentials/">
           <a href="//developers.whmcs.com/api-reference/listoauthcredentials/">
             <span>ListOAuthCredentials</span>
           </a>
@@ -1090,7 +1090,7 @@
       
       
       
-        <li class="" data-nav-id="/api-reference/triggernotificationevent/">
+        <li class="active" data-nav-id="/api-reference/triggernotificationevent/">
           <a href="//developers.whmcs.com/api-reference/triggernotificationevent/">
             <span>TriggerNotificationEvent</span>
           </a>
@@ -1312,16 +1312,16 @@
                 
                   
                 
-                <span itemprop="title"> ListOAuthCredentials</span>
+                <span itemprop="title"> TriggerNotificationEvent</span>
               </div>
             </div>
 
 
-			<h1>ListOAuthCredentials </h1>
+			<h1>TriggerNotificationEvent </h1>
 
 			
 
-<p>List OAuth Credentials matching passed criteria</p>
+<p>Trigger a Custom Notification Event.</p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -1339,35 +1339,56 @@
 <tr>
 <td>action</td>
 <td>string</td>
-<td>&ldquo;ListOAuthCredentials&rdquo;</td>
+<td>&ldquo;TriggerNotificationEvent&rdquo;</td>
 <td>Required</td>
 </tr>
 
 <tr>
-<td>grantType</td>
+<td>notification_identifier</td>
 <td>string</td>
-<td>Find credentials for a specific grant type</td>
+<td>A unique identifier string, used as a condition when making a notification rule.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
-<td>sortField</td>
+<td>title</td>
 <td>string</td>
-<td>Sort the response using the passed field</td>
+<td>The title for the notification</td>
 <td>Optional</td>
 </tr>
 
 <tr>
-<td>sortOrder</td>
+<td>message</td>
 <td>string</td>
-<td>The direction of the sort order (&lsquo;ASC&rsquo;, &lsquo;DESC&rsquo;)</td>
+<td>The message body for the notification</td>
 <td>Optional</td>
 </tr>
 
 <tr>
-<td>limit</td>
-<td>int</td>
-<td>To limit the number of returned credentials</td>
+<td>url</td>
+<td>string</td>
+<td>The follow up URL for the notification</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>status</td>
+<td>string</td>
+<td>A status description for the notification</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>statusStyle</td>
+<td>string</td>
+<td>A formatting style for the status of the notification, currently supports &ldquo;success&rdquo;, &ldquo;danger&rdquo;, and &ldquo;info&rdquo;</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>attributes</td>
+<td>array</td>
+<td>An array of Attributes to include in the notification. Requires at least <code>label</code> and <code>value</code> parameters. Other parameters are optional. See WHMCS\Notification\NotificationAttribute.</td>
 <td>Optional</td>
 </tr>
 </tbody>
@@ -1390,12 +1411,6 @@
 <td>string</td>
 <td>The result of the operation: success or error</td>
 </tr>
-
-<tr>
-<td>clients</td>
-<td>array</td>
-<td>An array of client oAuth credentials</td>
-</tr>
 </tbody>
 </table>
 
@@ -1407,10 +1422,21 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' =&gt; 'ListOAuthCredentials',
+            'action' =&gt; 'TriggerNotificationEvent',
             // See https://developers.whmcs.com/api/authentication
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
+            'notification_identifier' =&gt; 'custom.server.add',
+            'title' =&gt; 'New Server Added',
+            'message' =&gt; 'new-server.examplehost.com added as a cPanel server and is available for provisioning.',
+            'url' =&gt; 'https://whmcs.example.test/admin/configservers.php?action=manage&amp;id=3',
+            'status' =&gt; 'Success',
+            'statusStyle' =&gt; 'info',
+            'attributes[0][label]' =&gt; 'example',
+            'attributes[0][value]' =&gt; 'example',
+            'attributes[0][url]' =&gt; 'https://whmcs.example.test/admin/configservers.php?action=manage&amp;id=3',
+            'attributes[0][style]' =&gt; 'example',
+            'attributes[0][icon]' =&gt; 'example',
             'responsetype' =&gt; 'json',
         )
     )
@@ -1421,8 +1447,19 @@ curl_close($ch);
 
 <h3 id="example-request-local-api">Example Request (Local API)</h3>
 
-<pre><code>$command = 'ListOAuthCredentials';
+<pre><code>$command = 'TriggerNotificationEvent';
 $postData = array(
+    'notification_identifier' =&gt; 'custom.server.add',
+    'title' =&gt; 'New Server Added',
+    'message' =&gt; 'new-server.examplehost.com added as a cPanel server and is available for provisioning.',
+    'url' =&gt; 'https://whmcs.example.test/admin/configservers.php?action=manage&amp;id=3',
+    'status' =&gt; 'Success',
+    'statusStyle' =&gt; 'info',
+    'attributes[0][label]' =&gt; 'example',
+    'attributes[0][value]' =&gt; 'example',
+    'attributes[0][url]' =&gt; 'https://whmcs.example.test/admin/configservers.php?action=manage&amp;id=3',
+    'attributes[0][style]' =&gt; 'example',
+    'attributes[0][icon]' =&gt; 'example',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -1433,59 +1470,19 @@ print_r($results);
 <h3 id="example-response-json">Example Response JSON</h3>
 
 <pre><code>{
-    &quot;result&quot;: &quot;success&quot;,
-    &quot;clients&quot;: [
-        {
-            &quot;credentialId&quot;: 1,
-            &quot;name&quot;: &quot;&quot;,
-            &quot;description&quot;: &quot;&quot;,
-            &quot;grantTypes&quot;: &quot;single_sign_on&quot;,
-            &quot;scope&quot;: &quot;clientarea:sso clientarea:profile clientarea:billing_info clientarea:emails clientarea:announcements clientarea:downloads clientarea:knowledgebase clientarea:network_status clientarea:product_details clientarea:invoices clientarea:tickets clientarea:submit_ticket clientarea:shopping_cart_addons clientarea:shopping_cart_domain_register clientarea:shopping_cart_domain_transfer&quot;,
-            &quot;clientIdentifier&quot;: &quot;COMPANY-NAME.+ddPpB4+MVU5jeacL\/iEiw==&quot;,
-            &quot;clientSecret&quot;: &quot;cl\/1zwMst0mtoAFLrTL\/3PAneaOXJ51ipoY86sKkapZM3WPKEwUK\/jhxXOAn2ErqXZNTJFnv2isNyYE0fgjgqQ==&quot;,
-            &quot;uuid&quot;: null,
-            &quot;serviceId&quot;: 1,
-            &quot;logoUri&quot;: &quot;&quot;,
-            &quot;redirectUri&quot;: [],
-            &quot;rsaKeyPairId&quot;: 0,
-            &quot;createdAt&quot;: &quot;18th November 2016 9:32:24am&quot;,
-            &quot;updatedAt&quot;: &quot;18th November 2016 9:32:24am&quot;
-        },
-        {
-            &quot;credentialId&quot;: 2,
-            &quot;name&quot;: &quot;&quot;,
-            &quot;description&quot;: &quot;&quot;,
-            &quot;grantTypes&quot;: &quot;single_sign_on&quot;,
-            &quot;scope&quot;: &quot;clientarea:sso clientarea:profile clientarea:billing_info clientarea:emails clientarea:announcements clientarea:downloads clientarea:knowledgebase clientarea:network_status clientarea:product_details clientarea:invoices clientarea:tickets clientarea:submit_ticket clientarea:shopping_cart_addons clientarea:shopping_cart_domain_register clientarea:shopping_cart_domain_transfer&quot;,
-            &quot;clientIdentifier&quot;: &quot;COMPANY-NAME.98x4Dkq4JXjj3SpAqn14+Q==&quot;,
-            &quot;clientSecret&quot;: &quot;uKw1nmFF9XOHUynCHIcAGBmFsrlMHrD\/5GyUyY\/Ghw4toDI8wQ63XqY6maAtF5Vb02SgI6tqyNbd1BmPzPd9AQ==&quot;,
-            &quot;uuid&quot;: null,
-            &quot;serviceId&quot;: 1,
-            &quot;logoUri&quot;: &quot;&quot;,
-            &quot;redirectUri&quot;: [],
-            &quot;rsaKeyPairId&quot;: 0,
-            &quot;createdAt&quot;: &quot;18th November 2016 9:33:01am&quot;,
-            &quot;updatedAt&quot;: &quot;18th November 2016 9:33:01am&quot;
-        },
-        {
-            &quot;credentialId&quot;: 3,
-            &quot;name&quot;: &quot;&quot;,
-            &quot;description&quot;: &quot;&quot;,
-            &quot;grantTypes&quot;: &quot;single_sign_on&quot;,
-            &quot;scope&quot;: &quot;clientarea:sso clientarea:profile clientarea:billing_info clientarea:emails clientarea:announcements clientarea:downloads clientarea:knowledgebase clientarea:network_status clientarea:product_details clientarea:invoices clientarea:tickets clientarea:submit_ticket clientarea:shopping_cart_addons clientarea:shopping_cart_domain_register clientarea:shopping_cart_domain_transfer&quot;,
-            &quot;clientIdentifier&quot;: &quot;COMPANY-NAME.mY7l7Iz9NuXOeUleDM8rpQ==&quot;,
-            &quot;clientSecret&quot;: &quot;O12n9lVX5OMv2SgMJ3u+p7q\/RVhuXybwdNbNOnDBdAci4U3kD3X8H1M9WRr4NuUb9fPTMbD3ySxUan9qf8gsdQ==&quot;,
-            &quot;uuid&quot;: null,
-            &quot;serviceId&quot;: 1,
-            &quot;logoUri&quot;: &quot;&quot;,
-            &quot;redirectUri&quot;: [],
-            &quot;rsaKeyPairId&quot;: 0,
-            &quot;createdAt&quot;: &quot;18th November 2016 9:35:20am&quot;,
-            &quot;updatedAt&quot;: &quot;18th November 2016 9:35:20am&quot;
-        }
-    ]
+    &quot;result&quot;: &quot;success&quot;
 }
 </code></pre>
+
+<h3 id="error-responses">Error Responses</h3>
+
+<p>Possible error condition responses include:</p>
+
+<ul>
+<li>API Notification Events require a identifier string to be passed.</li>
+<li>API Notification Events require a title to be provided.</li>
+<li>API Notification Events require a message to be provided.</li>
+</ul>
 
 <h3 id="version-history">Version History</h3>
 
