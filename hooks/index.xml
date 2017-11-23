@@ -522,6 +522,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#intelligentsearch&#34;&gt;IntelligentSearch&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#linktracker&#34;&gt;LinkTracker&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#logactivity&#34;&gt;LogActivity&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#notificationpresend&#34;&gt;NotificationPreSend&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#postautomationtask&#34;&gt;PostAutomationTask&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preautomationtask&#34;&gt;PreAutomationTask&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#premiumpriceoverride&#34;&gt;PremiumPriceOverride&lt;/a&gt;
