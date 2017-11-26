@@ -1,29 +1,4 @@
-(function() {
-    var cx = '006275421004365382826:qast12uenhu';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-})();
-
 jQuery(document).ready(function() {
-    jQuery("#docsSearch").submit(function(e) {
-        e.preventDefault();
-        jQuery("#btnSearchDocs").html('<i class="fa fa-spinner fa-spin"></i>');
-        window.setTimeout(resetSearchBtn, 3000);
-        jQuery(".gsc-input").val(jQuery("#docsQuery").val());
-        jQuery(".gsc-search-button").click();
-    });
-    jQuery("#docsSearchMobile").submit(function(e) {
-        e.preventDefault();
-        jQuery("#btnSearchDocsMobile").html('<i class="fa fa-spinner fa-spin"></i>');
-        window.setTimeout(resetSearchBtnMobile, 3000);
-        jQuery(".gsc-input").val(jQuery("#docsQueryMobile").val());
-        jQuery(".gsc-search-button").click();
-    });
 
     jQuery('.sub-success-message').hide().removeClass('hidden');
     jQuery('.sub-error-message').hide().removeClass('hidden');
@@ -58,9 +33,50 @@ jQuery(document).ready(function() {
     });
 });
 
-function resetSearchBtn() {
-    jQuery("#btnSearchDocs").html('<i class="fa fa-search"></i>');
+function getProperty(obj, props, defaultValue) {
+    var res, isvoid = function(x) {
+        return typeof x === "undefined" || x === null;
+    }
+    if (!isvoid(obj)) {
+        if (isvoid(props)) props = [];
+        if (typeof props === "string") props = props.trim().split(".");
+        if (props.constructor === Array) {
+            res = props.length > 1 ? getProperty(obj[props.shift()], props, defaultValue) : obj[props[0]];
+        }
+    }
+    return typeof res === "undefined" ? defaultValue : res;
 }
-function resetSearchBtnMobile() {
-    jQuery("#btnSearchDocsMobile").html('<i class="fa fa-search"></i>');
-}
+
+var client = algoliasearch("365Z1NWVA5", "e7cf44d512da9fe2e4e38c6a41816a71");
+var index = client.initIndex('whmcs-devdocs');
+$('#inputSearch, #inputSearchMobile').autocomplete({
+    hint: false,
+    debug: true
+}, [{
+    source: $.fn.autocomplete.sources.hits(index, {
+        hitsPerPage: 5
+    }),
+    //value to be displayed in input control after user's suggestion selection
+    displayKey: 'name',
+    //hash of templates used when rendering dataset
+    templates: {
+        //'suggestion' templating function used to render a single suggestion
+        suggestion: function(suggestion) {
+            var category = getProperty(suggestion, '_highlightResult.hierarchy.lvl0.value', 'X');
+            var title1 = getProperty(suggestion, '_highlightResult.hierarchy.lvl1.value', 'Y');
+            var title2 = getProperty(suggestion, '_highlightResult.hierarchy.lvl2.value', '');
+            if (title2) {
+                title2 = ' > ' + title2;
+            }
+            var content = getProperty(suggestion, '_snippetResult.content.value', '');
+            var url = getProperty(suggestion, 'url', '');
+            var urlForDisplay = getProperty(suggestion, 'url_without_anchor', '');
+            return '<a href="' + url.replace('/#breadcrumbs', '/') + '">' +
+                '<strong>' + category + '</strong>' +
+                '<span>' + title1 + '</span>' +
+                '<span>' + title2 + '</span>' +
+                '<span class="url">' + urlForDisplay + '</span>' +
+                '</a>';
+        }
+    }
+}]);
