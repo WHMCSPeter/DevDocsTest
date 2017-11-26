@@ -55,7 +55,7 @@
     &lt;div class=&#34;col-sm-6&#34;&gt;
         &lt;a href=&#34;//developers.whmcs.com/notification-providers/&#34;&gt;
             &lt;i class=&#34;fa fa-bell-o&#34;&gt;&lt;/i&gt;
-            &lt;h3&gt;Notification Modules&lt;/h3&gt;
+            &lt;h3&gt;Notification Providers&lt;/h3&gt;
             &lt;p&gt;Integrate additional notification services for use with the Notifications system.&lt;/p&gt;
         &lt;/a&gt;
     &lt;/div&gt;
