@@ -798,6 +798,14 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/provisioning-modules/simple-mode/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/provisioning-modules/loader-functions/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/api/authentication/</loc>
   </url>
   

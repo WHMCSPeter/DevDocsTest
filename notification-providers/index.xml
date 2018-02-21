@@ -208,7 +208,7 @@ public function testConnection($settings)
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;See also &lt;a href=&#34;//developers.whmcs.com/notification-providers/dynamic-fields&#34;&gt;Dyanmic Fields&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;See also &lt;a href=&#34;//developers.whmcs.com/notification-providers/dynamic-fields&#34;&gt;Dynamic Fields&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
