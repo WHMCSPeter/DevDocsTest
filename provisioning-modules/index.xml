@@ -157,6 +157,129 @@ These events include:&lt;/p&gt;
     </item>
     
     <item>
+      <title>Simple Mode</title>
+      <link>//developers.whmcs.com/provisioning-modules/simple-mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/simple-mode/</guid>
+      <description>&lt;p&gt;Simple Configuration Mode is a feature available to module developers to simplify the configuration process for a module.&lt;/p&gt;
+
+&lt;p&gt;Using Simple Mode allows you to reduce the number of Module Setting fields that are shown to end users by default.  For example, you can restrict the default Module Settings view to just the most common fields that a user needs to customise when creating a product assigned to your module, and have the other less commonly used fields only be shown if the user switches to Advanced Mode.&lt;/p&gt;
+
+&lt;p&gt;The screenshots below shows the difference in Simple and Advanced Modes for the cPanel module.&lt;/p&gt;
+
+&lt;p&gt;##Simple Mode##&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;cpanel-simple-mode.png&#34; alt=&#34;Simple Mode&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;##Advanced Mode##&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;cpanel-advanced-mode.png&#34; alt=&#34;Advanced Mode&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To enable Simple Mode for your module, all you need to do is set an additional parameter in your Module Setting field definitions that you wish to appear in Simple Mode.  Below is an example of a module with two fields, one in Simple Mode, and the other only shown when in Advanced Mode:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function provisioningmodule_ConfigOptions($params)
+{
+    return [
+        &#39;Simple Mode Field&#39; =&amp;gt; [
+            &#39;Type&#39; =&amp;gt; &#39;text&#39;,
+            &#39;Size&#39; =&amp;gt; &#39;25&#39;,
+            &#39;SimpleMode&#39; =&amp;gt; true,
+        ],
+        &#39;Advanced Mode Field&#39; =&amp;gt; [
+            &#39;Type&#39; =&amp;gt; &#39;text&#39;,
+            &#39;Size&#39; =&amp;gt; &#39;25&#39;,
+        ],
+    ];
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Loader Functions</title>
+      <link>//developers.whmcs.com/provisioning-modules/loader-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/provisioning-modules/loader-functions/</guid>
+      <description>&lt;p&gt;Setting a loader function allows you to create a field that offers a dropdown of options for an end user to choose from.&lt;/p&gt;
+
+&lt;p&gt;Unlike the standard &amp;ldquo;dropdown&amp;rdquo; setting field type which allows you to offer a predefined and hard-coded choice of options to the user, a field with a loader function will display a list of options that have been fetched dynamically from a remote API service.&lt;/p&gt;
+
+&lt;p&gt;An example use case for this is for a Package or Plan name field, where the values need to be fetched via an API from the remote system where the Packages or Plans are defined. Without a loader function, the end user would have to manually enter the package or plan name for the product. With a loader being used, WHMCS will poll the remote API service for a list of possible values when the field is rendered to the end user and allow them to make a choice.&lt;/p&gt;
+
+&lt;p&gt;To use a loader function for a field, when defining the field in the &lt;strong&gt;ConfigOptions&lt;/strong&gt; function, you must also define a loader function that will be called to populate the field with a list of available options.&lt;/p&gt;
+
+&lt;p&gt;Each field can have its own unique loader function defined. These fields will be populated with the return values of the associated loader function when simple mode is used.&lt;/p&gt;
+
+&lt;p&gt;Here is an example of a field that defines a loader function with the name &lt;strong&gt;provisioningmodule_LoaderFunction&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function provisioningmodule_ConfigOptions($params)
+{
+    return [
+        // Text field powered by the Loader function
+        &#39;Loader Populated Field&#39; =&amp;gt; [
+            &#39;Type&#39; =&amp;gt; &#39;text&#39;,
+            &#39;Size&#39; =&amp;gt; &#39;25&#39;,
+            &#39;Loader&#39; =&amp;gt; &#39;provisioningmodule_LoaderFunction&#39;,
+            &#39;SimpleMode&#39; =&amp;gt; true,
+        ],
+    ];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The loader function you define must be created and should return an array of key value pairs.&lt;/p&gt;
+
+&lt;p&gt;The key should be the value that your module expects to receive, and the value should be a human friendly display label for the key value. In many cases these may be the same.&lt;/p&gt;
+
+&lt;p&gt;##Error Handling##&lt;/p&gt;
+
+&lt;p&gt;If the connection to the remote API service needed to fetch the dynamically loaded values fails, your code should throw an Exception.&lt;/p&gt;
+
+&lt;p&gt;WHMCS will recognize an Exception and display the error message returned in that exception to the end user.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Loader function that will populate the field in ConfigOptions
+ * @return array The list of package names
+ */
+function provisioningmodule_LoaderFunction() {
+    // Make a call to the remote API endpoint
+    $ch = curl_init(&#39;https://www.example.com/api/function&#39;);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+
+    // Check for any curl errors or an empty response
+    if (curl_error($ch)) {
+        throw new Exception(&#39;Unable to connect: &#39; . curl_errno($ch) . &#39; - &#39; . curl_error($ch));
+    } elseif (empty($response)) {
+        throw new Exception(&#39;Empty response&#39;);
+    }
+
+    // We&#39;re done with curl so we can release the resource now
+    curl_close($ch);
+
+    // Attempt to decode the response
+    $packageNames = json_decode($response, true);  
+
+    // Check to make sure valid json was returned
+    if (is_null($packageNames)) {
+        throw new Exception(&#39;Invalid response format&#39;);
+    }
+
+    // Format the list of values for display
+    // [&#39;value&#39; =&amp;gt; &#39;Display Label&#39;]
+    $list = [];
+    foreach ($packageNames as $packageName) {
+        $list[$packageName] = ucfirst($packageName);
+    }
+
+    return $list;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Meta Data Parameters</title>
       <link>//developers.whmcs.com/provisioning-modules/meta-data-params/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -555,14 +678,14 @@ In the case of ChangePassword, any errors returned are also displayed to client 
  *
  * @param array $params common module parameters
  *
- * @see http://docs.whmcs.com/Provisioning_Module_SDK_Parameters
+ * @see https://developers.whmcs.com/provisioning-modules/module-parameters/
  *
  * @return array
  */
 function mymodule_ServiceSingleSignOn(array $params)
 {
 	$return = array(
-		&#39;success&#39; = false,
+		&#39;success&#39; =&amp;gt; false,
 	);
 	try {
         /**
@@ -615,14 +738,14 @@ function mymodule_ServiceSingleSignOn(array $params)
  *
  * @param array $params common module parameters
  *
- * @see http://docs.whmcs.com/Provisioning_Module_SDK_Parameters
+ * @see https://developers.whmcs.com/provisioning-modules/module-parameters/
  *
  * @return array
  */
 function mymodule_AdminSingleSignOn(array $params)
 {
 	$return = array(
-		&#39;success&#39; = false,
+		&#39;success&#39; =&amp;gt; false,
 	);
 	try {
         /**
@@ -962,42 +1085,6 @@ EOF;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;More information on the AbstractWidget class used in the above example can be found at &lt;a href=&#34;http://docs.whmcs.com/classes/7.1/WHMCS/Module/AbstractWidget.html&#34;&gt;http://docs.whmcs.com/classes/7.1/WHMCS/Module/AbstractWidget.html&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Module Logging</title>
-      <link>//developers.whmcs.com/provisioning-modules/module-logging/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//developers.whmcs.com/provisioning-modules/module-logging/</guid>
-      <description>&lt;p&gt;To make reviewing and debugging module calls easier, WHMCS has a built in logging function.
-This allows the record of the request and response strings for every call the module makes.
-This becomes available in an accessible way via the WHMCS admin interface.
-If you plan to release the module, this allows end users to troubleshoot and debug issues experienced using the module.
-This also allows you to be able to debug issues experienced while using it.&lt;/p&gt;
-
-&lt;p&gt;Logging is not something that is always enabled.
-This is to avoid logs growing too large, so it&amp;rsquo;s something that needs enabling for the logging to occur.
-To toggle logging, goto &lt;strong&gt;Utilities&lt;/strong&gt; &amp;gt; &lt;strong&gt;Logs&lt;/strong&gt; &amp;gt; &lt;strong&gt;Module Debug Log&lt;/strong&gt;.
-This is the same place to review the logs.&lt;/p&gt;
-
-&lt;p&gt;To utilise this functionality, the module needs to make a call as follows:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/**
- * Log module call.
- *
- * @param string $module The name of the module
- * @param string $action The name of the action being performed
- * @param string|array $requestString The input parameters for the API call
- * @param string|array $responseData The response data from the API call
- * @param string|array $processedData The resulting data after any post processing (eg. json decode, xml decode, etc...)
- * @param array $replaceVars An array of strings for replacement
- */
-logModuleCall($module, $action, $requestString, $responseData, $processedData, $replaceVars);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;We recommend passing data strings such as usernames and passwords into the &lt;code&gt;$replaceVars&lt;/code&gt; parameter to allow them to be automatically scrubbed and ommitted from module log entries.&lt;/p&gt;
 </description>
     </item>
     

@@ -422,7 +422,7 @@ $price = formatCurrency($amount, $currencyData[&#39;id&#39;]);
 
 &lt;p&gt;The &lt;code&gt;$price&lt;/code&gt; value returned will be an object. The default &lt;code&gt;__toString&lt;/code&gt; response format is a fully formatted price output including prefix and suffix.&lt;/p&gt;
 
-&lt;p&gt;See &lt;a href=&#34;http://docs.whmcs.com/classes/7.0/WHMCS/View/Formatter/Price.html&#34;&gt;http://docs.whmcs.com/classes/7.0/WHMCS/View/Formatter/Price.html&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&#34;https://docs.whmcs.com/classes/7.1/WHMCS/View/Formatter/Price.html&#34;&gt;https://docs.whmcs.com/classes/7.1/WHMCS/View/Formatter/Price.html&lt;/a&gt; for more information.&lt;/p&gt;
 </description>
     </item>
     
