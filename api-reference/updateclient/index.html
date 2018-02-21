@@ -1561,9 +1561,9 @@
 </tr>
 
 <tr>
-<td>noemail</td>
+<td>marketingoptin</td>
 <td>bool</td>
-<td>Pass as true to skip sending welcome email</td>
+<td>Set true to opt client in to marketing emails</td>
 <td>Optional</td>
 </tr>
 
@@ -1623,6 +1623,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 </code></pre>

@@ -1433,6 +1433,13 @@
 <td>Base64 encoded serialized array of custom field values</td>
 <td>Optional</td>
 </tr>
+
+<tr>
+<td>attachments</td>
+<td>array</td>
+<td>Optional base64 json encoded array of file attachments. Can be the direct output of a multipart-form-data form submission ($_FILES superglobal in PHP) or an array of arrays consisting of both a filename and data keys (see example below).</td>
+<td>Optional</td>
+</tr>
 </tbody>
 </table>
 
@@ -1474,10 +1481,12 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'clientid' =&gt; '1',
             'priority' =&gt; 'Medium',
             'markdown' =&gt; true,
+            'attachments' =&gt; base64_encode(json_encode([['name' =&gt; 'sample_text_file.txt', 'data' =&gt; base64_encode('This is a sample text file contents')]])),
             'responsetype' =&gt; 'json',
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 </code></pre>
@@ -1492,6 +1501,7 @@ $postData = array(
     'clientid' =&gt; '1',
     'priority' =&gt; 'Medium',
     'markdown' =&gt; true,
+    'attachments' =&gt; base64_encode(json_encode([['name' =&gt; 'sample_text_file.txt', 'data' =&gt; base64_encode('This is a sample text file contents')]])),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -1538,6 +1548,11 @@ print_r($results);
 <tr>
 <td>1.0</td>
 <td>Initial Version</td>
+</tr>
+
+<tr>
+<td>7.5</td>
+<td>Added support for attachments</td>
 </tr>
 </tbody>
 </table>

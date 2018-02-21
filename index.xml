@@ -226,6 +226,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 &lt;/code&gt;&lt;/pre&gt;
@@ -362,6 +363,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 &lt;/code&gt;&lt;/pre&gt;
@@ -505,6 +507,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 &lt;/code&gt;&lt;/pre&gt;
@@ -668,6 +671,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 &lt;/code&gt;&lt;/pre&gt;
@@ -820,6 +824,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 &lt;/code&gt;&lt;/pre&gt;
@@ -1011,6 +1016,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 &lt;/code&gt;&lt;/pre&gt;
@@ -1177,6 +1183,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 &lt;/code&gt;&lt;/pre&gt;
@@ -1445,6 +1452,13 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
+&lt;td&gt;marketingoptin&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Set true to opt client in to marketing emails&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;noemail&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
 &lt;td&gt;Pass as true to skip sending welcome email&lt;/td&gt;
@@ -1510,6 +1524,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 &lt;/code&gt;&lt;/pre&gt;
@@ -1685,6 +1700,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 &lt;/code&gt;&lt;/pre&gt;
@@ -1951,6 +1967,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 &lt;/code&gt;&lt;/pre&gt;
@@ -2105,6 +2122,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
         )
     )
 );
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 &lt;/code&gt;&lt;/pre&gt;
