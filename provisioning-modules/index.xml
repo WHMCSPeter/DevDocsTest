@@ -162,17 +162,19 @@ These events include:&lt;/p&gt;
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/provisioning-modules/simple-mode/</guid>
-      <description>&lt;p&gt;Simple Configuration Mode is a feature available to module developers to simplify the configuration process for a module.&lt;/p&gt;
+      <description>
+
+&lt;p&gt;Simple Configuration Mode is a feature available to module developers to simplify the configuration process for a module.&lt;/p&gt;
 
 &lt;p&gt;Using Simple Mode allows you to reduce the number of Module Setting fields that are shown to end users by default.  For example, you can restrict the default Module Settings view to just the most common fields that a user needs to customise when creating a product assigned to your module, and have the other less commonly used fields only be shown if the user switches to Advanced Mode.&lt;/p&gt;
 
 &lt;p&gt;The screenshots below shows the difference in Simple and Advanced Modes for the cPanel module.&lt;/p&gt;
 
-&lt;p&gt;##Simple Mode##&lt;/p&gt;
+&lt;h2 id=&#34;simple-mode&#34;&gt;Simple Mode&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;cpanel-simple-mode.png&#34; alt=&#34;Simple Mode&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;##Advanced Mode##&lt;/p&gt;
+&lt;h2 id=&#34;advanced-mode&#34;&gt;Advanced Mode&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&#34;cpanel-advanced-mode.png&#34; alt=&#34;Advanced Mode&#34; /&gt;&lt;/p&gt;
 
@@ -202,7 +204,9 @@ These events include:&lt;/p&gt;
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/provisioning-modules/loader-functions/</guid>
-      <description>&lt;p&gt;Setting a loader function allows you to create a field that offers a dropdown of options for an end user to choose from.&lt;/p&gt;
+      <description>
+
+&lt;p&gt;Setting a loader function allows you to create a field that offers a dropdown of options for an end user to choose from.&lt;/p&gt;
 
 &lt;p&gt;Unlike the standard &amp;ldquo;dropdown&amp;rdquo; setting field type which allows you to offer a predefined and hard-coded choice of options to the user, a field with a loader function will display a list of options that have been fetched dynamically from a remote API service.&lt;/p&gt;
 
@@ -232,7 +236,7 @@ These events include:&lt;/p&gt;
 
 &lt;p&gt;The key should be the value that your module expects to receive, and the value should be a human friendly display label for the key value. In many cases these may be the same.&lt;/p&gt;
 
-&lt;p&gt;##Error Handling##&lt;/p&gt;
+&lt;h2 id=&#34;error-handling&#34;&gt;Error Handling&lt;/h2&gt;
 
 &lt;p&gt;If the connection to the remote API service needed to fetch the dynamically loaded values fails, your code should throw an Exception.&lt;/p&gt;
 

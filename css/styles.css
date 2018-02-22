@@ -30,6 +30,10 @@ h2 {
     text-transform: capitalize;
 }
 
+img {
+    max-width: 100%;
+}
+
 header.header {
     margin: 0 0 20px 0;
     border-top: 6px solid #336699;
