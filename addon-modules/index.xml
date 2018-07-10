@@ -53,6 +53,12 @@ For example, valid names would be:&lt;/p&gt;
 Addon modules are found in the &lt;code&gt;/modules/addons/&lt;/code&gt; directory.
 Each module can be found within it&amp;rsquo;s own directory &lt;strong&gt;/your_module_name/&lt;/strong&gt;.
 Then the core module file within it should be &amp;ldquo;&lt;strong&gt;your_module_name&lt;/strong&gt;.php&amp;rdquo; to match the folder.&lt;/p&gt;
+
+&lt;p&gt;We make available a sample addon module on Github. We recommend using this as a starting point for a custom addon module.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/WHMCS/sample-addon-module&#34;&gt;https://github.com/WHMCS/sample-addon-module&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
     </item>
     

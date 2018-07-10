@@ -219,6 +219,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#overrideordernumbergeneration&#34;&gt;OverrideOrderNumberGeneration&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#pendingorder&#34;&gt;PendingOrder&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#precalculatecarttotals&#34;&gt;PreCalculateCartTotals&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#prefraudcheck&#34;&gt;PreFraudCheck&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#preshoppingcartcheckout&#34;&gt;PreShoppingCartCheckout&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#runfraudcheck&#34;&gt;RunFraudCheck&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#shoppingcartcheckoutcompletepage&#34;&gt;ShoppingCartCheckoutCompletePage&lt;/a&gt;
@@ -355,6 +356,8 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;h3&gt;Ticket&lt;/h3&gt;
 
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#adminareaviewticketpage&#34;&gt;AdminAreaViewTicketPage&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#adminareaviewticketpagesidebar&#34;&gt;AdminAreaViewTicketPageSidebar&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#adminsupportticketpagepretickets&#34;&gt;AdminSupportTicketPagePreTickets&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#clientareapagesubmitticket&#34;&gt;ClientAreaPageSubmitTicket&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#clientareapagesupporttickets&#34;&gt;ClientAreaPageSupportTickets&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#clientareapageviewticket&#34;&gt;ClientAreaPageViewTicket&lt;/a&gt;
@@ -525,6 +528,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#notificationpresend&#34;&gt;NotificationPreSend&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#postautomationtask&#34;&gt;PostAutomationTask&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preautomationtask&#34;&gt;PreAutomationTask&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preemailsendreducerecipients&#34;&gt;PreEmailSendReduceRecipients&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#premiumpriceoverride&#34;&gt;PremiumPriceOverride&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#premiumpricerecalculationoverride&#34;&gt;PremiumPriceRecalculationOverride&lt;/a&gt;
 &lt;/ul&gt;

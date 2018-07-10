@@ -111,14 +111,6 @@
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;DisableLocalCreditCardInput&lt;/td&gt;
-&lt;td&gt;Boolean&lt;/td&gt;
-&lt;td&gt;7.1&lt;/td&gt;
-&lt;td&gt;false&lt;/td&gt;
-&lt;td&gt;Set to true if credit card input should not be allowed locally for this payment gateway module.&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
 &lt;td&gt;TokenisedStorage&lt;/td&gt;
 &lt;td&gt;Boolean&lt;/td&gt;
 &lt;td&gt;7.1&lt;/td&gt;

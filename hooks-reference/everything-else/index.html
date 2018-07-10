@@ -1381,11 +1381,59 @@ add_hook('PreAutomationTask', 1, function($vars) {
 });
 </code></pre>
 
+<h2 id="preemailsendreducerecipients">PreEmailSendReduceRecipients</h2>
+
+<p>Runs prior to a client email being sent and allows selective removal of CC and BCC recipients.</p>
+
+<h4 id="parameters-19">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>messagename</td>
+<td>string</td>
+<td>The name of the email template being sent</td>
+</tr>
+
+<tr>
+<td>relid</td>
+<td>int</td>
+<td>The related entity ID for the email being sent</td>
+</tr>
+
+<tr>
+<td>recipients</td>
+<td>array</td>
+<td>Array containing &lsquo;cc&rsquo; and &lsquo;bcc&rsquo; recipients. Each recipient will be an array containing &lsquo;email&rsquo; and &lsquo;fullname&rsquo; indices</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-19">Response</h4>
+
+<p>An array with a &lsquo;cc&rsquo; and &lsquo;bcc&rsquo; list of recipients. Each recipient in those lists should be indexed with the original index hash as provided by $recipients argument. If an empty &lsquo;cc&rsquo; or &lsquo;bcc&rsquo; list provided, it will remove all &lsquo;cc&rsquo; or &lsquo;bcc&rsquo; recipients respectively. If the &lsquo;cc&rsquo; or &lsquo;bcc&rsquo; is omitted in the return, the original list will remain unaltered</p>
+
+<h4 id="example-code-19">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreEmailSendReduceRecipients', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
 <h2 id="premiumpriceoverride">PremiumPriceOverride</h2>
 
 <p>Executes when searching for a premium domain. The return can alter the registration &amp; renewal costs, stop the domain being available for purchase or force the client to contact support.</p>
 
-<h4 id="parameters-19">Parameters</h4>
+<h4 id="parameters-20">Parameters</h4>
 
 <table>
 <thead>
@@ -1435,11 +1483,11 @@ add_hook('PreAutomationTask', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-19">Response</h4>
+<h4 id="response-20">Response</h4>
 
 <p>Accepts returns to override register, transfer or renew pricing. Also boolean values of noSale or contactUs to stop the sale of the domain with different messages</p>
 
-<h4 id="example-code-19">Example Code</h4>
+<h4 id="example-code-20">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -1467,7 +1515,7 @@ add_hook('PremiumPriceOverride', 1, function($vars) {
 
 <p>Executes when a premium domain price is being automatically recalculated.</p>
 
-<h4 id="parameters-20">Parameters</h4>
+<h4 id="parameters-21">Parameters</h4>
 
 <table>
 <thead>
@@ -1505,11 +1553,11 @@ add_hook('PremiumPriceOverride', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-20">Response</h4>
+<h4 id="response-21">Response</h4>
 
 <p>Return is accepted to override the renewal price or skip applying markup. eg: return array(&lsquo;renew&rsquo; =&gt; 50.00, &lsquo;skipMarkup&rsquo; =&gt; true);</p>
 
-<h4 id="example-code-20">Example Code</h4>
+<h4 id="example-code-21">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PremiumPriceRecalculationOverride', 1, function($vars) {

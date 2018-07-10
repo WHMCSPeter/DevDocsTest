@@ -534,6 +534,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/api-reference/resetpassword/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/api-reference/sendadminemail/</loc>
   </url>
   
@@ -1022,11 +1026,19 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/domain-registrars/domain-information/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/domain-registrars/availability-checks/</loc>
   </url>
   
   <url>
     <loc>//developers.whmcs.com/domain-registrars/premium-domains/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/domain-registrars/transfer-policy-management/</loc>
   </url>
   
   <url>
