@@ -170,32 +170,37 @@ function yourmodulename_getConfigArray($params)
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;RegisterDomain&lt;/td&gt;
-&lt;td&gt;Called when the registration of a new domain comes from WHMCS.&lt;/td&gt;
+&lt;td&gt;Called when the registration of a new domain is initiated within WHMCS.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;TransferDomain&lt;/td&gt;
-&lt;td&gt;Called when an existing domain transfer request comes from WHMCS.&lt;/td&gt;
+&lt;td&gt;Called when a domain transfer request is initiated within WHMCS.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;RenewDomain&lt;/td&gt;
-&lt;td&gt;Called when a request to renew a domain comes from WHMCS.&lt;/td&gt;
+&lt;td&gt;Called when a request to renew a domain is initiated within WHMCS.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;GetDomainInformation&lt;/td&gt;
+&lt;td&gt;Called when a domain is viewed within WHMCS. Recommended instead of GetNameservers and GetRegistrarLock in WHMCS 7.6 and later.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;GetNameservers&lt;/td&gt;
-&lt;td&gt;Called whenever a domain is viewed within WHMCS. It can return up to 5 nameservers that are set for the domain.&lt;/td&gt;
+&lt;td&gt;Called when a domain is viewed within WHMCS. It can return up to 5 nameservers that are set for the domain.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;SaveNameservers&lt;/td&gt;
-&lt;td&gt;Called when a change request to the nameservers displayed inside WHMCS.&lt;/td&gt;
+&lt;td&gt;Called when a change is submitted for a domains nameservers.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;GetRegistrarLock&lt;/td&gt;
-&lt;td&gt;Called whenever a domains details are viewed within WHMCS. It should return the current lock status of a domain&lt;/td&gt;
+&lt;td&gt;Called when a domains details are viewed within WHMCS. It should return the current lock status of a domain.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -211,6 +216,11 @@ function yourmodulename_getConfigArray($params)
 &lt;tr&gt;
 &lt;td&gt;SaveContactDetails&lt;/td&gt;
 &lt;td&gt;Called when revised WHOIS information is submitted.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ResendIRTPVerificationEmail&lt;/td&gt;
+&lt;td&gt;Called when a request is made to resend the IRTP contact verification emails.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -641,6 +651,21 @@ function yourmodulename_getConfigArray($params)
 &lt;td&gt;premiumCost&lt;/td&gt;
 &lt;td&gt;The cost price fetched at the time of the order being placed&lt;/td&gt;
 &lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Grace/Redemption Parameters&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;isInGracePeriod&lt;/td&gt;
+&lt;td&gt;True if domain is within the renewal grace period. Available in the module renewal function only&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;isInRedemptionGracePeriod&lt;/td&gt;
+&lt;td&gt;True if the domain is within the redemption grace period. Available in the module renewal function only&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 </description>
@@ -668,6 +693,76 @@ function yourmodulename_getConfigArray($params)
     &#39;error&#39; =&amp;gt; &#39;Domain name not found&#39;,
 );
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Domain Information</title>
+      <link>//developers.whmcs.com/domain-registrars/domain-information/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/domain-registrars/domain-information/</guid>
+      <description>
+
+&lt;p&gt;This function allows you to build and return an object representing a given domain.  The attributes of the object can include data including nameservers, expiry date, registrar and transfer lock status, domain contact verification status and more.&lt;/p&gt;
+
+&lt;div class=&#34;notice success&#34; &gt;&lt;p&gt;In WHMCS 7.6 and later, it is recommended to use the &lt;code&gt;GetDomainInformation&lt;/code&gt; function in place of the individual &lt;code&gt;GetNameservers&lt;/code&gt; and &lt;code&gt;GetRegistrarLock&lt;/code&gt; functions in scenarios where a single API call can retrieve both nameservers and registrar lock status for best performance.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Note this function is only available in WHMCS 7.6.0 and later.&lt;/p&gt;
+
+&lt;h2 id=&#34;example-usage&#34;&gt;Example Usage&lt;/h2&gt;
+
+&lt;p&gt;The function expects a return of a &lt;a href=&#34;https://docs.whmcs.com/classes/7.6/WHMCS/Domain/Registrar/Domain_ns.html&#34;&gt;WHMCS Registrar Domain object&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The example below demonstrates setting all supported domain attributes at the time of writing.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;use WHMCS\Domain\Registrar\Domain;
+
+function modulename_GetDomainInformation($params) {
+	/**
+     * Perform API call to retrieve domain information. This example assumes
+     * $response is populated with an array of data returned by the Registrar&#39;s API.
+     */
+	$response = [];
+
+	return (new Domain)
+        -&amp;gt;setDomain($response[&#39;domain&#39;])
+        -&amp;gt;setNameservers($response[&#39;nameservers&#39;])
+        -&amp;gt;setRegistrationStatus($response[&#39;status&#39;])
+        -&amp;gt;setTransferLock($response[&#39;transferlock&#39;])
+        -&amp;gt;setTransferLockExpiryDate(null)
+        -&amp;gt;setExpiryDate($response[&#39;expirydate&#39;])
+        -&amp;gt;setRestorable(false)
+        -&amp;gt;setIdProtectionStatus($response[&#39;addons&#39;][&#39;hasidprotect&#39;])
+        -&amp;gt;getDnsManagementStatus($response[&#39;addons&#39;][&#39;hasdnsmanagement&#39;])
+        -&amp;gt;setEmailForwardingStatus($response[&#39;addons&#39;][&#39;hasemailforwarding&#39;])
+        -&amp;gt;setIsIrtpEnabled(in_array($response[&#39;tld&#39;], [&#39;.com&#39;]))
+        -&amp;gt;setIrtpOptOutStatus($response[&#39;irtp&#39;][&#39;optoutstatus&#39;])
+        -&amp;gt;setIrtpTransferLock($response[&#39;irtp&#39;][&#39;lockstatus&#39;])
+        -&amp;gt;IrtpTransferLockExpiryDate($irtpTransferLockExpiryDate)
+        -&amp;gt;setDomainContactChangePending($response[&#39;status&#39;][&#39;contactpending&#39;])
+        -&amp;gt;setPendingSuspension($response[&#39;status&#39;][&#39;pendingsuspend&#39;])
+        -&amp;gt;setDomainContactChangeExpiryDate($response[&#39;status&#39;][&#39;expires&#39;])
+        -&amp;gt;setRegistrantEmailAddress($response[&#39;registrant&#39;][&#39;email&#39;])
+        -&amp;gt;setIrtpVerificationTriggerFields(
+            [
+                &#39;Registrant&#39; =&amp;gt; [
+                    &#39;First Name&#39;,
+                    &#39;Last Name&#39;,
+                    &#39;Organization Name&#39;,
+                    &#39;Email&#39;,
+                ],
+            ]
+        );
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If an error is encountered while attempting to fetch the domain information, you should throw an exception. All exceptions will be caught by WHMCS and the exception message displayed to the end user.&lt;/p&gt;
+
+&lt;p&gt;Method signatures for the &lt;code&gt;WHMCS\Domain\Registrar\Domain&lt;/code&gt; class can be found in the
+&lt;a href=&#34;https://docs.whmcs.com/classes/7.6/WHMCS/Domain/Registrar/Domain_ns.html&#34;&gt;WHMCS Class Documention&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -868,6 +963,140 @@ function yourmodulename_getConfigArray($params)
 &lt;h3 id=&#34;code-sample&#34;&gt;Code Sample&lt;/h3&gt;
 
 &lt;p&gt;Please refer to the example provided in the &lt;a href=&#34;https://github.com/WHMCS/sample-registrar-module&#34;&gt;Sample Registrar Module available via Github&lt;/a&gt; for an example implementation of the &lt;code&gt;CheckAvailability&lt;/code&gt; and &lt;code&gt;Register&lt;/code&gt; functions. Both include the appropriate parameters for Premium Domain handling.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Transfer Policy (IRTP) Management</title>
+      <link>//developers.whmcs.com/domain-registrars/transfer-policy-management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/domain-registrars/transfer-policy-management/</guid>
+      <description>
+
+&lt;p&gt;The Inter Registry Transfer Policy, (also commonly referred to as IRTP), states that any time a material change is made to a domain&amp;rsquo;s registrant, organization or email address, a new Change of Registrant process should be triggered.&lt;/p&gt;
+
+&lt;p&gt;In WHMCS 7.6 and later, registrar modules can incorporate support for Transfer Policy related messaging as follows.&lt;/p&gt;
+
+&lt;h2 id=&#34;whois-contact-verification&#34;&gt;WHOIS Contact Verification&lt;/h2&gt;
+
+&lt;p&gt;WHMCS supports display of informational banners and messaging when contact verification is required, either due to a newly registered domain or a change in WHOIS contact information being requested.&lt;/p&gt;
+
+&lt;p&gt;For these informational alerts to be displayed, the appropriate attributes need to be set via the &lt;code&gt;GetDomainInformation&lt;/code&gt; method within a registrar module.&lt;/p&gt;
+
+&lt;p&gt;A description of the methods used in WHOIS Contact Verification messaging are provided below:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Function&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;setIsIrtpEnabled&lt;/td&gt;
+&lt;td&gt;Boolean&lt;/td&gt;
+&lt;td&gt;Must be set to true to enable Transfer Policy functionality.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setIrtpOptOutStatus&lt;/td&gt;
+&lt;td&gt;Boolean&lt;/td&gt;
+&lt;td&gt;True or false depending on the current opt-out status for the Inter Registry Transfer Policy (optional)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setIrtpTransferLock&lt;/td&gt;
+&lt;td&gt;Boolean&lt;/td&gt;
+&lt;td&gt;True or false depending on the current IRTP Transfer Lock status for the given domain (optional)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;IrtpTransferLockExpiryDate&lt;/td&gt;
+&lt;td&gt;Date/Carbon&lt;/td&gt;
+&lt;td&gt;The expiry date of the transfer lock (optional)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setDomainContactChangePending&lt;/td&gt;
+&lt;td&gt;Boolean&lt;/td&gt;
+&lt;td&gt;True if a WHOIS Contact Verification process is in progress&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setPendingSuspension&lt;/td&gt;
+&lt;td&gt;Boolean&lt;/td&gt;
+&lt;td&gt;True if failure to complete the current WHOIS Contact Verification process will result in domain suspension (typically for new registrations)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setDomainContactChangeExpiryDate&lt;/td&gt;
+&lt;td&gt;Date/Carbon&lt;/td&gt;
+&lt;td&gt;The date by which the current WHOIS Contact Verification process must be completed by&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setIrtpVerificationTriggerFields&lt;/td&gt;
+&lt;td&gt;Array&lt;/td&gt;
+&lt;td&gt;The fields of WHOIS that when changed will trigger a new WHOIS Contact Verification process&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example-usage&#34;&gt;Example Usage&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;use WHMCS\Carbon;
+use WHMCS\Domain\Registrar\Domain;
+
+function modulename_GetDomainInformation(array $params) {
+	// Perform API call to retrieve domain information
+
+	return (new Domain)
+        -&amp;gt;setIsIrtpEnabled(true)
+        -&amp;gt;setIrtpOptOutStatus(false)
+        -&amp;gt;setIrtpTransferLock(true)
+        -&amp;gt;IrtpTransferLockExpiryDate(Carbon::createFromFormat(&#39;Y-m-d&#39;, &#39;2019-06-15&#39;))
+        -&amp;gt;setDomainContactChangePending(true)
+        -&amp;gt;setPendingSuspension(true)
+        -&amp;gt;setDomainContactChangeExpiryDate(Carbon::createFromFormat(&#39;Y-m-d&#39;, &#39;2018-08-20&#39;))
+        -&amp;gt;setIrtpVerificationTriggerFields(
+            [
+                &#39;Registrant&#39; =&amp;gt; [
+                    &#39;First Name&#39;,
+                    &#39;Last Name&#39;,
+                    &#39;Organization Name&#39;,
+                    &#39;Email&#39;,
+                ],
+            ]
+        );
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Other attributes relating to a domain are supported. More information on these can be found in the &lt;a href=&#34;//developers.whmcs.com/domain-registrars/domain-information/&#34;&gt;Domain Information&lt;/a&gt; documentation.&lt;/p&gt;
+
+&lt;h2 id=&#34;resend-contact-verification-email&#34;&gt;Resend Contact Verification Email&lt;/h2&gt;
+
+&lt;p&gt;If supported by a registrar API, the &lt;code&gt;ResendIRTPVerificationEmail&lt;/code&gt; function can be defined within a registrar module to allow end users and administrators to request the WHOIS Contact Verification emails be resent.&lt;/p&gt;
+
+&lt;p&gt;The standard registrar module parameters are passed to this function, errors are supported using the standard array based return as in other registrar module functions.&lt;/p&gt;
+
+&lt;h3 id=&#34;example-usage-1&#34;&gt;Example Usage&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;function modulename_ResendIRTPVerificationEmail(array $params) {
+	// Perform API call to initiate resending of the IRTP Verification Email
+	$success = true;
+	$errorMessage = &#39;&#39;;
+
+	if ($success) {
+		return [&#39;success&#39; =&amp;gt; true];
+	} else {
+		return [&#39;error&#39; =&amp;gt; $errorMessage];
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

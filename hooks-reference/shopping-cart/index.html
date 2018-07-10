@@ -1272,7 +1272,7 @@ add_hook('OrderPaid', 1, function($vars) {
 
 <h4 id="response-15">Response</h4>
 
-<p>Product pricing can be overridden. Accepts a return of the keys &lsquo;setup&rsquo; and &lsquo;recurring&rsquo;. eg: return array(&lsquo;setup&rsquo; =&gt; 1.00, &lsquo;recurring&rsquo; =&gt; 12.00);</p>
+<p>Product pricing can be overridden - exclusive of configurable option cost. Accepts a return of the keys &lsquo;setup&rsquo; and &lsquo;recurring&rsquo;. eg: return array(&lsquo;setup&rsquo; =&gt; 1.00, &lsquo;recurring&rsquo; =&gt; 12.00);</p>
 
 <h4 id="example-code-15">Example Code</h4>
 
@@ -1286,14 +1286,14 @@ add_hook('OrderProductPricingOverride', 1, function($vars) {
     /**
      * Override the product price when ordering product 1 and the user has the id 10
      */
-    if ($vars['pid'] == 1 &amp;&amp; Session::get('userid') == 10) {
+    if ($vars['pid'] == 1 &amp;&amp; Session::get('uid') == 10) {
         $return = ['setup' =&gt; '0.00', 'recurring' =&gt; '0.00',];
     }
 
     /**
      * Override the product price when user has the id 72
      */
-    if (Session::get('userid') == 72) {
+    if (Session::get('uid') == 72) {
         $return = ['setup' =&gt; '0.00', 'recurring' =&gt; '0.00',];
     }
     return $return;
@@ -1386,7 +1386,7 @@ add_hook('OrderProductPricingOverride', 1, function($vars) {
 
 <pre><code>&lt;?php
 
-use Carbon\Carbon;
+use WHMCS\Carbon;
 
 add_hook('OrderProductUpgradeOverride', 1, function($vars) {
     $return = [];
@@ -1532,11 +1532,45 @@ add_hook('PreCalculateCartTotals', 1, function($vars) {
 });
 </code></pre>
 
+<h2 id="prefraudcheck">PreFraudCheck</h2>
+
+<h4 id="parameters-20">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>$params</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-20">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-20">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreFraudCheck', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
 <h2 id="preshoppingcartcheckout">PreShoppingCartCheckout</h2>
 
 <p>Executes just before checkout occurs. All cart information is passed to the hook. Examples given here.</p>
 
-<h4 id="parameters-20">Parameters</h4>
+<h4 id="parameters-21">Parameters</h4>
 
 <table>
 <thead>
@@ -1562,11 +1596,11 @@ add_hook('PreCalculateCartTotals', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-20">Response</h4>
+<h4 id="response-21">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-20">Example Code</h4>
+<h4 id="example-code-21">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreShoppingCartCheckout', 1, function($vars) {
@@ -1578,7 +1612,7 @@ add_hook('PreShoppingCartCheckout', 1, function($vars) {
 
 <p>Executes as the fraud module is being checked for an order.</p>
 
-<h4 id="parameters-21">Parameters</h4>
+<h4 id="parameters-22">Parameters</h4>
 
 <table>
 <thead>
@@ -1604,11 +1638,11 @@ add_hook('PreShoppingCartCheckout', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-21">Response</h4>
+<h4 id="response-22">Response</h4>
 
 <p>Return any value to skip the fraud check</p>
 
-<h4 id="example-code-21">Example Code</h4>
+<h4 id="example-code-22">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('RunFraudCheck', 1, function($vars) {
@@ -1620,7 +1654,7 @@ add_hook('RunFraudCheck', 1, function($vars) {
 
 <p>Executes when the Complete Page is displayed on checkout.</p>
 
-<h4 id="parameters-22">Parameters</h4>
+<h4 id="parameters-23">Parameters</h4>
 
 <table>
 <thead>
@@ -1676,11 +1710,11 @@ add_hook('RunFraudCheck', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-22">Response</h4>
+<h4 id="response-23">Response</h4>
 
 <p>HTML to be displayed on the order complete page.</p>
 
-<h4 id="example-code-22">Example Code</h4>
+<h4 id="example-code-23">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -1696,7 +1730,7 @@ add_hook('ShoppingCartCheckoutCompletePage', 1, function($vars) {
 
 <p>Executes on checkout via the shopping cart. The <code>$_SESSION['cart']</code> varible contains the products in the cart and associated configuration. See <code>PreCalculateCartTotals</code> for more details on cart session data.</p>
 
-<h4 id="parameters-23">Parameters</h4>
+<h4 id="parameters-24">Parameters</h4>
 
 <table>
 <thead>
@@ -1890,11 +1924,11 @@ add_hook('ShoppingCartCheckoutCompletePage', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-23">Response</h4>
+<h4 id="response-24">Response</h4>
 
 <p>Return accepts both a <code>string</code> or an <code>array</code>. Use a string for <code>single</code> error message or an <code>array</code> of strings for multiple error messages.</p>
 
-<h4 id="example-code-23">Example Code</h4>
+<h4 id="example-code-24">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -1910,7 +1944,7 @@ add_hook('ShoppingCartValidateCheckout', 1, function($vars) {
 
 <p>Executes when Cart Domain Validation is occurring</p>
 
-<h4 id="parameters-24">Parameters</h4>
+<h4 id="parameters-25">Parameters</h4>
 
 <table>
 <thead>
@@ -1942,11 +1976,11 @@ add_hook('ShoppingCartValidateCheckout', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-24">Response</h4>
+<h4 id="response-25">Response</h4>
 
 <p>Return accepts both a <code>string</code> or an <code>array</code>. Use a string for <code>single</code> error message or an <code>array</code> of strings for multiple error messages.</p>
 
-<h4 id="example-code-24">Example Code</h4>
+<h4 id="example-code-25">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -1961,46 +1995,6 @@ add_hook('ShoppingCartValidateDomain', 1, function($vars) {
 <h2 id="shoppingcartvalidatedomainsconfig">ShoppingCartValidateDomainsConfig</h2>
 
 <p>Executes when Domain Update is occurring</p>
-
-<h4 id="parameters-25">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>N/A</td>
-<td>array</td>
-<td>The REQUEST variables</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-25">Response</h4>
-
-<p>Return accepts both a <code>string</code> or an <code>array</code>. Use a string for <code>single</code> error message or an <code>array</code> of strings for multiple error messages.</p>
-
-<h4 id="example-code-25">Example Code</h4>
-
-<pre><code>&lt;?php
-
-add_hook('ShoppingCartValidateDomainsConfig', 1, function($vars) {
-    return [
-        'Error message feedback error 1',
-        'Error message feedback error 2',
-    ];
-});
-</code></pre>
-
-<h2 id="shoppingcartvalidateproductupdate">ShoppingCartValidateProductUpdate</h2>
-
-<p>Executes when Product Update is occurring</p>
 
 <h4 id="parameters-26">Parameters</h4>
 
@@ -2030,6 +2024,46 @@ add_hook('ShoppingCartValidateDomainsConfig', 1, function($vars) {
 
 <pre><code>&lt;?php
 
+add_hook('ShoppingCartValidateDomainsConfig', 1, function($vars) {
+    return [
+        'Error message feedback error 1',
+        'Error message feedback error 2',
+    ];
+});
+</code></pre>
+
+<h2 id="shoppingcartvalidateproductupdate">ShoppingCartValidateProductUpdate</h2>
+
+<p>Executes when Product Update is occurring</p>
+
+<h4 id="parameters-27">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>N/A</td>
+<td>array</td>
+<td>The REQUEST variables</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-27">Response</h4>
+
+<p>Return accepts both a <code>string</code> or an <code>array</code>. Use a string for <code>single</code> error message or an <code>array</code> of strings for multiple error messages.</p>
+
+<h4 id="example-code-27">Example Code</h4>
+
+<pre><code>&lt;?php
+
 add_hook('ShoppingCartValidateProductUpdate', 1, function($vars) {
     return [
         'Error message feedback error 1',
@@ -2042,7 +2076,7 @@ add_hook('ShoppingCartValidateProductUpdate', 1, function($vars) {
 
 <p>Executes as the order details page is being displayed</p>
 
-<h4 id="parameters-27">Parameters</h4>
+<h4 id="parameters-28">Parameters</h4>
 
 <table>
 <thead>
@@ -2098,11 +2132,11 @@ add_hook('ShoppingCartValidateProductUpdate', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-27">Response</h4>
+<h4 id="response-28">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-27">Example Code</h4>
+<h4 id="example-code-28">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ViewOrderDetailsPage', 1, function($vars) {

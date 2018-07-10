@@ -379,6 +379,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getclientsproducts/&#34;&gt;GetClientsProducts&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getcontacts/&#34;&gt;GetContacts&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getemails/&#34;&gt;GetEmails&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/resetpassword/&#34;&gt;ResetPassword&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateclient/&#34;&gt;UpdateClient&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updatecontact/&#34;&gt;UpdateContact&lt;/a&gt;
 &lt;/ul&gt;
