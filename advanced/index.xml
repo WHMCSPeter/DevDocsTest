@@ -38,7 +38,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/advanced/creating-pages/</guid>
-      <description>&lt;p&gt;Creating your own client area pages should orindarily be done by creating an Addon Module with client area output.&lt;/p&gt;
+      <description>&lt;p&gt;Creating your own client area pages should ordinarily be done by creating an Addon Module with client area output.&lt;/p&gt;
 
 &lt;p&gt;However, if you wish to, you can create a standalone page using the following template.&lt;/p&gt;
 

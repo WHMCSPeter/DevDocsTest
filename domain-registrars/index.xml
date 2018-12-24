@@ -720,7 +720,7 @@ function yourmodulename_getConfigArray($params)
 
 &lt;h2 id=&#34;example-usage&#34;&gt;Example Usage&lt;/h2&gt;
 
-&lt;p&gt;The function expects a return of a &lt;a href=&#34;https://docs.whmcs.com/classes/7.6/WHMCS/Domain/Registrar/Domain_ns.html&#34;&gt;WHMCS Registrar Domain object&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The function expects a return of a &lt;a href=&#34;https://docs.whmcs.com/classes/7.6/WHMCS/Domain/Registrar/Domain.html&#34;&gt;WHMCS Registrar Domain object&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The example below demonstrates setting all supported domain attributes at the time of writing.&lt;/p&gt;
 
@@ -768,7 +768,7 @@ function modulename_GetDomainInformation($params) {
 &lt;p&gt;If an error is encountered while attempting to fetch the domain information, you should throw an exception. All exceptions will be caught by WHMCS and the exception message displayed to the end user.&lt;/p&gt;
 
 &lt;p&gt;Method signatures for the &lt;code&gt;WHMCS\Domain\Registrar\Domain&lt;/code&gt; class can be found in the
-&lt;a href=&#34;https://docs.whmcs.com/classes/7.6/WHMCS/Domain/Registrar/Domain_ns.html&#34;&gt;WHMCS Class Documention&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://docs.whmcs.com/classes/7.6/WHMCS/Domain/Registrar/Domain.html&#34;&gt;WHMCS Class Documention&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
