@@ -270,6 +270,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/api-reference/getadminusers/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/api-reference/getaffiliates/</loc>
   </url>
   
@@ -619,6 +623,10 @@
   
   <url>
     <loc>//developers.whmcs.com/api-reference/updateticket/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updateticketreply/</loc>
   </url>
   
   <url>

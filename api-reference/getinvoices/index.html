@@ -594,6 +594,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getadminusers/">
+          <a href="//developers.whmcs.com/api-reference/getadminusers/">
+            <span>GetAdminUsers</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/getaffiliates/">
           <a href="//developers.whmcs.com/api-reference/getaffiliates/">
             <span>GetAffiliates</span>
@@ -1218,6 +1226,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/updateticketreply/">
+          <a href="//developers.whmcs.com/api-reference/updateticketreply/">
+            <span>UpdateTicketReply</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/updatetodoitem/">
           <a href="//developers.whmcs.com/api-reference/updatetodoitem/">
             <span>UpdateToDoItem</span>
@@ -1329,7 +1345,7 @@
 
 			
 
-<p>Retrieve a specific invoice</p>
+<p>Retrieve a list of invoices.</p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -1376,6 +1392,20 @@
 <td>status</td>
 <td>string</td>
 <td>Find invoices for a specific status. Standard Invoice statuses plus Overdue</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>orderby</td>
+<td>string</td>
+<td>The field to sort results by. Accepted values are: id, invoicenumber, date, duedate, total, status</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>order</td>
+<td>string</td>
+<td>Order sort attribute. Accepted values are: asc or desc.</td>
 <td>Optional</td>
 </tr>
 </tbody>
@@ -1438,6 +1468,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'userid' =&gt; '1',
+            'orderby' =&gt; 'invoicenumber',
             'responsetype' =&gt; 'json',
         )
     )
@@ -1452,6 +1483,7 @@ curl_close($ch);
 <pre><code>$command = 'GetInvoices';
 $postData = array(
     'userid' =&gt; '1',
+    'orderby' =&gt; 'invoicenumber',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -1505,6 +1537,11 @@ print_r($results);
 <tr>
 <td>1.0</td>
 <td>Initial Version</td>
+</tr>
+
+<tr>
+<td>7.7</td>
+<td>Added <code>orderby</code> and <code>order</code> parameters to control returned sorting.</td>
 </tr>
 </tbody>
 </table>

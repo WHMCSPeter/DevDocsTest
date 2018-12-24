@@ -505,6 +505,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/cron/#aftercronjob&#34;&gt;AfterCronJob&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/cron/#dailycronjob&#34;&gt;DailyCronJob&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/cron/#dailycronjobpreemail&#34;&gt;DailyCronJobPreEmail&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/cron/#popemailcollectioncroncompleted&#34;&gt;PopEmailCollectionCronCompleted&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/cron/#precronjob&#34;&gt;PreCronJob&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Everything Else&lt;/h3&gt;

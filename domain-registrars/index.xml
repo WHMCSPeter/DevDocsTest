@@ -323,10 +323,16 @@ function yourmodulename_getConfigArray($params)
 
     // Perform code to fetch domain status here
 
+    // Return your result.
+    // If &#39;error&#39; is returned, all other values will be ignored. It is important to ensure &#39;error&#39; is not returned in this array
+    // unless the sync should not be completed. The error message will be provided in the &amp;quot;Domain Synchronisation Report&amp;quot; email.
+    
     return array(
         &#39;active&#39; =&amp;gt; true, // Return true if the domain is active
-        &#39;expired&#39; =&amp;gt; false, // Return true if the domain has expired
-        &#39;expirydate&#39; =&amp;gt; &#39;2016-11-01&#39;, // Return the current expiry date for the domain
+        &#39;cancelled&#39; =&amp;gt; false, // Return true if the domain has been cancelled 
+        &#39;transferredAway&#39; =&amp;gt; false, // Return true if the domain has been transferred away from this registrar
+        &#39;expirydate&#39; =&amp;gt; &#39;2018-09-28&#39;, // Return the current expiry date for the domain
+        &#39;error&#39; =&amp;gt; &#39;Error message goes here.&#39; // The error message returned here will be returned within the Domain Synchronisation Report Email
     );
 }
 &lt;/code&gt;&lt;/pre&gt;

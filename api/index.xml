@@ -336,6 +336,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getannouncements/&#34;&gt;GetAnnouncements&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/openticket/&#34;&gt;OpenTicket&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateticket/&#34;&gt;UpdateTicket&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateticketreply/&#34;&gt;UpdateTicketReply&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;System&lt;/h3&gt;
 
@@ -344,6 +345,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/encryptpassword/&#34;&gt;EncryptPassword&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getactivitylog/&#34;&gt;GetActivityLog&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getadmindetails/&#34;&gt;GetAdminDetails&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getadminusers/&#34;&gt;GetAdminUsers&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getautomationlog/&#34;&gt;GetAutomationLog&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getconfigurationvalue/&#34;&gt;GetConfigurationValue&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getcurrencies/&#34;&gt;GetCurrencies&lt;/a&gt;

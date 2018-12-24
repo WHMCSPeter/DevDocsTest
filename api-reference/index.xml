@@ -1276,6 +1276,13 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
+&lt;td&gt;tax_id&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The client Tax ID&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;password2&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -1525,6 +1532,11 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;1.0&lt;/td&gt;
 &lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;7.7&lt;/td&gt;
+&lt;td&gt;Added &lt;code&gt;tax_id&lt;/code&gt; parameter.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1800,6 +1812,13 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
+&lt;td&gt;tax_id&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;password2&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;if creating a sub-account&lt;/td&gt;
@@ -1947,6 +1966,11 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;1.0&lt;/td&gt;
 &lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;7.7&lt;/td&gt;
+&lt;td&gt;Added &lt;code&gt;tax_id&lt;/code&gt; parameter.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2875,14 +2899,14 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;proratadate&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;See &lt;a href=&#34;http://docs.whmcs.com/Products_and_Services#Pricing_Tab&#34;&gt;http://docs.whmcs.com/Products_and_Services#Pricing_Tab&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;See &lt;a href=&#34;https://docs.whmcs.com/Products_and_Services#Pricing_Tab&#34;&gt;https://docs.whmcs.com/Products_and_Services#Pricing_Tab&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;proratachargenextmonth&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;See &lt;a href=&#34;http://docs.whmcs.com/Products_and_Services#Pricing_Tab&#34;&gt;http://docs.whmcs.com/Products_and_Services#Pricing_Tab&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;See &lt;a href=&#34;https://docs.whmcs.com/Products_and_Services#Pricing_Tab&#34;&gt;https://docs.whmcs.com/Products_and_Services#Pricing_Tab&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 

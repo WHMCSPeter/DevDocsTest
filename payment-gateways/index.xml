@@ -392,7 +392,7 @@ $params[&#39;systemurl&#39;] # the url to the Client Area
     &#39;status&#39; =&amp;gt; &#39;success&#39;,
     &#39;rawdata&#39; =&amp;gt; $responseData,
     &#39;transid&#39; =&amp;gt; $transactionId,
-    &#39;fees&#39; =&amp;gt; $feeAmount,
+    &#39;fee&#39; =&amp;gt; $feeAmount,
 );
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -429,7 +429,7 @@ $params[&#39;systemurl&#39;] # the url to the Client Area
         &#39;status&#39; =&amp;gt; ($data-&amp;gt;success == 1) ? &#39;success&#39; : &#39;declined&#39;,
         &#39;rawdata&#39; =&amp;gt; $data,
         &#39;transid&#39; =&amp;gt; $data-&amp;gt;transaction_id,
-        &#39;fees&#39; =&amp;gt; $data-&amp;gt;fees,
+        &#39;fee&#39; =&amp;gt; $data-&amp;gt;fees,
     );
 }
 &lt;/code&gt;&lt;/pre&gt;

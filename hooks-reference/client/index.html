@@ -486,6 +486,12 @@ add_hook('AfterClientMerge', 1, function($vars) {
 </tr>
 
 <tr>
+<td>tax_id</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
 <td>password</td>
 <td>string</td>
 <td></td>
@@ -812,6 +818,12 @@ add_hook('ClientDelete', 1, function($vars) {
 </tr>
 
 <tr>
+<td>tax_id</td>
+<td>string</td>
+<td>The client&rsquo;s tax id</td>
+</tr>
+
+<tr>
 <td>paymentmethod</td>
 <td>string</td>
 <td>If selected, the client&rsquo;s default payment method</td>
@@ -1075,6 +1087,12 @@ add_hook('ClientDetailsValidation', 1, function($vars) {
 
 <tr>
 <td>email_verified</td>
+<td>bool</td>
+<td></td>
+</tr>
+
+<tr>
+<td>isOptedInToMarketingEmails</td>
 <td>bool</td>
 <td></td>
 </tr>
