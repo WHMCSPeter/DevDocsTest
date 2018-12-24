@@ -1363,22 +1363,28 @@
 </ul>
 
 <p>What you must provide for the Related ID depends upon the type of email being sent.
-The available options are:
-* General Email Type = Client ID (tblclients.id)
-* Product Email Type = Service ID (tblhosting.id)
-* Domain Email Type = Domain ID (tbldomains.id)
-* Invoice Email Type = Invoice ID (tblinvoices.id)
-* Support Email Type = Ticket ID (tbltickets.id)
-* Affiliate Email Type = Affiliate ID (tblaffiliates.id)</p>
+The available options are:</p>
+
+<ul>
+<li>General Email Type = Client ID (tblclients.id)</li>
+<li>Product Email Type = Service ID (tblhosting.id)</li>
+<li>Domain Email Type = Domain ID (tbldomains.id)</li>
+<li>Invoice Email Type = Invoice ID (tblinvoices.id)</li>
+<li>Support Email Type = Ticket ID (tbltickets.id)</li>
+<li>Affiliate Email Type = Affiliate ID (tblaffiliates.id)</li>
+</ul>
 
 <p><strong>Sending Failed</strong></p>
 
-<p>The generic Sending Failed error response can be caused by one of five possible conditions. They are:
-* Invalid related ID
-* Email template contains no body content after processing (typically a Smarty error)
-* Welcome email requested for product which has none set
-* Hook aborted the sending
-* PHPMailer Sending Error - in this failure condition, an activity log entry will be created recording the error message that occurred</p>
+<p>The generic Sending Failed error response can be caused by one of five possible conditions. They are:</p>
+
+<ul>
+<li>Invalid related ID</li>
+<li>Email template contains no body content after processing (typically a Smarty error)</li>
+<li>Welcome email requested for product which has none set</li>
+<li>Hook aborted the sending</li>
+<li>PHPMailer Sending Error - in this failure condition, an activity log entry will be created recording the error message that occurred</li>
+</ul>
 
 <h3 id="request-parameters">Request Parameters</h3>
 

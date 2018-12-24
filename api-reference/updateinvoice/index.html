@@ -1554,6 +1554,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
+            'invoiceid' =&gt; 1,
             'status' =&gt; 'Unpaid',
             'itemdescription' =&gt; array(13 =&gt; 'Sample Updated Invoice Item'),
             'itemamount' =&gt; array(13 =&gt; 16.95),
@@ -1571,6 +1572,7 @@ curl_close($ch);
 
 <pre><code>$command = 'UpdateInvoice';
 $postData = array(
+    'invoiceid' =&gt; 1,
     'status' =&gt; 'Unpaid',
     'itemdescription' =&gt; array(13 =&gt; 'Sample Updated Invoice Item'),
     'itemamount' =&gt; array(13 =&gt; 16.95),
