@@ -594,6 +594,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getadminusers/">
+          <a href="//developers.whmcs.com/api-reference/getadminusers/">
+            <span>GetAdminUsers</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/getaffiliates/">
           <a href="//developers.whmcs.com/api-reference/getaffiliates/">
             <span>GetAffiliates</span>
@@ -1218,6 +1226,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/updateticketreply/">
+          <a href="//developers.whmcs.com/api-reference/updateticketreply/">
+            <span>UpdateTicketReply</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/updatetodoitem/">
           <a href="//developers.whmcs.com/api-reference/updatetodoitem/">
             <span>UpdateToDoItem</span>
@@ -1429,9 +1445,16 @@
 </tr>
 
 <tr>
-<td>useMarkdown</td>
+<td>message</td>
+<td>string</td>
+<td>Update the ticket message</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>markdown</td>
 <td>bool</td>
-<td>Should markdown be used on the ticket output</td>
+<td>Should markdown be used on the ticket output.</td>
 <td>Optional</td>
 </tr>
 
@@ -1541,6 +1564,11 @@ print_r($results);
 <tr>
 <td>1.0</td>
 <td>Initial Version</td>
+</tr>
+
+<tr>
+<td>7.7</td>
+<td>Added <code>message</code> parameter that allows updating primary ticket message.</td>
 </tr>
 </tbody>
 </table>

@@ -861,8 +861,8 @@ add_hook(&#39;AdminAreaClientSummaryActionLinks&#39;, 1, function($vars) {
     $return = [];
 
     if ($vars[&#39;userid&#39;] == 1) {
-        $return[] = &#39;&amp;lt;a href=&amp;quot;http://www.whmcs.com/&amp;quot;&amp;gt;WHMCS&amp;lt;/a&amp;gt;&#39;;
-        $return[] = &#39;&amp;lt;a href=&amp;quot;http://www.enom.com/&amp;quot;&amp;gt;eNom&amp;lt;/a&amp;gt;&#39;;
+        $return[] = &#39;&amp;lt;a href=&amp;quot;https://www.whmcs.com/&amp;quot;&amp;gt;WHMCS&amp;lt;/a&amp;gt;&#39;;
+        $return[] = &#39;&amp;lt;a href=&amp;quot;https://www.enom.com/&amp;quot;&amp;gt;eNom&amp;lt;/a&amp;gt;&#39;;
     }
 
     return $return;
@@ -2148,7 +2148,7 @@ add_hook(&#39;ClientLoginShare&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientlogout&#34;&gt;ClientLogout&lt;/h2&gt;
 
-&lt;p&gt;Executes when a client is logging into the Client Area.&lt;/p&gt;
+&lt;p&gt;Executes when a client logs out of the Client Area.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -2326,6 +2326,12 @@ add_hook(&#39;AfterClientMerge&#39;, 1, function($vars) {
 
 &lt;tr&gt;
 &lt;td&gt;phonenumber&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;tax_id&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -2657,6 +2663,12 @@ add_hook(&#39;ClientDelete&#39;, 1, function($vars) {
 &lt;/tr&gt;
 
 &lt;tr&gt;
+&lt;td&gt;tax_id&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The client&amp;rsquo;s tax id&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;paymentmethod&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;If selected, the client&amp;rsquo;s default payment method&lt;/td&gt;
@@ -2925,6 +2937,12 @@ add_hook(&#39;ClientDetailsValidation&#39;, 1, function($vars) {
 &lt;/tr&gt;
 
 &lt;tr&gt;
+&lt;td&gt;isOptedInToMarketingEmails&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;olddata&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
 &lt;td&gt;An array of the previous user information&lt;/td&gt;
@@ -3102,7 +3120,7 @@ add_hook(&#39;ClientAreaHomepage&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientareahomepagepanels&#34;&gt;ClientAreaHomepagePanels&lt;/h2&gt;
 
-&lt;p&gt;Executes prior to rendering the Client Area Homepage panels. This can be used to manipulate and add additional panels. For more information on working with Homepage Panels, and further examples, please see &lt;a href=&#34;http://docs.whmcs.com/Working_With_Client_Area_Home_Page_Panels&#34;&gt;Working with ClientArea Homepage Panels&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Executes prior to rendering the Client Area Homepage panels. This can be used to manipulate and add additional panels. For more information on working with Homepage Panels, and further examples, please see &lt;a href=&#34;https://docs.whmcs.com/Working_With_Client_Area_Home_Page_Panels&#34;&gt;Working with ClientArea Homepage Panels&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -3142,9 +3160,9 @@ add_hook(&#39;ClientAreaHomepagePanels&#39;, 1, function($homePagePanels) {
             &#39;order&#39; =&amp;gt; &#39;99&#39;,
             &#39;extras&#39; =&amp;gt; array(
                 &#39;color&#39; =&amp;gt; &#39;pomegranate&#39;, //see Panel Accents in template styles.css
-                &#39;btn-link&#39; =&amp;gt; &#39;http://www.whmcs.com&#39;,
+                &#39;btn-link&#39; =&amp;gt; &#39;https://www.whmcs.com&#39;,
                 &#39;btn-text&#39; =&amp;gt; Lang::trans(&#39;go&#39;),
-                &#39;btn-icon&#39; =&amp;gt; &#39;fa-arrow-right&#39;,
+                &#39;btn-icon&#39; =&amp;gt; &#39;fas fa-arrow-right&#39;,
             ),
         )
     );
@@ -10772,6 +10790,12 @@ add_hook(&#39;ClientAreaSidebars&#39;, 1, function($vars) {
 &lt;/tr&gt;
 
 &lt;tr&gt;
+&lt;td&gt;tax_id&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;subaccount&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -11064,6 +11088,12 @@ add_hook(&#39;ContactDetailsValidation&#39;, 1, function($vars) {
 &lt;/tr&gt;
 
 &lt;tr&gt;
+&lt;td&gt;tax_id&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;subaccount&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -11251,11 +11281,47 @@ add_hook(&#39;DailyCronJobPreEmail&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;precronjob&#34;&gt;PreCronJob&lt;/h2&gt;
+&lt;h2 id=&#34;popemailcollectioncroncompleted&#34;&gt;PopEmailCollectionCronCompleted&lt;/h2&gt;
 
-&lt;p&gt;Runs before any scheduled cron tasks.&lt;/p&gt;
+&lt;p&gt;Executes when the POP email collection cron completes.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-3&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;connectionErrors&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of errors if an error occurred while attempting to connect to one or more mailboxes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-3&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PopEmailCollectionCronCompleted&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;precronjob&#34;&gt;PreCronJob&lt;/h2&gt;
+
+&lt;p&gt;Runs before the daily automation cron execution.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-4&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -11275,11 +11341,11 @@ add_hook(&#39;DailyCronJobPreEmail&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-3&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-4&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;PreCronJob&#39;, 1, function($vars) {
@@ -11562,9 +11628,9 @@ add_hook(&#39;DomainValidation&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;params&lt;/td&gt;
-&lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Common domain registrar parameters. See &lt;a href=&#34;http://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;http://developers.whmcs.com/domain-registrars/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;domain&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The domain being registered&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -12664,34 +12730,45 @@ add_hook(&#39;FetchCurrencyExchangeRates&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;searchTerm&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;The term being searched for&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;numResults&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The number of results to return&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-13&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;An array of additional responses to be appended to the search results.&lt;/p&gt;
+&lt;p&gt;An array of additional search results. See example for array structure. A string response was supported in versions prior to WHMCS 7.7.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-13&#34;&gt;Example Code&lt;/h4&gt;
 
-&lt;pre&gt;&lt;code&gt;add_hook(&#39;IntelligentSearch&#39;, 1, function($vars) {
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+add_hook(&#39;IntelligentSearch&#39;, 1, function ($vars) {
+    /**
+     * This is an example of array return for an Intelligent Search.
+     * This format is supported in the blend WHMCS Admin Template.
+     * Any template based on blend and updated to WHMCS 7.7+ is also supported.
+     */
     $searchResults = array();
 
-    // look for matches in client notes field
-    $result = select_query(
-        &#39;tblclients&#39;,
-        &#39;id,firstname,lastname,email&#39;,
-        array(&#39;notes&#39; =&amp;gt; $vars[&#39;searchTerm&#39;])
-    );
-    while ($data = mysql_fetch_array($result)) {
-        $searchResults[] = &#39;&amp;lt;div class=&amp;quot;searchresult&amp;quot;&amp;gt;
-            &amp;lt;a href=&amp;quot;clientssummary.php?userid=&#39; . $data[&#39;id&#39;] . &#39;&amp;quot;&amp;gt;
-                &amp;lt;strong&amp;gt;&#39; . $data[&#39;firstname&#39;] . &#39; &#39; . $data[&#39;lastname&#39;] . &#39;&amp;lt;/strong&amp;gt;
-                #&#39; . $data[&#39;id&#39;] . &#39;&amp;lt;br /&amp;gt;
-                &amp;lt;span class=&amp;quot;desc&amp;quot;&amp;gt;&#39; . $data[&#39;email&#39;] . &#39;&amp;lt;/span&amp;gt;
-            &amp;lt;/a&amp;gt;
-        &amp;lt;/div&amp;gt;&#39;;
+    // look for exact matches in client notes field
+    $result = \WHMCS\Database\Capsule::table(&#39;tblclients&#39;)
+        -&amp;gt;where(&#39;notes&#39;, $vars[&#39;searchTerm&#39;])
+        -&amp;gt;get();
+
+    foreach ($result as $client) {
+        $searchResults[] = [
+            &#39;title&#39; =&amp;gt; $client-&amp;gt;firstname . &#39; &#39; . $client-&amp;gt;lastname, // The title of the search result. This is required.
+            &#39;href&#39; =&amp;gt; &#39;clientssummary.php?userid=&#39; . $client-&amp;gt;id, // The destination url of the search result. This is required.
+            &#39;subTitle&#39; =&amp;gt; $client-&amp;gt;email, // An optional subtitle for the search result.
+            &#39;icon&#39; =&amp;gt; &#39;fal fa-user&#39;, // A font-awesome icon for the search result. Defaults to &#39;fal fa-star&#39; if not defined.
+        ];
     }
     return $searchResults;
 });

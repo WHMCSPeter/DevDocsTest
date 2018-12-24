@@ -529,6 +529,12 @@ add_hook('AfterCalculateCartTotals', 1, function($vars) {
 
 <tr>
 <td>isfraud</td>
+<td>bool</td>
+<td>Has the check been deemed as fraud</td>
+</tr>
+
+<tr>
+<td>frauderror</td>
 <td>array</td>
 <td>The details of the fraud check if an error occurs</td>
 </tr>
@@ -1108,7 +1114,9 @@ add_hook('OrderAddonPricingOverride', 1, function($vars) {
 
 <h2 id="orderdomainpricingoverride">OrderDomainPricingOverride</h2>
 
-<p>Executes as a domain price is being calculated in the cart. This hook is run independelty for each domain added to the cart.</p>
+<p>Executes as a domain price is being calculated in the cart. This hook is run independently for each
+domain added to the cart. To override first payment only, return a float. To override first payment and/or
+recurring amount, return an array:</p>
 
 <h4 id="parameters-13">Parameters</h4>
 
@@ -1174,7 +1182,7 @@ add_hook('OrderAddonPricingOverride', 1, function($vars) {
 
 <h4 id="response-13">Response</h4>
 
-<p>Return a valid price to override the cost of the domain.</p>
+<p>A float to override the first payment, or an array to override first and/or recurring amounts</p>
 
 <h4 id="example-code-13">Example Code</h4>
 
@@ -1410,7 +1418,7 @@ add_hook('OrderProductUpgradeOverride', 1, function($vars) {
 
 <h2 id="overrideordernumbergeneration">OverrideOrderNumberGeneration</h2>
 
-<p>Executes just before checkout occurs. All cart information is passed to the hook. Examples given here.</p>
+<p>Executes prior to checkout. All cart information is passed to the hook.</p>
 
 <h4 id="parameters-17">Parameters</h4>
 
@@ -1440,17 +1448,16 @@ add_hook('OrderProductUpgradeOverride', 1, function($vars) {
 
 <h4 id="response-17">Response</h4>
 
-<p>Return an overridden client displayed order number. eg: return array(123456788,);</p>
+<p>Return the custom order number to be used (must be a valid numeric value).</p>
 
 <h4 id="example-code-17">Example Code</h4>
 
 <pre><code>&lt;?php
 
 add_hook('OverrideOrderNumberGeneration', 1, function($vars) {
-    /**
-     * The order number should be validated to ensure it is unique
-     */
-    return [time()];
+    // Generate and return a custom order number value (must be a valid integer).
+    // We also recommend ensuring the custom number is unique.
+    return time();
 });
 </code></pre>
 
@@ -1568,7 +1575,7 @@ add_hook('PreFraudCheck', 1, function($vars) {
 
 <h2 id="preshoppingcartcheckout">PreShoppingCartCheckout</h2>
 
-<p>Executes just before checkout occurs. All cart information is passed to the hook. Examples given here.</p>
+<p>Executes prior to checkout. All cart information is passed to the hook.</p>
 
 <h4 id="parameters-21">Parameters</h4>
 

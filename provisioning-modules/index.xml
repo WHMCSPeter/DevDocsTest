@@ -586,6 +586,11 @@ The parameters also contains the settings from the product itself.&lt;/p&gt;
 &lt;td&gt;serversecure&lt;/td&gt;
 &lt;td&gt;true/false - Is an SSL connection enabled in the Server Configuration.&lt;/td&gt;
 &lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serverport&lt;/td&gt;
+&lt;td&gt;The server port if module supports override with custom port&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 

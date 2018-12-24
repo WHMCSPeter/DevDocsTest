@@ -463,11 +463,47 @@ add_hook('DailyCronJobPreEmail', 1, function($vars) {
 });
 </code></pre>
 
-<h2 id="precronjob">PreCronJob</h2>
+<h2 id="popemailcollectioncroncompleted">PopEmailCollectionCronCompleted</h2>
 
-<p>Runs before any scheduled cron tasks.</p>
+<p>Executes when the POP email collection cron completes.</p>
 
 <h4 id="parameters-3">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>connectionErrors</td>
+<td>array</td>
+<td>An array of errors if an error occurred while attempting to connect to one or more mailboxes</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-3">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-3">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PopEmailCollectionCronCompleted', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="precronjob">PreCronJob</h2>
+
+<p>Runs before the daily automation cron execution.</p>
+
+<h4 id="parameters-4">Parameters</h4>
 
 <table>
 <thead>
@@ -487,11 +523,11 @@ add_hook('DailyCronJobPreEmail', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-3">Example Code</h4>
+<h4 id="example-code-4">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreCronJob', 1, function($vars) {

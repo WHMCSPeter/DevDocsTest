@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GetAffiliates - WHMCS Developer Documentation</title>
+    <title>UpdateTicketReply - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/api-reference/getaffiliates/">
+    <link rel="canonical" href="//developers.whmcs.com/api-reference/updateticketreply/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -602,7 +602,7 @@
       
       
       
-        <li class="active" data-nav-id="/api-reference/getaffiliates/">
+        <li class="" data-nav-id="/api-reference/getaffiliates/">
           <a href="//developers.whmcs.com/api-reference/getaffiliates/">
             <span>GetAffiliates</span>
           </a>
@@ -1226,7 +1226,7 @@
       
       
       
-        <li class="" data-nav-id="/api-reference/updateticketreply/">
+        <li class="active" data-nav-id="/api-reference/updateticketreply/">
           <a href="//developers.whmcs.com/api-reference/updateticketreply/">
             <span>UpdateTicketReply</span>
           </a>
@@ -1336,16 +1336,16 @@
                 
                   
                 
-                <span itemprop="title"> GetAffiliates</span>
+                <span itemprop="title"> UpdateTicketReply</span>
               </div>
             </div>
 
 
-			<h1>GetAffiliates </h1>
+			<h1>UpdateTicketReply </h1>
 
 			
 
-<p>Obtain an array of affiliates</p>
+<p>Updates a ticket reply message.</p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -1363,70 +1363,28 @@
 <tr>
 <td>action</td>
 <td>string</td>
-<td>&ldquo;GetAffiliates&rdquo;</td>
+<td>&ldquo;UpdateTicketReply&rdquo;</td>
 <td>Required</td>
 </tr>
 
 <tr>
-<td>limitstart</td>
+<td>replyid</td>
 <td>int</td>
-<td>The offset for the returned affiliate data (default: 0)</td>
-<td>Optional</td>
+<td>The reply id to update.</td>
+<td>Required</td>
 </tr>
 
 <tr>
-<td>limitnum</td>
-<td>int</td>
-<td>The number of records to return (default: 25)</td>
-<td>Optional</td>
-</tr>
-
-<tr>
-<td>userid</td>
-<td>int</td>
-<td>Obtain affiliate data for a specific client account</td>
-<td>Optional</td>
-</tr>
-
-<tr>
-<td>visitors</td>
-<td>int</td>
-<td>Provide affiliates that match a specific visitor count</td>
-<td>Optional</td>
-</tr>
-
-<tr>
-<td>paytype</td>
+<td>message</td>
 <td>string</td>
-<td>Provide affiliates matching the paytype provided. One of &ldquo;, &lsquo;percentage&rsquo;, &lsquo;fixedamount&rsquo;</td>
-<td>Optional</td>
+<td>The message to be updated</td>
+<td>Required</td>
 </tr>
 
 <tr>
-<td>payamount</td>
-<td>float</td>
-<td>Provide affiliates matching a specific overridden payout amount</td>
-<td>Optional</td>
-</tr>
-
-<tr>
-<td>onetime</td>
-<td>int</td>
-<td>Provide affiliates configured to receive one time affiliates</td>
-<td>Optional</td>
-</tr>
-
-<tr>
-<td>balance</td>
-<td>float</td>
-<td>Provide affiliates that have this balance</td>
-<td>Optional</td>
-</tr>
-
-<tr>
-<td>withdrawn</td>
-<td>float</td>
-<td>Provide affiliates that have withdrawn this amount</td>
+<td>markdown</td>
+<td>bool</td>
+<td>Should markdown be used on the ticket message. Existing value is used if not supplied.</td>
 <td>Optional</td>
 </tr>
 </tbody>
@@ -1451,27 +1409,9 @@
 </tr>
 
 <tr>
-<td>totalresults</td>
+<td>replyid</td>
 <td>int</td>
-<td>The total number of results available</td>
-</tr>
-
-<tr>
-<td>startnumber</td>
-<td>int</td>
-<td>The starting number for the returned results</td>
-</tr>
-
-<tr>
-<td>numreturned</td>
-<td>int</td>
-<td>The number of results returned</td>
-</tr>
-
-<tr>
-<td>affiliates</td>
-<td>array</td>
-<td>The affiliates entries returned</td>
+<td>The reply id that has been updated</td>
 </tr>
 </tbody>
 </table>
@@ -1484,10 +1424,12 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' =&gt; 'GetAffiliates',
+            'action' =&gt; 'UpdateTicketReply',
             // See https://developers.whmcs.com/api/authentication
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
+            'replyid' =&gt; '1',
+            'message' =&gt; 'This is a sample updated ticket reply',
             'responsetype' =&gt; 'json',
         )
     )
@@ -1499,8 +1441,10 @@ curl_close($ch);
 
 <h3 id="example-request-local-api">Example Request (Local API)</h3>
 
-<pre><code>$command = 'GetAffiliates';
+<pre><code>$command = 'UpdateTicketReply';
 $postData = array(
+    'replyid' =&gt; '1',
+    'message' =&gt; 'This is a sample updated ticket reply',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -1512,33 +1456,19 @@ print_r($results);
 
 <pre><code>{
     &quot;result&quot;: &quot;success&quot;,
-    &quot;totalresults&quot;: &quot;2&quot;,
-    &quot;startnumber&quot;: &quot;0&quot;,
-    &quot;numreturned&quot;: &quot;2&quot;,
-    &quot;affiliates[affiliate][0][id]&quot;: &quot;1&quot;,
-    &quot;affiliates[affiliate][0][date]&quot;: &quot;2016-01-01&quot;,
-    &quot;affiliates[affiliate][0][clientid]&quot;: &quot;1&quot;,
-    &quot;affiliates[affiliate][0][visitors]&quot;: &quot;145&quot;,
-    &quot;affiliates[affiliate][0][paytype]&quot;: &quot;percentage&quot;,
-    &quot;affiliates[affiliate][0][payamount]&quot;: &quot;15.00&quot;,
-    &quot;affiliates[affiliate][0][onetime]&quot;: &quot;1&quot;,
-    &quot;affiliates[affiliate][0][balance]&quot;: &quot;15.00&quot;,
-    &quot;affiliates[affiliate][0][withdrawn]&quot;: &quot;0.00&quot;,
-    &quot;affiliates[affiliate][0][created_at]&quot;: &quot;0000-00-00 00:00:00&quot;,
-    &quot;affiliates[affiliate][0][updated_at]&quot;: &quot;0000-00-00 00:00:00&quot;,
-    &quot;affiliates[affiliate][1][id]&quot;: &quot;1&quot;,
-    &quot;affiliates[affiliate][1][date]&quot;: &quot;2016-01-08&quot;,
-    &quot;affiliates[affiliate][1][clientid]&quot;: &quot;4&quot;,
-    &quot;affiliates[affiliate][1][visitors]&quot;: &quot;0&quot;,
-    &quot;affiliates[affiliate][1][paytype]&quot;: &quot;&quot;,
-    &quot;affiliates[affiliate][1][payamount]&quot;: &quot;0.00&quot;,
-    &quot;affiliates[affiliate][1][onetime]&quot;: &quot;1&quot;,
-    &quot;affiliates[affiliate][1][balance]&quot;: &quot;0.00&quot;,
-    &quot;affiliates[affiliate][1][withdrawn]&quot;: &quot;0.00&quot;,
-    &quot;affiliates[affiliate][1][created_at]&quot;: &quot;0000-00-00 00:00:00&quot;,
-    &quot;affiliates[affiliate][1][updated_at]&quot;: &quot;0000-00-00 00:00:00&quot;
+    &quot;replyid&quot;: &quot;1&quot;
 }
 </code></pre>
+
+<h3 id="error-responses">Error Responses</h3>
+
+<p>Possible error condition responses include:</p>
+
+<ul>
+<li>Reply ID Required</li>
+<li>Message is Required</li>
+<li>Reply ID Not Found</li>
+</ul>
 
 <h3 id="version-history">Version History</h3>
 
@@ -1552,7 +1482,7 @@ print_r($results);
 
 <tbody>
 <tr>
-<td>1.0</td>
+<td>7.7</td>
 <td>Initial Version</td>
 </tr>
 </tbody>
