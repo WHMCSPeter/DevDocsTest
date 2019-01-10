@@ -1347,8 +1347,6 @@
 
 <p>Retrieve a list of administrator user accounts.</p>
 
-<p>phpcs:disable</p>
-
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table>
@@ -1458,7 +1456,71 @@ print_r($results);
 
 <h3 id="example-response-json">Example Response JSON</h3>
 
-<pre><code>null
+<pre><code>{
+    &quot;count&quot;: 2,
+    &quot;admin_users&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;uuid&quot;: &quot;41dac92c-2f1a-474b-bef8-5e9a7e46e101&quot;,
+            &quot;roleId&quot;: 1,
+            &quot;username&quot;: &quot;Admin&quot;,
+            &quot;twoFactorAuthModule&quot;: &quot;&quot;,
+            &quot;firstname&quot;: &quot;Demo&quot;,
+            &quot;lastname&quot;: &quot;User&quot;,
+            &quot;email&quot;: &quot;demo@whmcs.com&quot;,
+            &quot;signature&quot;: &quot;&quot;,
+            &quot;notes&quot;: &quot;&quot;,
+            &quot;template&quot;: &quot;blend&quot;,
+            &quot;language&quot;: &quot;english&quot;,
+            &quot;isDisabled&quot;: 0,
+            &quot;loginAttempts&quot;: 0,
+            &quot;supportDepartmentIds&quot;: [
+                &quot;1&quot;,
+                &quot;2&quot;,
+                &quot;3&quot;
+            ],
+            &quot;receivesTicketNotifications&quot;: [
+                &quot;1&quot;,
+                &quot;2&quot;
+            ],
+            &quot;homepageWidgetsConfig&quot;: &quot;&quot;,
+            &quot;hiddenHomepageWidgets&quot;: &quot;&quot;,
+            &quot;created_at&quot;: &quot;2018-01-01 00:00:00&quot;,
+            &quot;updated_at&quot;: &quot;2018-09-04 09:51:26&quot;,
+            &quot;fullName&quot;: &quot;Demo User&quot;,
+            &quot;gravatarHash&quot;: &quot;56487cdd284a735449d029e062d654d7&quot;
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;uuid&quot;: &quot;&quot;,
+            &quot;roleId&quot;: 2,
+            &quot;username&quot;: &quot;Georgina&quot;,
+            &quot;twoFactorAuthModule&quot;: &quot;&quot;,
+            &quot;firstname&quot;: &quot;Georgina&quot;,
+            &quot;lastname&quot;: &quot;Williams&quot;,
+            &quot;email&quot;: &quot;georgina.williams@whmcs.com&quot;,
+            &quot;signature&quot;: &quot;&quot;,
+            &quot;notes&quot;: &quot;&quot;,
+            &quot;template&quot;: &quot;blend&quot;,
+            &quot;language&quot;: &quot;english&quot;,
+            &quot;isDisabled&quot;: 0,
+            &quot;loginAttempts&quot;: 0,
+            &quot;supportDepartmentIds&quot;: [
+                &quot;2&quot;,
+                &quot;3&quot;
+            ],
+            &quot;receivesTicketNotifications&quot;: [
+                &quot;&quot;
+            ],
+            &quot;homepageWidgetsConfig&quot;: &quot;&quot;,
+            &quot;hiddenHomepageWidgets&quot;: &quot;&quot;,
+            &quot;created_at&quot;: &quot;2018-01-01 00:00:00&quot;,
+            &quot;updated_at&quot;: &quot;2018-05-01 12:54:16&quot;,
+            &quot;fullName&quot;: &quot;Georgina Williams&quot;,
+            &quot;gravatarHash&quot;: &quot;f8c28cf89551c390ae43938167d35cb8&quot;
+        }
+    ]
+}
 </code></pre>
 
 <h3 id="version-history">Version History</h3>
@@ -1556,7 +1618,7 @@ print_r($results);
             </div>
             <div class="col-md-5">
                 <p class="pull-right">
-                    Copyright &copy; WHMCS 2018. All rights reserved.
+                    Copyright &copy; WHMCS 2019. All rights reserved.
                     <br>
                 </p>
             </div>
