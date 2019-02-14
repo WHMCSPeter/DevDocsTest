@@ -205,6 +205,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#afterfraudcheck&#34;&gt;AfterFraudCheck&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#aftershoppingcartcheckout&#34;&gt;AfterShoppingCartCheckout&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#cancelorder&#34;&gt;CancelOrder&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#cartsubdomainvalidation&#34;&gt;CartSubdomainValidation&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#carttotaladjustment&#34;&gt;CartTotalAdjustment&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#deleteorder&#34;&gt;DeleteOrder&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#fraudcheckawaitinguserinput&#34;&gt;FraudCheckAwaitingUserInput&lt;/a&gt;
@@ -227,7 +228,6 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#shoppingcartvalidatedomain&#34;&gt;ShoppingCartValidateDomain&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#shoppingcartvalidatedomainsconfig&#34;&gt;ShoppingCartValidateDomainsConfig&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#shoppingcartvalidateproductupdate&#34;&gt;ShoppingCartValidateProductUpdate&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#vieworderdetailspage&#34;&gt;ViewOrderDetailsPage&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Service&lt;/h3&gt;
 
@@ -480,6 +480,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#authadminapi&#34;&gt;AuthAdminApi&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#invoicecreationadminarea&#34;&gt;InvoiceCreationAdminArea&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#preadminserviceedit&#34;&gt;PreAdminServiceEdit&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/admin-area/#vieworderdetailspage&#34;&gt;ViewOrderDetailsPage&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Output&lt;/h3&gt;
 
