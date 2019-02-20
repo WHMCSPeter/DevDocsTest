@@ -513,32 +513,32 @@ class SampleWidget extends \WHMCS\Module\AbstractWidget
      * @type string The title of the widget
      */
     protected $title = &#39;Hello World&#39;;
-    
+
     /**
      * @type string A description/purpose of the widget
      */
     protected $description = &#39;&#39;;
-    
+
     /**
      * @type int The sort weighting that determines the output position on the page
      */
     protected $weight = 150;
-    
+
     /**
      * @type int The number of columns the widget should span (1, 2 or 3)
      */
     protected $columns = 1;
-    
+
     /**
      * @type bool Set true to enable data caching
      */
     protected $cache = false;
-    
+
     /**
      * @type int The length of time to cache data for (in seconds)
      */
     protected $cacheExpiry = 120;
-    
+
     /**
      * @type string The access control permission required to view this widget. Leave blank for no permission.
      * @see Permissions section below.
@@ -561,7 +561,7 @@ class SampleWidget extends \WHMCS\Module\AbstractWidget
     public function getData()
     {
         $clients = localAPI(&#39;getclients&#39;, []);
-        
+
         return array(
             &#39;welcome&#39; =&amp;gt; &#39;Hello World!&#39;,
             &#39;clients&#39; =&amp;gt; $clients[&#39;clients&#39;],
@@ -583,13 +583,13 @@ class SampleWidget extends \WHMCS\Module\AbstractWidget
         foreach ($data[&#39;clients&#39;][&#39;client&#39;] as $client) {
             $clientOutput[] = &amp;quot;&amp;lt;a href=\&amp;quot;clientsprofile.php?id={$client[&#39;id&#39;]}\&amp;quot;&amp;gt;{$client[&#39;firstname&#39;]} {$client[&#39;lastname&#39;]}&amp;lt;/a&amp;gt;&amp;quot;;
         }
-        
+
         if (count($clientOutput) == 0) {
             $clientOutput[] = &#39;No Clients Found&#39;;
         }
-        
+
         $clientOutput = implode(&#39;&amp;lt;br&amp;gt;&#39;, $clientOutput);
-        
+
         return &amp;lt;&amp;lt;&amp;lt;EOF
 &amp;lt;div class=&amp;quot;widget-content-padded&amp;quot;&amp;gt;
     &amp;lt;div&amp;gt;{$data[&#39;welcome&#39;]}&amp;lt;/div&amp;gt;
@@ -606,7 +606,7 @@ EOF;
 
 &lt;p&gt;Using the sample code, the widget will output will look something like:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;./sample-widget-output.png&#34; alt=&#34;Widget Output Sample&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../sample-widget-output.png&#34; alt=&#34;Widget Output Sample&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;permissions&#34;&gt;Permissions&lt;/h2&gt;
 
