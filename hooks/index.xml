@@ -371,6 +371,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketflagged&#34;&gt;TicketFlagged&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketopen&#34;&gt;TicketOpen&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketopenadmin&#34;&gt;TicketOpenAdmin&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketopenvalidation&#34;&gt;TicketOpenValidation&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketpiping&#34;&gt;TicketPiping&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketprioritychange&#34;&gt;TicketPriorityChange&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketstatuschange&#34;&gt;TicketStatusChange&lt;/a&gt;
@@ -493,6 +494,8 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#clientareaheadoutput&#34;&gt;ClientAreaHeadOutput&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#clientareaheaderoutput&#34;&gt;ClientAreaHeaderOutput&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#clientareaproductdetailsoutput&#34;&gt;ClientAreaProductDetailsOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#formatdateforclientareaoutput&#34;&gt;FormatDateForClientAreaOutput&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#formatdatetimeforclientareaoutput&#34;&gt;FormatDateTimeForClientAreaOutput&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#reportviewpostoutput&#34;&gt;ReportViewPostOutput&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#reportviewpreoutput&#34;&gt;ReportViewPreOutput&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#shoppingcartcheckoutoutput&#34;&gt;ShoppingCartCheckoutOutput&lt;/a&gt;
@@ -531,6 +534,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#postautomationtask&#34;&gt;PostAutomationTask&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preautomationtask&#34;&gt;PreAutomationTask&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preemailsendreducerecipients&#34;&gt;PreEmailSendReduceRecipients&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preupgradecheckout&#34;&gt;PreUpgradeCheckout&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#premiumpriceoverride&#34;&gt;PremiumPriceOverride&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#premiumpricerecalculationoverride&#34;&gt;PremiumPriceRecalculationOverride&lt;/a&gt;
 &lt;/ul&gt;

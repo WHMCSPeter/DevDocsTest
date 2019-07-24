@@ -234,6 +234,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/addpaymethod/">
+          <a href="//developers.whmcs.com/api-reference/addpaymethod/">
+            <span>AddPayMethod</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/addproduct/">
           <a href="//developers.whmcs.com/api-reference/addproduct/">
             <span>AddProduct</span>
@@ -405,6 +413,14 @@
         <li class="" data-nav-id="/api-reference/deleteorder/">
           <a href="//developers.whmcs.com/api-reference/deleteorder/">
             <span>DeleteOrder</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deletepaymethod/">
+          <a href="//developers.whmcs.com/api-reference/deletepaymethod/">
+            <span>DeletePayMethod</span>
           </a>
         </li>
       
@@ -789,6 +805,14 @@
         <li class="" data-nav-id="/api-reference/getorders/">
           <a href="//developers.whmcs.com/api-reference/getorders/">
             <span>GetOrders</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getpaymethods/">
+          <a href="//developers.whmcs.com/api-reference/getpaymethods/">
+            <span>GetPayMethods</span>
           </a>
         </li>
       
@@ -1194,6 +1218,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/updatepaymethod/">
+          <a href="//developers.whmcs.com/api-reference/updatepaymethod/">
+            <span>UpdatePayMethod</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/updateproject/">
           <a href="//developers.whmcs.com/api-reference/updateproject/">
             <span>UpdateProject</span>
@@ -1473,45 +1505,45 @@
 </tr>
 
 <tr>
-<td>cardtype</td>
-<td>string</td>
-<td>Credit card type. Provide full name: Visa, Mastercard, American Express, etc&hellip;</td>
-<td>Optional</td>
+<td><del>cardtype</del></td>
+<td><del>string</del></td>
+<td><del>Credit card type. Provide full name: Visa, Mastercard, American Express, etc&hellip;</del></td>
+<td>Deprecated</td>
 </tr>
 
 <tr>
-<td>cardnum</td>
-<td>string</td>
-<td>Credit card number</td>
-<td>Optional</td>
+<td><del>cardnum</del></td>
+<td><del>string</del></td>
+<td><del>Credit card number</del></td>
+<td>Deprecated</td>
 </tr>
 
 <tr>
-<td>expdate</td>
-<td>string</td>
-<td>Format: MMYY</td>
-<td>Optional</td>
+<td><del>expdate</del></td>
+<td><del>string</del></td>
+<td><del>Format: MMYY</del></td>
+<td>Deprecated</td>
 </tr>
 
 <tr>
-<td>startdate</td>
-<td>string</td>
-<td>Format: MMYY (if applicable)</td>
-<td>Optional</td>
+<td><del>startdate</del></td>
+<td><del>string</del></td>
+<td><del>Format: MMYY (if applicable)</del></td>
+<td>Deprecated</td>
 </tr>
 
 <tr>
-<td>issuenumber</td>
-<td>string</td>
-<td>Credit card issue number (if applicable)</td>
-<td>Optional</td>
+<td><del>issuenumber</del></td>
+<td><del>string</del></td>
+<td><del>Credit card issue number (if applicable)</del></td>
+<td>Deprecated</td>
 </tr>
 
 <tr>
-<td>cvv</td>
-<td>string</td>
-<td>Credit card CVV number (will not be stored)</td>
-<td>Optional</td>
+<td><del>cvv</del></td>
+<td><del>string</del></td>
+<td><del>Credit card CVV number (will not be stored)</del></td>
+<td>Deprecated</td>
 </tr>
 
 <tr>
@@ -1621,9 +1653,6 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'country' =&gt; 'US',
             'phonenumber' =&gt; '800-555-1234',
             'password2' =&gt; 'password',
-            'cardtype' =&gt; 'Visa',
-            'cardnum' =&gt; '4111111111111111',
-            'expdate' =&gt; '0721',
             'clientip' =&gt; '1.2.3.4',
             'responsetype' =&gt; 'json',
         )
@@ -1648,9 +1677,6 @@ $postData = array(
     'country' =&gt; 'US',
     'phonenumber' =&gt; '800-555-1234',
     'password2' =&gt; 'password',
-    'cardtype' =&gt; 'Visa',
-    'cardnum' =&gt; '4111111111111111',
-    'expdate' =&gt; '0721',
     'clientip' =&gt; '1.2.3.4',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
@@ -1666,6 +1692,17 @@ print_r($results);
     &quot;clientid&quot;: &quot;1&quot;
 }
 </code></pre>
+
+<h3 id="warning-responses">Warning Responses</h3>
+
+<p>Warning responses are returned when using API functionality that has been removed or marked as deprecated.
+We suggest following any recommended actions in the warning to ensure future compatibility.</p>
+
+<p>Possible warning messages include:</p>
+
+<ul>
+<li>Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod instead.</li>
+</ul>
 
 <h3 id="error-responses">Error Responses</h3>
 
@@ -1706,6 +1743,11 @@ print_r($results);
 <tr>
 <td>7.7</td>
 <td>Added <code>tax_id</code> parameter.</td>
+</tr>
+
+<tr>
+<td>7.8</td>
+<td>Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod instead.</td>
 </tr>
 </tbody>
 </table>

@@ -746,13 +746,13 @@ add_hook('InvoiceChangeGateway', 1, function($vars) {
 <tr>
 <td>source</td>
 <td>string</td>
-<td></td>
+<td>Indicates where the invoice creation action originated, can be one of <code>adminarea</code>, <code>api</code> or <code>autogen</code></td>
 </tr>
 
 <tr>
 <td>user</td>
-<td>string</td>
 <td>int</td>
+<td>string</td>
 </tr>
 
 <tr>
@@ -800,7 +800,7 @@ add_hook('InvoiceCreated', 1, function($vars) {
 <tr>
 <td>source</td>
 <td>string</td>
-<td>When the invoice is being created</td>
+<td>Indicates where the invoice creation action originated, can be one of <code>adminarea</code>, <code>api</code> or <code>autogen</code></td>
 </tr>
 
 <tr>

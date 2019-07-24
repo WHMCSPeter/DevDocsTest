@@ -234,6 +234,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/addpaymethod/">
+          <a href="//developers.whmcs.com/api-reference/addpaymethod/">
+            <span>AddPayMethod</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/addproduct/">
           <a href="//developers.whmcs.com/api-reference/addproduct/">
             <span>AddProduct</span>
@@ -405,6 +413,14 @@
         <li class="" data-nav-id="/api-reference/deleteorder/">
           <a href="//developers.whmcs.com/api-reference/deleteorder/">
             <span>DeleteOrder</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deletepaymethod/">
+          <a href="//developers.whmcs.com/api-reference/deletepaymethod/">
+            <span>DeletePayMethod</span>
           </a>
         </li>
       
@@ -789,6 +805,14 @@
         <li class="" data-nav-id="/api-reference/getorders/">
           <a href="//developers.whmcs.com/api-reference/getorders/">
             <span>GetOrders</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getpaymethods/">
+          <a href="//developers.whmcs.com/api-reference/getpaymethods/">
+            <span>GetPayMethods</span>
           </a>
         </li>
       
@@ -1194,6 +1218,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/updatepaymethod/">
+          <a href="//developers.whmcs.com/api-reference/updatepaymethod/">
+            <span>UpdatePayMethod</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/updateproject/">
           <a href="//developers.whmcs.com/api-reference/updateproject/">
             <span>UpdateProject</span>
@@ -1493,8 +1525,6 @@ print_r($results);
     &quot;client[twofaenabled]&quot;: &quot;&quot;,
     &quot;client[currency]&quot;: &quot;1&quot;,
     &quot;client[defaultgateway]&quot;: &quot;&quot;,
-    &quot;client[cctype]&quot;: &quot;&quot;,
-    &quot;client[cclastfour]&quot;: &quot;&quot;,
     &quot;client[securityqid]&quot;: &quot;0&quot;,
     &quot;client[securityqans]&quot;: &quot;&quot;,
     &quot;client[groupid]&quot;: &quot;0&quot;,
@@ -1552,6 +1582,17 @@ print_r($results);
 }
 </code></pre>
 
+<h3 id="warning-responses">Warning Responses</h3>
+
+<p>Warning responses are returned when using API functionality that has been removed or marked as deprecated.
+We suggest following any recommended actions in the warning to ensure future compatibility.</p>
+
+<p>Possible warning messages include:</p>
+
+<ul>
+<li>Credit Card related parameters are now deprecated and have been removed. Use GetPayMethods instead.</li>
+</ul>
+
 <h3 id="error-responses">Error Responses</h3>
 
 <p>Possible error condition responses include:</p>
@@ -1575,6 +1616,11 @@ print_r($results);
 <tr>
 <td>1.0</td>
 <td>Initial Version</td>
+</tr>
+
+<tr>
+<td>7.8</td>
+<td>Credit Card related parameters have been removed due to the introduction of support for multiple credit cards per client. Use GetPayMethods instead.</td>
 </tr>
 </tbody>
 </table>

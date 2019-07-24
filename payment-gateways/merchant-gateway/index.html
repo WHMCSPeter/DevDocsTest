@@ -394,7 +394,7 @@ $params['systemurl'] # the url to the Client Area
     $response = curl_exec($ch);
     curl_close($ch);
 
-    $data = json_docode($response);
+    $data = json_decode($response);
 
     return array(
         'status' =&gt; ($data-&gt;success == 1) ? 'success' : 'declined',

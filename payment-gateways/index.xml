@@ -66,6 +66,8 @@
 
 &lt;p&gt;After renaming it, open the file and replace all occurrences of &lt;code&gt;gatewaymodule_&lt;/code&gt; with &lt;code&gt;yourgatewayname_&lt;/code&gt;.&lt;/p&gt;
 
+&lt;p&gt;All files within the &lt;code&gt;/modules/gateways/&lt;/code&gt; directory should contain code that adheres to the expected format/functions found within a WHMCS gateway module. Non-WHMCS related files, such as success/failure return pages or library files, should be located within a directory dedicated to the gateway module itself, for example, &lt;code&gt;/modules/gateways/yourgatewayname&lt;/code&gt;.&lt;/p&gt;
+
 &lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;We recommend prefixing all functions within a gateway module with the filename to avoid naming conflicts.&lt;/p&gt;
 &lt;/div&gt;
 
@@ -423,7 +425,7 @@ $params[&#39;systemurl&#39;] # the url to the Client Area
     $response = curl_exec($ch);
     curl_close($ch);
 
-    $data = json_docode($response);
+    $data = json_decode($response);
 
     return array(
         &#39;status&#39; =&amp;gt; ($data-&amp;gt;success == 1) ? &#39;success&#39; : &#39;declined&#39;,

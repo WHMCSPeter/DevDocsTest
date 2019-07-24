@@ -234,6 +234,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/addpaymethod/">
+          <a href="//developers.whmcs.com/api-reference/addpaymethod/">
+            <span>AddPayMethod</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/addproduct/">
           <a href="//developers.whmcs.com/api-reference/addproduct/">
             <span>AddProduct</span>
@@ -405,6 +413,14 @@
         <li class="" data-nav-id="/api-reference/deleteorder/">
           <a href="//developers.whmcs.com/api-reference/deleteorder/">
             <span>DeleteOrder</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deletepaymethod/">
+          <a href="//developers.whmcs.com/api-reference/deletepaymethod/">
+            <span>DeletePayMethod</span>
           </a>
         </li>
       
@@ -789,6 +805,14 @@
         <li class="" data-nav-id="/api-reference/getorders/">
           <a href="//developers.whmcs.com/api-reference/getorders/">
             <span>GetOrders</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getpaymethods/">
+          <a href="//developers.whmcs.com/api-reference/getpaymethods/">
+            <span>GetPayMethods</span>
           </a>
         </li>
       
@@ -1194,6 +1218,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/updatepaymethod/">
+          <a href="//developers.whmcs.com/api-reference/updatepaymethod/">
+            <span>UpdatePayMethod</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/updateproject/">
           <a href="//developers.whmcs.com/api-reference/updateproject/">
             <span>UpdateProject</span>
@@ -1384,8 +1416,29 @@
 <tr>
 <td>amount</td>
 <td>float</td>
-<td></td>
+<td>The amount of credit to add or remove. Must be a positive value.</td>
 <td>Required</td>
+</tr>
+
+<tr>
+<td>date</td>
+<td>string</td>
+<td>The date the credit was added. YYYY-mm-dd format.</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>adminid</td>
+<td>int</td>
+<td>The active admin id to be associated with the credit record. Defaults to current admin.</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Whether to add or remove credit. One of &lsquo;add&rsquo; or &lsquo;remove&rsquo;</td>
+<td>Optional</td>
 </tr>
 </tbody>
 </table>
@@ -1431,6 +1484,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'clientid' =&gt; '1',
             'description' =&gt; 'Adding funds via api',
             'amount' =&gt; '12.34',
+            'adminid' =&gt; '1',
             'responsetype' =&gt; 'json',
         )
     )
@@ -1447,6 +1501,7 @@ $postData = array(
     'clientid' =&gt; '1',
     'description' =&gt; 'Adding funds via api',
     'amount' =&gt; '12.34',
+    'adminid' =&gt; '1',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -1467,8 +1522,12 @@ print_r($results);
 <p>Possible error condition responses include:</p>
 
 <ul>
+<li>Type can only be add or remove</li>
 <li>Client ID Not Found</li>
+<li>Admin ID Not Found</li>
 <li>No Amount Provided</li>
+<li>Amount must be in decimal format: ### or ###.##</li>
+<li>Date Format is not Valid</li>
 </ul>
 
 <h3 id="version-history">Version History</h3>

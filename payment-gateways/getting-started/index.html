@@ -332,6 +332,8 @@
 
 <p>After renaming it, open the file and replace all occurrences of <code>gatewaymodule_</code> with <code>yourgatewayname_</code>.</p>
 
+<p>All files within the <code>/modules/gateways/</code> directory should contain code that adheres to the expected format/functions found within a WHMCS gateway module. Non-WHMCS related files, such as success/failure return pages or library files, should be located within a directory dedicated to the gateway module itself, for example, <code>/modules/gateways/yourgatewayname</code>.</p>
+
 <div class="notice info" ><p>We recommend prefixing all functions within a gateway module with the filename to avoid naming conflicts.</p>
 </div>
 

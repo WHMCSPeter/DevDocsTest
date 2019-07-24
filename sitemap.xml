@@ -74,6 +74,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/api-reference/addpaymethod/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/api-reference/addproduct/</loc>
   </url>
   
@@ -171,6 +175,10 @@
   
   <url>
     <loc>//developers.whmcs.com/api-reference/deleteorder/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/deletepaymethod/</loc>
   </url>
   
   <url>
@@ -367,6 +375,10 @@
   
   <url>
     <loc>//developers.whmcs.com/api-reference/getorders/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getpaymethods/</loc>
   </url>
   
   <url>
@@ -607,6 +619,10 @@
   
   <url>
     <loc>//developers.whmcs.com/api-reference/updateoauthcredential/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updatepaymethod/</loc>
   </url>
   
   <url>
@@ -1127,6 +1143,10 @@
   
   <url>
     <loc>//developers.whmcs.com/provisioning-modules/module-logging/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/provisioning-modules/server-sync/</loc>
   </url>
   
   <url>
