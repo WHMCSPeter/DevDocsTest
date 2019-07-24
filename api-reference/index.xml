@@ -149,8 +149,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;orderid&#39; =&amp;gt; &#39;1&#39;,
             &#39;registrar&#39; =&amp;gt; &#39;enom&#39;,
-            &#39;autosetup&#39; =&amp;gt; &#39;1&#39;,
-            &#39;sendemail&#39; =&amp;gt; &#39;1&#39;,
+            &#39;autosetup&#39; =&amp;gt; true,
+            &#39;sendemail&#39; =&amp;gt; true,
             &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
         )
     )
@@ -166,8 +166,8 @@ curl_close($ch);
 $postData = array(
     &#39;orderid&#39; =&amp;gt; &#39;1&#39;,
     &#39;registrar&#39; =&amp;gt; &#39;enom&#39;,
-    &#39;autosetup&#39; =&amp;gt; &#39;1&#39;,
-    &#39;sendemail&#39; =&amp;gt; &#39;1&#39;,
+    &#39;autosetup&#39; =&amp;gt; true,
+    &#39;sendemail&#39; =&amp;gt; true,
 );
 $adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
@@ -1304,45 +1304,45 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;cardtype&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Credit card type. Provide full name: Visa, Mastercard, American Express, etc&amp;hellip;&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;cardtype&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Credit card type. Provide full name: Visa, Mastercard, American Express, etc&amp;hellip;&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;cardnum&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Credit card number&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;cardnum&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Credit card number&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;expdate&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Format: MMYY&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;expdate&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Format: MMYY&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;startdate&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Format: MMYY (if applicable)&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;startdate&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Format: MMYY (if applicable)&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;issuenumber&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Credit card issue number (if applicable)&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;issuenumber&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Credit card issue number (if applicable)&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;cvv&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Credit card CVV number (will not be stored)&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;cvv&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Credit card CVV number (will not be stored)&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -1452,9 +1452,6 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             &#39;country&#39; =&amp;gt; &#39;US&#39;,
             &#39;phonenumber&#39; =&amp;gt; &#39;800-555-1234&#39;,
             &#39;password2&#39; =&amp;gt; &#39;password&#39;,
-            &#39;cardtype&#39; =&amp;gt; &#39;Visa&#39;,
-            &#39;cardnum&#39; =&amp;gt; &#39;4111111111111111&#39;,
-            &#39;expdate&#39; =&amp;gt; &#39;0721&#39;,
             &#39;clientip&#39; =&amp;gt; &#39;1.2.3.4&#39;,
             &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
         )
@@ -1479,9 +1476,6 @@ $postData = array(
     &#39;country&#39; =&amp;gt; &#39;US&#39;,
     &#39;phonenumber&#39; =&amp;gt; &#39;800-555-1234&#39;,
     &#39;password2&#39; =&amp;gt; &#39;password&#39;,
-    &#39;cardtype&#39; =&amp;gt; &#39;Visa&#39;,
-    &#39;cardnum&#39; =&amp;gt; &#39;4111111111111111&#39;,
-    &#39;expdate&#39; =&amp;gt; &#39;0721&#39;,
     &#39;clientip&#39; =&amp;gt; &#39;1.2.3.4&#39;,
 );
 $adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
@@ -1497,6 +1491,17 @@ print_r($results);
     &amp;quot;clientid&amp;quot;: &amp;quot;1&amp;quot;
 }
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;warning-responses&#34;&gt;Warning Responses&lt;/h3&gt;
+
+&lt;p&gt;Warning responses are returned when using API functionality that has been removed or marked as deprecated.
+We suggest following any recommended actions in the warning to ensure future compatibility.&lt;/p&gt;
+
+&lt;p&gt;Possible warning messages include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod instead.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&#34;error-responses&#34;&gt;Error Responses&lt;/h3&gt;
 
@@ -1537,6 +1542,11 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;7.7&lt;/td&gt;
 &lt;td&gt;Added &lt;code&gt;tax_id&lt;/code&gt; parameter.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;7.8&lt;/td&gt;
+&lt;td&gt;Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod instead.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2024,8 +2034,29 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;amount&lt;/td&gt;
 &lt;td&gt;float&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;The amount of credit to add or remove. Must be a positive value.&lt;/td&gt;
 &lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The date the credit was added. YYYY-mm-dd format.&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The active admin id to be associated with the credit record. Defaults to current admin.&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Whether to add or remove credit. One of &amp;lsquo;add&amp;rsquo; or &amp;lsquo;remove&amp;rsquo;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2071,6 +2102,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
             &#39;description&#39; =&amp;gt; &#39;Adding funds via api&#39;,
             &#39;amount&#39; =&amp;gt; &#39;12.34&#39;,
+            &#39;adminid&#39; =&amp;gt; &#39;1&#39;,
             &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
         )
     )
@@ -2087,6 +2119,7 @@ $postData = array(
     &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
     &#39;description&#39; =&amp;gt; &#39;Adding funds via api&#39;,
     &#39;amount&#39; =&amp;gt; &#39;12.34&#39;,
+    &#39;adminid&#39; =&amp;gt; &#39;1&#39;,
 );
 $adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
@@ -2107,8 +2140,12 @@ print_r($results);
 &lt;p&gt;Possible error condition responses include:&lt;/p&gt;
 
 &lt;ul&gt;
+&lt;li&gt;Type can only be add or remove&lt;/li&gt;
 &lt;li&gt;Client ID Not Found&lt;/li&gt;
+&lt;li&gt;Admin ID Not Found&lt;/li&gt;
 &lt;li&gt;No Amount Provided&lt;/li&gt;
+&lt;li&gt;Amount must be in decimal format: ### or ###.##&lt;/li&gt;
+&lt;li&gt;Date Format is not Valid&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
@@ -2645,9 +2682,9 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;productids&lt;/td&gt;
+&lt;td&gt;serviceids&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The Product/Service ID(s) created by the order&lt;/td&gt;
+&lt;td&gt;The Service ID(s) created by the order&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -2733,7 +2770,7 @@ print_r($results);
 &lt;pre&gt;&lt;code&gt;{
     &amp;quot;result&amp;quot;: &amp;quot;success&amp;quot;,
     &amp;quot;orderid&amp;quot;: &amp;quot;1&amp;quot;,
-    &amp;quot;productids&amp;quot;: &amp;quot;1,2&amp;quot;,
+    &amp;quot;serviceids&amp;quot;: &amp;quot;1,2&amp;quot;,
     &amp;quot;addonids&amp;quot;: &amp;quot;1,2,3&amp;quot;,
     &amp;quot;domainids&amp;quot;: &amp;quot;1,2&amp;quot;,
     &amp;quot;invoiceid&amp;quot;: &amp;quot;1&amp;quot;
@@ -2776,14 +2813,14 @@ print_r($results);
     </item>
     
     <item>
-      <title>AddProduct</title>
-      <link>//developers.whmcs.com/api-reference/addproduct/</link>
+      <title>AddPayMethod</title>
+      <link>//developers.whmcs.com/api-reference/addpaymethod/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//developers.whmcs.com/api-reference/addproduct/</guid>
+      <guid>//developers.whmcs.com/api-reference/addpaymethod/</guid>
       <description>
 
-&lt;p&gt;Adds a product to the system to be available for purchase&lt;/p&gt;
+&lt;p&gt;Add a Pay Method to a given client. Supports the creation of credit card and bank account pay methods. Note that some tokenised payment gateways cannot be utilised via the API. Please refer to individual payment gateway documentation for specifics about supported functionality.&lt;/p&gt;
 
 &lt;h3 id=&#34;request-parameters&#34;&gt;Request Parameters&lt;/h3&gt;
 
@@ -2801,196 +2838,98 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;action&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&amp;ldquo;AddProduct&amp;rdquo;&lt;/td&gt;
+&lt;td&gt;&amp;ldquo;AddPayMethod&amp;rdquo;&lt;/td&gt;
 &lt;td&gt;Required&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;name&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The name of the product to be added&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;gid&lt;/td&gt;
+&lt;td&gt;clientid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The id of the product group to add the product&lt;/td&gt;
+&lt;td&gt;The id of the client to add the Pay Method&lt;/td&gt;
 &lt;td&gt;Required&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;type&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;One of &amp;lsquo;hostingaccount&amp;rsquo;, &amp;lsquo;reselleraccount&amp;rsquo;, &amp;lsquo;server&amp;rsquo; or &amp;lsquo;other&amp;rsquo;&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;stockcontrol&lt;/td&gt;
-&lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;Set to true to enable stock control on the product&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;qty&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;How much of this product is in stock&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;paytype&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The payment type of the product. One of &amp;lsquo;free&amp;rsquo;, &amp;lsquo;onetime&amp;rsquo;, &amp;lsquo;recurring&amp;rsquo;&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;hidden&lt;/td&gt;
-&lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;Should the product be hidden from the client order form&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;showdomainoptions&lt;/td&gt;
-&lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;Should the product show the domain registration options.&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;tax&lt;/td&gt;
-&lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;Does tax apply to the product.&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;isFeatured&lt;/td&gt;
-&lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;Should the product be featured in the Product Group.&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;proratabilling&lt;/td&gt;
-&lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;Is pro-rata billing enabled for this product.&lt;/td&gt;
+&lt;td&gt;The type of Pay Method to add. One of &amp;lsquo;BankAccount&amp;rsquo;, &amp;lsquo;CreditCard&amp;rsquo;, or &amp;lsquo;RemoteCreditCard&amp;rsquo;. Defaults to &amp;lsquo;CreditCard&amp;rsquo;&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;description&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The description of the product to show on the product listing in the cart&lt;/td&gt;
+&lt;td&gt;The description for the new Pay Method&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;welcomeemail&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The id of the Email Template to use as the welcome email. Product/Service Messages only&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;proratadate&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;See &lt;a href=&#34;https://docs.whmcs.com/Products_and_Services#Pricing_Tab&#34;&gt;https://docs.whmcs.com/Products_and_Services#Pricing_Tab&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;proratachargenextmonth&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;See &lt;a href=&#34;https://docs.whmcs.com/Products_and_Services#Pricing_Tab&#34;&gt;https://docs.whmcs.com/Products_and_Services#Pricing_Tab&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;subdomain&lt;/td&gt;
+&lt;td&gt;gateway_module_name&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;A comma separated list of subdomains to offer on the domain register page. eg: .domain1.com,.domain2.com&lt;/td&gt;
+&lt;td&gt;Required for use with tokenised payment gateways eg. authorizecim, sagepaytokens, etc&amp;hellip;&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;autosetup&lt;/td&gt;
+&lt;td&gt;card_number&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;When should the product be automatically setup. One of &amp;ldquo; (never), &amp;lsquo;on&amp;rsquo; (pending order), &amp;lsquo;payment&amp;rsquo; (on payment), &amp;lsquo;order&amp;rsquo; (on order)&lt;/td&gt;
+&lt;td&gt;Credit Card Number. Required for CreditCard and RemoteCreditCard types&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;module&lt;/td&gt;
+&lt;td&gt;card_expiry&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The server module system name to associate with the product. eg: cpanel, autorelease, plesk&lt;/td&gt;
+&lt;td&gt;The expiry date for the card. Required for cc type. Format &amp;lsquo;MMYY&amp;rsquo; eg 0122&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;servergroupid&lt;/td&gt;
+&lt;td&gt;card_start&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The start date for the card. Not required. Format &amp;lsquo;MMYY&amp;rsquo; eg 0122&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;card_issue_number&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The server group id used on product creation to associate an appropriate server&lt;/td&gt;
+&lt;td&gt;The issue_number for the card. Not required&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;configoption1&lt;/td&gt;
-&lt;td&gt;mixed&lt;/td&gt;
-&lt;td&gt;The first module configuration value&lt;/td&gt;
+&lt;td&gt;bank_name&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The name of the bank. Not required&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;configoption2&lt;/td&gt;
-&lt;td&gt;mixed&lt;/td&gt;
-&lt;td&gt;The second module configuration value&lt;/td&gt;
+&lt;td&gt;bank_account_type&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The type of bank account (checking, credit etc). Not required&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;configoption3&lt;/td&gt;
-&lt;td&gt;mixed&lt;/td&gt;
-&lt;td&gt;The third module configuration value&lt;/td&gt;
+&lt;td&gt;bank_code&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The bank code. Also called sort code or routing number. Required for BankAccount type&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;configoption4&lt;/td&gt;
-&lt;td&gt;mixed&lt;/td&gt;
-&lt;td&gt;The fourth module configuration value&lt;/td&gt;
+&lt;td&gt;bank_account&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The account number. Required for BankAccount type&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;configoption5&lt;/td&gt;
-&lt;td&gt;mixed&lt;/td&gt;
-&lt;td&gt;The fifth module configuration value&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;configoption6&lt;/td&gt;
-&lt;td&gt;mixed&lt;/td&gt;
-&lt;td&gt;The sixth module configuration value&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;order&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The order to in which to display on the order form&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;pricing&lt;/td&gt;
-&lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;The pricing array to associate with the product. format $pricing[currencyid]&lt;a href=&#34;see example&#34;&gt;cycle&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;set_as_default&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Should the new Pay Method be the client default&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -3015,9 +2954,15 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;pid&lt;/td&gt;
+&lt;td&gt;clientid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The id of the newly created product&lt;/td&gt;
+&lt;td&gt;The id of the client the Pay Method has been added to&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;paymethodid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the newly created Pay Method&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -3030,16 +2975,15 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            &#39;action&#39; =&amp;gt; &#39;AddProduct&#39;,
+            &#39;action&#39; =&amp;gt; &#39;AddPayMethod&#39;,
             // See https://developers.whmcs.com/api/authentication
             &#39;username&#39; =&amp;gt; &#39;IDENTIFIER_OR_ADMIN_USERNAME&#39;,
             &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
-            &#39;type&#39; =&amp;gt; &#39;other&#39;,
-            &#39;gid&#39; =&amp;gt; &#39;1&#39;,
-            &#39;name&#39; =&amp;gt; &#39;Sample Product&#39;,
-            &#39;welcomeemail&#39; =&amp;gt; &#39;5&#39;,
-            &#39;paytype&#39; =&amp;gt; &#39;recurring&#39;,
-            &#39;pricing&#39; =&amp;gt; array(2 =&amp;gt; array(&#39;monthly&#39; =&amp;gt; 8.00, &#39;annually&#39; =&amp;gt; 80.00)),
+            &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
+            &#39;type&#39; =&amp;gt; &#39;cc&#39;,
+            &#39;description&#39; =&amp;gt; &#39;New Card&#39;,
+            &#39;card_number&#39; =&amp;gt; &#39;4242424242424242&#39;,
+            &#39;card_expiry&#39; =&amp;gt; &#39;0423&#39;,
             &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
         )
     )
@@ -3051,14 +2995,13 @@ curl_close($ch);
 
 &lt;h3 id=&#34;example-request-local-api&#34;&gt;Example Request (Local API)&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;$command = &#39;AddProduct&#39;;
+&lt;pre&gt;&lt;code&gt;$command = &#39;AddPayMethod&#39;;
 $postData = array(
-    &#39;type&#39; =&amp;gt; &#39;other&#39;,
-    &#39;gid&#39; =&amp;gt; &#39;1&#39;,
-    &#39;name&#39; =&amp;gt; &#39;Sample Product&#39;,
-    &#39;welcomeemail&#39; =&amp;gt; &#39;5&#39;,
-    &#39;paytype&#39; =&amp;gt; &#39;recurring&#39;,
-    &#39;pricing&#39; =&amp;gt; array(2 =&amp;gt; array(&#39;monthly&#39; =&amp;gt; 8.00, &#39;annually&#39; =&amp;gt; 80.00)),
+    &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
+    &#39;type&#39; =&amp;gt; &#39;cc&#39;,
+    &#39;description&#39; =&amp;gt; &#39;New Card&#39;,
+    &#39;card_number&#39; =&amp;gt; &#39;4242424242424242&#39;,
+    &#39;card_expiry&#39; =&amp;gt; &#39;0423&#39;,
 );
 $adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
@@ -3069,7 +3012,9 @@ print_r($results);
 &lt;h3 id=&#34;example-response-json&#34;&gt;Example Response JSON&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;{
-    &amp;quot;result&amp;quot;: &amp;quot;success&amp;quot;
+    &amp;quot;result&amp;quot;: &amp;quot;success&amp;quot;,
+    &amp;quot;clientid&amp;quot;: &amp;quot;1&amp;quot;,
+    &amp;quot;paymethodid&amp;quot;: &amp;quot;1&amp;quot;
 }
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -3078,7 +3023,21 @@ print_r($results);
 &lt;p&gt;Possible error condition responses include:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;You must supply a name for the product&lt;/li&gt;
+&lt;li&gt;Client ID Is Required&lt;/li&gt;
+&lt;li&gt;Invalid Client ID&lt;/li&gt;
+&lt;li&gt;Invalid Pay Method Type. Type should be one of &amp;lsquo;BankAccount&amp;rsquo;, &amp;lsquo;CreditCard&amp;rsquo;, or &amp;lsquo;RemoteCreditCard&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;Gateway is Required for RemoteCreditCard type&lt;/li&gt;
+&lt;li&gt;Card Number is required for &amp;lsquo;CreditCard&amp;rsquo; or &amp;lsquo;RemoteCreditCard&amp;rsquo; type&lt;/li&gt;
+&lt;li&gt;Expiry Date is required for &amp;lsquo;CreditCard&amp;rsquo; or &amp;lsquo;RemoteCreditCard&amp;rsquo; type&lt;/li&gt;
+&lt;li&gt;Expiry Date is invalid&lt;/li&gt;
+&lt;li&gt;Start Date is invalid&lt;/li&gt;
+&lt;li&gt;Issue Number is invalid&lt;/li&gt;
+&lt;li&gt;Invalid Gateway Module Name. Must be one of: xxx (list of active gateways)&lt;/li&gt;
+&lt;li&gt;Unsupported Gateway Type for Storage&lt;/li&gt;
+&lt;li&gt;Error Creating Remote Token: xxx (error from module)&lt;/li&gt;
+&lt;li&gt;Routing number is required&lt;/li&gt;
+&lt;li&gt;Account number is required&lt;/li&gt;
+&lt;li&gt;Gateway is Required for Bank Account Storage&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
@@ -3093,7 +3052,7 @@ print_r($results);
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;7.8.0&lt;/td&gt;
 &lt;td&gt;Initial Version&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

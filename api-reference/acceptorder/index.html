@@ -234,6 +234,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/addpaymethod/">
+          <a href="//developers.whmcs.com/api-reference/addpaymethod/">
+            <span>AddPayMethod</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/addproduct/">
           <a href="//developers.whmcs.com/api-reference/addproduct/">
             <span>AddProduct</span>
@@ -405,6 +413,14 @@
         <li class="" data-nav-id="/api-reference/deleteorder/">
           <a href="//developers.whmcs.com/api-reference/deleteorder/">
             <span>DeleteOrder</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deletepaymethod/">
+          <a href="//developers.whmcs.com/api-reference/deletepaymethod/">
+            <span>DeletePayMethod</span>
           </a>
         </li>
       
@@ -789,6 +805,14 @@
         <li class="" data-nav-id="/api-reference/getorders/">
           <a href="//developers.whmcs.com/api-reference/getorders/">
             <span>GetOrders</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getpaymethods/">
+          <a href="//developers.whmcs.com/api-reference/getpaymethods/">
+            <span>GetPayMethods</span>
           </a>
         </li>
       
@@ -1194,6 +1218,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/updatepaymethod/">
+          <a href="//developers.whmcs.com/api-reference/updatepaymethod/">
+            <span>UpdatePayMethod</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/updateproject/">
           <a href="//developers.whmcs.com/api-reference/updateproject/">
             <span>UpdateProject</span>
@@ -1459,8 +1491,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'orderid' =&gt; '1',
             'registrar' =&gt; 'enom',
-            'autosetup' =&gt; '1',
-            'sendemail' =&gt; '1',
+            'autosetup' =&gt; true,
+            'sendemail' =&gt; true,
             'responsetype' =&gt; 'json',
         )
     )
@@ -1476,8 +1508,8 @@ curl_close($ch);
 $postData = array(
     'orderid' =&gt; '1',
     'registrar' =&gt; 'enom',
-    'autosetup' =&gt; '1',
-    'sendemail' =&gt; '1',
+    'autosetup' =&gt; true,
+    'sendemail' =&gt; true,
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

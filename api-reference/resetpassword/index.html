@@ -234,6 +234,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/addpaymethod/">
+          <a href="//developers.whmcs.com/api-reference/addpaymethod/">
+            <span>AddPayMethod</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/addproduct/">
           <a href="//developers.whmcs.com/api-reference/addproduct/">
             <span>AddProduct</span>
@@ -405,6 +413,14 @@
         <li class="" data-nav-id="/api-reference/deleteorder/">
           <a href="//developers.whmcs.com/api-reference/deleteorder/">
             <span>DeleteOrder</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deletepaymethod/">
+          <a href="//developers.whmcs.com/api-reference/deletepaymethod/">
+            <span>DeletePayMethod</span>
           </a>
         </li>
       
@@ -789,6 +805,14 @@
         <li class="" data-nav-id="/api-reference/getorders/">
           <a href="//developers.whmcs.com/api-reference/getorders/">
             <span>GetOrders</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getpaymethods/">
+          <a href="//developers.whmcs.com/api-reference/getpaymethods/">
+            <span>GetPayMethods</span>
           </a>
         </li>
       
@@ -1194,6 +1218,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/updatepaymethod/">
+          <a href="//developers.whmcs.com/api-reference/updatepaymethod/">
+            <span>UpdatePayMethod</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/updateproject/">
           <a href="//developers.whmcs.com/api-reference/updateproject/">
             <span>UpdateProject</span>
@@ -1380,13 +1412,6 @@
 <td>The email address of the client or contact to update. Either $id or $email is required</td>
 <td>Optional</td>
 </tr>
-
-<tr>
-<td>answer</td>
-<td>string</td>
-<td>The answer to the client security question if appropriate</td>
-<td>Optional</td>
-</tr>
 </tbody>
 </table>
 
@@ -1423,7 +1448,6 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'email' =&gt; 'john.doe@example.com',
-            'answer' =&gt; 'alphabet',
             'responsetype' =&gt; 'json',
         )
     )
@@ -1438,7 +1462,6 @@ curl_close($ch);
 <pre><code>$command = 'ResetPassword';
 $postData = array(
     'email' =&gt; 'john.doe@example.com',
-    'answer' =&gt; 'alphabet',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -1461,8 +1484,6 @@ print_r($results);
 <li>Client ID Not Found</li>
 <li>Please enter the email address or provide the id</li>
 <li>No account was found with the email address you entered</li>
-<li>The security question answer entered does not match the answer set in the account</li>
-<li>The security question answer must be provided for this account</li>
 </ul>
 
 <h3 id="version-history">Version History</h3>

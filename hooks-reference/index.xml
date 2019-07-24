@@ -1861,7 +1861,7 @@ class MyAuthService
     public static function getAdminHash($adminUniqueId)
     {
         $hashes = [
-            &#39;admin@localhost&#39; =&amp;gt; &#39;$2y$10$VKrc/52lKfl1FZWFTsmUpeORk18adQAulXlv634q6wkMseBDGbilO&#39;
+            &#39;admin@localhost.local&#39; =&amp;gt; &#39;$2y$10$VKrc/52lKfl1FZWFTsmUpeORk18adQAulXlv634q6wkMseBDGbilO&#39;
         ];
 
         if (array_key_exists($adminUniqueId, $hashes)) {
@@ -12647,7 +12647,7 @@ add_hook(&#39;EmailPreLog&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;emailpresend&#34;&gt;EmailPreSend&lt;/h2&gt;
 
-&lt;p&gt;Runs prior to a client email being sent.&lt;/p&gt;
+&lt;p&gt;Runs prior to any templated email being sent.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-10&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -12670,7 +12670,13 @@ add_hook(&#39;EmailPreLog&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;relid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The related entity ID for the email being sent&lt;/td&gt;
+&lt;td&gt;The related entity ID for the email being sent.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;mergefields&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Original mergefield data&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -12685,9 +12691,11 @@ add_hook(&#39;EmailPreLog&#39;, 1, function($vars) {
 
 add_hook(&#39;EmailPreSend&#39;, 1, function($vars) {
     $merge_fields = [];
-    $merge_fields[&#39;my_custom_var&#39;] = &amp;quot;My Custom Var&amp;quot;;
-    $merge_fields[&#39;my_custom_var2&#39;] = &amp;quot;My Custom Var2&amp;quot;;
-    if ($vars[&#39;messagename&#39;] ==&#39;My Message Name&#39; &amp;amp;&amp;amp; $vars[&#39;relid&#39;] == 2) {
+    if (!array_key_exists(&#39;my_custom_var&#39;, $vars[&#39;mergefields&#39;])) {
+        $merge_fields[&#39;my_custom_var&#39;] = &amp;quot;My Custom Var&amp;quot;;
+        $merge_fields[&#39;my_custom_var2&#39;] = &amp;quot;My Custom Var2&amp;quot;;
+    }
+    if ($vars[&#39;messagename&#39;] == &#39;My Message Name&#39; &amp;amp;&amp;amp; $vars[&#39;relid&#39;] == 2) {
         //Stop the email from sending a specific message and related id.
         $merge_fields[&#39;abortsend&#39;] = true;
     }
@@ -13144,11 +13152,71 @@ add_hook(&#39;PreEmailSendReduceRecipients&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;preupgradecheckout&#34;&gt;PreUpgradeCheckout&lt;/h2&gt;
+
+&lt;p&gt;Executes on checkout of an upgrade order, after the price calculation. The upgrade order may have completed already when this hook runs.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-20&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;clientId&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The ID of the client for the upgrade order&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;upgradeId&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The ID of the upgrade order&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;serviceId&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The ID of the service for the upgrade order&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;amount&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;The upgrade order amount. A negative value denotes a credit calculation.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;discount&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;The upgrade order discount.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-20&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Return &amp;lsquo;amount&amp;rsquo; and/or &amp;lsquo;discount&amp;rsquo; key with override price for the upgrade order.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-20&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreUpgradeCheckout&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;premiumpriceoverride&#34;&gt;PremiumPriceOverride&lt;/h2&gt;
 
 &lt;p&gt;Executes when searching for a premium domain. The return can alter the registration &amp;amp; renewal costs, stop the domain being available for purchase or force the client to contact support.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-20&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-21&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -13198,11 +13266,11 @@ add_hook(&#39;PreEmailSendReduceRecipients&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-20&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-21&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;Accepts returns to override register, transfer or renew pricing. Also boolean values of noSale or contactUs to stop the sale of the domain with different messages&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-20&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-21&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 
@@ -13230,7 +13298,7 @@ add_hook(&#39;PremiumPriceOverride&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when a premium domain price is being automatically recalculated.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-21&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-22&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -13268,11 +13336,11 @@ add_hook(&#39;PremiumPriceOverride&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-21&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-22&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;Return is accepted to override the renewal price or skip applying markup. eg: return array(&amp;lsquo;renew&amp;rsquo; =&amp;gt; 50.00, &amp;lsquo;skipMarkup&amp;rsquo; =&amp;gt; true);&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-21&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-22&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;PremiumPriceRecalculationOverride&#39;, 1, function($vars) {
@@ -13683,13 +13751,13 @@ add_hook(&#39;InvoiceChangeGateway&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;source&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Indicates where the invoice creation action originated, can be one of &lt;code&gt;adminarea&lt;/code&gt;, &lt;code&gt;api&lt;/code&gt; or &lt;code&gt;autogen&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;user&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -13737,7 +13805,7 @@ add_hook(&#39;InvoiceCreated&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;source&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;When the invoice is being created&lt;/td&gt;
+&lt;td&gt;Indicates where the invoice creation action originated, can be one of &lt;code&gt;adminarea&lt;/code&gt;, &lt;code&gt;api&lt;/code&gt; or &lt;code&gt;autogen&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -16202,9 +16270,9 @@ add_hook(&#39;ClientAreaProductDetailsOutput&#39;, 1, function($service) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;reportviewpostoutput&#34;&gt;ReportViewPostOutput&lt;/h2&gt;
+&lt;h2 id=&#34;formatdateforclientareaoutput&#34;&gt;FormatDateForClientAreaOutput&lt;/h2&gt;
 
-&lt;p&gt;Executes as a report is being displayed, after the output occurs&lt;/p&gt;
+&lt;p&gt;Allows for transformation of a date prior to output within the Client Area.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-9&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -16219,40 +16287,28 @@ add_hook(&#39;ClientAreaProductDetailsOutput&#39;, 1, function($service) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;report&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;moduleType&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;moduleName&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;date&lt;/td&gt;
+&lt;td&gt;\Carbon&lt;/td&gt;
+&lt;td&gt;A Carbon object representing the date.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-9&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;No response supported&lt;/p&gt;
+&lt;p&gt;Return a string containing the formatted date to display.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-9&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ReportViewPostOutput&#39;, 1, function($vars) {
+add_hook(&#39;FormatDateForClientAreaOutput&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;reportviewpreoutput&#34;&gt;ReportViewPreOutput&lt;/h2&gt;
+&lt;h2 id=&#34;formatdatetimeforclientareaoutput&#34;&gt;FormatDateTimeForClientAreaOutput&lt;/h2&gt;
 
-&lt;p&gt;Executes as a report is being displayed, before the output occurs&lt;/p&gt;
+&lt;p&gt;Allows for transformation of a date/time prior to output within the Client Area.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-10&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -16267,6 +16323,42 @@ add_hook(&#39;ReportViewPostOutput&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
+&lt;td&gt;date&lt;/td&gt;
+&lt;td&gt;\Carbon&lt;/td&gt;
+&lt;td&gt;A Carbon object representing the date/time.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-10&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Return a string containing the formatted date and time to display.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-10&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;FormatDateTimeForClientAreaOutput&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;reportviewpostoutput&#34;&gt;ReportViewPostOutput&lt;/h2&gt;
+
+&lt;p&gt;Executes as a report is being displayed, after the output occurs&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-11&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
 &lt;td&gt;report&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -16286,55 +16378,21 @@ add_hook(&#39;ReportViewPostOutput&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-10&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code-10&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ReportViewPreOutput&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;shoppingcartcheckoutoutput&#34;&gt;ShoppingCartCheckoutOutput&lt;/h2&gt;
-
-&lt;p&gt;Allows returning of output for display on the Shopping Cart Checkout page.&lt;/p&gt;
-
-&lt;h4 id=&#34;parameters-11&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;cartData&lt;/td&gt;
-&lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
 &lt;h4 id=&#34;response-11&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;Return the HTML to be output on the page.&lt;/p&gt;
+&lt;p&gt;No response supported&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-11&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ShoppingCartCheckoutOutput&#39;, 1, function($vars) {
+add_hook(&#39;ReportViewPostOutput&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;shoppingcartconfigureproductaddonsoutput&#34;&gt;ShoppingCartConfigureProductAddonsOutput&lt;/h2&gt;
+&lt;h2 id=&#34;reportviewpreoutput&#34;&gt;ReportViewPreOutput&lt;/h2&gt;
+
+&lt;p&gt;Executes as a report is being displayed, before the output occurs&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-12&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -16349,14 +16407,20 @@ add_hook(&#39;ShoppingCartCheckoutOutput&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;billingCycle&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;report&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;selectedAddons&lt;/td&gt;
+&lt;td&gt;moduleType&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;moduleName&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -16369,14 +16433,14 @@ add_hook(&#39;ShoppingCartCheckoutOutput&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-12&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ShoppingCartConfigureProductAddonsOutput&#39;, 1, function($vars) {
+add_hook(&#39;ReportViewPreOutput&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;shoppingcartviewcartoutput&#34;&gt;ShoppingCartViewCartOutput&lt;/h2&gt;
+&lt;h2 id=&#34;shoppingcartcheckoutoutput&#34;&gt;ShoppingCartCheckoutOutput&lt;/h2&gt;
 
-&lt;p&gt;Allows returning of output for display on the Shopping Cart View Cart page.&lt;/p&gt;
+&lt;p&gt;Allows returning of output for display on the Shopping Cart Checkout page.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-13&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -16405,12 +16469,12 @@ add_hook(&#39;ShoppingCartConfigureProductAddonsOutput&#39;, 1, function($vars) 
 &lt;h4 id=&#34;example-code-13&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ShoppingCartViewCartOutput&#39;, 1, function($vars) {
+add_hook(&#39;ShoppingCartCheckoutOutput&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;shoppingcartviewcategoryaboveproductsoutput&#34;&gt;ShoppingCartViewCategoryAboveProductsOutput&lt;/h2&gt;
+&lt;h2 id=&#34;shoppingcartconfigureproductaddonsoutput&#34;&gt;ShoppingCartConfigureProductAddonsOutput&lt;/h2&gt;
 
 &lt;h4 id=&#34;parameters-14&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -16425,7 +16489,13 @@ add_hook(&#39;ShoppingCartViewCartOutput&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;cart&lt;/td&gt;
+&lt;td&gt;billingCycle&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;selectedAddons&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
@@ -16439,14 +16509,50 @@ add_hook(&#39;ShoppingCartViewCartOutput&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-14&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ShoppingCartViewCategoryAboveProductsOutput&#39;, 1, function($vars) {
+add_hook(&#39;ShoppingCartConfigureProductAddonsOutput&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;shoppingcartviewcategorybelowproductsoutput&#34;&gt;ShoppingCartViewCategoryBelowProductsOutput&lt;/h2&gt;
+&lt;h2 id=&#34;shoppingcartviewcartoutput&#34;&gt;ShoppingCartViewCartOutput&lt;/h2&gt;
+
+&lt;p&gt;Allows returning of output for display on the Shopping Cart View Cart page.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-15&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cartData&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-15&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Return the HTML to be output on the page.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-15&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ShoppingCartViewCartOutput&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;shoppingcartviewcategoryaboveproductsoutput&#34;&gt;ShoppingCartViewCategoryAboveProductsOutput&lt;/h2&gt;
+
+&lt;h4 id=&#34;parameters-16&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -16466,11 +16572,45 @@ add_hook(&#39;ShoppingCartViewCategoryAboveProductsOutput&#39;, 1, function($var
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-15&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-16&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-15&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-16&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;ShoppingCartViewCategoryAboveProductsOutput&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;shoppingcartviewcategorybelowproductsoutput&#34;&gt;ShoppingCartViewCategoryBelowProductsOutput&lt;/h2&gt;
+
+&lt;h4 id=&#34;parameters-17&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cart&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-17&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-17&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;ShoppingCartViewCategoryBelowProductsOutput&#39;, 1, function($vars) {
@@ -16492,8 +16632,6 @@ add_hook(&#39;ShoppingCartViewCategoryBelowProductsOutput&#39;, 1, function($var
 
 &lt;h2 id=&#34;afterproductupgrade&#34;&gt;AfterProductUpgrade&lt;/h2&gt;
 
-&lt;p&gt;Executes after a product upgrade has been processed&lt;/p&gt;
-
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -16508,7 +16646,7 @@ add_hook(&#39;ShoppingCartViewCategoryBelowProductsOutput&#39;, 1, function($var
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;upgradeid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

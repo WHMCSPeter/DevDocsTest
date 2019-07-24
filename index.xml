@@ -220,8 +220,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;orderid&#39; =&amp;gt; &#39;1&#39;,
             &#39;registrar&#39; =&amp;gt; &#39;enom&#39;,
-            &#39;autosetup&#39; =&amp;gt; &#39;1&#39;,
-            &#39;sendemail&#39; =&amp;gt; &#39;1&#39;,
+            &#39;autosetup&#39; =&amp;gt; true,
+            &#39;sendemail&#39; =&amp;gt; true,
             &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
         )
     )
@@ -237,8 +237,8 @@ curl_close($ch);
 $postData = array(
     &#39;orderid&#39; =&amp;gt; &#39;1&#39;,
     &#39;registrar&#39; =&amp;gt; &#39;enom&#39;,
-    &#39;autosetup&#39; =&amp;gt; &#39;1&#39;,
-    &#39;sendemail&#39; =&amp;gt; &#39;1&#39;,
+    &#39;autosetup&#39; =&amp;gt; true,
+    &#39;sendemail&#39; =&amp;gt; true,
 );
 $adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
@@ -1375,45 +1375,45 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;cardtype&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Credit card type. Provide full name: Visa, Mastercard, American Express, etc&amp;hellip;&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;cardtype&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Credit card type. Provide full name: Visa, Mastercard, American Express, etc&amp;hellip;&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;cardnum&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Credit card number&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;cardnum&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Credit card number&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;expdate&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Format: MMYY&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;expdate&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Format: MMYY&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;startdate&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Format: MMYY (if applicable)&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;startdate&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Format: MMYY (if applicable)&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;issuenumber&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Credit card issue number (if applicable)&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;issuenumber&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Credit card issue number (if applicable)&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;cvv&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Credit card CVV number (will not be stored)&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;cvv&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Credit card CVV number (will not be stored)&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -1523,9 +1523,6 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             &#39;country&#39; =&amp;gt; &#39;US&#39;,
             &#39;phonenumber&#39; =&amp;gt; &#39;800-555-1234&#39;,
             &#39;password2&#39; =&amp;gt; &#39;password&#39;,
-            &#39;cardtype&#39; =&amp;gt; &#39;Visa&#39;,
-            &#39;cardnum&#39; =&amp;gt; &#39;4111111111111111&#39;,
-            &#39;expdate&#39; =&amp;gt; &#39;0721&#39;,
             &#39;clientip&#39; =&amp;gt; &#39;1.2.3.4&#39;,
             &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
         )
@@ -1550,9 +1547,6 @@ $postData = array(
     &#39;country&#39; =&amp;gt; &#39;US&#39;,
     &#39;phonenumber&#39; =&amp;gt; &#39;800-555-1234&#39;,
     &#39;password2&#39; =&amp;gt; &#39;password&#39;,
-    &#39;cardtype&#39; =&amp;gt; &#39;Visa&#39;,
-    &#39;cardnum&#39; =&amp;gt; &#39;4111111111111111&#39;,
-    &#39;expdate&#39; =&amp;gt; &#39;0721&#39;,
     &#39;clientip&#39; =&amp;gt; &#39;1.2.3.4&#39;,
 );
 $adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
@@ -1568,6 +1562,17 @@ print_r($results);
     &amp;quot;clientid&amp;quot;: &amp;quot;1&amp;quot;
 }
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;warning-responses&#34;&gt;Warning Responses&lt;/h3&gt;
+
+&lt;p&gt;Warning responses are returned when using API functionality that has been removed or marked as deprecated.
+We suggest following any recommended actions in the warning to ensure future compatibility.&lt;/p&gt;
+
+&lt;p&gt;Possible warning messages include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod instead.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&#34;error-responses&#34;&gt;Error Responses&lt;/h3&gt;
 
@@ -1608,6 +1613,11 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;7.7&lt;/td&gt;
 &lt;td&gt;Added &lt;code&gt;tax_id&lt;/code&gt; parameter.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;7.8&lt;/td&gt;
+&lt;td&gt;Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod instead.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2095,8 +2105,29 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;amount&lt;/td&gt;
 &lt;td&gt;float&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;The amount of credit to add or remove. Must be a positive value.&lt;/td&gt;
 &lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The date the credit was added. YYYY-mm-dd format.&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;adminid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The active admin id to be associated with the credit record. Defaults to current admin.&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Whether to add or remove credit. One of &amp;lsquo;add&amp;rsquo; or &amp;lsquo;remove&amp;rsquo;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2142,6 +2173,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
             &#39;description&#39; =&amp;gt; &#39;Adding funds via api&#39;,
             &#39;amount&#39; =&amp;gt; &#39;12.34&#39;,
+            &#39;adminid&#39; =&amp;gt; &#39;1&#39;,
             &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
         )
     )
@@ -2158,6 +2190,7 @@ $postData = array(
     &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
     &#39;description&#39; =&amp;gt; &#39;Adding funds via api&#39;,
     &#39;amount&#39; =&amp;gt; &#39;12.34&#39;,
+    &#39;adminid&#39; =&amp;gt; &#39;1&#39;,
 );
 $adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
@@ -2178,8 +2211,12 @@ print_r($results);
 &lt;p&gt;Possible error condition responses include:&lt;/p&gt;
 
 &lt;ul&gt;
+&lt;li&gt;Type can only be add or remove&lt;/li&gt;
 &lt;li&gt;Client ID Not Found&lt;/li&gt;
+&lt;li&gt;Admin ID Not Found&lt;/li&gt;
 &lt;li&gt;No Amount Provided&lt;/li&gt;
+&lt;li&gt;Amount must be in decimal format: ### or ###.##&lt;/li&gt;
+&lt;li&gt;Date Format is not Valid&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;

@@ -234,6 +234,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/addpaymethod/">
+          <a href="//developers.whmcs.com/api-reference/addpaymethod/">
+            <span>AddPayMethod</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/addproduct/">
           <a href="//developers.whmcs.com/api-reference/addproduct/">
             <span>AddProduct</span>
@@ -405,6 +413,14 @@
         <li class="" data-nav-id="/api-reference/deleteorder/">
           <a href="//developers.whmcs.com/api-reference/deleteorder/">
             <span>DeleteOrder</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deletepaymethod/">
+          <a href="//developers.whmcs.com/api-reference/deletepaymethod/">
+            <span>DeletePayMethod</span>
           </a>
         </li>
       
@@ -789,6 +805,14 @@
         <li class="" data-nav-id="/api-reference/getorders/">
           <a href="//developers.whmcs.com/api-reference/getorders/">
             <span>GetOrders</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getpaymethods/">
+          <a href="//developers.whmcs.com/api-reference/getpaymethods/">
+            <span>GetPayMethods</span>
           </a>
         </li>
       
@@ -1194,6 +1218,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/updatepaymethod/">
+          <a href="//developers.whmcs.com/api-reference/updatepaymethod/">
+            <span>UpdatePayMethod</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/updateproject/">
           <a href="//developers.whmcs.com/api-reference/updateproject/">
             <span>UpdateProject</span>
@@ -1403,20 +1435,6 @@
 </tr>
 
 <tr>
-<td>subtotal</td>
-<td>float</td>
-<td>Update the subtotal of the invoice</td>
-<td>Optional</td>
-</tr>
-
-<tr>
-<td>total</td>
-<td>float</td>
-<td>Update the total of the invoice</td>
-<td>Optional</td>
-</tr>
-
-<tr>
 <td>credit</td>
 <td>float</td>
 <td>Update the credit applied to the invoice</td>
@@ -1454,49 +1472,49 @@
 <tr>
 <td>itemdescription</td>
 <td>string[]</td>
-<td>An array of lineItemId =&gt; Description of items to change</td>
+<td>An array of lineItemId =&gt; Description of items to change. The lineItemId is the id of the item from the GetInvoice API command.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>itemamount</td>
 <td>float[]</td>
-<td>An array of lineItemId =&gt; amount of items to change</td>
+<td>An array of lineItemId =&gt; amount of items to change. Required if itemdescription is provided.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>itemtaxed</td>
 <td>bool[]</td>
-<td>An array of lineItemId =&gt; taxed of items to change</td>
+<td>An array of lineItemId =&gt; taxed of items to change Required if itemdescription is provided.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>newitemdescription</td>
 <td>string[]</td>
-<td>The line items description</td>
+<td>The line items description. This should be a numerically indexed array of new line item descriptions.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>newitemamount</td>
 <td>float[]</td>
-<td>The line items amount</td>
+<td>The line items amount. This should be a numerically indexed array of new line item amounts.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>newitemtaxed</td>
 <td>bool[]</td>
-<td>The line items is taxed value</td>
+<td>Should the new line items be taxed. This should be a numerically indexed array of new line item taxed values.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>deletelineids</td>
 <td>int[]</td>
-<td>An array of line item ids to remove from the invoice</td>
+<td>An array of line item ids to remove from the invoice. This is the id of the line item, from GetInvoice API command.</td>
 <td>Optional</td>
 </tr>
 
@@ -1556,9 +1574,16 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'invoiceid' =&gt; '1',
             'status' =&gt; 'Unpaid',
-            'itemdescription' =&gt; array(13 =&gt; 'Sample Updated Invoice Item'),
-            'itemamount' =&gt; array(13 =&gt; 16.95),
-            'itemtaxed' =&gt; array(13 =&gt; false),
+            'itemdescription[13]' =&gt; 'Sample Updated Invoice Item',
+            'itemamount[13]' =&gt; '16.95',
+            'itemtaxed[13]' =&gt; '0',
+            'newitemdescription[0]' =&gt; 'New Line Item 1',
+            'newitemamount[0]' =&gt; '10.00',
+            'newitemtaxed[0]' =&gt; '1',
+            'newitemdescription[1]' =&gt; 'New Line Item 2',
+            'newitemamount[1]' =&gt; '2.95',
+            'newitemtaxed[1]' =&gt; '0',
+            'deletelineids[0]' =&gt; '12',
             'responsetype' =&gt; 'json',
         )
     )
@@ -1574,9 +1599,16 @@ curl_close($ch);
 $postData = array(
     'invoiceid' =&gt; '1',
     'status' =&gt; 'Unpaid',
-    'itemdescription' =&gt; array(13 =&gt; 'Sample Updated Invoice Item'),
-    'itemamount' =&gt; array(13 =&gt; 16.95),
-    'itemtaxed' =&gt; array(13 =&gt; false),
+    'itemdescription[13]' =&gt; 'Sample Updated Invoice Item',
+    'itemamount[13]' =&gt; '16.95',
+    'itemtaxed[13]' =&gt; '0',
+    'newitemdescription[0]' =&gt; 'New Line Item 1',
+    'newitemamount[0]' =&gt; '10.00',
+    'newitemtaxed[0]' =&gt; '1',
+    'newitemdescription[1]' =&gt; 'New Line Item 2',
+    'newitemamount[1]' =&gt; '2.95',
+    'newitemtaxed[1]' =&gt; '0',
+    'deletelineids[0]' =&gt; '12',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -1598,6 +1630,9 @@ print_r($results);
 
 <ul>
 <li>Invoice ID Not Found</li>
+<li>Invoice must be in Draft status to be published</li>
+<li>Missing Variables: itemdescription, itemamount and itemtaxed are required for each item being changed</li>
+<li>Invalid status $status</li>
 </ul>
 
 <h3 id="version-history">Version History</h3>
@@ -1614,6 +1649,11 @@ print_r($results);
 <tr>
 <td>1.0</td>
 <td>Initial Version</td>
+</tr>
+
+<tr>
+<td>7.8</td>
+<td>Removed <code>total</code>, <code>tax</code>, <code>tax2</code> and <code>subtotal</code> parameters. Adjust invoice items and tax rates to adjust these.</td>
 </tr>
 </tbody>
 </table>
