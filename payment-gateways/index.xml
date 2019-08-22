@@ -113,11 +113,27 @@
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;TokenisedStorage&lt;/td&gt;
-&lt;td&gt;Boolean&lt;/td&gt;
-&lt;td&gt;7.1&lt;/td&gt;
-&lt;td&gt;false&lt;/td&gt;
-&lt;td&gt;Set to true if this payment gateway module leverages tokenised storage for credit card information.&lt;/td&gt;
+&lt;td&gt;failedEmail&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;7.7&lt;/td&gt;
+&lt;td&gt;Credit Card Payment Failed&lt;/td&gt;
+&lt;td&gt;The name of an email template to send should a payment capture fail&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;successEmail&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;7.7&lt;/td&gt;
+&lt;td&gt;Credit Card Payment Confirmation&lt;/td&gt;
+&lt;td&gt;The name of an email template to send should a payment capture be successful&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pendingEmail&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;7.7&lt;/td&gt;
+&lt;td&gt;Credit Card Payment Pending&lt;/td&gt;
+&lt;td&gt;The name of an email template to send should a payment capture be pending&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -347,46 +363,149 @@ $params[&#39;whmcsVersion&#39;] # WHMCS Version Number
 
 &lt;p&gt;The following parameters are passed to the &lt;code&gt;_capture&lt;/code&gt; function along with all &lt;a href=&#34;//developers.whmcs.com/payment-gateways/configuration&#34; title=&#34;Configuration Parameters&#34;&gt;defined configuration parameters&lt;/a&gt; and their values.&lt;/p&gt;
 
-&lt;h3 id=&#34;invoice-variables&#34;&gt;Invoice Variables&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
 
-&lt;pre&gt;&lt;code&gt;$params[&#39;invoiceid&#39;] # Invoice ID Number
-$params[&#39;description&#39;] # Description (eg. Company Name - Invoice #xxx)
-$params[&#39;amount&#39;] # Format: xxx.xx
-$params[&#39;currency&#39;] # Currency Code (eg. GBD, USD, etc...)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;invoiceid&lt;/td&gt;
+&lt;td&gt;integer&lt;/td&gt;
+&lt;td&gt;Invoice ID Number&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;h3 id=&#34;card-details&#34;&gt;Card Details&lt;/h3&gt;
+&lt;tr&gt;
+&lt;td&gt;description&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Description (eg. Company Name - Invoice #xxx)&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;pre&gt;&lt;code&gt;$params[&#39;cardtype&#39;] # the Card Type (Visa, MasterCard, etc…)
-$params[&#39;cardnum&#39;] # the Card Number
-$params[&#39;cardexp&#39;] # the Card’s Expiry Date (Format: MMYY)
-$params[&#39;cardstart&#39;] # the Card’s Start Date (Format: MMYY)
-$params[&#39;cardissuenum&#39;] # the Card’s Issue Number (Switch/Solo Cards)
-$params[&#39;cccvv&#39;] # Not always present (recurring transactions)
-# but would always be present for client initiated attempts
-&lt;/code&gt;&lt;/pre&gt;
+&lt;tr&gt;
+&lt;td&gt;amount&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;Format: xxx.xx&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;h3 id=&#34;client-variables&#34;&gt;Client Variables&lt;/h3&gt;
+&lt;tr&gt;
+&lt;td&gt;currency&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Currency Code (eg. GBP, USD, etc.,)&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;pre&gt;&lt;code&gt;$params[&#39;clientdetails&#39;][&#39;firstname&#39;] # Client&#39;s First Name
-$params[&#39;clientdetails&#39;][&#39;lastname&#39;] # Client&#39;s Last Name
-$params[&#39;clientdetails&#39;][&#39;email&#39;] # Client&#39;s Email Address
-$params[&#39;clientdetails&#39;][&#39;address1&#39;] # Client&#39;s Address
-$params[&#39;clientdetails&#39;][&#39;address2&#39;]
-$params[&#39;clientdetails&#39;][&#39;city&#39;]
-$params[&#39;clientdetails&#39;][&#39;state&#39;]
-$params[&#39;clientdetails&#39;][&#39;postcode&#39;]
-$params[&#39;clientdetails&#39;][&#39;country&#39;]
-$params[&#39;clientdetails&#39;][&#39;phonenumber&#39;]
-&lt;/code&gt;&lt;/pre&gt;
+&lt;tr&gt;
+&lt;td&gt;cardtype&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The Card Type (Visa, MasterCard, etc. &amp;hellip;)&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;h3 id=&#34;system-variables&#34;&gt;System Variables&lt;/h3&gt;
+&lt;tr&gt;
+&lt;td&gt;cardnum&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The Card Number&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;pre&gt;&lt;code&gt;$params[&#39;companyname&#39;] # your Company Name setting in WHMCS
-$params[&#39;systemurl&#39;] # the url to the Client Area
-&lt;/code&gt;&lt;/pre&gt;
+&lt;tr&gt;
+&lt;td&gt;cardexp&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The Card Expiry Date (Format: MMYY)&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;h2 id=&#34;response-format&#34;&gt;Response Format&lt;/h2&gt;
+&lt;tr&gt;
+&lt;td&gt;cardstart&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The Card Start Date (Format: MMYY)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardissuenum&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The Card Issue Number&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cccvv&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Only available for card holder present initiated payment attempts&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;clientdetails&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;An array of client details. firstname, lastname, email, address1, address2, city, state, postcode, country, phonenumber&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;companyname&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The Company Name setting in WHMCS&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;systemurl&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The url to the client area of the WHMCS install&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;response&#34;&gt;Response&lt;/h2&gt;
+
+&lt;p&gt;The following return parameters are supported.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;status&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;One of either &lt;code&gt;success&lt;/code&gt;, &lt;code&gt;pending&lt;/code&gt;, &lt;code&gt;declined&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;declinereason&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The reason for a decline&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;transid&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The Transaction ID returned by the payment gateway&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;fee&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;(Optional) The transaction fee returned by the payment gateway&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;rawdata&lt;/td&gt;
+&lt;td&gt;string or array&lt;/td&gt;
+&lt;td&gt;The raw data returned by the payment gateway for logging to the gateway log to aid in debugging&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;gatewayid&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;See &lt;a href=&#34;//developers.whmcs.com/payment-gateways/tokenised-remote-storage&#34; title=&#34;Tokenised Remote Storage&#34;&gt;Tokenised Remote Storage&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example-return&#34;&gt;Example Return&lt;/h3&gt;
 
 &lt;p&gt;The capture function should always return an array containing information about the transaction attempt.  This should take the following format:&lt;/p&gt;
 
@@ -398,7 +517,9 @@ $params[&#39;systemurl&#39;] # the url to the Client Area
 );
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;For a successful capture, the status should be returned as the string &lt;code&gt;success&lt;/code&gt;.  For anything else, return a status that indicates the reason for failure.  Common failure response status values include &lt;code&gt;declined&lt;/code&gt; and &lt;code&gt;error&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;For a successful capture, the status should be returned as the string &lt;code&gt;success&lt;/code&gt;.
+For payments that are pending and do not require an immediate payment in WHMCS, the status should be &lt;code&gt;pending&lt;/code&gt;.
+For anything else, return a status that indicates the reason for failure.  Common failure response status values include &lt;code&gt;declined&lt;/code&gt; and &lt;code&gt;error&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;The raw data you return will be recorded to the gateway log to aide in debugging. It can accept either a string or array.&lt;/p&gt;
 
@@ -415,6 +536,15 @@ $params[&#39;systemurl&#39;] # the url to the Client Area
         &#39;cardnumber&#39; =&amp;gt; $params[&#39;cardnum&#39;],
         &#39;cardexpiry&#39; =&amp;gt; $params[&#39;cardexp&#39;],
         &#39;cardcvv&#39; =&amp;gt; $params[&#39;cccvv&#39;],
+        &#39;card_holder_name&#39; =&amp;gt; $params[&#39;clientdetails&#39;][&#39;firstname&#39;]
+            . &#39; - &#39; . $params[&#39;clientdetails&#39;][&#39;lastname&#39;],
+        &#39;card_address&#39; =&amp;gt; [
+            &#39;address_line_1&#39; =&amp;gt; $params[&#39;clientdetails&#39;][&#39;address1&#39;],
+            &#39;city&#39; =&amp;gt; $params[&#39;clientdetails&#39;][&#39;city&#39;],
+            &#39;state&#39; =&amp;gt; $params[&#39;clientdetails&#39;][&#39;state&#39;],
+            &#39;postcode&#39; =&amp;gt; $params[&#39;clientdetails&#39;][&#39;postcode&#39;],
+            &#39;country&#39; =&amp;gt; $params[&#39;clientdetails&#39;][&#39;country&#39;],
+        ],
     ];
 
     $ch = curl_init();
@@ -427,12 +557,21 @@ $params[&#39;systemurl&#39;] # the url to the Client Area
 
     $data = json_decode($response);
 
-    return array(
-        &#39;status&#39; =&amp;gt; ($data-&amp;gt;success == 1) ? &#39;success&#39; : &#39;declined&#39;,
-        &#39;rawdata&#39; =&amp;gt; $data,
-        &#39;transid&#39; =&amp;gt; $data-&amp;gt;transaction_id,
-        &#39;fee&#39; =&amp;gt; $data-&amp;gt;fees,
-    );
+    if ($data-&amp;gt;success == 1) {
+        $return = [
+            &#39;status&#39; =&amp;gt; &#39;success&#39;,
+            &#39;transid&#39; =&amp;gt; $data-&amp;gt;transaction_id,
+            &#39;fee&#39; =&amp;gt; $data-&amp;gt;fee,
+            &#39;rawdata&#39; =&amp;gt; $data,
+        ];
+    } else {
+        $return = [
+            &#39;status&#39; =&amp;gt; &#39;declined&#39;,
+            &#39;declinereason&#39; =&amp;gt; $data-&amp;gt;decline_reason,
+            &#39;rawdata&#39; =&amp;gt; $data,
+        ];
+    }
+    return $return;
 }
 &lt;/code&gt;&lt;/pre&gt;
 </description>
@@ -619,6 +758,50 @@ $params[&#39;moduleName&#39;] # Module System Name
     </item>
     
     <item>
+      <title>Subscription Management</title>
+      <link>//developers.whmcs.com/payment-gateways/subscription-management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/payment-gateways/subscription-management/</guid>
+      <description>
+
+&lt;p&gt;Subscription Management is an optional function that can be defined within a gateway module. Its purpose is to remotely cancel a recurring subscription agreement with a payment gateway, manually and automatically. The stored Subscription ID value in WHMCS is then removed.&lt;/p&gt;
+
+&lt;p&gt;When a service is assigned to a payment gateway that implements this function (for example PayPal Subscriptions) and a Subscription ID is set, a &lt;strong&gt;Cancel Subscription&lt;/strong&gt; button is displayed under the Products/Services tab in the admin area. Clicking it will trigger the API call defined in the _cancelSubscription function.&lt;/p&gt;
+
+&lt;h2 id=&#34;automatic-cancellation&#34;&gt;Automatic Cancellation&lt;/h2&gt;
+
+&lt;p&gt;When the &lt;strong&gt;Automatic Subscription Management&lt;/strong&gt; feature is enabled under &lt;em&gt;Setup &amp;gt; General Settings &amp;gt; Invoices tab&lt;/em&gt;, a subscription will be cancelled automatically under the following circumstances:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A cancellation request is submitted&lt;/li&gt;
+&lt;li&gt;The order is cancelled or set to fraud via the admin interface of WHMCS&lt;/li&gt;
+&lt;li&gt;The API is used to cancel or fraud an order with “cancelsub=true” passed&lt;/li&gt;
+&lt;li&gt;An upgrade order is placed for the product/service&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;implementing-in-payment-gateway-modules&#34;&gt;Implementing in payment gateway modules&lt;/h2&gt;
+
+&lt;p&gt;This feature should only be defined for payment gateways which create automatic recurring subscriptions that are processed outside of WHMCS (for example PayPal Subscriptions).&lt;/p&gt;
+
+&lt;p&gt;Implementation is a two-step process:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;A subscription ID must be stored in tblhosting.subscriptionid for the given service in order for the cancel subscription function to be invokable. Typically this value should be set as part of a payment gateway callback routine (see &lt;a href=&#34;https://developers.whmcs.com/payment-gateways/callbacks/&#34;&gt;callbacks&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Define the _cancelSubscription function in the gateway module file.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This function should contain the necessary API calls to cancel a recurring payment subscription at the payment gateway.&lt;/p&gt;
+
+&lt;p&gt;Return a &amp;ldquo;success&amp;rdquo; response to indicate successful subscription cancellation. The stored tblhosting.subscriptionid value is then removed.
+Any other response is considered a failure, and the subscriptionid value will remain in place.&lt;/p&gt;
+
+&lt;p&gt;An example of this function is shown in the sample gateway module at &lt;a href=&#34;https://github.com/WHMCS/sample-gateway-module/blob/master/modules/gateways/gatewaymodule.php&#34;&gt;Sample Gateway Module&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Payment Reversals</title>
       <link>//developers.whmcs.com/payment-gateways/reversals/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -730,51 +913,274 @@ transaction.&amp;lt;/div&amp;gt;
       <guid>//developers.whmcs.com/payment-gateways/tokenised-remote-storage/</guid>
       <description>
 
-&lt;p&gt;With increasing rules &amp;amp; requirements surrounding the storing of credit card details,
-merchant gateways are offering services where repeat rebills can be performed without needing to store credit card details.
-Gateway modules can use this functionality.&lt;/p&gt;
+&lt;p&gt;Tokenisation is the replacement of sensitive payment information with a unique identifier (a token).&lt;/p&gt;
 
-&lt;p&gt;The basic logic behind token gateways in WHMCS is that clients must either have a credit card number or a token stored in order for recurring billing.
-Add a function named &lt;strong&gt;_storeremote&lt;/strong&gt; to the custom gateway module.
-This function will override the default storage when entering new credit card details.
-Instead of saving in the database, &lt;strong&gt;_storeremote&lt;/strong&gt; communicates with the gateways API, and returns a token that gets assigned to WHMCS.&lt;/p&gt;
+&lt;p&gt;Therefore in WHMCS, a tokenised payment gateway module is one where the sensitive payment data is stored remotely by the payment gateway. This reduces the risk of data breaches because it means that unauthorized access to the local system does not risk exposing customer&amp;rsquo;s sensitive payment information.&lt;/p&gt;
 
-&lt;h2 id=&#34;variables&#34;&gt;Variables&lt;/h2&gt;
+&lt;h2 id=&#34;creating-a-token-gateway&#34;&gt;Creating a Token Gateway&lt;/h2&gt;
 
-&lt;p&gt;A number of variables as passed into the &lt;strong&gt;_storeremote&lt;/strong&gt; function as follows.&lt;/p&gt;
+&lt;p&gt;Payment gateways can operate tokenisation platforms in a variety of ways.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$params[&#39;gatewayid&#39;] # the token stored for the client
-$params[&#39;cardtype&#39;] #the Card Type (Visa, MasterCard, etc…)
-$params[&#39;cardnum&#39;] # the Card Number
-$params[&#39;cardexp&#39;] # the Card’s Expiry Date (Format: MMYY)
-$params[&#39;cardstart&#39;] # the Card’s Start Date (Format: MMYY)
-$params[&#39;cardissuenum&#39;] # the Card’s Issue Number (Switch/Solo Cards)
+&lt;h3 id=&#34;capture-token-exchange&#34;&gt;Capture Token Exchange&lt;/h3&gt;
+
+&lt;p&gt;At its simplest, a payment gateway may exchange or return a token for you to use for future charges following a regular capture being performed.&lt;/p&gt;
+
+&lt;p&gt;For payment gateways that function in this way, you should return the token along with the result from the capture function. WHMCS will then automatically purge the locally stored payment details and replace them with the token.&lt;/p&gt;
+
+&lt;p&gt;The following return parameters are supported.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;status&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;One of either &lt;code&gt;success&lt;/code&gt;, &lt;code&gt;pending&lt;/code&gt;, &lt;code&gt;declined&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;declinereason&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The reason for a decline&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;transid&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The Transaction ID returned by the payment gateway&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;fee&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;The transaction fee returned by the payment gateway&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;rawdata&lt;/td&gt;
+&lt;td&gt;string or array&lt;/td&gt;
+&lt;td&gt;The raw data returned by the payment gateway for logging to the gateway log to aid in debugging&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;gatewayid&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The token returned by the payment gateway&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;example&#34;&gt;Example&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;function yourmodulename_capture($params) {
+    $gatewayid = $params[&#39;gatewayid&#39;];
+    $cardnum = $params[&#39;cardnum&#39;];
+    
+    if ($gatewayid) {
+        // Make API call to perform capture using the token here
+        // Dummy response assumed below in $response variable.        
+
+        return [
+            &#39;status&#39; =&amp;gt; &#39;success&#39;,
+            &#39;transid&#39; =&amp;gt; $response[&#39;transaction_id&#39;]
+            // Return a value in gatewayid to update the token only if required
+            &#39;gatewayid&#39; =&amp;gt; $response[&#39;token&#39;],
+            &#39;rawdata&#39; =&amp;gt; $response,
+        ];
+    } else {
+        // Make API call to perform capture using the card number here
+        // Dummy response assumed below in $response variable.
+        $response = [];
+
+        return [
+            &#39;status&#39; =&amp;gt; &#39;success&#39;,
+            &#39;transid&#39; =&amp;gt; $response[&#39;transaction_id&#39;]
+            &#39;gatewayid&#39; =&amp;gt; $response[&#39;token&#39;],
+            &#39;rawdata&#39; =&amp;gt; $response,
+        ];
+    }
+}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;calling&#34;&gt;Calling&lt;/h2&gt;
+&lt;h3 id=&#34;remote-storage&#34;&gt;Remote Storage&lt;/h3&gt;
 
-&lt;p&gt;On the first call, the gatewayid will be empty.
-When empty, create a new profile at the gateway.
-On later calls, the created gatewayid that will be passed in and the existing profile updated.
-If the cardnum variable is empty, this indicates a removal request of the stored credit card details.
-Once the card details have been updated or stored remotely, return either a success or failure response to tell WHMCS if it worked.
-If successful, return also the token that has been assigned:&lt;/p&gt;
+&lt;p&gt;For payment gateways where tokens have to be created and managed separately from capture attempts, you should use the remote storage method within your WHMCS gateway module.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;return array(
-    &amp;quot;status&amp;quot; =&amp;gt; &amp;quot;success&amp;quot;,
-    &amp;quot;gatewayid&amp;quot; =&amp;gt; $results[&amp;quot;token&amp;quot;],
-    &amp;quot;rawdata&amp;quot; =&amp;gt; $results,
-);
+&lt;p&gt;This function will override the default behaviour when entering new, updating an existing, or deleting credit card details.&lt;/p&gt;
 
-return array(
-    &amp;quot;status&amp;quot; =&amp;gt; &amp;quot;failed&amp;quot;,
-    &amp;quot;rawdata&amp;quot; =&amp;gt; $results,
-);
+&lt;p&gt;The following parameters are passed into the &lt;code&gt;storeremote&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;action&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;One of either &lt;code&gt;create&lt;/code&gt;, &lt;code&gt;update&lt;/code&gt;, or &lt;code&gt;delete&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;gatewayid&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The token for the pay method to be updated&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardtype&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The card type (Visa, MasterCard, etc..)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardnum&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The card number&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardexp&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The card expiry date (Format: MMYY)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardstart&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The card start date (Format: MMYY)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardissuenum&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The card issue number&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The following return parameters are supported.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;status&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;One of either &lt;code&gt;success&lt;/code&gt; or &lt;code&gt;error&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;rawdata&lt;/td&gt;
+&lt;td&gt;string or array&lt;/td&gt;
+&lt;td&gt;The raw data returned by the payment gateway for logging to the gateway log to aid in debugging&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;gatewayid&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The token returned by the payment gateway&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;function yourmodulename_storeremote($params) {
+    $action = $params[&#39;action&#39;];
+    $gatewayid = $params[&#39;gatewayid&#39;];
+    $cardtype = $params[&#39;cardtype&#39;];
+    $cardnum = $params[&#39;cardnum&#39;];
+    $cardexp = $params[&#39;cardexp&#39;];
+    $cardstart = $params[&#39;cardstart&#39;];
+    $cardissuenum = $params[&#39;cardissuenum&#39;];
+
+    switch ($action) {
+        case &#39;create&#39;:
+            // Make API call to create a token here
+            $postfields = [
+                &#39;cardnumber&#39; =&amp;gt; $cardnum,
+                &#39;cardexpiry&#39; =&amp;gt; $cardexp,
+                &#39;cardcvv&#39; =&amp;gt; $params[&#39;cccvv&#39;],
+            ];
+        
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/api/store&#39;);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $response = curl_exec($ch);
+            curl_close($ch);
+        
+            $data = json_decode($response);
+
+            return [
+                &#39;status&#39; =&amp;gt; &#39;success&#39;,
+                &#39;gatewayid&#39; =&amp;gt; $data-&amp;gt;remote_id,
+            ];
+            break;
+        case &#39;update&#39;:
+            // Make API call to update a token here
+            $postfields = [
+                &#39;remote_id&#39; =&amp;gt; $gatewayid,
+                &#39;cardexpiry&#39; =&amp;gt; $cardexp,
+            ];
+        
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/api/update&#39;);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $response = curl_exec($ch);
+            curl_close($ch);
+        
+            $data = json_decode($response);
+            return [
+                &#39;status&#39; =&amp;gt; &#39;success&#39;,
+                &#39;gatewayid&#39; =&amp;gt; $data-&amp;gt;remote_id,
+            ];
+            break;
+        case &#39;delete&#39;:
+            // Make API call to delete a token here
+            $postfields = [
+                &#39;remote_id&#39; =&amp;gt; $gatewayid,
+            ];
+        
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/api/delete&#39;);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            $response = curl_exec($ch);
+            curl_close($ch);
+        
+            $data = json_decode($response);
+            return [
+                &#39;status&#39; =&amp;gt; &#39;success&#39;,
+            ];
+            break;
+    }
+}
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;When this function exists in a gateway module, WHMCS will only store the card type, expiry date and the last 4 digits locally in the database.
-Clients and Admins will still be able to see exactly what card is stored remotely from within WHMCS.
-Then within the capture function, instead of &lt;code&gt;$params[‘cardnum’]&lt;/code&gt;, &lt;code&gt;$params[‘gatewayid’]&lt;/code&gt; is received to perform the capture.&lt;/p&gt;
 </description>
     </item>
     

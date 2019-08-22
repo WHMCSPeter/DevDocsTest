@@ -31,11 +31,7 @@
 
 &lt;h2 id=&#34;sample-module&#34;&gt;Sample Module&lt;/h2&gt;
 
-&lt;p&gt;We make available a sample notification module on Github. We recommend using this as a starting point for a custom module.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/WHMCS/sample-notification-module&#34;&gt;https://github.com/WHMCS/sample-notification-module&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;The &lt;code&gt;Email&lt;/code&gt; notification module that ships with WHMCS is not encoded so the source code is viewable. We recommend using this as a starting point for a custom module. This module can be found in the &lt;code&gt;/modules/notifications/Email&lt;/code&gt; directory.&lt;/p&gt;
 
 &lt;h2 id=&#34;choosing-a-name&#34;&gt;Choosing a Name&lt;/h2&gt;
 

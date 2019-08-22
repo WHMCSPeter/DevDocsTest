@@ -724,7 +724,8 @@ function yourmodulename_getConfigArray($params)
 
 &lt;p&gt;The example below demonstrates setting all supported domain attributes at the time of writing.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;use WHMCS\Domain\Registrar\Domain;
+&lt;pre&gt;&lt;code&gt;use WHMCS\Carbon;
+use WHMCS\Domain\Registrar\Domain;
 
 function modulename_GetDomainInformation($params) {
 	/**
@@ -739,7 +740,7 @@ function modulename_GetDomainInformation($params) {
         -&amp;gt;setRegistrationStatus($response[&#39;status&#39;])
         -&amp;gt;setTransferLock($response[&#39;transferlock&#39;])
         -&amp;gt;setTransferLockExpiryDate(null)
-        -&amp;gt;setExpiryDate($response[&#39;expirydate&#39;])
+        -&amp;gt;setExpiryDate(Carbon::createFromFormat(&#39;Y-m-d&#39;, $response[&#39;expirydate&#39;])) // $response[&#39;expirydate&#39;] = YYYY-MM-DD
         -&amp;gt;setRestorable(false)
         -&amp;gt;setIdProtectionStatus($response[&#39;addons&#39;][&#39;hasidprotect&#39;])
         -&amp;gt;getDnsManagementStatus($response[&#39;addons&#39;][&#39;hasdnsmanagement&#39;])

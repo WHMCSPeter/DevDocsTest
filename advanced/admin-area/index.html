@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Logging - WHMCS Developer Documentation</title>
+    <title>Admin Area - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/advanced/logging/">
+    <link rel="canonical" href="//developers.whmcs.com/advanced/admin-area/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -162,7 +162,7 @@
       
       
       
-        <li class="active" data-nav-id="/advanced/logging/">
+        <li class="" data-nav-id="/advanced/logging/">
           <a href="//developers.whmcs.com/advanced/logging/">
             <span>Logging</span>
           </a>
@@ -178,7 +178,7 @@
       
       
       
-        <li class="" data-nav-id="/advanced/admin-area/">
+        <li class="active" data-nav-id="/advanced/admin-area/">
           <a href="//developers.whmcs.com/advanced/admin-area/">
             <span>Admin Area</span>
           </a>
@@ -256,66 +256,198 @@
                 
                   
                 
-                <span itemprop="title"> Logging</span>
+                <span itemprop="title"> Admin Area</span>
               </div>
             </div>
 
 
-			<h1>Logging </h1>
+			<h1>Admin Area </h1>
 
 			
 
-<p>The following logging helper methods are made available in WHMCS.</p>
+<p>The admin area of WHMCS can be customised through the use of themes and hooks.</p>
 
-<h2 id="log-activity">Log Activity</h2>
+<h2 id="getting-started">Getting Started</h2>
 
-<p>A helper method is available for adding entries to the activity log.</p>
+<p>The default template that ships with WHMCS is called the Blend theme.</p>
 
-<p>This function is available to all hooks, modules and template files throughout the WHMCS system.</p>
+<p>If you wish to make changes, we recommend first creating a copy of the theme with a custom name. This ensures your customisations can be preserved when applying future updates.</p>
 
-<pre><code>/**
- * Log activity.
- *
- * @param string $message The message to log
- * @param int $userId An optional user id to which the log entry relates
+<p>Make a copy of the Blend theme directory.</p>
+
+<ul>
+<li>Copy the <code>~/admin/templates/blend/</code> directory to <code>~/admin/templates/yourname/</code></li>
+</ul>
+
+<p>If the admin directory name has been customised, adjust the path accordingly.</p>
+
+<div class="notice info" ><p>Theme names should be a single word, consisting of only lowercase letters and numbers.</p>
+</div>
+
+
+<p>Now it’s time to customise your theme.</p>
+
+<h2 id="customising">Customising</h2>
+
+<p>The header and footer template files that are common to every page and act as a wrapper around the primary body content are a good place to start for this.</p>
+
+<ul>
+<li><p>We strongly recommend you maintain all of the output variables present in the default template files in your custom header/footer as this will help ensure compatibility with addons and extensions you later install</p></li>
+
+<li><p>The footer template file includes a number of lines of code which are essential to the correct operation of the admin area, particularly the client limit notifications. admin user notes, and the intelligent search option on each page. Please take care not to remove these lines.</p></li>
+</ul>
+
+<h3 id="logo">Logo</h3>
+
+<p>In order to make changes to the logo displayed on the top left corner of admin area pages, replace the <code>logo.gif</code> file in the <code>~/admin/templates/yourname/images</code> folder.</p>
+
+<h2 id="css-styling">CSS Styling</h2>
+
+<p>In order to make changes to any of the CSS that is applied by default, please create a custom CSS file in your theme and load it using the header template file.</p>
+
+<h2 id="templates">Templates</h2>
+
+<p>All admin themes contain the following template files:</p>
+
+<ul>
+<li><p>authconfirm.tpl - This template file is used to display the Password Confirmation prompt on any admin area page that requires it. For example: <em>Setup &gt; General Settings</em>.</p></li>
+
+<li><p>clientssummary.tpl - Controls the display of the Summary Tab and associated information within an individual Clients Profile.</p></li>
+
+<li><p>footer.tpl - This template file controls the footer of each admin area page.</p></li>
+
+<li><p>header.tpl - This template file controls the header of each admin area page.</p></li>
+
+<li><p>homepage.tpl - Controls the display of the Admin Dashboard. Widgets are the building blocks of the admin dashboard and are the recommended way to add additional data and information. We have documentation on creating and working with widgets available at <a href="https://developers.whmcs.com/advanced/widgets/">Widgets</a>.</p></li>
+
+<li><p>menu.tpl - Controls the primary navigation dropdown menu bar.</p></li>
+
+<li><p>sidebar.tpl - This template file controls the left sidebar menu of each admin area page.</p></li>
+
+<li><p>systemhealthandupdates.tpl - Controls the display and styling of the System Health Status page.</p></li>
+
+<li><p>viewticket.tpl - Controls the display of the view for an individual support ticket when viewed within the admin area.</p></li>
+
+<li><p>viewticketcustomfields.tpl - Controls the display of custom fields and their data when viewing an individual support ticket within the admin area.</p></li>
+</ul>
+
+<h2 id="testing">Testing</h2>
+
+<p>When you are ready with your new template and wish to test it, follow the steps below:</p>
+
+<ul>
+<li><p>Login to the Admin Area</p></li>
+
+<li><p>Navigate to <em>My Account</em> using the menu located at the top of any page</p></li>
+
+<li><p>Under the Template setting, select the name of the template you created above</p></li>
+
+<li><p>Hit <em>Save Changes</em> and you will immediately begin seeing your new template</p></li>
+</ul>
+
+<h2 id="making-your-template-live">Making your template live</h2>
+
+<p>To apply the change to other admin users, please navigate to <em>Setup &gt; Staff Management &gt; Administrators</em> and edit the Template setting for the applicable admin users.</p>
+
+<h2 id="further-customisation-via-hooks">Further Customisation via Hooks</h2>
+
+<p>There are a number of hook points that can be used to introduce customisations. For a full list and the latest documentation, please visit our <a href="https://developers.whmcs.com/hooks-reference/admin-area/">Admin Area Hook Reference</a></p>
+
+<p>Some example hook use cases are provided below.</p>
+
+<div class="notice info" ><p>If you wish to output custom javascript, we recommend using the AdminAreaFooterOutput hook point for best performance.</p>
+</div>
+
+
+<h3 id="adding-a-link-to-the-actions-section-of-the-client-summary-page">Adding a link to the Actions section of the Client Summary page</h3>
+
+<pre><code>&lt;?php
+/**
+ * Provide a link to an addon module from the client summary page.
  */
-logActivity('Message goes here', 0);
+
+if (!defined('WHMCS')) {
+    die('This hook should not be run directly');
+}
+
+add_hook('AdminAreaClientSummaryActionLinks', 1, function ($vars) {
+    $userid = $vars['userid'];
+
+    $url = addonmodules.php?module=addon_module&amp;userid=' . $userid;
+
+    return [
+        '&lt;a href=&quot;' . $url . '&quot;&gt;My custom addon link&lt;/a&gt;',
+    ];
+});
 </code></pre>
 
-<h2 id="log-module-call">Log Module Call</h2>
+<h3 id="adding-a-link-to-view-ticket-page-within-the-admin-area">Adding a link to View Ticket page within the admin area</h3>
 
-<p>We recommend making use of the module log to record all external API calls and requests.</p>
+<p>Displays a banner on the View Ticket page within the admin area that can be used to provide additional information. In this example, it includes the unique URL needed to view the current ticket within the client area.</p>
 
-<p>This makes debugging the external API calls your modules make easier and consistent with other modules.</p>
-
-<pre><code>/**
- * Log module call.
- *
- * @param string $module The name of the module
- * @param string $action The name of the action being performed
- * @param string|array $requestString The input parameters for the API call
- * @param string|array $responseData The response data from the API call
- * @param string|array $processedData The resulting data after any post processing (eg. json decode, xml decode, etc...)
- * @param array $replaceVars An array of strings for replacement
+<pre><code>&lt;?php
+/**
+ * Display a banner on the admin area view ticket page.
  */
-logModuleCall($module, $action, $requestString, $responseData, $processedData, $replaceVars);
+
+use WHMCS\Config\Setting;
+
+if (!defined('WHMCS')) {
+    die('This hook should not be run directly');
+}
+
+add_hook('AdminAreaViewTicketPage', 1, function ($vars) {
+    $systemUrl = Setting::getValue('SystemURL');
+
+    $ticketData = localAPI('GetTicket', array(
+        'ticketid' =&gt; $vars['ticketid']
+    ));
+
+    $clientTicketUrl = $systemUrl . '/viewticket.php?tid='
+        . $ticketData['tid'] . '&amp;c=' . $ticketData['c'];
+
+    return &lt;&lt;&lt;EOT
+&lt;script&gt;
+$(document).ready(function() {
+    $('&lt;div class=&quot;alert alert-info text-center&quot;&gt;&lt;a href=&quot;' . $clientTicketUrl . '&quot; target=&quot;_blank&quot;&gt;' . $clientTicketUrl . '&lt;/a&gt;&lt;/div&gt;').prependTo('#contentarea');
+});
+&lt;/script&gt;
+EOT;
+});
 </code></pre>
 
-<p>We recommend passing data strings such as usernames and passwords into the <code>$replaceVars</code> parameter to allow them to be automatically scrubbed and ommitted from module log entries.</p>
+<h3 id="manipulating-the-dom-to-change-product-behaviour">Manipulating the dom to change product behaviour</h3>
+
+<p>The below example demonstrates how you can use hooks and javascript to modify the behaviour of the admin area. In this specific example, we demonstrate how to disable the send welcome email option by default when creating a new client via the admin area.</p>
+
+<pre><code>&lt;?php
+/**
+ * Disable the send welcome email checkbox by default when creating a new client.
+ */
+
+if (!defined('WHMCS')) {
+    die('This hook should not be run directly');
+}
+
+add_hook('AdminAreaFooterOutput', 1, function ($vars) {
+    if (strpos($_SERVER['REQUEST_URI'], 'clientsadd.php') !== false) {
+        return '&lt;script&gt;
+        $(document).ready(function() {
+            $(&quot;input[name=sendemail]&quot;).attr(&quot;checked&quot;, false);
+        });
+    &lt;/script&gt;';
+    }
+});
+</code></pre>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/advanced/currency-formatting/">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/advanced/widgets/">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
-                
-                    <a class="nav nav-next" href="//developers.whmcs.com/advanced/widgets/">
-                        <i class="fa fa-arrow-circle-right"></i>
-                        Next
-                    </a>
                 
             </div>
 
