@@ -186,6 +186,14 @@
       
       
       
+        <li class="" data-nav-id="/payment-gateways/subscription-management/">
+          <a href="//developers.whmcs.com/payment-gateways/subscription-management/">
+            <span>Subscription Management</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/payment-gateways/reversals/">
           <a href="//developers.whmcs.com/payment-gateways/reversals/">
             <span>Payment Reversals</span>
@@ -328,11 +336,27 @@
 </tr>
 
 <tr>
-<td>TokenisedStorage</td>
-<td>Boolean</td>
-<td>7.1</td>
-<td>false</td>
-<td>Set to true if this payment gateway module leverages tokenised storage for credit card information.</td>
+<td>failedEmail</td>
+<td>String</td>
+<td>7.7</td>
+<td>Credit Card Payment Failed</td>
+<td>The name of an email template to send should a payment capture fail</td>
+</tr>
+
+<tr>
+<td>successEmail</td>
+<td>String</td>
+<td>7.7</td>
+<td>Credit Card Payment Confirmation</td>
+<td>The name of an email template to send should a payment capture be successful</td>
+</tr>
+
+<tr>
+<td>pendingEmail</td>
+<td>String</td>
+<td>7.7</td>
+<td>Credit Card Payment Pending</td>
+<td>The name of an email template to send should a payment capture be pending</td>
 </tr>
 </tbody>
 </table>

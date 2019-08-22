@@ -186,6 +186,14 @@
       
       
       
+        <li class="" data-nav-id="/payment-gateways/subscription-management/">
+          <a href="//developers.whmcs.com/payment-gateways/subscription-management/">
+            <span>Subscription Management</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/payment-gateways/reversals/">
           <a href="//developers.whmcs.com/payment-gateways/reversals/">
             <span>Payment Reversals</span>
@@ -316,46 +324,149 @@
 
 <p>The following parameters are passed to the <code>_capture</code> function along with all <a href="//developers.whmcs.com/payment-gateways/configuration" title="Configuration Parameters">defined configuration parameters</a> and their values.</p>
 
-<h3 id="invoice-variables">Invoice Variables</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
 
-<pre><code>$params['invoiceid'] # Invoice ID Number
-$params['description'] # Description (eg. Company Name - Invoice #xxx)
-$params['amount'] # Format: xxx.xx
-$params['currency'] # Currency Code (eg. GBD, USD, etc...)
-</code></pre>
+<tbody>
+<tr>
+<td>invoiceid</td>
+<td>integer</td>
+<td>Invoice ID Number</td>
+</tr>
 
-<h3 id="card-details">Card Details</h3>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>Description (eg. Company Name - Invoice #xxx)</td>
+</tr>
 
-<pre><code>$params['cardtype'] # the Card Type (Visa, MasterCard, etc…)
-$params['cardnum'] # the Card Number
-$params['cardexp'] # the Card’s Expiry Date (Format: MMYY)
-$params['cardstart'] # the Card’s Start Date (Format: MMYY)
-$params['cardissuenum'] # the Card’s Issue Number (Switch/Solo Cards)
-$params['cccvv'] # Not always present (recurring transactions)
-# but would always be present for client initiated attempts
-</code></pre>
+<tr>
+<td>amount</td>
+<td>float</td>
+<td>Format: xxx.xx</td>
+</tr>
 
-<h3 id="client-variables">Client Variables</h3>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>Currency Code (eg. GBP, USD, etc.,)</td>
+</tr>
 
-<pre><code>$params['clientdetails']['firstname'] # Client's First Name
-$params['clientdetails']['lastname'] # Client's Last Name
-$params['clientdetails']['email'] # Client's Email Address
-$params['clientdetails']['address1'] # Client's Address
-$params['clientdetails']['address2']
-$params['clientdetails']['city']
-$params['clientdetails']['state']
-$params['clientdetails']['postcode']
-$params['clientdetails']['country']
-$params['clientdetails']['phonenumber']
-</code></pre>
+<tr>
+<td>cardtype</td>
+<td>string</td>
+<td>The Card Type (Visa, MasterCard, etc. &hellip;)</td>
+</tr>
 
-<h3 id="system-variables">System Variables</h3>
+<tr>
+<td>cardnum</td>
+<td>string</td>
+<td>The Card Number</td>
+</tr>
 
-<pre><code>$params['companyname'] # your Company Name setting in WHMCS
-$params['systemurl'] # the url to the Client Area
-</code></pre>
+<tr>
+<td>cardexp</td>
+<td>string</td>
+<td>The Card Expiry Date (Format: MMYY)</td>
+</tr>
 
-<h2 id="response-format">Response Format</h2>
+<tr>
+<td>cardstart</td>
+<td>string</td>
+<td>The Card Start Date (Format: MMYY)</td>
+</tr>
+
+<tr>
+<td>cardissuenum</td>
+<td>string</td>
+<td>The Card Issue Number</td>
+</tr>
+
+<tr>
+<td>cccvv</td>
+<td>string</td>
+<td>Only available for card holder present initiated payment attempts</td>
+</tr>
+
+<tr>
+<td>clientdetails</td>
+<td>array</td>
+<td>An array of client details. firstname, lastname, email, address1, address2, city, state, postcode, country, phonenumber</td>
+</tr>
+
+<tr>
+<td>companyname</td>
+<td>string</td>
+<td>The Company Name setting in WHMCS</td>
+</tr>
+
+<tr>
+<td>systemurl</td>
+<td>string</td>
+<td>The url to the client area of the WHMCS install</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="response">Response</h2>
+
+<p>The following return parameters are supported.</p>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>One of either <code>success</code>, <code>pending</code>, <code>declined</code></td>
+</tr>
+
+<tr>
+<td>declinereason</td>
+<td>string</td>
+<td>The reason for a decline</td>
+</tr>
+
+<tr>
+<td>transid</td>
+<td>string</td>
+<td>The Transaction ID returned by the payment gateway</td>
+</tr>
+
+<tr>
+<td>fee</td>
+<td>float</td>
+<td>(Optional) The transaction fee returned by the payment gateway</td>
+</tr>
+
+<tr>
+<td>rawdata</td>
+<td>string or array</td>
+<td>The raw data returned by the payment gateway for logging to the gateway log to aid in debugging</td>
+</tr>
+
+<tr>
+<td>gatewayid</td>
+<td>string</td>
+<td>See <a href="//developers.whmcs.com/payment-gateways/tokenised-remote-storage" title="Tokenised Remote Storage">Tokenised Remote Storage</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="example-return">Example Return</h3>
 
 <p>The capture function should always return an array containing information about the transaction attempt.  This should take the following format:</p>
 
@@ -367,7 +478,9 @@ $params['systemurl'] # the url to the Client Area
 );
 </code></pre>
 
-<p>For a successful capture, the status should be returned as the string <code>success</code>.  For anything else, return a status that indicates the reason for failure.  Common failure response status values include <code>declined</code> and <code>error</code>.</p>
+<p>For a successful capture, the status should be returned as the string <code>success</code>.
+For payments that are pending and do not require an immediate payment in WHMCS, the status should be <code>pending</code>.
+For anything else, return a status that indicates the reason for failure.  Common failure response status values include <code>declined</code> and <code>error</code>.</p>
 
 <p>The raw data you return will be recorded to the gateway log to aide in debugging. It can accept either a string or array.</p>
 
@@ -384,6 +497,15 @@ $params['systemurl'] # the url to the Client Area
         'cardnumber' =&gt; $params['cardnum'],
         'cardexpiry' =&gt; $params['cardexp'],
         'cardcvv' =&gt; $params['cccvv'],
+        'card_holder_name' =&gt; $params['clientdetails']['firstname']
+            . ' - ' . $params['clientdetails']['lastname'],
+        'card_address' =&gt; [
+            'address_line_1' =&gt; $params['clientdetails']['address1'],
+            'city' =&gt; $params['clientdetails']['city'],
+            'state' =&gt; $params['clientdetails']['state'],
+            'postcode' =&gt; $params['clientdetails']['postcode'],
+            'country' =&gt; $params['clientdetails']['country'],
+        ],
     ];
 
     $ch = curl_init();
@@ -396,12 +518,21 @@ $params['systemurl'] # the url to the Client Area
 
     $data = json_decode($response);
 
-    return array(
-        'status' =&gt; ($data-&gt;success == 1) ? 'success' : 'declined',
-        'rawdata' =&gt; $data,
-        'transid' =&gt; $data-&gt;transaction_id,
-        'fee' =&gt; $data-&gt;fees,
-    );
+    if ($data-&gt;success == 1) {
+        $return = [
+            'status' =&gt; 'success',
+            'transid' =&gt; $data-&gt;transaction_id,
+            'fee' =&gt; $data-&gt;fee,
+            'rawdata' =&gt; $data,
+        ];
+    } else {
+        $return = [
+            'status' =&gt; 'declined',
+            'declinereason' =&gt; $data-&gt;decline_reason,
+            'rawdata' =&gt; $data,
+        ];
+    }
+    return $return;
 }
 </code></pre>
 

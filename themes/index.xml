@@ -48,7 +48,7 @@
 
 &lt;p&gt;Clone the Six template theme repo into your new template directory:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ git clone git@github.com:WHMCS/templates-six.git my-template-name
+&lt;pre&gt;&lt;code&gt;$ git clone https://github.com/WHMCS/templates-six.git my-template-name
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Now begin making your changes&lt;/p&gt;
@@ -122,6 +122,11 @@
       <description>&lt;p&gt;If you want to make changes to any of the CSS that is applied by default, we recommend making those customisations inside of the /css/custom.css file.&lt;/p&gt;
 
 &lt;p&gt;This file is included after styles.css allowing you to override any of the CSS defined within it and will not be affected by future updates to the WHMCS software.&lt;/p&gt;
+
+&lt;p&gt;To utilise Font Awesome icons, you may include the latest Font Awesome release shipped with WHMCS by including the line below within the &lt;head&gt; section of your template:
+&lt;code&gt;&amp;lt;link href=&amp;quot;{$WEB_ROOT}/assets/css/fontawesome-all.min.css&amp;quot; rel=&amp;quot;stylesheet&amp;quot;&amp;gt;&lt;/code&gt;
+Themes which do not include the above line will have it injected automatically. If you wish to prevent this behaviour, include the following line:
+&lt;code&gt;&amp;lt;!-- /css/fontawesome-all.min.css --&amp;gt;&lt;/code&gt;&lt;/p&gt;
 
 &lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;We strongly recommend adding your custom CSS rules to the &lt;strong&gt;custom.css&lt;/strong&gt; file and not editing /css/styles.css directly as it will make updating easier.&lt;/p&gt;
 &lt;/div&gt;

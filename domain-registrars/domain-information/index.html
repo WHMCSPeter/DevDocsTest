@@ -327,7 +327,8 @@
 
 <p>The example below demonstrates setting all supported domain attributes at the time of writing.</p>
 
-<pre><code>use WHMCS\Domain\Registrar\Domain;
+<pre><code>use WHMCS\Carbon;
+use WHMCS\Domain\Registrar\Domain;
 
 function modulename_GetDomainInformation($params) {
 	/**
@@ -342,7 +343,7 @@ function modulename_GetDomainInformation($params) {
         -&gt;setRegistrationStatus($response['status'])
         -&gt;setTransferLock($response['transferlock'])
         -&gt;setTransferLockExpiryDate(null)
-        -&gt;setExpiryDate($response['expirydate'])
+        -&gt;setExpiryDate(Carbon::createFromFormat('Y-m-d', $response['expirydate'])) // $response['expirydate'] = YYYY-MM-DD
         -&gt;setRestorable(false)
         -&gt;setIdProtectionStatus($response['addons']['hasidprotect'])
         -&gt;getDnsManagementStatus($response['addons']['hasdnsmanagement'])
