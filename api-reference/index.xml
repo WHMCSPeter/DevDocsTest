@@ -188,6 +188,7 @@ print_r($results);
 
 &lt;ul&gt;
 &lt;li&gt;Order ID not found or Status not Pending&lt;/li&gt;
+&lt;li&gt;Server and/or registrar response message&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
@@ -1871,6 +1872,13 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
+&lt;td&gt;affiliateemails&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;set true to receive affiliate related emails&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;permissions&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;A comma separated list of sub-account permissions. eg manageproducts,managedomains&lt;/td&gt;
@@ -1981,6 +1989,11 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;7.7&lt;/td&gt;
 &lt;td&gt;Added &lt;code&gt;tax_id&lt;/code&gt; parameter.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;7.9&lt;/td&gt;
+&lt;td&gt;Added &lt;code&gt;affiliateemails&lt;/code&gt; parameter.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2722,7 +2735,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
             &#39;pid&#39; =&amp;gt; array(1,1),
             &#39;domain&#39; =&amp;gt; array(&#39;domain1.com&#39;, &#39;domain2.com&#39;),
-            &#39;billingcycle&#39; =&amp;gt; array(&#39;monthly&#39;,&#39;semi-annually&#39;),
+            &#39;billingcycle&#39; =&amp;gt; array(&#39;monthly&#39;,&#39;semiannually&#39;),
             &#39;addons&#39; =&amp;gt; array(&#39;1,3,9&#39;, &#39;&#39;),
             &#39;customfields&#39; =&amp;gt; array(base64_encode(serialize(array(&amp;quot;1&amp;quot; =&amp;gt; &amp;quot;Google&amp;quot;))), base64_encode(serialize(array(&amp;quot;1&amp;quot; =&amp;gt; &amp;quot;Google&amp;quot;)))),
             &#39;configoptions&#39; =&amp;gt; array(base64_encode(serialize(array(&amp;quot;1&amp;quot; =&amp;gt; 999))), base64_encode(serialize(array(&amp;quot;1&amp;quot; =&amp;gt; 999)))),
@@ -2748,7 +2761,7 @@ $postData = array(
     &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
     &#39;pid&#39; =&amp;gt; array(1,1),
     &#39;domain&#39; =&amp;gt; array(&#39;domain1.com&#39;, &#39;domain2.com&#39;),
-    &#39;billingcycle&#39; =&amp;gt; array(&#39;monthly&#39;,&#39;semi-annually&#39;),
+    &#39;billingcycle&#39; =&amp;gt; array(&#39;monthly&#39;,&#39;semiannually&#39;),
     &#39;addons&#39; =&amp;gt; array(&#39;1,3,9&#39;, &#39;&#39;),
     &#39;customfields&#39; =&amp;gt; array(base64_encode(serialize(array(&amp;quot;1&amp;quot; =&amp;gt; &amp;quot;Google&amp;quot;))), base64_encode(serialize(array(&amp;quot;1&amp;quot; =&amp;gt; &amp;quot;Google&amp;quot;)))),
     &#39;configoptions&#39; =&amp;gt; array(base64_encode(serialize(array(&amp;quot;1&amp;quot; =&amp;gt; 999))), base64_encode(serialize(array(&amp;quot;1&amp;quot; =&amp;gt; 999)))),
@@ -2980,7 +2993,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             &#39;username&#39; =&amp;gt; &#39;IDENTIFIER_OR_ADMIN_USERNAME&#39;,
             &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
-            &#39;type&#39; =&amp;gt; &#39;cc&#39;,
+            &#39;type&#39; =&amp;gt; &#39;CreditCard&#39;,
             &#39;description&#39; =&amp;gt; &#39;New Card&#39;,
             &#39;card_number&#39; =&amp;gt; &#39;4242424242424242&#39;,
             &#39;card_expiry&#39; =&amp;gt; &#39;0423&#39;,
@@ -2998,7 +3011,7 @@ curl_close($ch);
 &lt;pre&gt;&lt;code&gt;$command = &#39;AddPayMethod&#39;;
 $postData = array(
     &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
-    &#39;type&#39; =&amp;gt; &#39;cc&#39;,
+    &#39;type&#39; =&amp;gt; &#39;CreditCard&#39;,
     &#39;description&#39; =&amp;gt; &#39;New Card&#39;,
     &#39;card_number&#39; =&amp;gt; &#39;4242424242424242&#39;,
     &#39;card_expiry&#39; =&amp;gt; &#39;0423&#39;,

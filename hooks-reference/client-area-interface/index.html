@@ -973,9 +973,9 @@ add_hook('ClientAreaPageAddFunds', 1, function($vars) {
 });
 </code></pre>
 
-<h2 id="clientareapageaffiliates">ClientAreaPageAffiliates</h2>
+<h2 id="clientareapageaddonmodule">ClientAreaPageAddonModule</h2>
 
-<p>Executes on the client area affiliates page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on client pages created by an addon module and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-7">Parameters</h4>
 
@@ -1118,14 +1118,14 @@ add_hook('ClientAreaPageAddFunds', 1, function($vars) {
 <h4 id="example-code-7">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageAffiliates', 1, function($vars) {
+add_hook('ClientAreaPageAddonModule', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageannouncements">ClientAreaPageAnnouncements</h2>
+<h2 id="clientareapageaffiliates">ClientAreaPageAffiliates</h2>
 
-<p>Executes on the client area announcements page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area affiliates page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-8">Parameters</h4>
 
@@ -1268,14 +1268,14 @@ add_hook('ClientAreaPageAffiliates', 1, function($vars) {
 <h4 id="example-code-8">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageAnnouncements', 1, function($vars) {
+add_hook('ClientAreaPageAffiliates', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagebanned">ClientAreaPageBanned</h2>
+<h2 id="clientareapageannouncements">ClientAreaPageAnnouncements</h2>
 
-<p>Executes on the banned user page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area announcements page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-9">Parameters</h4>
 
@@ -1418,14 +1418,14 @@ add_hook('ClientAreaPageAnnouncements', 1, function($vars) {
 <h4 id="example-code-9">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageBanned', 1, function($vars) {
+add_hook('ClientAreaPageAnnouncements', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagebulkdomainmanagement">ClientAreaPageBulkDomainManagement</h2>
+<h2 id="clientareapagebanned">ClientAreaPageBanned</h2>
 
-<p>Executes on the client area bulk domain management page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the banned user page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-10">Parameters</h4>
 
@@ -1568,14 +1568,14 @@ add_hook('ClientAreaPageBanned', 1, function($vars) {
 <h4 id="example-code-10">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageBulkDomainManagement', 1, function($vars) {
+add_hook('ClientAreaPageBanned', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagecancellation">ClientAreaPageCancellation</h2>
+<h2 id="clientareapagebulkdomainmanagement">ClientAreaPageBulkDomainManagement</h2>
 
-<p>Executes on the client area cancellation request page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area bulk domain management page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-11">Parameters</h4>
 
@@ -1718,14 +1718,14 @@ add_hook('ClientAreaPageBulkDomainManagement', 1, function($vars) {
 <h4 id="example-code-11">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageCancellation', 1, function($vars) {
+add_hook('ClientAreaPageBulkDomainManagement', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagecart">ClientAreaPageCart</h2>
+<h2 id="clientareapagecancellation">ClientAreaPageCancellation</h2>
 
-<p>Executes on the shopping cart page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area cancellation request page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-12">Parameters</h4>
 
@@ -1868,14 +1868,14 @@ add_hook('ClientAreaPageCancellation', 1, function($vars) {
 <h4 id="example-code-12">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageCart', 1, function($vars) {
+add_hook('ClientAreaPageCancellation', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagechangepassword">ClientAreaPageChangePassword</h2>
+<h2 id="clientareapagecart">ClientAreaPageCart</h2>
 
-<p>Executes on the client area change password page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the shopping cart page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-13">Parameters</h4>
 
@@ -2018,14 +2018,14 @@ add_hook('ClientAreaPageCart', 1, function($vars) {
 <h4 id="example-code-13">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageChangePassword', 1, function($vars) {
+add_hook('ClientAreaPageCart', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageconfiguressl">ClientAreaPageConfigureSSL</h2>
+<h2 id="clientareapagechangepassword">ClientAreaPageChangePassword</h2>
 
-<p>Executes on the client area SSL configuration page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area change password page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-14">Parameters</h4>
 
@@ -2168,14 +2168,14 @@ add_hook('ClientAreaPageChangePassword', 1, function($vars) {
 <h4 id="example-code-14">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageConfigureSSL', 1, function($vars) {
+add_hook('ClientAreaPageChangePassword', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagecontact">ClientAreaPageContact</h2>
+<h2 id="clientareapageconfiguressl">ClientAreaPageConfigureSSL</h2>
 
-<p>Executes on the contact form page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area SSL configuration page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-15">Parameters</h4>
 
@@ -2318,14 +2318,14 @@ add_hook('ClientAreaPageConfigureSSL', 1, function($vars) {
 <h4 id="example-code-15">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageContact', 1, function($vars) {
+add_hook('ClientAreaPageConfigureSSL', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagecontacts">ClientAreaPageContacts</h2>
+<h2 id="clientareapagecontact">ClientAreaPageContact</h2>
 
-<p>Executes on the client area contacts/sub-accounts management page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the contact form page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-16">Parameters</h4>
 
@@ -2468,14 +2468,14 @@ add_hook('ClientAreaPageContact', 1, function($vars) {
 <h4 id="example-code-16">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageContacts', 1, function($vars) {
+add_hook('ClientAreaPageContact', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagecreditcard">ClientAreaPageCreditCard</h2>
+<h2 id="clientareapagecontacts">ClientAreaPageContacts</h2>
 
-<p>Executes on the client area manage credit card page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area contacts/sub-accounts management page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-17">Parameters</h4>
 
@@ -2618,14 +2618,14 @@ add_hook('ClientAreaPageContacts', 1, function($vars) {
 <h4 id="example-code-17">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageCreditCard', 1, function($vars) {
+add_hook('ClientAreaPageContacts', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagecreditcardcheckout">ClientAreaPageCreditCardCheckout</h2>
+<h2 id="clientareapagecreditcard">ClientAreaPageCreditCard</h2>
 
-<p>Executes on the credit card payment page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area manage credit card page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-18">Parameters</h4>
 
@@ -2768,14 +2768,14 @@ add_hook('ClientAreaPageCreditCard', 1, function($vars) {
 <h4 id="example-code-18">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageCreditCardCheckout', 1, function($vars) {
+add_hook('ClientAreaPageCreditCard', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagedomainaddons">ClientAreaPageDomainAddons</h2>
+<h2 id="clientareapagecreditcardcheckout">ClientAreaPageCreditCardCheckout</h2>
 
-<p>Executes on the client area domain add-ons page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the credit card payment page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-19">Parameters</h4>
 
@@ -2918,14 +2918,14 @@ add_hook('ClientAreaPageCreditCardCheckout', 1, function($vars) {
 <h4 id="example-code-19">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageDomainAddons', 1, function($vars) {
+add_hook('ClientAreaPageCreditCardCheckout', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagedomainchecker">ClientAreaPageDomainChecker</h2>
+<h2 id="clientareapagedomainaddons">ClientAreaPageDomainAddons</h2>
 
-<p>Executes on the client area domain checker page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area domain add-ons page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-20">Parameters</h4>
 
@@ -3068,14 +3068,14 @@ add_hook('ClientAreaPageDomainAddons', 1, function($vars) {
 <h4 id="example-code-20">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageDomainChecker', 1, function($vars) {
+add_hook('ClientAreaPageDomainAddons', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagedomaincontacts">ClientAreaPageDomainContacts</h2>
+<h2 id="clientareapagedomainchecker">ClientAreaPageDomainChecker</h2>
 
-<p>Executes on the client area domain WHOIS contact information page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area domain checker page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-21">Parameters</h4>
 
@@ -3218,14 +3218,14 @@ add_hook('ClientAreaPageDomainChecker', 1, function($vars) {
 <h4 id="example-code-21">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageDomainContacts', 1, function($vars) {
+add_hook('ClientAreaPageDomainChecker', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagedomaindnsmanagement">ClientAreaPageDomainDNSManagement</h2>
+<h2 id="clientareapagedomaincontacts">ClientAreaPageDomainContacts</h2>
 
-<p>Executes on the client area domain DNS Host Record management page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area domain WHOIS contact information page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-22">Parameters</h4>
 
@@ -3368,14 +3368,14 @@ add_hook('ClientAreaPageDomainContacts', 1, function($vars) {
 <h4 id="example-code-22">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageDomainDNSManagement', 1, function($vars) {
+add_hook('ClientAreaPageDomainContacts', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagedomaindetails">ClientAreaPageDomainDetails</h2>
+<h2 id="clientareapagedomaindnsmanagement">ClientAreaPageDomainDNSManagement</h2>
 
-<p>Executes on the client area domain overview page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area domain DNS Host Record management page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-23">Parameters</h4>
 
@@ -3518,14 +3518,14 @@ add_hook('ClientAreaPageDomainDNSManagement', 1, function($vars) {
 <h4 id="example-code-23">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageDomainDetails', 1, function($vars) {
+add_hook('ClientAreaPageDomainDNSManagement', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagedomaineppcode">ClientAreaPageDomainEPPCode</h2>
+<h2 id="clientareapagedomaindetails">ClientAreaPageDomainDetails</h2>
 
-<p>Executes on the client area domain EPP Code page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area domain overview page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-24">Parameters</h4>
 
@@ -3668,14 +3668,14 @@ add_hook('ClientAreaPageDomainDetails', 1, function($vars) {
 <h4 id="example-code-24">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageDomainEPPCode', 1, function($vars) {
+add_hook('ClientAreaPageDomainDetails', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagedomainemailforwarding">ClientAreaPageDomainEmailForwarding</h2>
+<h2 id="clientareapagedomaineppcode">ClientAreaPageDomainEPPCode</h2>
 
-<p>Executes on the client area domain Email Forwarding rules page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area domain EPP Code page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-25">Parameters</h4>
 
@@ -3818,14 +3818,14 @@ add_hook('ClientAreaPageDomainEPPCode', 1, function($vars) {
 <h4 id="example-code-25">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageDomainEmailForwarding', 1, function($vars) {
+add_hook('ClientAreaPageDomainEPPCode', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagedomainregisternameservers">ClientAreaPageDomainRegisterNameservers</h2>
+<h2 id="clientareapagedomainemailforwarding">ClientAreaPageDomainEmailForwarding</h2>
 
-<p>Executes on the client area domain Register Private Nameservers page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area domain Email Forwarding rules page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-26">Parameters</h4>
 
@@ -3968,14 +3968,14 @@ add_hook('ClientAreaPageDomainEmailForwarding', 1, function($vars) {
 <h4 id="example-code-26">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageDomainRegisterNameservers', 1, function($vars) {
+add_hook('ClientAreaPageDomainEmailForwarding', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagedomains">ClientAreaPageDomains</h2>
+<h2 id="clientareapagedomainregisternameservers">ClientAreaPageDomainRegisterNameservers</h2>
 
-<p>Executes on the client area domains list page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area domain Register Private Nameservers page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-27">Parameters</h4>
 
@@ -4118,14 +4118,14 @@ add_hook('ClientAreaPageDomainRegisterNameservers', 1, function($vars) {
 <h4 id="example-code-27">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageDomains', 1, function($vars) {
+add_hook('ClientAreaPageDomainRegisterNameservers', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagedownloads">ClientAreaPageDownloads</h2>
+<h2 id="clientareapagedomains">ClientAreaPageDomains</h2>
 
-<p>Executes on the client area downloads page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area domains list page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-28">Parameters</h4>
 
@@ -4268,14 +4268,14 @@ add_hook('ClientAreaPageDomains', 1, function($vars) {
 <h4 id="example-code-28">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageDownloads', 1, function($vars) {
+add_hook('ClientAreaPageDomains', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageemails">ClientAreaPageEmails</h2>
+<h2 id="clientareapagedownloads">ClientAreaPageDownloads</h2>
 
-<p>Executes on the client area email history page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area downloads page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-29">Parameters</h4>
 
@@ -4418,14 +4418,14 @@ add_hook('ClientAreaPageDownloads', 1, function($vars) {
 <h4 id="example-code-29">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageEmails', 1, function($vars) {
+add_hook('ClientAreaPageDownloads', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagehome">ClientAreaPageHome</h2>
+<h2 id="clientareapageemails">ClientAreaPageEmails</h2>
 
-<p>Executes on the client area homepage and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area email history page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-30">Parameters</h4>
 
@@ -4568,14 +4568,14 @@ add_hook('ClientAreaPageEmails', 1, function($vars) {
 <h4 id="example-code-30">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageHome', 1, function($vars) {
+add_hook('ClientAreaPageEmails', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageinvoices">ClientAreaPageInvoices</h2>
+<h2 id="clientareapagehome">ClientAreaPageHome</h2>
 
-<p>Executes on the client area invoices page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area homepage and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-31">Parameters</h4>
 
@@ -4718,14 +4718,14 @@ add_hook('ClientAreaPageHome', 1, function($vars) {
 <h4 id="example-code-31">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageInvoices', 1, function($vars) {
+add_hook('ClientAreaPageHome', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageknowledgebase">ClientAreaPageKnowledgebase</h2>
+<h2 id="clientareapageinvoices">ClientAreaPageInvoices</h2>
 
-<p>Executes on the client area knowledgebase page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area invoices page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-32">Parameters</h4>
 
@@ -4868,14 +4868,14 @@ add_hook('ClientAreaPageInvoices', 1, function($vars) {
 <h4 id="example-code-32">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageKnowledgebase', 1, function($vars) {
+add_hook('ClientAreaPageInvoices', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagelogin">ClientAreaPageLogin</h2>
+<h2 id="clientareapageknowledgebase">ClientAreaPageKnowledgebase</h2>
 
-<p>Executes on the login page of the client area. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area knowledgebase page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-33">Parameters</h4>
 
@@ -5018,19 +5018,14 @@ add_hook('ClientAreaPageKnowledgebase', 1, function($vars) {
 <h4 id="example-code-33">Example Code</h4>
 
 <pre><code>&lt;?php
-
-add_hook('ClientAreaPageLogin', 1, function($vars) {
-    $extraVariables = [
-        'newVariable1' =&gt; 'thisValue',
-        'newVariable2' =&gt; 'thatValue',
-    ];
-    return $extraVariables;
+add_hook('ClientAreaPageKnowledgebase', 1, function($vars) {
+    // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagelogout">ClientAreaPageLogout</h2>
+<h2 id="clientareapagelogin">ClientAreaPageLogin</h2>
 
-<p>Executes on the client area logout page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the login page of the client area. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-34">Parameters</h4>
 
@@ -5173,14 +5168,19 @@ add_hook('ClientAreaPageLogin', 1, function($vars) {
 <h4 id="example-code-34">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageLogout', 1, function($vars) {
-    // Perform hook code here...
+
+add_hook('ClientAreaPageLogin', 1, function($vars) {
+    $extraVariables = [
+        'newVariable1' =&gt; 'thisValue',
+        'newVariable2' =&gt; 'thatValue',
+    ];
+    return $extraVariables;
 });
 </code></pre>
 
-<h2 id="clientareapagemasspay">ClientAreaPageMassPay</h2>
+<h2 id="clientareapagelogout">ClientAreaPageLogout</h2>
 
-<p>Executes on the client area mass invoice payment page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area logout page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-35">Parameters</h4>
 
@@ -5323,14 +5323,14 @@ add_hook('ClientAreaPageLogout', 1, function($vars) {
 <h4 id="example-code-35">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageMassPay', 1, function($vars) {
+add_hook('ClientAreaPageLogout', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagenetworkissues">ClientAreaPageNetworkIssues</h2>
+<h2 id="clientareapagemasspay">ClientAreaPageMassPay</h2>
 
-<p>Executes on the client area network issues page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area mass invoice payment page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-36">Parameters</h4>
 
@@ -5473,14 +5473,14 @@ add_hook('ClientAreaPageMassPay', 1, function($vars) {
 <h4 id="example-code-36">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageNetworkIssues', 1, function($vars) {
+add_hook('ClientAreaPageMassPay', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagepasswordreset">ClientAreaPagePasswordReset</h2>
+<h2 id="clientareapagenetworkissues">ClientAreaPageNetworkIssues</h2>
 
-<p>Executes on the client area password reset page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area network issues page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-37">Parameters</h4>
 
@@ -5623,14 +5623,14 @@ add_hook('ClientAreaPageNetworkIssues', 1, function($vars) {
 <h4 id="example-code-37">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPagePasswordReset', 1, function($vars) {
+add_hook('ClientAreaPageNetworkIssues', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageproductdetails">ClientAreaPageProductDetails</h2>
+<h2 id="clientareapagepasswordreset">ClientAreaPagePasswordReset</h2>
 
-<p>Executes on the client area product overview page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area password reset page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-38">Parameters</h4>
 
@@ -5773,14 +5773,14 @@ add_hook('ClientAreaPagePasswordReset', 1, function($vars) {
 <h4 id="example-code-38">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageProductDetails', 1, function($vars) {
+add_hook('ClientAreaPagePasswordReset', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageproductsservices">ClientAreaPageProductsServices</h2>
+<h2 id="clientareapageproductdetails">ClientAreaPageProductDetails</h2>
 
-<p>Executes on the client area product and services list page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area product overview page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-39">Parameters</h4>
 
@@ -5923,14 +5923,14 @@ add_hook('ClientAreaPageProductDetails', 1, function($vars) {
 <h4 id="example-code-39">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageProductsServices', 1, function($vars) {
+add_hook('ClientAreaPageProductDetails', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageprofile">ClientAreaPageProfile</h2>
+<h2 id="clientareapageproductsservices">ClientAreaPageProductsServices</h2>
 
-<p>Executes on the client area profile page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area product and services list page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-40">Parameters</h4>
 
@@ -6073,14 +6073,14 @@ add_hook('ClientAreaPageProductsServices', 1, function($vars) {
 <h4 id="example-code-40">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageProfile', 1, function($vars) {
+add_hook('ClientAreaPageProductsServices', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagequotes">ClientAreaPageQuotes</h2>
+<h2 id="clientareapageprofile">ClientAreaPageProfile</h2>
 
-<p>Executes on the client area quotes page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area profile page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-41">Parameters</h4>
 
@@ -6223,14 +6223,14 @@ add_hook('ClientAreaPageProfile', 1, function($vars) {
 <h4 id="example-code-41">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageQuotes', 1, function($vars) {
+add_hook('ClientAreaPageProfile', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageregister">ClientAreaPageRegister</h2>
+<h2 id="clientareapagequotes">ClientAreaPageQuotes</h2>
 
-<p>Executes on the client registration page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area quotes page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-42">Parameters</h4>
 
@@ -6373,14 +6373,14 @@ add_hook('ClientAreaPageQuotes', 1, function($vars) {
 <h4 id="example-code-42">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageRegister', 1, function($vars) {
+add_hook('ClientAreaPageQuotes', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapagesecurity">ClientAreaPageSecurity</h2>
+<h2 id="clientareapageregister">ClientAreaPageRegister</h2>
 
-<p>Executes on the client area security page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client registration page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-43">Parameters</h4>
 
@@ -6523,14 +6523,14 @@ add_hook('ClientAreaPageRegister', 1, function($vars) {
 <h4 id="example-code-43">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageSecurity', 1, function($vars) {
+add_hook('ClientAreaPageRegister', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageserverstatus">ClientAreaPageServerStatus</h2>
+<h2 id="clientareapagesecurity">ClientAreaPageSecurity</h2>
 
-<p>Executes on the client area server status page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area security page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-44">Parameters</h4>
 
@@ -6673,14 +6673,14 @@ add_hook('ClientAreaPageSecurity', 1, function($vars) {
 <h4 id="example-code-44">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageServerStatus', 1, function($vars) {
+add_hook('ClientAreaPageSecurity', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageunsubscribe">ClientAreaPageUnsubscribe</h2>
+<h2 id="clientareapageserverstatus">ClientAreaPageServerStatus</h2>
 
-<p>Executes on the email unsubscribe page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area server status page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-45">Parameters</h4>
 
@@ -6823,14 +6823,14 @@ add_hook('ClientAreaPageServerStatus', 1, function($vars) {
 <h4 id="example-code-45">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageUnsubscribe', 1, function($vars) {
+add_hook('ClientAreaPageServerStatus', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageupgrade">ClientAreaPageUpgrade</h2>
+<h2 id="clientareapageunsubscribe">ClientAreaPageUnsubscribe</h2>
 
-<p>Executes on the client area upgrade/downgrade page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the email unsubscribe page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-46">Parameters</h4>
 
@@ -6973,14 +6973,14 @@ add_hook('ClientAreaPageUnsubscribe', 1, function($vars) {
 <h4 id="example-code-46">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageUpgrade', 1, function($vars) {
+add_hook('ClientAreaPageUnsubscribe', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageviewemail">ClientAreaPageViewEmail</h2>
+<h2 id="clientareapageupgrade">ClientAreaPageUpgrade</h2>
 
-<p>Executes on the client area view email page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area upgrade/downgrade page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-47">Parameters</h4>
 
@@ -7123,14 +7123,14 @@ add_hook('ClientAreaPageUpgrade', 1, function($vars) {
 <h4 id="example-code-47">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageViewEmail', 1, function($vars) {
+add_hook('ClientAreaPageUpgrade', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageviewinvoice">ClientAreaPageViewInvoice</h2>
+<h2 id="clientareapageviewemail">ClientAreaPageViewEmail</h2>
 
-<p>Executes on the client area view invoice page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area view email page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-48">Parameters</h4>
 
@@ -7273,14 +7273,14 @@ add_hook('ClientAreaPageViewEmail', 1, function($vars) {
 <h4 id="example-code-48">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageViewInvoice', 1, function($vars) {
+add_hook('ClientAreaPageViewEmail', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageviewquote">ClientAreaPageViewQuote</h2>
+<h2 id="clientareapageviewinvoice">ClientAreaPageViewInvoice</h2>
 
-<p>Executes on the client area view quote page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area view invoice page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-49">Parameters</h4>
 
@@ -7423,14 +7423,14 @@ add_hook('ClientAreaPageViewInvoice', 1, function($vars) {
 <h4 id="example-code-49">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientAreaPageViewQuote', 1, function($vars) {
+add_hook('ClientAreaPageViewInvoice', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="clientareapageviewwhois">ClientAreaPageViewWHOIS</h2>
+<h2 id="clientareapageviewquote">ClientAreaPageViewQuote</h2>
 
-<p>Executes on the client area view WHOIS information page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+<p>Executes on the client area view quote page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
 
 <h4 id="parameters-50">Parameters</h4>
 
@@ -7573,7 +7573,307 @@ add_hook('ClientAreaPageViewQuote', 1, function($vars) {
 <h4 id="example-code-50">Example Code</h4>
 
 <pre><code>&lt;?php
+add_hook('ClientAreaPageViewQuote', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientareapageviewwhois">ClientAreaPageViewWHOIS</h2>
+
+<p>Executes on the client area view WHOIS information page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+
+<h4 id="parameters-51">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>companyname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>logo</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>systemurl</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>charset</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>pagetitle</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>filename</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>template</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>language</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>LANG</td>
+<td>array</td>
+<td>Active language translation strings</td>
+</tr>
+
+<tr>
+<td>todaysdate</td>
+<td>string</td>
+<td>Human friendly formatted version of todays date</td>
+</tr>
+
+<tr>
+<td>date_day</td>
+<td>string</td>
+<td>Current day of the month</td>
+</tr>
+
+<tr>
+<td>date_month</td>
+<td>string</td>
+<td>Current month</td>
+</tr>
+
+<tr>
+<td>date_year</td>
+<td>string</td>
+<td>Current year</td>
+</tr>
+
+<tr>
+<td>WEB_ROOT</td>
+<td>string</td>
+<td>The web path to the WHMCS doc root</td>
+</tr>
+
+<tr>
+<td>BASE_PATH_CSS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_JS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_FONTS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_IMG</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>token</td>
+<td>string</td>
+<td>CSRF token value</td>
+</tr>
+
+<tr>
+<td>servedOverSsl</td>
+<td>bool</td>
+<td>True if page was loaded via <code>https://</code></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-51">Response</h4>
+
+<p>A key/value pair array of additional template variables to define.</p>
+
+<h4 id="example-code-51">Example Code</h4>
+
+<pre><code>&lt;?php
 add_hook('ClientAreaPageViewWHOIS', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="clientareapaymentmethods">ClientAreaPaymentMethods</h2>
+
+<p>Executes on the client area payment methods management page and accepts a return of key/value pairs to be made available as additional Smarty template parameters. Input parameters include all currently defined template variables. The following is a list of template variables common to all pages. Additional variables will vary depending upon the page being rendered.</p>
+
+<h4 id="parameters-52">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>companyname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>logo</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>systemurl</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>charset</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>pagetitle</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>filename</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>template</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>language</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>LANG</td>
+<td>array</td>
+<td>Active language translation strings</td>
+</tr>
+
+<tr>
+<td>todaysdate</td>
+<td>string</td>
+<td>Human friendly formatted version of todays date</td>
+</tr>
+
+<tr>
+<td>date_day</td>
+<td>string</td>
+<td>Current day of the month</td>
+</tr>
+
+<tr>
+<td>date_month</td>
+<td>string</td>
+<td>Current month</td>
+</tr>
+
+<tr>
+<td>date_year</td>
+<td>string</td>
+<td>Current year</td>
+</tr>
+
+<tr>
+<td>WEB_ROOT</td>
+<td>string</td>
+<td>The web path to the WHMCS doc root</td>
+</tr>
+
+<tr>
+<td>BASE_PATH_CSS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_JS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_FONTS</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BASE_PATH_IMG</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>token</td>
+<td>string</td>
+<td>CSRF token value</td>
+</tr>
+
+<tr>
+<td>servedOverSsl</td>
+<td>bool</td>
+<td>True if page was loaded via <code>https://</code></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-52">Response</h4>
+
+<p>A key/value pair array of additional template variables to define.</p>
+
+<h4 id="example-code-52">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('ClientAreaPaymentMethods', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
@@ -7582,7 +7882,7 @@ add_hook('ClientAreaPageViewWHOIS', 1, function($vars) {
 
 <p>Executes when generating the primary navigation bar in the client area</p>
 
-<h4 id="parameters-51">Parameters</h4>
+<h4 id="parameters-53">Parameters</h4>
 
 <table>
 <thead>
@@ -7602,11 +7902,11 @@ add_hook('ClientAreaPageViewWHOIS', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-51">Response</h4>
+<h4 id="response-53">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-51">Example Code</h4>
+<h4 id="example-code-53">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -7639,7 +7939,7 @@ add_hook('ClientAreaPrimaryNavbar', 1, function($primaryNavbar) {
 
 <p>Executes when generating the primary side bar in the client area</p>
 
-<h4 id="parameters-52">Parameters</h4>
+<h4 id="parameters-54">Parameters</h4>
 
 <table>
 <thead>
@@ -7659,11 +7959,11 @@ add_hook('ClientAreaPrimaryNavbar', 1, function($primaryNavbar) {
 </tbody>
 </table>
 
-<h4 id="response-52">Response</h4>
+<h4 id="response-54">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-52">Example Code</h4>
+<h4 id="example-code-54">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -7696,7 +7996,7 @@ add_hook('ClientAreaPrimarySidebar', 1, function($primarySidebar) {
 
 <p>Executes when the product details page is loaded within the client area. This hook runs regardless of service status, so be sure to check for the appropriate statuses if required.</p>
 
-<h4 id="parameters-53">Parameters</h4>
+<h4 id="parameters-55">Parameters</h4>
 
 <table>
 <thead>
@@ -7716,11 +8016,11 @@ add_hook('ClientAreaPrimarySidebar', 1, function($primarySidebar) {
 </tbody>
 </table>
 
-<h4 id="response-53">Response</h4>
+<h4 id="response-55">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-53">Example Code</h4>
+<h4 id="example-code-55">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientAreaProductDetails', 1, function($vars) {
@@ -7732,7 +8032,7 @@ add_hook('ClientAreaProductDetails', 1, function($vars) {
 
 <p>Executes when rendering the client area product details page prior to module template invokation allowing to define additional template parameters.</p>
 
-<h4 id="parameters-54">Parameters</h4>
+<h4 id="parameters-56">Parameters</h4>
 
 <table>
 <thead>
@@ -7794,11 +8094,11 @@ add_hook('ClientAreaProductDetails', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-54">Response</h4>
+<h4 id="response-56">Response</h4>
 
 <p>Return an array of template parameters to make available to the template.</p>
 
-<h4 id="example-code-54">Example Code</h4>
+<h4 id="example-code-56">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientAreaProductDetailsPreModuleTemplate', 1, function($vars) {
@@ -7810,7 +8110,7 @@ add_hook('ClientAreaProductDetailsPreModuleTemplate', 1, function($vars) {
 
 <p>Executes after a client has used the register.php file to create a client account.</p>
 
-<h4 id="parameters-55">Parameters</h4>
+<h4 id="parameters-57">Parameters</h4>
 
 <table>
 <thead>
@@ -7830,11 +8130,11 @@ add_hook('ClientAreaProductDetailsPreModuleTemplate', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-55">Response</h4>
+<h4 id="response-57">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-55">Example Code</h4>
+<h4 id="example-code-57">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientAreaRegister', 1, function($vars) {
@@ -7846,7 +8146,7 @@ add_hook('ClientAreaRegister', 1, function($vars) {
 
 <p>Executes when generating the secondary navigation bar in the client area</p>
 
-<h4 id="parameters-56">Parameters</h4>
+<h4 id="parameters-58">Parameters</h4>
 
 <table>
 <thead>
@@ -7866,11 +8166,11 @@ add_hook('ClientAreaRegister', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-56">Response</h4>
+<h4 id="response-58">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-56">Example Code</h4>
+<h4 id="example-code-58">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -7903,7 +8203,7 @@ add_hook('ClientAreaSecondaryNavbar', 1, function($secondaryNavbar) {
 
 <p>Executes when generating the secondary side bar in the client area</p>
 
-<h4 id="parameters-57">Parameters</h4>
+<h4 id="parameters-59">Parameters</h4>
 
 <table>
 <thead>
@@ -7923,11 +8223,11 @@ add_hook('ClientAreaSecondaryNavbar', 1, function($secondaryNavbar) {
 </tbody>
 </table>
 
-<h4 id="response-57">Response</h4>
+<h4 id="response-59">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-57">Example Code</h4>
+<h4 id="example-code-59">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -7960,7 +8260,7 @@ add_hook('ClientAreaSecondarySidebar', 1, function($secondarySidebar) {
 
 <p>Executes when generating the side bars in the client area</p>
 
-<h4 id="parameters-58">Parameters</h4>
+<h4 id="parameters-60">Parameters</h4>
 
 <table>
 <thead>
@@ -7980,11 +8280,11 @@ add_hook('ClientAreaSecondarySidebar', 1, function($secondarySidebar) {
 </tbody>
 </table>
 
-<h4 id="response-58">Response</h4>
+<h4 id="response-60">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-58">Example Code</h4>
+<h4 id="example-code-60">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientAreaSidebars', 1, function($vars) {

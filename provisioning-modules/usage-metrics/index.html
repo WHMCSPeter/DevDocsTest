@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Module Logging - WHMCS Developer Documentation</title>
+    <title>Usage Metrics - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/provisioning-modules/module-logging/">
+    <link rel="canonical" href="//developers.whmcs.com/provisioning-modules/usage-metrics/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -210,7 +210,7 @@
       
       
       
-        <li class="" data-nav-id="/provisioning-modules/usage-metrics/">
+        <li class="active" data-nav-id="/provisioning-modules/usage-metrics/">
           <a href="//developers.whmcs.com/provisioning-modules/usage-metrics/">
             <span>Usage Metrics</span>
           </a>
@@ -250,7 +250,7 @@
       
       
       
-        <li class="active" data-nav-id="/provisioning-modules/module-logging/">
+        <li class="" data-nav-id="/provisioning-modules/module-logging/">
           <a href="//developers.whmcs.com/provisioning-modules/module-logging/">
             <span>Module Logging</span>
           </a>
@@ -336,51 +336,196 @@
                 
                   
                 
-                <span itemprop="title"> Module Logging</span>
+                <span itemprop="title"> Usage Metrics</span>
               </div>
             </div>
 
 
-			<h1>Module Logging </h1>
+			<h1>Usage Metrics </h1>
 
-			<p>To make reviewing and debugging module calls easier, WHMCS has a built in logging function.
-This allows the record of the request and response strings for every call the module makes.
-This becomes available in an accessible way via the WHMCS admin interface.
-If you plan to release the module, this allows end users to troubleshoot and debug issues experienced using the module.
-This also allows you to be able to debug issues experienced while using it.</p>
+			
 
-<p>Logging is not something that is always enabled.
-This is to avoid logs growing too large, so it&rsquo;s something that needs enabling for the logging to occur.
-To toggle logging, goto <strong>Utilities</strong> &gt; <strong>Logs</strong> &gt; <strong>Module Debug Log</strong>.
-This is the same place to review the logs.</p>
+<p><code>Compatibility: This functionality is available since v7.9</code></p>
 
-<p>To utilise this functionality, the module needs to make a call as follows:</p>
+<p>Usage metrics give Services information about resource consumption and Products
+the ability to price those resources.</p>
 
-<pre><code>/**
- * Log module call.
- *
- * @param string $module The name of the module
- * @param string $action The name of the action being performed
- * @param string|array $requestString The input parameters for the API call
- * @param string|array $responseData The response data from the API call
- * @param string|array $processedData The resulting data after any post processing (eg. json decode, xml decode, etc...)
- * @param array $replaceVars An array of strings for replacement
- */
-logModuleCall($module, $action, $requestString, $responseData, $processedData, $replaceVars);
+<p>Please make sure to read the feature documentation for
+(Usage Billing)[<a href="https://docs.whmcs.com/Usage_Billing">https://docs.whmcs.com/Usage_Billing</a>] so that you have the best
+understanding of how your module is expected to interact with WHMCS.</p>
+
+<h2 id="metricprovider-function">MetricProvider Function</h2>
+
+<p>The MetricProvider function is responsible for returning an object that implements
+\WHMCS\UsageBilling\Contracts\Metrics\ProviderInterface.</p>
+
+<p>This object provides a list of available metrics, all usage of the server, and
+usage by given tenant on that server.
+Interface and class are documented in the WHMCS\UsageBilling namespace at <a href="https://classdocs.whmcs.com/">https://classdocs.whmcs.com/</a></p>
+
+<p>The following illustrates how one might make a simple class that fulfills the interface</p>
+
+<pre><code>use WHMCS\UsageBilling\Contracts\Metrics\MetricInterface;
+use WHMCS\UsageBilling\Contracts\Metrics\ProviderInterface
+use WHMCS\UsageBilling\Metrics\Metric;
+use WHMCS\UsageBilling\Metrics\Units\WholeNumber;
+use WHMCS\UsageBilling\Metrics\Usage;
+
+class MyMetricsProvider implements ProviderInterface
+{
+    private $moduleParams = [];
+    public function __construct($moduleParams)
+    {
+        // A sample `$params` array may be defined as:
+        //
+        // ```
+        // array(
+        //     &quot;server&quot; =&gt; true
+        //     &quot;serverid&quot; =&gt; 1
+        //     &quot;serverip&quot; =&gt; &quot;11.111.4.444&quot;
+        //     &quot;serverhostname&quot; =&gt; &quot;my.testserver.tld&quot;
+        //     &quot;serverusername&quot; =&gt; &quot;root&quot;
+        //     &quot;serverpassword&quot; =&gt; &quot;&quot;
+        //     &quot;serveraccesshash&quot; =&gt; &quot;ZZZZ1111222333444555AAAA&quot;
+        //     &quot;serversecure&quot; =&gt; true
+        //     &quot;serverhttpprefix&quot; =&gt; &quot;https&quot;
+        //     &quot;serverport&quot; =&gt; &quot;77777&quot;
+        // )
+        // ```
+        $this-&gt;moduleParams = $moduleParams;
+    }
+
+    public function metrics()
+    {
+        return [
+            new Metric(
+                'emailaddr',
+                'Email Mailboxes',
+                MetricInterface::TYPE_SNAPSHOT,
+                new Accounts('Mailboxes'),
+            ),
+        ];
+    }
+
+    public function usage()
+    {
+        $serverData = $this-&gt;apiCall('stats');
+        $usage = [];
+        foreach ($serverData as $data) {
+            $usage[$data['username']] = $this-&gt;wrapUserData($data);
+        }
+        
+        return $usage;
+    }
+    
+    public function tenantUsage($tenant)
+    {
+        $userData = $this-&gt;apiCall('user_stats');
+        
+        return $this-&gt;wrapUserData($userData);
+    }
+
+    private function wrapUserData($data)
+    {
+        $wrapped = [];
+        foreach ($this-&gt;metrics() as $metric) {
+            $key = $metric-&gt;systemName();
+            if ($data[$key]) {
+                $value = $data[$key];
+                $metric = $metric-&gt;withUsage(
+                    new Usage($value)
+                );
+            }
+            
+            $wrapped[] = $metric;
+        }
+        
+        return $wrapped;
+    }
+    
+    private function apiCall($action)
+    {
+        // make remote call with $moduleParams
+    }
+}
 </code></pre>
 
-<p>We recommend passing data strings such as usernames and passwords into the <code>$replaceVars</code> parameter to allow them to be automatically scrubbed and ommitted from module log entries.</p>
+<p>The MetricProvider function will be invoked in various contexts throughout WHMCS
+so it is important to utilize strategies in your class design that minimize
+communication with remote servers.  The usage() and tenantUsage() methods will
+only be invoked in the context of a service with a server.  However, the metrics()
+method will be invoked in contexts specifically about Products. This method
+must always return a valid list for all potential servers that use the module.</p>
+
+<h3 id="example-metricprovider-function-a-id-example-function-a">Example MetricProvider Function <a id="example-function"></a></h3>
+
+<pre><code>function mymodule_MetricProvider($params) {
+
+    return new MyMetricProvider($params);
+}
+</code></pre>
+
+<h2 id="metrics">Metrics</h2>
+
+<p>The metric() method must return an array of \WHMCS\UsageBilling\Contracts\Metrics\MetricInterface
+instances, as noted by the ProviderInterface.  You may use, or extend, \WHMCS\UsageBilling\Metrics\Metric</p>
+
+<h3 id="metric-type">Metric Type</h3>
+
+<p>The metric type of your MetricInterface instance is a critical expression of
+if/when the remote system is resetting the usage data.  If the incorrect type is
+used the snapshot data stored within WHMCS may track usage incorrectly.</p>
+
+<p>For metrics that are related to non-ephemeral entities, such as mailboxes, disk
+usage, or databases, your remote system is unlikely to reset this data.  These
+are a &ldquo;snapshot&rdquo; type (\WHMCS\UsageBilling\Contracts\Metrics\MetricInterface::TYPE_SNAPSHOT)</p>
+
+<p>For metrics that are related to usage that is an accumulative measure at the
+remote system, like bandwidth, it is likely that these will be reset of a
+specific frequency.  WHMCS support a &ldquo;time-based&rdquo; daily and a monthly frequency via \WHMCS\UsageBilling\Contracts\Metrics\MetricInterface::TYPE_DAY
+and \WHMCS\UsageBilling\Contracts\Metrics\MetricInterface::TYPE_MONTH.  When data
+is collected by WHMCS, the value of these metrics will overwrite any previous
+data for the respective time period.  So for monthly items, WHMCS internals will
+manage one record for each calendar month; for daily, WHMCS will manage on
+record for each day of each month.  At the end of a service&rsquo;s billing term, any
+uninvoiced usage for those periods will be summed and calculations applied to
+that total.</p>
+
+<h3 id="metric-units">Metric Units</h3>
+
+<p>Several unit objects are readily available in the \WHMCS\UsageBilling\Metrics\Units
+namespace.  You can extend the WholeNumber or the FloatPoint class if you have
+need for repeated use of a custom unit.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>Metrics should describe usage by providing an object that implements
+\WHMCS\UsageBilling\Contracts\Metrics\UsageInterface.
+You may use \WHMCS\UsageBilling\Metrics\Usage if you wish.  You will provide this
+usage detail via the usage() and tenantUsage() methods.</p>
+
+<p>If usage values returned by your API are not in the units that you wish WHMCS to
+report has, you will need to manage any conversion.</p>
+
+<p>The usage() method should return an array of tenants and a list of metrics with
+usage (in the form of an object instance that implements \WHMCS\UsageBilling\Contracts\Metrics\UsageInterface).
+This method is use in a global context, such as by the cron when polling for all
+metric information.</p>
+
+<p>The tenantUsage($tenant) should simply provide the list of MetricInterface objects
+ that have been populated with UsageInterface objects.  This method
+is used in specific contexts of a service.</p>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/provisioning-modules/admin-dashboard-widgets">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/provisioning-modules/usage-update">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/provisioning-modules/server-sync">
+                    <a class="nav nav-next" href="//developers.whmcs.com/provisioning-modules/custom-functions">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>
