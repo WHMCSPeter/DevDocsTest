@@ -259,6 +259,7 @@ print_r($results);
 
 &lt;ul&gt;
 &lt;li&gt;Order ID not found or Status not Pending&lt;/li&gt;
+&lt;li&gt;Server and/or registrar response message&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
@@ -1942,6 +1943,13 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
+&lt;td&gt;affiliateemails&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;set true to receive affiliate related emails&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;permissions&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;A comma separated list of sub-account permissions. eg manageproducts,managedomains&lt;/td&gt;
@@ -2052,6 +2060,11 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;7.7&lt;/td&gt;
 &lt;td&gt;Added &lt;code&gt;tax_id&lt;/code&gt; parameter.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;7.9&lt;/td&gt;
+&lt;td&gt;Added &lt;code&gt;affiliateemails&lt;/code&gt; parameter.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

@@ -293,7 +293,6 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/registrar-module/#afterregistrarsavedns&#34;&gt;AfterRegistrarSaveDNS&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/registrar-module/#afterregistrarsavenameservers&#34;&gt;AfterRegistrarSaveNameservers&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/registrar-module/#afterregistrartransfer&#34;&gt;AfterRegistrarTransfer&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/registrar-module/#afterregistrartransfer&#34;&gt;AfterRegistrarTransfer&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/registrar-module/#afterregistrartransferfailed&#34;&gt;AfterRegistrarTransferFailed&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/registrar-module/#preregistrargetcontactdetails&#34;&gt;PreRegistrarGetContactDetails&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/registrar-module/#preregistrargetdns&#34;&gt;PreRegistrarGetDNS&lt;/a&gt;
@@ -405,6 +404,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareapage&#34;&gt;ClientAreaPage&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareapageaddcontact&#34;&gt;ClientAreaPageAddContact&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareapageaddfunds&#34;&gt;ClientAreaPageAddFunds&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareapageaddonmodule&#34;&gt;ClientAreaPageAddonModule&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareapageaffiliates&#34;&gt;ClientAreaPageAffiliates&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareapageannouncements&#34;&gt;ClientAreaPageAnnouncements&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareapagebanned&#34;&gt;ClientAreaPageBanned&lt;/a&gt;
@@ -449,6 +449,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareapageviewinvoice&#34;&gt;ClientAreaPageViewInvoice&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareapageviewquote&#34;&gt;ClientAreaPageViewQuote&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareapageviewwhois&#34;&gt;ClientAreaPageViewWHOIS&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareapaymentmethods&#34;&gt;ClientAreaPaymentMethods&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareaprimarynavbar&#34;&gt;ClientAreaPrimaryNavbar&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareaprimarysidebar&#34;&gt;ClientAreaPrimarySidebar&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client-area-interface/#clientareaproductdetails&#34;&gt;ClientAreaProductDetails&lt;/a&gt;
@@ -531,6 +532,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#linktracker&#34;&gt;LinkTracker&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#logactivity&#34;&gt;LogActivity&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#notificationpresend&#34;&gt;NotificationPreSend&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#paymethodmigration&#34;&gt;PayMethodMigration&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#postautomationtask&#34;&gt;PostAutomationTask&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preautomationtask&#34;&gt;PreAutomationTask&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preemailsendreducerecipients&#34;&gt;PreEmailSendReduceRecipients&lt;/a&gt;

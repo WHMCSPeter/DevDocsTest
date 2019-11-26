@@ -1495,15 +1495,15 @@ add_hook('TicketOpenAdmin', 1, function($vars) {
 
 <tbody>
 <tr>
-<td></td>
+<td>clientId</td>
 <td>int</td>
-<td>clientId Client ID if associated with a client</td>
+<td>Client ID if associated with a client</td>
 </tr>
 
 <tr>
-<td></td>
+<td>contactId</td>
 <td>int</td>
-<td>contactId Contact ID if associated with a contact</td>
+<td>Contact ID if associated with a contact</td>
 </tr>
 
 <tr>
@@ -1564,7 +1564,7 @@ add_hook('TicketOpenAdmin', 1, function($vars) {
 
 <h4 id="response-16">Response</h4>
 
-<p>No response supported</p>
+<p>A string to be used as a singular Validation Error.</p>
 
 <h4 id="example-code-16">Example Code</h4>
 
@@ -1593,6 +1593,12 @@ add_hook('TicketOpenValidation', 1, function($vars) {
 <tr>
 <td>to</td>
 <td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>cc</td>
+<td>array</td>
 <td></td>
 </tr>
 
