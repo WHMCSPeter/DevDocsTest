@@ -305,39 +305,57 @@ So, if you want to fail the process due to a problem, or want to notify the user
 
 <h2 id="example-activate-function-a-id-example-activate-function-a">Example Activate Function <a id="example-activate-function"></a></h2>
 
-<pre><code>function demo_activate() {
-
-    # Create Custom DB Table
-    $query = &quot;CREATE TABLE `mod_addonexample` (`id` INT( 1 ) NOT NULL AUTO_INCREMENT ... &quot;;
-	$result = full_query($query);
-
-    # Return Result
-    return array('status'=&gt;'success','description'=&gt;'This is an demo module only. In a real
-           module you might instruct a user how to get started with it here...');
-    return array('status'=&gt;'error','description'=&gt;'You can use the error status return to
-           indicate there was a problem activating the module');
-    return array('status'=&gt;'info','description'=&gt;'You can use the info status return to display
-           a message to the user');
-
+<pre><code>function addonmodule_activate()
+{
+    // Create custom tables and schema required by your module
+    try {
+        Capsule::schema()
+            -&gt;create(
+                'mod_addonexample',
+                function ($table) {
+                    /** @var \Illuminate\Database\Schema\Blueprint $table */
+                    $table-&gt;increments('id');
+                    $table-&gt;text('demo');
+                }
+            );
+        return [
+            // Supported values here include: success, error or info
+            'status' =&gt; 'success',
+            'description' =&gt; 'This is a demo module only. '
+                . 'In a real module you might report a success or instruct a '
+                    . 'user how to get started with it here.',
+        ];
+    } catch (\Exception $e) {
+        return [
+            // Supported values here include: success, error or info
+            'status' =&gt; &quot;error&quot;,
+            'description' =&gt; 'Unable to create mod_addonexample: ' . $e-&gt;getMessage(),
+        ];
+    }
 }
 </code></pre>
 
 <h2 id="example-deactivate-function-a-id-example-deactivate-function-a">Example Deactivate Function <a id="example-deactivate-function"></a></h2>
 
-<pre><code>function demo_deactivate() {
-
-    # Remove Custom DB Table
-    $query = &quot;DROP TABLE `mod_addonexample`&quot;;
-	$result = full_query($query);
-
-    # Return Result
-    return array('status'=&gt;'success','description'=&gt;'If successful, you can return a message
-           to show the user here');
-    return array('status'=&gt;'error','description'=&gt;'If an error occurs you can return an error
-           message for display here');
-    return array('status'=&gt;'info','description'=&gt;'If you want to give an info message to a user
-           you can return it here');
-
+<pre><code>function addonmodule_deactivate()
+{
+    // Undo any database and schema modifications made by your module here
+    try {
+        Capsule::schema()
+            -&gt;dropIfExists('mod_addonexample');
+        return [
+            // Supported values here include: success, error or info
+            'status' =&gt; 'success',
+            'description' =&gt; 'This is a demo module only. '
+                . 'In a real module you might report a success here.',
+        ];
+    } catch (\Exception $e) {
+        return [
+            // Supported values here include: success, error or info
+            &quot;status&quot; =&gt; &quot;error&quot;,
+            &quot;description&quot; =&gt; &quot;Unable to drop mod_addonexample: {$e-&gt;getMessage()}&quot;,
+        ];
+    }
 }
 </code></pre>
 

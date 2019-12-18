@@ -140,39 +140,57 @@ So, if you want to fail the process due to a problem, or want to notify the user
 
 &lt;h2 id=&#34;example-activate-function-a-id-example-activate-function-a&#34;&gt;Example Activate Function &lt;a id=&#34;example-activate-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;function demo_activate() {
-
-    # Create Custom DB Table
-    $query = &amp;quot;CREATE TABLE `mod_addonexample` (`id` INT( 1 ) NOT NULL AUTO_INCREMENT ... &amp;quot;;
-	$result = full_query($query);
-
-    # Return Result
-    return array(&#39;status&#39;=&amp;gt;&#39;success&#39;,&#39;description&#39;=&amp;gt;&#39;This is an demo module only. In a real
-           module you might instruct a user how to get started with it here...&#39;);
-    return array(&#39;status&#39;=&amp;gt;&#39;error&#39;,&#39;description&#39;=&amp;gt;&#39;You can use the error status return to
-           indicate there was a problem activating the module&#39;);
-    return array(&#39;status&#39;=&amp;gt;&#39;info&#39;,&#39;description&#39;=&amp;gt;&#39;You can use the info status return to display
-           a message to the user&#39;);
-
+&lt;pre&gt;&lt;code&gt;function addonmodule_activate()
+{
+    // Create custom tables and schema required by your module
+    try {
+        Capsule::schema()
+            -&amp;gt;create(
+                &#39;mod_addonexample&#39;,
+                function ($table) {
+                    /** @var \Illuminate\Database\Schema\Blueprint $table */
+                    $table-&amp;gt;increments(&#39;id&#39;);
+                    $table-&amp;gt;text(&#39;demo&#39;);
+                }
+            );
+        return [
+            // Supported values here include: success, error or info
+            &#39;status&#39; =&amp;gt; &#39;success&#39;,
+            &#39;description&#39; =&amp;gt; &#39;This is a demo module only. &#39;
+                . &#39;In a real module you might report a success or instruct a &#39;
+                    . &#39;user how to get started with it here.&#39;,
+        ];
+    } catch (\Exception $e) {
+        return [
+            // Supported values here include: success, error or info
+            &#39;status&#39; =&amp;gt; &amp;quot;error&amp;quot;,
+            &#39;description&#39; =&amp;gt; &#39;Unable to create mod_addonexample: &#39; . $e-&amp;gt;getMessage(),
+        ];
+    }
 }
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;example-deactivate-function-a-id-example-deactivate-function-a&#34;&gt;Example Deactivate Function &lt;a id=&#34;example-deactivate-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;function demo_deactivate() {
-
-    # Remove Custom DB Table
-    $query = &amp;quot;DROP TABLE `mod_addonexample`&amp;quot;;
-	$result = full_query($query);
-
-    # Return Result
-    return array(&#39;status&#39;=&amp;gt;&#39;success&#39;,&#39;description&#39;=&amp;gt;&#39;If successful, you can return a message
-           to show the user here&#39;);
-    return array(&#39;status&#39;=&amp;gt;&#39;error&#39;,&#39;description&#39;=&amp;gt;&#39;If an error occurs you can return an error
-           message for display here&#39;);
-    return array(&#39;status&#39;=&amp;gt;&#39;info&#39;,&#39;description&#39;=&amp;gt;&#39;If you want to give an info message to a user
-           you can return it here&#39;);
-
+&lt;pre&gt;&lt;code&gt;function addonmodule_deactivate()
+{
+    // Undo any database and schema modifications made by your module here
+    try {
+        Capsule::schema()
+            -&amp;gt;dropIfExists(&#39;mod_addonexample&#39;);
+        return [
+            // Supported values here include: success, error or info
+            &#39;status&#39; =&amp;gt; &#39;success&#39;,
+            &#39;description&#39; =&amp;gt; &#39;This is a demo module only. &#39;
+                . &#39;In a real module you might report a success here.&#39;,
+        ];
+    } catch (\Exception $e) {
+        return [
+            // Supported values here include: success, error or info
+            &amp;quot;status&amp;quot; =&amp;gt; &amp;quot;error&amp;quot;,
+            &amp;quot;description&amp;quot; =&amp;gt; &amp;quot;Unable to drop mod_addonexample: {$e-&amp;gt;getMessage()}&amp;quot;,
+        ];
+    }
 }
 &lt;/code&gt;&lt;/pre&gt;
 </description>
@@ -423,22 +441,27 @@ This allows the module to bring it up to date with your latest version.&lt;/p&gt
 
 &lt;p&gt;An example of how this function can be used is demonstrated below:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;function demo_upgrade($vars) {
+&lt;pre&gt;&lt;code&gt;function addonmodule_upgrade($vars)
+{
+    $currentlyInstalledVersion = $vars[&#39;version&#39;];
 
-    $version = $vars[&#39;version&#39;];
-
-    # Run SQL Updates for V1.0 to V1.1
-    if ($version &amp;lt; 1.1) {
-        $query = &amp;quot;ALTER `mod_addonexample` ADD `demo2` TEXT NOT NULL &amp;quot;;
-    	$result = mysql_query($query);
+    // Perform SQL schema changes required by the upgrade to version 1.1 of your module
+    if ($currentlyInstalledVersion &amp;lt; 1.1) {
+        $schema = Capsule::schema();
+        // Alter the table and add a new text column called &amp;quot;demo2&amp;quot;
+        $schema-&amp;gt;table(&#39;mod_addonexample&#39;, function($table) {
+            $table-&amp;gt;text(&#39;demo2&#39;);
+        });
     }
 
-    # Run SQL Updates for V1.1 to V1.2
-    if ($version &amp;lt; 1.2) {
-        $query = &amp;quot;ALTER `mod_addonexample` ADD `demo3` TEXT NOT NULL &amp;quot;;
-    	$result = mysql_query($query);
+    //Perform SQL schema changes required by the upgrade to version 1.2 of your module
+    if ($currentlyInstalledVersion &amp;lt; 1.2) {
+        $schema = Capsule::schema();
+        // Alter the table and add a new text column called &amp;quot;demo3&amp;quot;
+        $schema-&amp;gt;table(&#39;mod_addonexample&#39;, function($table) {
+            $table-&amp;gt;text(&#39;demo3&#39;);
+        });
     }
-
 }
 &lt;/code&gt;&lt;/pre&gt;
 </description>

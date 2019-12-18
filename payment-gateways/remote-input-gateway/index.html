@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Meta Data Parameters - WHMCS Developer Documentation</title>
+    <title>Remote Input Token Storage - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/payment-gateways/meta-data-params/">
+    <link rel="canonical" href="//developers.whmcs.com/payment-gateways/remote-input-gateway/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -138,7 +138,7 @@
       
       
       
-        <li class="active" data-nav-id="/payment-gateways/meta-data-params/">
+        <li class="" data-nav-id="/payment-gateways/meta-data-params/">
           <a href="//developers.whmcs.com/payment-gateways/meta-data-params/">
             <span>Meta Data Parameters</span>
           </a>
@@ -218,7 +218,7 @@
       
       
       
-        <li class="" data-nav-id="/payment-gateways/remote-input-gateway/">
+        <li class="active" data-nav-id="/payment-gateways/remote-input-gateway/">
           <a href="//developers.whmcs.com/payment-gateways/remote-input-gateway/">
             <span>Remote Input Token Storage</span>
           </a>
@@ -304,67 +304,359 @@
                 
                   
                 
-                <span itemprop="title"> Meta Data Parameters</span>
+                <span itemprop="title"> Remote Input Token Storage</span>
               </div>
             </div>
 
 
-			<h1>Meta Data Parameters </h1>
+			<h1>Remote Input Token Storage </h1>
 
-			<p>The meta data function allows you to define module related capabilities and settings.</p>
+			
 
-<p>Payment Gateway Modules support the following meta data configuration parameters.</p>
+<p>A remote input module is a type of merchant gateway that accepts input of pay
+method data remotely within an iFrame so that it appears transparent to the end
+user, and then exchanges it for a token that is returned back to WHMCS to be
+stored for future billing attempts.</p>
+
+<p>Within WHMCS, sensitive payment data such as a card number is not stored
+locally when a remote input module is used.</p>
+
+<h2 id="creating-a-remote-input-gateway">Creating a Remote Input Gateway</h2>
+
+<p>A remote input gateway requires two functions to be implemented in addition to the standard <code>capture</code>.
+These functions are <code>remoteinput</code> and <code>remoteupdate</code>.</p>
+
+<p>Once processed, a notification will be sent to a <a href="//developers.whmcs.com/payment-gateways/callbacks" title="Callback Files">callback file</a> where the Pay Method should be stored and the payment applied.</p>
+
+<p>For a more complete example, please refer to the <a href="https://github.com/WHMCS/sample-remote-input-gateway" title="Sample Remote Input Gateway module on Github">Sample Remote Input Gateway module on Github</a>.</p>
+
+<h2 id="remote-input">Remote Input</h2>
+
+<p>The <code>remoteinput</code> function will be called when adding a new payment method as part of checkout,
+or when adding a new payment method outside of the checkout process.</p>
+
+<p>The remote input function is required to return an HTML form that will be automatically submitted into an iframe target.
+The page rendered within the iframe should allow the user to enter card details in one of 2 workflow scenarios:</p>
+
+<ul>
+<li>Making payment using a new card - in this workflow the remote endpoint should allow the user to enter card details, generate a token, and capture payment for the requested amount</li>
+<li>Adding a new card to the users account - in this workflow the remote endpoint should allow the user to enter card details and generate a token, but not perform any immediate capture</li>
+</ul>
+
+<p>The workflow type can be determined based on if an invoiceid and amount parameter is received as part of the parameters passed to the <code>remoteinput</code> function.</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>function yourmodulename_remoteinput($params)
+{
+    return '&lt;form method=&quot;post&quot; action=&quot;https://www.example.com/remote/input&quot;&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;api_user&quot; value=&quot;' . $params[&quot;api_user&quot;] . '&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;api_secret&quot; value=&quot;' . $params[&quot;api_secret&quot;] . '&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;amount&quot; value=&quot;' . $params[&quot;amount&quot;] . '&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;invoice_id&quot; value=&quot;' . $params[&quot;invoiceid&quot;] . '&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;firstname&quot; value=&quot;' . $params[&quot;clientdetails&quot;][&quot;firstname&quot;] . '&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;lastname&quot; value=&quot;' . $params[&quot;clientdetails&quot;][&quot;lastname&quot;] . '&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;address1&quot; value=&quot;' . $params[&quot;clientdetails&quot;][&quot;address1&quot;] . '&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;city&quot; value=&quot;' . $params[&quot;clientdetails&quot;][&quot;city&quot;] . '&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;state&quot; value=&quot;' . $params[&quot;clientdetails&quot;][&quot;state&quot;] . '&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;postcode&quot; value=&quot;' . $params[&quot;clientdetails&quot;][&quot;postcode&quot;] . '&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;country&quot; value=&quot;' . $params[&quot;clientdetails&quot;][&quot;country&quot;] . '&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;phonenumber&quot; value=&quot;' . $params[&quot;clientdetails&quot;][&quot;phonenumber&quot;] . '&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;email&quot; value=&quot;' . $params[&quot;clientdetails&quot;][&quot;email&quot;] . '&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;cust_id&quot; value=&quot;' . $params[&quot;clientdetails&quot;][&quot;id&quot;] . '&quot; /&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;return_url&quot; value=&quot;' . $params['systemurl'] . 'modules/gateways/callback/yourmodulename.php&quot; /&gt;
+    &lt;noscript&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Click here to continue &amp;raquo;&quot; /&gt;
+    &lt;/noscript&gt;
+&lt;/form&gt;';
+}
+</code></pre>
+
+<h2 id="remote-update">Remote Update</h2>
+
+<p>The <code>remoteupdate</code> function will be called when a pay method is requested to be modified and should allow the user to edit the data of on an existing token.</p>
+
+<p>The expected return of this function is direct HTML output. It provides
+more flexibility than the remote input function by not restricting the
+return to a form that is posted into an iframe. We still recommend using
+an iframe where possible, but the update can sometimes be handled by
+way of a modal, popup or other such facility.</p>
+
+<h3 id="example-1">Example</h3>
+
+<pre><code>function yourmodulename_remoteupdate($params)
+{
+    $formAction = 'https://www.example.com/remote/update';
+    $formFields = [
+        'api_user' =&gt; $params['api_user'],
+        'api_secret' =&gt; $params['api_secret'],
+        'token' =&gt; $params['gatewayid'],
+        'custom_reference' =&gt; $params['paymethodid'],
+    ];
+
+    $formOutput = '';
+    foreach ($formFields as $key =&gt; $value) {
+        $formOutput .= '&lt;input type=&quot;hidden&quot; name=&quot;' . $key . '&quot; value=&quot;' . $value . '&quot;&gt;' . PHP_EOL;
+    }
+    
+    return '&lt;div id=&quot;frmRemoteCardProcess&quot; class=&quot;text-center&quot;&gt;
+    &lt;form method=&quot;post&quot; action=&quot;' . $formAction . '&quot; target=&quot;remoteUpdateIFrame&quot;&gt;
+        ' . $formOutput . '
+        &lt;noscript&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;Click here to continue &amp;raquo;&quot;&gt;
+        &lt;/noscript&gt;
+    &lt;/form&gt;
+    &lt;iframe name=&quot;remoteUpdateIFrame&quot; class=&quot;auth3d-area&quot; width=&quot;90%&quot; height=&quot;600&quot; scrolling=&quot;auto&quot; src=&quot;http://about:blank&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    setTimeout(&quot;autoSubmitFormByContainer(\'frmRemoteCardProcess\')&quot;, 1000);
+&lt;/script&gt;';
+}
+</code></pre>
+
+<h2 id="helper-functions">Helper Functions</h2>
+
+<p>The following functions are available in WHMCS 7.9 and later. We recommend using these functions
+within the callback handler of a remote input gateway to create a new pay method or update an existing one.
+Both functions return a boolean <code>true</code> on a success, and any error will throw an exception that
+should be caught and logged.</p>
+
+<h3 id="createcardpaymethod">createCardPayMethod</h3>
+
+<p>This function can be used to add a new pay method to a client account</p>
+
+<h4 id="parameters">Parameters</h4>
 
 <table>
 <thead>
 <tr>
-<th>Name</th>
+<th>Variable</th>
 <th>Type</th>
-<th>Supported As Of</th>
-<th>Default</th>
-<th>Description</th>
+<th>Notes</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td>DisplayName</td>
-<td>Text</td>
-<td>6.0</td>
-<td>Module Name</td>
-<td>An alternate display name that will be used instead of the filename if defined</td>
+<td>clientId</td>
+<td>int</td>
+<td>The id of the client for the new pay method</td>
 </tr>
 
 <tr>
-<td>APIVersion</td>
-<td>Text</td>
-<td>5.2</td>
-<td>1.1</td>
-<td>Defines API Version the module uses. Use <code>1.1</code> unless you have a need specific to use <code>1.0</code></td>
+<td>gatewayName</td>
+<td>string</td>
+<td>The name of the module adding the pay method</td>
 </tr>
 
 <tr>
-<td>failedEmail</td>
-<td>String</td>
-<td>7.7</td>
-<td>Credit Card Payment Failed</td>
-<td>The name of an email template to send should a payment capture fail</td>
+<td>cardNumber</td>
+<td>string</td>
+<td>The card number (or last 4 digits). Full card number will not be stored for remote pay methods</td>
 </tr>
 
 <tr>
-<td>successEmail</td>
-<td>String</td>
-<td>7.7</td>
-<td>Credit Card Payment Confirmation</td>
-<td>The name of an email template to send should a payment capture be successful</td>
+<td>cardExpiryDate</td>
+<td>string</td>
+<td>Card expiry date in mmyy format</td>
 </tr>
 
 <tr>
-<td>pendingEmail</td>
-<td>String</td>
-<td>7.7</td>
-<td>Credit Card Payment Pending</td>
-<td>The name of an email template to send should a payment capture be pending</td>
+<td>cardType</td>
+<td>null or string</td>
+<td>The card type to use. Null will attempt to get card type from card number</td>
+</tr>
+
+<tr>
+<td>cardStartDate</td>
+<td>null or string</td>
+<td>Optional. Card start date in mmyy format</td>
+</tr>
+
+<tr>
+<td>cardIssueNumber</td>
+<td>null or string</td>
+<td>Optional. The issue number for the card</td>
+</tr>
+
+<tr>
+<td>remoteToken</td>
+<td>string</td>
+<td>Required for a remote pay method. The remote token for a remote pay method.</td>
+</tr>
+
+<tr>
+<td>billingContactId</td>
+<td>string or integer</td>
+<td>Optional. The id of the billing contact to use. Defaults to &lsquo;billing&rsquo;</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>string</td>
+<td>The description for the new pay method</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="return">Return</h4>
+
+<p>Boolean return <code>true</code> on successful creation of a pay method.</p>
+
+<h4 id="error">Error</h4>
+
+<p>When an error occurs in the function call, an exception will be thrown with an appropriate message.
+The most common messages are detailed below, other exceptions could be thrown and need to be caught.</p>
+
+<table>
+<thead>
+<tr>
+<th>Exception</th>
+<th>Message</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Exception</td>
+<td>Client ID not found</td>
+<td>Check the client id. The client id passed has not been found</td>
+</tr>
+
+<tr>
+<td>Exception</td>
+<td>Module Not Found</td>
+<td>Check the gateway module name. The module name passed has not been found</td>
+</tr>
+
+<tr>
+<td>Exception</td>
+<td>Module Not Activated</td>
+<td>The gateway module passed is not currently active</td>
+</tr>
+
+<tr>
+<td>RuntimeException</td>
+<td>Card number is required</td>
+<td>The card number is required for a local storage gateway</td>
+</tr>
+
+<tr>
+<td>RuntimeException</td>
+<td>Card number must be at least 13 chars</td>
+<td>For a local storage gateway, the card number should be at least 13 characters</td>
+</tr>
+
+<tr>
+<td>RuntimeException</td>
+<td>Card expiry date is required</td>
+<td>For a local storage gateway, the card expiry date is required</td>
+</tr>
+
+<tr>
+<td>InvalidArgumentException</td>
+<td>Invalid Workflow Type for PayMethod</td>
+<td>Only credit cards can be added using this function</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="updatecardpaymethod">updateCardPayMethod</h3>
+
+<p>This function can be used to update an existing pay method for a client.</p>
+
+<h4 id="parameters-1">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>clientId</td>
+<td>int</td>
+<td>The id of the client that the pay method belongs to</td>
+</tr>
+
+<tr>
+<td>payMethodId</td>
+<td>int</td>
+<td>The id of the pay method to be updated</td>
+</tr>
+
+<tr>
+<td>cardExpiryDate</td>
+<td>string</td>
+<td>Card expiry date in mmyy format</td>
+</tr>
+
+<tr>
+<td>cardStartDate</td>
+<td>null or string</td>
+<td>Optional. Card start date in mmyy format</td>
+</tr>
+
+<tr>
+<td>cardIssueNumber</td>
+<td>null or string</td>
+<td>Optional. The issue number for the card</td>
+</tr>
+
+<tr>
+<td>remoteToken</td>
+<td>string</td>
+<td>Required for a remote pay method. The remote token for a remote pay method.</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="return-1">Return</h4>
+
+<p>Boolean return <code>true</code> on successful creation of a pay method.</p>
+
+<h4 id="error-1">Error</h4>
+
+<p>When an error occurs in the function call, an exception will be thrown with an appropriate message.
+The most common messages are detailed below, other exceptions could be thrown and need to be caught.</p>
+
+<table>
+<thead>
+<tr>
+<th>Exception</th>
+<th>Message</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Exception</td>
+<td>Client ID not found</td>
+<td>Check the client id. The client id passed has not been found</td>
+</tr>
+
+<tr>
+<td>Exception</td>
+<td>PayMethod ID not found</td>
+<td>Check the pay method id. The pay method id passed has not been found</td>
+</tr>
+
+<tr>
+<td>InvalidArgumentException</td>
+<td>Invalid PayMethod</td>
+<td>The pay method being updated is not a credit card</td>
+</tr>
+
+<tr>
+<td>RuntimeException</td>
+<td>Card expiry date is required</td>
+<td>For a local storage gateway, the card expiry date is required</td>
 </tr>
 </tbody>
 </table>
@@ -372,13 +664,13 @@
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/payment-gateways/getting-started">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/payment-gateways/tokenised-remote-storage">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/payment-gateways/configuration">
+                    <a class="nav nav-next" href="//developers.whmcs.com/payment-gateways/installation-activation">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>
