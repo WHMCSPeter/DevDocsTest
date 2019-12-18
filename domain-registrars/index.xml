@@ -1194,7 +1194,7 @@ function modulename_GetDomainInformation(array $params) {
 
 &lt;p&gt;Please refer to the URL below for more details on how to do this.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://docs.whmcs.com/Provisioning_Module_Developer_Docs#Module_Logging&#34;&gt;http://docs.whmcs.com/Provisioning_Module_Developer_Docs#Module_Logging&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-logging/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-logging/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

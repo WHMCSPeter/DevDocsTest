@@ -337,6 +337,50 @@ $params[&#39;whmcsVersion&#39;] # WHMCS Version Number
     </item>
     
     <item>
+      <title>Subscription Management</title>
+      <link>//developers.whmcs.com/payment-gateways/subscription-management/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/payment-gateways/subscription-management/</guid>
+      <description>
+
+&lt;p&gt;Subscription Management is an optional function that can be defined within a gateway module. Its purpose is to remotely cancel a recurring subscription agreement with a payment gateway, manually and automatically. The stored Subscription ID value in WHMCS is then removed.&lt;/p&gt;
+
+&lt;p&gt;When a service is assigned to a payment gateway that implements this function (for example PayPal Subscriptions) and a Subscription ID is set, a &lt;strong&gt;Cancel Subscription&lt;/strong&gt; button is displayed under the Products/Services tab in the admin area. Clicking it will trigger the API call defined in the _cancelSubscription function.&lt;/p&gt;
+
+&lt;h2 id=&#34;automatic-cancellation&#34;&gt;Automatic Cancellation&lt;/h2&gt;
+
+&lt;p&gt;When the &lt;strong&gt;Automatic Subscription Management&lt;/strong&gt; feature is enabled under &lt;em&gt;Setup &amp;gt; General Settings &amp;gt; Invoices tab&lt;/em&gt;, a subscription will be cancelled automatically under the following circumstances:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A cancellation request is submitted&lt;/li&gt;
+&lt;li&gt;The order is cancelled or set to fraud via the admin interface of WHMCS&lt;/li&gt;
+&lt;li&gt;The API is used to cancel or fraud an order with “cancelsub=true” passed&lt;/li&gt;
+&lt;li&gt;An upgrade order is placed for the product/service&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;implementing-in-payment-gateway-modules&#34;&gt;Implementing in payment gateway modules&lt;/h2&gt;
+
+&lt;p&gt;This feature should only be defined for payment gateways which create automatic recurring subscriptions that are processed outside of WHMCS (for example PayPal Subscriptions).&lt;/p&gt;
+
+&lt;p&gt;Implementation is a two-step process:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;A subscription ID must be stored in tblhosting.subscriptionid for the given service in order for the cancel subscription function to be invokable. Typically this value should be set as part of a payment gateway callback routine (see &lt;a href=&#34;https://developers.whmcs.com/payment-gateways/callbacks/&#34;&gt;callbacks&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Define the _cancelSubscription function in the gateway module file.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This function should contain the necessary API calls to cancel a recurring payment subscription at the payment gateway.&lt;/p&gt;
+
+&lt;p&gt;Return a &amp;ldquo;success&amp;rdquo; response to indicate successful subscription cancellation. The stored tblhosting.subscriptionid value is then removed.
+Any other response is considered a failure, and the subscriptionid value will remain in place.&lt;/p&gt;
+
+&lt;p&gt;An example of this function is shown in the sample gateway module at &lt;a href=&#34;https://github.com/WHMCS/sample-gateway-module/blob/master/modules/gateways/gatewaymodule.php&#34;&gt;Sample Gateway Module&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Merchant Gateway</title>
       <link>//developers.whmcs.com/payment-gateways/merchant-gateway/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -758,50 +802,6 @@ $params[&#39;moduleName&#39;] # Module System Name
     </item>
     
     <item>
-      <title>Subscription Management</title>
-      <link>//developers.whmcs.com/payment-gateways/subscription-management/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//developers.whmcs.com/payment-gateways/subscription-management/</guid>
-      <description>
-
-&lt;p&gt;Subscription Management is an optional function that can be defined within a gateway module. Its purpose is to remotely cancel a recurring subscription agreement with a payment gateway, manually and automatically. The stored Subscription ID value in WHMCS is then removed.&lt;/p&gt;
-
-&lt;p&gt;When a service is assigned to a payment gateway that implements this function (for example PayPal Subscriptions) and a Subscription ID is set, a &lt;strong&gt;Cancel Subscription&lt;/strong&gt; button is displayed under the Products/Services tab in the admin area. Clicking it will trigger the API call defined in the _cancelSubscription function.&lt;/p&gt;
-
-&lt;h2 id=&#34;automatic-cancellation&#34;&gt;Automatic Cancellation&lt;/h2&gt;
-
-&lt;p&gt;When the &lt;strong&gt;Automatic Subscription Management&lt;/strong&gt; feature is enabled under &lt;em&gt;Setup &amp;gt; General Settings &amp;gt; Invoices tab&lt;/em&gt;, a subscription will be cancelled automatically under the following circumstances:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;A cancellation request is submitted&lt;/li&gt;
-&lt;li&gt;The order is cancelled or set to fraud via the admin interface of WHMCS&lt;/li&gt;
-&lt;li&gt;The API is used to cancel or fraud an order with “cancelsub=true” passed&lt;/li&gt;
-&lt;li&gt;An upgrade order is placed for the product/service&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;implementing-in-payment-gateway-modules&#34;&gt;Implementing in payment gateway modules&lt;/h2&gt;
-
-&lt;p&gt;This feature should only be defined for payment gateways which create automatic recurring subscriptions that are processed outside of WHMCS (for example PayPal Subscriptions).&lt;/p&gt;
-
-&lt;p&gt;Implementation is a two-step process:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;A subscription ID must be stored in tblhosting.subscriptionid for the given service in order for the cancel subscription function to be invokable. Typically this value should be set as part of a payment gateway callback routine (see &lt;a href=&#34;https://developers.whmcs.com/payment-gateways/callbacks/&#34;&gt;callbacks&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Define the _cancelSubscription function in the gateway module file.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;This function should contain the necessary API calls to cancel a recurring payment subscription at the payment gateway.&lt;/p&gt;
-
-&lt;p&gt;Return a &amp;ldquo;success&amp;rdquo; response to indicate successful subscription cancellation. The stored tblhosting.subscriptionid value is then removed.
-Any other response is considered a failure, and the subscriptionid value will remain in place.&lt;/p&gt;
-
-&lt;p&gt;An example of this function is shown in the sample gateway module at &lt;a href=&#34;https://github.com/WHMCS/sample-gateway-module/blob/master/modules/gateways/gatewaymodule.php&#34;&gt;Sample Gateway Module&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Payment Reversals</title>
       <link>//developers.whmcs.com/payment-gateways/reversals/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1181,6 +1181,364 @@ transaction.&amp;lt;/div&amp;gt;
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Remote Input Token Storage</title>
+      <link>//developers.whmcs.com/payment-gateways/remote-input-gateway/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/payment-gateways/remote-input-gateway/</guid>
+      <description>
+
+&lt;p&gt;A remote input module is a type of merchant gateway that accepts input of pay
+method data remotely within an iFrame so that it appears transparent to the end
+user, and then exchanges it for a token that is returned back to WHMCS to be
+stored for future billing attempts.&lt;/p&gt;
+
+&lt;p&gt;Within WHMCS, sensitive payment data such as a card number is not stored
+locally when a remote input module is used.&lt;/p&gt;
+
+&lt;h2 id=&#34;creating-a-remote-input-gateway&#34;&gt;Creating a Remote Input Gateway&lt;/h2&gt;
+
+&lt;p&gt;A remote input gateway requires two functions to be implemented in addition to the standard &lt;code&gt;capture&lt;/code&gt;.
+These functions are &lt;code&gt;remoteinput&lt;/code&gt; and &lt;code&gt;remoteupdate&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once processed, a notification will be sent to a &lt;a href=&#34;//developers.whmcs.com/payment-gateways/callbacks&#34; title=&#34;Callback Files&#34;&gt;callback file&lt;/a&gt; where the Pay Method should be stored and the payment applied.&lt;/p&gt;
+
+&lt;p&gt;For a more complete example, please refer to the &lt;a href=&#34;https://github.com/WHMCS/sample-remote-input-gateway&#34; title=&#34;Sample Remote Input Gateway module on Github&#34;&gt;Sample Remote Input Gateway module on Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;remote-input&#34;&gt;Remote Input&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;remoteinput&lt;/code&gt; function will be called when adding a new payment method as part of checkout,
+or when adding a new payment method outside of the checkout process.&lt;/p&gt;
+
+&lt;p&gt;The remote input function is required to return an HTML form that will be automatically submitted into an iframe target.
+The page rendered within the iframe should allow the user to enter card details in one of 2 workflow scenarios:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Making payment using a new card - in this workflow the remote endpoint should allow the user to enter card details, generate a token, and capture payment for the requested amount&lt;/li&gt;
+&lt;li&gt;Adding a new card to the users account - in this workflow the remote endpoint should allow the user to enter card details and generate a token, but not perform any immediate capture&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The workflow type can be determined based on if an invoiceid and amount parameter is received as part of the parameters passed to the &lt;code&gt;remoteinput&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;function yourmodulename_remoteinput($params)
+{
+    return &#39;&amp;lt;form method=&amp;quot;post&amp;quot; action=&amp;quot;https://www.example.com/remote/input&amp;quot;&amp;gt;
+    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;api_user&amp;quot; value=&amp;quot;&#39; . $params[&amp;quot;api_user&amp;quot;] . &#39;&amp;quot; /&amp;gt;
+    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;api_secret&amp;quot; value=&amp;quot;&#39; . $params[&amp;quot;api_secret&amp;quot;] . &#39;&amp;quot; /&amp;gt;
+    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;amount&amp;quot; value=&amp;quot;&#39; . $params[&amp;quot;amount&amp;quot;] . &#39;&amp;quot; /&amp;gt;
+    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;invoice_id&amp;quot; value=&amp;quot;&#39; . $params[&amp;quot;invoiceid&amp;quot;] . &#39;&amp;quot; /&amp;gt;
+    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;firstname&amp;quot; value=&amp;quot;&#39; . $params[&amp;quot;clientdetails&amp;quot;][&amp;quot;firstname&amp;quot;] . &#39;&amp;quot; /&amp;gt;
+    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;lastname&amp;quot; value=&amp;quot;&#39; . $params[&amp;quot;clientdetails&amp;quot;][&amp;quot;lastname&amp;quot;] . &#39;&amp;quot; /&amp;gt;
+    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;address1&amp;quot; value=&amp;quot;&#39; . $params[&amp;quot;clientdetails&amp;quot;][&amp;quot;address1&amp;quot;] . &#39;&amp;quot; /&amp;gt;
+    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;city&amp;quot; value=&amp;quot;&#39; . $params[&amp;quot;clientdetails&amp;quot;][&amp;quot;city&amp;quot;] . &#39;&amp;quot; /&amp;gt;
+    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;state&amp;quot; value=&amp;quot;&#39; . $params[&amp;quot;clientdetails&amp;quot;][&amp;quot;state&amp;quot;] . &#39;&amp;quot; /&amp;gt;
+    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;postcode&amp;quot; value=&amp;quot;&#39; . $params[&amp;quot;clientdetails&amp;quot;][&amp;quot;postcode&amp;quot;] . &#39;&amp;quot; /&amp;gt;
+    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;country&amp;quot; value=&amp;quot;&#39; . $params[&amp;quot;clientdetails&amp;quot;][&amp;quot;country&amp;quot;] . &#39;&amp;quot; /&amp;gt;
+    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;phonenumber&amp;quot; value=&amp;quot;&#39; . $params[&amp;quot;clientdetails&amp;quot;][&amp;quot;phonenumber&amp;quot;] . &#39;&amp;quot; /&amp;gt;
+    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;email&amp;quot; value=&amp;quot;&#39; . $params[&amp;quot;clientdetails&amp;quot;][&amp;quot;email&amp;quot;] . &#39;&amp;quot; /&amp;gt;
+    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;cust_id&amp;quot; value=&amp;quot;&#39; . $params[&amp;quot;clientdetails&amp;quot;][&amp;quot;id&amp;quot;] . &#39;&amp;quot; /&amp;gt;
+    &amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;return_url&amp;quot; value=&amp;quot;&#39; . $params[&#39;systemurl&#39;] . &#39;modules/gateways/callback/yourmodulename.php&amp;quot; /&amp;gt;
+    &amp;lt;noscript&amp;gt;
+        &amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Click here to continue &amp;amp;raquo;&amp;quot; /&amp;gt;
+    &amp;lt;/noscript&amp;gt;
+&amp;lt;/form&amp;gt;&#39;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;remote-update&#34;&gt;Remote Update&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;remoteupdate&lt;/code&gt; function will be called when a pay method is requested to be modified and should allow the user to edit the data of on an existing token.&lt;/p&gt;
+
+&lt;p&gt;The expected return of this function is direct HTML output. It provides
+more flexibility than the remote input function by not restricting the
+return to a form that is posted into an iframe. We still recommend using
+an iframe where possible, but the update can sometimes be handled by
+way of a modal, popup or other such facility.&lt;/p&gt;
+
+&lt;h3 id=&#34;example-1&#34;&gt;Example&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;function yourmodulename_remoteupdate($params)
+{
+    $formAction = &#39;https://www.example.com/remote/update&#39;;
+    $formFields = [
+        &#39;api_user&#39; =&amp;gt; $params[&#39;api_user&#39;],
+        &#39;api_secret&#39; =&amp;gt; $params[&#39;api_secret&#39;],
+        &#39;token&#39; =&amp;gt; $params[&#39;gatewayid&#39;],
+        &#39;custom_reference&#39; =&amp;gt; $params[&#39;paymethodid&#39;],
+    ];
+
+    $formOutput = &#39;&#39;;
+    foreach ($formFields as $key =&amp;gt; $value) {
+        $formOutput .= &#39;&amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;&#39; . $key . &#39;&amp;quot; value=&amp;quot;&#39; . $value . &#39;&amp;quot;&amp;gt;&#39; . PHP_EOL;
+    }
+    
+    return &#39;&amp;lt;div id=&amp;quot;frmRemoteCardProcess&amp;quot; class=&amp;quot;text-center&amp;quot;&amp;gt;
+    &amp;lt;form method=&amp;quot;post&amp;quot; action=&amp;quot;&#39; . $formAction . &#39;&amp;quot; target=&amp;quot;remoteUpdateIFrame&amp;quot;&amp;gt;
+        &#39; . $formOutput . &#39;
+        &amp;lt;noscript&amp;gt;
+            &amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Click here to continue &amp;amp;raquo;&amp;quot;&amp;gt;
+        &amp;lt;/noscript&amp;gt;
+    &amp;lt;/form&amp;gt;
+    &amp;lt;iframe name=&amp;quot;remoteUpdateIFrame&amp;quot; class=&amp;quot;auth3d-area&amp;quot; width=&amp;quot;90%&amp;quot; height=&amp;quot;600&amp;quot; scrolling=&amp;quot;auto&amp;quot; src=&amp;quot;http://about:blank&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;script&amp;gt;
+    setTimeout(&amp;quot;autoSubmitFormByContainer(\&#39;frmRemoteCardProcess\&#39;)&amp;quot;, 1000);
+&amp;lt;/script&amp;gt;&#39;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;helper-functions&#34;&gt;Helper Functions&lt;/h2&gt;
+
+&lt;p&gt;The following functions are available in WHMCS 7.9 and later. We recommend using these functions
+within the callback handler of a remote input gateway to create a new pay method or update an existing one.
+Both functions return a boolean &lt;code&gt;true&lt;/code&gt; on a success, and any error will throw an exception that
+should be caught and logged.&lt;/p&gt;
+
+&lt;h3 id=&#34;createcardpaymethod&#34;&gt;createCardPayMethod&lt;/h3&gt;
+
+&lt;p&gt;This function can be used to add a new pay method to a client account&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;clientId&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the client for the new pay method&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;gatewayName&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The name of the module adding the pay method&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardNumber&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The card number (or last 4 digits). Full card number will not be stored for remote pay methods&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardExpiryDate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Card expiry date in mmyy format&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardType&lt;/td&gt;
+&lt;td&gt;null or string&lt;/td&gt;
+&lt;td&gt;The card type to use. Null will attempt to get card type from card number&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardStartDate&lt;/td&gt;
+&lt;td&gt;null or string&lt;/td&gt;
+&lt;td&gt;Optional. Card start date in mmyy format&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardIssueNumber&lt;/td&gt;
+&lt;td&gt;null or string&lt;/td&gt;
+&lt;td&gt;Optional. The issue number for the card&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;remoteToken&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Required for a remote pay method. The remote token for a remote pay method.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;billingContactId&lt;/td&gt;
+&lt;td&gt;string or integer&lt;/td&gt;
+&lt;td&gt;Optional. The id of the billing contact to use. Defaults to &amp;lsquo;billing&amp;rsquo;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;description&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The description for the new pay method&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;return&#34;&gt;Return&lt;/h4&gt;
+
+&lt;p&gt;Boolean return &lt;code&gt;true&lt;/code&gt; on successful creation of a pay method.&lt;/p&gt;
+
+&lt;h4 id=&#34;error&#34;&gt;Error&lt;/h4&gt;
+
+&lt;p&gt;When an error occurs in the function call, an exception will be thrown with an appropriate message.
+The most common messages are detailed below, other exceptions could be thrown and need to be caught.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Exception&lt;/th&gt;
+&lt;th&gt;Message&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Exception&lt;/td&gt;
+&lt;td&gt;Client ID not found&lt;/td&gt;
+&lt;td&gt;Check the client id. The client id passed has not been found&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Exception&lt;/td&gt;
+&lt;td&gt;Module Not Found&lt;/td&gt;
+&lt;td&gt;Check the gateway module name. The module name passed has not been found&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Exception&lt;/td&gt;
+&lt;td&gt;Module Not Activated&lt;/td&gt;
+&lt;td&gt;The gateway module passed is not currently active&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;RuntimeException&lt;/td&gt;
+&lt;td&gt;Card number is required&lt;/td&gt;
+&lt;td&gt;The card number is required for a local storage gateway&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;RuntimeException&lt;/td&gt;
+&lt;td&gt;Card number must be at least 13 chars&lt;/td&gt;
+&lt;td&gt;For a local storage gateway, the card number should be at least 13 characters&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;RuntimeException&lt;/td&gt;
+&lt;td&gt;Card expiry date is required&lt;/td&gt;
+&lt;td&gt;For a local storage gateway, the card expiry date is required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;InvalidArgumentException&lt;/td&gt;
+&lt;td&gt;Invalid Workflow Type for PayMethod&lt;/td&gt;
+&lt;td&gt;Only credit cards can be added using this function&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;updatecardpaymethod&#34;&gt;updateCardPayMethod&lt;/h3&gt;
+
+&lt;p&gt;This function can be used to update an existing pay method for a client.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;clientId&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the client that the pay method belongs to&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;payMethodId&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the pay method to be updated&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardExpiryDate&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Card expiry date in mmyy format&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardStartDate&lt;/td&gt;
+&lt;td&gt;null or string&lt;/td&gt;
+&lt;td&gt;Optional. Card start date in mmyy format&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;cardIssueNumber&lt;/td&gt;
+&lt;td&gt;null or string&lt;/td&gt;
+&lt;td&gt;Optional. The issue number for the card&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;remoteToken&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Required for a remote pay method. The remote token for a remote pay method.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;return-1&#34;&gt;Return&lt;/h4&gt;
+
+&lt;p&gt;Boolean return &lt;code&gt;true&lt;/code&gt; on successful creation of a pay method.&lt;/p&gt;
+
+&lt;h4 id=&#34;error-1&#34;&gt;Error&lt;/h4&gt;
+
+&lt;p&gt;When an error occurs in the function call, an exception will be thrown with an appropriate message.
+The most common messages are detailed below, other exceptions could be thrown and need to be caught.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Exception&lt;/th&gt;
+&lt;th&gt;Message&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Exception&lt;/td&gt;
+&lt;td&gt;Client ID not found&lt;/td&gt;
+&lt;td&gt;Check the client id. The client id passed has not been found&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Exception&lt;/td&gt;
+&lt;td&gt;PayMethod ID not found&lt;/td&gt;
+&lt;td&gt;Check the pay method id. The pay method id passed has not been found&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;InvalidArgumentException&lt;/td&gt;
+&lt;td&gt;Invalid PayMethod&lt;/td&gt;
+&lt;td&gt;The pay method being updated is not a credit card&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;RuntimeException&lt;/td&gt;
+&lt;td&gt;Card expiry date is required&lt;/td&gt;
+&lt;td&gt;For a local storage gateway, the card expiry date is required&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
     </item>
     

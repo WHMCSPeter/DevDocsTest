@@ -880,7 +880,7 @@ The database update should be a single call for speed and efficiency.&lt;/p&gt;
 the ability to price those resources.&lt;/p&gt;
 
 &lt;p&gt;Please make sure to read the feature documentation for
-(Usage Billing)[&lt;a href=&#34;https://docs.whmcs.com/Usage_Billing&#34;&gt;https://docs.whmcs.com/Usage_Billing&lt;/a&gt;] so that you have the best
+&lt;a href=&#34;https://docs.whmcs.com/Usage_Billing&#34;&gt;Usage Billing&lt;/a&gt; so that you have the best
 understanding of how your module is expected to interact with WHMCS.&lt;/p&gt;
 
 &lt;h2 id=&#34;metricprovider-function&#34;&gt;MetricProvider Function&lt;/h2&gt;

@@ -814,15 +814,7 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/payment-gateways/meta-data-params/</loc>
-  </url>
-  
-  <url>
     <loc>//developers.whmcs.com/hooks/module-hooks/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/payment-gateways/configuration/</loc>
   </url>
   
   <url>
@@ -870,15 +862,15 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/payment-gateways/meta-data-params/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/provisioning-modules/meta-data-params/</loc>
   </url>
   
   <url>
     <loc>//developers.whmcs.com/hooks/sample-hook/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/payment-gateways/third-party-gateway/</loc>
   </url>
   
   <url>
@@ -891,6 +883,10 @@
   
   <url>
     <loc>//developers.whmcs.com/themes/css-styling/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/payment-gateways/configuration/</loc>
   </url>
   
   <url>
@@ -910,10 +906,6 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/payment-gateways/merchant-gateway/</loc>
-  </url>
-  
-  <url>
     <loc>//developers.whmcs.com/provisioning-modules/module-parameters/</loc>
   </url>
   
@@ -927,10 +919,6 @@
   
   <url>
     <loc>//developers.whmcs.com/addon-modules/admin-area-output/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/payment-gateways/callbacks/</loc>
   </url>
   
   <url>
@@ -966,7 +954,7 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/payment-gateways/refunds/</loc>
+    <loc>//developers.whmcs.com/payment-gateways/third-party-gateway/</loc>
   </url>
   
   <url>
@@ -974,15 +962,7 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/payment-gateways/reversals/</loc>
-  </url>
-  
-  <url>
     <loc>//developers.whmcs.com/themes/sidebars/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/payment-gateways/3d-secure/</loc>
   </url>
   
   <url>
@@ -995,6 +975,10 @@
   
   <url>
     <loc>//developers.whmcs.com/advanced/logging/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/payment-gateways/merchant-gateway/</loc>
   </url>
   
   <url>
@@ -1015,6 +999,10 @@
   
   <url>
     <loc>//developers.whmcs.com/themes/variables/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/payment-gateways/callbacks/</loc>
   </url>
   
   <url>
@@ -1039,10 +1027,6 @@
   
   <url>
     <loc>//developers.whmcs.com/notification-providers/send-notification/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/payment-gateways/tokenised-remote-storage/</loc>
   </url>
   
   <url>
@@ -1094,7 +1078,7 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/payment-gateways/installation-activation/</loc>
+    <loc>//developers.whmcs.com/payment-gateways/refunds/</loc>
   </url>
   
   <url>
@@ -1114,7 +1098,15 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/payment-gateways/reversals/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/themes/testing/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/payment-gateways/3d-secure/</loc>
   </url>
   
   <url>
@@ -1150,11 +1142,23 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/payment-gateways/tokenised-remote-storage/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/addon-modules/whmcs-marketplace/</loc>
   </url>
   
   <url>
     <loc>//developers.whmcs.com/provisioning-modules/module-logging/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/payment-gateways/remote-input-gateway/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/payment-gateways/installation-activation/</loc>
   </url>
   
   <url>
