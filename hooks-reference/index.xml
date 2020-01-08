@@ -1075,17 +1075,14 @@ add_hook(&#39;AdminAreaPage&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response-3&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;An array of HTML to display on the View Quote page&lt;/p&gt;
+&lt;p&gt;Return the HTML to display on the View Quote page.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 
 add_hook(&#39;AdminAreaViewQuotePage&#39;, 1, function($vars) {
-    return [
-        &#39;This will be displayed on the Admin Area View Quote Page&#39;,
-        &#39;This will also be displayed&#39;,
-    ];
+    return &#39;This will be displayed on the Admin Area View Quote Page. I can add HTML here&#39;;
 });
 &lt;/code&gt;&lt;/pre&gt;
 

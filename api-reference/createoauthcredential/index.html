@@ -1500,7 +1500,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
-            'granttype' =&gt; 'single_sign_on',
+            'grantType' =&gt; 'single_sign_on',
             'scope' =&gt; 'clientarea:sso clientarea:billing_info clientarea:announcements',
             'serviceId' =&gt; '1',
             'description' =&gt; 'Billing and Announcements SSO',
@@ -1517,7 +1517,7 @@ curl_close($ch);
 
 <pre><code>$command = 'CreateOAuthCredential';
 $postData = array(
-    'granttype' =&gt; 'single_sign_on',
+    'grantType' =&gt; 'single_sign_on',
     'scope' =&gt; 'clientarea:sso clientarea:billing_info clientarea:announcements',
     'serviceId' =&gt; '1',
     'description' =&gt; 'Billing and Announcements SSO',
@@ -1549,6 +1549,8 @@ print_r($results);
 <li>A service ID is required for the single sign-on grant type.</li>
 <li>At least one valid scope is required.</li>
 <li>The requested scope &ldquo;x&rdquo; is invalid.</li>
+<li>A valid Service ID is required.</li>
+<li>Service ID not associated with valid Client.</li>
 </ul>
 
 <h3 id="version-history">Version History</h3>
@@ -1646,7 +1648,7 @@ print_r($results);
             </div>
             <div class="col-md-5">
                 <p class="pull-right">
-                    Copyright &copy; WHMCS 2019. All rights reserved.
+                    Copyright &copy; WHMCS 2020. All rights reserved.
                     <br>
                 </p>
             </div>

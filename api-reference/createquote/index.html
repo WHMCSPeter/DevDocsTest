@@ -1533,6 +1533,13 @@
 </tr>
 
 <tr>
+<td>postcode</td>
+<td>string</td>
+<td>The post code of the client the quote is for if no $userid</td>
+<td>Optional</td>
+</tr>
+
+<tr>
 <td>country</td>
 <td>string</td>
 <td>The country of the client the quote is for if no $userid</td>
@@ -1625,9 +1632,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'stage' =&gt; 'Draft',
             'userid' =&gt; '1',
             'validuntil' =&gt; '01/01/2016',
-            'lineitems' =&gt; base64_encode(serialize(array(array(&quot;desc&quot;=&gt;&quot;Test Description 1&quot;,&quot;qty&quot;=&gt;1,&quot;up&quot;=&gt;&quot;10.00&quot;,&quot;discount&quot;=&gt;&quot;10.00&quot;,
-&quot;taxable&quot;=&gt;true),array(&quot;desc&quot;=&gt;&quot;Test Description 2&quot;,&quot;qty&quot;=&gt;4,&quot;up&quot;=&gt;&quot;15.00&quot;,&quot;discount&quot;=&gt;&quot;0.00&quot;,
-&quot;taxable&quot;=&gt;false))));,
+            'lineitems' =&gt; base64_encode(serialize(array(array(&quot;desc&quot;=&gt;&quot;Test Description 1&quot;,&quot;qty&quot;=&gt;1,&quot;up&quot;=&gt;&quot;10.00&quot;,&quot;discount&quot;=&gt;&quot;10.00&quot;,&quot;taxable&quot;=&gt;true),array(&quot;desc&quot;=&gt;&quot;Test Description 2&quot;,&quot;qty&quot;=&gt;4,&quot;up&quot;=&gt;&quot;15.00&quot;,&quot;discount&quot;=&gt;&quot;0.00&quot;,&quot;taxable&quot;=&gt;false)))),
             'responsetype' =&gt; 'json',
         )
     )
@@ -1645,9 +1650,7 @@ $postData = array(
     'stage' =&gt; 'Draft',
     'userid' =&gt; '1',
     'validuntil' =&gt; '01/01/2016',
-    'lineitems' =&gt; base64_encode(serialize(array(array(&quot;desc&quot;=&gt;&quot;Test Description 1&quot;,&quot;qty&quot;=&gt;1,&quot;up&quot;=&gt;&quot;10.00&quot;,&quot;discount&quot;=&gt;&quot;10.00&quot;,
-&quot;taxable&quot;=&gt;true),array(&quot;desc&quot;=&gt;&quot;Test Description 2&quot;,&quot;qty&quot;=&gt;4,&quot;up&quot;=&gt;&quot;15.00&quot;,&quot;discount&quot;=&gt;&quot;0.00&quot;,
-&quot;taxable&quot;=&gt;false))));,
+    'lineitems' =&gt; base64_encode(serialize(array(array(&quot;desc&quot;=&gt;&quot;Test Description 1&quot;,&quot;qty&quot;=&gt;1,&quot;up&quot;=&gt;&quot;10.00&quot;,&quot;discount&quot;=&gt;&quot;10.00&quot;,&quot;taxable&quot;=&gt;true),array(&quot;desc&quot;=&gt;&quot;Test Description 2&quot;,&quot;qty&quot;=&gt;4,&quot;up&quot;=&gt;&quot;15.00&quot;,&quot;discount&quot;=&gt;&quot;0.00&quot;,&quot;taxable&quot;=&gt;false)))),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -1773,7 +1776,7 @@ print_r($results);
             </div>
             <div class="col-md-5">
                 <p class="pull-right">
-                    Copyright &copy; WHMCS 2019. All rights reserved.
+                    Copyright &copy; WHMCS 2020. All rights reserved.
                     <br>
                 </p>
             </div>

@@ -365,10 +365,17 @@ Interface and class are documented in the WHMCS\UsageBilling namespace at <a hre
 
 <p>The following illustrates how one might make a simple class that fulfills the interface</p>
 
-<pre><code>use WHMCS\UsageBilling\Contracts\Metrics\MetricInterface;
-use WHMCS\UsageBilling\Contracts\Metrics\ProviderInterface
+<pre><code>namespace WHMCS\Module\Server\Mymodule;
+/**
+ * The above namespace is automatically registered for autoloading classes within
+ * a &quot;lib&quot; sub-directory relative to your module directory. So, place this class 
+ * in modules/servers/mymodule/lib/MyMtricsProvider.php. 
+ */
+
+use WHMCS\UsageBilling\Contracts\Metrics\MetricInterface;
+use WHMCS\UsageBilling\Contracts\Metrics\ProviderInterface;
 use WHMCS\UsageBilling\Metrics\Metric;
-use WHMCS\UsageBilling\Metrics\Units\WholeNumber;
+use WHMCS\UsageBilling\Metrics\Units\Accounts;
 use WHMCS\UsageBilling\Metrics\Usage;
 
 class MyMetricsProvider implements ProviderInterface
@@ -402,7 +409,7 @@ class MyMetricsProvider implements ProviderInterface
                 'emailaddr',
                 'Email Mailboxes',
                 MetricInterface::TYPE_SNAPSHOT,
-                new Accounts('Mailboxes'),
+                new Accounts('Mailboxes')
             ),
         ];
     }
@@ -459,7 +466,9 @@ must always return a valid list for all potential servers that use the module.</
 
 <h3 id="example-metricprovider-function-a-id-example-function-a">Example MetricProvider Function <a id="example-function"></a></h3>
 
-<pre><code>function mymodule_MetricProvider($params) {
+<pre><code>use WHMCS\Module\Server\MyModule\MyMetricsProvider;
+
+function mymodule_MetricProvider($params) {
 
     return new MyMetricProvider($params);
 }
@@ -493,9 +502,11 @@ that total.</p>
 
 <h3 id="metric-units">Metric Units</h3>
 
-<p>Several unit objects are readily available in the \WHMCS\UsageBilling\Metrics\Units
-namespace.  You can extend the WholeNumber or the FloatPoint class if you have
-need for repeated use of a custom unit.</p>
+<p>Several unit classes are readily available in the \WHMCS\UsageBilling\Metrics\Units
+namespace.  These include Bytes, MegaBytes, GigaBytes, Accounts, and Domains.  These
+extend one of the two base concrete classes, WholeNumber or FloatingPoint. You can use
+those directly or extend them with your own concrete definition if you have need
+for repeated use of a custom unit.</p>
 
 <h2 id="usage">Usage</h2>
 
@@ -603,7 +614,7 @@ is used in specific contexts of a service.</p>
             </div>
             <div class="col-md-5">
                 <p class="pull-right">
-                    Copyright &copy; WHMCS 2019. All rights reserved.
+                    Copyright &copy; WHMCS 2020. All rights reserved.
                     <br>
                 </p>
             </div>

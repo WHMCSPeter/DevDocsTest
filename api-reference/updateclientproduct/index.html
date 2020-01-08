@@ -1679,7 +1679,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'serviceid' =&gt; '1',
             'status' =&gt; 'Terminated',
-            'customfields' =&gt; base64_encode(serialize(array(&quot;1&quot;=&gt;&quot;Yahoo&quot;)));,
+            'customfields' =&gt; base64_encode(serialize(array(&quot;1&quot;=&gt;&quot;Yahoo&quot;))),
             'configoptions' =&gt; base64_encode(serialize(array(configoptionid =&gt; dropdownoptionid, XXX =&gt; array('optionid' =&gt; YYY, 'qty' =&gt; ZZZ)))),
             'responsetype' =&gt; 'json',
         )
@@ -1696,7 +1696,7 @@ curl_close($ch);
 $postData = array(
     'serviceid' =&gt; '1',
     'status' =&gt; 'Terminated',
-    'customfields' =&gt; base64_encode(serialize(array(&quot;1&quot;=&gt;&quot;Yahoo&quot;)));,
+    'customfields' =&gt; base64_encode(serialize(array(&quot;1&quot;=&gt;&quot;Yahoo&quot;))),
     'configoptions' =&gt; base64_encode(serialize(array(configoptionid =&gt; dropdownoptionid, XXX =&gt; array('optionid' =&gt; YYY, 'qty' =&gt; ZZZ)))),
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
@@ -1816,7 +1816,7 @@ print_r($results);
             </div>
             <div class="col-md-5">
                 <p class="pull-right">
-                    Copyright &copy; WHMCS 2019. All rights reserved.
+                    Copyright &copy; WHMCS 2020. All rights reserved.
                     <br>
                 </p>
             </div>

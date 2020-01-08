@@ -3040,6 +3040,7 @@ print_r($results);
 &lt;li&gt;Invalid Client ID&lt;/li&gt;
 &lt;li&gt;Invalid Pay Method Type. Type should be one of &amp;lsquo;BankAccount&amp;rsquo;, &amp;lsquo;CreditCard&amp;rsquo;, or &amp;lsquo;RemoteCreditCard&amp;rsquo;&lt;/li&gt;
 &lt;li&gt;Gateway is Required for RemoteCreditCard type&lt;/li&gt;
+&lt;li&gt;No Local Credit Card Payment Gateways Enabled&lt;/li&gt;
 &lt;li&gt;Card Number is required for &amp;lsquo;CreditCard&amp;rsquo; or &amp;lsquo;RemoteCreditCard&amp;rsquo; type&lt;/li&gt;
 &lt;li&gt;Expiry Date is required for &amp;lsquo;CreditCard&amp;rsquo; or &amp;lsquo;RemoteCreditCard&amp;rsquo; type&lt;/li&gt;
 &lt;li&gt;Expiry Date is invalid&lt;/li&gt;
