@@ -605,17 +605,14 @@ add_hook('AdminAreaPage', 1, function($vars) {
 
 <h4 id="response-3">Response</h4>
 
-<p>An array of HTML to display on the View Quote page</p>
+<p>Return the HTML to display on the View Quote page.</p>
 
 <h4 id="example-code-3">Example Code</h4>
 
 <pre><code>&lt;?php
 
 add_hook('AdminAreaViewQuotePage', 1, function($vars) {
-    return [
-        'This will be displayed on the Admin Area View Quote Page',
-        'This will also be displayed',
-    ];
+    return 'This will be displayed on the Admin Area View Quote Page. I can add HTML here';
 });
 </code></pre>
 
@@ -1698,7 +1695,7 @@ add_hook('ViewOrderDetailsPage', 1, function($vars) {
             </div>
             <div class="col-md-5">
                 <p class="pull-right">
-                    Copyright &copy; WHMCS 2019. All rights reserved.
+                    Copyright &copy; WHMCS 2020. All rights reserved.
                     <br>
                 </p>
             </div>
