@@ -1038,23 +1038,7 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/domain-registrars/domain-information/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/domain-registrars/availability-checks/</loc>
-  </url>
-  
-  <url>
     <loc>//developers.whmcs.com/provisioning-modules/usage-metrics/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/domain-registrars/premium-domains/</loc>
-  </url>
-  
-  <url>
-    <loc>//developers.whmcs.com/domain-registrars/transfer-policy-management/</loc>
   </url>
   
   <url>
@@ -1070,7 +1054,7 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/domain-registrars/extending-further/</loc>
+    <loc>//developers.whmcs.com/domain-registrars/domain-information/</loc>
   </url>
   
   <url>
@@ -1090,11 +1074,11 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/provisioning-modules/client-area-output/</loc>
+    <loc>//developers.whmcs.com/domain-registrars/availability-checks/</loc>
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/domain-registrars/hooks/</loc>
+    <loc>//developers.whmcs.com/provisioning-modules/client-area-output/</loc>
   </url>
   
   <url>
@@ -1118,7 +1102,7 @@
   </url>
   
   <url>
-    <loc>//developers.whmcs.com/domain-registrars/module-logging/</loc>
+    <loc>//developers.whmcs.com/domain-registrars/premium-domains/</loc>
   </url>
   
   <url>
@@ -1146,6 +1130,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/domain-registrars/transfer-policy-management/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/addon-modules/whmcs-marketplace/</loc>
   </url>
   
@@ -1158,11 +1146,27 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/domain-registrars/tld-pricing-sync/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/domain-registrars/extending-further/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/payment-gateways/installation-activation/</loc>
   </url>
   
   <url>
     <loc>//developers.whmcs.com/provisioning-modules/server-sync/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/domain-registrars/hooks/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/domain-registrars/module-logging/</loc>
   </url>
   
   <url>

@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Getting Started - WHMCS Developer Documentation</title>
+    <title>TLD &amp; Pricing Sync - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/domain-registrars/getting-started/">
+    <link rel="canonical" href="//developers.whmcs.com/domain-registrars/tld-pricing-sync/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -130,7 +130,7 @@
       
       
       
-        <li class="active" data-nav-id="/domain-registrars/getting-started/">
+        <li class="" data-nav-id="/domain-registrars/getting-started/">
           <a href="//developers.whmcs.com/domain-registrars/getting-started/">
             <span>Getting Started</span>
           </a>
@@ -210,7 +210,7 @@
       
       
       
-        <li class="" data-nav-id="/domain-registrars/tld-pricing-sync/">
+        <li class="active" data-nav-id="/domain-registrars/tld-pricing-sync/">
           <a href="//developers.whmcs.com/domain-registrars/tld-pricing-sync/">
             <span>TLD &amp; Pricing Sync</span>
           </a>
@@ -312,41 +312,76 @@
                 
                   
                 
-                <span itemprop="title"> Getting Started</span>
+                <span itemprop="title"> TLD &amp; Pricing Sync</span>
               </div>
             </div>
 
 
-			<h1>Getting Started </h1>
+			<h1>TLD &amp; Pricing Sync </h1>
 
 			
 
-<h2 id="github">Github</h2>
+<p>In WHMCS 7.10 and later, the Registrar TLD &amp; Pricing Sync Utility allows for a registrar module to support importing TLDs and pricing.</p>
 
-<p>We make available a sample provisioning module on Github. We recommend using this as a starting point for a custom module.</p>
+<p>Users can use the Sync Utility to import TLDs and automatically apply a defined margin markup.</p>
 
-<blockquote>
-<p><a href="https://github.com/WHMCS/sample-registrar-module">https://github.com/WHMCS/sample-registrar-module</a></p>
-</blockquote>
+<p>To integrate this functionality into your registrar module, you must define a <code>GetTldPricing</code> function that builds and returns a ResultList object containing ImportItems defining TLDs and their cost pricing.</p>
 
-<h2 id="choosing-a-name">Choosing a Name</h2>
+<p>| Method | Type | Required/Optional | Description |
+| &mdash;&mdash;&mdash; | &mdash;&mdash;&mdash;&ndash; | &mdash;&mdash; |
+| setExtension | string | Required | The extension to import. Example: .com, .net, or .co.uk |
+| setMinYears | int | Optional | The minimum number of years that the extension can be registered for. Default: 1 |
+| setMaxYears | int | Optional | The maximum number of years that the extension can be registered for. Default: 10 |
+| setYearsStep | int | Optional | The number of years between each registration period. Default: 1 |
+| setRegisterPrice | float | Required | The registration cost price for the minimum registration period term. |
+| setRenewPrice | float | Optional |  The renewal cost price for the minimum registration period term. Pass null if renewals are not supported. |
+| setTransferPrice | float | Optional |  The transfer cost price for the minimum registration period term. Pass null if transfers are not supported. |
+| setRedemptionFeePrice | float | Optional |  The redemption fee cost price for the extension. Pass null if redemption periods are not supported.  |
+| setCurrency | string | Optional | The ISO4217 three letter currency code that registrar cost prices are defined in. This currency must exist within the WHMCS installation. eg. USD, GBP, etc&hellip;. Default: System Currency |
+| setEppRequired | boolean | Optional |  Does the extension require an EPP code for transfer requests |</p>
 
-<p>Registrar Modules are located in the <code>/modules/registrars/</code> directory.</p>
+<h2 id="example-usage">Example Usage</h2>
 
-<div class="notice info" ><p>Module names should be a single word, consisting of only lowercase letters and numbers. The name must start with a letter, and must be unique.</p>
-</div>
+<pre><code>use WHMCS\Domain\TopLevel\ImportItem;
+use WHMCS\Results\ResultsList;
 
+function modulename_GetTldPricing(array $params)
+{
+    // Perform API call to retrieve extension information
+    // A connection error should return a simple array with error key and message
+    // return ['error' =&gt; 'This error occurred',];
+
+    $results = new ResultsList;
+
+    foreach ($extensionData as $extension) {
+        // All the set methods can be chained and utilised together.
+        $item = (new ImportItem)
+            -&gt;setExtension($extension['tld'])
+            -&gt;setMinYears($extension['minPeriod'])
+            -&gt;setMaxYears($extension['maxPeriod'])
+            -&gt;setRegisterPrice($extension['registrationPrice'])
+            -&gt;setRenewPrice($extension['renewalPrice'])
+            -&gt;setTransferPrice($extension['transferPrice'])
+            -&gt;setRedemptionFeePrice($extension['redemptionFee'])
+            -&gt;setCurrency($extension['currencyCode'])
+            -&gt;setEppRequired($extension['transferSecretRequired']);
+
+        $results[] = $item;
+    }
+    return $results;
+}
+</code></pre>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/domain-registrars/">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/domain-registrars/transfer-policy-management/">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/domain-registrars/config-options/">
+                    <a class="nav nav-next" href="//developers.whmcs.com/domain-registrars/extending-further/">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>
