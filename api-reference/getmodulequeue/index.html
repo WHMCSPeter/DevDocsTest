@@ -1400,9 +1400,16 @@
 </tr>
 
 <tr>
+<td>relatedId</td>
+<td>int</td>
+<td>The id of the service to load. Used in conjunction with $serviceType</td>
+<td>Optional</td>
+</tr>
+
+<tr>
 <td>serviceType</td>
 <td>string</td>
-<td>The type of service to load (&lsquo;domain&rsquo;, &lsquo;service&rsquo; or &ldquo;))</td>
+<td>The type of service to load (&lsquo;domain&rsquo;, &lsquo;service&rsquo;, &lsquo;addon&rsquo; or &ldquo;))</td>
 <td>Optional</td>
 </tr>
 
@@ -1530,6 +1537,11 @@ print_r($results);
 <tr>
 <td>7.1.0-beta.1</td>
 <td>Initial Version</td>
+</tr>
+
+<tr>
+<td>7.10</td>
+<td>Added <code>relatedId</code> parameter. Added <code>addon</code> serviceType</td>
 </tr>
 </tbody>
 </table>
