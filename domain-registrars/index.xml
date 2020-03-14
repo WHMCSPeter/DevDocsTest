@@ -1121,18 +1121,88 @@ function modulename_GetDomainInformation(array $params) {
 
 &lt;p&gt;To integrate this functionality into your registrar module, you must define a &lt;code&gt;GetTldPricing&lt;/code&gt; function that builds and returns a ResultList object containing ImportItems defining TLDs and their cost pricing.&lt;/p&gt;
 
-&lt;p&gt;| Method | Type | Required/Optional | Description |
-| &amp;mdash;&amp;mdash;&amp;mdash; | &amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash; | &amp;mdash;&amp;mdash; |
-| setExtension | string | Required | The extension to import. Example: .com, .net, or .co.uk |
-| setMinYears | int | Optional | The minimum number of years that the extension can be registered for. Default: 1 |
-| setMaxYears | int | Optional | The maximum number of years that the extension can be registered for. Default: 10 |
-| setYearsStep | int | Optional | The number of years between each registration period. Default: 1 |
-| setRegisterPrice | float | Required | The registration cost price for the minimum registration period term. |
-| setRenewPrice | float | Optional |  The renewal cost price for the minimum registration period term. Pass null if renewals are not supported. |
-| setTransferPrice | float | Optional |  The transfer cost price for the minimum registration period term. Pass null if transfers are not supported. |
-| setRedemptionFeePrice | float | Optional |  The redemption fee cost price for the extension. Pass null if redemption periods are not supported.  |
-| setCurrency | string | Optional | The ISO4217 three letter currency code that registrar cost prices are defined in. This currency must exist within the WHMCS installation. eg. USD, GBP, etc&amp;hellip;. Default: System Currency |
-| setEppRequired | boolean | Optional |  Does the extension require an EPP code for transfer requests |&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Method&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Required/Optional&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;setExtension&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;td&gt;The extension to import. Example: .com, .net, or .co.uk&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setMinYears&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;The minimum number of years that the extension can be registered for. Default: 1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setMaxYears&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;The maximum number of years that the extension can be registered for. Default: 10&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setYearsStep&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;The number of years between each registration period. Default: 1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setRegisterPrice&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;td&gt;The registration cost price for the minimum registration period term.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setRenewPrice&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;The renewal cost price for the minimum registration period term. Pass null if renewals are not supported.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setTransferPrice&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;The transfer cost price for the minimum registration period term. Pass null if transfers are not supported.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setRedemptionFeePrice&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;The redemption fee cost price for the extension. Pass null if redemption periods are not supported.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setCurrency&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;The ISO4217 three letter currency code that registrar cost prices are defined in. This currency must exist within the WHMCS installation. eg. USD, GBP, etc&amp;hellip;. Default: System Currency&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setEppRequired&lt;/td&gt;
+&lt;td&gt;boolean&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;Does the extension require an EPP code for transfer requests&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h2 id=&#34;example-usage&#34;&gt;Example Usage&lt;/h2&gt;
 
