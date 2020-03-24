@@ -414,6 +414,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;h3&gt;Authentication&lt;/h3&gt;
 
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/createoauthcredential/&#34;&gt;CreateOAuthCredential&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/createssotoken/&#34;&gt;CreateSsoToken&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteoauthcredential/&#34;&gt;DeleteOAuthCredential&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/listoauthcredentials/&#34;&gt;ListOAuthCredentials&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateoauthcredential/&#34;&gt;UpdateOAuthCredential&lt;/a&gt;
@@ -421,7 +422,8 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;/ul&gt;
 &lt;h3&gt;Domains&lt;/h3&gt;
 
-&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domaingetlockingstatus/&#34;&gt;DomainGetLockingStatus&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/createorupdatetld/&#34;&gt;CreateOrUpdateTLD&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domaingetlockingstatus/&#34;&gt;DomainGetLockingStatus&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domaingetnameservers/&#34;&gt;DomainGetNameservers&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domaingetwhoisinfo/&#34;&gt;DomainGetWhoisInfo&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domainregister/&#34;&gt;DomainRegister&lt;/a&gt;

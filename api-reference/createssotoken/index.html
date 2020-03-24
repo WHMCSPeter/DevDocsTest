@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SendAdminEmail - WHMCS Developer Documentation</title>
+    <title>CreateSsoToken - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/api-reference/sendadminemail/">
+    <link rel="canonical" href="//developers.whmcs.com/api-reference/createssotoken/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -370,7 +370,7 @@
       
       
       
-        <li class="" data-nav-id="/api-reference/createssotoken/">
+        <li class="active" data-nav-id="/api-reference/createssotoken/">
           <a href="//developers.whmcs.com/api-reference/createssotoken/">
             <span>CreateSsoToken</span>
           </a>
@@ -1106,7 +1106,7 @@
       
       
       
-        <li class="active" data-nav-id="/api-reference/sendadminemail/">
+        <li class="" data-nav-id="/api-reference/sendadminemail/">
           <a href="//developers.whmcs.com/api-reference/sendadminemail/">
             <span>SendAdminEmail</span>
           </a>
@@ -1384,16 +1384,31 @@
                 
                   
                 
-                <span itemprop="title"> SendAdminEmail</span>
+                <span itemprop="title"> CreateSsoToken</span>
               </div>
             </div>
 
 
-			<h1>SendAdminEmail </h1>
+			<h1>CreateSsoToken </h1>
 
 			
 
-<p>Send an Admin Email Notification</p>
+<p>Create a single use, client or sub-account single sign-on access token</p>
+
+<p>Tokens are valid for a maximum of 60 seconds.</p>
+
+<p>WARNING: The token returned provides <em>complete</em> authentication to the associated
+client account.  It is <em>imperative</em> that scripts ensure the actor who
+triggers this API call and receives this data has verified their identity and
+ownership for the associated account.  IE, the invocation of this API
+should be behind your own user authentication and account mapping engine.</p>
+
+<p>NOTE: The associated endpoint where this token is redeemed is only for one-time
+trusted tokens and will not attempt to enforce captcha or 2FA authorization
+controls common to the WHMCS login form.</p>
+
+<p>A valid destination is expressed using the short term like &ldquo;clientarea:services&rdquo;.
+Possible destinations are documented at <a href="https://docs.whmcs.com/WHMCS_Single_Sign-On_Developer_Guide#Supported_Destinations">https://docs.whmcs.com/WHMCS_Single_Sign-On_Developer_Guide#Supported_Destinations</a></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -1411,49 +1426,49 @@
 <tr>
 <td>action</td>
 <td>string</td>
-<td>&ldquo;SendAdminEmail&rdquo;</td>
+<td>&ldquo;CreateSsoToken&rdquo;</td>
 <td>Required</td>
 </tr>
 
 <tr>
-<td>messagename</td>
-<td>string</td>
-<td>The name of the admin email template to send</td>
-<td>Optional</td>
-</tr>
-
-<tr>
-<td>custommessage</td>
-<td>string</td>
-<td>The HTML message body to send for a custom email</td>
-<td>Optional</td>
-</tr>
-
-<tr>
-<td>customsubject</td>
-<td>string</td>
-<td>The subject to send for a custom email</td>
-<td>Optional</td>
-</tr>
-
-<tr>
-<td>type</td>
-<td>string</td>
-<td>Which type of admin notification will be send (&lsquo;system&rsquo;, &lsquo;account&rsquo;, &lsquo;support&rsquo;)</td>
-<td>Optional</td>
-</tr>
-
-<tr>
-<td>deptid</td>
+<td>client_id</td>
 <td>int</td>
-<td>The Id of the department the notification is for if &lsquo;support&rsquo; $type</td>
+<td>The id of the client that should be authenticated by the resulting token</td>
+<td>Required</td>
+</tr>
+
+<tr>
+<td>destination</td>
+<td>string</td>
+<td>A single valid destination. If not provided, the destination will be the clientarea homepage</td>
 <td>Optional</td>
 </tr>
 
 <tr>
-<td>mergefields</td>
-<td>array</td>
-<td>The merge fields to be used in the email template</td>
+<td>contact_id</td>
+<td>int</td>
+<td>If provided, the id of the contact that should be authenticated by the resulting token</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>service_id</td>
+<td>int</td>
+<td>The id of the service for respective clientarea $destination</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>domain_id</td>
+<td>int</td>
+<td>The id of the service for respective clientarea $destination</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>sso_redirect_path</td>
+<td>string</td>
+<td>Custom relative path for redirection after authentication when using sso:custom_redirect destination</td>
 <td>Optional</td>
 </tr>
 </tbody>
@@ -1476,6 +1491,18 @@
 <td>string</td>
 <td>The result of the operation: success or error</td>
 </tr>
+
+<tr>
+<td>access_token</td>
+<td>string</td>
+<td>A OTP token to authenticate the user at the single sign-on endpoint</td>
+</tr>
+
+<tr>
+<td>redirect_url</td>
+<td>string</td>
+<td>A prepared URL for redirecting your remote system authenticated users</td>
+</tr>
 </tbody>
 </table>
 
@@ -1487,12 +1514,13 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
     http_build_query(
         array(
-            'action' =&gt; 'SendAdminEmail',
+            'action' =&gt; 'CreateSsoToken',
             // See https://developers.whmcs.com/api/authentication
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
-            'messagename' =&gt; 'Service Unsuspension Successful',
-            'mergefields' =&gt; array('client_id' =&gt; 1, 'service_id' =&gt; 1, 'service_product' =&gt; 'This is a product', 'service_domain' =&gt; 'sampledomain.com'),
+            'client_id' =&gt; '1',
+            'destination' =&gt; 'clientarea:product_details',
+            'service_id' =&gt; '1',
             'responsetype' =&gt; 'json',
         )
     )
@@ -1504,10 +1532,11 @@ curl_close($ch);
 
 <h3 id="example-request-local-api">Example Request (Local API)</h3>
 
-<pre><code>$command = 'SendAdminEmail';
+<pre><code>$command = 'CreateSsoToken';
 $postData = array(
-    'messagename' =&gt; 'Service Unsuspension Successful',
-    'mergefields' =&gt; array('client_id' =&gt; 1, 'service_id' =&gt; 1, 'service_product' =&gt; 'This is a product', 'service_domain' =&gt; 'sampledomain.com'),
+    'client_id' =&gt; '1',
+    'destination' =&gt; 'clientarea:product_details',
+    'service_id' =&gt; '1',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -1518,7 +1547,9 @@ print_r($results);
 <h3 id="example-response-json">Example Response JSON</h3>
 
 <pre><code>{
-    &quot;result&quot;: &quot;success&quot;
+    &quot;result&quot;: &quot;success&quot;,
+    &quot;access_token&quot;: &quot;afaed4482ad1e6b75492cdd421cc458b1991a97c&quot;,
+    &quot;redirect_url&quot;: &quot;http:\/\/example.test\/oauth\/singlesignon.php?access_token=afaed4482ad1e6b75492cdd421cc458b1991a97c&quot;
 }
 </code></pre>
 
@@ -1527,7 +1558,11 @@ print_r($results);
 <p>Possible error condition responses include:</p>
 
 <ul>
-<li>Email Template not found</li>
+<li>Invalid client_id</li>
+<li>Invalid contact_id</li>
+<li>Invalid destination</li>
+<li>Token could not be provisioned: x</li>
+<li>SSO authentication blocked for client x</li>
 </ul>
 
 <h3 id="version-history">Version History</h3>

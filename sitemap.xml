@@ -142,11 +142,19 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/api-reference/createorupdatetld/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/api-reference/createproject/</loc>
   </url>
   
   <url>
     <loc>//developers.whmcs.com/api-reference/createquote/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/createssotoken/</loc>
   </url>
   
   <url>
