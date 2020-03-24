@@ -346,6 +346,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/createorupdatetld/">
+          <a href="//developers.whmcs.com/api-reference/createorupdatetld/">
+            <span>CreateOrUpdateTLD</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/createproject/">
           <a href="//developers.whmcs.com/api-reference/createproject/">
             <span>CreateProject</span>
@@ -357,6 +365,14 @@
         <li class="" data-nav-id="/api-reference/createquote/">
           <a href="//developers.whmcs.com/api-reference/createquote/">
             <span>CreateQuote</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/createssotoken/">
+          <a href="//developers.whmcs.com/api-reference/createssotoken/">
+            <span>CreateSsoToken</span>
           </a>
         </li>
       
@@ -1631,6 +1647,48 @@
 </tr>
 
 <tr>
+<td>email_preferences[general]</td>
+<td>bool</td>
+<td>Should the client receive general emails</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>email_preferences[product]</td>
+<td>bool</td>
+<td>Should the client receive product emails</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>email_preferences[domain]</td>
+<td>bool</td>
+<td>Should the client receive domain emails</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>email_preferences[invoice]</td>
+<td>bool</td>
+<td>Should the client receive invoice emails</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>email_preferences[support]</td>
+<td>bool</td>
+<td>Should the client receive support emails</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>email_preferences[affiliate]</td>
+<td>bool</td>
+<td>Should the client receive affiliate emails</td>
+<td>Optional</td>
+</tr>
+
+<tr>
 <td>marketingoptin</td>
 <td>bool</td>
 <td>Set true to opt client in to marketing emails</td>
@@ -1739,6 +1797,7 @@ We suggest following any recommended actions in the warning to ensure future com
 
 <ul>
 <li>Client ID Not Found</li>
+<li>You must have at least one email address enabled to receive domain related notifications as required by ICANN. To disable domain notifications, please create an alternative contact that is set to receive them</li>
 <li>Duplicate Email Address</li>
 <li>Multiple Credit Card Pay Methods Found</li>
 <li>Multiple Bank Account Pay Methods Found</li>
@@ -1758,6 +1817,11 @@ We suggest following any recommended actions in the warning to ensure future com
 <tr>
 <td>1.0</td>
 <td>Initial Version</td>
+</tr>
+
+<tr>
+<td>7.10</td>
+<td>Added email preferences parameters</td>
 </tr>
 
 <tr>

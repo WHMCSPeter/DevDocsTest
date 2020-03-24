@@ -11778,7 +11778,7 @@ add_hook(&#39;DomainDelete&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;domainedit&#34;&gt;DomainEdit&lt;/h2&gt;
 
-&lt;p&gt;Executes when the domain is being edited.&lt;/p&gt;
+&lt;p&gt;Executes when the domain is being edited via the Client Profile Summary and Domains tabs in the Admin Area.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
 
