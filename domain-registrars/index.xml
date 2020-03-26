@@ -1244,7 +1244,8 @@ function modulename_GetTldPricing(array $params)
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/domain-registrars/extending-further/</guid>
-      <description>&lt;p&gt;Custom functions allow you to define extra operations that can be performed using the module. The custom functions can perform actions, or define extra client area pages/output. Permissions can be granted for who can use each custom function, be it just clients, just admins, or both.&lt;/p&gt;
+      <description>&lt;p&gt;###Custom Functions
+Custom functions allow you to define extra operations that can be performed using the module. The custom functions can perform actions, or define extra client area pages/output. Permissions can be granted for who can use each custom function, be it just clients, just admins, or both.&lt;/p&gt;
 
 &lt;p&gt;The convention for custom function names follow the same as any other function of a module. It must begin with &lt;code&gt;yourmodulename_&lt;/code&gt;, and then the custom function name.&lt;/p&gt;
 
@@ -1290,6 +1291,23 @@ function modulename_GetTldPricing(array $params)
  &lt;input type=&#34;hidden&#34; name=&#34;a&#34; value=&#34;reboot&#34; /&gt;
  &lt;input type=&#34;submit&#34; value=&#34;Reboot VPS Server&#34; /&gt;
  &lt;/form&gt;&lt;/p&gt;
+
+&lt;p&gt;###IDN Domains
+If you wish to support registration and management of IDN domain names via a registrar module, the domain object can be
+used to access various parameters related to the domain.  An domain name is considered IDN if it contains at least one
+character that is in a language-specific script or alphabet.  IDN is supported for second level domain names but not top
+level at this time.&lt;/p&gt;
+
+&lt;p&gt;The following options are available:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$domainObj = $params[&#39;original&#39;][&#39;domainObj&#39;];
+$fullDomainUnicode = $domainObj-&amp;gt;toPunycode(); // The full domain name as stored in the database.
+$isIdn = $domainObj-&amp;gt;isIdn(); // Returns true if domain is an IDN domain.
+$fullDomainPunycode = $domainObj-&amp;gt;toUnicode(); // The full domain name in Unicode.
+$secondLevelUnicode = $domainObj-&amp;gt;getUnicodeSecondLevel(); // The domain name (excluding TLD) in Unicode.
+$secondLevelPunycode = $domainObj-&amp;gt;getPunycodeSecondLevel(); // The domain name (excluding TLD) converted to Punycode.
+$tld = $domainObj-&amp;gt;getTopLevel(); // The Top Level Domain for the given domain.
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
