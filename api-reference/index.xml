@@ -1837,44 +1837,44 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;generalemails&lt;/td&gt;
+&lt;td&gt;email_preferences[general]&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;set true to receive general email types&lt;/td&gt;
+&lt;td&gt;Should the client receive general emails&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;productemails&lt;/td&gt;
+&lt;td&gt;email_preferences[product]&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;set true to receive product related emails&lt;/td&gt;
+&lt;td&gt;Should the client receive product emails&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;domainemails&lt;/td&gt;
+&lt;td&gt;email_preferences[domain]&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;set true to receive domain related emails&lt;/td&gt;
+&lt;td&gt;Should the client receive domain emails&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;invoiceemails&lt;/td&gt;
+&lt;td&gt;email_preferences[invoice]&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;set true to receive billing related emails&lt;/td&gt;
+&lt;td&gt;Should the client receive invoice emails&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;supportemails&lt;/td&gt;
+&lt;td&gt;email_preferences[support]&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;set true to receive support ticket related emails&lt;/td&gt;
+&lt;td&gt;Should the client receive support emails&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;affiliateemails&lt;/td&gt;
+&lt;td&gt;email_preferences[affiliate]&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;set true to receive affiliate related emails&lt;/td&gt;
+&lt;td&gt;Should the client receive affiliate emails&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
@@ -1994,6 +1994,11 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;7.9&lt;/td&gt;
 &lt;td&gt;Added &lt;code&gt;affiliateemails&lt;/code&gt; parameter.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;7.10&lt;/td&gt;
+&lt;td&gt;Added email preferences parameters&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
