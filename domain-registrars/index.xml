@@ -1182,6 +1182,27 @@ function modulename_GetDomainInformation(array $params) {
 &lt;/tr&gt;
 
 &lt;tr&gt;
+&lt;td&gt;setGraceFeeDays&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;The grace period for the extension.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setGraceFeePrice&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;The grace fee cost price for the extension. Pass null if grace periods are not supported.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setRedemptionFeeDays&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;The redemption period for the extension.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;setRedemptionFeePrice&lt;/td&gt;
 &lt;td&gt;float&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
@@ -1191,8 +1212,8 @@ function modulename_GetDomainInformation(array $params) {
 &lt;tr&gt;
 &lt;td&gt;setCurrency&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;td&gt;The ISO4217 three letter currency code that registrar cost prices are defined in. This currency must exist within the WHMCS installation. eg. USD, GBP, etc&amp;hellip;. Default: System Currency&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;td&gt;The ISO4217 three letter currency code that registrar cost prices are defined in. This currency must exist within the WHMCS installation. eg. USD, GBP, etc&amp;hellip;.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -1200,6 +1221,13 @@ function modulename_GetDomainInformation(array $params) {
 &lt;td&gt;boolean&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;td&gt;Does the extension require an EPP code for transfer requests&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setYears&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;Use in place of &lt;code&gt;setMinYears&lt;/code&gt;, &lt;code&gt;setMaxYears&lt;/code&gt;, and &lt;code&gt;setYearsStep&lt;/code&gt; for extensions with more specialised pricing. Default: array()&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1226,6 +1254,7 @@ function modulename_GetTldPricing(array $params)
             -&amp;gt;setRegisterPrice($extension[&#39;registrationPrice&#39;])
             -&amp;gt;setRenewPrice($extension[&#39;renewalPrice&#39;])
             -&amp;gt;setTransferPrice($extension[&#39;transferPrice&#39;])
+            -&amp;gt;setRedemptionFeeDays($extension[&#39;redemptionDays&#39;])
             -&amp;gt;setRedemptionFeePrice($extension[&#39;redemptionFee&#39;])
             -&amp;gt;setCurrency($extension[&#39;currencyCode&#39;])
             -&amp;gt;setEppRequired($extension[&#39;transferSecretRequired&#39;]);
