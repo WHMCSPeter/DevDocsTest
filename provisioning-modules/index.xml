@@ -839,26 +839,33 @@ The database update should be a single call for speed and efficiency.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;function mymodule_UsageUpdate($params) {
 
-	$serverid = $params[&#39;serverid&#39;];
-	$serverhostname = $params[&#39;serverhostname&#39;];
-	$serverip = $params[&#39;serverip&#39;];
-	$serverusername = $params[&#39;serverusername&#39;];
-	$serverpassword = $params[&#39;serverpassword&#39;];
-	$serveraccesshash = $params[&#39;serveraccesshash&#39;];
-	$serversecure = $params[&#39;serversecure&#39;];
+    $serverid = $params[&#39;serverid&#39;];
+    $serverhostname = $params[&#39;serverhostname&#39;];
+    $serverip = $params[&#39;serverip&#39;];
+    $serverusername = $params[&#39;serverusername&#39;];
+    $serverpassword = $params[&#39;serverpassword&#39;];
+    $serveraccesshash = $params[&#39;serveraccesshash&#39;];
+    $serversecure = $params[&#39;serversecure&#39;];
 
-	# Run connection to retrieve usage for all domains/accounts on $serverid
+    // Run connection to retrieve usage for all domains/accounts on $serverid
 
-	# Now loop through results and update DB
+    // Now loop through results and update DB
 
-	foreach ($results AS $domain=&amp;gt;$values) {
-        update_query(&amp;quot;tblhosting&amp;quot;,array(
-         &amp;quot;diskused&amp;quot;=&amp;gt;$values[&#39;diskusage&#39;],
-         &amp;quot;disklimit&amp;quot;=&amp;gt;$values[&#39;disklimit&#39;],
-         &amp;quot;bwusage&amp;quot;=&amp;gt;$values[&#39;bwusage&#39;],
-         &amp;quot;bwlimit&amp;quot;=&amp;gt;$values[&#39;bwlimit&#39;],
-         &amp;quot;lastupdate&amp;quot;=&amp;gt;&amp;quot;now()&amp;quot;,
-        ),array(&amp;quot;server&amp;quot;=&amp;gt;$serverid,&amp;quot;domain&amp;quot;=&amp;gt;$values[&#39;domain&#39;]));
+    foreach ($results AS $domain =&amp;gt; $values) {
+        try {
+            \WHMCS\Database\Capsule::table(&#39;tblhosting&#39;)
+                -&amp;gt;where(&#39;server&#39;, $serverid)
+                -&amp;gt;where(&#39;domain&#39;, $values[&#39;domain&#39;])
+                -&amp;gt;update([
+                    &#39;diskused&#39; =&amp;gt; $values[&#39;diskusage&#39;],
+                    &#39;disklimit&#39; =&amp;gt; $values[&#39;disklimit&#39;],
+                    &#39;bwusage&#39; =&amp;gt; $values[&#39;bandwidth&#39;],
+                    &#39;bwlimit&#39; =&amp;gt; $values[&#39;bwlimit&#39;],
+                    &#39;lastupdate&#39; =&amp;gt; Capsule::raw(&#39;now()&#39;),
+                ]);
+        } catch (\Exception $e) {
+            // Handle any error which may occur
+        } 
     }
 
 }
