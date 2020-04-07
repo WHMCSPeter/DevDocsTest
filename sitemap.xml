@@ -118,6 +118,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/api-reference/blockticketsender/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/api-reference/cancelorder/</loc>
   </url>
   
@@ -203,6 +207,10 @@
   
   <url>
     <loc>//developers.whmcs.com/api-reference/deleteticketnote/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/deleteticketreply/</loc>
   </url>
   
   <url>
@@ -442,6 +450,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/api-reference/getticketattachment/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/api-reference/getticketcounts/</loc>
   </url>
   
@@ -495,6 +507,10 @@
   
   <url>
     <loc>//developers.whmcs.com/api-reference/logactivity/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/mergeticket/</loc>
   </url>
   
   <url>

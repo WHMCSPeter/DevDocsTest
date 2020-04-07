@@ -363,26 +363,33 @@ The database update should be a single call for speed and efficiency.</p>
 
 <pre><code>function mymodule_UsageUpdate($params) {
 
-	$serverid = $params['serverid'];
-	$serverhostname = $params['serverhostname'];
-	$serverip = $params['serverip'];
-	$serverusername = $params['serverusername'];
-	$serverpassword = $params['serverpassword'];
-	$serveraccesshash = $params['serveraccesshash'];
-	$serversecure = $params['serversecure'];
+    $serverid = $params['serverid'];
+    $serverhostname = $params['serverhostname'];
+    $serverip = $params['serverip'];
+    $serverusername = $params['serverusername'];
+    $serverpassword = $params['serverpassword'];
+    $serveraccesshash = $params['serveraccesshash'];
+    $serversecure = $params['serversecure'];
 
-	# Run connection to retrieve usage for all domains/accounts on $serverid
+    // Run connection to retrieve usage for all domains/accounts on $serverid
 
-	# Now loop through results and update DB
+    // Now loop through results and update DB
 
-	foreach ($results AS $domain=&gt;$values) {
-        update_query(&quot;tblhosting&quot;,array(
-         &quot;diskused&quot;=&gt;$values['diskusage'],
-         &quot;disklimit&quot;=&gt;$values['disklimit'],
-         &quot;bwusage&quot;=&gt;$values['bwusage'],
-         &quot;bwlimit&quot;=&gt;$values['bwlimit'],
-         &quot;lastupdate&quot;=&gt;&quot;now()&quot;,
-        ),array(&quot;server&quot;=&gt;$serverid,&quot;domain&quot;=&gt;$values['domain']));
+    foreach ($results AS $domain =&gt; $values) {
+        try {
+            \WHMCS\Database\Capsule::table('tblhosting')
+                -&gt;where('server', $serverid)
+                -&gt;where('domain', $values['domain'])
+                -&gt;update([
+                    'diskused' =&gt; $values['diskusage'],
+                    'disklimit' =&gt; $values['disklimit'],
+                    'bwusage' =&gt; $values['bandwidth'],
+                    'bwlimit' =&gt; $values['bwlimit'],
+                    'lastupdate' =&gt; Capsule::raw('now()'),
+                ]);
+        } catch (\Exception $e) {
+            // Handle any error which may occur
+        } 
     }
 
 }

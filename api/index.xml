@@ -334,10 +334,13 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addclientnote/&#34;&gt;AddClientNote&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addticketnote/&#34;&gt;AddTicketNote&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/addticketreply/&#34;&gt;AddTicketReply&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/blockticketsender/&#34;&gt;BlockTicketSender&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteannouncement/&#34;&gt;DeleteAnnouncement&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteticket/&#34;&gt;DeleteTicket&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteticketnote/&#34;&gt;DeleteTicketNote&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteticketreply/&#34;&gt;DeleteTicketReply&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getannouncements/&#34;&gt;GetAnnouncements&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/mergeticket/&#34;&gt;MergeTicket&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/openticket/&#34;&gt;OpenTicket&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateticket/&#34;&gt;UpdateTicket&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateticketreply/&#34;&gt;UpdateTicketReply&lt;/a&gt;
@@ -449,6 +452,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getsupportdepartments/&#34;&gt;GetSupportDepartments&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getsupportstatuses/&#34;&gt;GetSupportStatuses&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getticket/&#34;&gt;GetTicket&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getticketattachment/&#34;&gt;GetTicketAttachment&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getticketcounts/&#34;&gt;GetTicketCounts&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getticketnotes/&#34;&gt;GetTicketNotes&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getticketpredefinedcats/&#34;&gt;GetTicketPredefinedCats&lt;/a&gt;
