@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Access Control - WHMCS Developer Documentation</title>
+    <title>JSON File - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/api/access-control/">
+    <link rel="canonical" href="//developers.whmcs.com/advanced/json-file/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -55,8 +55,8 @@
             <li class="visible-xs"><a href="//developers.whmcs.com/modules/">Modules</a></li>
             <li class="visible-xs"><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
             <li class="visible-xs"><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
-            <li class="visible-xs active"><a href="//developers.whmcs.com/api/">API</a></li>
-            <li class="visible-xs"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/api/">API</a></li>
+            <li class="visible-xs active"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
@@ -87,8 +87,8 @@
             <li><a href="//developers.whmcs.com/modules/">Modules</a></li>
             <li><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
             <li><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
-            <li class="active"><a href="//developers.whmcs.com/api/">API</a></li>
-            <li><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+            <li><a href="//developers.whmcs.com/api/">API</a></li>
+            <li class="active"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
       </ul>
       <form class="navbar-form navbar-right" id="docsSearch">
         <div class="aa-input-container" id="aa-input-container">
@@ -115,13 +115,13 @@
         
           <ul class="sidebar-nav">
             
-  <li class="active parent" data-nav-id="/api/">
-    <a href="//developers.whmcs.com/api/">
+  <li class="active parent" data-nav-id="/advanced/">
+    <a href="//developers.whmcs.com/advanced/">
       <span>
         
           <i class='fa fa-code fa-fw'></i>
         
-         API
+         Advanced
        </span>
     </a>
     
@@ -130,57 +130,65 @@
       
       
       
-        <li class="" data-nav-id="/api/getting-started/">
-          <a href="//developers.whmcs.com/api/getting-started/">
-            <span>Getting Started</span>
+        <li class="" data-nav-id="/advanced/creating-pages/">
+          <a href="//developers.whmcs.com/advanced/creating-pages/">
+            <span>Creating Pages</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/api/authentication/">
-          <a href="//developers.whmcs.com/api/authentication/">
-            <span>Authentication</span>
+        <li class="" data-nav-id="/advanced/db-interaction/">
+          <a href="//developers.whmcs.com/advanced/db-interaction/">
+            <span>Interacting with the Database</span>
           </a>
         </li>
       
       
       
-        <li class="active" data-nav-id="/api/access-control/">
-          <a href="//developers.whmcs.com/api/access-control/">
-            <span>Access Control</span>
+        <li class="" data-nav-id="/advanced/date-functions/">
+          <a href="//developers.whmcs.com/advanced/date-functions/">
+            <span>Date Functions</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/api/response-types/">
-          <a href="//developers.whmcs.com/api/response-types/">
-            <span>Response Types</span>
+        <li class="" data-nav-id="/advanced/currency-formatting/">
+          <a href="//developers.whmcs.com/advanced/currency-formatting/">
+            <span>Currency Formatting</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/api/sample-code/">
-          <a href="//developers.whmcs.com/api/sample-code/">
-            <span>Sample Code</span>
+        <li class="" data-nav-id="/advanced/logging/">
+          <a href="//developers.whmcs.com/advanced/logging/">
+            <span>Logging</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/api/internal-api/">
-          <a href="//developers.whmcs.com/api/internal-api/">
-            <span>Internal API</span>
+        <li class="" data-nav-id="/advanced/widgets/">
+          <a href="//developers.whmcs.com/advanced/widgets/">
+            <span>Widgets</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/api/api-index/">
-          <a href="//developers.whmcs.com/api/api-index/">
-            <span>API Index</span>
+        <li class="" data-nav-id="/advanced/admin-area/">
+          <a href="//developers.whmcs.com/advanced/admin-area/">
+            <span>Admin Area</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="active" data-nav-id="/advanced/json-file/">
+          <a href="//developers.whmcs.com/advanced/json-file/">
+            <span>JSON File</span>
           </a>
         </li>
       
@@ -222,11 +230,9 @@
                   
                 
                   
-                
-                  
                     
                     
-                <a href="//developers.whmcs.com/api/" itemprop="url"><span itemprop="title">API</span></a> <i class="fa fa-angle-right"></i>
+                <a href="//developers.whmcs.com/advanced/" itemprop="url"><span itemprop="title">Advanced</span></a> <i class="fa fa-angle-right"></i>
                     
                   
                 
@@ -256,57 +262,173 @@
                 
                   
                 
-                <span itemprop="title"> Access Control</span>
+                  
+                
+                <span itemprop="title"> JSON File</span>
               </div>
             </div>
 
 
-			<h1>Access Control </h1>
+			<h1>JSON File </h1>
 
-			
+			<p>When developing modules for WHMCS, you can place a <code>whmcs.json</code> file in the module&rsquo;s root directory to provide additional meta information that WHMCS will use in display of the <strong>Apps &amp; Integrations</strong> pages.</p>
 
-<p>Access to the API by default is restricted by IP.</p>
+<p>A sample <code>whmcs.json</code> is provided below:</p>
 
-<p>For situations where IP access control is not feasible, an Access Key can also be configured.</p>
-
-<h2 id="managing-allowed-ips">Managing Allowed IPs</h2>
-
-<p>To configure the Allowed IPs, login to the WHMCS admin area and navigate to <em>Setup &gt; General Settings &gt; Security</em>.</p>
-
-<p>There you can add and remove IPs, along with a note referencing.</p>
-
-<h2 id="configuring-an-access-key">Configuring an Access Key</h2>
-
-<p>Alternatively an access key can be configured to allow IP restrictions to be bypassed.</p>
-
-<p>It works by defining a secret key/passphrase in the WHMCS configuration.php file which is then passed into all API calls.  To configure it, add a line as follows to your <code>configuration.php</code> file in the root WHMCS directory.</p>
-
-<pre><code>$api_access_key = 'secret_key_passphrase_goes_here';
+<pre><code>{
+  &quot;schema&quot;: &quot;1.0&quot;,
+  &quot;type&quot;: &quot;whmcs-notifications&quot;,
+  &quot;name&quot;: &quot;email&quot;,
+  &quot;license&quot;: &quot;proprietary&quot;,
+  &quot;category&quot;: &quot;notifications&quot;,
+  &quot;description&quot;: {
+    &quot;name&quot;: &quot;Email&quot;,
+    &quot;tagline&quot;: &quot;Configure rule based notifications delivered by email.&quot;,
+    &quot;long&quot;: &quot;Setup advanced rule based notifications for events and triggers that matter to you and receive those notifications to one or more email addresses.&quot;,
+    &quot;features&quot;: [
+      &quot;Setup rule based events and triggers&quot;,
+      &quot;Receive notifications by email&quot;
+    ]
+  },
+  &quot;logo&quot;: {
+    &quot;filename&quot;: &quot;logo.png&quot;
+  },
+  &quot;support&quot;: {
+    &quot;homepage&quot;: &quot;https:\/\/www.whmcs.com\/&quot;, 
+    &quot;learn_more&quot;: &quot;https:\/\/www.whmcs.com\/tour&quot;, 
+    &quot;email&quot;: &quot;support@whmcs.com&quot;, 
+    &quot;support_url&quot;: &quot;https:\/\/support.whmcs.com\/&quot;,
+    &quot;docs_url&quot;: &quot;https:\/\/docs.whmcs.com\/Notifications&quot;
+  },
+  &quot;authors&quot;: [
+    {
+      &quot;name&quot;: &quot;WHMCS&quot;,
+      &quot;homepage&quot;: &quot;https:\/\/www.whmcs.com\/&quot;
+    }
+  ]
+}
 </code></pre>
 
-<p>An API Access Key can contain letters, numbers, and the following special characters only:</p>
+<p>A brief description of each parameter and what it is used for can be found below:</p>
 
-<pre><code>! @ # $ % . ( ) * [ ] - _
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Usage</th>
+</tr>
+</thead>
 
-<p>Following the introduction of an API Access Key, you can then include it in your API requests as follows:</p>
+<tbody>
+<tr>
+<td>schema</td>
+<td>The current version of the whmcs.json file structure.</td>
+</tr>
 
-<pre><code>?action=xxxx&amp;username=xxx&amp;password=xxx&amp;accesskey=secret_key_passphrase_goes_here
-</code></pre>
+<tr>
+<td>type</td>
+<td>The type of module. The available types are: <code>whmcs-addons</code>, <code>whmcs-fraud</code>, <code>whmcs-gateways</code>, <code>whmcs-registrars</code>, <code>whmcs-security</code>, <code>whmcs-servers</code>, <code>whmcs-notifications</code></td>
+</tr>
+
+<tr>
+<td>name</td>
+<td>The name of the module.</td>
+</tr>
+
+<tr>
+<td>license</td>
+<td>Which type of license the module is released under.</td>
+</tr>
+
+<tr>
+<td>category</td>
+<td>The category in which the module should be organized.</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>Additional parameters that describe the module.</td>
+</tr>
+
+<tr>
+<td>description.name</td>
+<td>The display name of the module.</td>
+</tr>
+
+<tr>
+<td>description.tagline</td>
+<td>A short summary description of the module.</td>
+</tr>
+
+<tr>
+<td>description.long</td>
+<td>A more detailed description of the module.</td>
+</tr>
+
+<tr>
+<td>description.features</td>
+<td>An array containing each feature that will display as a list of bullet points.</td>
+</tr>
+
+<tr>
+<td>logo.filename</td>
+<td>The file that should be used as the module logo (500 pixel recommended width.</td>
+</tr>
+
+<tr>
+<td>support.homepage</td>
+<td>A URL that links to the website homepage for the module.</td>
+</tr>
+
+<tr>
+<td>support.learn_more</td>
+<td>A URL that links to a page with additional information about the module.</td>
+</tr>
+
+<tr>
+<td>support.email</td>
+<td>The email address to contact to get support for the module</td>
+</tr>
+
+<tr>
+<td>support.support_url</td>
+<td>A URL that links to a support desk or resources for the module.</td>
+</tr>
+
+<tr>
+<td>support.docs_url</td>
+<td>A URL that links to the documentation for the module.</td>
+</tr>
+
+<tr>
+<td>authors</td>
+<td>An array of objects that represent each author and a link to their website.</td>
+</tr>
+
+<tr>
+<td>author name</td>
+<td>The name of the module author.</td>
+</tr>
+
+<tr>
+<td>author homepage</td>
+<td>A URL that links to the module author&rsquo;s website.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The logo.png file used for a module should not exceed <strong>500</strong> pixels in width. An example placeholder logo for reference can be found below:</p>
+
+<p><img src="./advanced/module-image-placeholder.png" alt="Module Image Placeholder" /></p>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/api/authentication/">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/advanced/widgets/">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
-                
-                    <a class="nav nav-next" href="//developers.whmcs.com/api/response-types/">
-                        <i class="fa fa-arrow-circle-right"></i>
-                        Next
-                    </a>
                 
             </div>
 

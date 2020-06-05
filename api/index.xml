@@ -140,6 +140,11 @@ $postfields = array(
 &lt;pre&gt;&lt;code&gt;$api_access_key = &#39;secret_key_passphrase_goes_here&#39;;
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;An API Access Key can contain letters, numbers, and the following special characters only:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;! @ # $ % . ( ) * [ ] - _
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;Following the introduction of an API Access Key, you can then include it in your API requests as follows:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;?action=xxxx&amp;amp;username=xxx&amp;amp;password=xxx&amp;amp;accesskey=secret_key_passphrase_goes_here

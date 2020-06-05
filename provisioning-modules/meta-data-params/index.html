@@ -343,7 +343,9 @@
 
 			<h1>Meta Data Parameters </h1>
 
-			<p><a href="//developers.whmcs.com/provisioning-modules" title="Provisioning Modules">Provisioning Modules</a> support a number of meta data configuration parameters.</p>
+			
+
+<p><a href="//developers.whmcs.com/provisioning-modules" title="Provisioning Modules">Provisioning Modules</a> support a number of meta data configuration parameters.</p>
 
 <p>They include:</p>
 
@@ -414,8 +416,53 @@
 <td>N/A</td>
 <td><em>For use with Single Sign-On, define here what you want to show as the text label for the Single Sign-On option for a server assigned to the module within the admin area.</em></td>
 </tr>
+
+<tr>
+<td>ListAccountsProductField</td>
+<td>Text</td>
+<td>7.10</td>
+<td>N/A</td>
+<td><em>For use with Server Sync, define the config option indexed field, from the _ConfigOptions function, that identifies the product on the remote system.</em></td>
+</tr>
+
+<tr>
+<td>ListAccountsUniqueIdentifierDisplayName</td>
+<td>Text</td>
+<td>7.10</td>
+<td>Domain</td>
+<td><em>For use with Server Sync, define the display name of the unique identifier to be displayed on the table output.</em></td>
+</tr>
+
+<tr>
+<td>ListAccountsUniqueIdentifierField</td>
+<td>Text</td>
+<td>7.10</td>
+<td>N/A</td>
+<td><em>For use with Server Sync and Usage Metrics, define the field in the return that matches the unique identifier. The following values are supported: <code>domain</code>, <code>username</code>, <code>customfield.yourFieldName</code>. If using the <code>customfield.yourFieldName</code> value, replace <code>yourFieldName</code> with the name of the custom field to be used.</em></td>
+</tr>
 </tbody>
 </table>
+
+<p>These parameters are defined by a function which is responsible for returning an associative array containing the defined meta data configuration parameters and their values.</p>
+
+<p>The following example illustrates how one might make a simple MetaData function.</p>
+
+<h2 id="example-metadata-function-a-id-example-function-a">Example MetaData Function <a id="example-function"></a></h2>
+
+<pre><code>function mymodule_MetaData() {
+    return array(
+        'DisplayName' =&gt; 'myModule',
+        'APIVersion' =&gt; '1.1',
+        'DefaultNonSSLPort' =&gt; '1234',
+        'DefaultSSLPort' =&gt; '4321',
+        'ServiceSingleSignOnLabel' =&gt; 'Login to myModule Client',
+        'AdminSingleSignOnLabel' =&gt; 'Login to myModule Admin',
+        'ListAccountsUniqueIdentifierDisplayName' =&gt; 'Domain',
+        'ListAccountsUniqueIdentifierField' =&gt; 'domain',
+        'ListAccountsProductField' =&gt; 'configoption1',
+    );
+}
+</code></pre>
 
 
 			<div class="topic-navigation clearfix">
