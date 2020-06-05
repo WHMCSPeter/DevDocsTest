@@ -1086,6 +1086,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/advanced/json-file/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/payment-gateways/refunds/</loc>
   </url>
   

@@ -290,7 +290,9 @@ function provisioningmodule_LoaderFunction() {
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/provisioning-modules/meta-data-params/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;//developers.whmcs.com/provisioning-modules&#34; title=&#34;Provisioning Modules&#34;&gt;Provisioning Modules&lt;/a&gt; support a number of meta data configuration parameters.&lt;/p&gt;
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;//developers.whmcs.com/provisioning-modules&#34; title=&#34;Provisioning Modules&#34;&gt;Provisioning Modules&lt;/a&gt; support a number of meta data configuration parameters.&lt;/p&gt;
 
 &lt;p&gt;They include:&lt;/p&gt;
 
@@ -361,8 +363,53 @@ function provisioningmodule_LoaderFunction() {
 &lt;td&gt;N/A&lt;/td&gt;
 &lt;td&gt;&lt;em&gt;For use with Single Sign-On, define here what you want to show as the text label for the Single Sign-On option for a server assigned to the module within the admin area.&lt;/em&gt;&lt;/td&gt;
 &lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ListAccountsProductField&lt;/td&gt;
+&lt;td&gt;Text&lt;/td&gt;
+&lt;td&gt;7.10&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;For use with Server Sync, define the config option indexed field, from the _ConfigOptions function, that identifies the product on the remote system.&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ListAccountsUniqueIdentifierDisplayName&lt;/td&gt;
+&lt;td&gt;Text&lt;/td&gt;
+&lt;td&gt;7.10&lt;/td&gt;
+&lt;td&gt;Domain&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;For use with Server Sync, define the display name of the unique identifier to be displayed on the table output.&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ListAccountsUniqueIdentifierField&lt;/td&gt;
+&lt;td&gt;Text&lt;/td&gt;
+&lt;td&gt;7.10&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;For use with Server Sync and Usage Metrics, define the field in the return that matches the unique identifier. The following values are supported: &lt;code&gt;domain&lt;/code&gt;, &lt;code&gt;username&lt;/code&gt;, &lt;code&gt;customfield.yourFieldName&lt;/code&gt;. If using the &lt;code&gt;customfield.yourFieldName&lt;/code&gt; value, replace &lt;code&gt;yourFieldName&lt;/code&gt; with the name of the custom field to be used.&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;p&gt;These parameters are defined by a function which is responsible for returning an associative array containing the defined meta data configuration parameters and their values.&lt;/p&gt;
+
+&lt;p&gt;The following example illustrates how one might make a simple MetaData function.&lt;/p&gt;
+
+&lt;h2 id=&#34;example-metadata-function-a-id-example-function-a&#34;&gt;Example MetaData Function &lt;a id=&#34;example-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;function mymodule_MetaData() {
+    return array(
+        &#39;DisplayName&#39; =&amp;gt; &#39;myModule&#39;,
+        &#39;APIVersion&#39; =&amp;gt; &#39;1.1&#39;,
+        &#39;DefaultNonSSLPort&#39; =&amp;gt; &#39;1234&#39;,
+        &#39;DefaultSSLPort&#39; =&amp;gt; &#39;4321&#39;,
+        &#39;ServiceSingleSignOnLabel&#39; =&amp;gt; &#39;Login to myModule Client&#39;,
+        &#39;AdminSingleSignOnLabel&#39; =&amp;gt; &#39;Login to myModule Admin&#39;,
+        &#39;ListAccountsUniqueIdentifierDisplayName&#39; =&amp;gt; &#39;Domain&#39;,
+        &#39;ListAccountsUniqueIdentifierField&#39; =&amp;gt; &#39;domain&#39;,
+        &#39;ListAccountsProductField&#39; =&amp;gt; &#39;configoption1&#39;,
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -476,6 +523,11 @@ invoice line items, if enabled in the Invoicing section of General Setting.&lt;/
 
 &lt;p&gt;Used in conjunction with the above.
 This function handles the values submitted in any custom fields when a save occurs.&lt;/p&gt;
+
+&lt;h2 id=&#34;metadata-a-id-meta-data-a&#34;&gt;MetaData &lt;a id=&#34;meta-data&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Used to define a number of meta data configuration parameters.
+This function returns an array, consisting key-value pairs, where the key is the parameter name and the value is the parameter value.&lt;/p&gt;
 </description>
     </item>
     

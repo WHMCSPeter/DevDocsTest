@@ -28,6 +28,7 @@
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/currency-formatting/&#34;&gt;Currency Formatting&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to use the currency formatting helper functions in WHMCS&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/logging/&#34;&gt;Logging&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to use the logging helper functions in WHMCS&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/widgets/&#34;&gt;Widgets&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to create widgets using AbstractWidget&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/json-file/&#34;&gt;JSON File&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Provide meta information for modules&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -817,6 +818,164 @@ add_hook(&#39;AdminAreaFooterOutput&#39;, 1, function ($vars) {
     }
 });
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JSON File</title>
+      <link>//developers.whmcs.com/advanced/json-file/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/advanced/json-file/</guid>
+      <description>&lt;p&gt;When developing modules for WHMCS, you can place a &lt;code&gt;whmcs.json&lt;/code&gt; file in the module&amp;rsquo;s root directory to provide additional meta information that WHMCS will use in display of the &lt;strong&gt;Apps &amp;amp; Integrations&lt;/strong&gt; pages.&lt;/p&gt;
+
+&lt;p&gt;A sample &lt;code&gt;whmcs.json&lt;/code&gt; is provided below:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &amp;quot;schema&amp;quot;: &amp;quot;1.0&amp;quot;,
+  &amp;quot;type&amp;quot;: &amp;quot;whmcs-notifications&amp;quot;,
+  &amp;quot;name&amp;quot;: &amp;quot;email&amp;quot;,
+  &amp;quot;license&amp;quot;: &amp;quot;proprietary&amp;quot;,
+  &amp;quot;category&amp;quot;: &amp;quot;notifications&amp;quot;,
+  &amp;quot;description&amp;quot;: {
+    &amp;quot;name&amp;quot;: &amp;quot;Email&amp;quot;,
+    &amp;quot;tagline&amp;quot;: &amp;quot;Configure rule based notifications delivered by email.&amp;quot;,
+    &amp;quot;long&amp;quot;: &amp;quot;Setup advanced rule based notifications for events and triggers that matter to you and receive those notifications to one or more email addresses.&amp;quot;,
+    &amp;quot;features&amp;quot;: [
+      &amp;quot;Setup rule based events and triggers&amp;quot;,
+      &amp;quot;Receive notifications by email&amp;quot;
+    ]
+  },
+  &amp;quot;logo&amp;quot;: {
+    &amp;quot;filename&amp;quot;: &amp;quot;logo.png&amp;quot;
+  },
+  &amp;quot;support&amp;quot;: {
+    &amp;quot;homepage&amp;quot;: &amp;quot;https:\/\/www.whmcs.com\/&amp;quot;, 
+    &amp;quot;learn_more&amp;quot;: &amp;quot;https:\/\/www.whmcs.com\/tour&amp;quot;, 
+    &amp;quot;email&amp;quot;: &amp;quot;support@whmcs.com&amp;quot;, 
+    &amp;quot;support_url&amp;quot;: &amp;quot;https:\/\/support.whmcs.com\/&amp;quot;,
+    &amp;quot;docs_url&amp;quot;: &amp;quot;https:\/\/docs.whmcs.com\/Notifications&amp;quot;
+  },
+  &amp;quot;authors&amp;quot;: [
+    {
+      &amp;quot;name&amp;quot;: &amp;quot;WHMCS&amp;quot;,
+      &amp;quot;homepage&amp;quot;: &amp;quot;https:\/\/www.whmcs.com\/&amp;quot;
+    }
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A brief description of each parameter and what it is used for can be found below:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Usage&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;schema&lt;/td&gt;
+&lt;td&gt;The current version of the whmcs.json file structure.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;The type of module. The available types are: &lt;code&gt;whmcs-addons&lt;/code&gt;, &lt;code&gt;whmcs-fraud&lt;/code&gt;, &lt;code&gt;whmcs-gateways&lt;/code&gt;, &lt;code&gt;whmcs-registrars&lt;/code&gt;, &lt;code&gt;whmcs-security&lt;/code&gt;, &lt;code&gt;whmcs-servers&lt;/code&gt;, &lt;code&gt;whmcs-notifications&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;The name of the module.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;license&lt;/td&gt;
+&lt;td&gt;Which type of license the module is released under.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;category&lt;/td&gt;
+&lt;td&gt;The category in which the module should be organized.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;description&lt;/td&gt;
+&lt;td&gt;Additional parameters that describe the module.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;description.name&lt;/td&gt;
+&lt;td&gt;The display name of the module.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;description.tagline&lt;/td&gt;
+&lt;td&gt;A short summary description of the module.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;description.long&lt;/td&gt;
+&lt;td&gt;A more detailed description of the module.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;description.features&lt;/td&gt;
+&lt;td&gt;An array containing each feature that will display as a list of bullet points.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;logo.filename&lt;/td&gt;
+&lt;td&gt;The file that should be used as the module logo (500 pixel recommended width.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;support.homepage&lt;/td&gt;
+&lt;td&gt;A URL that links to the website homepage for the module.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;support.learn_more&lt;/td&gt;
+&lt;td&gt;A URL that links to a page with additional information about the module.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;support.email&lt;/td&gt;
+&lt;td&gt;The email address to contact to get support for the module&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;support.support_url&lt;/td&gt;
+&lt;td&gt;A URL that links to a support desk or resources for the module.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;support.docs_url&lt;/td&gt;
+&lt;td&gt;A URL that links to the documentation for the module.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;authors&lt;/td&gt;
+&lt;td&gt;An array of objects that represent each author and a link to their website.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;author name&lt;/td&gt;
+&lt;td&gt;The name of the module author.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;author homepage&lt;/td&gt;
+&lt;td&gt;A URL that links to the module author&amp;rsquo;s website.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The logo.png file used for a module should not exceed &lt;strong&gt;500&lt;/strong&gt; pixels in width. An example placeholder logo for reference can be found below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./advanced/module-image-placeholder.png&#34; alt=&#34;Module Image Placeholder&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
