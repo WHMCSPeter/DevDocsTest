@@ -34,6 +34,406 @@
     </item>
     
     <item>
+      <title>Upgrade to WHMCS 8.0</title>
+      <link>//developers.whmcs.com/advanced/upgrade-to-whmcs-8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/advanced/upgrade-to-whmcs-8/</guid>
+      <description>
+
+&lt;p&gt;There are several changes in WHMCS v8.0 and its dependencies that may affect third-party code.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;For your own code, you will need to manually verify this.&lt;/li&gt;
+&lt;li&gt;For any code that comes from third-party vendors, check with the vendor to ensure it&amp;rsquo;s compatible with WHMCS v8.0.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;php-7-2-requirement&#34;&gt;PHP 7.2 requirement&lt;/h2&gt;
+
+&lt;p&gt;WHMCS v8.0 and its dependencies require PHP 7.2. This may require the presence of the PHP 7.2 syntax in your code in order to avoid errors. We recommend that you consult [the PHP manual&amp;rsquo;s PHP 7.2 Migration Guide][&lt;a href=&#34;https://www.php.net/manual/en/migration72.php&#34;&gt;https://www.php.net/manual/en/migration72.php&lt;/a&gt;] as you evaluate and update your code for compatibility with WHMCS v8.0.&lt;/p&gt;
+
+&lt;h2 id=&#34;removed-templates&#34;&gt;Removed templates&lt;/h2&gt;
+
+&lt;p&gt;We have removed the &lt;em&gt;Boxes&lt;/em&gt; and &lt;em&gt;Modern&lt;/em&gt; templates. WHMCS no longer ships with them, and we do not support them.&lt;/p&gt;
+
+&lt;p&gt;Make sure to update any custom order forms based on these to use the &lt;em&gt;Standard&lt;/em&gt; template. You can also use the &lt;em&gt;Legacy Boxes&lt;/em&gt; and &lt;em&gt;Legacy Modern&lt;/em&gt; child templates as a baseline for custom templates.&lt;/p&gt;
+
+&lt;p&gt;Other custom templates will not be affected by this change.&lt;/p&gt;
+
+&lt;h2 id=&#34;updates-for-dependencies&#34;&gt;Updates for dependencies&lt;/h2&gt;
+
+&lt;p&gt;We updated several dependencies within WHMCS while preparing for this upgrade. When ensuring that your code is compatible with WHMCS v8.0, you will likely need to update dependencies as well. The list below includes a selection of our most important updates and notes on selected changes that impacted WHMCS&amp;rsquo;s code.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; You &lt;strong&gt;must&lt;/strong&gt; independently verify whether your code and its dependencies necessitate upgrades. The updates below are highlights of WHMCS&amp;rsquo;s changes, and are not comprehensive. Your code will have its own unique needs, but many of these items are likely to apply too.&lt;/p&gt;
+
+&lt;h3 id=&#34;carbon&#34;&gt;Carbon&lt;/h3&gt;
+
+&lt;p&gt;Carbon has been upgraded from version 1 to version 2. &lt;code&gt;Carbon\Carbon::parse()&lt;/code&gt; now returns false for invalid values. Previous versions of Carbon would throw an exception.&lt;/p&gt;
+
+&lt;h3 id=&#34;guzzle&#34;&gt;Guzzle&lt;/h3&gt;
+
+&lt;p&gt;Guzzle has been upgraded from version 5 to version 7. The major changes in this upgrade are listed below. For more information and a full list of changes, see [Guzzle&amp;rsquo;s documentation][&lt;a href=&#34;https://github.com/guzzle/guzzle/blob/master/UPGRADING.md&#34;&gt;https://github.com/guzzle/guzzle/blob/master/UPGRADING.md&lt;/a&gt;].&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;client::get()&lt;/code&gt; returns have changed, so you may need to switch to &lt;code&gt;getBody()-&amp;gt;getContents&lt;/code&gt; or cast &lt;code&gt;-&amp;gt;getBody()&lt;/code&gt; to a string.&lt;/p&gt;
+
+&lt;p&gt;You may need to consider making these changes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;base_uri&lt;/code&gt; rather than &lt;code&gt;base_url&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Store cookies in &lt;code&gt;CookieJarInterface&lt;/code&gt;, not a &lt;code&gt;key =&amp;gt; value&lt;/code&gt; array.&lt;/li&gt;
+&lt;li&gt;When you instantiate the Guzzle Client class, move every option from the &lt;code&gt;defaults&lt;/code&gt; array key to the top level of options:
+```
+         $client = new Client([&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;defaults&amp;rsquo; =&amp;gt; [&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;verify&amp;rsquo; =&amp;gt; true,&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;exceptions&amp;rsquo; =&amp;gt; true,&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;timeout&amp;rsquo; =&amp;gt; 10,&lt;/li&gt;
+&lt;li&gt;]&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;verify&amp;rsquo; =&amp;gt; true,&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;http_errors&amp;rsquo; =&amp;gt; true,&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;timeout&amp;rsquo; =&amp;gt; 10,
+         ]);
+```&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Some items have been removed:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;CompleteEvent&lt;/code&gt; is no longer defined.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;StreamHandler&lt;/code&gt; is no longer defined.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GuzzleHttp\Message\ResponseInterface&lt;/code&gt; is no longer defined. We recommend that you replace it with &lt;code&gt;Psr\Http\Message\ResponseInterface&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;laravel&#34;&gt;Laravel&lt;/h3&gt;
+
+&lt;p&gt;Capsule &lt;code&gt;pluck()&lt;/code&gt; and &lt;code&gt;get()&lt;/code&gt; now return a Collection rather than an array. If you&amp;rsquo;d like to minimize changes to your codebase, call &lt;code&gt;-&amp;gt;all()&lt;/code&gt; on it when you feed results into &lt;code&gt;in_array()&lt;/code&gt; and similar methods. Do not call &lt;code&gt;toArray()&lt;/code&gt; instead without changing consuming code. &lt;code&gt;toArray()&lt;/code&gt; will convert all collection items into arrays as well (which Capsule did not do previously).&lt;/p&gt;
+
+&lt;p&gt;Some items are removed:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Builder::lists()&lt;/code&gt; is removed. In most cases, we replaced this with &lt;code&gt;pluck()&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;String helpers no longer exist, and you must replace them. For example, replace &lt;code&gt;snake_case()&lt;/code&gt; with &lt;code&gt;Str::of(&#39;&amp;lt;string&amp;gt;&#39;)-&amp;gt;snake()&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These changes are particularly important if you use Eloquent.&lt;/p&gt;
+
+&lt;h3 id=&#34;smarty&#34;&gt;Smarty&lt;/h3&gt;
+
+&lt;p&gt;We upgraded &lt;code&gt;smarty/smarty&lt;/code&gt; from version 3.1.33 to 3.1.36. Additionally, there are changes in the use of Smarty&amp;rsquo;s Security Policy parameters. For more information, see [Smarty Security Policy][&lt;a href=&#34;https://docs.whmcs.com/Smarty_Security_Policy&#34;&gt;https://docs.whmcs.com/Smarty_Security_Policy&lt;/a&gt;].&lt;/p&gt;
+
+&lt;h3 id=&#34;other&#34;&gt;Other&lt;/h3&gt;
+
+&lt;p&gt;We added and updated the following additional dependencies for Composer:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Dependency&lt;/th&gt;
+&lt;th&gt;From version&lt;/th&gt;
+&lt;th&gt;To version&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;abraham/twitteroauth&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;0.7.4&lt;/td&gt;
+&lt;td&gt;1.1.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;bitpay/sdk-light&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1.2.2002&lt;/td&gt;
+&lt;td&gt;2.0.2007&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;brick/math&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;0.8.15&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;composer/composer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1.10.5&lt;/td&gt;
+&lt;td&gt;1.10.6&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ezyang/htmlpurifier&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;4.9.2&lt;/td&gt;
+&lt;td&gt;4.12.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;filp/whoops&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;2.1.8&lt;/td&gt;
+&lt;td&gt;2.7.2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;firebase/php-jwt&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;3.0.0&lt;/td&gt;
+&lt;td&gt;5.2.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;google/apiclient&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;v2.1.3&lt;/td&gt;
+&lt;td&gt;2.7.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;google/auth&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;0.11.1&lt;/td&gt;
+&lt;td&gt;1.11.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;guzzlehttp/guzzle&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;6.5.3&lt;/td&gt;
+&lt;td&gt;7.0.1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;illuminate/console&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;7.9.2&lt;/td&gt;
+&lt;td&gt;7.12.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;illuminate/container&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;7.9.2&lt;/td&gt;
+&lt;td&gt;7.12.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;illuminate/contracts&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;7.9.2&lt;/td&gt;
+&lt;td&gt;7.12.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;illuminate/database&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;7.9.2&lt;/td&gt;
+&lt;td&gt;7.12.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;illuminate/events&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;7.9.2&lt;/td&gt;
+&lt;td&gt;7.12.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;illuminate/support&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;7.9.2&lt;/td&gt;
+&lt;td&gt;7.12.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;illuminate/validation&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;7.9.2&lt;/td&gt;
+&lt;td&gt;7.12.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;knplabs/knp-menu&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;2.1.1&lt;/td&gt;
+&lt;td&gt;3.1.1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;laminas/laminas-diactoros&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;2.3.1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;laminas/laminas-httphandlerrunner&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;1.2.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;league/climate&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;3.2.1&lt;/td&gt;
+&lt;td&gt;3.5.2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;league/flysystem&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1.0.45&lt;/td&gt;
+&lt;td&gt;1.0.67&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;league/oauth2-client&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;2.4.1&lt;/td&gt;
+&lt;td&gt;2.5.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;league/oauth2-google&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;2.5.0&lt;/td&gt;
+&lt;td&gt;3.0.3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;monolog/monolog&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1.18.2&lt;/td&gt;
+&lt;td&gt;2.0.2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;nikic/fast-route&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1.2.0&lt;/td&gt;
+&lt;td&gt;1.3.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;php-imap/php-imap&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;2.0.9&lt;/td&gt;
+&lt;td&gt;3.1.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;phpmyadmin/sql-parser&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;4.2.4&lt;/td&gt;
+&lt;td&gt;5.3.1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;phpmyadmin/phpmailer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;6.0.7&lt;/td&gt;
+&lt;td&gt;6.1.5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;phpseclib/mcrypt_compat&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1.0.5&lt;/td&gt;
+&lt;td&gt;1.0.11&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;phpseclib/phpseclib&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;2.0.10&lt;/td&gt;
+&lt;td&gt;2.0.27&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;psr/http-factory&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;1.0.1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;punic/punic&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1.6.3&lt;/td&gt;
+&lt;td&gt;3.5.1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ramsey/collection&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;1.0.1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ramsey/uuid&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;3.4.1&lt;/td&gt;
+&lt;td&gt;4.0.1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;react/promise&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;2.5.1&lt;/td&gt;
+&lt;td&gt;2.8.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ramsey/uuid&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;3.4.1&lt;/td&gt;
+&lt;td&gt;4.0.1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;seld/jsonlint&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1.6.1&lt;/td&gt;
+&lt;td&gt;1.8.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;seld/phar-utils&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1.0.1&lt;/td&gt;
+&lt;td&gt;1.1.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;stripe/stripe-php&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;6.43.1&lt;/td&gt;
+&lt;td&gt;7.34.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;symfony/polyfill-ctype&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;1.17.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;symfony/polyfill-iconv&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1.15.0&lt;/td&gt;
+&lt;td&gt;1.17.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;symfony/polyfill-intl-idn&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;1.17.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;symfony/polyfill-mbstring&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1.14.0&lt;/td&gt;
+&lt;td&gt;1.17.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;symfony/polyfill-php72&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;1.17.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;symfony/polyfill-php73&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;1.17.0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tecnickcom/tcpdf&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;6.2.26&lt;/td&gt;
+&lt;td&gt;6.3.5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;zbateson/stream-decorators&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;td&gt;1.0.3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;zendframework/zend-diactoros&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;1.3.10&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Creating Pages</title>
       <link>//developers.whmcs.com/advanced/creating-pages/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

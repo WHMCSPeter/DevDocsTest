@@ -19,19 +19,19 @@
 
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 
-&lt;p&gt;Addon modules allow you to create both admin pages and hooks to extend WHMCS further.&lt;/p&gt;
+&lt;p&gt;Addon Modules allow you to create both admin pages and hooks to extend WHMCS further.&lt;/p&gt;
 
 &lt;p&gt;Addon Modules can consist of just an admin page, just hooks, or both.
 They are all managed through the &lt;strong&gt;Setup&lt;/strong&gt; &amp;gt; &lt;strong&gt;Addon Modules&lt;/strong&gt; interface.&lt;/p&gt;
 
-&lt;p&gt;There are other types of module in WHMCS. These are &lt;a href=&#34;../payment-gateways&#34; title=&#34;Gateway Module Documentation&#34;&gt;Payment Gateways&lt;/a&gt;, &lt;a href=&#34;../provisioning-modules&#34; title=&#34;Provisioning Module Developer Documentation&#34;&gt;Provisioning Modules&lt;/a&gt; and &lt;a href=&#34;../domain-registrars&#34; title=&#34;Registrar Module Developer Documentation&#34;&gt;Registrar Modules&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There are other types of module in WHMCS. These are &lt;a href=&#34;../payment-gateways&#34; title=&#34;Gateway Module Documentation&#34;&gt;Payment Gateways&lt;/a&gt;, &lt;a href=&#34;../provisioning-modules&#34; title=&#34;Provisioning Module Developer Documentation&#34;&gt;Provisioning Modules&lt;/a&gt;, &lt;a href=&#34;../mail-providers&#34; title=&#34;Mail Provider Module Developer Documentation&#34;&gt;Mail Provider Modules&lt;/a&gt; and &lt;a href=&#34;../domain-registrars&#34; title=&#34;Registrar Module Developer Documentation&#34;&gt;Registrar Modules&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Once activated, modules will display in the &amp;ldquo;Addons&amp;rdquo; menu within the admin area for access from any page.&lt;/p&gt;
+&lt;p&gt;Once activated, modules will display in the &lt;strong&gt;Addons&lt;/strong&gt; menu within the admin area for access from any page.&lt;/p&gt;
 
 &lt;p&gt;Management options consist of activating and deactivating of the modules.
 Access control allows full admins to define which of the administrator roles can access each addon module.&lt;/p&gt;
 
-&lt;p&gt;We have a &lt;strong&gt;Video Tutorial&lt;/strong&gt; demonstrating addon module management &amp;amp; access control &lt;a href=&#34;https://www.youtube.com/watch?v=39TpVTs8onE&#34; title=&#34;Addon Modules&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;We have a &lt;strong&gt;Video Tutorial&lt;/strong&gt; demonstrating addon module management and access control &lt;a href=&#34;https://www.youtube.com/watch?v=39TpVTs8onE&#34; title=&#34;Addon Modules&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

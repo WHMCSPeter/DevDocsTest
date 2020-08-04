@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getting Started - WHMCS Developer Documentation</title>
+    <meta name="generator" content="Hugo 0.17" />
+
+    
+    <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
+    
+    <link rel="canonical" href="//developers.whmcs.com/mail-providers/getting-started/">
+    
+    <meta name="author" content="WHMCS Development Team">
+    
+
+    <link rel="stylesheet" href="//developers.whmcs.com/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/styles.css?v=3">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/prism.css">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+    
+
+  </head>
+  <body class="language-php">
+
+<header class="header">
+
+
+
+
+
+<div class="container">
+<nav class="navbar navbar-whmcs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.whmcs.com/"><img src="//developers.whmcs.com/img/logo.png" width="148" height="34"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="primary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="//developers.whmcs.com/"><span class="hidden-sm">Developer Documentation</span><span class="visible-sm">Developer Docs</span></a></li>
+        <li class="visible-xs"><a href="//developers.whmcs.com/">Home</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/api/">API</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+        <li><a href="//developers.whmcs.com/hooks-reference/">Hook Reference</a></li>
+        <li><a href="https://github.com/whmcs" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+      <form class="navbar-form navbar-right visible-xs" id="docsSearchMobile">
+        <div class="aa-input-container" id="aa-input-container">
+            <input type="search" id="inputSearchMobile" class="aa-input-search" placeholder="Search documentation" name="search" autocomplete="off" />
+            <svg class="aa-input-icon" viewBox="654 -372 1664 1664">
+                <path d="M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332  s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z" />
+            </svg>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>
+
+<div class="headline-bar hidden-xs">
+<nav class="navbar navbar-main-nav">
+  <div class="container">
+    <div class="collapse navbar-collapse" id="secondary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="//developers.whmcs.com/">Home</a></li>
+            <li><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li><a href="//developers.whmcs.com/api/">API</a></li>
+            <li><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" id="docsSearch">
+        <div class="aa-input-container" id="aa-input-container">
+            <input type="search" id="inputSearch" class="aa-input-search" placeholder="Search documentation" name="search" autocomplete="off" />
+            <svg class="aa-input-icon" viewBox="654 -372 1664 1664">
+                <path d="M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332  s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z" />
+            </svg>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>
+
+</header>
+
+
+<main class="main">
+
+  <div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-sm-3 sidebar-offcanvas">
+
+        
+          <ul class="sidebar-nav">
+            
+  <li class="active parent" data-nav-id="/mail-providers/">
+    <a href="//developers.whmcs.com/mail-providers/">
+      <span>
+        
+          <i class='fa fa-paper-plane-o fa-fw'></i>
+        
+         Mail Providers
+       </span>
+    </a>
+    
+    <ul>
+      
+      
+      
+      
+        <li class="active" data-nav-id="/mail-providers/getting-started/">
+          <a href="//developers.whmcs.com/mail-providers/getting-started/">
+            <span>Getting Started</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/mail-providers/provider-settings/">
+          <a href="//developers.whmcs.com/mail-providers/provider-settings/">
+            <span>Provider Settings</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/mail-providers/send-notification/">
+          <a href="//developers.whmcs.com/mail-providers/send-notification/">
+            <span>Send Notification</span>
+          </a>
+        </li>
+      
+      
+    </ul>
+    
+  </li>
+
+
+          </ul>
+        
+
+      </div>
+      <div class="col-sm-9">
+
+        <div class="breadcrumb-nav">
+
+            <div class="pull-right">
+              <a class="suggest-an-edit" href="https://github.com/WHMCS/developer-docs" target="blank">
+                <i class="fa fa-code-fork"></i>
+                <span class="hidden-xs">Suggest an edit</span>
+              </a>
+            </div>
+
+            <div class="visible-xs pull-left">
+                <button type="button" class="btn btn-toggle-sidebar" data-toggle="offcanvas">
+                    <i class="fa fa-list-alt"></i>
+                </button>
+            </div>
+
+            <div id="breadcrumbs">
+                
+                
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                    
+                <a href="//developers.whmcs.com/mail-providers/" itemprop="url"><span itemprop="title">Mail Providers</span></a> <i class="fa fa-angle-right"></i>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                <span itemprop="title"> Getting Started</span>
+              </div>
+            </div>
+
+
+			<h1>Getting Started </h1>
+
+			
+
+<p>Mail Providers determine how WHMCS transmits email to admins and their customers.</p>
+
+<h2 id="sample-module">Sample Module</h2>
+
+<p>The <code>SenderModuleInterface</code> interface for Mail Providers ships with WHMCS. The class that you create must be in the <code>Mail</code> namespace.</p>
+
+<h2 id="choosing-a-name">Choosing A Name</h2>
+
+<p>Mail Provider Modules are in the <code>modules/mail</code> directory. Each module has its own subdirectory, which you should use to store the files relating to the module.</p>
+
+<p>Mail Provider modules are PHP files that contain a class that implements <code>SenderModuleInterface</code>.</p>
+
+<p>To create a new Mail Provider module, perform these steps:</p>
+
+<ol>
+<li>Choose a name for your module. Module names must be a single string that consists of only alphanumeric characters (no spaces or other characters). Names must begin with a letter and must be unique.</li>
+<li>Create a new directory using your desired module name.</li>
+<li>Create a new file within the directory, using your module name as the filename, with the <code>.php</code> extension.
+Add the following code to the file, replacing <code>Yourmodulename</code> with the name of your module:</li>
+</ol>
+
+<pre><code>&lt;?php
+namespace Mail;
+
+use WHMCS\Module\Contracts\SenderModuleInterface;
+
+/**
+* Yourmodulename
+*
+* @copyright Copyright (c) WHMCS Limited 2005-2020
+* @license http://www.example.com/
+*/
+class Yourmodulename implements SenderModuleInterface
+{
+    // Functions related to your provider will reside within this class.
+}
+</code></pre>
+
+<p>For more information on the SenderModuleInterface, see [our additional documentation][<a href="https://classdocs.whmcs.com/7.10/WHMCS/Mail/Message.html">https://classdocs.whmcs.com/7.10/WHMCS/Mail/Message.html</a>].</p>
+
+
+			<div class="topic-navigation clearfix">
+                
+                    <a class="nav nav-prev" href="//developers.whmcs.com/mail-providers">
+                        <i class="fa fa-arrow-circle-left"></i>
+                        Previous
+                    </a>
+                
+                
+                    <a class="nav nav-next" href="//developers.whmcs.com/mail-providers/provider-settings">
+                        <i class="fa fa-arrow-circle-right"></i>
+                        Next
+                    </a>
+                
+            </div>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+
+        </div>
+  </div>
+</div>
+</main>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <nav>
+                <div class="col-sm-3">
+                    <h3>Learn</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/">About WHMCS</a></li>
+                        <li><a href="//developers.whmcs.com/about/quick-start/">Quick start</a></li>
+                        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+                        <li><a href="https://docs.whmcs.com/classes/">Classes Reference</a></li>
+                        <li><a href="//developers.whmcs.com/about/faq/">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Contribute</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/contribute/">Contribute</a></li>
+                        <li><a href="https://github.com/whmcs/" target="_blank">Github</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-5">
+                    <h3>Stay up to date</h3>
+                    <div class="subscribe-form">
+                        <p class="muted subscribe-lead">Join our developers mailing list to be kept up-to-date.</p>
+                        <div class="alert alert-success sub-success-message hidden" role="alert">
+                            <strong>Thank You!</strong> You have been subscribed.
+                        </div>
+                        <div class="alert alert-danger sub-error-message hidden" role="alert">
+                            <strong>Sorry</strong> <span id="error-message-text"></span>
+                        </div>
+                        <form action="//www.whmcs.com/members/subscribe.php" method="post" id="frmSubscribe">
+                            <input type="hidden" name="name" value="Subscriber">
+                            <input type="hidden" name="developer" value="dev">
+                            <div class="input-group">
+                                <input type="email" name="email" class="form-control" placeholder="you@yourdomain.com">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-info">
+                                        SUBSCRIBE
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <p>
+                        We won't spam you.
+                    </p>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <p>Found an error or a typo in these docs? <a href="https://github.com/WHMCS/developer-docs/issues">Submit an issue or a pull request</a></p>
+            </div>
+            <div class="col-md-5">
+                <p class="pull-right">
+                    Copyright &copy; WHMCS 2020. All rights reserved.
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="//developers.whmcs.com/js/jquery.min.js"></script>
+<script src="//developers.whmcs.com/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script>
+<script src="//developers.whmcs.com/js/search.js?v=2"></script>
+<script src="//developers.whmcs.com/js/prism.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-22019969-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
+

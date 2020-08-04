@@ -510,6 +510,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/mail-providers/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/api-reference/mergeticket/</loc>
   </url>
   
@@ -702,6 +706,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/advanced/upgrade-to-whmcs-8/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/languages/adding-a-language/</loc>
   </url>
   
@@ -770,6 +778,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/mail-providers/getting-started/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/modules/getting-started/</loc>
   </url>
   
@@ -806,7 +818,15 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/mail-providers/provider-settings/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/hooks-reference/registrar-module/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/mail-providers/send-notification/</loc>
   </url>
   
   <url>
