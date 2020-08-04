@@ -292,7 +292,7 @@
 
 <h2 id="php-7-2-requirement">PHP 7.2 requirement</h2>
 
-<p>WHMCS v8.0 and its dependencies require PHP 7.2. This may require the presence of the PHP 7.2 syntax in your code in order to avoid errors. We recommend that you consult [the PHP manual&rsquo;s PHP 7.2 Migration Guide][<a href="https://www.php.net/manual/en/migration72.php">https://www.php.net/manual/en/migration72.php</a>] as you evaluate and update your code for compatibility with WHMCS v8.0.</p>
+<p>WHMCS v8.0 and its dependencies require PHP 7.2. This may require the presence of the PHP 7.2 syntax in your code in order to avoid errors. We recommend that you consult <a href="https://www.php.net/manual/en/migration72.php">the PHP manual&rsquo;s PHP 7.2 Migration Guide</a> as you evaluate and update your code for compatibility with WHMCS v8.0.</p>
 
 <h2 id="removed-templates">Removed templates</h2>
 
@@ -314,7 +314,7 @@
 
 <h3 id="guzzle">Guzzle</h3>
 
-<p>Guzzle has been upgraded from version 5 to version 7. The major changes in this upgrade are listed below. For more information and a full list of changes, see [Guzzle&rsquo;s documentation][<a href="https://github.com/guzzle/guzzle/blob/master/UPGRADING.md">https://github.com/guzzle/guzzle/blob/master/UPGRADING.md</a>].</p>
+<p>Guzzle has been upgraded from version 5 to version 7. The major changes in this upgrade are listed below. For more information and a full list of changes, see <a href="https://github.com/guzzle/guzzle/blob/master/UPGRADING.md">Guzzle&rsquo;s documentation</a>.</p>
 
 <p>The <code>client::get()</code> returns have changed, so you may need to switch to <code>getBody()-&gt;getContents</code> or cast <code>-&gt;getBody()</code> to a string.</p>
 
@@ -323,20 +323,20 @@
 <ul>
 <li>Use <code>base_uri</code> rather than <code>base_url</code>.</li>
 <li>Store cookies in <code>CookieJarInterface</code>, not a <code>key =&gt; value</code> array.</li>
-<li>When you instantiate the Guzzle Client class, move every option from the <code>defaults</code> array key to the top level of options:
-```
-         $client = new Client([</li>
-<li>&lsquo;defaults&rsquo; =&gt; [</li>
-<li>&lsquo;verify&rsquo; =&gt; true,</li>
-<li>&lsquo;exceptions&rsquo; =&gt; true,</li>
-<li>&lsquo;timeout&rsquo; =&gt; 10,</li>
-<li>]</li>
-<li>&lsquo;verify&rsquo; =&gt; true,</li>
-<li>&lsquo;http_errors&rsquo; =&gt; true,</li>
-<li>&lsquo;timeout&rsquo; =&gt; 10,
-         ]);
-```</li>
+<li>When you instantiate the Guzzle Client class, move every option from the <code>defaults</code> array key to the top level of options:</li>
 </ul>
+
+<pre><code>             $client = new Client([
+-                 'defaults' =&gt; [
+-                    'verify' =&gt; true,
+-                    'exceptions' =&gt; true,
+-                    'timeout' =&gt; 10,
+-                ]
++                'verify' =&gt; true,
++                'http_errors' =&gt; true,
++                'timeout' =&gt; 10,
+             ]);
+</code></pre>
 
 <p>Some items have been removed:</p>
 
@@ -361,7 +361,7 @@
 
 <h3 id="smarty">Smarty</h3>
 
-<p>We upgraded <code>smarty/smarty</code> from version 3.1.33 to 3.1.36. Additionally, there are changes in the use of Smarty&rsquo;s Security Policy parameters. For more information, see [Smarty Security Policy][<a href="https://docs.whmcs.com/Smarty_Security_Policy">https://docs.whmcs.com/Smarty_Security_Policy</a>].</p>
+<p>We upgraded <code>smarty/smarty</code> from version 3.1.33 to 3.1.36. Additionally, there are changes in the use of Smarty&rsquo;s Security Policy parameters. For more information, see <a href="https://docs.whmcs.com/Smarty_Security_Policy">Smarty Security Policy</a>.</p>
 
 <h3 id="other">Other</h3>
 
