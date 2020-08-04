@@ -273,6 +273,14 @@
         </li>
       
       
+      
+        <li class="" data-nav-id="/hooks-reference/user/">
+          <a href="//developers.whmcs.com/hooks-reference/user/">
+            <span>User</span>
+          </a>
+        </li>
+      
+      
     </ul>
     
   </li>
@@ -357,53 +365,11 @@
 
 <p>The following hooks are provided for Authentication related events.</p>
 
-<h2 id="clientlogin">ClientLogin</h2>
-
-<p>Executes when a client is logging into the Client Area.</p>
-
-<h4 id="parameters">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>userid</td>
-<td>int</td>
-<td></td>
-</tr>
-
-<tr>
-<td>contactid</td>
-<td>int</td>
-<td>Contact ID will be present if the login was performed by a contact/sub-account</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ClientLogin', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
 <h2 id="clientloginshare">ClientLoginShare</h2>
 
 <p>Executes as part of client login if user does not exist.</p>
 
-<h4 id="parameters-1">Parameters</h4>
+<h4 id="parameters">Parameters</h4>
 
 <table>
 <thead>
@@ -429,11 +395,11 @@ add_hook('ClientLogin', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response">Response</h4>
 
 <p>Return data to create a user or refer to an existing client to be logged in as. id for existing user, email, boolean create to create new user, firstname, lastname etc to create a client.</p>
 
-<h4 id="example-code-1">Example Code</h4>
+<h4 id="example-code">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ClientLoginShare', 1, function($vars) {
@@ -472,9 +438,45 @@ add_hook('ClientLoginShare', 1, function($vars) {
 });
 </code></pre>
 
-<h2 id="clientlogout">ClientLogout</h2>
+<h2 id="userlogin">UserLogin</h2>
 
-<p>Executes when a client logs out of the Client Area.</p>
+<p>Executes when a user logs in.</p>
+
+<h4 id="parameters-1">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>user</td>
+<td>\WHMCS\User\User</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-1">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-1">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('UserLogin', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="userlogout">UserLogout</h2>
+
+<p>Executes when a user logs out.</p>
 
 <h4 id="parameters-2">Parameters</h4>
 
@@ -489,15 +491,9 @@ add_hook('ClientLoginShare', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>userid</td>
-<td>int</td>
+<td>user</td>
+<td>\WHMCS\User\User</td>
 <td></td>
-</tr>
-
-<tr>
-<td>contactid</td>
-<td>int</td>
-<td>Contact ID will be present if the login was performed by a contact/sub-account</td>
 </tr>
 </tbody>
 </table>
@@ -509,7 +505,7 @@ add_hook('ClientLoginShare', 1, function($vars) {
 <h4 id="example-code-2">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('ClientLogout', 1, function($vars) {
+add_hook('UserLogout', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>

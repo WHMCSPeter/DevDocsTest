@@ -290,6 +290,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/adduser/">
+          <a href="//developers.whmcs.com/api-reference/adduser/">
+            <span>AddUser</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/affiliateactivate/">
           <a href="//developers.whmcs.com/api-reference/affiliateactivate/">
             <span>AffiliateActivate</span>
@@ -333,6 +341,14 @@
         <li class="" data-nav-id="/api-reference/closeclient/">
           <a href="//developers.whmcs.com/api-reference/closeclient/">
             <span>CloseClient</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/createclientinvite/">
+          <a href="//developers.whmcs.com/api-reference/createclientinvite/">
+            <span>CreateClientInvite</span>
           </a>
         </li>
       
@@ -485,6 +501,14 @@
         <li class="" data-nav-id="/api-reference/deleteticketreply/">
           <a href="//developers.whmcs.com/api-reference/deleteticketreply/">
             <span>DeleteTicketReply</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deleteuserclient/">
+          <a href="//developers.whmcs.com/api-reference/deleteuserclient/">
+            <span>DeleteUserClient</span>
           </a>
         </li>
       
@@ -858,6 +882,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getpermissionslist/">
+          <a href="//developers.whmcs.com/api-reference/getpermissionslist/">
+            <span>GetPermissionsList</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/getproducts/">
           <a href="//developers.whmcs.com/api-reference/getproducts/">
             <span>GetProducts</span>
@@ -1021,6 +1053,14 @@
         <li class="" data-nav-id="/api-reference/gettransactions/">
           <a href="//developers.whmcs.com/api-reference/gettransactions/">
             <span>GetTransactions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getuserpermissions/">
+          <a href="//developers.whmcs.com/api-reference/getuserpermissions/">
+            <span>GetUserPermissions</span>
           </a>
         </li>
       
@@ -1330,6 +1370,22 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/updateuser/">
+          <a href="//developers.whmcs.com/api-reference/updateuser/">
+            <span>UpdateUser</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateuserpermissions/">
+          <a href="//developers.whmcs.com/api-reference/updateuserpermissions/">
+            <span>UpdateUserPermissions</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/upgradeproduct/">
           <a href="//developers.whmcs.com/api-reference/upgradeproduct/">
             <span>UpgradeProduct</span>
@@ -1341,6 +1397,14 @@
         <li class="" data-nav-id="/api-reference/validatelogin/">
           <a href="//developers.whmcs.com/api-reference/validatelogin/">
             <span>ValidateLogin</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/whmcsdetails/">
+          <a href="//developers.whmcs.com/api-reference/whmcsdetails/">
+            <span>WhmcsDetails</span>
           </a>
         </li>
       
@@ -1452,84 +1516,84 @@
 <tr>
 <td>id</td>
 <td>int</td>
-<td>The id of the client addon to update</td>
+<td>The ID of the client addon to update.</td>
 <td>Required</td>
 </tr>
 
 <tr>
 <td>status</td>
 <td>string</td>
-<td>The status to change the addon to</td>
+<td>The status to change the addon to.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>terminationDate</td>
-<td>\Carbon\Carbon</td>
-<td>The termination date of the addon Y-m-d</td>
+<td>string</td>
+<td>The termination date of the addon. Format: Y-m-d</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>addonid</td>
 <td>int</td>
-<td>The configured addon id to update the client addon to</td>
+<td>The configured addon ID to update the client addon to.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>name</td>
 <td>string</td>
-<td>The custom name to apply to the addon</td>
+<td>The custom name to apply to the addon.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>setupfee</td>
 <td>float</td>
-<td>The setup fee for the client addon</td>
+<td>The setup fee for the client addon.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>recurring</td>
 <td>float</td>
-<td>The recurring amount for the client addon</td>
+<td>The recurring amount for the client addon.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>billingcycle</td>
 <td>string</td>
-<td>The billing cycle for the addon</td>
+<td>The billing cycle for the addon.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>nextduedate</td>
-<td>\Carbon\Carbon</td>
-<td>The next due date for the addon Y-m-d</td>
+<td>string</td>
+<td>The next due date for the addon. Format: Y-m-d</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>nextinvoicedate</td>
-<td>\Carbon\Carbon</td>
-<td>The next invoice date for the addon Y-m-d</td>
+<td>string</td>
+<td>The next invoice date for the addon. Format: Y-m-d</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>terminationDate</td>
-<td>\Carbon\Carbon</td>
-<td>The termination date of the addon Y-m-d</td>
+<td>string</td>
+<td>The termination date of the addon. Format: Y-m-d</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>notes</td>
 <td>string</td>
-<td>The admin notes to associate with the addon</td>
+<td>The admin notes to associate with the addon.</td>
 <td>Optional</td>
 </tr>
 </tbody>
@@ -1556,7 +1620,7 @@
 <tr>
 <td>id</td>
 <td>int</td>
-<td>The Id of the updated addon</td>
+<td>The ID of the updated addon.</td>
 </tr>
 </tbody>
 </table>

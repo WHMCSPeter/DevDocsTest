@@ -290,6 +290,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/adduser/">
+          <a href="//developers.whmcs.com/api-reference/adduser/">
+            <span>AddUser</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/affiliateactivate/">
           <a href="//developers.whmcs.com/api-reference/affiliateactivate/">
             <span>AffiliateActivate</span>
@@ -333,6 +341,14 @@
         <li class="" data-nav-id="/api-reference/closeclient/">
           <a href="//developers.whmcs.com/api-reference/closeclient/">
             <span>CloseClient</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/createclientinvite/">
+          <a href="//developers.whmcs.com/api-reference/createclientinvite/">
+            <span>CreateClientInvite</span>
           </a>
         </li>
       
@@ -485,6 +501,14 @@
         <li class="" data-nav-id="/api-reference/deleteticketreply/">
           <a href="//developers.whmcs.com/api-reference/deleteticketreply/">
             <span>DeleteTicketReply</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deleteuserclient/">
+          <a href="//developers.whmcs.com/api-reference/deleteuserclient/">
+            <span>DeleteUserClient</span>
           </a>
         </li>
       
@@ -858,6 +882,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getpermissionslist/">
+          <a href="//developers.whmcs.com/api-reference/getpermissionslist/">
+            <span>GetPermissionsList</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/getproducts/">
           <a href="//developers.whmcs.com/api-reference/getproducts/">
             <span>GetProducts</span>
@@ -1021,6 +1053,14 @@
         <li class="" data-nav-id="/api-reference/gettransactions/">
           <a href="//developers.whmcs.com/api-reference/gettransactions/">
             <span>GetTransactions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getuserpermissions/">
+          <a href="//developers.whmcs.com/api-reference/getuserpermissions/">
+            <span>GetUserPermissions</span>
           </a>
         </li>
       
@@ -1330,6 +1370,22 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/updateuser/">
+          <a href="//developers.whmcs.com/api-reference/updateuser/">
+            <span>UpdateUser</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateuserpermissions/">
+          <a href="//developers.whmcs.com/api-reference/updateuserpermissions/">
+            <span>UpdateUserPermissions</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/upgradeproduct/">
           <a href="//developers.whmcs.com/api-reference/upgradeproduct/">
             <span>UpgradeProduct</span>
@@ -1341,6 +1397,14 @@
         <li class="" data-nav-id="/api-reference/validatelogin/">
           <a href="//developers.whmcs.com/api-reference/validatelogin/">
             <span>ValidateLogin</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/whmcsdetails/">
+          <a href="//developers.whmcs.com/api-reference/whmcsdetails/">
+            <span>WhmcsDetails</span>
           </a>
         </li>
       
@@ -1452,77 +1516,77 @@
 <tr>
 <td>invoiceid</td>
 <td>int</td>
-<td>The ID of the invoice to update</td>
+<td>The ID of the invoice to update.</td>
 <td>Required</td>
 </tr>
 
 <tr>
 <td>status</td>
 <td>string</td>
-<td>The status of the invoice being</td>
+<td>The status of the invoice being.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>paymentmethod</td>
 <td>string</td>
-<td>The payment method of the invoice in system format</td>
+<td>The payment method of the invoice in system format.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>taxrate</td>
 <td>float</td>
-<td>The first level tax rate to apply to the invoice to override the system default</td>
+<td>The first-level tax rate to apply to the invoice to override the system default.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>taxrate2</td>
 <td>float</td>
-<td>The second level tax rate to apply to the invoice to override the system default</td>
+<td>The second-level tax rate to apply to the invoice to override the system default.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>credit</td>
 <td>float</td>
-<td>Update the credit applied to the invoice</td>
+<td>Update the credit applied to the invoice.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>date</td>
-<td>\Carbon\Carbon</td>
-<td>The date that the invoice should show as created YYYY-mm-dd</td>
+<td>string</td>
+<td>The date that the invoice should show as its creation date. Format: YYYY-mm-dd</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>duedate</td>
-<td>\Carbon\Carbon</td>
-<td>The due date of the invoice YYYY-mm-dd</td>
+<td>string</td>
+<td>The due date of the invoice. Format: YYYY-mm-dd</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>datepaid</td>
-<td>\Carbon\Carbon</td>
-<td>The date paid of the invoice YYYY-mm-dd</td>
+<td>string</td>
+<td>The date paid for the invoice. Format: YYYY-mm-dd</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>notes</td>
 <td>string</td>
-<td>The notes to appear on the invoice</td>
+<td>The notes to appear on the invoice.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>itemdescription</td>
 <td>string[]</td>
-<td>An array of lineItemId =&gt; Description of items to change. The lineItemId is the id of the item from the GetInvoice API command.</td>
+<td>An array of lineItemId =&gt; Description of items to change. The lineItemId is the ID of the item from the GetInvoice API command.</td>
 <td>Optional</td>
 </tr>
 
@@ -1564,21 +1628,21 @@
 <tr>
 <td>deletelineids</td>
 <td>int[]</td>
-<td>An array of line item ids to remove from the invoice. This is the id of the line item, from GetInvoice API command.</td>
+<td>An array of line item IDs to remove from the invoice. This is the ID of the line item, from GetInvoice API command.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>publish</td>
 <td>bool</td>
-<td>Publish the invoice</td>
+<td>Whether to publish the invoice.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>publishandsendemail</td>
 <td>bool</td>
-<td>Publish and email the invoice</td>
+<td>Whether to publish and email the invoice.</td>
 <td>Optional</td>
 </tr>
 </tbody>
@@ -1605,7 +1669,7 @@
 <tr>
 <td>invoiceid</td>
 <td>int</td>
-<td>The ID of the update invoice</td>
+<td>The ID of the update invoice.</td>
 </tr>
 </tbody>
 </table>

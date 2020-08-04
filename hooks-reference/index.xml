@@ -39,7 +39,7 @@
 
 &lt;h2 id=&#34;addonactivated&#34;&gt;AddonActivated&lt;/h2&gt;
 
-&lt;p&gt;Executes when an addon is activated.&lt;/p&gt;
+&lt;p&gt;Executes when an addon status is changed to Active.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -93,7 +93,7 @@ add_hook(&#39;AddonActivated&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;addonactivation&#34;&gt;AddonActivation&lt;/h2&gt;
 
-&lt;p&gt;Executes when an addon is activated.&lt;/p&gt;
+&lt;p&gt;Executes when a product addon becomes active as part of invoice payment or order acceptance, following any provisioning or welcome email automation.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -116,7 +116,13 @@ add_hook(&#39;AddonActivated&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;The currently logged in user&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;clientid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The currently logged in client&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -1407,18 +1413,6 @@ add_hook(&#39;AdminClientFileUpload&#39;, 1, function($vars) {
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;securityqid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;securityqans&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The encrypted security question answer&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
 &lt;td&gt;groupid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;The id of the client group&lt;/td&gt;
@@ -2100,53 +2094,11 @@ add_hook(&#39;ViewOrderDetailsPage&#39;, 1, function($vars) {
 
 &lt;p&gt;The following hooks are provided for Authentication related events.&lt;/p&gt;
 
-&lt;h2 id=&#34;clientlogin&#34;&gt;ClientLogin&lt;/h2&gt;
-
-&lt;p&gt;Executes when a client is logging into the Client Area.&lt;/p&gt;
-
-&lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;contactid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;Contact ID will be present if the login was performed by a contact/sub-account&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;response&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ClientLogin&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
 &lt;h2 id=&#34;clientloginshare&#34;&gt;ClientLoginShare&lt;/h2&gt;
 
 &lt;p&gt;Executes as part of client login if user does not exist.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -2172,11 +2124,11 @@ add_hook(&#39;ClientLogin&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-1&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;Return data to create a user or refer to an existing client to be logged in as. id for existing user, email, boolean create to create new user, firstname, lastname etc to create a client.&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-1&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;ClientLoginShare&#39;, 1, function($vars) {
@@ -2215,9 +2167,45 @@ add_hook(&#39;ClientLoginShare&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;clientlogout&#34;&gt;ClientLogout&lt;/h2&gt;
+&lt;h2 id=&#34;userlogin&#34;&gt;UserLogin&lt;/h2&gt;
 
-&lt;p&gt;Executes when a client logs out of the Client Area.&lt;/p&gt;
+&lt;p&gt;Executes when a user logs in.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;user&lt;/td&gt;
+&lt;td&gt;\WHMCS\User\User&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-1&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-1&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;UserLogin&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;userlogout&#34;&gt;UserLogout&lt;/h2&gt;
+
+&lt;p&gt;Executes when a user logs out.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -2232,15 +2220,9 @@ add_hook(&#39;ClientLoginShare&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;user&lt;/td&gt;
+&lt;td&gt;\WHMCS\User\User&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;contactid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;Contact ID will be present if the login was performed by a contact/sub-account&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2252,7 +2234,7 @@ add_hook(&#39;ClientLoginShare&#39;, 1, function($vars) {
 &lt;h4 id=&#34;example-code-2&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ClientLogout&#39;, 1, function($vars) {
+add_hook(&#39;UserLogout&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
@@ -2328,9 +2310,21 @@ add_hook(&#39;AfterClientMerge&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;userid&lt;/td&gt;
+&lt;td&gt;client_id&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;The id of the client that has been added&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;user_id&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The user id the client belongs to&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;del&gt;userid&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;int&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;The id of the client that has been added&lt;/del&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -2734,7 +2728,7 @@ add_hook(&#39;ClientDelete&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;tax_id&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The client&amp;rsquo;s tax id&lt;/td&gt;
+&lt;td&gt;The client&amp;rsquo;s tax ID&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -2874,12 +2868,6 @@ add_hook(&#39;ClientDetailsValidation&#39;, 1, function($vars) {
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;password&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The encrypted password for the user&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
 &lt;td&gt;currency&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;The id of the currency&lt;/td&gt;
@@ -2958,18 +2946,6 @@ add_hook(&#39;ClientDetailsValidation&#39;, 1, function($vars) {
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;securityqid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;securityqans&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The encrypted security question answer&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
 &lt;td&gt;groupid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;The id of the client group&lt;/td&gt;
@@ -3031,47 +3007,11 @@ add_hook(&#39;ClientEdit&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;clientemailverificationcomplete&#34;&gt;ClientEmailVerificationComplete&lt;/h2&gt;
-
-&lt;p&gt;Executes upon successful completion of email verification by a client user.&lt;/p&gt;
-
-&lt;h4 id=&#34;parameters-8&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;userId&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;response-8&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code-8&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ClientEmailVerificationComplete&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
 &lt;h2 id=&#34;predeleteclient&#34;&gt;PreDeleteClient&lt;/h2&gt;
 
 &lt;p&gt;Executes immediately before a client is deleted&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-9&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-8&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -3091,11 +3031,11 @@ add_hook(&#39;ClientEmailVerificationComplete&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-9&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-8&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-9&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-8&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;PreDeleteClient&#39;, 1, function($vars) {
@@ -10883,9 +10823,21 @@ add_hook(&#39;ClientAreaProductDetailsPreModuleTemplate&#39;, 1, function($vars)
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;userid&lt;/td&gt;
+&lt;td&gt;user_id&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The id of the user owning the newly created client.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;client_id&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;The id of the newly created client.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;del&gt;userid&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;int&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;The id of the newly created client.&lt;/del&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -11165,24 +11117,6 @@ add_hook(&#39;ClientAreaSidebars&#39;, 1, function($vars) {
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;subaccount&lt;/td&gt;
-&lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;password&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;permissions&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;A comma separated list of allowed permissions for a sub-account&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
 &lt;td&gt;generalemails&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -11232,9 +11166,9 @@ add_hook(&#39;ContactAdd&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;contactchangepassword&#34;&gt;ContactChangePassword&lt;/h2&gt;
+&lt;h2 id=&#34;contactdelete&#34;&gt;ContactDelete&lt;/h2&gt;
 
-&lt;p&gt;Executed when a change of password occurs for a contact.&lt;/p&gt;
+&lt;p&gt;Executes on Contact Delete after the contact has been removed.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -11259,12 +11193,6 @@ add_hook(&#39;ContactAdd&#39;, 1, function($vars) {
 &lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;password&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The new password&lt;/td&gt;
-&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -11273,48 +11201,6 @@ add_hook(&#39;ContactAdd&#39;, 1, function($vars) {
 &lt;p&gt;No response supported&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-1&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ContactChangePassword&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;contactdelete&#34;&gt;ContactDelete&lt;/h2&gt;
-
-&lt;p&gt;Executes on Contact Delete after the contact has been removed.&lt;/p&gt;
-
-&lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;userid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;contactid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;response-2&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code-2&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;ContactDelete&#39;, 1, function($vars) {
@@ -11326,7 +11212,7 @@ add_hook(&#39;ContactDelete&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes on validation of contact details.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-3&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -11346,11 +11232,11 @@ add_hook(&#39;ContactDelete&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-3&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-2&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;Return accepts both a &lt;code&gt;string&lt;/code&gt; or an &lt;code&gt;array&lt;/code&gt;. Use a string for &lt;code&gt;single&lt;/code&gt; error message or an &lt;code&gt;array&lt;/code&gt; of strings for multiple error messages.&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-2&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 
@@ -11366,7 +11252,7 @@ add_hook(&#39;ContactDetailsValidation&#39;, 1, function($vars) {
 
 &lt;p&gt;Runs when a contact is edited.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-4&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-3&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -11463,18 +11349,6 @@ add_hook(&#39;ContactDetailsValidation&#39;, 1, function($vars) {
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;subaccount&lt;/td&gt;
-&lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;permissions&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;A comma separated list of permissions if the contact is a sub-account&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
 &lt;td&gt;domainemails&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -11518,11 +11392,11 @@ add_hook(&#39;ContactDetailsValidation&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-4&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-3&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-3&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;ContactEdit&#39;, 1, function($vars) {
@@ -11544,7 +11418,7 @@ add_hook(&#39;ContactEdit&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;aftercronjob&#34;&gt;AfterCronJob&lt;/h2&gt;
 
-&lt;p&gt;Runs after all scheduled cron tasks have completed.&lt;/p&gt;
+&lt;p&gt;Runs each time that the system calls the system cron job. This occurs after all scheduled tasks finish.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -11686,11 +11560,89 @@ add_hook(&#39;PopEmailCollectionCronCompleted&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;postautomationtask&#34;&gt;PostAutomationTask&lt;/h2&gt;
+
+&lt;p&gt;Executes after an automation task occurs&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-4&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task&lt;/td&gt;
+&lt;td&gt;\Collection&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;completed&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-4&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PostAutomationTask&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;preautomationtask&#34;&gt;PreAutomationTask&lt;/h2&gt;
+
+&lt;p&gt;Executes before an automation task occurs&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-5&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task&lt;/td&gt;
+&lt;td&gt;\Collection&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-5&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;No response supported&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-5&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreAutomationTask&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;precronjob&#34;&gt;PreCronJob&lt;/h2&gt;
 
 &lt;p&gt;Runs before the daily automation cron execution.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-4&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-6&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -11710,11 +11662,11 @@ add_hook(&#39;PopEmailCollectionCronCompleted&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-4&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-6&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;No response supported&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-4&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-6&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;PreCronJob&#39;, 1, function($vars) {
@@ -11835,7 +11787,7 @@ add_hook(&#39;DomainEdit&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;domainid&lt;/td&gt;
+&lt;td&gt;domainId&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;The unique identifier for the domain&lt;/td&gt;
 &lt;/tr&gt;
@@ -11895,7 +11847,7 @@ add_hook(&#39;DomainTransferCompleted&#39;, 1, function($vars) {
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;domainid&lt;/td&gt;
+&lt;td&gt;domainId&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
 &lt;td&gt;The unique identifier for the domain&lt;/td&gt;
 &lt;/tr&gt;
@@ -12559,9 +12511,9 @@ add_hook(&#39;AffiliateCommission&#39;, 1, function($vars) {
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;contactId&lt;/td&gt;
+&lt;td&gt;clientId&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The contact id of the user making the request if logged in as a sub-account&lt;/td&gt;
+&lt;td&gt;The client id being acted on&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -12876,7 +12828,7 @@ add_hook(&#39;CustomFieldSave&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;date&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Can be &amp;lsquo;now()&amp;rsquo; or a specific timestamp&lt;/td&gt;
+&lt;td&gt;Current timestamp&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -12906,6 +12858,12 @@ add_hook(&#39;CustomFieldSave&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;message&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;attachments&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -13359,89 +13317,11 @@ add_hook(&#39;PayMethodMigration&#39;, 1, function($vars) {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;postautomationtask&#34;&gt;PostAutomationTask&lt;/h2&gt;
-
-&lt;p&gt;Executes after an automation task occurs&lt;/p&gt;
-
-&lt;h4 id=&#34;parameters-18&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;task&lt;/td&gt;
-&lt;td&gt;\Collection&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;completed&lt;/td&gt;
-&lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;response-18&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code-18&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;PostAutomationTask&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;preautomationtask&#34;&gt;PreAutomationTask&lt;/h2&gt;
-
-&lt;p&gt;Executes before an automation task occurs&lt;/p&gt;
-
-&lt;h4 id=&#34;parameters-19&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;task&lt;/td&gt;
-&lt;td&gt;\Collection&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;response-19&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code-19&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;PreAutomationTask&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
 &lt;h2 id=&#34;preemailsendreducerecipients&#34;&gt;PreEmailSendReduceRecipients&lt;/h2&gt;
 
 &lt;p&gt;Runs prior to a client email being sent and allows selective removal of CC and BCC recipients.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-20&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-18&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -13473,11 +13353,11 @@ add_hook(&#39;PreAutomationTask&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-20&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-18&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;An array with a &amp;lsquo;cc&amp;rsquo; and &amp;lsquo;bcc&amp;rsquo; list of recipients. Each recipient in those lists should be indexed with the original index hash as provided by $recipients argument. If an empty &amp;lsquo;cc&amp;rsquo; or &amp;lsquo;bcc&amp;rsquo; list provided, it will remove all &amp;lsquo;cc&amp;rsquo; or &amp;lsquo;bcc&amp;rsquo; recipients respectively. If the &amp;lsquo;cc&amp;rsquo; or &amp;lsquo;bcc&amp;rsquo; is omitted in the return, the original list will remain unaltered&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-20&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-18&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;PreEmailSendReduceRecipients&#39;, 1, function($vars) {
@@ -13489,7 +13369,7 @@ add_hook(&#39;PreEmailSendReduceRecipients&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes on checkout of an upgrade order, after the price calculation. The upgrade order may have completed already when this hook runs.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-21&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-19&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -13533,11 +13413,11 @@ add_hook(&#39;PreEmailSendReduceRecipients&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-21&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-19&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;Return &amp;lsquo;amount&amp;rsquo; and/or &amp;lsquo;discount&amp;rsquo; key with override price for the upgrade order.&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-21&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-19&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;PreUpgradeCheckout&#39;, 1, function($vars) {
@@ -13549,7 +13429,7 @@ add_hook(&#39;PreUpgradeCheckout&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when searching for a premium domain. The return can alter the registration &amp;amp; renewal costs, stop the domain being available for purchase or force the client to contact support.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-22&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-20&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -13599,11 +13479,11 @@ add_hook(&#39;PreUpgradeCheckout&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-22&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-20&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;Accepts returns to override register, transfer or renew pricing. Also boolean values of noSale or contactUs to stop the sale of the domain with different messages&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-22&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-20&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 
@@ -13631,7 +13511,7 @@ add_hook(&#39;PremiumPriceOverride&#39;, 1, function($vars) {
 
 &lt;p&gt;Executes when a premium domain price is being automatically recalculated.&lt;/p&gt;
 
-&lt;h4 id=&#34;parameters-23&#34;&gt;Parameters&lt;/h4&gt;
+&lt;h4 id=&#34;parameters-21&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -13669,11 +13549,11 @@ add_hook(&#39;PremiumPriceOverride&#39;, 1, function($vars) {
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&#34;response-23&#34;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&#34;response-21&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;Return is accepted to override the renewal price or skip applying markup. eg: return array(&amp;lsquo;renew&amp;rsquo; =&amp;gt; 50.00, &amp;lsquo;skipMarkup&amp;rsquo; =&amp;gt; true);&lt;/p&gt;
 
-&lt;h4 id=&#34;example-code-23&#34;&gt;Example Code&lt;/h4&gt;
+&lt;h4 id=&#34;example-code-21&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;PremiumPriceRecalculationOverride&#39;, 1, function($vars) {
@@ -16621,7 +16501,7 @@ add_hook(&#39;ClientAreaProductDetailsOutput&#39;, 1, function($service) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;date&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;\Carbon&lt;/td&gt;
 &lt;td&gt;A Carbon object representing the date.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -16657,8 +16537,8 @@ add_hook(&#39;FormatDateForClientAreaOutput&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;date&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;A Carbon object representing the date and time.&lt;/td&gt;
+&lt;td&gt;\Carbon&lt;/td&gt;
+&lt;td&gt;A Carbon object representing the date/time.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -16879,74 +16759,6 @@ add_hook(&#39;ShoppingCartConfigureProductAddonsOutput&#39;, 1, function($vars) 
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;ShoppingCartViewCartOutput&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;shoppingcartviewcategoryaboveproductsoutput&#34;&gt;ShoppingCartViewCategoryAboveProductsOutput&lt;/h2&gt;
-
-&lt;h4 id=&#34;parameters-16&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;cart&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;response-16&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code-16&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ShoppingCartViewCategoryAboveProductsOutput&#39;, 1, function($vars) {
-    // Perform hook code here...
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;shoppingcartviewcategorybelowproductsoutput&#34;&gt;ShoppingCartViewCategoryBelowProductsOutput&lt;/h2&gt;
-
-&lt;h4 id=&#34;parameters-17&#34;&gt;Parameters&lt;/h4&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Variable&lt;/th&gt;
-&lt;th&gt;Type&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;cart&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;response-17&#34;&gt;Response&lt;/h4&gt;
-
-&lt;p&gt;No response supported&lt;/p&gt;
-
-&lt;h4 id=&#34;example-code-17&#34;&gt;Example Code&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;ShoppingCartViewCategoryBelowProductsOutput&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;

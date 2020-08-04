@@ -332,13 +332,16 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientdelete&#34;&gt;ClientDelete&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientdetailsvalidation&#34;&gt;ClientDetailsValidation&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientedit&#34;&gt;ClientEdit&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#clientemailverificationcomplete&#34;&gt;ClientEmailVerificationComplete&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/client/#predeleteclient&#34;&gt;PreDeleteClient&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;User&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/user/#userchangepassword&#34;&gt;UserChangePassword&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/user/#useremailverificationcomplete&#34;&gt;UserEmailVerificationComplete&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Contact&lt;/h3&gt;
 
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/contact/#contactadd&#34;&gt;ContactAdd&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/contact/#contactchangepassword&#34;&gt;ContactChangePassword&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/contact/#contactdelete&#34;&gt;ContactDelete&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/contact/#contactdetailsvalidation&#34;&gt;ContactDetailsValidation&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/contact/#contactedit&#34;&gt;ContactEdit&lt;/a&gt;
@@ -391,9 +394,9 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;/ul&gt;
 &lt;h3&gt;Authentication&lt;/h3&gt;
 
-&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#clientlogin&#34;&gt;ClientLogin&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#clientloginshare&#34;&gt;ClientLoginShare&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#clientlogout&#34;&gt;ClientLogout&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#clientloginshare&#34;&gt;ClientLoginShare&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#userlogin&#34;&gt;UserLogin&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/authentication/#userlogout&#34;&gt;UserLogout&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Client Area Interface&lt;/h3&gt;
 
@@ -502,8 +505,6 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#shoppingcartcheckoutoutput&#34;&gt;ShoppingCartCheckoutOutput&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#shoppingcartconfigureproductaddonsoutput&#34;&gt;ShoppingCartConfigureProductAddonsOutput&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#shoppingcartviewcartoutput&#34;&gt;ShoppingCartViewCartOutput&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#shoppingcartviewcategoryaboveproductsoutput&#34;&gt;ShoppingCartViewCategoryAboveProductsOutput&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/output/#shoppingcartviewcategorybelowproductsoutput&#34;&gt;ShoppingCartViewCategoryBelowProductsOutput&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Cron&lt;/h3&gt;
 
@@ -511,6 +512,8 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/cron/#dailycronjob&#34;&gt;DailyCronJob&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/cron/#dailycronjobpreemail&#34;&gt;DailyCronJobPreEmail&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/cron/#popemailcollectioncroncompleted&#34;&gt;PopEmailCollectionCronCompleted&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/cron/#postautomationtask&#34;&gt;PostAutomationTask&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/cron/#preautomationtask&#34;&gt;PreAutomationTask&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/cron/#precronjob&#34;&gt;PreCronJob&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Everything Else&lt;/h3&gt;
@@ -533,8 +536,6 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#logactivity&#34;&gt;LogActivity&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#notificationpresend&#34;&gt;NotificationPreSend&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#paymethodmigration&#34;&gt;PayMethodMigration&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#postautomationtask&#34;&gt;PostAutomationTask&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preautomationtask&#34;&gt;PreAutomationTask&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preemailsendreducerecipients&#34;&gt;PreEmailSendReduceRecipients&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preupgradecheckout&#34;&gt;PreUpgradeCheckout&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#premiumpriceoverride&#34;&gt;PremiumPriceOverride&lt;/a&gt;

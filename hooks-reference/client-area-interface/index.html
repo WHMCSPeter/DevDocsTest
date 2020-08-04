@@ -273,6 +273,14 @@
         </li>
       
       
+      
+        <li class="" data-nav-id="/hooks-reference/user/">
+          <a href="//developers.whmcs.com/hooks-reference/user/">
+            <span>User</span>
+          </a>
+        </li>
+      
+      
     </ul>
     
   </li>
@@ -8125,9 +8133,21 @@ add_hook('ClientAreaProductDetailsPreModuleTemplate', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>userid</td>
+<td>user_id</td>
+<td>int</td>
+<td>The id of the user owning the newly created client.</td>
+</tr>
+
+<tr>
+<td>client_id</td>
 <td>int</td>
 <td>The id of the newly created client.</td>
+</tr>
+
+<tr>
+<td><del>userid</del></td>
+<td><del>int</del></td>
+<td><del>The id of the newly created client.</del></td>
 </tr>
 </tbody>
 </table>

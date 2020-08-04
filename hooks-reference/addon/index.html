@@ -273,6 +273,14 @@
         </li>
       
       
+      
+        <li class="" data-nav-id="/hooks-reference/user/">
+          <a href="//developers.whmcs.com/hooks-reference/user/">
+            <span>User</span>
+          </a>
+        </li>
+      
+      
     </ul>
     
   </li>
@@ -359,7 +367,7 @@
 
 <h2 id="addonactivated">AddonActivated</h2>
 
-<p>Executes when an addon is activated.</p>
+<p>Executes when an addon status is changed to Active.</p>
 
 <h4 id="parameters">Parameters</h4>
 
@@ -413,7 +421,7 @@ add_hook('AddonActivated', 1, function($vars) {
 
 <h2 id="addonactivation">AddonActivation</h2>
 
-<p>Executes when an addon is activated.</p>
+<p>Executes when a product addon becomes active as part of invoice payment or order acceptance, following any provisioning or welcome email automation.</p>
 
 <h4 id="parameters-1">Parameters</h4>
 
@@ -436,7 +444,13 @@ add_hook('AddonActivated', 1, function($vars) {
 <tr>
 <td>userid</td>
 <td>int</td>
-<td></td>
+<td>The currently logged in user</td>
+</tr>
+
+<tr>
+<td>clientid</td>
+<td>int</td>
+<td>The currently logged in client</td>
 </tr>
 
 <tr>

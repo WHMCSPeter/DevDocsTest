@@ -375,6 +375,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateadminnotes/&#34;&gt;UpdateAdminNotes&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateannouncement/&#34;&gt;UpdateAnnouncement&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updatetodoitem/&#34;&gt;UpdateToDoItem&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/whmcsdetails/&#34;&gt;WhmcsDetails&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Client&lt;/h3&gt;
 
@@ -393,7 +394,6 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getclientsproducts/&#34;&gt;GetClientsProducts&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getcontacts/&#34;&gt;GetContacts&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getemails/&#34;&gt;GetEmails&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/resetpassword/&#34;&gt;ResetPassword&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateclient/&#34;&gt;UpdateClient&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updatecontact/&#34;&gt;UpdateContact&lt;/a&gt;
 &lt;/ul&gt;
@@ -414,7 +414,18 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateproject/&#34;&gt;UpdateProject&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateprojecttask/&#34;&gt;UpdateProjectTask&lt;/a&gt;
 &lt;/ul&gt;
-&lt;/div&gt;&lt;div class=&#34;col-sm-6&#34;&gt;&lt;h3&gt;Affiliates&lt;/h3&gt;
+&lt;/div&gt;&lt;div class=&#34;col-sm-6&#34;&gt;&lt;h3&gt;Users&lt;/h3&gt;
+
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/adduser/&#34;&gt;AddUser&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/createclientinvite/&#34;&gt;CreateClientInvite&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteuserclient/&#34;&gt;DeleteUserClient&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getpermissionslist/&#34;&gt;GetPermissionsList&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getuserpermissions/&#34;&gt;GetUserPermissions&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/resetpassword/&#34;&gt;ResetPassword&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateuser/&#34;&gt;UpdateUser&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateuserpermissions/&#34;&gt;UpdateUserPermissions&lt;/a&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Affiliates&lt;/h3&gt;
 
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/affiliateactivate/&#34;&gt;AffiliateActivate&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getaffiliates/&#34;&gt;GetAffiliates&lt;/a&gt;

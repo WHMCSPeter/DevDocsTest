@@ -290,6 +290,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/adduser/">
+          <a href="//developers.whmcs.com/api-reference/adduser/">
+            <span>AddUser</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/affiliateactivate/">
           <a href="//developers.whmcs.com/api-reference/affiliateactivate/">
             <span>AffiliateActivate</span>
@@ -333,6 +341,14 @@
         <li class="" data-nav-id="/api-reference/closeclient/">
           <a href="//developers.whmcs.com/api-reference/closeclient/">
             <span>CloseClient</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/createclientinvite/">
+          <a href="//developers.whmcs.com/api-reference/createclientinvite/">
+            <span>CreateClientInvite</span>
           </a>
         </li>
       
@@ -485,6 +501,14 @@
         <li class="" data-nav-id="/api-reference/deleteticketreply/">
           <a href="//developers.whmcs.com/api-reference/deleteticketreply/">
             <span>DeleteTicketReply</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deleteuserclient/">
+          <a href="//developers.whmcs.com/api-reference/deleteuserclient/">
+            <span>DeleteUserClient</span>
           </a>
         </li>
       
@@ -858,6 +882,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getpermissionslist/">
+          <a href="//developers.whmcs.com/api-reference/getpermissionslist/">
+            <span>GetPermissionsList</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/getproducts/">
           <a href="//developers.whmcs.com/api-reference/getproducts/">
             <span>GetProducts</span>
@@ -1021,6 +1053,14 @@
         <li class="" data-nav-id="/api-reference/gettransactions/">
           <a href="//developers.whmcs.com/api-reference/gettransactions/">
             <span>GetTransactions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getuserpermissions/">
+          <a href="//developers.whmcs.com/api-reference/getuserpermissions/">
+            <span>GetUserPermissions</span>
           </a>
         </li>
       
@@ -1330,6 +1370,22 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/updateuser/">
+          <a href="//developers.whmcs.com/api-reference/updateuser/">
+            <span>UpdateUser</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateuserpermissions/">
+          <a href="//developers.whmcs.com/api-reference/updateuserpermissions/">
+            <span>UpdateUserPermissions</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/upgradeproduct/">
           <a href="//developers.whmcs.com/api-reference/upgradeproduct/">
             <span>UpgradeProduct</span>
@@ -1341,6 +1397,14 @@
         <li class="" data-nav-id="/api-reference/validatelogin/">
           <a href="//developers.whmcs.com/api-reference/validatelogin/">
             <span>ValidateLogin</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/whmcsdetails/">
+          <a href="//developers.whmcs.com/api-reference/whmcsdetails/">
+            <span>WhmcsDetails</span>
           </a>
         </li>
       
@@ -1452,98 +1516,98 @@
 <tr>
 <td>userid</td>
 <td>int</td>
-<td>The ID of the client to create the invoice for</td>
+<td>The ID of the client to create the invoice for.</td>
 <td>Required</td>
 </tr>
 
 <tr>
 <td>status</td>
 <td>string</td>
-<td>The status of the invoice being created (Defaults to Unpaid)</td>
+<td>The status of the invoice being created. Defaults to <code>unpaid</code>.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>draft</td>
 <td>bool</td>
-<td>Should the invoice be created in draft status (No need to pass $status also)</td>
+<td>Whether to create the invoice in draft status. (You do not need to pass <code>$status</code> with this.)</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>sendinvoice</td>
 <td>bool</td>
-<td>Should the Invoice Created Email be sent to the client (cannot be used with $draft)</td>
+<td>Whether to send the Invoice Created Email to the client. (You can&rsquo;t use this with <code>$draft</code>.)</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>paymentmethod</td>
 <td>string</td>
-<td>The payment method of the created invoice in system format</td>
+<td>The payment method of the created invoice, in system format.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>taxrate</td>
 <td>float</td>
-<td>The first level tax rate to apply to the invoice to override the system default</td>
+<td>The first-level tax rate to apply to the invoice to override the system default.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>taxrate2</td>
 <td>float</td>
-<td>The second level tax rate to apply to the invoice to override the system default</td>
+<td>The second-level tax rate to apply to the invoice to override the system default.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>date</td>
-<td>\Carbon</td>
-<td>The date that the invoice should show as created YYYY-mm-dd</td>
+<td>string</td>
+<td>The creation date that the invoice should display. Format: YYYY-mm-dd</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>duedate</td>
-<td>\Carbon</td>
-<td>The due date of the newly created invoice YYYY-mm-dd</td>
+<td>string</td>
+<td>The due date of the newly-created invoice. Format: YYYY-mm-dd</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>notes</td>
 <td>string</td>
-<td>The notes to appear on the created invoice</td>
+<td>The notes to appear on the created invoice.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>itemdescriptionx</td>
 <td>string</td>
-<td>The line items description X is an integer to add multiple invoice items</td>
+<td>The line item&rsquo;s description. <code>X</code> is an integer to add multiple invoice items.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>itemamountx</td>
 <td>float</td>
-<td>The line items amount</td>
+<td>The line item&rsquo;s amount.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>itemtaxedx</td>
 <td>bool</td>
-<td>The line items is taxed value</td>
+<td>The line item&rsquo;s taxed value.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>autoapplycredit</td>
 <td>bool</td>
-<td>Should credit on the client account be automatically applied to the invoice</td>
+<td>Whether to automatically apply credit from the client account to the invoice.</td>
 <td>Optional</td>
 </tr>
 </tbody>
@@ -1570,13 +1634,13 @@
 <tr>
 <td>invoiceid</td>
 <td>int</td>
-<td>The ID of the newly created invoice</td>
+<td>The ID of the newly-created invoice.</td>
 </tr>
 
 <tr>
 <td>status</td>
 <td>string</td>
-<td>The status of the newly created invoice</td>
+<td>The status of the newly-created invoice.</td>
 </tr>
 </tbody>
 </table>

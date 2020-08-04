@@ -273,6 +273,14 @@
         </li>
       
       
+      
+        <li class="" data-nav-id="/hooks-reference/user/">
+          <a href="//developers.whmcs.com/hooks-reference/user/">
+            <span>User</span>
+          </a>
+        </li>
+      
+      
     </ul>
     
   </li>
@@ -416,9 +424,21 @@ add_hook('AfterClientMerge', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>userid</td>
+<td>client_id</td>
 <td>int</td>
-<td></td>
+<td>The id of the client that has been added</td>
+</tr>
+
+<tr>
+<td>user_id</td>
+<td>int</td>
+<td>The user id the client belongs to</td>
+</tr>
+
+<tr>
+<td><del>userid</del></td>
+<td><del>int</del></td>
+<td><del>The id of the client that has been added</del></td>
 </tr>
 
 <tr>
@@ -822,7 +842,7 @@ add_hook('ClientDelete', 1, function($vars) {
 <tr>
 <td>tax_id</td>
 <td>string</td>
-<td>The client&rsquo;s tax id</td>
+<td>The client&rsquo;s tax ID</td>
 </tr>
 
 <tr>
@@ -962,12 +982,6 @@ add_hook('ClientDetailsValidation', 1, function($vars) {
 </tr>
 
 <tr>
-<td>password</td>
-<td>string</td>
-<td>The encrypted password for the user</td>
-</tr>
-
-<tr>
 <td>currency</td>
 <td>int</td>
 <td>The id of the currency</td>
@@ -1046,18 +1060,6 @@ add_hook('ClientDetailsValidation', 1, function($vars) {
 </tr>
 
 <tr>
-<td>securityqid</td>
-<td>int</td>
-<td></td>
-</tr>
-
-<tr>
-<td>securityqans</td>
-<td>string</td>
-<td>The encrypted security question answer</td>
-</tr>
-
-<tr>
 <td>groupid</td>
 <td>int</td>
 <td>The id of the client group</td>
@@ -1119,47 +1121,11 @@ add_hook('ClientEdit', 1, function($vars) {
 });
 </code></pre>
 
-<h2 id="clientemailverificationcomplete">ClientEmailVerificationComplete</h2>
-
-<p>Executes upon successful completion of email verification by a client user.</p>
-
-<h4 id="parameters-8">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>userId</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-8">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-8">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ClientEmailVerificationComplete', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
 <h2 id="predeleteclient">PreDeleteClient</h2>
 
 <p>Executes immediately before a client is deleted</p>
 
-<h4 id="parameters-9">Parameters</h4>
+<h4 id="parameters-8">Parameters</h4>
 
 <table>
 <thead>
@@ -1179,11 +1145,11 @@ add_hook('ClientEmailVerificationComplete', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-9">Response</h4>
+<h4 id="response-8">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-9">Example Code</h4>
+<h4 id="example-code-8">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreDeleteClient', 1, function($vars) {
