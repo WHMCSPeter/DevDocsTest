@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mail-providers-rsses on WHMCS Developer Documentation</title>
+    <link>//developers.whmcs.com/mail-providers/index.xml</link>
+    <description>Recent content in Mail-providers-rsses on WHMCS Developer Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Released under the MIT license</copyright>
+    <atom:link href="//developers.whmcs.com/mail-providers/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Mail Providers</title>
+      <link>//developers.whmcs.com/mail-providers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/mail-providers/</guid>
+      <description>&lt;p&gt;Mail Providers determine how WHMCS transmits email to admins and their customers. We added this feature in WHMCS 8.0.&lt;/p&gt;
+
+&lt;p&gt;You can learn more about Mail Providers in WHMCS in our [Mail Providers][&lt;a href=&#34;https://docs.whmcs.com/Mail_Providers&#34;&gt;https://docs.whmcs.com/Mail_Providers&lt;/a&gt;] documentation.&lt;/p&gt;
+
+&lt;p&gt;To get started, continue to the Getting Started page.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>//developers.whmcs.com/mail-providers/getting-started/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/mail-providers/getting-started/</guid>
+      <description>
+
+&lt;p&gt;Mail Providers determine how WHMCS transmits email to admins and their customers.&lt;/p&gt;
+
+&lt;h2 id=&#34;sample-module&#34;&gt;Sample Module&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;SenderModuleInterface&lt;/code&gt; interface for Mail Providers ships with WHMCS. The class that you create must be in the &lt;code&gt;Mail&lt;/code&gt; namespace.&lt;/p&gt;
+
+&lt;h2 id=&#34;choosing-a-name&#34;&gt;Choosing A Name&lt;/h2&gt;
+
+&lt;p&gt;Mail Provider Modules are in the &lt;code&gt;modules/mail&lt;/code&gt; directory. Each module has its own subdirectory, which you should use to store the files relating to the module.&lt;/p&gt;
+
+&lt;p&gt;Mail Provider modules are PHP files that contain a class that implements &lt;code&gt;SenderModuleInterface&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To create a new Mail Provider module, perform these steps:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Choose a name for your module. Module names must be a single string that consists of only alphanumeric characters (no spaces or other characters). Names must begin with a letter and must be unique.&lt;/li&gt;
+&lt;li&gt;Create a new directory using your desired module name.&lt;/li&gt;
+&lt;li&gt;Create a new file within the directory, using your module name as the filename, with the &lt;code&gt;.php&lt;/code&gt; extension.
+Add the following code to the file, replacing &lt;code&gt;Yourmodulename&lt;/code&gt; with the name of your module:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+namespace Mail;
+
+use WHMCS\Module\Contracts\SenderModuleInterface;
+
+/**
+* Yourmodulename
+*
+* @copyright Copyright (c) WHMCS Limited 2005-2020
+* @license http://www.example.com/
+*/
+class Yourmodulename implements SenderModuleInterface
+{
+    // Functions related to your provider will reside within this class.
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For more information on the SenderModuleInterface, see [our additional documentation][&lt;a href=&#34;https://classdocs.whmcs.com/7.10/WHMCS/Mail/Message.html&#34;&gt;https://classdocs.whmcs.com/7.10/WHMCS/Mail/Message.html&lt;/a&gt;].&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Provider Settings</title>
+      <link>//developers.whmcs.com/mail-providers/provider-settings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/mail-providers/provider-settings/</guid>
+      <description>
+
+&lt;p&gt;A Mail Provider can define required settings to activate the mail provider module.&lt;/p&gt;
+
+&lt;p&gt;The field definitions you return from this method are used to build a form in the admin user interface that must be filled out in order to activate the mail provider module.&lt;/p&gt;
+
+&lt;p&gt;For example, if the module connects to a remote messaging service, this might be a username and password or a required OAuth token to authenticate to that service.&lt;/p&gt;
+
+&lt;p&gt;Supported field types are &lt;code&gt;text&lt;/code&gt;, &lt;code&gt;password&lt;/code&gt;, &lt;code&gt;yesno&lt;/code&gt;, &lt;code&gt;dropdown&lt;/code&gt;, &lt;code&gt;radio&lt;/code&gt;, and &lt;code&gt;textarea&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Below is an example of two defined fields, with the names &lt;code&gt;api_username&lt;/code&gt; and &lt;code&gt;api_password&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Provider settings.
+ *
+ * @return array
+ */
+public function settings()
+{
+    return [
+        &#39;api_username&#39; =&amp;gt; [
+            &#39;FriendlyName&#39; =&amp;gt; &#39;API Username&#39;,
+            &#39;Type&#39; =&amp;gt; &#39;text&#39;,
+            &#39;Description&#39; =&amp;gt; &#39;The required username to authenticate with messaging service.&#39;,
+        ],
+        &#39;api_password&#39; =&amp;gt; [
+            &#39;FriendlyName&#39; =&amp;gt; &#39;API Password&#39;,
+            &#39;Type&#39; =&amp;gt; &#39;password&#39;,
+            &#39;Description&#39; =&amp;gt; &#39;The required password to authenticate with messaging service.&#39;,
+        ],
+    ];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;validating-user-supplied-setting-values&#34;&gt;Validating User-Supplied Setting Values&lt;/h2&gt;
+
+&lt;p&gt;On submission of mail provider settings, you can validate the user-provided values using the &lt;code&gt;testConnection&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;p&gt;If validation fails, throw an exception to abort the save action and display an error message to the end user. The error message will be the message within the exception.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Test connection.
+ *
+ * @param array $settings
+ *
+ * @return array
+ */
+public function testConnection($settings)
+{
+    $api_username = $settings[&#39;api_username&#39;];
+    $api_password = $settings[&#39;api_password&#39;];
+
+    // Attempt to connect to API service to verify input credentials
+    // and upon error, throw an exception.
+
+    throw new \Exception(&#39;The system was unable to authenticate with the supplied API username and password.&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Send Notification</title>
+      <link>//developers.whmcs.com/mail-providers/send-notification/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/mail-providers/send-notification/</guid>
+      <description>&lt;p&gt;The &lt;code&gt;send&lt;/code&gt; method is responsible for delivering mail to the mail provider.&lt;/p&gt;
+
+&lt;p&gt;In this method, you should craft an appropriately formatted message and transmit it to the messaging service.&lt;/p&gt;
+
+&lt;p&gt;The method receives two input arguments:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;$params&lt;/code&gt; — An array of configuration parameters for the mail provider.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$message&lt;/code&gt; — The &lt;code&gt;Message&lt;/code&gt; object.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;public function send(array $params, Message $message)
+{
+    $api_username = $moduleSettings[&#39;api_username&#39;];
+    $api_password = $moduleSettings[&#39;api_password&#39;];
+
+    // Build API Request to remote service
+
+    $postData = [
+        &#39;username&#39; =&amp;gt; $api_username,
+        &#39;password&#39; =&amp;gt; $api_password,
+        &#39;priority&#39; =&amp;gt; $priority,
+        &#39;channel&#39; =&amp;gt; $channel,
+        &#39;title&#39; =&amp;gt; $notification-&amp;gt;getTitle(),
+        &#39;message&#39; =&amp;gt; $notification-&amp;gt;getMessage(),
+        &#39;url&#39; =&amp;gt; $notification-&amp;gt;getUrl(),
+        &#39;attributes&#39; =&amp;gt; [],
+    ];
+
+    // Attributes vary depending on the event trigger. Loop through as necessary.
+    foreach ($notification-&amp;gt;getAttributes() as $attribute) {
+        $postData[&#39;attributes&#39;][] = [
+            &#39;label&#39; =&amp;gt; $attribute-&amp;gt;getLabel(),
+            &#39;value&#39; =&amp;gt; $attribute-&amp;gt;getValue(),
+            &#39;url&#39; =&amp;gt; $attribute-&amp;gt;getUrl(),
+            &#39;style&#39; =&amp;gt; $attribute-&amp;gt;getStyle(),
+            &#39;icon&#39; =&amp;gt; $attribute-&amp;gt;getIcon(),
+        ];
+    }
+
+    // Call the remote API
+    $response = file_get_contents(&#39;https://www.example.com/?&#39; . http_build_query($postData));
+
+    if (!$response) {
+        // Throw a human friendly exception on error
+        throw new Exception(&#39;No response received from API&#39;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

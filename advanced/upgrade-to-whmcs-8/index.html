@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Upgrade to WHMCS 8.0 - WHMCS Developer Documentation</title>
+    <meta name="generator" content="Hugo 0.17" />
+
+    
+    <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
+    
+    <link rel="canonical" href="//developers.whmcs.com/advanced/upgrade-to-whmcs-8/">
+    
+    <meta name="author" content="WHMCS Development Team">
+    
+
+    <link rel="stylesheet" href="//developers.whmcs.com/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/styles.css?v=3">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//developers.whmcs.com/css/prism.css">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+    
+
+  </head>
+  <body class="language-php">
+
+<header class="header">
+
+
+
+
+
+<div class="container">
+<nav class="navbar navbar-whmcs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#primary-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.whmcs.com/"><img src="//developers.whmcs.com/img/logo.png" width="148" height="34"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="primary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="//developers.whmcs.com/"><span class="hidden-sm">Developer Documentation</span><span class="visible-sm">Developer Docs</span></a></li>
+        <li class="visible-xs"><a href="//developers.whmcs.com/">Home</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/api/">API</a></li>
+            <li class="visible-xs active"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+        <li><a href="//developers.whmcs.com/hooks-reference/">Hook Reference</a></li>
+        <li><a href="https://github.com/whmcs" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+      <form class="navbar-form navbar-right visible-xs" id="docsSearchMobile">
+        <div class="aa-input-container" id="aa-input-container">
+            <input type="search" id="inputSearchMobile" class="aa-input-search" placeholder="Search documentation" name="search" autocomplete="off" />
+            <svg class="aa-input-icon" viewBox="654 -372 1664 1664">
+                <path d="M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332  s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z" />
+            </svg>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>
+
+<div class="headline-bar hidden-xs">
+<nav class="navbar navbar-main-nav">
+  <div class="container">
+    <div class="collapse navbar-collapse" id="secondary-nav">
+      <ul class="nav navbar-nav">
+        <li><a href="//developers.whmcs.com/">Home</a></li>
+            <li><a href="//developers.whmcs.com/themes/">Themes</a></li>
+            <li><a href="//developers.whmcs.com/languages/">Languages</a></li>
+            <li><a href="//developers.whmcs.com/modules/">Modules</a></li>
+            <li><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
+            <li><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
+            <li><a href="//developers.whmcs.com/api/">API</a></li>
+            <li class="active"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" id="docsSearch">
+        <div class="aa-input-container" id="aa-input-container">
+            <input type="search" id="inputSearch" class="aa-input-search" placeholder="Search documentation" name="search" autocomplete="off" />
+            <svg class="aa-input-icon" viewBox="654 -372 1664 1664">
+                <path d="M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332  s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z" />
+            </svg>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>
+
+</header>
+
+
+<main class="main">
+
+  <div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-sm-3 sidebar-offcanvas">
+
+        
+          <ul class="sidebar-nav">
+            
+  <li class="active parent" data-nav-id="/advanced/">
+    <a href="//developers.whmcs.com/advanced/">
+      <span>
+        
+          <i class='fa fa-code fa-fw'></i>
+        
+         Advanced
+       </span>
+    </a>
+    
+    <ul>
+      
+      
+      
+      
+        <li class="active" data-nav-id="/advanced/upgrade-to-whmcs-8/">
+          <a href="//developers.whmcs.com/advanced/upgrade-to-whmcs-8/">
+            <span>Upgrade to WHMCS 8.0</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/advanced/creating-pages/">
+          <a href="//developers.whmcs.com/advanced/creating-pages/">
+            <span>Creating Pages</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/advanced/db-interaction/">
+          <a href="//developers.whmcs.com/advanced/db-interaction/">
+            <span>Interacting with the Database</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/advanced/date-functions/">
+          <a href="//developers.whmcs.com/advanced/date-functions/">
+            <span>Date Functions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/advanced/currency-formatting/">
+          <a href="//developers.whmcs.com/advanced/currency-formatting/">
+            <span>Currency Formatting</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/advanced/logging/">
+          <a href="//developers.whmcs.com/advanced/logging/">
+            <span>Logging</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/advanced/widgets/">
+          <a href="//developers.whmcs.com/advanced/widgets/">
+            <span>Widgets</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/advanced/admin-area/">
+          <a href="//developers.whmcs.com/advanced/admin-area/">
+            <span>Admin Area</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/advanced/json-file/">
+          <a href="//developers.whmcs.com/advanced/json-file/">
+            <span>JSON File</span>
+          </a>
+        </li>
+      
+      
+    </ul>
+    
+  </li>
+
+
+          </ul>
+        
+
+      </div>
+      <div class="col-sm-9">
+
+        <div class="breadcrumb-nav">
+
+            <div class="pull-right">
+              <a class="suggest-an-edit" href="https://github.com/WHMCS/developer-docs" target="blank">
+                <i class="fa fa-code-fork"></i>
+                <span class="hidden-xs">Suggest an edit</span>
+              </a>
+            </div>
+
+            <div class="visible-xs pull-left">
+                <button type="button" class="btn btn-toggle-sidebar" data-toggle="offcanvas">
+                    <i class="fa fa-list-alt"></i>
+                </button>
+            </div>
+
+            <div id="breadcrumbs">
+                
+                
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                    
+                <a href="//developers.whmcs.com/advanced/" itemprop="url"><span itemprop="title">Advanced</span></a> <i class="fa fa-angle-right"></i>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                <span itemprop="title"> Upgrade to WHMCS 8.0</span>
+              </div>
+            </div>
+
+
+			<h1>Upgrade to WHMCS 8.0 </h1>
+
+			
+
+<p>There are several changes in WHMCS v8.0 and its dependencies that may affect third-party code.</p>
+
+<ul>
+<li>For your own code, you will need to manually verify this.</li>
+<li>For any code that comes from third-party vendors, check with the vendor to ensure it&rsquo;s compatible with WHMCS v8.0.</li>
+</ul>
+
+<h2 id="php-7-2-requirement">PHP 7.2 requirement</h2>
+
+<p>WHMCS v8.0 and its dependencies require PHP 7.2. This may require the presence of the PHP 7.2 syntax in your code in order to avoid errors. We recommend that you consult [the PHP manual&rsquo;s PHP 7.2 Migration Guide][<a href="https://www.php.net/manual/en/migration72.php">https://www.php.net/manual/en/migration72.php</a>] as you evaluate and update your code for compatibility with WHMCS v8.0.</p>
+
+<h2 id="removed-templates">Removed templates</h2>
+
+<p>We have removed the <em>Boxes</em> and <em>Modern</em> templates. WHMCS no longer ships with them, and we do not support them.</p>
+
+<p>Make sure to update any custom order forms based on these to use the <em>Standard</em> template. You can also use the <em>Legacy Boxes</em> and <em>Legacy Modern</em> child templates as a baseline for custom templates.</p>
+
+<p>Other custom templates will not be affected by this change.</p>
+
+<h2 id="updates-for-dependencies">Updates for dependencies</h2>
+
+<p>We updated several dependencies within WHMCS while preparing for this upgrade. When ensuring that your code is compatible with WHMCS v8.0, you will likely need to update dependencies as well. The list below includes a selection of our most important updates and notes on selected changes that impacted WHMCS&rsquo;s code.</p>
+
+<p><strong>Note:</strong> You <strong>must</strong> independently verify whether your code and its dependencies necessitate upgrades. The updates below are highlights of WHMCS&rsquo;s changes, and are not comprehensive. Your code will have its own unique needs, but many of these items are likely to apply too.</p>
+
+<h3 id="carbon">Carbon</h3>
+
+<p>Carbon has been upgraded from version 1 to version 2. <code>Carbon\Carbon::parse()</code> now returns false for invalid values. Previous versions of Carbon would throw an exception.</p>
+
+<h3 id="guzzle">Guzzle</h3>
+
+<p>Guzzle has been upgraded from version 5 to version 7. The major changes in this upgrade are listed below. For more information and a full list of changes, see [Guzzle&rsquo;s documentation][<a href="https://github.com/guzzle/guzzle/blob/master/UPGRADING.md">https://github.com/guzzle/guzzle/blob/master/UPGRADING.md</a>].</p>
+
+<p>The <code>client::get()</code> returns have changed, so you may need to switch to <code>getBody()-&gt;getContents</code> or cast <code>-&gt;getBody()</code> to a string.</p>
+
+<p>You may need to consider making these changes:</p>
+
+<ul>
+<li>Use <code>base_uri</code> rather than <code>base_url</code>.</li>
+<li>Store cookies in <code>CookieJarInterface</code>, not a <code>key =&gt; value</code> array.</li>
+<li>When you instantiate the Guzzle Client class, move every option from the <code>defaults</code> array key to the top level of options:
+```
+         $client = new Client([</li>
+<li>&lsquo;defaults&rsquo; =&gt; [</li>
+<li>&lsquo;verify&rsquo; =&gt; true,</li>
+<li>&lsquo;exceptions&rsquo; =&gt; true,</li>
+<li>&lsquo;timeout&rsquo; =&gt; 10,</li>
+<li>]</li>
+<li>&lsquo;verify&rsquo; =&gt; true,</li>
+<li>&lsquo;http_errors&rsquo; =&gt; true,</li>
+<li>&lsquo;timeout&rsquo; =&gt; 10,
+         ]);
+```</li>
+</ul>
+
+<p>Some items have been removed:</p>
+
+<ul>
+<li><code>CompleteEvent</code> is no longer defined.</li>
+<li><code>StreamHandler</code> is no longer defined.</li>
+<li><code>GuzzleHttp\Message\ResponseInterface</code> is no longer defined. We recommend that you replace it with <code>Psr\Http\Message\ResponseInterface</code>.</li>
+</ul>
+
+<h3 id="laravel">Laravel</h3>
+
+<p>Capsule <code>pluck()</code> and <code>get()</code> now return a Collection rather than an array. If you&rsquo;d like to minimize changes to your codebase, call <code>-&gt;all()</code> on it when you feed results into <code>in_array()</code> and similar methods. Do not call <code>toArray()</code> instead without changing consuming code. <code>toArray()</code> will convert all collection items into arrays as well (which Capsule did not do previously).</p>
+
+<p>Some items are removed:</p>
+
+<ul>
+<li><code>Builder::lists()</code> is removed. In most cases, we replaced this with <code>pluck()</code>.</li>
+<li>String helpers no longer exist, and you must replace them. For example, replace <code>snake_case()</code> with <code>Str::of('&lt;string&gt;')-&gt;snake()</code>.</li>
+</ul>
+
+<p>These changes are particularly important if you use Eloquent.</p>
+
+<h3 id="smarty">Smarty</h3>
+
+<p>We upgraded <code>smarty/smarty</code> from version 3.1.33 to 3.1.36. Additionally, there are changes in the use of Smarty&rsquo;s Security Policy parameters. For more information, see [Smarty Security Policy][<a href="https://docs.whmcs.com/Smarty_Security_Policy">https://docs.whmcs.com/Smarty_Security_Policy</a>].</p>
+
+<h3 id="other">Other</h3>
+
+<p>We added and updated the following additional dependencies for Composer:</p>
+
+<table>
+<thead>
+<tr>
+<th>Dependency</th>
+<th>From version</th>
+<th>To version</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>abraham/twitteroauth</code></td>
+<td>0.7.4</td>
+<td>1.1.0</td>
+</tr>
+
+<tr>
+<td><code>bitpay/sdk-light</code></td>
+<td>1.2.2002</td>
+<td>2.0.2007</td>
+</tr>
+
+<tr>
+<td><code>brick/math</code></td>
+<td>N/A</td>
+<td>0.8.15</td>
+</tr>
+
+<tr>
+<td><code>composer/composer</code></td>
+<td>1.10.5</td>
+<td>1.10.6</td>
+</tr>
+
+<tr>
+<td><code>ezyang/htmlpurifier</code></td>
+<td>4.9.2</td>
+<td>4.12.0</td>
+</tr>
+
+<tr>
+<td><code>filp/whoops</code></td>
+<td>2.1.8</td>
+<td>2.7.2</td>
+</tr>
+
+<tr>
+<td><code>firebase/php-jwt</code></td>
+<td>3.0.0</td>
+<td>5.2.0</td>
+</tr>
+
+<tr>
+<td><code>google/apiclient</code></td>
+<td>v2.1.3</td>
+<td>2.7.0</td>
+</tr>
+
+<tr>
+<td><code>google/auth</code></td>
+<td>0.11.1</td>
+<td>1.11.0</td>
+</tr>
+
+<tr>
+<td><code>guzzlehttp/guzzle</code></td>
+<td>6.5.3</td>
+<td>7.0.1</td>
+</tr>
+
+<tr>
+<td><code>illuminate/console</code></td>
+<td>7.9.2</td>
+<td>7.12.0</td>
+</tr>
+
+<tr>
+<td><code>illuminate/container</code></td>
+<td>7.9.2</td>
+<td>7.12.0</td>
+</tr>
+
+<tr>
+<td><code>illuminate/contracts</code></td>
+<td>7.9.2</td>
+<td>7.12.0</td>
+</tr>
+
+<tr>
+<td><code>illuminate/database</code></td>
+<td>7.9.2</td>
+<td>7.12.0</td>
+</tr>
+
+<tr>
+<td><code>illuminate/events</code></td>
+<td>7.9.2</td>
+<td>7.12.0</td>
+</tr>
+
+<tr>
+<td><code>illuminate/support</code></td>
+<td>7.9.2</td>
+<td>7.12.0</td>
+</tr>
+
+<tr>
+<td><code>illuminate/validation</code></td>
+<td>7.9.2</td>
+<td>7.12.0</td>
+</tr>
+
+<tr>
+<td><code>knplabs/knp-menu</code></td>
+<td>2.1.1</td>
+<td>3.1.1</td>
+</tr>
+
+<tr>
+<td><code>laminas/laminas-diactoros</code></td>
+<td>N/A</td>
+<td>2.3.1</td>
+</tr>
+
+<tr>
+<td><code>laminas/laminas-httphandlerrunner</code></td>
+<td>N/A</td>
+<td>1.2.0</td>
+</tr>
+
+<tr>
+<td><code>league/climate</code></td>
+<td>3.2.1</td>
+<td>3.5.2</td>
+</tr>
+
+<tr>
+<td><code>league/flysystem</code></td>
+<td>1.0.45</td>
+<td>1.0.67</td>
+</tr>
+
+<tr>
+<td><code>league/oauth2-client</code></td>
+<td>2.4.1</td>
+<td>2.5.0</td>
+</tr>
+
+<tr>
+<td><code>league/oauth2-google</code></td>
+<td>2.5.0</td>
+<td>3.0.3</td>
+</tr>
+
+<tr>
+<td><code>monolog/monolog</code></td>
+<td>1.18.2</td>
+<td>2.0.2</td>
+</tr>
+
+<tr>
+<td><code>nikic/fast-route</code></td>
+<td>1.2.0</td>
+<td>1.3.0</td>
+</tr>
+
+<tr>
+<td><code>php-imap/php-imap</code></td>
+<td>2.0.9</td>
+<td>3.1.0</td>
+</tr>
+
+<tr>
+<td><code>phpmyadmin/sql-parser</code></td>
+<td>4.2.4</td>
+<td>5.3.1</td>
+</tr>
+
+<tr>
+<td><code>phpmyadmin/phpmailer</code></td>
+<td>6.0.7</td>
+<td>6.1.5</td>
+</tr>
+
+<tr>
+<td><code>phpseclib/mcrypt_compat</code></td>
+<td>1.0.5</td>
+<td>1.0.11</td>
+</tr>
+
+<tr>
+<td><code>phpseclib/phpseclib</code></td>
+<td>2.0.10</td>
+<td>2.0.27</td>
+</tr>
+
+<tr>
+<td><code>psr/http-factory</code></td>
+<td>N/A</td>
+<td>1.0.1</td>
+</tr>
+
+<tr>
+<td><code>punic/punic</code></td>
+<td>1.6.3</td>
+<td>3.5.1</td>
+</tr>
+
+<tr>
+<td><code>ramsey/collection</code></td>
+<td>N/A</td>
+<td>1.0.1</td>
+</tr>
+
+<tr>
+<td><code>ramsey/uuid</code></td>
+<td>3.4.1</td>
+<td>4.0.1</td>
+</tr>
+
+<tr>
+<td><code>react/promise</code></td>
+<td>2.5.1</td>
+<td>2.8.0</td>
+</tr>
+
+<tr>
+<td><code>ramsey/uuid</code></td>
+<td>3.4.1</td>
+<td>4.0.1</td>
+</tr>
+
+<tr>
+<td><code>seld/jsonlint</code></td>
+<td>1.6.1</td>
+<td>1.8.0</td>
+</tr>
+
+<tr>
+<td><code>seld/phar-utils</code></td>
+<td>1.0.1</td>
+<td>1.1.0</td>
+</tr>
+
+<tr>
+<td><code>stripe/stripe-php</code></td>
+<td>6.43.1</td>
+<td>7.34.0</td>
+</tr>
+
+<tr>
+<td><code>symfony/polyfill-ctype</code></td>
+<td>N/A</td>
+<td>1.17.0</td>
+</tr>
+
+<tr>
+<td><code>symfony/polyfill-iconv</code></td>
+<td>1.15.0</td>
+<td>1.17.0</td>
+</tr>
+
+<tr>
+<td><code>symfony/polyfill-intl-idn</code></td>
+<td>N/A</td>
+<td>1.17.0</td>
+</tr>
+
+<tr>
+<td><code>symfony/polyfill-mbstring</code></td>
+<td>1.14.0</td>
+<td>1.17.0</td>
+</tr>
+
+<tr>
+<td><code>symfony/polyfill-php72</code></td>
+<td>N/A</td>
+<td>1.17.0</td>
+</tr>
+
+<tr>
+<td><code>symfony/polyfill-php73</code></td>
+<td>N/A</td>
+<td>1.17.0</td>
+</tr>
+
+<tr>
+<td><code>tecnickcom/tcpdf</code></td>
+<td>6.2.26</td>
+<td>6.3.5</td>
+</tr>
+
+<tr>
+<td><code>zbateson/stream-decorators</code></td>
+<td>N/A</td>
+<td>1.0.3</td>
+</tr>
+
+<tr>
+<td><code>zendframework/zend-diactoros</code></td>
+<td>1.3.10</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+
+
+			<div class="topic-navigation clearfix">
+                
+                    <a class="nav nav-prev" href="//developers.whmcs.com/intro">
+                        <i class="fa fa-arrow-circle-left"></i>
+                        Previous
+                    </a>
+                
+                
+            </div>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+
+        </div>
+  </div>
+</div>
+</main>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <nav>
+                <div class="col-sm-3">
+                    <h3>Learn</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/">About WHMCS</a></li>
+                        <li><a href="//developers.whmcs.com/about/quick-start/">Quick start</a></li>
+                        <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
+                        <li><a href="https://docs.whmcs.com/classes/">Classes Reference</a></li>
+                        <li><a href="//developers.whmcs.com/about/faq/">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Contribute</h3>
+                    <ul>
+                        <li><a href="//developers.whmcs.com/about/contribute/">Contribute</a></li>
+                        <li><a href="https://github.com/whmcs/" target="_blank">Github</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-5">
+                    <h3>Stay up to date</h3>
+                    <div class="subscribe-form">
+                        <p class="muted subscribe-lead">Join our developers mailing list to be kept up-to-date.</p>
+                        <div class="alert alert-success sub-success-message hidden" role="alert">
+                            <strong>Thank You!</strong> You have been subscribed.
+                        </div>
+                        <div class="alert alert-danger sub-error-message hidden" role="alert">
+                            <strong>Sorry</strong> <span id="error-message-text"></span>
+                        </div>
+                        <form action="//www.whmcs.com/members/subscribe.php" method="post" id="frmSubscribe">
+                            <input type="hidden" name="name" value="Subscriber">
+                            <input type="hidden" name="developer" value="dev">
+                            <div class="input-group">
+                                <input type="email" name="email" class="form-control" placeholder="you@yourdomain.com">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-info">
+                                        SUBSCRIBE
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <p>
+                        We won't spam you.
+                    </p>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <p>Found an error or a typo in these docs? <a href="https://github.com/WHMCS/developer-docs/issues">Submit an issue or a pull request</a></p>
+            </div>
+            <div class="col-md-5">
+                <p class="pull-right">
+                    Copyright &copy; WHMCS 2020. All rights reserved.
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="//developers.whmcs.com/js/jquery.min.js"></script>
+<script src="//developers.whmcs.com/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script>
+<script src="//developers.whmcs.com/js/search.js?v=2"></script>
+<script src="//developers.whmcs.com/js/prism.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-22019969-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
+

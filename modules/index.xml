@@ -28,7 +28,7 @@
         &lt;a href=&#34;//developers.whmcs.com/provisioning-modules/&#34;&gt;
             &lt;i class=&#34;fa fa-cog&#34;&gt;&lt;/i&gt;
             &lt;h3&gt;Provisioning Modules&lt;/h3&gt;
-            &lt;p&gt;For modules that enable provisioning and management of products &amp;amp; services via API.&lt;/p&gt;
+            &lt;p&gt;For modules that enable provisioning and management of products and services via API.&lt;/p&gt;
         &lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;col-sm-6&#34;&gt;
@@ -53,6 +53,13 @@
         &lt;/a&gt;
     &lt;/div&gt;
     &lt;div class=&#34;col-sm-6&#34;&gt;
+        &lt;a href=&#34;//developers.whmcs.com/mail-providers/&#34;&gt;
+            &lt;i class=&#34;fa fa-money&#34;&gt;&lt;/i&gt;
+            &lt;h3&gt;Mail Provider Modules&lt;/h3&gt;
+            &lt;p&gt;Add custom mail providers to WHMCS.&lt;/p&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;col-sm-6&#34;&gt;
         &lt;a href=&#34;//developers.whmcs.com/notification-providers/&#34;&gt;
             &lt;i class=&#34;fa fa-bell-o&#34;&gt;&lt;/i&gt;
             &lt;h3&gt;Notification Providers&lt;/h3&gt;
@@ -74,17 +81,19 @@
 &lt;p&gt;The first step in creating a module for WHMCS is determining which type of module you wish to create:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/provisioning-modules/&#34;&gt;Provisioning Modules&lt;/a&gt;&lt;/strong&gt; - Provisioning Modules, also referred to as Product or Server Modules, allow you to create modules to allow for the provisioning and management of products &amp;amp; services. &lt;a href=&#34;//developers.whmcs.com/provisioning-modules/&#34;&gt;Learn more&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/provisioning-modules/&#34;&gt;Provisioning Modules&lt;/a&gt;&lt;/strong&gt; - Provisioning Modules, also referred to as Product or Server Modules, allow you to create modules to allow for the provisioning and management of products and services. &lt;a href=&#34;//developers.whmcs.com/provisioning-modules/&#34;&gt;Learn more&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/addon-modules/&#34;&gt;Addon Modules&lt;/a&gt;&lt;/strong&gt; - Addon Modules allow you to create modules and extensions that provide client and/or admin area output and that are not directly linked to individual products/services. &lt;a href=&#34;//developers.whmcs.com/addon-modules/&#34;&gt;Learn more&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/addon-modules/&#34;&gt;Addon Modules&lt;/a&gt;&lt;/strong&gt; - Addon Modules allow you to create modules and extensions that provide client and/or admin area output and that are not directly linked to individual products and services. &lt;a href=&#34;//developers.whmcs.com/addon-modules/&#34;&gt;Learn more&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/payment-gateways/&#34;&gt;Payment Gateway Modules&lt;/a&gt;&lt;/strong&gt; - Gateway Module allow you to connect WHMCS with additional payment and credit card processors for processing and capturing payments. Payment gateway modules include:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Third Party Gateways - Where a customer leaves the site to pay and returns when the payment process completes.&lt;/li&gt;
-&lt;li&gt;Merchant Gateways - Where a customer enters credit card details without leaving WHMCS and payment is processed via an API.&lt;/li&gt;
-&lt;li&gt;Tokenised Gateways - Where credit card details are entered either within or outside of WHMCS and a token is generated and stored for future billing needs.&lt;/li&gt;
+&lt;li&gt;Third Party Gateways — A customer leaves the site to pay and returns when the payment process completes.&lt;/li&gt;
+&lt;li&gt;Merchant Gateways — A customer enters credit card details without leaving WHMCS and payment is processed via an API.&lt;/li&gt;
+&lt;li&gt;Tokenised Gateways — Credit card details are entered either within or outside of WHMCS and a token is generated and stored for future billing needs.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/mail-providers/&#34;&gt;Mail Provider Modules&lt;/a&gt;&lt;/strong&gt; - Mail Provider Modules allow you to create modules to add custom mail providers within WHMCS. &lt;a href=&#34;//developers.whmcs.com/mail-providers/&#34;&gt;Learn more&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/domain-registrars/&#34;&gt;Registrar Modules&lt;/a&gt;&lt;/strong&gt; - Registrar Modules, also referred to as Domain Modules, allow you to create modules to allow for the registration and management of domains within WHMCS. &lt;a href=&#34;//developers.whmcs.com/domain-registrars/&#34;&gt;Learn more&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;

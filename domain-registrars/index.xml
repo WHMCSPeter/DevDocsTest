@@ -672,6 +672,36 @@ function yourmodulename_getConfigArray($params)
 &lt;td&gt;isInRedemptionGracePeriod&lt;/td&gt;
 &lt;td&gt;True if the domain is within the redemption grace period. Available in the module renewal function only&lt;/td&gt;
 &lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;IDN Parameters&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;idnlanguage&lt;/td&gt;
+&lt;td&gt;The language code for the domain.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;domain_punycode&lt;/td&gt;
+&lt;td&gt;The Punycode version of the domain name.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;sld_punycode&lt;/td&gt;
+&lt;td&gt;The SLD with the Punycode domain name.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;tld_punycode&lt;/td&gt;
+&lt;td&gt;The TLD with the Punycode domain name.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;is_idn&lt;/td&gt;
+&lt;td&gt;Whether the domain is an IDN.&lt;/td&gt;
+&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 </description>
@@ -1023,7 +1053,7 @@ function modulename_GetDomainInformation($params) {
 
 &lt;tr&gt;
 &lt;td&gt;IrtpTransferLockExpiryDate&lt;/td&gt;
-&lt;td&gt;Date/Carbon&lt;/td&gt;
+&lt;td&gt;Date&lt;/td&gt;
 &lt;td&gt;The expiry date of the transfer lock (optional)&lt;/td&gt;
 &lt;/tr&gt;
 
@@ -1041,7 +1071,7 @@ function modulename_GetDomainInformation($params) {
 
 &lt;tr&gt;
 &lt;td&gt;setDomainContactChangeExpiryDate&lt;/td&gt;
-&lt;td&gt;Date/Carbon&lt;/td&gt;
+&lt;td&gt;Date&lt;/td&gt;
 &lt;td&gt;The date by which the current WHOIS Contact Verification process must be completed by&lt;/td&gt;
 &lt;/tr&gt;
 

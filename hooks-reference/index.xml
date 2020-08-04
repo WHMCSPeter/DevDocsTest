@@ -16621,7 +16621,7 @@ add_hook(&#39;ClientAreaProductDetailsOutput&#39;, 1, function($service) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;date&lt;/td&gt;
-&lt;td&gt;\Carbon&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;A Carbon object representing the date.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -16657,8 +16657,8 @@ add_hook(&#39;FormatDateForClientAreaOutput&#39;, 1, function($vars) {
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;date&lt;/td&gt;
-&lt;td&gt;\Carbon&lt;/td&gt;
-&lt;td&gt;A Carbon object representing the date/time.&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;A Carbon object representing the date and time.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
