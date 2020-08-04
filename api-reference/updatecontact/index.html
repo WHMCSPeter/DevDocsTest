@@ -290,6 +290,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/adduser/">
+          <a href="//developers.whmcs.com/api-reference/adduser/">
+            <span>AddUser</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/affiliateactivate/">
           <a href="//developers.whmcs.com/api-reference/affiliateactivate/">
             <span>AffiliateActivate</span>
@@ -333,6 +341,14 @@
         <li class="" data-nav-id="/api-reference/closeclient/">
           <a href="//developers.whmcs.com/api-reference/closeclient/">
             <span>CloseClient</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/createclientinvite/">
+          <a href="//developers.whmcs.com/api-reference/createclientinvite/">
+            <span>CreateClientInvite</span>
           </a>
         </li>
       
@@ -485,6 +501,14 @@
         <li class="" data-nav-id="/api-reference/deleteticketreply/">
           <a href="//developers.whmcs.com/api-reference/deleteticketreply/">
             <span>DeleteTicketReply</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deleteuserclient/">
+          <a href="//developers.whmcs.com/api-reference/deleteuserclient/">
+            <span>DeleteUserClient</span>
           </a>
         </li>
       
@@ -858,6 +882,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getpermissionslist/">
+          <a href="//developers.whmcs.com/api-reference/getpermissionslist/">
+            <span>GetPermissionsList</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/getproducts/">
           <a href="//developers.whmcs.com/api-reference/getproducts/">
             <span>GetProducts</span>
@@ -1021,6 +1053,14 @@
         <li class="" data-nav-id="/api-reference/gettransactions/">
           <a href="//developers.whmcs.com/api-reference/gettransactions/">
             <span>GetTransactions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getuserpermissions/">
+          <a href="//developers.whmcs.com/api-reference/getuserpermissions/">
+            <span>GetUserPermissions</span>
           </a>
         </li>
       
@@ -1330,6 +1370,22 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/updateuser/">
+          <a href="//developers.whmcs.com/api-reference/updateuser/">
+            <span>UpdateUser</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateuserpermissions/">
+          <a href="//developers.whmcs.com/api-reference/updateuserpermissions/">
+            <span>UpdateUserPermissions</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/upgradeproduct/">
           <a href="//developers.whmcs.com/api-reference/upgradeproduct/">
             <span>UpgradeProduct</span>
@@ -1341,6 +1397,14 @@
         <li class="" data-nav-id="/api-reference/validatelogin/">
           <a href="//developers.whmcs.com/api-reference/validatelogin/">
             <span>ValidateLogin</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/whmcsdetails/">
+          <a href="//developers.whmcs.com/api-reference/whmcsdetails/">
+            <span>WhmcsDetails</span>
           </a>
         </li>
       
@@ -1457,13 +1521,6 @@
 </tr>
 
 <tr>
-<td>subaccount</td>
-<td>bool</td>
-<td>Is the contact a subaccount</td>
-<td>Optional</td>
-</tr>
-
-<tr>
 <td>firstname</td>
 <td>string</td>
 <td></td>
@@ -1541,13 +1598,6 @@
 </tr>
 
 <tr>
-<td>password2</td>
-<td>string</td>
-<td>(sub-account only)</td>
-<td>Optional</td>
-</tr>
-
-<tr>
 <td>email_preferences[general]</td>
 <td>bool</td>
 <td>Should the client receive general emails</td>
@@ -1586,13 +1636,6 @@
 <td>email_preferences[affiliate]</td>
 <td>bool</td>
 <td>Should the client receive affiliate emails</td>
-<td>Optional</td>
-</tr>
-
-<tr>
-<td>permissions</td>
-<td>string</td>
-<td>A comma separated list of sub-account permissions. eg manageproducts,managedomains</td>
 <td>Optional</td>
 </tr>
 </tbody>
@@ -1670,6 +1713,17 @@ print_r($results);
 }
 </code></pre>
 
+<h3 id="warning-responses">Warning Responses</h3>
+
+<p>Warning responses are returned when using API functionality that has been removed or marked as deprecated.
+We suggest following any recommended actions in the warning to ensure future compatibility.</p>
+
+<p>Possible warning messages include:</p>
+
+<ul>
+<li>Sub Accounts are no longer supported. Please use UpdateUser</li>
+</ul>
+
 <h3 id="error-responses">Error Responses</h3>
 
 <p>Possible error condition responses include:</p>
@@ -1699,6 +1753,11 @@ print_r($results);
 <tr>
 <td>7.10</td>
 <td>Added email preferences parameters</td>
+</tr>
+
+<tr>
+<td>8.0</td>
+<td>Removed sub-account functionality</td>
 </tr>
 </tbody>
 </table>

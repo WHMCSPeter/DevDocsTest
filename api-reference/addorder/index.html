@@ -290,6 +290,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/adduser/">
+          <a href="//developers.whmcs.com/api-reference/adduser/">
+            <span>AddUser</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/affiliateactivate/">
           <a href="//developers.whmcs.com/api-reference/affiliateactivate/">
             <span>AffiliateActivate</span>
@@ -333,6 +341,14 @@
         <li class="" data-nav-id="/api-reference/closeclient/">
           <a href="//developers.whmcs.com/api-reference/closeclient/">
             <span>CloseClient</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/createclientinvite/">
+          <a href="//developers.whmcs.com/api-reference/createclientinvite/">
+            <span>CreateClientInvite</span>
           </a>
         </li>
       
@@ -485,6 +501,14 @@
         <li class="" data-nav-id="/api-reference/deleteticketreply/">
           <a href="//developers.whmcs.com/api-reference/deleteticketreply/">
             <span>DeleteTicketReply</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deleteuserclient/">
+          <a href="//developers.whmcs.com/api-reference/deleteuserclient/">
+            <span>DeleteUserClient</span>
           </a>
         </li>
       
@@ -858,6 +882,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getpermissionslist/">
+          <a href="//developers.whmcs.com/api-reference/getpermissionslist/">
+            <span>GetPermissionsList</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/getproducts/">
           <a href="//developers.whmcs.com/api-reference/getproducts/">
             <span>GetProducts</span>
@@ -1021,6 +1053,14 @@
         <li class="" data-nav-id="/api-reference/gettransactions/">
           <a href="//developers.whmcs.com/api-reference/gettransactions/">
             <span>GetTransactions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getuserpermissions/">
+          <a href="//developers.whmcs.com/api-reference/getuserpermissions/">
+            <span>GetUserPermissions</span>
           </a>
         </li>
       
@@ -1330,6 +1370,22 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/updateuser/">
+          <a href="//developers.whmcs.com/api-reference/updateuser/">
+            <span>UpdateUser</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateuserpermissions/">
+          <a href="//developers.whmcs.com/api-reference/updateuserpermissions/">
+            <span>UpdateUserPermissions</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/upgradeproduct/">
           <a href="//developers.whmcs.com/api-reference/upgradeproduct/">
             <span>UpgradeProduct</span>
@@ -1341,6 +1397,14 @@
         <li class="" data-nav-id="/api-reference/validatelogin/">
           <a href="//developers.whmcs.com/api-reference/validatelogin/">
             <span>ValidateLogin</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/whmcsdetails/">
+          <a href="//developers.whmcs.com/api-reference/whmcsdetails/">
+            <span>WhmcsDetails</span>
           </a>
         </li>
       
@@ -1427,7 +1491,8 @@
 
 			
 
-<p>Adds an order to a client.</p>
+<p>Adds an order to a client. For more flow control, this method ignores the &ldquo;Automatically setup the product as soon
+as an order is placed.&rdquo; option. When you call this method, you must make a subsequent explicit call to AcceptOrder.</p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -1495,6 +1560,13 @@
 <td>regperiod</td>
 <td>int[]</td>
 <td>For domain registrations, the registration periods for the domains in the order</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>idnlanguage</td>
+<td>string[]</td>
+<td>For IDN domain registrations. The language code for the domain being registered</td>
 <td>Optional</td>
 </tr>
 
@@ -1795,7 +1867,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
             'clientid' =&gt; '1',
             'pid' =&gt; array(1,1),
-            'domain' =&gt; array('domain1.com', 'domain2.com'),
+            'domain' =&gt; array('domain1.com', 'dómáin2.com'),
+            'idnlanguage' =&gt; array('', 'fre'),
             'billingcycle' =&gt; array('monthly','semiannually'),
             'addons' =&gt; array('1,3,9', ''),
             'customfields' =&gt; array(base64_encode(serialize(array(&quot;1&quot; =&gt; &quot;Google&quot;))), base64_encode(serialize(array(&quot;1&quot; =&gt; &quot;Google&quot;)))),
@@ -1821,7 +1894,8 @@ curl_close($ch);
 $postData = array(
     'clientid' =&gt; '1',
     'pid' =&gt; array(1,1),
-    'domain' =&gt; array('domain1.com', 'domain2.com'),
+    'domain' =&gt; array('domain1.com', 'dómáin2.com'),
+    'idnlanguage' =&gt; array('', 'fre'),
     'billingcycle' =&gt; array('monthly','semiannually'),
     'addons' =&gt; array('1,3,9', ''),
     'customfields' =&gt; array(base64_encode(serialize(array(&quot;1&quot; =&gt; &quot;Google&quot;))), base64_encode(serialize(array(&quot;1&quot; =&gt; &quot;Google&quot;)))),
@@ -1880,6 +1954,11 @@ print_r($results);
 <tr>
 <td>1.0</td>
 <td>Initial Version</td>
+</tr>
+
+<tr>
+<td>8.0</td>
+<td>Added IDN Language parameter</td>
 </tr>
 </tbody>
 </table>

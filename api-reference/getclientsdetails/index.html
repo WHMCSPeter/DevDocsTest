@@ -290,6 +290,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/adduser/">
+          <a href="//developers.whmcs.com/api-reference/adduser/">
+            <span>AddUser</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/affiliateactivate/">
           <a href="//developers.whmcs.com/api-reference/affiliateactivate/">
             <span>AffiliateActivate</span>
@@ -333,6 +341,14 @@
         <li class="" data-nav-id="/api-reference/closeclient/">
           <a href="//developers.whmcs.com/api-reference/closeclient/">
             <span>CloseClient</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/createclientinvite/">
+          <a href="//developers.whmcs.com/api-reference/createclientinvite/">
+            <span>CreateClientInvite</span>
           </a>
         </li>
       
@@ -485,6 +501,14 @@
         <li class="" data-nav-id="/api-reference/deleteticketreply/">
           <a href="//developers.whmcs.com/api-reference/deleteticketreply/">
             <span>DeleteTicketReply</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/deleteuserclient/">
+          <a href="//developers.whmcs.com/api-reference/deleteuserclient/">
+            <span>DeleteUserClient</span>
           </a>
         </li>
       
@@ -858,6 +882,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getpermissionslist/">
+          <a href="//developers.whmcs.com/api-reference/getpermissionslist/">
+            <span>GetPermissionsList</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/getproducts/">
           <a href="//developers.whmcs.com/api-reference/getproducts/">
             <span>GetProducts</span>
@@ -1021,6 +1053,14 @@
         <li class="" data-nav-id="/api-reference/gettransactions/">
           <a href="//developers.whmcs.com/api-reference/gettransactions/">
             <span>GetTransactions</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/getuserpermissions/">
+          <a href="//developers.whmcs.com/api-reference/getuserpermissions/">
+            <span>GetUserPermissions</span>
           </a>
         </li>
       
@@ -1330,6 +1370,22 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/updateuser/">
+          <a href="//developers.whmcs.com/api-reference/updateuser/">
+            <span>UpdateUser</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/updateuserpermissions/">
+          <a href="//developers.whmcs.com/api-reference/updateuserpermissions/">
+            <span>UpdateUserPermissions</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/upgradeproduct/">
           <a href="//developers.whmcs.com/api-reference/upgradeproduct/">
             <span>UpgradeProduct</span>
@@ -1341,6 +1397,14 @@
         <li class="" data-nav-id="/api-reference/validatelogin/">
           <a href="//developers.whmcs.com/api-reference/validatelogin/">
             <span>ValidateLogin</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/api-reference/whmcsdetails/">
+          <a href="//developers.whmcs.com/api-reference/whmcsdetails/">
+            <span>WhmcsDetails</span>
           </a>
         </li>
       
@@ -1547,95 +1611,115 @@ print_r($results);
 
 <pre><code>{
     &quot;result&quot;: &quot;success&quot;,
-    &quot;client[result]&quot;: &quot;success&quot;,
-    &quot;client[userid]&quot;: &quot;1&quot;,
-    &quot;client[id]&quot;: &quot;1&quot;,
-    &quot;client[uuid]&quot;: &quot;f08ea4d1-c578-441a-9b0a-aa3aff8b1acf&quot;,
-    &quot;client[firstname]&quot;: &quot;Test&quot;,
-    &quot;client[lastname]&quot;: &quot;Client&quot;,
-    &quot;client[fullname]&quot;: &quot;Test Client&quot;,
-    &quot;client[companyname]&quot;: &quot;&quot;,
-    &quot;client[email]&quot;: &quot;test-client@example.com&quot;,
-    &quot;client[address1]&quot;: &quot;123 Test Street&quot;,
-    &quot;client[address2]&quot;: &quot;&quot;,
-    &quot;client[city]&quot;: &quot;Test&quot;,
-    &quot;client[fullstate]&quot;: &quot;Tester&quot;,
-    &quot;client[state]&quot;: &quot;Tester&quot;,
-    &quot;client[postcode]&quot;: &quot;TE5 5ST&quot;,
-    &quot;client[countrycode]&quot;: &quot;GB&quot;,
-    &quot;client[country]&quot;: &quot;GB&quot;,
-    &quot;client[phonenumber]&quot;: &quot;01234567890&quot;,
-    &quot;client[password]&quot;: &quot;$2y$10$17X1fBPpamALcMA9KMiFneH4FYpMkkmFGDxlkxbjGeSnfH8sLqixa&quot;,
-    &quot;client[email_preferences][general]&quot;: &quot;1&quot;,
-    &quot;client[email_preferences][invoice]&quot;: &quot;1&quot;,
-    &quot;client[email_preferences][support]&quot;: &quot;1&quot;,
-    &quot;client[email_preferences][product]&quot;: &quot;1&quot;,
-    &quot;client[email_preferences][domain]&quot;: &quot;1&quot;,
-    &quot;client[email_preferences][affiliate]&quot;: &quot;1&quot;,
-    &quot;client[statecode]&quot;: &quot;Tester&quot;,
-    &quot;client[countryname]&quot;: &quot;United Kingdom&quot;,
-    &quot;client[phonecc]&quot;: &quot;44&quot;,
-    &quot;client[phonenumberformatted]&quot;: &quot;+44.1234567890&quot;,
-    &quot;client[billingcid]&quot;: &quot;0&quot;,
-    &quot;client[notes]&quot;: &quot;&quot;,
-    &quot;client[twofaenabled]&quot;: &quot;&quot;,
-    &quot;client[currency]&quot;: &quot;1&quot;,
-    &quot;client[defaultgateway]&quot;: &quot;&quot;,
-    &quot;client[securityqid]&quot;: &quot;0&quot;,
-    &quot;client[securityqans]&quot;: &quot;&quot;,
-    &quot;client[groupid]&quot;: &quot;0&quot;,
-    &quot;client[status]&quot;: &quot;Active&quot;,
-    &quot;client[credit]&quot;: &quot;0.00&quot;,
-    &quot;client[taxexempt]&quot;: &quot;&quot;,
-    &quot;client[latefeeoveride]&quot;: &quot;&quot;,
-    &quot;client[overideduenotices]&quot;: &quot;&quot;,
-    &quot;client[separateinvoices]&quot;: &quot;&quot;,
-    &quot;client[disableautocc]&quot;: &quot;&quot;,
-    &quot;client[emailoptout]&quot;: &quot;&quot;,
-    &quot;client[marketing_emails_opt_in]&quot;: &quot;&quot;,
-    &quot;client[overrideautoclose]&quot;: &quot;&quot;,
-    &quot;client[allowSingleSignOn]&quot;: &quot;1&quot;,
-    &quot;client[email_verified]&quot;: &quot;1&quot;,
-    &quot;client[language]&quot;: &quot;&quot;,
-    &quot;client[lastlogin]&quot;: &quot;Date: 03\/10\/2016 10:26&lt;br&gt;IP Address:&lt;br&gt;Host:&quot;,
-    &quot;client[currency_code]&quot;: &quot;USD&quot;,
-    &quot;stats[numdueinvoices]&quot;: &quot;19&quot;,
-    &quot;stats[dueinvoicesbalance]&quot;: &quot;$2645.80 USD&quot;,
-    &quot;stats[income]&quot;: &quot;$0.00 USD&quot;,
-    &quot;stats[incredit]&quot;: &quot;&quot;,
-    &quot;stats[creditbalance]&quot;: &quot;$0.00 USD&quot;,
-    &quot;stats[numoverdueinvoices]&quot;: &quot;19&quot;,
-    &quot;stats[overdueinvoicesbalance]&quot;: &quot;$2645.80 USD&quot;,
-    &quot;stats[numDraftInvoices]&quot;: &quot;0&quot;,
-    &quot;stats[draftInvoicesBalance]&quot;: &quot;$0.00 USD&quot;,
-    &quot;stats[numpaidinvoices]&quot;: &quot;0&quot;,
-    &quot;stats[paidinvoicesamount]&quot;: &quot;$0.00 USD&quot;,
-    &quot;stats[numunpaidinvoices]&quot;: &quot;19&quot;,
-    &quot;stats[unpaidinvoicesamount]&quot;: &quot;$2645.80 USD&quot;,
-    &quot;stats[numcancelledinvoices]&quot;: &quot;0&quot;,
-    &quot;stats[cancelledinvoicesamount]&quot;: &quot;$0.00 USD&quot;,
-    &quot;stats[numrefundedinvoices]&quot;: &quot;0&quot;,
-    &quot;stats[refundedinvoicesamount]&quot;: &quot;$0.00 USD&quot;,
-    &quot;stats[numcollectionsinvoices]&quot;: &quot;0&quot;,
-    &quot;stats[collectionsinvoicesamount]&quot;: &quot;$0.00 USD&quot;,
-    &quot;stats[productsnumactivehosting]&quot;: &quot;0&quot;,
-    &quot;stats[productsnumhosting]&quot;: &quot;0&quot;,
-    &quot;stats[productsnumactivereseller]&quot;: &quot;0&quot;,
-    &quot;stats[productsnumreseller]&quot;: &quot;0&quot;,
-    &quot;stats[productsnumactiveservers]&quot;: &quot;0&quot;,
-    &quot;stats[productsnumservers]&quot;: &quot;0&quot;,
-    &quot;stats[productsnumactiveother]&quot;: &quot;2&quot;,
-    &quot;stats[productsnumother]&quot;: &quot;2&quot;,
-    &quot;stats[productsnumactive]&quot;: &quot;2&quot;,
-    &quot;stats[productsnumtotal]&quot;: &quot;2&quot;,
-    &quot;stats[numactivedomains]&quot;: &quot;2&quot;,
-    &quot;stats[numdomains]&quot;: &quot;2&quot;,
-    &quot;stats[numacceptedquotes]&quot;: &quot;0&quot;,
-    &quot;stats[numquotes]&quot;: &quot;0&quot;,
-    &quot;stats[numtickets]&quot;: &quot;0&quot;,
-    &quot;stats[numactivetickets]&quot;: &quot;0&quot;,
-    &quot;stats[numaffiliatesignups]&quot;: &quot;0&quot;,
-    &quot;stats[isAffiliate]&quot;: &quot;&quot;
+    &quot;client&quot;: {
+        &quot;client_id&quot;: 1,
+        &quot;owner_user_id&quot;: 1,
+        &quot;userid&quot;: 1,
+        &quot;id&quot;: 1,
+        &quot;uuid&quot;: &quot;f08ea4d1-c578-441a-9b0a-aa3aff8b1acf&quot;,
+        &quot;firstname&quot;: &quot;Test&quot;,
+        &quot;lastname&quot;: &quot;Client&quot;,
+        &quot;fullname&quot;: &quot;Test Client&quot;,
+        &quot;companyname&quot;: &quot;&quot;,
+        &quot;email&quot;: &quot;test-client@example.com&quot;,
+        &quot;address1&quot;: &quot;123 Test Street&quot;,
+        &quot;address2&quot;: &quot;&quot;,
+        &quot;city&quot;: &quot;Test&quot;,
+        &quot;fullstate&quot;: &quot;Tester&quot;,
+        &quot;state&quot;: &quot;Tester&quot;,
+        &quot;postcode&quot;: &quot;TE5 5ST&quot;,
+        &quot;countrycode&quot;: &quot;GB&quot;,
+        &quot;country&quot;: &quot;GB&quot;,
+        &quot;phonenumber&quot;: &quot;01234567890&quot;,
+        &quot;tax_id&quot;: &quot;&quot;,
+        &quot;email_preferences&quot;: {
+            &quot;general&quot;: &quot;1&quot;,
+            &quot;invoice&quot;: &quot;1&quot;,
+            &quot;support&quot;: &quot;1&quot;,
+            &quot;product&quot;: &quot;1&quot;,
+            &quot;domain&quot;: &quot;1&quot;,
+            &quot;affiliate&quot;: &quot;1&quot;
+        },
+        &quot;statecode&quot;: &quot;Tester&quot;,
+        &quot;countryname&quot;: &quot;United Kingdom&quot;,
+        &quot;phonecc&quot;: &quot;44&quot;,
+        &quot;phonenumberformatted&quot;: &quot;+44.1234567890&quot;,
+        &quot;telephoneNumber&quot;: &quot;+44.1234567890&quot;,
+        &quot;billingcid&quot;: 0,
+        &quot;notes&quot;: &quot;&quot;,
+        &quot;currency&quot;: 1,
+        &quot;defaultgateway&quot;: &quot;&quot;,
+        &quot;groupid&quot;: 0,
+        &quot;status&quot;: &quot;Active&quot;,
+        &quot;credit&quot;: &quot;0.00&quot;,
+        &quot;taxexempt&quot;: false,
+        &quot;latefeeoveride&quot;: false,
+        &quot;overideduenotices&quot;: false,
+        &quot;separateinvoices&quot;: false,
+        &quot;disableautocc&quot;: false,
+        &quot;emailoptout&quot;: false,
+        &quot;marketing_emails_opt_in&quot;: true,
+        &quot;overrideautoclose&quot;: false,
+        &quot;allowSingleSignOn&quot;: 1,
+        &quot;email_verified&quot;: true,
+        &quot;language&quot;: &quot;&quot;,
+        &quot;isOptedInToMarketingEmails&quot;: true,
+        &quot;lastlogin&quot;: &quot;Date: 03\/10\/2016 10:26&lt;br&gt;IP Address:&lt;br&gt;Host:&quot;,
+        &quot;currency_code&quot;: &quot;USD&quot;,
+        &quot;users&quot;: {
+            &quot;user&quot;: [
+                {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;Testing User&quot;,
+                    &quot;email&quot;: &quot;testuser@whmcs.com&quot;,
+                    &quot;is_owner&quot;: true
+                }
+            ]
+        }
+    },
+    &quot;stats&quot;: {
+        &quot;numdueinvoices&quot;: 19,
+        &quot;dueinvoicesbalance&quot;: &quot;$2645.80 USD&quot;,
+        &quot;incredit&quot;: false,
+        &quot;creditbalance&quot;: &quot;$0.00 USD&quot;,
+        &quot;grossRevenue&quot;: &quot;$0.00 USD&quot;,
+        &quot;expenses&quot;: &quot;$0.00 USD&quot;,
+        &quot;income&quot;: &quot;$0.00 USD&quot;,
+        &quot;numoverdueinvoices&quot;: 19,
+        &quot;overdueinvoicesbalance&quot;: &quot;$2645.80 USD&quot;,
+        &quot;numDraftInvoices&quot;: 0,
+        &quot;draftInvoicesBalance&quot;: &quot;$0.00 USD&quot;,
+        &quot;numunpaidinvoices&quot;: 19,
+        &quot;unpaidinvoicesamount&quot;: &quot;$2645.80 USD&quot;,
+        &quot;numpaidinvoices&quot;: 0,
+        &quot;paidinvoicesamount&quot;: &quot;$0.00 USD&quot;,
+        &quot;numcancelledinvoices&quot;: 0,
+        &quot;cancelledinvoicesamount&quot;: &quot;$0.00 USD&quot;,
+        &quot;numrefundedinvoices&quot;: 0,
+        &quot;refundedinvoicesamount&quot;: &quot;$0.00 USD&quot;,
+        &quot;numcollectionsinvoices&quot;: 0,
+        &quot;collectionsinvoicesamount&quot;: &quot;$0.00 USD&quot;,
+        &quot;numpaymentpendinginvoices&quot;: 0,
+        &quot;paymentpendinginvoicesamount&quot;: &quot;$0.00 USD&quot;,
+        &quot;productsnumactivehosting&quot;: 0,
+        &quot;productsnumhosting&quot;: 0,
+        &quot;productsnumactivereseller&quot;: 0,
+        &quot;productsnumreseller&quot;: 0,
+        &quot;productsnumactiveservers&quot;: 0,
+        &quot;productsnumservers&quot;: 0,
+        &quot;productsnumactiveother&quot;: 2,
+        &quot;productsnumother&quot;: 2,
+        &quot;productsnumactive&quot;: 2,
+        &quot;productsnumtotal&quot;: 2,
+        &quot;numactivedomains&quot;: 2,
+        &quot;numdomains&quot;: 2,
+        &quot;numacceptedquotes&quot;: 0,
+        &quot;numquotes&quot;: 0,
+        &quot;numtickets&quot;: 0,
+        &quot;numactivetickets&quot;: 0,
+        &quot;numaffiliatesignups&quot;: 0,
+        &quot;isAffiliate&quot;: false
+    }
 }
 </code></pre>
 
@@ -1676,13 +1760,18 @@ We suggest following any recommended actions in the warning to ensure future com
 </tr>
 
 <tr>
+<td>7.8</td>
+<td>Credit Card related parameters have been removed due to the introduction of support for multiple credit cards per client. Use GetPayMethods instead.</td>
+</tr>
+
+<tr>
 <td>7.10</td>
 <td>Added email preferences parameters</td>
 </tr>
 
 <tr>
-<td>7.8</td>
-<td>Credit Card related parameters have been removed due to the introduction of support for multiple credit cards per client. Use GetPayMethods instead.</td>
+<td>8.0</td>
+<td>Added users parameter</td>
 </tr>
 </tbody>
 </table>

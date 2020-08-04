@@ -102,6 +102,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/api-reference/adduser/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/addon-modules/</loc>
   </url>
   
@@ -135,6 +139,10 @@
   
   <url>
     <loc>//developers.whmcs.com/api-reference/closeclient/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/createclientinvite/</loc>
   </url>
   
   <url>
@@ -211,6 +219,10 @@
   
   <url>
     <loc>//developers.whmcs.com/api-reference/deleteticketreply/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/deleteuserclient/</loc>
   </url>
   
   <url>
@@ -402,6 +414,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/api-reference/getpermissionslist/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/api-reference/getproducts/</loc>
   </url>
   
@@ -483,6 +499,10 @@
   
   <url>
     <loc>//developers.whmcs.com/api-reference/gettransactions/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/getuserpermissions/</loc>
   </url>
   
   <url>
@@ -682,11 +702,23 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/api-reference/updateuser/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/updateuserpermissions/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/api-reference/upgradeproduct/</loc>
   </url>
   
   <url>
     <loc>//developers.whmcs.com/api-reference/validatelogin/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/api-reference/whmcsdetails/</loc>
   </url>
   
   <url>
@@ -843,6 +875,10 @@
   
   <url>
     <loc>//developers.whmcs.com/hooks-reference/ticket/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/hooks-reference/user/</loc>
   </url>
   
   <url>

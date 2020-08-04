@@ -273,6 +273,14 @@
         </li>
       
       
+      
+        <li class="" data-nav-id="/hooks-reference/user/">
+          <a href="//developers.whmcs.com/hooks-reference/user/">
+            <span>User</span>
+          </a>
+        </li>
+      
+      
     </ul>
     
   </li>
@@ -359,7 +367,7 @@
 
 <h2 id="aftercronjob">AfterCronJob</h2>
 
-<p>Runs after all scheduled cron tasks have completed.</p>
+<p>Runs each time that the system calls the system cron job. This occurs after all scheduled tasks finish.</p>
 
 <h4 id="parameters">Parameters</h4>
 
@@ -501,11 +509,89 @@ add_hook('PopEmailCollectionCronCompleted', 1, function($vars) {
 });
 </code></pre>
 
+<h2 id="postautomationtask">PostAutomationTask</h2>
+
+<p>Executes after an automation task occurs</p>
+
+<h4 id="parameters-4">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>task</td>
+<td>\Collection</td>
+<td></td>
+</tr>
+
+<tr>
+<td>completed</td>
+<td>bool</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-4">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-4">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PostAutomationTask', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="preautomationtask">PreAutomationTask</h2>
+
+<p>Executes before an automation task occurs</p>
+
+<h4 id="parameters-5">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>task</td>
+<td>\Collection</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-5">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-5">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreAutomationTask', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
 <h2 id="precronjob">PreCronJob</h2>
 
 <p>Runs before the daily automation cron execution.</p>
 
-<h4 id="parameters-4">Parameters</h4>
+<h4 id="parameters-6">Parameters</h4>
 
 <table>
 <thead>
@@ -525,11 +611,11 @@ add_hook('PopEmailCollectionCronCompleted', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response-6">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-4">Example Code</h4>
+<h4 id="example-code-6">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreCronJob', 1, function($vars) {

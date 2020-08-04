@@ -273,6 +273,14 @@
         </li>
       
       
+      
+        <li class="" data-nav-id="/hooks-reference/user/">
+          <a href="//developers.whmcs.com/hooks-reference/user/">
+            <span>User</span>
+          </a>
+        </li>
+      
+      
     </ul>
     
   </li>
@@ -458,24 +466,6 @@
 </tr>
 
 <tr>
-<td>subaccount</td>
-<td>bool</td>
-<td></td>
-</tr>
-
-<tr>
-<td>password</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>permissions</td>
-<td>string</td>
-<td>A comma separated list of allowed permissions for a sub-account</td>
-</tr>
-
-<tr>
 <td>generalemails</td>
 <td>bool</td>
 <td></td>
@@ -525,9 +515,9 @@ add_hook('ContactAdd', 1, function($vars) {
 });
 </code></pre>
 
-<h2 id="contactchangepassword">ContactChangePassword</h2>
+<h2 id="contactdelete">ContactDelete</h2>
 
-<p>Executed when a change of password occurs for a contact.</p>
+<p>Executes on Contact Delete after the contact has been removed.</p>
 
 <h4 id="parameters-1">Parameters</h4>
 
@@ -552,12 +542,6 @@ add_hook('ContactAdd', 1, function($vars) {
 <td>int</td>
 <td></td>
 </tr>
-
-<tr>
-<td>password</td>
-<td>string</td>
-<td>The new password</td>
-</tr>
 </tbody>
 </table>
 
@@ -566,48 +550,6 @@ add_hook('ContactAdd', 1, function($vars) {
 <p>No response supported</p>
 
 <h4 id="example-code-1">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('ContactChangePassword', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="contactdelete">ContactDelete</h2>
-
-<p>Executes on Contact Delete after the contact has been removed.</p>
-
-<h4 id="parameters-2">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>userid</td>
-<td>int</td>
-<td></td>
-</tr>
-
-<tr>
-<td>contactid</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-2">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-2">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ContactDelete', 1, function($vars) {
@@ -619,7 +561,7 @@ add_hook('ContactDelete', 1, function($vars) {
 
 <p>Executes on validation of contact details.</p>
 
-<h4 id="parameters-3">Parameters</h4>
+<h4 id="parameters-2">Parameters</h4>
 
 <table>
 <thead>
@@ -639,11 +581,11 @@ add_hook('ContactDelete', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <p>Return accepts both a <code>string</code> or an <code>array</code>. Use a string for <code>single</code> error message or an <code>array</code> of strings for multiple error messages.</p>
 
-<h4 id="example-code-3">Example Code</h4>
+<h4 id="example-code-2">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -659,7 +601,7 @@ add_hook('ContactDetailsValidation', 1, function($vars) {
 
 <p>Runs when a contact is edited.</p>
 
-<h4 id="parameters-4">Parameters</h4>
+<h4 id="parameters-3">Parameters</h4>
 
 <table>
 <thead>
@@ -756,18 +698,6 @@ add_hook('ContactDetailsValidation', 1, function($vars) {
 </tr>
 
 <tr>
-<td>subaccount</td>
-<td>bool</td>
-<td></td>
-</tr>
-
-<tr>
-<td>permissions</td>
-<td>string</td>
-<td>A comma separated list of permissions if the contact is a sub-account</td>
-</tr>
-
-<tr>
 <td>domainemails</td>
 <td>bool</td>
 <td></td>
@@ -811,11 +741,11 @@ add_hook('ContactDetailsValidation', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-4">Example Code</h4>
+<h4 id="example-code-3">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ContactEdit', 1, function($vars) {

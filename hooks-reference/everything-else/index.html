@@ -273,6 +273,14 @@
         </li>
       
       
+      
+        <li class="" data-nav-id="/hooks-reference/user/">
+          <a href="//developers.whmcs.com/hooks-reference/user/">
+            <span>User</span>
+          </a>
+        </li>
+      
+      
     </ul>
     
   </li>
@@ -560,9 +568,9 @@ add_hook('AffiliateCommission', 1, function($vars) {
 </tr>
 
 <tr>
-<td>contactId</td>
+<td>clientId</td>
 <td>int</td>
-<td>The contact id of the user making the request if logged in as a sub-account</td>
+<td>The client id being acted on</td>
 </tr>
 
 <tr>
@@ -877,7 +885,7 @@ add_hook('CustomFieldSave', 1, function($vars) {
 <tr>
 <td>date</td>
 <td>string</td>
-<td>Can be &lsquo;now()&rsquo; or a specific timestamp</td>
+<td>Current timestamp</td>
 </tr>
 
 <tr>
@@ -907,6 +915,12 @@ add_hook('CustomFieldSave', 1, function($vars) {
 <tr>
 <td>message</td>
 <td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>attachments</td>
+<td>array</td>
 <td></td>
 </tr>
 </tbody>
@@ -1360,89 +1374,11 @@ add_hook('PayMethodMigration', 1, function($vars) {
 });
 </code></pre>
 
-<h2 id="postautomationtask">PostAutomationTask</h2>
-
-<p>Executes after an automation task occurs</p>
-
-<h4 id="parameters-18">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>task</td>
-<td>\Collection</td>
-<td></td>
-</tr>
-
-<tr>
-<td>completed</td>
-<td>bool</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-18">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-18">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('PostAutomationTask', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="preautomationtask">PreAutomationTask</h2>
-
-<p>Executes before an automation task occurs</p>
-
-<h4 id="parameters-19">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>task</td>
-<td>\Collection</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="response-19">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-19">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('PreAutomationTask', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
 <h2 id="preemailsendreducerecipients">PreEmailSendReduceRecipients</h2>
 
 <p>Runs prior to a client email being sent and allows selective removal of CC and BCC recipients.</p>
 
-<h4 id="parameters-20">Parameters</h4>
+<h4 id="parameters-18">Parameters</h4>
 
 <table>
 <thead>
@@ -1474,11 +1410,11 @@ add_hook('PreAutomationTask', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-20">Response</h4>
+<h4 id="response-18">Response</h4>
 
 <p>An array with a &lsquo;cc&rsquo; and &lsquo;bcc&rsquo; list of recipients. Each recipient in those lists should be indexed with the original index hash as provided by $recipients argument. If an empty &lsquo;cc&rsquo; or &lsquo;bcc&rsquo; list provided, it will remove all &lsquo;cc&rsquo; or &lsquo;bcc&rsquo; recipients respectively. If the &lsquo;cc&rsquo; or &lsquo;bcc&rsquo; is omitted in the return, the original list will remain unaltered</p>
 
-<h4 id="example-code-20">Example Code</h4>
+<h4 id="example-code-18">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreEmailSendReduceRecipients', 1, function($vars) {
@@ -1490,7 +1426,7 @@ add_hook('PreEmailSendReduceRecipients', 1, function($vars) {
 
 <p>Executes on checkout of an upgrade order, after the price calculation. The upgrade order may have completed already when this hook runs.</p>
 
-<h4 id="parameters-21">Parameters</h4>
+<h4 id="parameters-19">Parameters</h4>
 
 <table>
 <thead>
@@ -1534,11 +1470,11 @@ add_hook('PreEmailSendReduceRecipients', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-21">Response</h4>
+<h4 id="response-19">Response</h4>
 
 <p>Return &lsquo;amount&rsquo; and/or &lsquo;discount&rsquo; key with override price for the upgrade order.</p>
 
-<h4 id="example-code-21">Example Code</h4>
+<h4 id="example-code-19">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreUpgradeCheckout', 1, function($vars) {
@@ -1550,7 +1486,7 @@ add_hook('PreUpgradeCheckout', 1, function($vars) {
 
 <p>Executes when searching for a premium domain. The return can alter the registration &amp; renewal costs, stop the domain being available for purchase or force the client to contact support.</p>
 
-<h4 id="parameters-22">Parameters</h4>
+<h4 id="parameters-20">Parameters</h4>
 
 <table>
 <thead>
@@ -1600,11 +1536,11 @@ add_hook('PreUpgradeCheckout', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-22">Response</h4>
+<h4 id="response-20">Response</h4>
 
 <p>Accepts returns to override register, transfer or renew pricing. Also boolean values of noSale or contactUs to stop the sale of the domain with different messages</p>
 
-<h4 id="example-code-22">Example Code</h4>
+<h4 id="example-code-20">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -1632,7 +1568,7 @@ add_hook('PremiumPriceOverride', 1, function($vars) {
 
 <p>Executes when a premium domain price is being automatically recalculated.</p>
 
-<h4 id="parameters-23">Parameters</h4>
+<h4 id="parameters-21">Parameters</h4>
 
 <table>
 <thead>
@@ -1670,11 +1606,11 @@ add_hook('PremiumPriceOverride', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-23">Response</h4>
+<h4 id="response-21">Response</h4>
 
 <p>Return is accepted to override the renewal price or skip applying markup. eg: return array(&lsquo;renew&rsquo; =&gt; 50.00, &lsquo;skipMarkup&rsquo; =&gt; true);</p>
 
-<h4 id="example-code-23">Example Code</h4>
+<h4 id="example-code-21">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PremiumPriceRecalculationOverride', 1, function($vars) {

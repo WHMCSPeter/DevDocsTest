@@ -834,35 +834,35 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;clientid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The client to add the item to&lt;/td&gt;
+&lt;td&gt;The client to add the item to.&lt;/td&gt;
 &lt;td&gt;Required&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;description&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The description of the Billable Item. This will appear on the invoice&lt;/td&gt;
+&lt;td&gt;The description of the Billable Item. This will appear on the invoice.&lt;/td&gt;
 &lt;td&gt;Required&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;amount&lt;/td&gt;
 &lt;td&gt;float&lt;/td&gt;
-&lt;td&gt;the total amount to invoice for&lt;/td&gt;
+&lt;td&gt;The total amount to invoice for.&lt;/td&gt;
 &lt;td&gt;Required&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;invoiceaction&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;One of &amp;lsquo;noinvoice&amp;rsquo;, &amp;lsquo;nextcron&amp;rsquo;, &amp;lsquo;nextinvoice&amp;rsquo;, &amp;lsquo;duedate&amp;rsquo;, &amp;lsquo;recur&amp;rsquo;&lt;/td&gt;
+&lt;td&gt;One of &amp;lsquo;noinvoice&amp;rsquo;, &amp;lsquo;nextcron&amp;rsquo;, &amp;lsquo;nextinvoice&amp;rsquo;, &amp;lsquo;duedate&amp;rsquo;, or &amp;lsquo;recur&amp;rsquo;.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;recur&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;When $invoiceaction=recur. The frequency of the recurrence.&lt;/td&gt;
+&lt;td&gt;When &lt;code&gt;$invoiceaction=recur&lt;/code&gt;. The frequency of the recurrence.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
@@ -882,15 +882,15 @@ print_r($results);
 
 &lt;tr&gt;
 &lt;td&gt;duedate&lt;/td&gt;
-&lt;td&gt;\Carbon\Carbon&lt;/td&gt;
-&lt;td&gt;Date the invoice should be due (only required for duedate &amp;amp; recur invoice actions). YYYY-mm-dd&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Date the invoice should be due (only required for due date and recur invoice actions). YYYY-mm-dd&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;hours&lt;/td&gt;
 &lt;td&gt;float&lt;/td&gt;
-&lt;td&gt;number of hours/quantity the item corresponds to. (not required for single quantities)&lt;/td&gt;
+&lt;td&gt;The number of hours or quantity the item corresponds to (not required for single quantities).&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -917,7 +917,7 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;billableid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The id of the newly created billable item&lt;/td&gt;
+&lt;td&gt;The ID of the newly created billable item.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1200,6 +1200,13 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
+&lt;td&gt;owner_user_id&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The ID of the user that should own the client. Optional. When not provided, a new user will be created.&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;firstname&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
@@ -1286,21 +1293,84 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;password2&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
+&lt;td&gt;The password for the newly created user account. Required when $owner_user_id is not provided&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;securityqid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;Security Question ID from tbladminsecurityquestions&lt;/td&gt;
+&lt;td&gt;The ID of the Security Question from tbladminsecurityquestions for a newly created user&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;securityqans&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Security Question Answer&lt;/td&gt;
+&lt;td&gt;The Security Question Answer for a newly created user&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;currency&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Currency ID from tblcurrencies&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;groupid&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Client Group ID from tblclientgroups&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;customfields&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Base64 encoded serialized array of custom field values&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Default language setting. Provide full name: &amp;lsquo;english&amp;rsquo;, &amp;lsquo;french&amp;rsquo;, etc&amp;hellip;&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;clientip&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The originating IP address for the request&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;notes&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Admin only notes&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;marketingoptin&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Set true to opt client in to marketing emails&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;noemail&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Pass as true to skip sending welcome email&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;skipvalidation&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Pass as true to ignore required fields validation&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
@@ -1344,69 +1414,6 @@ print_r($results);
 &lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
 &lt;td&gt;&lt;del&gt;Credit card CVV number (will not be stored)&lt;/del&gt;&lt;/td&gt;
 &lt;td&gt;Deprecated&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;currency&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;Currency ID from tblcurrencies&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;groupid&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;Client Group ID from tblclientgroups&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;customfields&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Base64 encoded serialized array of custom field values&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;language&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Default language setting. Provide full name: &amp;lsquo;english&amp;rsquo;, &amp;lsquo;french&amp;rsquo;, etc&amp;hellip;&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;clientip&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;IP address of the user&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;notes&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Admin only notes&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;marketingoptin&lt;/td&gt;
-&lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;Set true to opt client in to marketing emails&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;noemail&lt;/td&gt;
-&lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;Pass as true to skip sending welcome email&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;skipvalidation&lt;/td&gt;
-&lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;Pass as true to ignore required fields validation&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1509,6 +1516,7 @@ We suggest following any recommended actions in the warning to ensure future com
 &lt;p&gt;Possible error condition responses include:&lt;/p&gt;
 
 &lt;ul&gt;
+&lt;li&gt;Invalid Owner User ID&lt;/li&gt;
 &lt;li&gt;You did not enter your first name&lt;/li&gt;
 &lt;li&gt;You did not enter your last name&lt;/li&gt;
 &lt;li&gt;You did not enter your email address&lt;/li&gt;
@@ -1548,6 +1556,11 @@ We suggest following any recommended actions in the warning to ensure future com
 &lt;tr&gt;
 &lt;td&gt;7.8&lt;/td&gt;
 &lt;td&gt;Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod instead.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;8.0&lt;/td&gt;
+&lt;td&gt;Added &amp;lsquo;owner_user_id&amp;rsquo; parameter.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1830,13 +1843,6 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;password2&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;if creating a sub-account&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
 &lt;td&gt;email_preferences[general]&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
 &lt;td&gt;Should the client receive general emails&lt;/td&gt;
@@ -1875,13 +1881,6 @@ print_r($results);
 &lt;td&gt;email_preferences[affiliate]&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
 &lt;td&gt;Should the client receive affiliate emails&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;permissions&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;A comma separated list of sub-account permissions. eg manageproducts,managedomains&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -1961,6 +1960,17 @@ print_r($results);
 }
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h3 id=&#34;warning-responses&#34;&gt;Warning Responses&lt;/h3&gt;
+
+&lt;p&gt;Warning responses are returned when using API functionality that has been removed or marked as deprecated.
+We suggest following any recommended actions in the warning to ensure future compatibility.&lt;/p&gt;
+
+&lt;p&gt;Possible warning messages include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Sub Accounts are no longer supported. Please use AddUser and CreateClientInvite&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&#34;error-responses&#34;&gt;Error Responses&lt;/h3&gt;
 
 &lt;p&gt;Possible error condition responses include:&lt;/p&gt;
@@ -1999,6 +2009,11 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;7.10&lt;/td&gt;
 &lt;td&gt;Added email preferences parameters&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;8.0&lt;/td&gt;
+&lt;td&gt;Removed sub-account functionality&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -2226,42 +2241,42 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;transid&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The unique transaction id that should be applied to the payment&lt;/td&gt;
+&lt;td&gt;The unique transaction ID that should be applied to the payment.&lt;/td&gt;
 &lt;td&gt;Required&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;gateway&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;the gateway used in system name format, eg. paypal, authorize&lt;/td&gt;
+&lt;td&gt;The gateway used, in system name format (for example, &lt;code&gt;paypal&lt;/code&gt; or &lt;code&gt;authorize&lt;/code&gt;).&lt;/td&gt;
 &lt;td&gt;Required&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;date&lt;/td&gt;
-&lt;td&gt;\Carbon\Carbon&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;The date that the payment should have assigned. Format: YYYY-MM-DD HH:mm:ss&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;amount&lt;/td&gt;
 &lt;td&gt;float&lt;/td&gt;
-&lt;td&gt;the amount paid, can be left undefined to take full amount of invoice&lt;/td&gt;
+&lt;td&gt;The amount paid. You can leave this undefined to take the full amount of the invoice.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;fees&lt;/td&gt;
 &lt;td&gt;float&lt;/td&gt;
-&lt;td&gt;the amount of the payment that was taken as a fee by the gateway&lt;/td&gt;
+&lt;td&gt;The amount of the payment that was taken as a fee by the gateway.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;noemail&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;set to true to not send an email for the invoice payment&lt;/td&gt;
+&lt;td&gt;Set this to true to prevent sending an email for the invoice payment.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -2371,7 +2386,8 @@ print_r($results);
       <guid>//developers.whmcs.com/api-reference/addorder/</guid>
       <description>
 
-&lt;p&gt;Adds an order to a client.&lt;/p&gt;
+&lt;p&gt;Adds an order to a client. For more flow control, this method ignores the &amp;ldquo;Automatically setup the product as soon
+as an order is placed.&amp;rdquo; option. When you call this method, you must make a subsequent explicit call to AcceptOrder.&lt;/p&gt;
 
 &lt;h3 id=&#34;request-parameters&#34;&gt;Request Parameters&lt;/h3&gt;
 
@@ -2439,6 +2455,13 @@ print_r($results);
 &lt;td&gt;regperiod&lt;/td&gt;
 &lt;td&gt;int[]&lt;/td&gt;
 &lt;td&gt;For domain registrations, the registration periods for the domains in the order&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;idnlanguage&lt;/td&gt;
+&lt;td&gt;string[]&lt;/td&gt;
+&lt;td&gt;For IDN domain registrations. The language code for the domain being registered&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
@@ -2739,7 +2762,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             &#39;password&#39; =&amp;gt; &#39;SECRET_OR_HASHED_PASSWORD&#39;,
             &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
             &#39;pid&#39; =&amp;gt; array(1,1),
-            &#39;domain&#39; =&amp;gt; array(&#39;domain1.com&#39;, &#39;domain2.com&#39;),
+            &#39;domain&#39; =&amp;gt; array(&#39;domain1.com&#39;, &#39;dómáin2.com&#39;),
+            &#39;idnlanguage&#39; =&amp;gt; array(&#39;&#39;, &#39;fre&#39;),
             &#39;billingcycle&#39; =&amp;gt; array(&#39;monthly&#39;,&#39;semiannually&#39;),
             &#39;addons&#39; =&amp;gt; array(&#39;1,3,9&#39;, &#39;&#39;),
             &#39;customfields&#39; =&amp;gt; array(base64_encode(serialize(array(&amp;quot;1&amp;quot; =&amp;gt; &amp;quot;Google&amp;quot;))), base64_encode(serialize(array(&amp;quot;1&amp;quot; =&amp;gt; &amp;quot;Google&amp;quot;)))),
@@ -2765,7 +2789,8 @@ curl_close($ch);
 $postData = array(
     &#39;clientid&#39; =&amp;gt; &#39;1&#39;,
     &#39;pid&#39; =&amp;gt; array(1,1),
-    &#39;domain&#39; =&amp;gt; array(&#39;domain1.com&#39;, &#39;domain2.com&#39;),
+    &#39;domain&#39; =&amp;gt; array(&#39;domain1.com&#39;, &#39;dómáin2.com&#39;),
+    &#39;idnlanguage&#39; =&amp;gt; array(&#39;&#39;, &#39;fre&#39;),
     &#39;billingcycle&#39; =&amp;gt; array(&#39;monthly&#39;,&#39;semiannually&#39;),
     &#39;addons&#39; =&amp;gt; array(&#39;1,3,9&#39;, &#39;&#39;),
     &#39;customfields&#39; =&amp;gt; array(base64_encode(serialize(array(&amp;quot;1&amp;quot; =&amp;gt; &amp;quot;Google&amp;quot;))), base64_encode(serialize(array(&amp;quot;1&amp;quot; =&amp;gt; &amp;quot;Google&amp;quot;)))),
@@ -2824,6 +2849,11 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;1.0&lt;/td&gt;
 &lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;8.0&lt;/td&gt;
+&lt;td&gt;Added IDN Language parameter&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
