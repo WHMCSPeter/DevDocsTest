@@ -144,19 +144,13 @@
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;bitpay/sdk-light&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;1.2.2002&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
 &lt;td&gt;2.0.2007&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;code&gt;brick/math&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;N/A&lt;/td&gt;
-&lt;td&gt;0.8.15&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
 &lt;td&gt;&lt;code&gt;composer/composer&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;1.10.5&lt;/td&gt;
+&lt;td&gt;1.0.3&lt;/td&gt;
 &lt;td&gt;1.10.6&lt;/td&gt;
 &lt;/tr&gt;
 
@@ -186,55 +180,55 @@
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;google/auth&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;0.11.1&lt;/td&gt;
+&lt;td&gt;0.9.0&lt;/td&gt;
 &lt;td&gt;1.11.0&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;guzzlehttp/guzzle&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;6.5.3&lt;/td&gt;
+&lt;td&gt;5.3.3&lt;/td&gt;
 &lt;td&gt;7.0.1&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;illuminate/console&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;7.9.2&lt;/td&gt;
+&lt;td&gt;5.2.37&lt;/td&gt;
 &lt;td&gt;7.12.0&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;illuminate/container&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;7.9.2&lt;/td&gt;
+&lt;td&gt;5.2.37&lt;/td&gt;
 &lt;td&gt;7.12.0&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;illuminate/contracts&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;7.9.2&lt;/td&gt;
+&lt;td&gt;5.2.45&lt;/td&gt;
 &lt;td&gt;7.12.0&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;illuminate/database&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;7.9.2&lt;/td&gt;
+&lt;td&gt;5.2.37&lt;/td&gt;
 &lt;td&gt;7.12.0&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;illuminate/events&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;7.9.2&lt;/td&gt;
+&lt;td&gt;5.2.37&lt;/td&gt;
 &lt;td&gt;7.12.0&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;illuminate/support&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;7.9.2&lt;/td&gt;
+&lt;td&gt;5.2.37&lt;/td&gt;
 &lt;td&gt;7.12.0&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;illuminate/validation&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;7.9.2&lt;/td&gt;
+&lt;td&gt;5.2.45&lt;/td&gt;
 &lt;td&gt;7.12.0&lt;/td&gt;
 &lt;/tr&gt;
 
@@ -270,13 +264,13 @@
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;league/oauth2-client&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;2.4.1&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
 &lt;td&gt;2.5.0&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;league/oauth2-google&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;2.5.0&lt;/td&gt;
+&lt;td&gt;N/A&lt;/td&gt;
 &lt;td&gt;3.0.3&lt;/td&gt;
 &lt;/tr&gt;
 
@@ -323,21 +317,9 @@
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;code&gt;psr/http-factory&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;N/A&lt;/td&gt;
-&lt;td&gt;1.0.1&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
 &lt;td&gt;&lt;code&gt;punic/punic&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;1.6.3&lt;/td&gt;
 &lt;td&gt;3.5.1&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;ramsey/collection&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;N/A&lt;/td&gt;
-&lt;td&gt;1.0.1&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -350,12 +332,6 @@
 &lt;td&gt;&lt;code&gt;react/promise&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;2.5.1&lt;/td&gt;
 &lt;td&gt;2.8.0&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;ramsey/uuid&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;3.4.1&lt;/td&gt;
-&lt;td&gt;4.0.1&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -379,37 +355,37 @@
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;symfony/polyfill-ctype&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;N/A&lt;/td&gt;
-&lt;td&gt;1.17.0&lt;/td&gt;
+&lt;td&gt;1.18.1&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;symfony/polyfill-iconv&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;1.15.0&lt;/td&gt;
-&lt;td&gt;1.17.0&lt;/td&gt;
+&lt;td&gt;1.18.1&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;symfony/polyfill-intl-idn&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;N/A&lt;/td&gt;
-&lt;td&gt;1.17.0&lt;/td&gt;
+&lt;td&gt;1.18.1&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;symfony/polyfill-mbstring&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;1.14.0&lt;/td&gt;
-&lt;td&gt;1.17.0&lt;/td&gt;
+&lt;td&gt;1.18.1&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;symfony/polyfill-php72&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;N/A&lt;/td&gt;
-&lt;td&gt;1.17.0&lt;/td&gt;
+&lt;td&gt;1.18.1&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;symfony/polyfill-php73&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;N/A&lt;/td&gt;
-&lt;td&gt;1.17.0&lt;/td&gt;
+&lt;td&gt;1.18.1&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -422,12 +398,6 @@
 &lt;td&gt;&lt;code&gt;zbateson/stream-decorators&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;N/A&lt;/td&gt;
 &lt;td&gt;1.0.3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;zendframework/zend-diactoros&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;1.3.10&lt;/td&gt;
-&lt;td&gt;N/A&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
