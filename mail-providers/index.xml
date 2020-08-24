@@ -159,35 +159,79 @@ public function testConnection($settings)
 
 &lt;pre&gt;&lt;code&gt;public function send(array $params, Message $message)
 {
-    $api_username = $moduleSettings[&#39;api_username&#39;];
-    $api_password = $moduleSettings[&#39;api_password&#39;];
+    $host = $params[&#39;host&#39;];
+    $username = $params[&#39;username&#39;];
+    $password = $params[&#39;password&#39;];
 
-    // Build API Request to remote service
+    $subject = $message-&amp;gt;getSubject();
+    $body = $message-&amp;gt;getBody();
+    $plainTextBody = $message-&amp;gt;getPlainText();
 
-    $postData = [
-        &#39;username&#39; =&amp;gt; $api_username,
-        &#39;password&#39; =&amp;gt; $api_password,
-        &#39;priority&#39; =&amp;gt; $priority,
-        &#39;channel&#39; =&amp;gt; $channel,
-        &#39;title&#39; =&amp;gt; $notification-&amp;gt;getTitle(),
-        &#39;message&#39; =&amp;gt; $notification-&amp;gt;getMessage(),
-        &#39;url&#39; =&amp;gt; $notification-&amp;gt;getUrl(),
-        &#39;attributes&#39; =&amp;gt; [],
-    ];
+    $replyTo = &#39;&#39;;
+    if ($message-&amp;gt;getReplyTo()) {
+        $replyTo = $message-&amp;gt;getReplyTo();
+    }
 
-    // Attributes vary depending on the event trigger. Loop through as necessary.
-    foreach ($notification-&amp;gt;getAttributes() as $attribute) {
-        $postData[&#39;attributes&#39;][] = [
-            &#39;label&#39; =&amp;gt; $attribute-&amp;gt;getLabel(),
-            &#39;value&#39; =&amp;gt; $attribute-&amp;gt;getValue(),
-            &#39;url&#39; =&amp;gt; $attribute-&amp;gt;getUrl(),
-            &#39;style&#39; =&amp;gt; $attribute-&amp;gt;getStyle(),
-            &#39;icon&#39; =&amp;gt; $attribute-&amp;gt;getIcon(),
+    // Retrieve recipients.
+    foreach ($message-&amp;gt;getRecipients(&#39;to&#39;) as $to) {
+        $recipients[&#39;to&#39;] = [
+            &#39;emailAddress&#39; =&amp;gt; $to[0],
+            &#39;name&#39; =&amp;gt; $to[1],
+        ];
+    }
+    foreach ($message-&amp;gt;getRecipients(&#39;cc&#39;) as $to) {
+        $recipients[&#39;cc&#39;] = [
+            &#39;emailAddress&#39; =&amp;gt; $to[0],
+            &#39;name&#39; =&amp;gt; $to[1],
+        ];
+    }
+    foreach ($message-&amp;gt;getRecipients(&#39;bcc&#39;) as $to) {
+        $recipients[&#39;bcc&#39;] = [
+            &#39;emailAddress&#39; =&amp;gt; $to[0],
+            &#39;name&#39; =&amp;gt; $to[1],
         ];
     }
 
-    // Call the remote API
-    $response = file_get_contents(&#39;https://www.example.com/?&#39; . http_build_query($postData));
+    // Retrieve attachments
+    $attachments = [];
+    foreach ($message-&amp;gt;getAttachments() as $attachment) {
+        if (array_key_exists(&#39;data&#39;, $attachment)) {
+            $attachments[] = [
+                &#39;data&#39; =&amp;gt; $attachment[&#39;data&#39;],
+                &#39;fileName&#39; =&amp;gt; $attachment[&#39;filename&#39;],
+            ];
+        } else {
+            $attachments[] = [
+                &#39;filePath&#39; =&amp;gt; $attachment[&#39;filepath&#39;],
+                &#39;fileName&#39; =&amp;gt; $attachment[&#39;filename&#39;],
+            ];
+        }
+    }
+
+    // If a filename is provided. Retrieve the attachment
+    // data as required by your Mail Provider.
+
+    // Build API request to remote service
+    $postData = [
+        &#39;username&#39; =&amp;gt; $username,
+        &#39;password&#39; =&amp;gt; $password,
+        &#39;subject&#39; =&amp;gt; $subject,
+        &#39;body-html&#39; =&amp;gt; $body,
+        &#39;plaintext-body&#39; =&amp;gt; $plainTextbody,
+        &#39;to&#39; =&amp;gt; $recipients[&#39;to&#39;],
+        &#39;cc&#39; =&amp;gt; $recipients[&#39;cc&#39;],
+        &#39;bcc&#39; =&amp;gt; $recipients[&#39;bcc&#39;],
+        &#39;reply-to&#39; =&amp;gt; $replyTo,
+        &#39;attachments&#39; =&amp;gt; $attachments,
+    ];
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/send&#39;);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($ch);
+    curl_close($ch);
 
     if (!$response) {
         // Throw a human friendly exception on error
