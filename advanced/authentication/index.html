@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Interacting with the Database - WHMCS Developer Documentation</title>
+    <title>Authentication via CurrentUser - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/advanced/db-interaction/">
+    <link rel="canonical" href="//developers.whmcs.com/advanced/authentication/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -146,7 +146,7 @@
       
       
       
-        <li class="" data-nav-id="/advanced/authentication/">
+        <li class="active" data-nav-id="/advanced/authentication/">
           <a href="//developers.whmcs.com/advanced/authentication/">
             <span>Authentication via CurrentUser</span>
           </a>
@@ -154,7 +154,7 @@
       
       
       
-        <li class="active" data-nav-id="/advanced/db-interaction/">
+        <li class="" data-nav-id="/advanced/db-interaction/">
           <a href="//developers.whmcs.com/advanced/db-interaction/">
             <span>Interacting with the Database</span>
           </a>
@@ -282,215 +282,170 @@
                 
                   
                 
-                <span itemprop="title"> Interacting with the Database</span>
+                <span itemprop="title"> Authentication via CurrentUser</span>
               </div>
             </div>
 
 
-			<h1>Interacting with the Database </h1>
+			<h1>Authentication via CurrentUser </h1>
 
 			
 
-<p>WHMCS 6.0 and later leverages a database connection library to ensure compatibility with modern PHP environments and best practices. It is based on the Laravel framework&rsquo;s database component. This library includes a Database Abstraction Layer (DBAL) called &ldquo;Capsule&rdquo; and an Object Relational Mapping (ORM) library called &ldquo;Eloquent&rdquo;.</p>
+<p><code>WHMCS\Authentication\CurrentUser</code> lets you assess the current state of authentication for the currently-logged-in user.</p>
 
-<p>The Capsule DBAL component introduces two libraries to WHMCS, a query manager for running database queries and a schema manager for an abstracted API to table management. Capsule&rsquo;s underlying PDO connection is also available for advanced database usage. Capsule has three static methods to get to these components:</p>
+<div class="notice info" ><p>WHMCS 8.0 added this functionality.</p>
+</div>
 
-<ul>
-<li><code>Capsule::table(string $tableName)</code>: Access the query manager for the given table.</li>
-<li><code>Capsule::schema()</code>: Access the schema manager for the WHMCS database.</li>
-<li><code>Capsule::connection()</code>: Access the connection manager to interact with the underlying database connection.</li>
-</ul>
 
-<h2 id="deprecated-functionality">Deprecated functionality</h2>
+<h2 id="methods">Methods</h2>
 
-<p>The previously used SQL Helper Functions are still present in WHMCS but are now deprecated and may be removed in a later version of the product:</p>
+<p>The sample code below returns the authentication status for the person who is viewing the page containing that code. Note that none of these authentication states are mutually exclusive; it is possible (and sometimes likely) for the current user to return <a href="https://docs.whmcs.com/Users_and_Accounts">Admin, User, and client account states</a> simultaneously.</p>
 
-<ul>
-<li><strong>select_query()</strong></li>
-<li><strong>update_query()</strong></li>
-<li><strong>insert_query()</strong></li>
-<li><strong>full_query()</strong></li>
-</ul>
+<h3 id="isauthenticateduser">isAuthenticatedUser()</h3>
 
-<p>We encourage all third party developers to use the Capsule DBAL and PDO connection for all new database interaction.</p>
+<p>Returns a Boolean value indicating whether the current user is authenticated as a User.</p>
 
-<h2 id="using-capsule">Using Capsule</h2>
-
-<p>Declare an alias to Laravel&rsquo;s database manager in your project file&rsquo;s use block to access Capsule:</p>
+<p>For example, this:</p>
 
 <pre><code>&lt;?php
 
-use WHMCS\Database\Capsule;
-
-// Run queries or modify tables as you like.
+$currentUser = new \WHMCS\Authentication\CurrentUser;
+if ($currentUser-&gt;isAuthenticatedUser()) {
+    echo &quot;Current user authenticated as User.&quot;;
+} else {
+    echo &quot;Current user not authenticated as User.&quot;;
+}
 </code></pre>
 
-<h2 id="the-query-manager">The Query Manager</h2>
+<p>Could return:</p>
 
-<p>Please see <a href="https://laravel.com/docs/5.2/queries">Laravel&rsquo;s query documentation</a> for more information.</p>
+<pre><code>Current user not authenticated as User.
+</code></pre>
 
-<p>The <code>Capsule::table(string $tableName)</code> method provides access to the query manager. Declare it with the name of the table you wish to query as it&rsquo;s first parameter to interact with that table. The query manager has a wide range of functionality to perform advanced select, join, insert, update, and delete statements. Capsule&rsquo;s select calls return rows as stdClass objects.</p>
+<h3 id="isauthenticatedadmin">isAuthenticatedAdmin()</h3>
 
-<p>Capsule escapes all input, so it is not necessary to add escaping slashes to variables passed to these methods.</p>
+<p>Returns a Boolean value indicating whether the current user is authenticated as an Admin.</p>
 
-<p>All of Capsule&rsquo;s methods throw an exception on failure. Please place Capusle calls in try/catch blocks for graceful error handling and to avoid potential fatal errors in your hook, module, or other customization.</p>
+<p>For example, this:</p>
 
 <pre><code>&lt;?php
 
-use WHMCS\Database\Capsule;
-
-// Print all client first names using a simple select.
-
-/** @var stdClass $client */
-foreach (Capsule::table('tblclients')-&gt;get() as $client) {
-    echo $client-&gt;firstname . PHP_EOL;
-}
-
-// Rename all clients named &quot;John Deo&quot; to &quot;John Doe&quot; using an update statement.
-try {
-    $updatedUserCount = Capsule::table('tblclients')
-        -&gt;where('firstname', 'John')
-        -&gt;where('lastname', 'Deo')
-        -&gt;update(
-            [
-                'lastname' =&gt; 'Doe',
-            ]
-        );
-
-    echo &quot;Fixed {$updatedUserCount} misspelled last names.&quot;;
-} catch (\Exception $e) {
-    echo &quot;I couldn't update client names. {$e-&gt;getMessage()}&quot;;
+$currentUser = new \WHMCS\Authentication\CurrentUser;
+if ($currentUser-&gt;isAuthenticatedAdmin()) {
+    echo &quot;Current user is authenticated as Admin.&quot;;
+} else {
+    echo &quot;Current user is not authenticated as Admin.&quot;;
 }
 </code></pre>
 
-<h2 id="the-schema-manager">The Schema Manager</h2>
+<p>Could return:</p>
 
-<p>Use the <code>Capsule::schema()</code> method to access the schema manager to modify table schema if necessary. The schema manager has support for creating, dropping and truncating tables and for modifying columns, indexes, and keys.</p>
+<pre><code>Current user is not authenticated as Admin.
+</code></pre>
 
-<p><strong>Note:</strong> WHMCS does not recommend changing default table schema as that can affect product functionality.</p>
+<h3 id="ismasqueradingadmin">isMasqueradingAdmin()</h3>
+
+<p>Returns a Boolean value indicating whether the current user is authenticated as an Admin who is acting on behalf of a user. This occurs after an Admin clicks <em>Login as Owner</em> in the client profile.</p>
+
+<p>For example, this:</p>
 
 <pre><code>&lt;?php
 
-use WHMCS\Database\Capsule;
-
-// Create a new table.
-try {
-    Capsule::schema()-&gt;create(
-        'my_table',
-        function ($table) {
-            /** @var \Illuminate\Database\Schema\Blueprint $table */
-            $table-&gt;increments('id');
-            $table-&gt;string('name');
-            $table-&gt;integer('serial_number');
-            $table-&gt;boolean('is_required');
-            $table-&gt;timestamps();
-        }
-    );
-} catch (\Exception $e) {
-    echo &quot;Unable to create my_table: {$e-&gt;getMessage()}&quot;;
+$currentUser = new \WHMCS\Authentication\CurrentUser;
+if ($currentUser-&gt;isMasqueradingAdmin()) {
+    echo &quot;Current user is a masquerading Admin.&quot;;
+} else {
+    echo &quot;Current user is not a masquerading Admin.&quot;;
 }
 </code></pre>
 
-<h2 id="the-connection-manager">The Connection Manager</h2>
+<p>Could return:</p>
 
-<p>The <code>Capsule::connection()</code> method provides low-level access to the database connection itself. Use it to initiate transactions with automatic commit and rollback or to access the underlying PDO connection to perform manual database queries outside the DBAL. The connection manager also has methods to retrieve query and schema managers.</p>
+<pre><code>Current user is a masquerading Admin.
+</code></pre>
+
+<h3 id="user">user()</h3>
+
+<p>Returns a <code>WHMCS\User\User</code> object that indicates the currently-authenticated User. You can use this according to the class documentation.</p>
+
+<p>This returns <code>null</code> if the current user isn&rsquo;t authenticated as a User.</p>
+
+<p>For example, this:</p>
 
 <pre><code>&lt;?php
 
-use WHMCS\Database\Capsule;
-
-// Perform potentially risky queries in a transaction for easy rollback.
-try {
-    Capsule::connection()-&gt;transaction(
-        function ($connectionManager)
-        {
-            /** @var \Illuminate\Database\Connection $connectionManager */
-            $connectionManager-&gt;table('my_table')-&gt;insert(
-                [
-                    'name' =&gt; $_POST['name'],
-                    'serial_number' =&gt; $_POST['serialNumber'],
-                    'is_required' =&gt; (int)(bool) $_POST['isRequired'],
-                ]
-            );
-        }
-    );
-} catch (\Exception $e) {
-    echo &quot;Uh oh! Inserting didn't work, but I was able to rollback. {$e-&gt;getMessage()}&quot;;
+$currentUser = new \WHMCS\Authentication\CurrentUser;
+$user = $currentUser-&gt;user();
+if ($user) {
+    echo &quot;There is an authenticated User, and their name is {$user-&gt;fullName}.&quot;;
+} else {
+    echo &quot;There is not an authenticated User.&quot;;
 }
 </code></pre>
 
-<h2 id="getting-to-pdo">Getting to PDO</h2>
+<p>Could return:</p>
 
-<p>Use the connection manager&rsquo;s getPdo() method to retrieve the underlying PDO connection instance. Use the PDO connection to perform manual queries and advanced database usage.</p>
+<pre><code>There is an authenticated User, and their name is Jane Doe.
+</code></pre>
+
+<h3 id="admin">admin()</h3>
+
+<p>Returns a <code>WHMCS\User\Admin</code> object that indicates the currently-authenticated Admin. You can action on this according to the class documentation.</p>
+
+<p>This returns <code>null</code> if the current user isn&rsquo;t authenticated in the Admin Area (for example, if they are a User).</p>
+
+<p>For example, this:</p>
 
 <pre><code>&lt;?php
 
-use WHMCS\Database\Capsule;
-
-// Perform potentially risky queries in a transaction for easy rollback.
-$pdo = Capsule::connection()-&gt;getPdo();
-$pdo-&gt;beginTransaction();
-
-try {
-    $statement = $pdo-&gt;prepare(
-        'insert into my_table (name, serial_number, is_required) values (:name, :serialNumber, :isRequired)'
-    );
-
-    $statement-&gt;execute(
-        [
-            ':name' =&gt; $_POST['name'],
-            ':serialNumber' =&gt; $_POST['serialNumber'],
-            ':isRequired' =&gt; (bool) $_POST['isRequired'],
-        ]
-    );
-
-    $pdo-&gt;commit();
-} catch (\Exception $e) {
-    echo &quot;Uh oh! {$e-&gt;getMessage()}&quot;;
-    $pdo-&gt;rollBack();
+$currentUser = new \WHMCS\Authentication\CurrentUser;
+$admin = $currentUser-&gt;admin();
+if ($admin) {
+    echo &quot;There is an authenticated Admin, and their name is {$admin-&gt;fullName}.&quot;;
+} else {
+    echo &quot;There is not an authenticated Admin.&quot;;
 }
 </code></pre>
 
-<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Could return:</p>
 
-<h3 id="exceptions">Exceptions</h3>
+<pre><code>There is an authenticated Admin, and their name is Jane Doe.
+</code></pre>
 
-<p>All Capsule methods throw an exception on failure. Catch these exceptions and analyze their messages and stack traces to help determine the nature of the failure. WHMCS recommends placing all database interactivity in try/catch blocks for graceful error handling.</p>
+<h3 id="client">client()</h3>
 
-<h3 id="the-capsule-query-log">The Capsule Query Log</h3>
+<p>Returns a <code>WHMCS\User\Client</code> object that indicates the currently-authenticated client account. You can action on this according to the class documentation.</p>
 
-<p>The connection manager&rsquo;s getQueryLog() method returns an array of all queries made during the life of the page request. Queries are stored in the log as an array containing the query run, the parameter bindings passed to the query, and the time it took for the query to execute, measured in milliseconds.</p>
+<p>This returns <code>null</code> if the current user isn&rsquo;t authenticated as a client account (for example, if they are not authenticated in the Client Area).</p>
+
+<p>For example, this:</p>
 
 <pre><code>&lt;?php
 
-use WHMCS\Database\Capsule;
-
-// Loop through each Capsule query made during the page request.
-foreach (Capsule::connection()-&gt;getQueryLog() as $query) {
-    echo &quot;Query: {$query['query']}&quot; . PHP_EOL;
-    echo &quot;Execution Time: {$query['time']}ms&quot; . PHP_EOL;
-    echo &quot;Parameters: &quot; . PHP_EOL;
-
-    foreach ($query['bindings'] as $key =&gt; $value) {
-        echo &quot;{$key} =&gt; {$value}&quot; . PHP_EOL;
-    }
+$currentUser = new \WHMCS\Authentication\CurrentUser;
+$client = $currentUser-&gt;client();
+if ($client) {
+    echo &quot;There is an authenticated Client, and their name is {$client-&gt;fullName}.&quot;;
+} else {
+    echo &quot;There is not an authenticated Client.&quot;;
 }
 </code></pre>
 
-<h3 id="the-whmcs-activity-log">The WHMCS Activity Log</h3>
+<p>Could return:</p>
 
-<p>All uncaught PDO-based query failures, including those made by Capsule and manual PDO queries, are written to to the WHMCS activity log. View the system activity log to view the details of these failed queries.</p>
+<pre><code>There is an authenticated Client, and their name is Jane Doe.
+</code></pre>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/advanced/authentication/">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/advanced/creating-pages/">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/advanced/date-functions/">
+                    <a class="nav nav-next" href="//developers.whmcs.com/advanced/db-interaction/">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>

@@ -397,7 +397,7 @@ Any other response is considered a failure, and the subscriptionid value will re
 &lt;h2 id=&#34;implementation-guide&#34;&gt;Implementation guide&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Delete the &lt;code&gt;yourmodulename_link&lt;/code&gt; function from the module template since this is only required for &lt;a href=&#34;//developers.whmcs.com/payment-gateways/third-party-gateways&#34; title=&#34;Third Party Gateways&#34;&gt;Third Party Gateway&lt;/a&gt; modules.&lt;/li&gt;
+&lt;li&gt;Delete the &lt;code&gt;yourmodulename_link&lt;/code&gt; function from the module template since this is only required for &lt;a href=&#34;//developers.whmcs.com/payment-gateways/third-party-gateway&#34; title=&#34;Third Party Gateways&#34;&gt;Third Party Gateway&lt;/a&gt; modules.&lt;/li&gt;
 &lt;li&gt;Enter the gateway-specific code for processing the payment capture into the &lt;code&gt;yourmodulename_capture&lt;/code&gt; function. Typically this takes the format of an HTTP/Curl request to the gateway provider&amp;rsquo;s API.&lt;/li&gt;
 &lt;li&gt;If the gateway supports 3D Secure (Verified by Visa or MasterCard Secure Code) then please refer to &lt;a href=&#34;//developers.whmcs.com/provisioning-modules/3d-secure&#34; title=&#34;3D Secure Process&#34;&gt;3D Secure&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;If your payment gateway supports refunds, implement support for &lt;a href=&#34;//developers.whmcs.com/payment-gateways/refunds&#34; title=&#34;Refunding Transactions&#34;&gt;Refunds&lt;/a&gt;.&lt;/li&gt;
@@ -1290,6 +1290,22 @@ way of a modal, popup or other such facility.&lt;/p&gt;
 &amp;lt;script&amp;gt;
     setTimeout(&amp;quot;autoSubmitFormByContainer(\&#39;frmRemoteCardProcess\&#39;)&amp;quot;, 1000);
 &amp;lt;/script&amp;gt;&#39;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;disallowing-remote-update-example&#34;&gt;Disallowing Remote Update Example&lt;/h3&gt;
+
+&lt;p&gt;In some circumstances, it may be appropriate to disallow remote updates for Pay Methods.&lt;/p&gt;
+
+&lt;p&gt;To achieve this, you can return an alert to be displayed in place of a form:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function yourmodulename_remoteupdate($params)
+{
+    return &amp;lt;&amp;lt;&amp;lt;HTML
+&amp;lt;div class=&amp;quot;alert alert-info text-center&amp;quot;&amp;gt;
+    Updating your card is not possible. Please create a new Pay Method to make changes.
+&amp;lt;/div&amp;gt;
+HTML;
 }
 &lt;/code&gt;&lt;/pre&gt;
 

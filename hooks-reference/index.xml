@@ -379,7 +379,7 @@ add_hook(&#39;AddonDeleted&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;addonedit&#34;&gt;AddonEdit&lt;/h2&gt;
 
-&lt;p&gt;Executes when an addon is modified or updated.&lt;/p&gt;
+&lt;p&gt;Executes when an addon is modified or updated except for status updates.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -1901,7 +1901,7 @@ add_hook(
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;admin&lt;/td&gt;
 &lt;td&gt;\WHMCS\User\Admin&lt;/td&gt;
 &lt;td&gt;The admin attempting to authenticate&lt;/td&gt;
 &lt;/tr&gt;
@@ -2548,7 +2548,7 @@ add_hook(&#39;ClientAlert&#39;, 1, function($client) {
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;The ID of the Client being updated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;

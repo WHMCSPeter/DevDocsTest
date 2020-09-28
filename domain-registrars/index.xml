@@ -295,7 +295,7 @@ function yourmodulename_getConfigArray($params)
       <guid>//developers.whmcs.com/domain-registrars/domain-syncing/</guid>
       <description>
 
-&lt;p&gt;The domain syncronisation functions allow you to propogate any domain expiry date and status changes at the registry level to WHMCS.  This is particularly useful for domain transfers where completion of the transfer and expiry dates can not be known by WHMCS automatically without it.&lt;/p&gt;
+&lt;p&gt;The domain syncronisation functions allow you to propagate any domain expiry date and status changes at the registry level to WHMCS.  This is particularly useful for domain transfers where completion of the transfer and expiry dates can not be known by WHMCS automatically without it.&lt;/p&gt;
 
 &lt;h2 id=&#34;domain-syncing&#34;&gt;Domain Syncing&lt;/h2&gt;
 
@@ -326,10 +326,10 @@ function yourmodulename_getConfigArray($params)
     // Return your result.
     // If &#39;error&#39; is returned, all other values will be ignored. It is important to ensure &#39;error&#39; is not returned in this array
     // unless the sync should not be completed. The error message will be provided in the &amp;quot;Domain Synchronisation Report&amp;quot; email.
-    
+
     return array(
         &#39;active&#39; =&amp;gt; true, // Return true if the domain is active
-        &#39;cancelled&#39; =&amp;gt; false, // Return true if the domain has been cancelled 
+        &#39;cancelled&#39; =&amp;gt; false, // Return true if the domain has been cancelled
         &#39;transferredAway&#39; =&amp;gt; false, // Return true if the domain has been transferred away from this registrar
         &#39;expirydate&#39; =&amp;gt; &#39;2018-09-28&#39;, // Return the current expiry date for the domain
         &#39;error&#39; =&amp;gt; &#39;Error message goes here.&#39; // The error message returned here will be returned within the Domain Synchronisation Report Email
@@ -337,10 +337,13 @@ function yourmodulename_getConfigArray($params)
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;Settings relating to domain syncing are in the &lt;strong&gt;Setup &amp;gt; General Settings &amp;gt; Domains&lt;/strong&gt; area. There are 3 key settings:
-* &lt;strong&gt;&lt;em&gt;Domain Sync Enabled&lt;/em&gt;&lt;/strong&gt; - Check to allow the domain sync cron to actually run.
-* &lt;strong&gt;&lt;em&gt;Sync Next Due Date&lt;/em&gt;&lt;/strong&gt; - Enable this setting to update next due date to match the expiry field as part of the sync.
-* &lt;strong&gt;&lt;em&gt;Domain Sync Notify Only&lt;/em&gt;&lt;/strong&gt; - Enable this to allow WHMCS to run the sync checks and report any inconsistencies. But, no changes to the domains will occur. With this enabled you receive an email report listing any discrepancies between the registrar and WHMCS.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;Settings relating to domain syncing are in &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; Automation Settings&lt;/strong&gt; or, prior to WHMCS 8.0, &lt;strong&gt;Setup &amp;gt; Automation Settings&lt;/strong&gt;. There are 3 key settings:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Domain Sync Enabled&lt;/em&gt;&lt;/strong&gt; - Check to allow the domain sync cron to actually run.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Sync Next Due Date&lt;/em&gt;&lt;/strong&gt; - Enable this setting to update next due date to match the expiry field as part of the sync.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Domain Sync Notify Only&lt;/em&gt;&lt;/strong&gt; - Enable this to allow WHMCS to run the sync checks and report any inconsistencies. But, no changes to the domains will occur. With this enabled you receive an email report listing any discrepancies between the registrar and WHMCS.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 
 
@@ -373,7 +376,7 @@ function yourmodulename_getConfigArray($params)
     return array(
         &#39;completed&#39; =&amp;gt; true, // Return as true upon successful completion of the transfer
         &#39;expirydate&#39; =&amp;gt; &#39;2017-10-15&#39;, // The expiry date of the domain
-        &#39;failed&#39; =&amp;gt; false, // Return as true when transfer fails permenantly
+        &#39;failed&#39; =&amp;gt; false, // Return as true when transfer fails permanently
         &#39;reason&#39; =&amp;gt; &#39;Reason message can go here&#39;, // Reason for the transfer failure if available
         &#39;error&#39; =&amp;gt; &#39;Error message goes here&#39;, // If the check fails, an error message string can be provided here
     );
@@ -1004,6 +1007,49 @@ function modulename_GetDomainInformation($params) {
     </item>
     
     <item>
+      <title>Client Area Output</title>
+      <link>//developers.whmcs.com/domain-registrars/client-area-output/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/domain-registrars/client-area-output/</guid>
+      <description>&lt;p&gt;Using this function, it is possible to output custom HTML in the Client Area when a client is managing a domain name.&lt;/p&gt;
+
+&lt;p&gt;Using the &lt;code&gt;_ClientArea&lt;/code&gt; function, you can return output that will be shown in the Domain Overview when viewing a domain in the Client Area.&lt;/p&gt;
+
+&lt;p&gt;All the parameters available in other registrar module functions are available to you within this function.
+Visit the &lt;a href=&#34;https://developers.whmcs.com/domain-registrars/module-parameters/&#34;&gt;Module Parameters&lt;/a&gt; page for information on  the variables available in &lt;code&gt;$params&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The function should return the HTML to be rendered on the page.&lt;/p&gt;
+
+&lt;p&gt;Note: We recommend avoiding making remote API calls within this function as doing so will result in increased overheads for page
+load and potentially slower page load times.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/**
+ * Client Area Output.
+ *
+ * This function renders output to the domain details interface within
+ * the client area. The return should be the HTML to be output.
+ *
+ * @param array $params common module parameters
+ *
+ * @see https://developers.whmcs.com/domain-registrars/module-parameters/
+ *
+ * @return string HTML Output
+ */
+function registrarmodule_ClientArea($params)
+{
+    $output = &amp;lt;&amp;lt;&amp;lt;HTML
+&amp;lt;div class=&amp;quot;alert alert-info&amp;quot;&amp;gt;
+    Your custom HTML output goes here...
+&amp;lt;/div&amp;gt;
+HTML;
+    return $output;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Transfer Policy (IRTP) Management</title>
       <link>//developers.whmcs.com/domain-registrars/transfer-policy-management/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1387,22 +1433,6 @@ $tld = $domainObj-&amp;gt;getTopLevel(); // The Top Level Domain for the given d
 &lt;p&gt;The hook functions within that file should be defined in exactly the same way as normal.&lt;/p&gt;
 
 &lt;p&gt;Please refer to Hook Documentation for more info on creating and working with hooks in WHMCS.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Module Logging</title>
-      <link>//developers.whmcs.com/domain-registrars/module-logging/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//developers.whmcs.com/domain-registrars/module-logging/</guid>
-      <description>&lt;p&gt;We recommend you make use of the built in module logging functionality for WHMCS modules.&lt;/p&gt;
-
-&lt;p&gt;This makes debugging the external API calls your module makes follow the standardised pattern and makes it easier to debug.&lt;/p&gt;
-
-&lt;p&gt;Please refer to the URL below for more details on how to do this.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-logging/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-logging/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

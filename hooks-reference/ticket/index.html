@@ -1332,9 +1332,9 @@ add_hook('TicketFlagged', 1, function($vars) {
 });
 </code></pre>
 
-<h2 id="ticketopen">TicketOpen</h2>
+<h2 id="ticketmerge">TicketMerge</h2>
 
-<p>Executes when a ticket is opened by an end user.</p>
+<p>Executes when tickets are merged into each other.</p>
 
 <h4 id="parameters-14">Parameters</h4>
 
@@ -1349,51 +1349,15 @@ add_hook('TicketFlagged', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>ticketid</td>
+<td>mergedTicketIds</td>
+<td>array</td>
+<td>The ticket IDs to be merged.</td>
+</tr>
+
+<tr>
+<td>masterTicketId</td>
 <td>int</td>
-<td></td>
-</tr>
-
-<tr>
-<td>ticketmask</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>userid</td>
-<td>int</td>
-<td></td>
-</tr>
-
-<tr>
-<td>deptid</td>
-<td>int</td>
-<td></td>
-</tr>
-
-<tr>
-<td>deptname</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>subject</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>message</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>priority</td>
-<td>string</td>
-<td></td>
+<td>The ticket ID of the ticket containing the merged tickets.</td>
 </tr>
 </tbody>
 </table>
@@ -1405,14 +1369,14 @@ add_hook('TicketFlagged', 1, function($vars) {
 <h4 id="example-code-14">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('TicketOpen', 1, function($vars) {
+add_hook('TicketMerge', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="ticketopenadmin">TicketOpenAdmin</h2>
+<h2 id="ticketopen">TicketOpen</h2>
 
-<p>Executes when a ticket is opened by an admin user.</p>
+<p>Executes when a ticket is opened by an end user.</p>
 
 <h4 id="parameters-15">Parameters</h4>
 
@@ -1483,6 +1447,84 @@ add_hook('TicketOpen', 1, function($vars) {
 <h4 id="example-code-15">Example Code</h4>
 
 <pre><code>&lt;?php
+add_hook('TicketOpen', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="ticketopenadmin">TicketOpenAdmin</h2>
+
+<p>Executes when a ticket is opened by an admin user.</p>
+
+<h4 id="parameters-16">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>ticketid</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>ticketmask</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>userid</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>deptid</td>
+<td>int</td>
+<td></td>
+</tr>
+
+<tr>
+<td>deptname</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>subject</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>message</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>priority</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-16">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-16">Example Code</h4>
+
+<pre><code>&lt;?php
 add_hook('TicketOpenAdmin', 1, function($vars) {
     // Perform hook code here...
 });
@@ -1492,7 +1534,7 @@ add_hook('TicketOpenAdmin', 1, function($vars) {
 
 <p>Executes when an end user provides data for a new ticket submission.</p>
 
-<h4 id="parameters-16">Parameters</h4>
+<h4 id="parameters-17">Parameters</h4>
 
 <table>
 <thead>
@@ -1572,11 +1614,11 @@ add_hook('TicketOpenAdmin', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-16">Response</h4>
+<h4 id="response-17">Response</h4>
 
 <p>A string to be used as a singular Validation Error.</p>
 
-<h4 id="example-code-16">Example Code</h4>
+<h4 id="example-code-17">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TicketOpenValidation', 1, function($vars) {
@@ -1588,7 +1630,7 @@ add_hook('TicketOpenValidation', 1, function($vars) {
 
 <p>Executes when a ticket is being imported via email.</p>
 
-<h4 id="parameters-17">Parameters</h4>
+<h4 id="parameters-18">Parameters</h4>
 
 <table>
 <thead>
@@ -1644,11 +1686,11 @@ add_hook('TicketOpenValidation', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-17">Response</h4>
+<h4 id="response-18">Response</h4>
 
 <p>Return skipProcessing=true to abort importing of the given email.</p>
 
-<h4 id="example-code-17">Example Code</h4>
+<h4 id="example-code-18">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TicketPiping', 1, function($vars) {
@@ -1660,7 +1702,7 @@ add_hook('TicketPiping', 1, function($vars) {
 
 <p>Executes when a ticket priority is changed</p>
 
-<h4 id="parameters-18">Parameters</h4>
+<h4 id="parameters-19">Parameters</h4>
 
 <table>
 <thead>
@@ -1686,14 +1728,56 @@ add_hook('TicketPiping', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-18">Response</h4>
+<h4 id="response-19">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-18">Example Code</h4>
+<h4 id="example-code-19">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TicketPriorityChange', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="ticketsplit">TicketSplit</h2>
+
+<p>Executes when ticket replies are being split into a new ticket.</p>
+
+<h4 id="parameters-20">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>originalTicketId</td>
+<td>int</td>
+<td>The Ticket ID that replies originally resided within.</td>
+</tr>
+
+<tr>
+<td>newTicketID</td>
+<td>int</td>
+<td>The new Ticket ID for the split replies.</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-20">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-20">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('TicketSplit', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
@@ -1702,7 +1786,7 @@ add_hook('TicketPriorityChange', 1, function($vars) {
 
 <p>Executes as a ticket status is changed manually by an admin.</p>
 
-<h4 id="parameters-19">Parameters</h4>
+<h4 id="parameters-21">Parameters</h4>
 
 <table>
 <thead>
@@ -1734,11 +1818,11 @@ add_hook('TicketPriorityChange', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-19">Response</h4>
+<h4 id="response-21">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-19">Example Code</h4>
+<h4 id="example-code-21">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TicketStatusChange', 1, function($vars) {
@@ -1750,7 +1834,7 @@ add_hook('TicketStatusChange', 1, function($vars) {
 
 <p>Executes when a ticket subject is changed. The &lsquo;subject&rsquo; variable now contains the new subject.</p>
 
-<h4 id="parameters-20">Parameters</h4>
+<h4 id="parameters-22">Parameters</h4>
 
 <table>
 <thead>
@@ -1776,11 +1860,11 @@ add_hook('TicketStatusChange', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-20">Response</h4>
+<h4 id="response-22">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-20">Example Code</h4>
+<h4 id="example-code-22">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TicketSubjectChange', 1, function($vars) {
@@ -1792,7 +1876,7 @@ add_hook('TicketSubjectChange', 1, function($vars) {
 
 <p>Executes when a reply is added to a ticket by an end user.</p>
 
-<h4 id="parameters-21">Parameters</h4>
+<h4 id="parameters-23">Parameters</h4>
 
 <table>
 <thead>
@@ -1860,11 +1944,11 @@ add_hook('TicketSubjectChange', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-21">Response</h4>
+<h4 id="response-23">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-21">Example Code</h4>
+<h4 id="example-code-23">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TicketUserReply', 1, function($vars) {
@@ -1876,7 +1960,7 @@ add_hook('TicketUserReply', 1, function($vars) {
 
 <p>Invoked when a ticket is imported from email.</p>
 
-<h4 id="parameters-22">Parameters</h4>
+<h4 id="parameters-24">Parameters</h4>
 
 <table>
 <thead>
@@ -1902,11 +1986,11 @@ add_hook('TicketUserReply', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-22">Response</h4>
+<h4 id="response-24">Response</h4>
 
 <p>Override the global variables $subject and $message to manipulate.</p>
 
-<h4 id="example-code-22">Example Code</h4>
+<h4 id="example-code-24">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('TransliterateTicketText', 1, function($vars) {

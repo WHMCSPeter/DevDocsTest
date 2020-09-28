@@ -1514,16 +1514,16 @@
 </tr>
 
 <tr>
-<td>email</td>
-<td>int</td>
-<td>The email address to invite</td>
+<td>client_id</td>
+<td>string</td>
+<td>The ID of the client the invite is for</td>
 <td>Required</td>
 </tr>
 
 <tr>
-<td>client_id</td>
-<td>string</td>
-<td>The ID of the client the invite is for</td>
+<td>email</td>
+<td>int</td>
+<td>The email address to invite</td>
 <td>Required</td>
 </tr>
 
@@ -1568,8 +1568,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
-            'user_id' =&gt; '1',
-            'firstname' =&gt; 'John',
+            'client_id' =&gt; '1',
+            'email' =&gt; 'john.doe@example.net',
+            'permissions' =&gt; 'products,manageproducts,managedomains,tickets',
             'responsetype' =&gt; 'json',
         )
     )
@@ -1583,8 +1584,9 @@ curl_close($ch);
 
 <pre><code>$command = 'CreateClientInvite';
 $postData = array(
-    'user_id' =&gt; '1',
-    'firstname' =&gt; 'John',
+    'client_id' =&gt; '1',
+    'email' =&gt; 'john.doe@example.net',
+    'permissions' =&gt; 'products,manageproducts,managedomains,tickets',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 

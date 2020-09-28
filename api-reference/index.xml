@@ -1530,6 +1530,8 @@ We suggest following any recommended actions in the warning to ensure future com
 &lt;li&gt;You did not enter your phone number&lt;/li&gt;
 &lt;li&gt;Invalid telephone phone number&lt;/li&gt;
 &lt;li&gt;You did not provide required custom field value for&lt;/li&gt;
+&lt;li&gt;A client already exists with that email address&lt;/li&gt;
+&lt;li&gt;A user already exists with that email address&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;

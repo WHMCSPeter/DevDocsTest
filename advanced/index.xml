@@ -23,7 +23,8 @@
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/upgrade-to-whmcs-8/&#34;&gt;Upgrading to WHMCS 8.0&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Everything you need to know to ensure a smooth transition to Version 8.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/creating-pages/&#34;&gt;Creating Pages&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to create additional pages within the WHMCS client area&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/creating-pages/&#34;&gt;Creating Pages&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to create additional pages within the WHMCS client area.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/authentication/&#34;&gt;Authentication via CurrentUser&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to assess the current authentication state with &lt;code&gt;CurrentUser&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/db-interaction/&#34;&gt;Interacting with the Database&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to interact with the WHMCS database&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/date-functions/&#34;&gt;Date Functions&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to use the date helper functions in WHMCS&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;//developers.whmcs.com/advanced/currency-formatting/&#34;&gt;Currency Formatting&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;Learn how to use the currency formatting helper functions in WHMCS&lt;/li&gt;
@@ -500,6 +501,161 @@ $ca-&amp;gt;output();
 &lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;Custom pages created in this way should always be located in the root WHMCS directory. Attempting to use this code outside of the root directory is unsupported.&lt;/p&gt;
 &lt;/div&gt;
 
+</description>
+    </item>
+    
+    <item>
+      <title>Authentication via CurrentUser</title>
+      <link>//developers.whmcs.com/advanced/authentication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/advanced/authentication/</guid>
+      <description>
+
+&lt;p&gt;&lt;code&gt;WHMCS\Authentication\CurrentUser&lt;/code&gt; lets you assess the current state of authentication for the currently-logged-in user.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;WHMCS 8.0 added this functionality.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;methods&#34;&gt;Methods&lt;/h2&gt;
+
+&lt;p&gt;The sample code below returns the authentication status for the person who is viewing the page containing that code. Note that none of these authentication states are mutually exclusive; it is possible (and sometimes likely) for the current user to return &lt;a href=&#34;https://docs.whmcs.com/Users_and_Accounts&#34;&gt;Admin, User, and client account states&lt;/a&gt; simultaneously.&lt;/p&gt;
+
+&lt;h3 id=&#34;isauthenticateduser&#34;&gt;isAuthenticatedUser()&lt;/h3&gt;
+
+&lt;p&gt;Returns a Boolean value indicating whether the current user is authenticated as a User.&lt;/p&gt;
+
+&lt;p&gt;For example, this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+$currentUser = new \WHMCS\Authentication\CurrentUser;
+if ($currentUser-&amp;gt;isAuthenticatedUser()) {
+    echo &amp;quot;Current user authenticated as User.&amp;quot;;
+} else {
+    echo &amp;quot;Current user not authenticated as User.&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Could return:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Current user not authenticated as User.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;isauthenticatedadmin&#34;&gt;isAuthenticatedAdmin()&lt;/h3&gt;
+
+&lt;p&gt;Returns a Boolean value indicating whether the current user is authenticated as an Admin.&lt;/p&gt;
+
+&lt;p&gt;For example, this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+$currentUser = new \WHMCS\Authentication\CurrentUser;
+if ($currentUser-&amp;gt;isAuthenticatedAdmin()) {
+    echo &amp;quot;Current user is authenticated as Admin.&amp;quot;;
+} else {
+    echo &amp;quot;Current user is not authenticated as Admin.&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Could return:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Current user is not authenticated as Admin.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;ismasqueradingadmin&#34;&gt;isMasqueradingAdmin()&lt;/h3&gt;
+
+&lt;p&gt;Returns a Boolean value indicating whether the current user is authenticated as an Admin who is acting on behalf of a user. This occurs after an Admin clicks &lt;em&gt;Login as Owner&lt;/em&gt; in the client profile.&lt;/p&gt;
+
+&lt;p&gt;For example, this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+$currentUser = new \WHMCS\Authentication\CurrentUser;
+if ($currentUser-&amp;gt;isMasqueradingAdmin()) {
+    echo &amp;quot;Current user is a masquerading Admin.&amp;quot;;
+} else {
+    echo &amp;quot;Current user is not a masquerading Admin.&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Could return:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Current user is a masquerading Admin.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;user&#34;&gt;user()&lt;/h3&gt;
+
+&lt;p&gt;Returns a &lt;code&gt;WHMCS\User\User&lt;/code&gt; object that indicates the currently-authenticated User. You can use this according to the class documentation.&lt;/p&gt;
+
+&lt;p&gt;This returns &lt;code&gt;null&lt;/code&gt; if the current user isn&amp;rsquo;t authenticated as a User.&lt;/p&gt;
+
+&lt;p&gt;For example, this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+$currentUser = new \WHMCS\Authentication\CurrentUser;
+$user = $currentUser-&amp;gt;user();
+if ($user) {
+    echo &amp;quot;There is an authenticated User, and their name is {$user-&amp;gt;fullName}.&amp;quot;;
+} else {
+    echo &amp;quot;There is not an authenticated User.&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Could return:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;There is an authenticated User, and their name is Jane Doe.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;admin&#34;&gt;admin()&lt;/h3&gt;
+
+&lt;p&gt;Returns a &lt;code&gt;WHMCS\User\Admin&lt;/code&gt; object that indicates the currently-authenticated Admin. You can action on this according to the class documentation.&lt;/p&gt;
+
+&lt;p&gt;This returns &lt;code&gt;null&lt;/code&gt; if the current user isn&amp;rsquo;t authenticated in the Admin Area (for example, if they are a User).&lt;/p&gt;
+
+&lt;p&gt;For example, this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+$currentUser = new \WHMCS\Authentication\CurrentUser;
+$admin = $currentUser-&amp;gt;admin();
+if ($admin) {
+    echo &amp;quot;There is an authenticated Admin, and their name is {$admin-&amp;gt;fullName}.&amp;quot;;
+} else {
+    echo &amp;quot;There is not an authenticated Admin.&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Could return:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;There is an authenticated Admin, and their name is Jane Doe.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;client&#34;&gt;client()&lt;/h3&gt;
+
+&lt;p&gt;Returns a &lt;code&gt;WHMCS\User\Client&lt;/code&gt; object that indicates the currently-authenticated client account. You can action on this according to the class documentation.&lt;/p&gt;
+
+&lt;p&gt;This returns &lt;code&gt;null&lt;/code&gt; if the current user isn&amp;rsquo;t authenticated as a client account (for example, if they are not authenticated in the Client Area).&lt;/p&gt;
+
+&lt;p&gt;For example, this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+$currentUser = new \WHMCS\Authentication\CurrentUser;
+$client = $currentUser-&amp;gt;client();
+if ($client) {
+    echo &amp;quot;There is an authenticated Client, and their name is {$client-&amp;gt;fullName}.&amp;quot;;
+} else {
+    echo &amp;quot;There is not an authenticated Client.&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Could return:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;There is an authenticated Client, and their name is Jane Doe.
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

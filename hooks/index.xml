@@ -336,7 +336,8 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;/ul&gt;
 &lt;h3&gt;User&lt;/h3&gt;
 
-&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/user/#userchangepassword&#34;&gt;UserChangePassword&lt;/a&gt;
+&lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/user/#useradd&#34;&gt;UserAdd&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/user/#userchangepassword&#34;&gt;UserChangePassword&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/user/#useremailverificationcomplete&#34;&gt;UserEmailVerificationComplete&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Contact&lt;/h3&gt;
@@ -371,11 +372,13 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketdeletereply&#34;&gt;TicketDeleteReply&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketdepartmentchange&#34;&gt;TicketDepartmentChange&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketflagged&#34;&gt;TicketFlagged&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketmerge&#34;&gt;TicketMerge&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketopen&#34;&gt;TicketOpen&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketopenadmin&#34;&gt;TicketOpenAdmin&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketopenvalidation&#34;&gt;TicketOpenValidation&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketpiping&#34;&gt;TicketPiping&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketprioritychange&#34;&gt;TicketPriorityChange&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketsplit&#34;&gt;TicketSplit&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketstatuschange&#34;&gt;TicketStatusChange&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketsubjectchange&#34;&gt;TicketSubjectChange&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/ticket/#ticketuserreply&#34;&gt;TicketUserReply&lt;/a&gt;
@@ -540,6 +543,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preupgradecheckout&#34;&gt;PreUpgradeCheckout&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#premiumpriceoverride&#34;&gt;PremiumPriceOverride&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#premiumpricerecalculationoverride&#34;&gt;PremiumPriceRecalculationOverride&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#hookname&#34;&gt;hookname&lt;/a&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/div&gt;
 </description>

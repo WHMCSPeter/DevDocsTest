@@ -416,6 +416,22 @@ way of a modal, popup or other such facility.</p>
 }
 </code></pre>
 
+<h3 id="disallowing-remote-update-example">Disallowing Remote Update Example</h3>
+
+<p>In some circumstances, it may be appropriate to disallow remote updates for Pay Methods.</p>
+
+<p>To achieve this, you can return an alert to be displayed in place of a form:</p>
+
+<pre><code>function yourmodulename_remoteupdate($params)
+{
+    return &lt;&lt;&lt;HTML
+&lt;div class=&quot;alert alert-info text-center&quot;&gt;
+    Updating your card is not possible. Please create a new Pay Method to make changes.
+&lt;/div&gt;
+HTML;
+}
+</code></pre>
+
 <h2 id="helper-functions">Helper Functions</h2>
 
 <p>The following functions are available in WHMCS 7.9 and later. We recommend using these functions
