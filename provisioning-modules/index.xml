@@ -909,7 +909,7 @@ The database update should be a single call for speed and efficiency.&lt;/p&gt;
                 -&amp;gt;where(&#39;server&#39;, $serverid)
                 -&amp;gt;where(&#39;domain&#39;, $values[&#39;domain&#39;])
                 -&amp;gt;update([
-                    &#39;diskused&#39; =&amp;gt; $values[&#39;diskusage&#39;],
+                    &#39;diskusage&#39; =&amp;gt; $values[&#39;diskusage&#39;],
                     &#39;disklimit&#39; =&amp;gt; $values[&#39;disklimit&#39;],
                     &#39;bwusage&#39; =&amp;gt; $values[&#39;bandwidth&#39;],
                     &#39;bwlimit&#39; =&amp;gt; $values[&#39;bwlimit&#39;],

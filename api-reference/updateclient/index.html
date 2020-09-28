@@ -1516,14 +1516,14 @@
 <tr>
 <td>clientid</td>
 <td>int</td>
-<td>The id of the client to update</td>
+<td>The ID of the client to update.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>clientemail</td>
 <td>string</td>
-<td>The email address of the client to update. Either $clientid or $clientemail is required</td>
+<td>The email address of the client to update. Either $clientid or $clientemail is required.</td>
 <td>Optional</td>
 </tr>
 
@@ -1593,7 +1593,7 @@
 <tr>
 <td>country</td>
 <td>string</td>
-<td>2 character ISO country code</td>
+<td>Two-character ISO country code.</td>
 <td>Optional</td>
 </tr>
 
@@ -1607,21 +1607,21 @@
 <tr>
 <td>tax_id</td>
 <td>string</td>
-<td>The client Tax ID</td>
+<td>The client Tax ID.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td><del>cardtype</del></td>
 <td><del>string</del></td>
-<td><del>Credit card type. Provide full name: Visa, Mastercard, American Express, etc&hellip;</del></td>
+<td><del>Credit card type. Provide the full name: Visa, Mastercard, American Express, etc.</del></td>
 <td>Deprecated</td>
 </tr>
 
 <tr>
 <td><del>cardnum</del></td>
 <td><del>string</del></td>
-<td><del>Credit card number</del></td>
+<td><del>Credit card number.</del></td>
 <td>Deprecated</td>
 </tr>
 
@@ -1642,147 +1642,189 @@
 <tr>
 <td><del>issuenumber</del></td>
 <td><del>string</del></td>
-<td><del>Credit card issue number (if applicable)</del></td>
+<td><del>Credit card issue number (if applicable).</del></td>
 <td>Deprecated</td>
 </tr>
 
 <tr>
 <td><del>cvv</del></td>
 <td><del>string</del></td>
-<td><del>Credit card CVV number (will not be stored)</del></td>
+<td><del>Credit card CVV number (will not be stored).</del></td>
 <td>Deprecated</td>
 </tr>
 
 <tr>
 <td><del>bankcode</del></td>
 <td><del>string</del></td>
-<td><del>Client Bank Account Code (if applicable)</del></td>
+<td><del>Client Bank Account Code (if applicable).</del></td>
 <td>Deprecated</td>
 </tr>
 
 <tr>
 <td><del>bankacct</del></td>
 <td><del>string</del></td>
-<td><del>Client bank Account number (if applicable)</del></td>
+<td><del>Client bank Account number (if applicable).</del></td>
 <td>Deprecated</td>
 </tr>
 
 <tr>
 <td>currency</td>
 <td>int</td>
-<td>Currency ID from tblcurrencies</td>
+<td>Currency ID from tblcurrencies.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>groupid</td>
 <td>int</td>
-<td>Client Group ID from tblclientgroups</td>
+<td>Client Group ID from tblclientgroups.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>customfields</td>
 <td>string</td>
-<td>Base64 encoded serialized array of custom field values</td>
+<td>Base64-encoded serialized array of custom field values.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>language</td>
 <td>string</td>
-<td>Default language setting. Provide full name: &lsquo;english&rsquo;, &lsquo;french&rsquo;, etc&hellip;</td>
+<td>Default language setting. Provide the full name: &lsquo;english&rsquo;, &lsquo;french&rsquo;, etc.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>clientip</td>
 <td>string</td>
-<td>IP address of the user</td>
+<td>IP address of the user.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>notes</td>
 <td>string</td>
-<td>Admin only notes</td>
+<td>Admin-only notes.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>status</td>
 <td>string</td>
-<td>Status, e.g. &ldquo;Active&rdquo;</td>
+<td>The status. For example, &ldquo;Active&rdquo;.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>paymentmethod</td>
 <td>string</td>
-<td>The default payment method</td>
+<td>The default payment method.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>email_preferences[general]</td>
 <td>bool</td>
-<td>Should the client receive general emails</td>
+<td>Whether the client should receive general emails.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>email_preferences[product]</td>
 <td>bool</td>
-<td>Should the client receive product emails</td>
+<td>Whether the client should receive product emails.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>email_preferences[domain]</td>
 <td>bool</td>
-<td>Should the client receive domain emails</td>
+<td>Whether the client should receive domain emails.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>email_preferences[invoice]</td>
 <td>bool</td>
-<td>Should the client receive invoice emails</td>
+<td>Whether the client should receive invoice emails.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>email_preferences[support]</td>
 <td>bool</td>
-<td>Should the client receive support emails</td>
+<td>Whether the client should receive support emails.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>email_preferences[affiliate]</td>
 <td>bool</td>
-<td>Should the client receive affiliate emails</td>
+<td>Whether the client should receive affiliate emails.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>marketingoptin</td>
 <td>bool</td>
-<td>Set true to opt client in to marketing emails</td>
+<td>Set this to &lsquo;true&rsquo; to opt the client in to marketing emails.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>clearcreditcard</td>
 <td>bool</td>
-<td>Pass as true to clear the stored CC details</td>
+<td>Set this to &lsquo;true&rsquo; to clear the stored credit card details.</td>
 <td>Optional</td>
 </tr>
 
 <tr>
 <td>skipvalidation</td>
 <td>bool</td>
-<td>Pass as true to ignore required fields validation</td>
+<td>Set this to &lsquo;true&rsquo; to ignore required field validation.</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>latefeeoveride</td>
+<td>bool</td>
+<td>Whether to override the account&rsquo;s Late Fees setting.</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>overideduenotices</td>
+<td>bool</td>
+<td>Whether to override the account&rsquo;s Overdue Notices setting.</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>taxexempt</td>
+<td>bool</td>
+<td>Whether the account is exempt from tax collections.</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>separateinvoices</td>
+<td>bool</td>
+<td>Whether to group items that share a due date and payment method into one invoice for the account.</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>disableautocc</td>
+<td>bool</td>
+<td>Whether to enable or disable automatic credit card processing.</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>overrideautoclose</td>
+<td>bool</td>
+<td>Whether to enable or disable automatic credit card processing.</td>
 <td>Optional</td>
 </tr>
 </tbody>
@@ -1897,8 +1939,8 @@ We suggest following any recommended actions in the warning to ensure future com
 </tr>
 
 <tr>
-<td>8.0</td>
-<td>Removed attributes migrated to users: security questions and password</td>
+<td>7.8</td>
+<td>Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod, DeletePayMethod or UpdatePayMethod instead.</td>
 </tr>
 
 <tr>
@@ -1907,8 +1949,8 @@ We suggest following any recommended actions in the warning to ensure future com
 </tr>
 
 <tr>
-<td>7.8</td>
-<td>Credit card related parameters are now deprecated and may be removed in a future version. Use AddPayMethod, DeletePayMethod or UpdatePayMethod instead.</td>
+<td>8.0</td>
+<td>Removed attributes migrated to users: security questions and password</td>
 </tr>
 </tbody>
 </table>

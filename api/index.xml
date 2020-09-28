@@ -270,7 +270,7 @@ $results = localAPI($command, $values, $adminuser);
 if ($results[&#39;result&#39;] == &#39;success&#39;) {
     echo &#39;Message sent successfully!&#39;;
 } else {
-    echo &amp;quot;An Error Occurred: &amp;quot; . $results[&#39;result&#39;];
+    echo &amp;quot;An Error Occurred: &amp;quot; . $results[&#39;message&#39;];
 }
 &lt;/code&gt;&lt;/pre&gt;
 </description>

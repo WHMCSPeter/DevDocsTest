@@ -383,7 +383,7 @@ The database update should be a single call for speed and efficiency.</p>
                 -&gt;where('server', $serverid)
                 -&gt;where('domain', $values['domain'])
                 -&gt;update([
-                    'diskused' =&gt; $values['diskusage'],
+                    'diskusage' =&gt; $values['diskusage'],
                     'disklimit' =&gt; $values['disklimit'],
                     'bwusage' =&gt; $values['bandwidth'],
                     'bwlimit' =&gt; $values['bwlimit'],

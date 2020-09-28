@@ -910,6 +910,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/advanced/authentication/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/modules/code-samples/</loc>
   </url>
   
@@ -1199,6 +1203,10 @@
   
   <url>
     <loc>//developers.whmcs.com/provisioning-modules/admin-dashboard-widgets/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/domain-registrars/client-area-output/</loc>
   </url>
   
   <url>

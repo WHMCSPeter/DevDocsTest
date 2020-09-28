@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Interacting with the Database - WHMCS Developer Documentation</title>
+    <title>Client Area Output - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/advanced/db-interaction/">
+    <link rel="canonical" href="//developers.whmcs.com/domain-registrars/client-area-output/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -56,7 +56,7 @@
             <li class="visible-xs"><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
             <li class="visible-xs"><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
             <li class="visible-xs"><a href="//developers.whmcs.com/api/">API</a></li>
-            <li class="visible-xs active"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+            <li class="visible-xs"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="//developers.whmcs.com/api-reference/">API Reference</a></li>
@@ -88,7 +88,7 @@
             <li><a href="//developers.whmcs.com/oauth/">OAuth</a></li>
             <li><a href="//developers.whmcs.com/hooks/">Hooks</a></li>
             <li><a href="//developers.whmcs.com/api/">API</a></li>
-            <li class="active"><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
+            <li><a href="//developers.whmcs.com/advanced/">Advanced</a></li>
       </ul>
       <form class="navbar-form navbar-right" id="docsSearch">
         <div class="aa-input-container" id="aa-input-container">
@@ -115,13 +115,13 @@
         
           <ul class="sidebar-nav">
             
-  <li class="active parent" data-nav-id="/advanced/">
-    <a href="//developers.whmcs.com/advanced/">
+  <li class="active parent" data-nav-id="/domain-registrars/">
+    <a href="//developers.whmcs.com/domain-registrars/">
       <span>
         
-          <i class='fa fa-code fa-fw'></i>
+          <i class='fa fa-globe fa-fw'></i>
         
-         Advanced
+         Domain Registrars
        </span>
     </a>
     
@@ -130,81 +130,121 @@
       
       
       
-        <li class="" data-nav-id="/advanced/upgrade-to-whmcs-8/">
-          <a href="//developers.whmcs.com/advanced/upgrade-to-whmcs-8/">
-            <span>Upgrade to WHMCS 8.0</span>
+        <li class="" data-nav-id="/domain-registrars/getting-started/">
+          <a href="//developers.whmcs.com/domain-registrars/getting-started/">
+            <span>Getting Started</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/advanced/creating-pages/">
-          <a href="//developers.whmcs.com/advanced/creating-pages/">
-            <span>Creating Pages</span>
+        <li class="" data-nav-id="/domain-registrars/config-options/">
+          <a href="//developers.whmcs.com/domain-registrars/config-options/">
+            <span>Configuration Options</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/advanced/authentication/">
-          <a href="//developers.whmcs.com/advanced/authentication/">
-            <span>Authentication via CurrentUser</span>
+        <li class="" data-nav-id="/domain-registrars/function-index/">
+          <a href="//developers.whmcs.com/domain-registrars/function-index/">
+            <span>Function Index</span>
           </a>
         </li>
       
       
       
-        <li class="active" data-nav-id="/advanced/db-interaction/">
-          <a href="//developers.whmcs.com/advanced/db-interaction/">
-            <span>Interacting with the Database</span>
+        <li class="" data-nav-id="/domain-registrars/domain-syncing/">
+          <a href="//developers.whmcs.com/domain-registrars/domain-syncing/">
+            <span>Domain Syncronisation</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/advanced/date-functions/">
-          <a href="//developers.whmcs.com/advanced/date-functions/">
-            <span>Date Functions</span>
+        <li class="" data-nav-id="/domain-registrars/module-parameters/">
+          <a href="//developers.whmcs.com/domain-registrars/module-parameters/">
+            <span>Module Parameters</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/advanced/currency-formatting/">
-          <a href="//developers.whmcs.com/advanced/currency-formatting/">
-            <span>Currency Formatting</span>
+        <li class="" data-nav-id="/domain-registrars/module-functions/">
+          <a href="//developers.whmcs.com/domain-registrars/module-functions/">
+            <span>Module Functions</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/advanced/logging/">
-          <a href="//developers.whmcs.com/advanced/logging/">
-            <span>Logging</span>
+        <li class="" data-nav-id="/domain-registrars/domain-information/">
+          <a href="//developers.whmcs.com/domain-registrars/domain-information/">
+            <span>Domain Information</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/advanced/widgets/">
-          <a href="//developers.whmcs.com/advanced/widgets/">
-            <span>Widgets</span>
+        <li class="" data-nav-id="/domain-registrars/availability-checks/">
+          <a href="//developers.whmcs.com/domain-registrars/availability-checks/">
+            <span>Availability Checks</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/advanced/admin-area/">
-          <a href="//developers.whmcs.com/advanced/admin-area/">
-            <span>Admin Area</span>
+        <li class="" data-nav-id="/domain-registrars/premium-domains/">
+          <a href="//developers.whmcs.com/domain-registrars/premium-domains/">
+            <span>Premium Domains</span>
           </a>
         </li>
       
       
       
-        <li class="" data-nav-id="/advanced/json-file/">
-          <a href="//developers.whmcs.com/advanced/json-file/">
-            <span>JSON File</span>
+        <li class="active" data-nav-id="/domain-registrars/client-area-output/">
+          <a href="//developers.whmcs.com/domain-registrars/client-area-output/">
+            <span>Client Area Output</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/domain-registrars/transfer-policy-management/">
+          <a href="//developers.whmcs.com/domain-registrars/transfer-policy-management/">
+            <span>Transfer Policy (IRTP) Management</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/domain-registrars/tld-pricing-sync/">
+          <a href="//developers.whmcs.com/domain-registrars/tld-pricing-sync/">
+            <span>TLD &amp; Pricing Sync</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/domain-registrars/extending-further/">
+          <a href="//developers.whmcs.com/domain-registrars/extending-further/">
+            <span>Extending Further</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/domain-registrars/hooks/">
+          <a href="//developers.whmcs.com/domain-registrars/hooks/">
+            <span>Hooks</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/domain-registrars/module-logging/">
+          <a href="//developers.whmcs.com/domain-registrars/module-logging/">
+            <span>Module Logging</span>
           </a>
         </li>
       
@@ -246,9 +286,17 @@
                   
                 
                   
+                
+                  
+                
+                  
+                
+                  
+                
+                  
                     
                     
-                <a href="//developers.whmcs.com/advanced/" itemprop="url"><span itemprop="title">Advanced</span></a> <i class="fa fa-angle-right"></i>
+                <a href="//developers.whmcs.com/domain-registrars/" itemprop="url"><span itemprop="title">Domain Registrars</span></a> <i class="fa fa-angle-right"></i>
                     
                   
                 
@@ -274,226 +322,56 @@
                 
                   
                 
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                <span itemprop="title"> Interacting with the Database</span>
+                <span itemprop="title"> Client Area Output</span>
               </div>
             </div>
 
 
-			<h1>Interacting with the Database </h1>
+			<h1>Client Area Output </h1>
 
-			
+			<p>Using this function, it is possible to output custom HTML in the Client Area when a client is managing a domain name.</p>
 
-<p>WHMCS 6.0 and later leverages a database connection library to ensure compatibility with modern PHP environments and best practices. It is based on the Laravel framework&rsquo;s database component. This library includes a Database Abstraction Layer (DBAL) called &ldquo;Capsule&rdquo; and an Object Relational Mapping (ORM) library called &ldquo;Eloquent&rdquo;.</p>
+<p>Using the <code>_ClientArea</code> function, you can return output that will be shown in the Domain Overview when viewing a domain in the Client Area.</p>
 
-<p>The Capsule DBAL component introduces two libraries to WHMCS, a query manager for running database queries and a schema manager for an abstracted API to table management. Capsule&rsquo;s underlying PDO connection is also available for advanced database usage. Capsule has three static methods to get to these components:</p>
+<p>All the parameters available in other registrar module functions are available to you within this function.
+Visit the <a href="https://developers.whmcs.com/domain-registrars/module-parameters/">Module Parameters</a> page for information on  the variables available in <code>$params</code>.</p>
 
-<ul>
-<li><code>Capsule::table(string $tableName)</code>: Access the query manager for the given table.</li>
-<li><code>Capsule::schema()</code>: Access the schema manager for the WHMCS database.</li>
-<li><code>Capsule::connection()</code>: Access the connection manager to interact with the underlying database connection.</li>
-</ul>
+<p>The function should return the HTML to be rendered on the page.</p>
 
-<h2 id="deprecated-functionality">Deprecated functionality</h2>
+<p>Note: We recommend avoiding making remote API calls within this function as doing so will result in increased overheads for page
+load and potentially slower page load times.</p>
 
-<p>The previously used SQL Helper Functions are still present in WHMCS but are now deprecated and may be removed in a later version of the product:</p>
-
-<ul>
-<li><strong>select_query()</strong></li>
-<li><strong>update_query()</strong></li>
-<li><strong>insert_query()</strong></li>
-<li><strong>full_query()</strong></li>
-</ul>
-
-<p>We encourage all third party developers to use the Capsule DBAL and PDO connection for all new database interaction.</p>
-
-<h2 id="using-capsule">Using Capsule</h2>
-
-<p>Declare an alias to Laravel&rsquo;s database manager in your project file&rsquo;s use block to access Capsule:</p>
-
-<pre><code>&lt;?php
-
-use WHMCS\Database\Capsule;
-
-// Run queries or modify tables as you like.
-</code></pre>
-
-<h2 id="the-query-manager">The Query Manager</h2>
-
-<p>Please see <a href="https://laravel.com/docs/5.2/queries">Laravel&rsquo;s query documentation</a> for more information.</p>
-
-<p>The <code>Capsule::table(string $tableName)</code> method provides access to the query manager. Declare it with the name of the table you wish to query as it&rsquo;s first parameter to interact with that table. The query manager has a wide range of functionality to perform advanced select, join, insert, update, and delete statements. Capsule&rsquo;s select calls return rows as stdClass objects.</p>
-
-<p>Capsule escapes all input, so it is not necessary to add escaping slashes to variables passed to these methods.</p>
-
-<p>All of Capsule&rsquo;s methods throw an exception on failure. Please place Capusle calls in try/catch blocks for graceful error handling and to avoid potential fatal errors in your hook, module, or other customization.</p>
-
-<pre><code>&lt;?php
-
-use WHMCS\Database\Capsule;
-
-// Print all client first names using a simple select.
-
-/** @var stdClass $client */
-foreach (Capsule::table('tblclients')-&gt;get() as $client) {
-    echo $client-&gt;firstname . PHP_EOL;
-}
-
-// Rename all clients named &quot;John Deo&quot; to &quot;John Doe&quot; using an update statement.
-try {
-    $updatedUserCount = Capsule::table('tblclients')
-        -&gt;where('firstname', 'John')
-        -&gt;where('lastname', 'Deo')
-        -&gt;update(
-            [
-                'lastname' =&gt; 'Doe',
-            ]
-        );
-
-    echo &quot;Fixed {$updatedUserCount} misspelled last names.&quot;;
-} catch (\Exception $e) {
-    echo &quot;I couldn't update client names. {$e-&gt;getMessage()}&quot;;
+<pre><code>/**
+ * Client Area Output.
+ *
+ * This function renders output to the domain details interface within
+ * the client area. The return should be the HTML to be output.
+ *
+ * @param array $params common module parameters
+ *
+ * @see https://developers.whmcs.com/domain-registrars/module-parameters/
+ *
+ * @return string HTML Output
+ */
+function registrarmodule_ClientArea($params)
+{
+    $output = &lt;&lt;&lt;HTML
+&lt;div class=&quot;alert alert-info&quot;&gt;
+    Your custom HTML output goes here...
+&lt;/div&gt;
+HTML;
+    return $output;
 }
 </code></pre>
-
-<h2 id="the-schema-manager">The Schema Manager</h2>
-
-<p>Use the <code>Capsule::schema()</code> method to access the schema manager to modify table schema if necessary. The schema manager has support for creating, dropping and truncating tables and for modifying columns, indexes, and keys.</p>
-
-<p><strong>Note:</strong> WHMCS does not recommend changing default table schema as that can affect product functionality.</p>
-
-<pre><code>&lt;?php
-
-use WHMCS\Database\Capsule;
-
-// Create a new table.
-try {
-    Capsule::schema()-&gt;create(
-        'my_table',
-        function ($table) {
-            /** @var \Illuminate\Database\Schema\Blueprint $table */
-            $table-&gt;increments('id');
-            $table-&gt;string('name');
-            $table-&gt;integer('serial_number');
-            $table-&gt;boolean('is_required');
-            $table-&gt;timestamps();
-        }
-    );
-} catch (\Exception $e) {
-    echo &quot;Unable to create my_table: {$e-&gt;getMessage()}&quot;;
-}
-</code></pre>
-
-<h2 id="the-connection-manager">The Connection Manager</h2>
-
-<p>The <code>Capsule::connection()</code> method provides low-level access to the database connection itself. Use it to initiate transactions with automatic commit and rollback or to access the underlying PDO connection to perform manual database queries outside the DBAL. The connection manager also has methods to retrieve query and schema managers.</p>
-
-<pre><code>&lt;?php
-
-use WHMCS\Database\Capsule;
-
-// Perform potentially risky queries in a transaction for easy rollback.
-try {
-    Capsule::connection()-&gt;transaction(
-        function ($connectionManager)
-        {
-            /** @var \Illuminate\Database\Connection $connectionManager */
-            $connectionManager-&gt;table('my_table')-&gt;insert(
-                [
-                    'name' =&gt; $_POST['name'],
-                    'serial_number' =&gt; $_POST['serialNumber'],
-                    'is_required' =&gt; (int)(bool) $_POST['isRequired'],
-                ]
-            );
-        }
-    );
-} catch (\Exception $e) {
-    echo &quot;Uh oh! Inserting didn't work, but I was able to rollback. {$e-&gt;getMessage()}&quot;;
-}
-</code></pre>
-
-<h2 id="getting-to-pdo">Getting to PDO</h2>
-
-<p>Use the connection manager&rsquo;s getPdo() method to retrieve the underlying PDO connection instance. Use the PDO connection to perform manual queries and advanced database usage.</p>
-
-<pre><code>&lt;?php
-
-use WHMCS\Database\Capsule;
-
-// Perform potentially risky queries in a transaction for easy rollback.
-$pdo = Capsule::connection()-&gt;getPdo();
-$pdo-&gt;beginTransaction();
-
-try {
-    $statement = $pdo-&gt;prepare(
-        'insert into my_table (name, serial_number, is_required) values (:name, :serialNumber, :isRequired)'
-    );
-
-    $statement-&gt;execute(
-        [
-            ':name' =&gt; $_POST['name'],
-            ':serialNumber' =&gt; $_POST['serialNumber'],
-            ':isRequired' =&gt; (bool) $_POST['isRequired'],
-        ]
-    );
-
-    $pdo-&gt;commit();
-} catch (\Exception $e) {
-    echo &quot;Uh oh! {$e-&gt;getMessage()}&quot;;
-    $pdo-&gt;rollBack();
-}
-</code></pre>
-
-<h2 id="troubleshooting">Troubleshooting</h2>
-
-<h3 id="exceptions">Exceptions</h3>
-
-<p>All Capsule methods throw an exception on failure. Catch these exceptions and analyze their messages and stack traces to help determine the nature of the failure. WHMCS recommends placing all database interactivity in try/catch blocks for graceful error handling.</p>
-
-<h3 id="the-capsule-query-log">The Capsule Query Log</h3>
-
-<p>The connection manager&rsquo;s getQueryLog() method returns an array of all queries made during the life of the page request. Queries are stored in the log as an array containing the query run, the parameter bindings passed to the query, and the time it took for the query to execute, measured in milliseconds.</p>
-
-<pre><code>&lt;?php
-
-use WHMCS\Database\Capsule;
-
-// Loop through each Capsule query made during the page request.
-foreach (Capsule::connection()-&gt;getQueryLog() as $query) {
-    echo &quot;Query: {$query['query']}&quot; . PHP_EOL;
-    echo &quot;Execution Time: {$query['time']}ms&quot; . PHP_EOL;
-    echo &quot;Parameters: &quot; . PHP_EOL;
-
-    foreach ($query['bindings'] as $key =&gt; $value) {
-        echo &quot;{$key} =&gt; {$value}&quot; . PHP_EOL;
-    }
-}
-</code></pre>
-
-<h3 id="the-whmcs-activity-log">The WHMCS Activity Log</h3>
-
-<p>All uncaught PDO-based query failures, including those made by Capsule and manual PDO queries, are written to to the WHMCS activity log. View the system activity log to view the details of these failed queries.</p>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/advanced/authentication/">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/domain-registrars/module-logging/">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
-                
-                    <a class="nav nav-next" href="//developers.whmcs.com/advanced/date-functions/">
-                        <i class="fa fa-arrow-circle-right"></i>
-                        Next
-                    </a>
                 
             </div>
 
