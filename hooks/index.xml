@@ -543,7 +543,6 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preupgradecheckout&#34;&gt;PreUpgradeCheckout&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#premiumpriceoverride&#34;&gt;PremiumPriceOverride&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#premiumpricerecalculationoverride&#34;&gt;PremiumPriceRecalculationOverride&lt;/a&gt;
-&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#hookname&#34;&gt;hookname&lt;/a&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/div&gt;
 </description>
