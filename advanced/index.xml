@@ -144,12 +144,6 @@
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;code&gt;bitpay/sdk-light&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;N/A&lt;/td&gt;
-&lt;td&gt;2.0.2007&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
 &lt;td&gt;&lt;code&gt;composer/composer&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;1.0.3&lt;/td&gt;
 &lt;td&gt;1.10.6&lt;/td&gt;
