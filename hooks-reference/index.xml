@@ -1029,12 +1029,6 @@ add_hook(&#39;AdminAreaClientSummaryPage&#39;, 1, function($vars) {
 &lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;A list of currently online admin users&lt;/td&gt;
 &lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;sidebarstats&lt;/td&gt;
-&lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Statistics relating to orders, clients, services, tickets and more&lt;/td&gt;
-&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -1831,7 +1825,7 @@ add_hook(&#39;AdminServiceEdit&#39;, 1, function($vars) {
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;admin&lt;/td&gt;
 &lt;td&gt;\WHMCS\User\Admin&lt;/td&gt;
 &lt;td&gt;The admin attempting to authenticate&lt;/td&gt;
 &lt;/tr&gt;
@@ -15514,12 +15508,6 @@ add_hook(&#39;PreModuleUnsuspend&#39;, 1, function($vars) {
 &lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;A list of currently online admin users&lt;/td&gt;
 &lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;sidebarstats&lt;/td&gt;
-&lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Statistics relating to orders, clients, services, tickets and more&lt;/td&gt;
-&lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -15657,12 +15645,6 @@ HTML;
 &lt;td&gt;adminsonline&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;A list of currently online admin users&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;sidebarstats&lt;/td&gt;
-&lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Statistics relating to orders, clients, services, tickets and more&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -15802,12 +15784,6 @@ HTML;
 &lt;td&gt;adminsonline&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;A list of currently online admin users&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;sidebarstats&lt;/td&gt;
-&lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;Statistics relating to orders, clients, services, tickets and more&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
