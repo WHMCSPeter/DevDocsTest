@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Marketplace - WHMCS Developer Documentation</title>
+    <title>Module Class Autoloading - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/modules/marketplace/">
+    <link rel="canonical" href="//developers.whmcs.com/modules/module-class-autoloading/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -154,7 +154,7 @@
       
       
       
-        <li class="active" data-nav-id="/modules/marketplace/">
+        <li class="" data-nav-id="/modules/marketplace/">
           <a href="//developers.whmcs.com/modules/marketplace/">
             <span>Marketplace</span>
           </a>
@@ -162,7 +162,7 @@
       
       
       
-        <li class="" data-nav-id="/modules/module-class-autoloading/">
+        <li class="active" data-nav-id="/modules/module-class-autoloading/">
           <a href="//developers.whmcs.com/modules/module-class-autoloading/">
             <span>Module Class Autoloading</span>
           </a>
@@ -242,40 +242,101 @@
                 
                   
                 
-                <span itemprop="title"> Marketplace</span>
+                <span itemprop="title"> Module Class Autoloading</span>
               </div>
             </div>
 
 
-			<h1>Marketplace </h1>
+			<h1>Module Class Autoloading </h1>
 
-			<div class="text-center">
-    <a href="https://marketplace.whmcs.com/" target="_blank">
-        <img src="//www.whmcs.com/images/marketplace/whmcsmarketplacelogo.png" alt="WHMCS Marketplace">
-    </a>
-</div>
+			
 
-<p>The WHMCS Marketplace allows users of WHMCS to connect with, find and discover add-ons and extensions for the WHMCS platform.</p>
+<p>Module class autoloading enables the automatic loading of classes stored in a prescribed way in WHMCS modules. It is provided as a tool to make it easier for module developers to create helper classes. They can then call on and load these modules throughout the WHMCS product from modules, hooks, and other custom integration code.</p>
 
-<p>For developers, it provides a great opportunity for you to get your creations exposure and visibility to potential users and customers.</p>
+<p><strong>Note</strong>: This is <strong>not</strong> intended to be a replacement for modern PHP development practices like the use of Composer or more complex custom-made autoloaders.</p>
 
-<p>Submission is free, and we highly recommend submitting your creations to it.</p>
+<h2 id="supported-module-types">Supported Module Types</h2>
 
-<p>For more information, please visit <a href="https://marketplace.whmcs.com">https://marketplace.whmcs.com</a></p>
+<p>The following module types support autoloading:</p>
+
+<ul>
+<li>Addon</li>
+<li>Fraud</li>
+<li>Gateway</li>
+<li>Registrar</li>
+<li>Report</li>
+<li>Server</li>
+<li>Widget</li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+
+<p>Store your class file(s) in a <code>lib</code> subdirectory that is relative to the deployed module. For example:</p>
+
+<pre><code>/path/to/whmcs/modules/{ModuleType}/{ModuleName}/lib/{ClassName}.php
+</code></pre>
+
+<p>Add the module namespace to the top of your class file(s):</p>
+
+<pre><code>namespace WHMCS\Module\{ModuleType}\{ModuleName};
+</code></pre>
+
+<p>To invoke the class, add the <code>use</code> statement and invoke it normally:</p>
+
+<pre><code>use WHMCS\Module\{ModuleType}\{ModuleName}\{ClassName};
+
+$hello = new {ClassName}();
+</code></pre>
+
+<p><strong>Note</strong>: For module types that do not have a directory per module by default (for example, gateways and reports), you will need to create the directory and subdirectory <code>lib</code> to use autoloading.</p>
+
+<h2 id="example-usage">Example Usage</h2>
+
+<p>The following example demonstrates module namespace autoloading for a class named <code>HelloWorld</code> within the <code>Sample Addon Module</code> module:</p>
+
+<h3 id="modules-addons-sample-addon-module-lib-helloworld-php"><code>/modules/addons/sample_addon_module/lib/HelloWorld.php</code></h3>
+
+<pre><code>namespace WHMCS\Module\Addon\SampleAddonModule;
+
+/**
+ * Hello World Class
+ *
+ * @copyright Copyright (c)
+ * @license http://www.whmcs.com/license/ WHMCS Eula
+ */
+class HelloWorld {
+
+    /**
+     * Print hello world.
+     */
+    public function printHello()
+    {
+        print 'Hello World';
+    }
+
+}
+</code></pre>
+
+<h3 id="modules-addons-sample-addon-module-sample-addon-module-php"><code>/modules/addons/sample_addon_module/sample_addon_module.php</code></h3>
+
+<pre><code>use WHMCS\Module\Addon\SampleAddonModule\HelloWorld;
+
+// Other code goes here...
+
+function sample_addon_module_output() {
+    $hello = new HelloWorld();
+    $hello-&gt;printHello();
+}
+</code></pre>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/modules/style-guide/">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/modules/marketplace/">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
-                
-                    <a class="nav nav-next" href="//developers.whmcs.com/modules/module-class-autoloading/">
-                        <i class="fa fa-arrow-circle-right"></i>
-                        Next
-                    </a>
                 
             </div>
 
