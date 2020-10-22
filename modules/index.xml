@@ -103,8 +103,9 @@
 &lt;h2 id=&#34;recommended-reading&#34;&gt;Recommended Reading&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/modules/code-samples/&#34;&gt;Code Samples&lt;/a&gt; - We make available sample code for each of our module types via Github.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/modules/code-samples/&#34;&gt;Code Samples&lt;/a&gt; - We make sample code available for each of our module types via GitHub.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/modules/style-guide/&#34;&gt;Style Guide&lt;/a&gt; - Recommended programming style and best practices for developing with WHMCS.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/modules/module-class-autoloading&#34;&gt;Module Class Autoloading&lt;/a&gt; — Enable automatic class loading in WHMCS modules.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/hooks/&#34;&gt;Hooks Guide&lt;/a&gt; - Hooks allow you to execute your own code when events occur inside WHMCS.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;//developers.whmcs.com/api/&#34;&gt;API Guide&lt;/a&gt; - The API allows you to perform operations and actions within WHMCS.&lt;/li&gt;
 &lt;/ul&gt;
@@ -191,6 +192,94 @@
 &lt;p&gt;Submission is free, and we highly recommend submitting your creations to it.&lt;/p&gt;
 
 &lt;p&gt;For more information, please visit &lt;a href=&#34;https://marketplace.whmcs.com&#34;&gt;https://marketplace.whmcs.com&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Module Class Autoloading</title>
+      <link>//developers.whmcs.com/modules/module-class-autoloading/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/modules/module-class-autoloading/</guid>
+      <description>
+
+&lt;p&gt;Module class autoloading enables the automatic loading of classes stored in a prescribed way in WHMCS modules. It is provided as a tool to make it easier for module developers to create helper classes. They can then call on and load these modules throughout the WHMCS product from modules, hooks, and other custom integration code.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: This is &lt;strong&gt;not&lt;/strong&gt; intended to be a replacement for modern PHP development practices like the use of Composer or more complex custom-made autoloaders.&lt;/p&gt;
+
+&lt;h2 id=&#34;supported-module-types&#34;&gt;Supported Module Types&lt;/h2&gt;
+
+&lt;p&gt;The following module types support autoloading:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Addon&lt;/li&gt;
+&lt;li&gt;Fraud&lt;/li&gt;
+&lt;li&gt;Gateway&lt;/li&gt;
+&lt;li&gt;Registrar&lt;/li&gt;
+&lt;li&gt;Report&lt;/li&gt;
+&lt;li&gt;Server&lt;/li&gt;
+&lt;li&gt;Widget&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+
+&lt;p&gt;Store your class file(s) in a &lt;code&gt;lib&lt;/code&gt; subdirectory that is relative to the deployed module. For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/path/to/whmcs/modules/{ModuleType}/{ModuleName}/lib/{ClassName}.php
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add the module namespace to the top of your class file(s):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;namespace WHMCS\Module\{ModuleType}\{ModuleName};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To invoke the class, add the &lt;code&gt;use&lt;/code&gt; statement and invoke it normally:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;use WHMCS\Module\{ModuleType}\{ModuleName}\{ClassName};
+
+$hello = new {ClassName}();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: For module types that do not have a directory per module by default (for example, gateways and reports), you will need to create the directory and subdirectory &lt;code&gt;lib&lt;/code&gt; to use autoloading.&lt;/p&gt;
+
+&lt;h2 id=&#34;example-usage&#34;&gt;Example Usage&lt;/h2&gt;
+
+&lt;p&gt;The following example demonstrates module namespace autoloading for a class named &lt;code&gt;HelloWorld&lt;/code&gt; within the &lt;code&gt;Sample Addon Module&lt;/code&gt; module:&lt;/p&gt;
+
+&lt;h3 id=&#34;modules-addons-sample-addon-module-lib-helloworld-php&#34;&gt;&lt;code&gt;/modules/addons/sample_addon_module/lib/HelloWorld.php&lt;/code&gt;&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;namespace WHMCS\Module\Addon\SampleAddonModule;
+
+/**
+ * Hello World Class
+ *
+ * @copyright Copyright (c)
+ * @license http://www.whmcs.com/license/ WHMCS Eula
+ */
+class HelloWorld {
+
+    /**
+     * Print hello world.
+     */
+    public function printHello()
+    {
+        print &#39;Hello World&#39;;
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;modules-addons-sample-addon-module-sample-addon-module-php&#34;&gt;&lt;code&gt;/modules/addons/sample_addon_module/sample_addon_module.php&lt;/code&gt;&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;use WHMCS\Module\Addon\SampleAddonModule\HelloWorld;
+
+// Other code goes here...
+
+function sample_addon_module_output() {
+    $hello = new HelloWorld();
+    $hello-&amp;gt;printHello();
+}
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
