@@ -411,6 +411,7 @@
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 
+use WHMCS\Authentication\CurrentUser;
 use WHMCS\ClientArea;
 use WHMCS\Database\Capsule;
 
@@ -434,25 +435,39 @@ $ca-&amp;gt;initPage();
 
 //$ca-&amp;gt;assign(&#39;variablename&#39;, $value);
 
+$currentUser = new CurrentUser();
+$authUser = $currentUser-&amp;gt;user();
+
 // Check login status
-if ($ca-&amp;gt;isLoggedIn()) {
+if ($authUser) {
 
     /**
      * User is logged in - put any code you like here
      *
-     * Here&#39;s an example to get the currently logged in clients first name
+     * Use the User model to access information about the authenticated User
      */
 
-    $clientName = Capsule::table(&#39;tblclients&#39;)
-        -&amp;gt;where(&#39;id&#39;, &#39;=&#39;, $ca-&amp;gt;getUserID())-&amp;gt;pluck(&#39;firstname&#39;);
-        // &#39;pluck&#39; was renamed within WHMCS 7.0.  Replace it with &#39;value&#39; instead.
-        // -&amp;gt;where(&#39;id&#39;, &#39;=&#39;, $ca-&amp;gt;getUserID())-&amp;gt;value(&#39;firstname&#39;);
-    $ca-&amp;gt;assign(&#39;clientname&#39;, $clientName);
+    $ca-&amp;gt;assign(&#39;userFullname&#39;, $authUser-&amp;gt;fullName);
+
+
+    $selectedClient = $currentUser-&amp;gt;client();
+    if ($selectedClient) {
+
+        /**
+         * If the authenticated User has selected a Client Account to manage,
+         * the model will be available - put any code you like here
+         */
+
+        $ca-&amp;gt;assign(
+            &#39;clientInvoiceCount&#39;,
+            $selectedClient-&amp;gt;invoices()-&amp;gt;count()
+        );
+    }
 
 } else {
 
     // User is not logged in
-    $ca-&amp;gt;assign(&#39;clientname&#39;, &#39;Random User&#39;);
+    $ca-&amp;gt;assign(&#39;userFullname&#39;, &#39;Guest&#39;);
 
 }
 
@@ -461,7 +476,7 @@ if ($ca-&amp;gt;isLoggedIn()) {
  *
  * @link http://docs.whmcs.com/Editing_Client_Area_Menus#Context
  */
-Menu::addContext();
+//Menu::addContext();
 
 /**
  * Setup the primary and secondary sidebars
@@ -483,7 +498,7 @@ $ca-&amp;gt;output();
 &lt;ul&gt;
 &lt;li&gt;How to initiate the page&lt;/li&gt;
 &lt;li&gt;How to reference the language file variables (Lang::trans)&lt;/li&gt;
-&lt;li&gt;How to check if a user is logged in ($ca-&amp;gt;isLoggedIn())&lt;/li&gt;
+&lt;li&gt;How to check if a User is logged in and Client Account is selected (&lt;a href=&#34;https://developers.whmcs.com/advanced/authentication/&#34;&gt;Authentication&lt;/a&gt; with CurrentUser)&lt;/li&gt;
 &lt;li&gt;How to define template variables ($ca-&amp;gt;assign)&lt;/li&gt;
 &lt;li&gt;How to set the template to use and then output it&lt;/li&gt;
 &lt;/ul&gt;
