@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Customising - WHMCS Developer Documentation</title>
+    <title>Child Themes - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/themes/customising/">
+    <link rel="canonical" href="//developers.whmcs.com/themes/child-themes/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -138,7 +138,7 @@
       
       
       
-        <li class="" data-nav-id="/themes/child-themes/">
+        <li class="active" data-nav-id="/themes/child-themes/">
           <a href="//developers.whmcs.com/themes/child-themes/">
             <span>Child Themes</span>
           </a>
@@ -154,7 +154,7 @@
       
       
       
-        <li class="active" data-nav-id="/themes/customising/">
+        <li class="" data-nav-id="/themes/customising/">
           <a href="//developers.whmcs.com/themes/customising/">
             <span>Customising</span>
           </a>
@@ -322,59 +322,145 @@
                     
                   
                 
-                <span itemprop="title"> Customising</span>
+                <span itemprop="title"> Child Themes</span>
               </div>
             </div>
 
 
-			<h1>Customising </h1>
+			<h1>Child Themes </h1>
 
 			
 
-<p>The header and footer template files that are common to every page and act as a wrapper around the primary body content are a good place to start for this.</p>
+<h2 id="what-is-a-child-theme">What is a Child Theme?</h2>
 
-<ul>
-<li>We strongly recommend you maintain all of the template includes and output variables present in the default template files in your custom header/footer as this will help ensure compatibility with addons and extensions you later install</li>
-<li>Navigation bar and Sidebar content is defined within WHMCS and passed to the templates for output. This allows modules and addons to interact with and manipulate these areas of the client area dynamically. The output styling of these is controlled by include files which are explained in more detail below.</li>
-<li>The footer template file includes a number of lines of javascript code immediately prior to the closing </body> tag which are essential to the correct operation of the client area. Please take care not to remove these lines.</li>
-</ul>
+<p>A Child Theme is a theme that inherits templates and assets from another theme, referred to as the Parent Theme.</p>
 
-<h2 id="custom-logo">Custom Logo</h2>
+<p>With a Child Theme, your theme only needs to contain the templates you wish to customise and change. For CSS/styling only customisations, your theme doesn&rsquo;t have to contain any template files at all.</p>
 
-<p>The Six theme uses a conditional based on the <code>$assetLogoPath</code> variable to either display a custom logo or the name of the company as defined in Setup &gt; General Settings &gt; Company Name. In order to set a custom logo it must either exist as <code>/assests/img/logo.png</code> or <code>/assests/img/logo.jpg</code>.</p>
+<p>The result is a smaller theme that&rsquo;s easier to maintain, and that automatically receives updates to template files which are not customised, making applying software updates faster, easier and more automated.</p>
 
-<h2 id="include-files">Include Files</h2>
+<p>A Child Theme is the recommended way to customise WHMCS as of WHMCS 8.</p>
 
-<p>Include templates are templates that are shared and used by multiple pages. They are located within the <code>/includes/</code> sub-directory.</p>
+<h2 id="why-use-a-child-theme">Why use a Child Theme?</h2>
 
-<p><strong>Common to All Pages</strong></p>
+<ol>
+<li>Separation of Customisations - A child theme can be used to make modifications to any part of a theme in a way that keeps those customisations separate from the Parent Theme&rsquo;s files.</li>
+<li>Simplified Maintenance/Updates - Using a Child theme has the benefit of referencing all non-customised files from the Parent Theme, making updates easier by having changes in the parent theme automatically take effect within the Child Theme.</li>
+</ol>
 
-<ul>
-<li>head.tpl - Defines the CSS &amp; Javascript files included within the <head> section of a page</li>
-<li>navbar.tpl - Controls the output of the primary navigation bar menu items</li>
-<li>sidebar.tpl - Controls the output of the sidebar menu items</li>
-</ul>
+<h2 id="what-is-a-parent-theme">What is a Parent Theme?</h2>
 
-<p><strong>Used as Required</strong></p>
+<p>A parent theme is a complete theme which includes all of the required WHMCS template files and assets for the theme to work.</p>
 
-<ul>
-<li>captcha.tpl - Used to output the captcha verification image wherever used</li>
-<li>pwstrength.tpl - Used to output the password strength meter and tooltip wherever used</li>
-<li>tablelist.tpl - Controls the output of all filterable data list tables throughout the client area</li>
-</ul>
+<p>The <code>Six</code> and <code>Twenty-One</code> themes that ship by default with WHMCS are both Parent Theme&rsquo;s.</p>
 
-<p>Editing any of these template files will affect everywhere that the respective elements are used. One place to edit, and one place to maintain during upgrades, will help make applying and preserving your customisations easier.</p>
+<h2 id="geting-started">Geting Started</h2>
+
+<h3 id="1-create-a-child-theme-folder">1. Create a Child Theme folder</h3>
+
+<p>First, create a new folder in the <code>templates</code> directory.</p>
+
+<p>The directory needs a name. For example, <code>mytheme</code>.</p>
+
+<div class="notice tip" ><p>Theme directory names should be a single word, consisting of only lowercase letters and numbers, hyphens and underscores.</p>
+</div>
+
+
+<h3 id="2-create-a-theme-yaml-file">2. Create a theme.yaml file</h3>
+
+<p>Next, you&rsquo;ll need to create a theme.yaml file which tells WHMCS this is a Child Theme, and defines the Parent Theme to be used.</p>
+
+<p>The sample below defines a name, author and parent theme of &ldquo;twenty-one&rdquo;.</p>
+
+<pre><code># My Theme Configuration File
+
+name: &quot;My Custom Theme&quot;
+author: &quot;WHMCS Limited&quot;
+config:
+  parent: twenty-one
+</code></pre>
+
+<p>The following information is required:</p>
+
+<p>Name - this is the name you will see displayed in the WHMCS admin interface
+Author - this should be your name
+Config / Parent - the name of the parent theme directory. The parent theme in our example is the Twenty-One theme, so the parent theme directory name is &ldquo;twenty-one&rdquo;.</p>
+
+<p>The theme.yaml file can also define other parameters about your theme. To learn more, see <a href="//developers.whmcs.com/themes/theme-parameters/">Theme Parameters</a>.</p>
+
+<h3 id="3-create-a-custom-css-file">3. Create a custom.css file</h3>
+
+<p>Next, create a sub-folder named <code>css</code>, and within that, create a stylesheet file named <code>custom.css</code>.</p>
+
+<p>This is where you should put the CSS rules and declarations to control the look of your theme. Anything you define here will override styling defined by the Parent Theme.</p>
+
+<pre><code>// Example override for the primary background color
+.primary-bg-color {
+    background-color: #ddd;
+}
+</code></pre>
+
+<div class="notice info" ><p>The custom.css stylesheet will be loaded automatically providing the Parent Theme supports it. All themes that ship by default with WHMCS offer this functionality.</p>
+</div>
+
+
+<h3 id="4-preview-the-theme">4. Preview the theme</h3>
+
+<p>To preview the theme, you can use the <code>?systpl=xxxx</code> url parameter.</p>
+
+<p>To learn more, see <a href="//developers.whmcs.com/themes/testing/">Testing</a>.</p>
+
+<h3 id="5-activate-the-theme">5. Activate the theme</h3>
+
+<p>Once you’re happy with your new theme and are ready to make it live, follow the steps below:</p>
+
+<ol>
+<li>Login to your WHMCS Admin Area</li>
+<li>Navigate to <em>Configuration &gt; System Settings &gt; General Settings</em></li>
+<li>Under the <strong>System Theme</strong> setting on the <em>General tab</em>, select the name of the theme you created above</li>
+<li>Hit <strong>Save Changes</strong> and visitors to your site will immediately begin seeing your new theme</li>
+</ol>
+
+<h2 id="adding-template-files">Adding Template Files</h2>
+
+<p>Any file you add to your Child Theme will override the same file in the Parent Theme.</p>
+
+<p>Commonly overriden files include the header and footer template files, along with pages such as the homepage, client area home and contact pages.</p>
+
+<div class="notice tip" ><p>In most cases, it is usually best to create a copy of the template file(s) you want to customise from the Parent Theme, then make your modifications to the copied files, leaving the parent files unchanged.</p>
+</div>
+
+
+<p>For example, if you wanted to change the code of the Parent Theme&rsquo;s header.tpl file, you would copy the file to your Child Theme folder and customise it there.</p>
+
+<div class="notice info" ><p>This is particularly important for files such as the header and footer, which contain important and essential code required for the correct and normal operation of the WHMCS client area.</p>
+</div>
+
+
+<h2 id="loading-assets">Loading Assets</h2>
+
+<p>The <code>assetPath</code> helper is available for use in themes to load assets in a smart way and enable Child Themes to override them.</p>
+
+<p>Use of this function is particularly important for Parent Theme developers to make it possible for Child Theme developers to override assets without editing file paths. However in most Child Themes, assets may be loaded in the normal way - with hardcoded paths - without any negative side effects.</p>
+
+<p>Example usage of the <code>assetPath</code> helper:</p>
+
+<pre><code>&lt;link href=&quot;{assetPath file='mycssfile.css'}&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;script src=&quot;{assetPath file='myjsfile.js'}&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p>To learn more about the assetPath helper and other functions available to Theme Developers, see <a href="//developers.whmcs.com/themes/functions/">Functions</a></p>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/themes/theme-parameters">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/themes/getting-started">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/themes/css-styling/">
+                    <a class="nav nav-next" href="//developers.whmcs.com/themes/theme-parameters">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>

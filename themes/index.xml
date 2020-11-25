@@ -22,6 +22,10 @@
 &lt;p&gt;A theme in WHMCS controls the client facing user interface.&lt;/p&gt;
 
 &lt;p&gt;WHMCS allows you to provide a seamless experience for your website visitors by customising the look of the client area to match the rest of your website.&lt;/p&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;The recommended way to customise WHMCS themes is by creating &lt;a href=&#34;//developers.whmcs.com/themes/child-themes/&#34;&gt;Child Themes&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
 </description>
     </item>
     
@@ -33,9 +37,23 @@
       <guid>//developers.whmcs.com/themes/getting-started/</guid>
       <description>
 
-&lt;p&gt;The default template that ships with WHMCS 6.0 and later is called the &lt;strong&gt;Six&lt;/strong&gt; theme.&lt;/p&gt;
+&lt;p&gt;The default theme that ships with WHMCS is called the &lt;strong&gt;Twenty-One&lt;/strong&gt; theme.&lt;/p&gt;
 
-&lt;p&gt;Before you begin customising it for your needs, the first step is to create your own copy of the template. This ensures your customisations are not lost when updating.&lt;/p&gt;
+&lt;p&gt;If you wish to customise any of the themes that ship by default with WHMCS, we recommend using the &lt;a href=&#34;//developers.whmcs.com/themes/child-themes&#34;&gt;Child Themes&lt;/a&gt; functionality.&lt;/p&gt;
+
+&lt;h2 id=&#34;creating-a-child-theme&#34;&gt;Creating a Child Theme&lt;/h2&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;Recommended for all new theme development in WHMCS 8.1 and later.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Please see &lt;a href=&#34;//developers.whmcs.com/themes/child-themes&#34;&gt;Child Themes&lt;/a&gt; for more information.&lt;/p&gt;
+
+&lt;h2 id=&#34;creating-a-custom-theme&#34;&gt;Creating a Custom Theme&lt;/h2&gt;
+
+&lt;p&gt;If you wish to create a new Parent Theme (that other themes can inherit from and be a child of), or are using an older version of WHMCS, you can create a Custom Theme. For all other scenarios, we recommend using &lt;a href=&#34;//developers.whmcs.com/themes/child-themes&#34;&gt;Child Themes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The first step is to create your own copy of the template. This ensures your customisations are not lost when updating.&lt;/p&gt;
 
 &lt;h3 id=&#34;method-1-using-source-control&#34;&gt;Method 1: Using Source Control&lt;/h3&gt;
 
@@ -66,6 +84,146 @@
 
 
 &lt;p&gt;Now it&amp;rsquo;s time to &lt;a href=&#34;//developers.whmcs.com/themes/customising&#34;&gt;customise your theme&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Child Themes</title>
+      <link>//developers.whmcs.com/themes/child-themes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/child-themes/</guid>
+      <description>
+
+&lt;h2 id=&#34;what-is-a-child-theme&#34;&gt;What is a Child Theme?&lt;/h2&gt;
+
+&lt;p&gt;A Child Theme is a theme that inherits templates and assets from another theme, referred to as the Parent Theme.&lt;/p&gt;
+
+&lt;p&gt;With a Child Theme, your theme only needs to contain the templates you wish to customise and change. For CSS/styling only customisations, your theme doesn&amp;rsquo;t have to contain any template files at all.&lt;/p&gt;
+
+&lt;p&gt;The result is a smaller theme that&amp;rsquo;s easier to maintain, and that automatically receives updates to template files which are not customised, making applying software updates faster, easier and more automated.&lt;/p&gt;
+
+&lt;p&gt;A Child Theme is the recommended way to customise WHMCS as of WHMCS 8.&lt;/p&gt;
+
+&lt;h2 id=&#34;why-use-a-child-theme&#34;&gt;Why use a Child Theme?&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Separation of Customisations - A child theme can be used to make modifications to any part of a theme in a way that keeps those customisations separate from the Parent Theme&amp;rsquo;s files.&lt;/li&gt;
+&lt;li&gt;Simplified Maintenance/Updates - Using a Child theme has the benefit of referencing all non-customised files from the Parent Theme, making updates easier by having changes in the parent theme automatically take effect within the Child Theme.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;what-is-a-parent-theme&#34;&gt;What is a Parent Theme?&lt;/h2&gt;
+
+&lt;p&gt;A parent theme is a complete theme which includes all of the required WHMCS template files and assets for the theme to work.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;Six&lt;/code&gt; and &lt;code&gt;Twenty-One&lt;/code&gt; themes that ship by default with WHMCS are both Parent Theme&amp;rsquo;s.&lt;/p&gt;
+
+&lt;h2 id=&#34;geting-started&#34;&gt;Geting Started&lt;/h2&gt;
+
+&lt;h3 id=&#34;1-create-a-child-theme-folder&#34;&gt;1. Create a Child Theme folder&lt;/h3&gt;
+
+&lt;p&gt;First, create a new folder in the &lt;code&gt;templates&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;p&gt;The directory needs a name. For example, &lt;code&gt;mytheme&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;Theme directory names should be a single word, consisting of only lowercase letters and numbers, hyphens and underscores.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h3 id=&#34;2-create-a-theme-yaml-file&#34;&gt;2. Create a theme.yaml file&lt;/h3&gt;
+
+&lt;p&gt;Next, you&amp;rsquo;ll need to create a theme.yaml file which tells WHMCS this is a Child Theme, and defines the Parent Theme to be used.&lt;/p&gt;
+
+&lt;p&gt;The sample below defines a name, author and parent theme of &amp;ldquo;twenty-one&amp;rdquo;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# My Theme Configuration File
+
+name: &amp;quot;My Custom Theme&amp;quot;
+author: &amp;quot;WHMCS Limited&amp;quot;
+config:
+  parent: twenty-one
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The following information is required:&lt;/p&gt;
+
+&lt;p&gt;Name - this is the name you will see displayed in the WHMCS admin interface
+Author - this should be your name
+Config / Parent - the name of the parent theme directory. The parent theme in our example is the Twenty-One theme, so the parent theme directory name is &amp;ldquo;twenty-one&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;The theme.yaml file can also define other parameters about your theme. To learn more, see &lt;a href=&#34;//developers.whmcs.com/themes/theme-parameters/&#34;&gt;Theme Parameters&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;3-create-a-custom-css-file&#34;&gt;3. Create a custom.css file&lt;/h3&gt;
+
+&lt;p&gt;Next, create a sub-folder named &lt;code&gt;css&lt;/code&gt;, and within that, create a stylesheet file named &lt;code&gt;custom.css&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;This is where you should put the CSS rules and declarations to control the look of your theme. Anything you define here will override styling defined by the Parent Theme.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Example override for the primary background color
+.primary-bg-color {
+    background-color: #ddd;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;The custom.css stylesheet will be loaded automatically providing the Parent Theme supports it. All themes that ship by default with WHMCS offer this functionality.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h3 id=&#34;4-preview-the-theme&#34;&gt;4. Preview the theme&lt;/h3&gt;
+
+&lt;p&gt;To preview the theme, you can use the &lt;code&gt;?systpl=xxxx&lt;/code&gt; url parameter.&lt;/p&gt;
+
+&lt;p&gt;To learn more, see &lt;a href=&#34;//developers.whmcs.com/themes/testing/&#34;&gt;Testing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;5-activate-the-theme&#34;&gt;5. Activate the theme&lt;/h3&gt;
+
+&lt;p&gt;Once you’re happy with your new theme and are ready to make it live, follow the steps below:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Login to your WHMCS Admin Area&lt;/li&gt;
+&lt;li&gt;Navigate to &lt;em&gt;Configuration &amp;gt; System Settings &amp;gt; General Settings&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Under the &lt;strong&gt;System Theme&lt;/strong&gt; setting on the &lt;em&gt;General tab&lt;/em&gt;, select the name of the theme you created above&lt;/li&gt;
+&lt;li&gt;Hit &lt;strong&gt;Save Changes&lt;/strong&gt; and visitors to your site will immediately begin seeing your new theme&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;adding-template-files&#34;&gt;Adding Template Files&lt;/h2&gt;
+
+&lt;p&gt;Any file you add to your Child Theme will override the same file in the Parent Theme.&lt;/p&gt;
+
+&lt;p&gt;Commonly overriden files include the header and footer template files, along with pages such as the homepage, client area home and contact pages.&lt;/p&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;In most cases, it is usually best to create a copy of the template file(s) you want to customise from the Parent Theme, then make your modifications to the copied files, leaving the parent files unchanged.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;For example, if you wanted to change the code of the Parent Theme&amp;rsquo;s header.tpl file, you would copy the file to your Child Theme folder and customise it there.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;This is particularly important for files such as the header and footer, which contain important and essential code required for the correct and normal operation of the WHMCS client area.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;loading-assets&#34;&gt;Loading Assets&lt;/h2&gt;
+
+&lt;p&gt;The &lt;code&gt;assetPath&lt;/code&gt; helper is available for use in themes to load assets in a smart way and enable Child Themes to override them.&lt;/p&gt;
+
+&lt;p&gt;Use of this function is particularly important for Parent Theme developers to make it possible for Child Theme developers to override assets without editing file paths. However in most Child Themes, assets may be loaded in the normal way - with hardcoded paths - without any negative side effects.&lt;/p&gt;
+
+&lt;p&gt;Example usage of the &lt;code&gt;assetPath&lt;/code&gt; helper:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;link href=&amp;quot;{assetPath file=&#39;mycssfile.css&#39;}&amp;quot; rel=&amp;quot;stylesheet&amp;quot;&amp;gt;
+&amp;lt;script src=&amp;quot;{assetPath file=&#39;myjsfile.js&#39;}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To learn more about the assetPath helper and other functions available to Theme Developers, see &lt;a href=&#34;//developers.whmcs.com/themes/functions/&#34;&gt;Functions&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Theme Parameters</title>
+      <link>//developers.whmcs.com/themes/theme-parameters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/theme-parameters/</guid>
+      <description>&lt;p&gt;Coming soon&amp;hellip;&lt;/p&gt;
 </description>
     </item>
     
@@ -660,6 +818,11 @@ add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function(MenuItem $primarySideba
 
 &lt;p&gt;However, as of Smarty 3, support for the {php} block has been removed, and we are only providing legacy support to ease the transition for developers and users who work with our platform and rely on this functionality.&lt;/p&gt;
 
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;The exposure of the template object via the legacy variable $template available within the deprecated PHP blocks context is only available if template_object is itemized in the enabled_special_smarty_vars array as described in our &lt;a href=&#34;https://docs.whmcs.com/Smarty_Security_Policy#Supported_Policy_Settings_and_Values&#34;&gt;Smarty Security Policy
+&lt;/a&gt; documentation.&lt;/p&gt;
+&lt;/div&gt;
+
+
 &lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
 
 &lt;p&gt;The below example demonstrates how a hook can be used to perform additional PHP logic and define template variables for use in client area template files.&lt;/p&gt;
@@ -797,30 +960,6 @@ add_hook(&#39;ClientAreaPageViewTicket&#39;, 1, &#39;hook_template_variables_exa
   
 &lt;/a&gt;
 
-</description>
-    </item>
-    
-    <item>
-      <title>Github</title>
-      <link>//developers.whmcs.com/themes/github/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//developers.whmcs.com/themes/github/</guid>
-      <description>
-
-&lt;p&gt;The following template&amp;rsquo;s are made available on Github.&lt;/p&gt;
-
-&lt;h2 id=&#34;six-client-area-template&#34;&gt;Six Client Area Template&lt;/h2&gt;
-
-&lt;p&gt;The default client area template in WHMCS.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/WHMCS/templates-six&#34;&gt;https://github.com/WHMCS/templates-six&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;standard-card-order-form-template&#34;&gt;Standard Card Order Form Template&lt;/h2&gt;
-
-&lt;p&gt;The default shopping cart template in WHMCS.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/WHMCS/orderforms-standard_cart&#34;&gt;https://github.com/WHMCS/orderforms-standard_cart&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

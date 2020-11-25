@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Customising - WHMCS Developer Documentation</title>
+    <title>Theme Parameters - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/themes/customising/">
+    <link rel="canonical" href="//developers.whmcs.com/themes/theme-parameters/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -146,7 +146,7 @@
       
       
       
-        <li class="" data-nav-id="/themes/theme-parameters/">
+        <li class="active" data-nav-id="/themes/theme-parameters/">
           <a href="//developers.whmcs.com/themes/theme-parameters/">
             <span>Theme Parameters</span>
           </a>
@@ -154,7 +154,7 @@
       
       
       
-        <li class="active" data-nav-id="/themes/customising/">
+        <li class="" data-nav-id="/themes/customising/">
           <a href="//developers.whmcs.com/themes/customising/">
             <span>Customising</span>
           </a>
@@ -322,59 +322,25 @@
                     
                   
                 
-                <span itemprop="title"> Customising</span>
+                <span itemprop="title"> Theme Parameters</span>
               </div>
             </div>
 
 
-			<h1>Customising </h1>
+			<h1>Theme Parameters </h1>
 
-			
-
-<p>The header and footer template files that are common to every page and act as a wrapper around the primary body content are a good place to start for this.</p>
-
-<ul>
-<li>We strongly recommend you maintain all of the template includes and output variables present in the default template files in your custom header/footer as this will help ensure compatibility with addons and extensions you later install</li>
-<li>Navigation bar and Sidebar content is defined within WHMCS and passed to the templates for output. This allows modules and addons to interact with and manipulate these areas of the client area dynamically. The output styling of these is controlled by include files which are explained in more detail below.</li>
-<li>The footer template file includes a number of lines of javascript code immediately prior to the closing </body> tag which are essential to the correct operation of the client area. Please take care not to remove these lines.</li>
-</ul>
-
-<h2 id="custom-logo">Custom Logo</h2>
-
-<p>The Six theme uses a conditional based on the <code>$assetLogoPath</code> variable to either display a custom logo or the name of the company as defined in Setup &gt; General Settings &gt; Company Name. In order to set a custom logo it must either exist as <code>/assests/img/logo.png</code> or <code>/assests/img/logo.jpg</code>.</p>
-
-<h2 id="include-files">Include Files</h2>
-
-<p>Include templates are templates that are shared and used by multiple pages. They are located within the <code>/includes/</code> sub-directory.</p>
-
-<p><strong>Common to All Pages</strong></p>
-
-<ul>
-<li>head.tpl - Defines the CSS &amp; Javascript files included within the <head> section of a page</li>
-<li>navbar.tpl - Controls the output of the primary navigation bar menu items</li>
-<li>sidebar.tpl - Controls the output of the sidebar menu items</li>
-</ul>
-
-<p><strong>Used as Required</strong></p>
-
-<ul>
-<li>captcha.tpl - Used to output the captcha verification image wherever used</li>
-<li>pwstrength.tpl - Used to output the password strength meter and tooltip wherever used</li>
-<li>tablelist.tpl - Controls the output of all filterable data list tables throughout the client area</li>
-</ul>
-
-<p>Editing any of these template files will affect everywhere that the respective elements are used. One place to edit, and one place to maintain during upgrades, will help make applying and preserving your customisations easier.</p>
+			<p>Coming soon&hellip;</p>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/themes/theme-parameters">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/themes/child-themes/">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/themes/css-styling/">
+                    <a class="nav nav-next" href="//developers.whmcs.com/themes/customising/">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>
