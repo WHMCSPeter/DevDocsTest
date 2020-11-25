@@ -886,6 +886,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/themes/child-themes/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/provisioning-modules/config-options/</loc>
   </url>
   
@@ -899,6 +903,10 @@
   
   <url>
     <loc>//developers.whmcs.com/provisioning-modules/simple-mode/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/themes/theme-parameters/</loc>
   </url>
   
   <url>
