@@ -148,7 +148,15 @@
       
         <li class="" data-nav-id="/themes/theme-parameters/">
           <a href="//developers.whmcs.com/themes/theme-parameters/">
-            <span>Theme Parameters</span>
+            <span>The Theme Configuration File</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/themes/order-form-templates/">
+          <a href="//developers.whmcs.com/themes/order-form-templates/">
+            <span>The Theme Configuration File</span>
           </a>
         </li>
       
@@ -331,28 +339,45 @@
 
 			
 
-<p>WHMCS allows you to preview a template before making it live.</p>
+<h2 id="testing-your-customizations">Testing Your Customizations</h2>
 
-<p>This is done using the <code>?systpl=xxxx</code> url parameter.</p>
+<p>WHMCS allows you to preview themes and Order Form Templates before making them live. This is done using URL parameters.</p>
 
-<p>For example, if your new theme was named &lsquo;mytemplate&rsquo; and your WHMCS client area was located at <a href="http://www.yourdomain.com/whmcs/">http://www.yourdomain.com/whmcs/</a>, you would navigate to:</p>
+<ul>
+<li>For themes, use the <code>?systpl=xxxx</code> URL parameter.</li>
+<li>For Order Form Templates, use the <code>?carttpl=xxxx</code> URL parameter.</li>
+</ul>
 
-<blockquote>
-<p><a href="http://www.yourdomain.com/whmcs/?systpl=mytemplate">http://www.yourdomain.com/whmcs/?systpl=mytemplate</a></p>
-</blockquote>
+<p>For example, to preview a custom system theme named <code>mytemplate</code> in a WHMCS Client Area at <code>http://www.yourdomain.com/whmcs/</code>, you would navigate to:</p>
 
-<p>The template will be stored for the duration of your browser session allowing you to exercise all areas of the client area with your new theme.</p>
+<pre><code>http://www.yourdomain.com/whmcs/?systpl=mytemplate
+</code></pre>
 
-<h2 id="making-your-template-live">Making your template live</h2>
+<p>When you view a system theme or order form template through this method, the system will validate whether all of the theme or order form template&rsquo;s dependencies are met. If they aren&rsquo;t, the page will not display.</p>
 
-<p>Once you&rsquo;re happy with your new template and are ready to make it live, follow the steps below:</p>
+<p>If the dependencies were met and the theme or order form template displayed successfully, the system theme or Order Form Template will be stored for the duration of your browser session, allowing you to exercise all areas of the Client Area with your new system theme.</p>
+
+<h2 id="activating-themes">Activating Themes</h2>
+
+<p>Once you&rsquo;re happy with your new theme and are ready to make it live, follow the steps below:</p>
 
 <ol>
-<li>Login to the Admin Area</li>
-<li>Navigate to <em>Setup &gt; General Settings</em></li>
-<li>Under the Template setting on the General tab, select the name of the template you created above</li>
-<li>Hit <strong>Save Changes</strong> and visitors to your site will immediately begin seeing your new template</li>
+<li>Log in to your WHMCS Admin Area.</li>
+<li>Navigate to <strong>Configuration &gt; System Settings &gt; General Settings</strong>.</li>
+<li>Under the <strong>System Theme</strong> setting on the <strong>General</strong> tab, select the name of the theme you created above.</li>
+<li>Click <strong>Save Changes</strong> and visitors to your site will immediately begin seeing your new theme.</li>
 </ol>
+
+<p>Visitors to your site will immediately seeing your new system theme.</p>
+
+<h2 id="activating-order-form-templates">Activating Order Form Templates</h2>
+
+<p>There are two places in the WHMCS Admin Area in which you can set Order Form Templates:</p>
+
+<ul>
+<li>You can set the system default Order Form Template at <strong>Configuration &gt; System Settings &gt; General Settings</strong> in the <strong>Ordering</strong> tab.</li>
+<li>You can set the Order Form Template for specific product groups at <strong>Configuration &gt; System Settings &gt; Products/Services</strong>.</li>
+</ul>
 
 
 			<div class="topic-navigation clearfix">

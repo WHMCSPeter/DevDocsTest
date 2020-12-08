@@ -148,7 +148,15 @@
       
         <li class="" data-nav-id="/themes/theme-parameters/">
           <a href="//developers.whmcs.com/themes/theme-parameters/">
-            <span>Theme Parameters</span>
+            <span>The Theme Configuration File</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/themes/order-form-templates/">
+          <a href="//developers.whmcs.com/themes/order-form-templates/">
+            <span>The Theme Configuration File</span>
           </a>
         </li>
       
@@ -331,21 +339,23 @@
 
 			
 
-<p>Syntax errors in template files can cause a page to be unable to render completely.</p>
+<h2 id="causes-of-errors">Causes of Errors</h2>
 
-<p>Other common causes include:</p>
+<p>The most common error in custom system theme and order form template development, syntax errors in template files, can cause a page to be unable to render completely.</p>
+
+<p>Other causes of errors include:</p>
 
 <ul>
-<li>Using features of Smarty that have been removed in the upstream Smarty package</li>
-<li>A custom or third party module that is incompatible</li>
-<li>Using PHP code blocks in your template without the Allow Smarty PHP Tags setting enabled (go to Setup &gt; General Settings &gt; Security to enable it)</li>
+<li>Using features of Smarty that have been removed in the upstream Smarty package.</li>
+<li>An incompatible custom or third-party module.</li>
+<li>Using PHP code blocks without the <strong>Allow Smarty PHP Tags</strong> setting enabled at <strong>Configuration &gt; System Settings &gt; General Settings</strong> in the <strong>Security</strong> tab.</li>
 </ul>
 
 <h2 id="troubleshooting">Troubleshooting</h2>
 
-<p>If you see a blank page after making a change to a template file, check the <strong>Activity Log</strong> in <em>Utilities &gt; Logs</em> for any logged error message.</p>
+<p>If you see a blank page after making a change to a template file, check for any logged error messages in the <strong>Activity Log</strong> at <strong>Configuration &gt; System Logs</strong>.</p>
 
-<div class="notice tip" ><p>If you don&rsquo;t find anything in the activity logs, switching to a different template is an easy way to determine if the issue is with your template or something else.</p>
+<div class="notice tip" ><p>If you don&rsquo;t find anything in the activity logs, switching to a different system theme or order form template is an easy way to determine if the issue is with your system theme or order form template, or if the problem is something else.</p>
 </div>
 
 

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Theme Parameters - WHMCS Developer Documentation</title>
+    <title>The Theme Configuration File - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
@@ -148,7 +148,15 @@
       
         <li class="active" data-nav-id="/themes/theme-parameters/">
           <a href="//developers.whmcs.com/themes/theme-parameters/">
-            <span>Theme Parameters</span>
+            <span>The Theme Configuration File</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/themes/order-form-templates/">
+          <a href="//developers.whmcs.com/themes/order-form-templates/">
+            <span>The Theme Configuration File</span>
           </a>
         </li>
       
@@ -322,14 +330,82 @@
                     
                   
                 
-                <span itemprop="title"> Theme Parameters</span>
+                <span itemprop="title"> The Theme Configuration File</span>
               </div>
             </div>
 
 
-			<h1>Theme Parameters </h1>
+			<h1>The Theme Configuration File </h1>
 
-			<p>Coming soon&hellip;</p>
+			
+
+<h2 id="the-theme-yaml-file">The theme.yaml File</h2>
+
+<p>Parent Themes, <a href="//developers.whmcs.com/themes/child-themes/">Child Themes</a>, and Order Form Templates should include a <code>theme.yaml</code> file. This file defines the theme or Order Form Template, including its name and author, description, its parent, its dependencies, and the assets it can provide for any children to which it is the parent.</p>
+
+<div class="notice tip" ><p>We made this method available for Order Form Templates in WHMCS 6.1 and improved it to include themes in WHMCS 8.1.</p>
+</div>
+
+
+<p>For example, this <code>theme.yaml</code> file sets the theme as a child of the Twenty-One Parent Theme, as well as specifying other theme information:</p>
+
+<pre><code>name: &quot;Example&quot;
+description: &quot;My Company's Branding&quot;
+author: &quot;Hosting Company, L.L.C.&quot;
+config:
+  parent: twenty-one
+dependencies:
+  bootstrap: 4.5.2
+provides:
+  jquery: 1.12
+  fontawesome: 5
+</code></pre>
+
+<p>This file <strong>must</strong> be a valid <a href="https://en.wikipedia.org/wiki/YAML">YAML file</a> and must use the indentation style illustrated above.</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<p>You can specify these items in a <code>theme.yaml</code> file:</p>
+
+<h3 id="name">name</h3>
+
+<p>The System Theme or Order Form Template name.
+* For System Themes, this displays in the <strong>System Theme</strong> menu at <strong>Configuration &gt; System Settings &gt; General Settings</strong> in the <strong>General</strong> tab.
+* For Order Form Templates, this displays in <strong>Configuration &gt; System Settings &gt; General Settings</strong> in the <strong>Ordering</strong> tab and for individual product groups at <strong>Configuration &gt; System Settings &gt; Products/Services</strong>.</p>
+
+<h3 id="description">description</h3>
+
+<p>A description of the theme or Order Form Template.</p>
+
+<h3 id="author">author</h3>
+
+<p>Generally, this should be your name. It could also be your company&rsquo;s name.</p>
+
+<h3 id="config-parent">config: parent</h3>
+
+<p>The name of the directory that contains the Parent Theme or Order Form Template. (Do not use the display name.)</p>
+
+<h3 id="dependencies">dependencies</h3>
+
+<div class="notice tip" ><p>It is unlikely for a theme to list anything under <code>dependencies</code>.</p>
+</div>
+
+
+<p>A list of assets that a child needs its parent to provide in order to function. If you don&rsquo;t specify anything under <code>dependencies</code>, WHMCS assumes compatibility. (This behavior is necessary in order to ensure continued compatibility with older custom themes.)</p>
+
+<h3 id="provides">provides</h3>
+
+<p>A list of assets that the theme or Order Form Template can provide to any children.</p>
+
+<h2 id="compatibility">Compatibility</h2>
+
+<p>WHMCS checks for compatibility between themes and Order Form Templates each time that you select a theme from the <strong>System Theme</strong> menu at <strong>Configuration &gt; System Settings &gt; General Settings</strong> in the <strong>General</strong> tab. This checks the <code>provides</code> list, <code>dependencies</code> list, and <code>config</code> details in order to make this assessment.</p>
+
+<div class="notice tip" ><p>If you receive an error, start troubleshooting by checking the <code>theme.yaml</code> files for both the theme (and its parents) and the Order Form Template (and its parents). This will allow you to identify which dependencies aren&rsquo;t being met.</p>
+</div>
+
+
+<p>When checking <code>provides</code> and <code>dependencies</code> lists, WHMCS assumes compatibility for any missing segments of the version number. For example, if you set an Order Form Template to have Bootstrap 4 as a dependency in the <code>dependencies</code> list, WHMCS will consider Bootstrap 4.5.2 (or any other version number beginning in <code>4.</code>) as fulfilling it in the <code>provides</code> list for the Parent Theme.</p>
 
 
 			<div class="topic-navigation clearfix">
@@ -340,7 +416,7 @@
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/themes/customising/">
+                    <a class="nav nav-next" href="//developers.whmcs.com/themes/order-form-templates/">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>

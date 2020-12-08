@@ -334,8 +334,8 @@ add_hook(&#39;AddonConfig&#39;, 1, function($vars) {
 //Obtain the values defined in the AddonConfig hook point and save them as required
 add_hook(&#39;AddonConfigSave&#39;, 1, function($vars) {
     $addonId = $vars[&#39;id&#39;];
-    $additionalFieldOne = App::getFromRequest(&#39;additionalFieldOne&#39;);
-    $additionalFieldTwo = App::getFromRequest(&#39;additionalFieldTwo&#39;);
+    $additionalFieldOne = $_REQUEST[&#39;additionalFieldOne&#39;];
+    $additionalFieldTwo = $_REQUEST[&#39;additionalFieldTwo&#39;];
 
     //Save the data here
 });
@@ -1161,8 +1161,8 @@ add_hook(&#39;AdminClientDomainsTabFields&#39;, 1, function($vars) {
 //Obtain the values defined in the AdminClientProfileTabFields hook point and save them as required
 add_hook(&#39;AdminClientDomainsTabFieldsSave&#39;, 1, function($vars) {
     $domainId = $vars[&#39;id&#39;];
-    $additionalFieldOne = App::getFromRequest(&#39;additionalFieldOne&#39;);
-    $additionalFieldTwo = App::getFromRequest(&#39;additionalFieldTwo&#39;);
+    $additionalFieldOne = $_REQUEST[&#39;additionalFieldOne&#39;];
+    $additionalFieldTwo = $_REQUEST[&#39;additionalFieldTwo&#39;];
 
     //Save the data here
 });
@@ -1494,9 +1494,9 @@ add_hook(&#39;AdminClientProfileTabFields&#39;, 1, function($vars) {
 
 //Obtain the values defined in the AdminClientProfileTabFields hook point and save them as required
 add_hook(&#39;AdminClientProfileTabFieldsSave&#39;, 1, function($vars) {
-    $userId = App::getFromRequest(&#39;userid&#39;);
-    $additionalFieldOne = App::getFromRequest(&#39;additionalFieldOne&#39;);
-    $additionalFieldTwo = App::getFromRequest(&#39;additionalFieldTwo&#39;);
+    $userId = $_REQUEST[&#39;userid&#39;];
+    $additionalFieldOne = $_REQUEST[&#39;additionalFieldOne&#39;];
+    $additionalFieldTwo = $_REQUEST[&#39;additionalFieldTwo&#39;];
 
     //Save the data here
 });
@@ -1825,7 +1825,7 @@ add_hook(&#39;AdminServiceEdit&#39;, 1, function($vars) {
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;admin&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;td&gt;\WHMCS\User\Admin&lt;/td&gt;
 &lt;td&gt;The admin attempting to authenticate&lt;/td&gt;
 &lt;/tr&gt;
@@ -1874,8 +1874,6 @@ add_hook(
 
 &lt;h2 id=&#34;authadminapi&#34;&gt;AuthAdminApi&lt;/h2&gt;
 
-&lt;p&gt;Executes during Admin API password authentication&lt;/p&gt;
-
 &lt;h4 id=&#34;parameters-18&#34;&gt;Parameters&lt;/h4&gt;
 
 &lt;table&gt;
@@ -1889,22 +1887,22 @@ add_hook(
 
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;userInput&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The user-provided password value&lt;/td&gt;
+&lt;td&gt;$userInput&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;admin&lt;/td&gt;
-&lt;td&gt;\WHMCS\User\Admin&lt;/td&gt;
-&lt;td&gt;The admin attempting to authenticate&lt;/td&gt;
+&lt;td&gt;$admin&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h4 id=&#34;response-18&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;TRUE on success FALSE on failure&lt;/p&gt;
+&lt;p&gt;No response supported&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-18&#34;&gt;Example Code&lt;/h4&gt;
 
@@ -16409,8 +16407,8 @@ add_hook(&#39;ClientAreaHeaderOutput&#39;, 1, function($vars) {
     $return = &#39;&#39;;
     if (
         $vars[&#39;filename&#39;] == &#39;index.php&#39;
-        &amp;amp;&amp;amp; App::isInRequest(&#39;m&#39;)
-        &amp;amp;&amp;amp; App::getFromRequest(&#39;m&#39;) == &#39;project_management&#39;
+        &amp;amp;&amp;amp; array_key_exists(&#39;m&#39;, $_REQUEST)
+        &amp;amp;&amp;amp; $_REQUEST[&#39;m&#39;] == &#39;project_management&#39;
     ) {
         $return = &#39;&amp;lt;b&amp;gt;This is a custom output on the header when in the client area for Project Management&amp;lt;/b&amp;gt;&#39;;
     }

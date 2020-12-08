@@ -1577,13 +1577,6 @@
 </tr>
 
 <tr>
-<td>nextinvoicedate</td>
-<td>string</td>
-<td>The next invoice date for the addon. Format: Y-m-d</td>
-<td>Optional</td>
-</tr>
-
-<tr>
 <td>terminationDate</td>
 <td>string</td>
 <td>The termination date of the addon. Format: Y-m-d</td>
@@ -1594,6 +1587,13 @@
 <td>notes</td>
 <td>string</td>
 <td>The admin notes to associate with the addon.</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>autorecalc</td>
+<td>bool</td>
+<td>Whether to automatically recalculate the recurring amount of the addon (this will ignore any passed $recurring).</td>
 <td>Optional</td>
 </tr>
 </tbody>

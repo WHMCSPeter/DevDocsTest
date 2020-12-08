@@ -19,13 +19,36 @@
 
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 
-&lt;p&gt;A theme in WHMCS controls the client facing user interface.&lt;/p&gt;
+&lt;p&gt;System themes and order form templates let you control the Client Area, the client-facing user interface in WHMCS. WHMCS allows you to provide a seamless experience for your customers by customising the look of the Client Area to match your company&amp;rsquo;s website and branding.&lt;/p&gt;
 
-&lt;p&gt;WHMCS allows you to provide a seamless experience for your website visitors by customising the look of the client area to match the rest of your website.&lt;/p&gt;
+&lt;h2 id=&#34;system-themes&#34;&gt;System Themes&lt;/h2&gt;
 
-&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;The recommended way to customise WHMCS themes is by creating &lt;a href=&#34;//developers.whmcs.com/themes/child-themes/&#34;&gt;Child Themes&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Themes, or &lt;em&gt;System Themes&lt;/em&gt;, in WHMCS control the client-facing user interface. WHMCS allows you to provide a seamless experience for your website visitors by using system themes to customise the Client Area to match the rest of your website.&lt;/p&gt;
+
+&lt;p&gt;WHMCS currently ships with two system themes for the Client Area:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Twenty-One&lt;/strong&gt; was introduced in WHMCS 8.1 and is currently the default system theme for new installations.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Six&lt;/strong&gt; was the default theme for WHMCS 6.0 through 8.0.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We recommend using and customising &lt;strong&gt;Twenty-One&lt;/strong&gt;. We will remove &lt;strong&gt;Six&lt;/strong&gt; in a future version of WHMCS.&lt;/p&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;We recommend using &lt;a href=&#34;//developers.whmcs.com/themes/child-themes/&#34;&gt;Child Themes&lt;/a&gt; for your customisations.&lt;/p&gt;
 &lt;/div&gt;
 
+
+&lt;p&gt;You can set the &lt;strong&gt;System Theme&lt;/strong&gt; in WHMCS&amp;rsquo;s Admin Area at &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; General Settings&lt;/strong&gt; in the &lt;strong&gt;General&lt;/strong&gt; tab.&lt;/p&gt;
+
+&lt;h2 id=&#34;order-form-templates&#34;&gt;Order Form Templates&lt;/h2&gt;
+
+&lt;p&gt;Order form templates control the look and feel of individual product and shopping cart pages in the Client Area.&lt;/p&gt;
+
+&lt;p&gt;You can set a &lt;strong&gt;Default Order Form Template&lt;/strong&gt; at &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; General Settings&lt;/strong&gt; in the &lt;strong&gt;Ordering&lt;/strong&gt; tab. You can also select an order form template for individual product groups at &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; Products/Services&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;In WHMCS 8.1 and later, WHMCS automatically checks for compatibility between your &lt;strong&gt;System Theme&lt;/strong&gt; and the order form templates you use.&lt;/p&gt;
+
+&lt;p&gt;For more information about order form templates, see &lt;a href=&#34;//developers.whmcs.com/themes/order-form-templates/&#34;&gt;Order Form Templates&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -51,39 +74,37 @@
 
 &lt;h2 id=&#34;creating-a-custom-theme&#34;&gt;Creating a Custom Theme&lt;/h2&gt;
 
-&lt;p&gt;If you wish to create a new Parent Theme (that other themes can inherit from and be a child of), or are using an older version of WHMCS, you can create a Custom Theme. For all other scenarios, we recommend using &lt;a href=&#34;//developers.whmcs.com/themes/child-themes&#34;&gt;Child Themes&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you wish to create a new Parent Theme (that other themes can inherit from and be a child of), or are using WHMCS 8.0 or earlier, you can create a Custom Theme. For all other scenarios, we recommend using &lt;a href=&#34;//developers.whmcs.com/themes/child-themes&#34;&gt;Child Themes&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The first step is to create your own copy of the template. This ensures your customisations are not lost when updating.&lt;/p&gt;
 
 &lt;h3 id=&#34;method-1-using-source-control&#34;&gt;Method 1: Using Source Control&lt;/h3&gt;
 
-&lt;p&gt;If you&amp;rsquo;re familiar with GIT Version Control, we make the Six theme available as a read-only repository on &lt;a href=&#34;https://github.com/WHMCS/templates-six&#34;&gt;Github&lt;/a&gt; that enables you to build your template in a way that can be tracked and automatically updated.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re familiar with Git version control, we make our system themes and order form templates available as read-only repositories on &lt;a href=&#34;https://github.com/WHMCS/&#34;&gt;GitHub&lt;/a&gt;. You can use these to build your template in a way that can be tracked and automatically updated.&lt;/p&gt;
 
 &lt;p&gt;To use this, navigate to the WHMCS templates directory:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ cd ~/whmcs/templates/
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Clone the Six template theme repo into your new template directory:&lt;/p&gt;
+&lt;p&gt;Then, clone the repository into your new template directory:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ git clone https://github.com/WHMCS/templates-six.git my-template-name
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Now begin making your changes&lt;/p&gt;
+&lt;p&gt;Next, you can &lt;a href=&#34;//developers.whmcs.com/themes/customising&#34;&gt;customise&lt;/a&gt; your system theme or &lt;a href=&#34;//developers.whmcs.com/themes/order-form-templates&#34;&gt;order form template&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;method-2-non-source-controlled&#34;&gt;Method 2: Non source controlled&lt;/h3&gt;
+&lt;h3 id=&#34;method-2-without-source-control&#34;&gt;Method 2: Without Source Control&lt;/h3&gt;
 
-&lt;p&gt;Alternatively, if you aren&amp;rsquo;t familiar with GIT Source Control or don&amp;rsquo;t wish to use it, you can simply make a copy of the &lt;strong&gt;Six&lt;/strong&gt; template directory.&lt;/p&gt;
+&lt;p&gt;Alternatively, if you aren&amp;rsquo;t familiar with Git version control or don&amp;rsquo;t wish to use it, you can make a copy of the template directory within WHMCS.&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Copy the &lt;code&gt;~/templates/six/&lt;/code&gt; directory to &lt;code&gt;~/templates/yourname/&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;To do this, copy the theme or order form template directory (for example, &lt;code&gt;~/templates/twenty-one/&lt;/code&gt;) to &lt;code&gt;~/templates/yourname/&lt;/code&gt;.&lt;/p&gt;
 
 &lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;Template names should be a single word, consisting of only lowercase letters and numbers.&lt;/p&gt;
 &lt;/div&gt;
 
 
-&lt;p&gt;Now it&amp;rsquo;s time to &lt;a href=&#34;//developers.whmcs.com/themes/customising&#34;&gt;customise your theme&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Next, you can &lt;a href=&#34;//developers.whmcs.com/themes/customising&#34;&gt;customise&lt;/a&gt; your system theme or &lt;a href=&#34;//developers.whmcs.com/themes/order-form-templates&#34;&gt;order form template&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -99,42 +120,46 @@
 
 &lt;p&gt;A Child Theme is a theme that inherits templates and assets from another theme, referred to as the Parent Theme.&lt;/p&gt;
 
-&lt;p&gt;With a Child Theme, your theme only needs to contain the templates you wish to customise and change. For CSS/styling only customisations, your theme doesn&amp;rsquo;t have to contain any template files at all.&lt;/p&gt;
+&lt;p&gt;With a Child Theme, your theme only needs to contain the template files you wish to customise and change. For CSS styling-only customisations, your theme doesn&amp;rsquo;t have to contain any template files at all.&lt;/p&gt;
 
-&lt;p&gt;The result is a smaller theme that&amp;rsquo;s easier to maintain, and that automatically receives updates to template files which are not customised, making applying software updates faster, easier and more automated.&lt;/p&gt;
+&lt;p&gt;The result is a smaller theme that&amp;rsquo;s easier to maintain, and that automatically receives updates to template files that are not customised, making applying software updates faster, easier, and more automated.&lt;/p&gt;
 
 &lt;p&gt;A Child Theme is the recommended way to customise WHMCS as of WHMCS 8.&lt;/p&gt;
 
-&lt;h2 id=&#34;why-use-a-child-theme&#34;&gt;Why use a Child Theme?&lt;/h2&gt;
+&lt;h3 id=&#34;why-use-a-child-theme&#34;&gt;Why Use a Child Theme?&lt;/h3&gt;
+
+&lt;p&gt;There are two main reasons to use Child Themes:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Separation of Customisations - A child theme can be used to make modifications to any part of a theme in a way that keeps those customisations separate from the Parent Theme&amp;rsquo;s files.&lt;/li&gt;
-&lt;li&gt;Simplified Maintenance/Updates - Using a Child theme has the benefit of referencing all non-customised files from the Parent Theme, making updates easier by having changes in the parent theme automatically take effect within the Child Theme.&lt;/li&gt;
+&lt;li&gt;Separation of Customisations — A Child Theme can be used to customise any part of a parent theme in a way that keeps those customisations separate from the Parent Theme&amp;rsquo;s files.&lt;/li&gt;
+&lt;li&gt;Simplified Maintenance and Updates — Using a Child Theme has the benefit of referencing all uncustomised files from the Parent Theme. This makes updates easier by having changes in the Parent Theme automatically take effect within the Child Theme.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&#34;what-is-a-parent-theme&#34;&gt;What is a Parent Theme?&lt;/h2&gt;
 
-&lt;p&gt;A parent theme is a complete theme which includes all of the required WHMCS template files and assets for the theme to work.&lt;/p&gt;
+&lt;p&gt;A parent theme is a complete theme that includes all of the WHMCS template files and assets that the theme requires in order to work.&lt;/p&gt;
 
-&lt;p&gt;The &lt;code&gt;Six&lt;/code&gt; and &lt;code&gt;Twenty-One&lt;/code&gt; themes that ship by default with WHMCS are both Parent Theme&amp;rsquo;s.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Six&lt;/code&gt; and &lt;code&gt;Twenty-One&lt;/code&gt; themes that ship by default with WHMCS are both Parent Themes.&lt;/p&gt;
 
-&lt;h2 id=&#34;geting-started&#34;&gt;Geting Started&lt;/h2&gt;
+&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;
 
-&lt;h3 id=&#34;1-create-a-child-theme-folder&#34;&gt;1. Create a Child Theme folder&lt;/h3&gt;
+&lt;p&gt;You can use these steps to create a Child Theme:&lt;/p&gt;
+
+&lt;h3 id=&#34;1-create-a-child-theme-folder&#34;&gt;1. Create a Child Theme Folder&lt;/h3&gt;
 
 &lt;p&gt;First, create a new folder in the &lt;code&gt;templates&lt;/code&gt; directory.&lt;/p&gt;
 
-&lt;p&gt;The directory needs a name. For example, &lt;code&gt;mytheme&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The new directory needs a name. For example, &lt;code&gt;mytheme&lt;/code&gt;.&lt;/p&gt;
 
-&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;Theme directory names should be a single word, consisting of only lowercase letters and numbers, hyphens and underscores.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;Names should only contain lowercase letters, numbers, hyphens, and underscores. They cannot include spaces.&lt;/p&gt;
 &lt;/div&gt;
 
 
-&lt;h3 id=&#34;2-create-a-theme-yaml-file&#34;&gt;2. Create a theme.yaml file&lt;/h3&gt;
+&lt;h3 id=&#34;2-create-a-theme-yaml-file&#34;&gt;2. Create a theme.yaml File&lt;/h3&gt;
 
-&lt;p&gt;Next, you&amp;rsquo;ll need to create a theme.yaml file which tells WHMCS this is a Child Theme, and defines the Parent Theme to be used.&lt;/p&gt;
+&lt;p&gt;Next, you&amp;rsquo;ll need to create a &lt;code&gt;theme.yaml&lt;/code&gt; file to indicate to WHMCS that this is a Child Theme. It must define the Parent Theme to be used.&lt;/p&gt;
 
-&lt;p&gt;The sample below defines a name, author and parent theme of &amp;ldquo;twenty-one&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;The sample below defines a name, author, and parent theme (&lt;code&gt;twenty-one&lt;/code&gt;).&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;# My Theme Configuration File
 
@@ -146,17 +171,24 @@ config:
 
 &lt;p&gt;The following information is required:&lt;/p&gt;
 
-&lt;p&gt;Name - this is the name you will see displayed in the WHMCS admin interface
-Author - this should be your name
-Config / Parent - the name of the parent theme directory. The parent theme in our example is the Twenty-One theme, so the parent theme directory name is &amp;ldquo;twenty-one&amp;rdquo;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;name&lt;/code&gt; — The name you will see in the WHMCS Admin Area.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;config&lt;/code&gt; / &lt;code&gt;parent&lt;/code&gt; — The name of the Parent Theme directory. The Parent Theme in the example above is the Twenty-One theme, so the parent theme directory name is &lt;code&gt;twenty-one&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;The theme.yaml file can also define other parameters about your theme. To learn more, see &lt;a href=&#34;//developers.whmcs.com/themes/theme-parameters/&#34;&gt;Theme Parameters&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;theme.yaml&lt;/code&gt; file can also define other parameters about your theme. To learn more, see &lt;a href=&#34;//developers.whmcs.com/themes/theme-config/&#34;&gt;Theme Parameters&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;3-create-a-custom-css-file&#34;&gt;3. Create a custom.css file&lt;/h3&gt;
+&lt;p&gt;You can create child themes with parents that are, in turn, children of other themes, as long as the ultimate parent theme includes all of the required WHMCS template files and assets. However, we do not recommend this for most uses.&lt;/p&gt;
 
-&lt;p&gt;Next, create a sub-folder named &lt;code&gt;css&lt;/code&gt;, and within that, create a stylesheet file named &lt;code&gt;custom.css&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;3-create-a-custom-css-file&#34;&gt;3. Create a custom.css File&lt;/h3&gt;
 
-&lt;p&gt;This is where you should put the CSS rules and declarations to control the look of your theme. Anything you define here will override styling defined by the Parent Theme.&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;If you do not intend to make &lt;em&gt;any&lt;/em&gt; CSS-related changes you can skip this step. However, we strongly recommend doing this for all new Child Themes.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Create a subfolder named &lt;code&gt;css&lt;/code&gt;, and, within that, create a stylesheet file named &lt;code&gt;custom.css&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;This is where you should put the CSS rules and declarations to control the look of your theme. Anything you define here will override styling defined by the Parent Theme. If you only want your Child Theme to contain CSS updates, using this method will give you a maintenance-free, automatically-updating Child Theme.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;// Example override for the primary background color
 .primary-bg-color {
@@ -164,48 +196,48 @@ Config / Parent - the name of the parent theme directory. The parent theme in ou
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;The custom.css stylesheet will be loaded automatically providing the Parent Theme supports it. All themes that ship by default with WHMCS offer this functionality.&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;The &lt;code&gt;custom.css&lt;/code&gt; stylesheet will be loaded automatically if the Parent Theme supports it. All themes that ship by default with WHMCS offer this functionality.&lt;/p&gt;
 &lt;/div&gt;
 
 
-&lt;h3 id=&#34;4-preview-the-theme&#34;&gt;4. Preview the theme&lt;/h3&gt;
+&lt;h3 id=&#34;4-update-files&#34;&gt;4. Update Files&lt;/h3&gt;
 
-&lt;p&gt;To preview the theme, you can use the &lt;code&gt;?systpl=xxxx&lt;/code&gt; url parameter.&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;If you are &lt;strong&gt;only&lt;/strong&gt; making CSS customisations (via the &lt;code&gt;css/custom.css&lt;/code&gt; file above), you can skip this step.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;If you are customising files that exist in the Parent Theme, we recommend copying those files to your theme folder and then customising them as needed. Leave the Parent Theme&amp;rsquo;s copy of the file unchanged.&lt;/p&gt;
+
+&lt;p&gt;Any file you add to your Child Theme will override the same file in the Parent Theme. Commonly-overriden files include the header and footer template files, the homepage, client area home, and contact pages. For example, to customise the footer, you would copy the Parent Theme&amp;rsquo;s &lt;code&gt;footer.tpl&lt;/code&gt; file to the Child Theme&amp;rsquo;s folder and customise it there.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;Copying the file&amp;rsquo;s contents and customising it rather than starting from an empty file is particularly important for customising the header and footer, which contain essential code required for the correct operation of the WHMCS Client Area.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;You can also incorporate your own newly-created files for use in your customisations.&lt;/p&gt;
+
+&lt;h3 id=&#34;5-preview-the-theme&#34;&gt;5. Preview the Theme&lt;/h3&gt;
+
+&lt;p&gt;To preview the theme, you can use the &lt;code&gt;?systpl=xxxx&lt;/code&gt; URL parameter.&lt;/p&gt;
 
 &lt;p&gt;To learn more, see &lt;a href=&#34;//developers.whmcs.com/themes/testing/&#34;&gt;Testing&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;5-activate-the-theme&#34;&gt;5. Activate the theme&lt;/h3&gt;
+&lt;h3 id=&#34;6-activate-the-theme&#34;&gt;6. Activate the Theme&lt;/h3&gt;
 
-&lt;p&gt;Once you’re happy with your new theme and are ready to make it live, follow the steps below:&lt;/p&gt;
+&lt;p&gt;Once you&amp;rsquo;re happy with your new theme and are ready to make it live, follow the steps below:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Login to your WHMCS Admin Area&lt;/li&gt;
-&lt;li&gt;Navigate to &lt;em&gt;Configuration &amp;gt; System Settings &amp;gt; General Settings&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Under the &lt;strong&gt;System Theme&lt;/strong&gt; setting on the &lt;em&gt;General tab&lt;/em&gt;, select the name of the theme you created above&lt;/li&gt;
-&lt;li&gt;Hit &lt;strong&gt;Save Changes&lt;/strong&gt; and visitors to your site will immediately begin seeing your new theme&lt;/li&gt;
+&lt;li&gt;Log in to your WHMCS Admin Area.&lt;/li&gt;
+&lt;li&gt;Navigate to &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; General Settings&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Under the &lt;strong&gt;System Theme&lt;/strong&gt; setting on the &lt;strong&gt;General&lt;/strong&gt; tab, select the name of the theme you created above.&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Save Changes&lt;/strong&gt; and visitors to your site will immediately begin seeing your new theme.&lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;h2 id=&#34;adding-template-files&#34;&gt;Adding Template Files&lt;/h2&gt;
-
-&lt;p&gt;Any file you add to your Child Theme will override the same file in the Parent Theme.&lt;/p&gt;
-
-&lt;p&gt;Commonly overriden files include the header and footer template files, along with pages such as the homepage, client area home and contact pages.&lt;/p&gt;
-
-&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;In most cases, it is usually best to create a copy of the template file(s) you want to customise from the Parent Theme, then make your modifications to the copied files, leaving the parent files unchanged.&lt;/p&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;For example, if you wanted to change the code of the Parent Theme&amp;rsquo;s header.tpl file, you would copy the file to your Child Theme folder and customise it there.&lt;/p&gt;
-
-&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;This is particularly important for files such as the header and footer, which contain important and essential code required for the correct and normal operation of the WHMCS client area.&lt;/p&gt;
-&lt;/div&gt;
-
 
 &lt;h2 id=&#34;loading-assets&#34;&gt;Loading Assets&lt;/h2&gt;
 
-&lt;p&gt;The &lt;code&gt;assetPath&lt;/code&gt; helper is available for use in themes to load assets in a smart way and enable Child Themes to override them.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;assetPath&lt;/code&gt; helper is available for use in themes. It loads assets in a smart way and enables Child Themes to override them.&lt;/p&gt;
 
-&lt;p&gt;Use of this function is particularly important for Parent Theme developers to make it possible for Child Theme developers to override assets without editing file paths. However in most Child Themes, assets may be loaded in the normal way - with hardcoded paths - without any negative side effects.&lt;/p&gt;
+&lt;p&gt;Use of this function is particularly important for Parent Theme developers. It makes it possible for Child Theme developers to override assets without editing file paths. However, in most Child Themes, assets may be loaded in the normal way — with hardcoded paths — without any negative side effects.&lt;/p&gt;
 
 &lt;p&gt;Example usage of the &lt;code&gt;assetPath&lt;/code&gt; helper:&lt;/p&gt;
 
@@ -213,17 +245,162 @@ Config / Parent - the name of the parent theme directory. The parent theme in ou
 &amp;lt;script src=&amp;quot;{assetPath file=&#39;myjsfile.js&#39;}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;To learn more about the assetPath helper and other functions available to Theme Developers, see &lt;a href=&#34;//developers.whmcs.com/themes/functions/&#34;&gt;Functions&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To learn more about the &lt;code&gt;assetPath&lt;/code&gt; helper and other functions available to Theme Developers, see &lt;a href=&#34;//developers.whmcs.com/themes/functions/&#34;&gt;Functions&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>Theme Parameters</title>
+      <title>The Theme Configuration File</title>
       <link>//developers.whmcs.com/themes/theme-parameters/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/themes/theme-parameters/</guid>
-      <description>&lt;p&gt;Coming soon&amp;hellip;&lt;/p&gt;
+      <description>
+
+&lt;h2 id=&#34;the-theme-yaml-file&#34;&gt;The theme.yaml File&lt;/h2&gt;
+
+&lt;p&gt;Parent Themes, &lt;a href=&#34;//developers.whmcs.com/themes/child-themes/&#34;&gt;Child Themes&lt;/a&gt;, and Order Form Templates should include a &lt;code&gt;theme.yaml&lt;/code&gt; file. This file defines the theme or Order Form Template, including its name and author, description, its parent, its dependencies, and the assets it can provide for any children to which it is the parent.&lt;/p&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;We made this method available for Order Form Templates in WHMCS 6.1 and improved it to include themes in WHMCS 8.1.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;For example, this &lt;code&gt;theme.yaml&lt;/code&gt; file sets the theme as a child of the Twenty-One Parent Theme, as well as specifying other theme information:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;name: &amp;quot;Example&amp;quot;
+description: &amp;quot;My Company&#39;s Branding&amp;quot;
+author: &amp;quot;Hosting Company, L.L.C.&amp;quot;
+config:
+  parent: twenty-one
+dependencies:
+  bootstrap: 4.5.2
+provides:
+  jquery: 1.12
+  fontawesome: 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This file &lt;strong&gt;must&lt;/strong&gt; be a valid &lt;a href=&#34;https://en.wikipedia.org/wiki/YAML&#34;&gt;YAML file&lt;/a&gt; and must use the indentation style illustrated above.&lt;/p&gt;
+
+&lt;h2 id=&#34;parameters&#34;&gt;Parameters&lt;/h2&gt;
+
+&lt;p&gt;You can specify these items in a &lt;code&gt;theme.yaml&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;h3 id=&#34;name&#34;&gt;name&lt;/h3&gt;
+
+&lt;p&gt;The System Theme or Order Form Template name.
+* For System Themes, this displays in the &lt;strong&gt;System Theme&lt;/strong&gt; menu at &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; General Settings&lt;/strong&gt; in the &lt;strong&gt;General&lt;/strong&gt; tab.
+* For Order Form Templates, this displays in &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; General Settings&lt;/strong&gt; in the &lt;strong&gt;Ordering&lt;/strong&gt; tab and for individual product groups at &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; Products/Services&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;description&#34;&gt;description&lt;/h3&gt;
+
+&lt;p&gt;A description of the theme or Order Form Template.&lt;/p&gt;
+
+&lt;h3 id=&#34;author&#34;&gt;author&lt;/h3&gt;
+
+&lt;p&gt;Generally, this should be your name. It could also be your company&amp;rsquo;s name.&lt;/p&gt;
+
+&lt;h3 id=&#34;config-parent&#34;&gt;config: parent&lt;/h3&gt;
+
+&lt;p&gt;The name of the directory that contains the Parent Theme or Order Form Template. (Do not use the display name.)&lt;/p&gt;
+
+&lt;h3 id=&#34;dependencies&#34;&gt;dependencies&lt;/h3&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;It is unlikely for a theme to list anything under &lt;code&gt;dependencies&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;A list of assets that a child needs its parent to provide in order to function. If you don&amp;rsquo;t specify anything under &lt;code&gt;dependencies&lt;/code&gt;, WHMCS assumes compatibility. (This behavior is necessary in order to ensure continued compatibility with older custom themes.)&lt;/p&gt;
+
+&lt;h3 id=&#34;provides&#34;&gt;provides&lt;/h3&gt;
+
+&lt;p&gt;A list of assets that the theme or Order Form Template can provide to any children.&lt;/p&gt;
+
+&lt;h2 id=&#34;compatibility&#34;&gt;Compatibility&lt;/h2&gt;
+
+&lt;p&gt;WHMCS checks for compatibility between themes and Order Form Templates each time that you select a theme from the &lt;strong&gt;System Theme&lt;/strong&gt; menu at &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; General Settings&lt;/strong&gt; in the &lt;strong&gt;General&lt;/strong&gt; tab. This checks the &lt;code&gt;provides&lt;/code&gt; list, &lt;code&gt;dependencies&lt;/code&gt; list, and &lt;code&gt;config&lt;/code&gt; details in order to make this assessment.&lt;/p&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;If you receive an error, start troubleshooting by checking the &lt;code&gt;theme.yaml&lt;/code&gt; files for both the theme (and its parents) and the Order Form Template (and its parents). This will allow you to identify which dependencies aren&amp;rsquo;t being met.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;When checking &lt;code&gt;provides&lt;/code&gt; and &lt;code&gt;dependencies&lt;/code&gt; lists, WHMCS assumes compatibility for any missing segments of the version number. For example, if you set an Order Form Template to have Bootstrap 4 as a dependency in the &lt;code&gt;dependencies&lt;/code&gt; list, WHMCS will consider Bootstrap 4.5.2 (or any other version number beginning in &lt;code&gt;4.&lt;/code&gt;) as fulfilling it in the &lt;code&gt;provides&lt;/code&gt; list for the Parent Theme.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Theme Configuration File</title>
+      <link>//developers.whmcs.com/themes/order-form-templates/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/themes/order-form-templates/</guid>
+      <description>
+
+&lt;h2 id=&#34;what-is-an-order-form-template&#34;&gt;What is an Order Form Template?&lt;/h2&gt;
+
+&lt;p&gt;Order Form Templates control the way products and the shopping cart appear when customers make purchases.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You can find more information about Order Form Templates &lt;a href=&#34;https://docs.whmcs.com/Order_Form_Templates&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;You may want to refer to the &lt;a href=&#34;https://docs.whmcs.com/Standard_Order_Form_Templates&#34;&gt;list of WHMCS-shipped Order Form Templates&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;To customise other aspects of the WHMCS Client Area, we recommend creating a &lt;a href=&#34;//developers.whmcs.com/themes/child-themes/&#34;&gt;Child Theme&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;You can set the system default Order Form Template at &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; General Settings&lt;/strong&gt; in the &lt;strong&gt;Ordering&lt;/strong&gt; tab. This is where errors will display if there&amp;rsquo;s a compatibility issue between the current &lt;strong&gt;System Theme&lt;/strong&gt; and the default Order Form Template.&lt;/p&gt;
+
+&lt;h2 id=&#34;order-form-template-dependencies&#34;&gt;Order Form Template Dependencies&lt;/h2&gt;
+
+&lt;p&gt;An inheritance system allows parent-child relationships, with parents providing assets to children. Many custom Order Form Templates will require one or more assets in order to function. These needs are stated in the &lt;code&gt;dependencies&lt;/code&gt; list in the child&amp;rsquo;s &lt;code&gt;theme.yaml&lt;/code&gt; file, and then are fulfilled by the items in the &lt;code&gt;provides&lt;/code&gt; list in the parent&amp;rsquo;s &lt;code&gt;theme.yaml&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;For more about the &lt;code&gt;theme.yaml&lt;/code&gt; file and how to use it to declare and fulfill dependencies, see &lt;a href=&#34;//developers.whmcs.com/themes/theme-config/&#34;&gt;The Theme Configuration File&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;creating-an-order-form-template&#34;&gt;Creating an Order Form Template&lt;/h2&gt;
+
+&lt;p&gt;Using parent-child relationships, you don&amp;rsquo;t need to create a custom copy of all of the template files. Only copy or create the files you want to customise, and the remaining Order Form Templates will then load from the parent when you define them. This will make your customised Order Form Template easier to maintain. When you upgrade to a new version of WHMCS, the system updates any changes to Order Form Template files that aren&amp;rsquo;t customised.&lt;/p&gt;
+
+&lt;p&gt;To create an Order Form Template:&lt;/p&gt;
+
+&lt;h3 id=&#34;1-create-an-order-form-template-folder&#34;&gt;1. Create an Order Form Template Folder&lt;/h3&gt;
+
+&lt;p&gt;First, create a new folder in the &lt;code&gt;/templates/orderforms/&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;p&gt;The new directory needs a name. For example, &lt;code&gt;mycart&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;Names should only contain lowercase letters, numbers, hyphens, and underscores. They cannot include spaces.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h3 id=&#34;2-create-a-theme-yaml-file&#34;&gt;2. Create a theme.yaml File&lt;/h3&gt;
+
+&lt;p&gt;In the new folder, create a &lt;code&gt;theme.yaml&lt;/code&gt; file and populate it with information, making sure to specify a parent. At minimum, your &lt;code&gt;theme.yaml&lt;/code&gt; file must contain these lines:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;config:
+  parent: standard_cart
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;For more about the &lt;code&gt;theme.yaml&lt;/code&gt; file and its contents, see &lt;a href=&#34;//developers.whmcs.com/themes/theme-config/&#34;&gt;The Theme Configuration File&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h3 id=&#34;3-customize-files&#34;&gt;3. Customize Files&lt;/h3&gt;
+
+&lt;p&gt;Copy the files that you want to customise from the parent Order Form Template.&lt;/p&gt;
+
+&lt;p&gt;For example, the Standard Cart Order Form Template is the parent for the Premium Comparison Order Form Template. Premium Comparison consists only of a &lt;code&gt;products.tpl&lt;/code&gt; Order Form Template file. All of the other steps of the order process use Standard Cart.&lt;/p&gt;
+
+&lt;p&gt;For a current list of Order Form Template files, see &lt;a href=&#34;https://docs.whmcs.com/Order_Form_Templates&#34;&gt;Order Form Templates&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;testing-order-form-templates&#34;&gt;Testing Order Form Templates&lt;/h2&gt;
+
+&lt;p&gt;WHMCS allows you to preview Order Form Templates before making them live. This is done using the &lt;code&gt;?carttpl=xxxx&lt;/code&gt; URL parameter.&lt;/p&gt;
+
+&lt;h2 id=&#34;activating-order-form-templates&#34;&gt;Activating Order Form Templates&lt;/h2&gt;
+
+&lt;p&gt;You can set the Order Form Template for specific product groups at &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; Products/Services&lt;/strong&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -235,39 +412,48 @@ Config / Parent - the name of the parent theme directory. The parent theme in ou
       <guid>//developers.whmcs.com/themes/customising/</guid>
       <description>
 
-&lt;p&gt;The header and footer template files that are common to every page and act as a wrapper around the primary body content are a good place to start for this.&lt;/p&gt;
+&lt;h2 id=&#34;customising-themes&#34;&gt;Customising Themes&lt;/h2&gt;
+
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;For information on customising Order Forms, see &lt;a href=&#34;//developers.whmcs.com/themes/order-form-templates/&#34;&gt;Order Form Templates&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;The header and footer system theme template files are common to every page and act as a wrapper around the primary body content. They are an excellent place to begin customising a theme.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;We strongly recommend you maintain all of the template includes and output variables present in the default template files in your custom header/footer as this will help ensure compatibility with addons and extensions you later install&lt;/li&gt;
-&lt;li&gt;Navigation bar and Sidebar content is defined within WHMCS and passed to the templates for output. This allows modules and addons to interact with and manipulate these areas of the client area dynamically. The output styling of these is controlled by include files which are explained in more detail below.&lt;/li&gt;
-&lt;li&gt;The footer template file includes a number of lines of javascript code immediately prior to the closing &lt;/body&gt; tag which are essential to the correct operation of the client area. Please take care not to remove these lines.&lt;/li&gt;
+&lt;li&gt;We strongly recommend that you maintain all of the template includes and output variables in the default template files in your custom header and footer. This will help ensure compatibility with addons and extensions you install later.&lt;/li&gt;
+&lt;li&gt;Navigation bar and sidebar content is defined within WHMCS and passed to the templates for output. This allows modules and addons to interact with and manipulate these areas of the client area dynamically. The output styling of these is controlled by include files which are explained in more detail below.&lt;/li&gt;
+&lt;li&gt;The footer template file includes a number of lines of JavaScript code immediately prior to the closing &lt;code&gt;&amp;lt;/body&amp;gt;&lt;/code&gt; tag. These are essential to the correct operation of the client area. &lt;strong&gt;Do not&lt;/strong&gt; remove these lines.&lt;/li&gt;
+&lt;li&gt;You may also wish to consider creating &lt;a href=&#34;//developers.whmcs.com/themes/child-themes/&#34;&gt;child themes&lt;/a&gt;, which have simpler development and maintenance requirements.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;custom-logo&#34;&gt;Custom Logo&lt;/h2&gt;
 
-&lt;p&gt;The Six theme uses a conditional based on the &lt;code&gt;$assetLogoPath&lt;/code&gt; variable to either display a custom logo or the name of the company as defined in Setup &amp;gt; General Settings &amp;gt; Company Name. In order to set a custom logo it must either exist as &lt;code&gt;/assests/img/logo.png&lt;/code&gt; or &lt;code&gt;/assests/img/logo.jpg&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The Twenty-One and Six themes display either your company name or logo in the top-left corner of the Client Area. If you supply a logo, the &lt;code&gt;$assetLogoPath&lt;/code&gt; variable contains the relative path to the logo file. You can upload the logo in the &lt;strong&gt;Setup Wizard&lt;/strong&gt; or at &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; General Settings&lt;/strong&gt; in the &lt;strong&gt;General&lt;/strong&gt; tab.&lt;/p&gt;
+
+&lt;p&gt;To set a custom logo, it must be saved as either &lt;code&gt;logo.png&lt;/code&gt; or &lt;code&gt;logo.jpg&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;include-files&#34;&gt;Include Files&lt;/h2&gt;
 
-&lt;p&gt;Include templates are templates that are shared and used by multiple pages. They are located within the &lt;code&gt;/includes/&lt;/code&gt; sub-directory.&lt;/p&gt;
+&lt;p&gt;Include templates are templates that are shared and used by multiple pages. They are located within the &lt;code&gt;/includes/&lt;/code&gt; subdirectory.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Common to All Pages&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;head.tpl - Defines the CSS &amp;amp; Javascript files included within the &lt;head&gt; section of a page&lt;/li&gt;
-&lt;li&gt;navbar.tpl - Controls the output of the primary navigation bar menu items&lt;/li&gt;
-&lt;li&gt;sidebar.tpl - Controls the output of the sidebar menu items&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;head.tpl&lt;/code&gt; - Defines the CSS and Javascript files included within the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; section of a page.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;navbar.tpl&lt;/code&gt; - Controls the output of the primary navigation bar menu items&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sidebar.tpl&lt;/code&gt; - Controls the output of the sidebar menu items.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Used as Required&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;captcha.tpl - Used to output the captcha verification image wherever used&lt;/li&gt;
-&lt;li&gt;pwstrength.tpl - Used to output the password strength meter and tooltip wherever used&lt;/li&gt;
-&lt;li&gt;tablelist.tpl - Controls the output of all filterable data list tables throughout the client area&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;captcha.tpl&lt;/code&gt; - Used to output the captcha verification image wherever used.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pwstrength.tpl&lt;/code&gt; - Used to output the password strength meter and tooltip wherever used.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tablelist.tpl&lt;/code&gt; - Controls the output of all filterable data list tables throughout the client area.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Editing any of these template files will affect everywhere that the respective elements are used. One place to edit, and one place to maintain during upgrades, will help make applying and preserving your customisations easier.&lt;/p&gt;
+&lt;p&gt;Editing any of these template files will affect everywhere that the respective elements are used. One place to edit and one place to maintain during upgrades will help make applying and preserving your customisations easier.&lt;/p&gt;
 </description>
     </item>
     
@@ -277,18 +463,28 @@ Config / Parent - the name of the parent theme directory. The parent theme in ou
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/themes/css-styling/</guid>
-      <description>&lt;p&gt;If you want to make changes to any of the CSS that is applied by default, we recommend making those customisations inside of the /css/custom.css file.&lt;/p&gt;
+      <description>
 
-&lt;p&gt;This file is included after styles.css allowing you to override any of the CSS defined within it and will not be affected by future updates to the WHMCS software.&lt;/p&gt;
+&lt;h2 id=&#34;custom-css&#34;&gt;Custom CSS&lt;/h2&gt;
 
-&lt;p&gt;To utilise Font Awesome icons, you may include the latest Font Awesome release shipped with WHMCS by including the line below within the &lt;head&gt; section of your template:
-&lt;code&gt;&amp;lt;link href=&amp;quot;{$WEB_ROOT}/assets/css/fontawesome-all.min.css&amp;quot; rel=&amp;quot;stylesheet&amp;quot;&amp;gt;&lt;/code&gt;
-Themes which do not include the above line will have it injected automatically. If you wish to prevent this behaviour, include the following line:
-&lt;code&gt;&amp;lt;!-- /css/fontawesome-all.min.css --&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;If you want to make changes to any of the CSS that is applied by default, we recommend making those customisations inside of the &lt;code&gt;/css/custom.css&lt;/code&gt; file. This file is included after &lt;code&gt;styles.css&lt;/code&gt;, allowing you to override any of the CSS defined within it. It will not be affected by future updates to the WHMCS software.&lt;/p&gt;
 
-&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;We strongly recommend adding your custom CSS rules to the &lt;strong&gt;custom.css&lt;/strong&gt; file and not editing /css/styles.css directly as it will make updating easier.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;&lt;ul&gt;
+&lt;li&gt;We strongly recommend adding your custom CSS rules to the &lt;code&gt;custom.css&lt;/code&gt; file and &lt;strong&gt;not&lt;/strong&gt; editing &lt;code&gt;/css/styles.css&lt;/code&gt; directly because it will make updating easier.&lt;/li&gt;
+&lt;li&gt;You may also wish to consider creating a &lt;a href=&#34;//developers.whmcs.com/themes/child-themes/&#34;&gt;child theme&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 
+
+&lt;h2 id=&#34;using-font-awesome&#34;&gt;Using Font Awesome&lt;/h2&gt;
+
+&lt;p&gt;To use Font Awesome icons, you may include the latest Font Awesome release shipped with WHMCS by including the line below within the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; section of your template:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;link href=&amp;quot;{$WEB_ROOT}/assets/css/fontawesome-all.min.css&amp;quot; rel=&amp;quot;stylesheet&amp;quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Themes that do not include the above line will have it injected automatically. If you wish to prevent this behaviour, include the following line:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;!-- /css/fontawesome-all.min.css --&amp;gt;&lt;/code&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -300,31 +496,37 @@ Themes which do not include the above line will have it injected automatically. 
       <guid>//developers.whmcs.com/themes/navigation/</guid>
       <description>
 
-&lt;p&gt;There are two navigation bars in WHMCS’ client area. The primary navigation bar contains the bulk of the menu and floats to the left of the secondary navigation bar. The secondary navigation bar contains user-specific items and changes if a client is logged in to WHMCS. When a client is not logged in then the secondary navigation contains a login link, and when a client is logged in then the secondary menu contains links to the client’s account.&lt;/p&gt;
+&lt;h2 id=&#34;navigation-bars&#34;&gt;Navigation Bars&lt;/h2&gt;
 
-&lt;p&gt;Responsive mode is activated when WHMCS’ client area is viewed on a smaller screen device such as a phone or tablet. At that point, WHMCS will collapse the navbar into a fold out menu.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;This guide assumes you are already familiar with creating and using &lt;a href=&#34;//developers.whmcs.com/hooks/&#34;&gt;Hook files in WHMCS&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
 
-&lt;p&gt;The navigation bar elements are controlled in a programmatic way allowing modules and hooks to dynamically interact with the navigation menu elements.&lt;/p&gt;
 
-&lt;p&gt;The look and feel of the navigation bar can be customised via the header.tpl and navbar.tpl (located in /includes/) template files.&lt;/p&gt;
+&lt;p&gt;There are two navigation bars in WHMCS&amp;rsquo;s client area. They exist as part of the system theme.&lt;/p&gt;
 
-&lt;p&gt;This guide assumes you are already familiar with creating and using &lt;a href=&#34;//developers.whmcs.com/hooks/&#34;&gt;Hook files in WHMCS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The primary navigation bar contains the bulk of the menu and floats to the left of the secondary navigation bar. The secondary navigation bar contains user-specific items and changes if a client is logged in to WHMCS. When a client is not logged in then the secondary navigation contains a login link, and when a client is logged in then the secondary menu contains links to the client&amp;rsquo;s account.&lt;/p&gt;
+
+&lt;p&gt;Responsive mode is activated when WHMCS&amp;rsquo;s client area is viewed on a smaller screen device such as a phone or tablet. At that point, WHMCS will collapse the navigation bar into a fold-out menu.&lt;/p&gt;
+
+&lt;p&gt;The navigation bar elements are controlled in a programmatically, allowing modules and hooks to dynamically interact with the navigation menu elements.&lt;/p&gt;
+
+&lt;p&gt;The look and feel of the navigation bar can be customised via the &lt;code&gt;/includes/header.tpl&lt;/code&gt; and &lt;code&gt;/includes/navbar.tpl&lt;/code&gt; system theme template files.&lt;/p&gt;
 
 &lt;h2 id=&#34;finding-a-menu-name&#34;&gt;Finding a Menu Name&lt;/h2&gt;
 
-&lt;p&gt;Every menu item has a unique name that is used to reference it. You will need this name in order to manipulate it. To make it easier, we have made the name of each sidebar menu item available in the HTML source of the page, which means it can be retrieved using the Inspect Element option available in most modern browsers. An example of this is shown below.&lt;/p&gt;
+&lt;p&gt;Every menu item has a unique name that is used to reference it. You will need this name in order to manipulate it. To make it easier, we have made the name of each sidebar menu item available in the HTML source of the page, which means it can be retrieved using the &lt;em&gt;Inspect Element&lt;/em&gt; option available in most modern browsers. For example:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;menus-find-name.png&#34; alt=&#34;Navigation Menus: Finding a Menu Name&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Once you have the menu item name that you wish to manipulate, which in the example above is &amp;ldquo;Billing Information&amp;rdquo; you can manipulate it in the following ways.&lt;/p&gt;
+&lt;p&gt;Once you have the menu item name that you wish to manipulate, which in the example above is &lt;code&gt;Account Details&lt;/code&gt;, you can manipulate it as described below.&lt;/p&gt;
 
-&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;The client area&amp;rsquo;s menu system is defined in a tree structure. Each menu item has one parent item and can have many child items. To manipulate a menu item within a sidebar panel, you first need to retrieve the parent menu item, which in the case above is &amp;ldquo;My Account&amp;rdquo;, followed by the &amp;ldquo;Billing Information&amp;rdquo; menu item which is a child within that.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;The client area&amp;rsquo;s menu system is defined in a tree structure. Each menu item has one parent item and can have many child items. To manipulate a menu item within a sidebar panel, you first need to retrieve the parent menu item, which in the case above is &lt;code&gt;Account&lt;/code&gt;, followed by the &lt;code&gt;Account Details&lt;/code&gt; menu item within it.&lt;/p&gt;
 &lt;/div&gt;
 
 
 &lt;h2 id=&#34;changing-the-text-label-of-a-menu-item&#34;&gt;Changing the Text Label of a Menu Item&lt;/h2&gt;
 
-&lt;p&gt;All sidebar menu items that are supplied by default use display names controlled by language file. Simply search in your active language file for the text you see in the menu item label, and you can adjust/change it there as required.&lt;/p&gt;
+&lt;p&gt;All sidebar menu items that are supplied by default use display names controlled by language files. Simply search in your active language file for the text you see in the menu item label, and you can adjust or change it there as required.&lt;/p&gt;
 
 &lt;p&gt;Alternatively, you can manipulate the display text via a hook as follows:&lt;/p&gt;
 
@@ -340,11 +542,11 @@ add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function(MenuItem $primarySideba
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Notice how in the above we first retrieve the My Account menu item, followed by the Billing Information menu item which is a child within that. The same logic should be applied to all dropdown menu items.&lt;/p&gt;
+&lt;p&gt;The above example retrieves the &lt;code&gt;My Account&lt;/code&gt; menu item, followed by the &lt;code&gt;Billing Information&lt;/code&gt; menu item, which is a child within that. The same logic should be applied to all dropdown menu items.&lt;/p&gt;
 
 &lt;h2 id=&#34;changing-where-a-menu-item-links-to&#34;&gt;Changing where a Menu Item Links To&lt;/h2&gt;
 
-&lt;p&gt;You can change where a menu item points to using the setUri method. For example if we are using an external system to control our announcements, we could do something like the following:&lt;/p&gt;
+&lt;p&gt;You can change where a menu item points using the &lt;code&gt;setUri&lt;/code&gt; method. For example, if you use an external system to control announcements, you could do something like the following:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 
@@ -367,7 +569,7 @@ add_hook(&#39;ClientAreaPrimaryNavbar&#39;, 1, function (MenuItem $primaryNavbar
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;re-arranging-menu-items&#34;&gt;Re-arranging Menu Items&lt;/h2&gt;
+&lt;h2 id=&#34;rearranging-menu-items&#34;&gt;Rearranging Menu Items&lt;/h2&gt;
 
 &lt;p&gt;You can change the display order of menu items as follows:&lt;/p&gt;
 
@@ -460,7 +662,7 @@ add_hook(&#39;ClientAreaPrimaryNavbar&#39;, 1, function (MenuItem $primaryNavbar
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;hiding-removing-a-menu-item&#34;&gt;Hiding/Removing a Menu Item&lt;/h2&gt;
+&lt;h2 id=&#34;hiding-or-removing-a-menu-item&#34;&gt;Hiding or Removing a Menu Item&lt;/h2&gt;
 
 &lt;p&gt;You can remove a menu item as follows:&lt;/p&gt;
 
@@ -486,29 +688,33 @@ add_hook(&#39;ClientAreaPrimaryNavbar&#39;, 1, function (MenuItem $primaryNavbar
       <guid>//developers.whmcs.com/themes/sidebars/</guid>
       <description>
 
-&lt;p&gt;There are two sidebars in WHMCS’ client area. The primary sidebar contains sidebar elements that are displayed above the body content when in responsive mode. The secondary sidebar contains sidebar elements that are displayed below the body content when in responsive mode. In desktop mode, there will be no noticeable difference between primary and secondary sidebar items.&lt;/p&gt;
+&lt;h2 id=&#34;sidebars&#34;&gt;Sidebars&lt;/h2&gt;
 
-&lt;p&gt;The sidebar elements and panels are controlled in a programmatic way allowing modules and hooks to dynamically interact with the sidebar items.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;This guide assumes you are already familiar with creating and using &lt;a href=&#34;//developers.whmcs.com/hooks/&#34;&gt;Hook files in WHMCS&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
 
-&lt;p&gt;The look and feel of the sidebar can be customised via the header.tpl and sidebar.tpl (located in /includes/) template files.&lt;/p&gt;
 
-&lt;p&gt;This guide assumes you are already familiar with creating and using &lt;a href=&#34;//developers.whmcs.com/hooks/&#34;&gt;Hook files in WHMCS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There are two sidebars in WHMCS&amp;rsquo;s client area. The primary sidebar contains sidebar elements that are displayed above the body content when in responsive mode. The secondary sidebar contains sidebar elements that are displayed below the body content when in responsive mode. In desktop mode, there will be no noticeable difference between primary and secondary sidebar items.&lt;/p&gt;
+
+&lt;p&gt;The sidebar elements and panels are controlled in a programmatic way, allowing modules and hooks to dynamically interact with the sidebar items.&lt;/p&gt;
+
+&lt;p&gt;The look and feel of the navigation bar can be customised via the &lt;code&gt;/includes/header.tpl&lt;/code&gt; and &lt;code&gt;/includes/navbar.tpl&lt;/code&gt; system theme template files.&lt;/p&gt;
 
 &lt;h2 id=&#34;finding-a-sidebar-name&#34;&gt;Finding a Sidebar Name&lt;/h2&gt;
 
-&lt;p&gt;Every sidebar menu item has a unique name that is used to reference it. You will need this name in order to manipulate it. To make it easier, we have made the name of each sidebar menu item available in the HTML source of the page, which means it can be retrieved using the Inspect Element option available in most modern browsers. An example of this is shown below.&lt;/p&gt;
+&lt;p&gt;Every sidebar menu item has a unique name that is used to reference it. You will need this name in order to manipulate it. To make it easier, we have made the name of each sidebar menu item available in the HTML source of the page, which means it can be retrieved using the &lt;em&gt;Inspect Element&lt;/em&gt; option available in most modern browsers. For example:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;find-sidebar-name.png&#34; alt=&#34;Sidebar Menus: Finding a Sidebar Name&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Once you have the menu item name that you wish to manipulate, which in the example above is &amp;ldquo;Billing Information&amp;rdquo; you can manipulate it in the following ways.&lt;/p&gt;
+&lt;p&gt;Once you have the menu item name that you wish to manipulate, which in the example above is &lt;code&gt;Account Details&lt;/code&gt;, you can manipulate it as described below.&lt;/p&gt;
 
-&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;The client area&amp;rsquo;s sidebar menu system is defined in a tree structure. Each menu item has one parent item and can have many child items. To manipulate a menu item within a sidebar panel, you first need to retrieve the parent menu item, which in the case above is &amp;ldquo;My Account&amp;rdquo;, followed by the &amp;ldquo;Billing Information&amp;rdquo; menu item which is a child within that.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;The client area&amp;rsquo;s sidebar menu system is defined in a tree structure. Each menu item has one parent item and can have many child items. To manipulate a menu item within a sidebar panel, you first need to retrieve the parent menu item, which in the case above is &lt;code&gt;Account&lt;/code&gt;, followed by the &lt;code&gt;Account Details&lt;/code&gt; menu item within it.&lt;/p&gt;
 &lt;/div&gt;
 
 
 &lt;h2 id=&#34;changing-the-text-label-of-a-sidebar-item&#34;&gt;Changing the Text Label of a Sidebar Item&lt;/h2&gt;
 
-&lt;p&gt;All sidebar menu items that are supplied by default use display names controlled by language file. Simply search in your active language file for the text you see in the menu item label, and you can adjust/change it there as required.&lt;/p&gt;
+&lt;p&gt;All sidebar menu items that are supplied by default use display names controlled by language file. Simply search in your active language file for the text you see in the menu item label, and you can adjust or change it there as required.&lt;/p&gt;
 
 &lt;p&gt;Alternatively, you can manipulate the display text via a hook as follows:&lt;/p&gt;
 
@@ -524,11 +730,11 @@ add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function(MenuItem $primarySideba
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Notice how in the above we first retrieve the Support menu item, followed by the Announcements menu item which is a child within that. The same logic should be applied to all dropdown menu items.&lt;/p&gt;
+&lt;p&gt;Notice how in the above we first retrieve the &lt;code&gt;Support&lt;/code&gt; menu item, followed by the &lt;code&gt;Announcements&lt;/code&gt; menu item, which is a child within that. The same logic should be applied to all dropdown menu items.&lt;/p&gt;
 
 &lt;h2 id=&#34;changing-where-a-sidebar-item-points-to&#34;&gt;Changing where a Sidebar Item Points To&lt;/h2&gt;
 
-&lt;p&gt;You can change where a menu item points to using the setUri method. For example if we are using an external system to control our announcements, we could do something like the following:&lt;/p&gt;
+&lt;p&gt;You can change where a menu item points using the &lt;code&gt;setUri&lt;/code&gt; method. For example, if you use an external system to control announcements, you could do something like the following:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 
@@ -542,7 +748,7 @@ add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function(MenuItem $primarySideba
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;re-arranging-sidebar-items&#34;&gt;Re-arranging Sidebar Items&lt;/h2&gt;
+&lt;h2 id=&#34;rearranging-sidebar-items&#34;&gt;Rearranging Sidebar Items&lt;/h2&gt;
 
 &lt;p&gt;You can change the display order of menu items as follows:&lt;/p&gt;
 
@@ -572,7 +778,7 @@ $primaryNavbar-&amp;gt;getChild(&#39;My Account&#39;)-&amp;gt;getChild(&#39;Bill
 
 &lt;h2 id=&#34;adding-an-additional-sidebar-menu-item&#34;&gt;Adding an Additional Sidebar Menu Item&lt;/h2&gt;
 
-&lt;p&gt;To add an additional item to a menu, we must first check that the sidebar exists on the particular page before speciying You can add additional menu items as follows:&lt;/p&gt;
+&lt;p&gt;To add an additional item to a menu, check that the sidebar exists on the particular page before specifying it. You can add additional menu items as follows:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 
@@ -591,7 +797,7 @@ add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function (MenuItem $primarySideb
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;hiding-removing-a-sidebar-menu-item&#34;&gt;Hiding/Removing a Sidebar Menu Item&lt;/h2&gt;
+&lt;h2 id=&#34;hiding-or-removing-a-sidebar-menu-item&#34;&gt;Hiding or Removing a Sidebar Menu Item&lt;/h2&gt;
 
 &lt;p&gt;You can remove a menu item as follows:&lt;/p&gt;
 
@@ -614,9 +820,15 @@ add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function(MenuItem $primarySideba
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/themes/variables/</guid>
-      <description>&lt;p&gt;In the Smarty template language, template variables take the format &lt;code&gt;{$variable_name}&lt;/code&gt;.&lt;/p&gt;
+      <description>
 
-&lt;p&gt;The following template parameters are made available to all pages.&lt;/p&gt;
+&lt;h2 id=&#34;variables&#34;&gt;Variables&lt;/h2&gt;
+
+&lt;p&gt;In the Smarty template language, template variables take the format &lt;code&gt;{$variable_name}&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;template-parameters&#34;&gt;Template Parameters&lt;/h2&gt;
+
+&lt;p&gt;The following template parameters are made available to all system themes and order form templates:&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -644,7 +856,7 @@ add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function(MenuItem $primarySideba
 
 &lt;tr&gt;
 &lt;td&gt;{$BASE_PATH_JS}&lt;/td&gt;
-&lt;td&gt;The base URL to common Javascript assets.&lt;/td&gt;
+&lt;td&gt;The base URL to common JavaScript assets.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -654,7 +866,7 @@ add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function(MenuItem $primarySideba
 
 &lt;tr&gt;
 &lt;td&gt;{$client}&lt;/td&gt;
-&lt;td&gt;The currently logged in Client, or null if a client is not logged in.&lt;/td&gt;
+&lt;td&gt;The currently logged in client, or &lt;code&gt;null&lt;/code&gt; if a client is not logged in.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -679,7 +891,7 @@ add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function(MenuItem $primarySideba
 
 &lt;tr&gt;
 &lt;td&gt;{$filename}&lt;/td&gt;
-&lt;td&gt;The basename of the current file requested by the web browser.&lt;/td&gt;
+&lt;td&gt;The base name of the current file requested by the web browser.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -689,7 +901,7 @@ add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function(MenuItem $primarySideba
 
 &lt;tr&gt;
 &lt;td&gt;{$loggedin}&lt;/td&gt;
-&lt;td&gt;true or false depending on if a client is logged in.&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt; depending on whether a client is logged in.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -719,17 +931,17 @@ add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function(MenuItem $primarySideba
 
 &lt;tr&gt;
 &lt;td&gt;{$systemurl}&lt;/td&gt;
-&lt;td&gt;The URL to the WHMCS system. Either the SSL or non-SSL URL depending on whether the current page loaded via HTTPS.&lt;/td&gt;
+&lt;td&gt;The URL to the WHMCS system. This is either the SSL or non-SSL URL depending on whether the current page loaded via HTTPS.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;{$template}&lt;/td&gt;
-&lt;td&gt;The name of the template used for display.&lt;/td&gt;
+&lt;td&gt;The name of the system theme used for display.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;{$todaysdate}&lt;/td&gt;
-&lt;td&gt;The current date, presented in &amp;ldquo;l, jS F Y&amp;rdquo; format.&lt;/td&gt;
+&lt;td&gt;The current date, presented in &lt;code&gt;l, jS F Y&lt;/code&gt; format.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -744,7 +956,7 @@ add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function(MenuItem $primarySideba
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;For a complete listing of all variables available to you in a given template file, add the following line to your template file and then access the page which calls the template via a browser to receive a popup listing all available template data.&lt;/p&gt;
+&lt;p&gt;For a complete listing of all variables available to you in a given template file, add the following line to your template file. Then, use a browser to access the page that calls the template. You will receive a popup list of all available template data.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;{debug}
 &lt;/code&gt;&lt;/pre&gt;
@@ -812,20 +1024,22 @@ add_hook(&#39;ClientAreaPrimarySidebar&#39;, 1, function(MenuItem $primarySideba
       <guid>//developers.whmcs.com/themes/php/</guid>
       <description>
 
+&lt;h1 id=&#34;using-hooks&#34;&gt;Using Hooks&lt;/h1&gt;
+
 &lt;p&gt;We recommend that all custom PHP logic be performed via hooks. Hooks are the &lt;strong&gt;only&lt;/strong&gt; future-proof way of performing your own PHP logic at the time of page rendering.&lt;/p&gt;
 
-&lt;p&gt;Historically, Smarty has allowed you to define custom PHP logic directly within template files. This has often been used by users and third party developers as a quick and convenient way of performing additional logic and defining additional template output.&lt;/p&gt;
+&lt;p&gt;Historically, Smarty has allowed you to define custom PHP logic directly within system theme and order form template files. This has often been used by users and third party developers as a quick and convenient way of performing additional logic and defining additional system theme and order form template output.&lt;/p&gt;
 
 &lt;p&gt;However, as of Smarty 3, support for the {php} block has been removed, and we are only providing legacy support to ease the transition for developers and users who work with our platform and rely on this functionality.&lt;/p&gt;
 
-&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;The exposure of the template object via the legacy variable $template available within the deprecated PHP blocks context is only available if template_object is itemized in the enabled_special_smarty_vars array as described in our &lt;a href=&#34;https://docs.whmcs.com/Smarty_Security_Policy#Supported_Policy_Settings_and_Values&#34;&gt;Smarty Security Policy
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;The exposure of the template object via the legacy variable &lt;code&gt;$template&lt;/code&gt;, available within the deprecated PHP blocks context, is only available if &lt;code&gt;template_object&lt;/code&gt; is itemized in the &lt;code&gt;enabled_special_smarty_vars&lt;/code&gt; array as described in our &lt;a href=&#34;https://docs.whmcs.com/Smarty_Security_Policy#Supported_Policy_Settings_and_Values&#34;&gt;Smarty Security Policy
 &lt;/a&gt; documentation.&lt;/p&gt;
 &lt;/div&gt;
 
 
 &lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
 
-&lt;p&gt;The below example demonstrates how a hook can be used to perform additional PHP logic and define template variables for use in client area template files.&lt;/p&gt;
+&lt;p&gt;The below example demonstrates how a hook can be used to perform additional PHP logic and define system theme and order form template variables for use in client area template files.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 /**
@@ -860,11 +1074,11 @@ function hook_template_variables_example($vars)
 add_hook(&#39;ClientAreaPageViewTicket&#39;, 1, &#39;hook_template_variables_example&#39;);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;This example above executes on the View Ticket page within the client area. There are hook points available for every page of the WHMCS client area that allow you to defined template variables in this way. For a full list, please refer to the Client Area Interface Hooks Index Listing&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;The example above executes on the &lt;strong&gt;View Ticket&lt;/strong&gt; page within the client area. There are hook points available for every page of the WHMCS client area. They allow you to define template variables in this way. For a full list, see the Client Area Interface Hooks Index Listing.&lt;/p&gt;
 &lt;/div&gt;
 
 
-&lt;p&gt;The above hook defines the additional template variables &lt;code&gt;{$fixedValue}&lt;/code&gt; - and, in the case of a logged in user, &lt;code&gt;{$userSpecificValue}&lt;/code&gt; and &lt;code&gt;{$anotherUserOnlyValue}&lt;/code&gt;. These can then be used inside the associated template file (in this case, viewticket.tpl) in the regular way.&lt;/p&gt;
+&lt;p&gt;The above hook defines the &lt;code&gt;{$fixedValue}&lt;/code&gt; template variable and, in the case of a logged in user, the &lt;code&gt;{$userSpecificValue}&lt;/code&gt; and &lt;code&gt;{$anotherUserOnlyValue}&lt;/code&gt; variables. These can then be used inside the associated template file (in this case, &lt;code&gt;viewticket.tpl&lt;/code&gt;) in the regular way.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;The fixed value is {$fixedValue}.&amp;lt;/p&amp;gt;
 
@@ -883,28 +1097,45 @@ add_hook(&#39;ClientAreaPageViewTicket&#39;, 1, &#39;hook_template_variables_exa
       <guid>//developers.whmcs.com/themes/testing/</guid>
       <description>
 
-&lt;p&gt;WHMCS allows you to preview a template before making it live.&lt;/p&gt;
+&lt;h2 id=&#34;testing-your-customizations&#34;&gt;Testing Your Customizations&lt;/h2&gt;
 
-&lt;p&gt;This is done using the &lt;code&gt;?systpl=xxxx&lt;/code&gt; url parameter.&lt;/p&gt;
+&lt;p&gt;WHMCS allows you to preview themes and Order Form Templates before making them live. This is done using URL parameters.&lt;/p&gt;
 
-&lt;p&gt;For example, if your new theme was named &amp;lsquo;mytemplate&amp;rsquo; and your WHMCS client area was located at &lt;a href=&#34;http://www.yourdomain.com/whmcs/&#34;&gt;http://www.yourdomain.com/whmcs/&lt;/a&gt;, you would navigate to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For themes, use the &lt;code&gt;?systpl=xxxx&lt;/code&gt; URL parameter.&lt;/li&gt;
+&lt;li&gt;For Order Form Templates, use the &lt;code&gt;?carttpl=xxxx&lt;/code&gt; URL parameter.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.yourdomain.com/whmcs/?systpl=mytemplate&#34;&gt;http://www.yourdomain.com/whmcs/?systpl=mytemplate&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;For example, to preview a custom system theme named &lt;code&gt;mytemplate&lt;/code&gt; in a WHMCS Client Area at &lt;code&gt;http://www.yourdomain.com/whmcs/&lt;/code&gt;, you would navigate to:&lt;/p&gt;
 
-&lt;p&gt;The template will be stored for the duration of your browser session allowing you to exercise all areas of the client area with your new theme.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;http://www.yourdomain.com/whmcs/?systpl=mytemplate
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;making-your-template-live&#34;&gt;Making your template live&lt;/h2&gt;
+&lt;p&gt;When you view a system theme or order form template through this method, the system will validate whether all of the theme or order form template&amp;rsquo;s dependencies are met. If they aren&amp;rsquo;t, the page will not display.&lt;/p&gt;
 
-&lt;p&gt;Once you&amp;rsquo;re happy with your new template and are ready to make it live, follow the steps below:&lt;/p&gt;
+&lt;p&gt;If the dependencies were met and the theme or order form template displayed successfully, the system theme or Order Form Template will be stored for the duration of your browser session, allowing you to exercise all areas of the Client Area with your new system theme.&lt;/p&gt;
+
+&lt;h2 id=&#34;activating-themes&#34;&gt;Activating Themes&lt;/h2&gt;
+
+&lt;p&gt;Once you&amp;rsquo;re happy with your new theme and are ready to make it live, follow the steps below:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Login to the Admin Area&lt;/li&gt;
-&lt;li&gt;Navigate to &lt;em&gt;Setup &amp;gt; General Settings&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Under the Template setting on the General tab, select the name of the template you created above&lt;/li&gt;
-&lt;li&gt;Hit &lt;strong&gt;Save Changes&lt;/strong&gt; and visitors to your site will immediately begin seeing your new template&lt;/li&gt;
+&lt;li&gt;Log in to your WHMCS Admin Area.&lt;/li&gt;
+&lt;li&gt;Navigate to &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; General Settings&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Under the &lt;strong&gt;System Theme&lt;/strong&gt; setting on the &lt;strong&gt;General&lt;/strong&gt; tab, select the name of the theme you created above.&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;Save Changes&lt;/strong&gt; and visitors to your site will immediately begin seeing your new theme.&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;Visitors to your site will immediately seeing your new system theme.&lt;/p&gt;
+
+&lt;h2 id=&#34;activating-order-form-templates&#34;&gt;Activating Order Form Templates&lt;/h2&gt;
+
+&lt;p&gt;There are two places in the WHMCS Admin Area in which you can set Order Form Templates:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You can set the system default Order Form Template at &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; General Settings&lt;/strong&gt; in the &lt;strong&gt;Ordering&lt;/strong&gt; tab.&lt;/li&gt;
+&lt;li&gt;You can set the Order Form Template for specific product groups at &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; Products/Services&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -916,49 +1147,24 @@ add_hook(&#39;ClientAreaPageViewTicket&#39;, 1, &#39;hook_template_variables_exa
       <guid>//developers.whmcs.com/themes/debugging/</guid>
       <description>
 
-&lt;p&gt;Syntax errors in template files can cause a page to be unable to render completely.&lt;/p&gt;
+&lt;h2 id=&#34;causes-of-errors&#34;&gt;Causes of Errors&lt;/h2&gt;
 
-&lt;p&gt;Other common causes include:&lt;/p&gt;
+&lt;p&gt;The most common error in custom system theme and order form template development, syntax errors in template files, can cause a page to be unable to render completely.&lt;/p&gt;
+
+&lt;p&gt;Other causes of errors include:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Using features of Smarty that have been removed in the upstream Smarty package&lt;/li&gt;
-&lt;li&gt;A custom or third party module that is incompatible&lt;/li&gt;
-&lt;li&gt;Using PHP code blocks in your template without the Allow Smarty PHP Tags setting enabled (go to Setup &amp;gt; General Settings &amp;gt; Security to enable it)&lt;/li&gt;
+&lt;li&gt;Using features of Smarty that have been removed in the upstream Smarty package.&lt;/li&gt;
+&lt;li&gt;An incompatible custom or third-party module.&lt;/li&gt;
+&lt;li&gt;Using PHP code blocks without the &lt;strong&gt;Allow Smarty PHP Tags&lt;/strong&gt; setting enabled at &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; General Settings&lt;/strong&gt; in the &lt;strong&gt;Security&lt;/strong&gt; tab.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
 
-&lt;p&gt;If you see a blank page after making a change to a template file, check the &lt;strong&gt;Activity Log&lt;/strong&gt; in &lt;em&gt;Utilities &amp;gt; Logs&lt;/em&gt; for any logged error message.&lt;/p&gt;
+&lt;p&gt;If you see a blank page after making a change to a template file, check for any logged error messages in the &lt;strong&gt;Activity Log&lt;/strong&gt; at &lt;strong&gt;Configuration &amp;gt; System Logs&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;If you don&amp;rsquo;t find anything in the activity logs, switching to a different template is an easy way to determine if the issue is with your template or something else.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;If you don&amp;rsquo;t find anything in the activity logs, switching to a different system theme or order form template is an easy way to determine if the issue is with your system theme or order form template, or if the problem is something else.&lt;/p&gt;
 &lt;/div&gt;
-
-</description>
-    </item>
-    
-    <item>
-      <title>Smarty</title>
-      <link>//developers.whmcs.com/themes/smarty/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//developers.whmcs.com/themes/smarty/</guid>
-      <description>
-
-&lt;p&gt;WHMCS uses the Smarty templating engine.&lt;/p&gt;
-
-&lt;p&gt;Smarty is a fast and powerful templating system with a vast array of functionality that makes working with WHMCS templates easy and flexible.&lt;/p&gt;
-
-&lt;h2 id=&#34;smarty-3-manual&#34;&gt;Smarty 3 Manual&lt;/h2&gt;
-
-&lt;p&gt;Visit the Smarty 3 manual below:&lt;/p&gt;
-
-&lt;a  href=&#34;http://www.smarty.net/docs/en/&#34; target=&#34;_blank&#34;  class=&#34;btn btn-default&#34;&gt;
-  
-  
-  
-  &lt;i class=&#34;fa fa-file-text-o&#34;&gt;&lt;/i&gt; Launch Smarty Documentation
-  
-&lt;/a&gt;
 
 </description>
     </item>
