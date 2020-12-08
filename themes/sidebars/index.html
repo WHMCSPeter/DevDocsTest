@@ -148,7 +148,15 @@
       
         <li class="" data-nav-id="/themes/theme-parameters/">
           <a href="//developers.whmcs.com/themes/theme-parameters/">
-            <span>Theme Parameters</span>
+            <span>The Theme Configuration File</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/themes/order-form-templates/">
+          <a href="//developers.whmcs.com/themes/order-form-templates/">
+            <span>The Theme Configuration File</span>
           </a>
         </li>
       
@@ -331,29 +339,33 @@
 
 			
 
-<p>There are two sidebars in WHMCS’ client area. The primary sidebar contains sidebar elements that are displayed above the body content when in responsive mode. The secondary sidebar contains sidebar elements that are displayed below the body content when in responsive mode. In desktop mode, there will be no noticeable difference between primary and secondary sidebar items.</p>
+<h2 id="sidebars">Sidebars</h2>
 
-<p>The sidebar elements and panels are controlled in a programmatic way allowing modules and hooks to dynamically interact with the sidebar items.</p>
+<div class="notice tip" ><p>This guide assumes you are already familiar with creating and using <a href="//developers.whmcs.com/hooks/">Hook files in WHMCS</a>.</p>
+</div>
 
-<p>The look and feel of the sidebar can be customised via the header.tpl and sidebar.tpl (located in /includes/) template files.</p>
 
-<p>This guide assumes you are already familiar with creating and using <a href="//developers.whmcs.com/hooks/">Hook files in WHMCS</a>.</p>
+<p>There are two sidebars in WHMCS&rsquo;s client area. The primary sidebar contains sidebar elements that are displayed above the body content when in responsive mode. The secondary sidebar contains sidebar elements that are displayed below the body content when in responsive mode. In desktop mode, there will be no noticeable difference between primary and secondary sidebar items.</p>
+
+<p>The sidebar elements and panels are controlled in a programmatic way, allowing modules and hooks to dynamically interact with the sidebar items.</p>
+
+<p>The look and feel of the navigation bar can be customised via the <code>/includes/header.tpl</code> and <code>/includes/navbar.tpl</code> system theme template files.</p>
 
 <h2 id="finding-a-sidebar-name">Finding a Sidebar Name</h2>
 
-<p>Every sidebar menu item has a unique name that is used to reference it. You will need this name in order to manipulate it. To make it easier, we have made the name of each sidebar menu item available in the HTML source of the page, which means it can be retrieved using the Inspect Element option available in most modern browsers. An example of this is shown below.</p>
+<p>Every sidebar menu item has a unique name that is used to reference it. You will need this name in order to manipulate it. To make it easier, we have made the name of each sidebar menu item available in the HTML source of the page, which means it can be retrieved using the <em>Inspect Element</em> option available in most modern browsers. For example:</p>
 
 <p><img src="find-sidebar-name.png" alt="Sidebar Menus: Finding a Sidebar Name" /></p>
 
-<p>Once you have the menu item name that you wish to manipulate, which in the example above is &ldquo;Billing Information&rdquo; you can manipulate it in the following ways.</p>
+<p>Once you have the menu item name that you wish to manipulate, which in the example above is <code>Account Details</code>, you can manipulate it as described below.</p>
 
-<div class="notice tip" ><p>The client area&rsquo;s sidebar menu system is defined in a tree structure. Each menu item has one parent item and can have many child items. To manipulate a menu item within a sidebar panel, you first need to retrieve the parent menu item, which in the case above is &ldquo;My Account&rdquo;, followed by the &ldquo;Billing Information&rdquo; menu item which is a child within that.</p>
+<div class="notice tip" ><p>The client area&rsquo;s sidebar menu system is defined in a tree structure. Each menu item has one parent item and can have many child items. To manipulate a menu item within a sidebar panel, you first need to retrieve the parent menu item, which in the case above is <code>Account</code>, followed by the <code>Account Details</code> menu item within it.</p>
 </div>
 
 
 <h2 id="changing-the-text-label-of-a-sidebar-item">Changing the Text Label of a Sidebar Item</h2>
 
-<p>All sidebar menu items that are supplied by default use display names controlled by language file. Simply search in your active language file for the text you see in the menu item label, and you can adjust/change it there as required.</p>
+<p>All sidebar menu items that are supplied by default use display names controlled by language file. Simply search in your active language file for the text you see in the menu item label, and you can adjust or change it there as required.</p>
 
 <p>Alternatively, you can manipulate the display text via a hook as follows:</p>
 
@@ -369,11 +381,11 @@ add_hook('ClientAreaPrimarySidebar', 1, function(MenuItem $primarySidebar)
 });
 </code></pre>
 
-<p>Notice how in the above we first retrieve the Support menu item, followed by the Announcements menu item which is a child within that. The same logic should be applied to all dropdown menu items.</p>
+<p>Notice how in the above we first retrieve the <code>Support</code> menu item, followed by the <code>Announcements</code> menu item, which is a child within that. The same logic should be applied to all dropdown menu items.</p>
 
 <h2 id="changing-where-a-sidebar-item-points-to">Changing where a Sidebar Item Points To</h2>
 
-<p>You can change where a menu item points to using the setUri method. For example if we are using an external system to control our announcements, we could do something like the following:</p>
+<p>You can change where a menu item points using the <code>setUri</code> method. For example, if you use an external system to control announcements, you could do something like the following:</p>
 
 <pre><code>&lt;?php
 
@@ -387,7 +399,7 @@ add_hook('ClientAreaPrimarySidebar', 1, function(MenuItem $primarySidebar)
 });
 </code></pre>
 
-<h2 id="re-arranging-sidebar-items">Re-arranging Sidebar Items</h2>
+<h2 id="rearranging-sidebar-items">Rearranging Sidebar Items</h2>
 
 <p>You can change the display order of menu items as follows:</p>
 
@@ -417,7 +429,7 @@ $primaryNavbar-&gt;getChild('My Account')-&gt;getChild('Billing Information')-&g
 
 <h2 id="adding-an-additional-sidebar-menu-item">Adding an Additional Sidebar Menu Item</h2>
 
-<p>To add an additional item to a menu, we must first check that the sidebar exists on the particular page before speciying You can add additional menu items as follows:</p>
+<p>To add an additional item to a menu, check that the sidebar exists on the particular page before specifying it. You can add additional menu items as follows:</p>
 
 <pre><code>&lt;?php
 
@@ -436,7 +448,7 @@ add_hook('ClientAreaPrimarySidebar', 1, function (MenuItem $primarySidebar)
 });
 </code></pre>
 
-<h2 id="hiding-removing-a-sidebar-menu-item">Hiding/Removing a Sidebar Menu Item</h2>
+<h2 id="hiding-or-removing-a-sidebar-menu-item">Hiding or Removing a Sidebar Menu Item</h2>
 
 <p>You can remove a menu item as follows:</p>
 

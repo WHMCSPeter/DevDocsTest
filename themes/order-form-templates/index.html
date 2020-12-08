@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CSS Styling - WHMCS Developer Documentation</title>
+    <title>The Theme Configuration File - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/themes/css-styling/">
+    <link rel="canonical" href="//developers.whmcs.com/themes/order-form-templates/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -154,7 +154,7 @@
       
       
       
-        <li class="" data-nav-id="/themes/order-form-templates/">
+        <li class="active" data-nav-id="/themes/order-form-templates/">
           <a href="//developers.whmcs.com/themes/order-form-templates/">
             <span>The Theme Configuration File</span>
           </a>
@@ -170,7 +170,7 @@
       
       
       
-        <li class="active" data-nav-id="/themes/css-styling/">
+        <li class="" data-nav-id="/themes/css-styling/">
           <a href="//developers.whmcs.com/themes/css-styling/">
             <span>CSS Styling</span>
           </a>
@@ -330,46 +330,92 @@
                     
                   
                 
-                <span itemprop="title"> CSS Styling</span>
+                <span itemprop="title"> The Theme Configuration File</span>
               </div>
             </div>
 
 
-			<h1>CSS Styling </h1>
+			<h1>The Theme Configuration File </h1>
 
 			
 
-<h2 id="custom-css">Custom CSS</h2>
+<h2 id="what-is-an-order-form-template">What is an Order Form Template?</h2>
 
-<p>If you want to make changes to any of the CSS that is applied by default, we recommend making those customisations inside of the <code>/css/custom.css</code> file. This file is included after <code>styles.css</code>, allowing you to override any of the CSS defined within it. It will not be affected by future updates to the WHMCS software.</p>
+<p>Order Form Templates control the way products and the shopping cart appear when customers make purchases.</p>
 
-<div class="notice tip" ><ul>
-<li>We strongly recommend adding your custom CSS rules to the <code>custom.css</code> file and <strong>not</strong> editing <code>/css/styles.css</code> directly because it will make updating easier.</li>
-<li>You may also wish to consider creating a <a href="//developers.whmcs.com/themes/child-themes/">child theme</a>.</li>
+<ul>
+<li>You can find more information about Order Form Templates <a href="https://docs.whmcs.com/Order_Form_Templates">here</a>.</li>
+<li>You may want to refer to the <a href="https://docs.whmcs.com/Standard_Order_Form_Templates">list of WHMCS-shipped Order Form Templates</a>.</li>
 </ul>
+
+<div class="notice tip" ><p>To customise other aspects of the WHMCS Client Area, we recommend creating a <a href="//developers.whmcs.com/themes/child-themes/">Child Theme</a>.</p>
 </div>
 
 
-<h2 id="using-font-awesome">Using Font Awesome</h2>
+<p>You can set the system default Order Form Template at <strong>Configuration &gt; System Settings &gt; General Settings</strong> in the <strong>Ordering</strong> tab. This is where errors will display if there&rsquo;s a compatibility issue between the current <strong>System Theme</strong> and the default Order Form Template.</p>
 
-<p>To use Font Awesome icons, you may include the latest Font Awesome release shipped with WHMCS by including the line below within the <code>&lt;head&gt;</code> section of your template:</p>
+<h2 id="order-form-template-dependencies">Order Form Template Dependencies</h2>
 
-<p><code>&lt;link href=&quot;{$WEB_ROOT}/assets/css/fontawesome-all.min.css&quot; rel=&quot;stylesheet&quot;&gt;</code></p>
+<p>An inheritance system allows parent-child relationships, with parents providing assets to children. Many custom Order Form Templates will require one or more assets in order to function. These needs are stated in the <code>dependencies</code> list in the child&rsquo;s <code>theme.yaml</code> file, and then are fulfilled by the items in the <code>provides</code> list in the parent&rsquo;s <code>theme.yaml</code> file.</p>
 
-<p>Themes that do not include the above line will have it injected automatically. If you wish to prevent this behaviour, include the following line:</p>
+<div class="notice tip" ><p>For more about the <code>theme.yaml</code> file and how to use it to declare and fulfill dependencies, see <a href="//developers.whmcs.com/themes/theme-config/">The Theme Configuration File</a>.</p>
+</div>
 
-<p><code>&lt;!-- /css/fontawesome-all.min.css --&gt;</code></p>
+
+<h2 id="creating-an-order-form-template">Creating an Order Form Template</h2>
+
+<p>Using parent-child relationships, you don&rsquo;t need to create a custom copy of all of the template files. Only copy or create the files you want to customise, and the remaining Order Form Templates will then load from the parent when you define them. This will make your customised Order Form Template easier to maintain. When you upgrade to a new version of WHMCS, the system updates any changes to Order Form Template files that aren&rsquo;t customised.</p>
+
+<p>To create an Order Form Template:</p>
+
+<h3 id="1-create-an-order-form-template-folder">1. Create an Order Form Template Folder</h3>
+
+<p>First, create a new folder in the <code>/templates/orderforms/</code> directory.</p>
+
+<p>The new directory needs a name. For example, <code>mycart</code>.</p>
+
+<div class="notice tip" ><p>Names should only contain lowercase letters, numbers, hyphens, and underscores. They cannot include spaces.</p>
+</div>
+
+
+<h3 id="2-create-a-theme-yaml-file">2. Create a theme.yaml File</h3>
+
+<p>In the new folder, create a <code>theme.yaml</code> file and populate it with information, making sure to specify a parent. At minimum, your <code>theme.yaml</code> file must contain these lines:</p>
+
+<pre><code>config:
+  parent: standard_cart
+</code></pre>
+
+<div class="notice tip" ><p>For more about the <code>theme.yaml</code> file and its contents, see <a href="//developers.whmcs.com/themes/theme-config/">The Theme Configuration File</a>.</p>
+</div>
+
+
+<h3 id="3-customize-files">3. Customize Files</h3>
+
+<p>Copy the files that you want to customise from the parent Order Form Template.</p>
+
+<p>For example, the Standard Cart Order Form Template is the parent for the Premium Comparison Order Form Template. Premium Comparison consists only of a <code>products.tpl</code> Order Form Template file. All of the other steps of the order process use Standard Cart.</p>
+
+<p>For a current list of Order Form Template files, see <a href="https://docs.whmcs.com/Order_Form_Templates">Order Form Templates</a>.</p>
+
+<h2 id="testing-order-form-templates">Testing Order Form Templates</h2>
+
+<p>WHMCS allows you to preview Order Form Templates before making them live. This is done using the <code>?carttpl=xxxx</code> URL parameter.</p>
+
+<h2 id="activating-order-form-templates">Activating Order Form Templates</h2>
+
+<p>You can set the Order Form Template for specific product groups at <strong>Configuration &gt; System Settings &gt; Products/Services</strong>.</p>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/themes/customising/">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/themes/theme-config/">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/themes/navigation/">
+                    <a class="nav nav-next" href="//developers.whmcs.com/themes/customising/">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>

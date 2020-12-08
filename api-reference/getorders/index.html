@@ -1632,43 +1632,55 @@ print_r($results);
 
 <pre><code>{
     &quot;result&quot;: &quot;success&quot;,
-    &quot;totalresults&quot;: &quot;1&quot;,
-    &quot;startnumber&quot;: &quot;0&quot;,
-    &quot;numreturned&quot;: &quot;1&quot;,
-    &quot;orders[order][0][id]&quot;: &quot;1&quot;,
-    &quot;orders[order][0][ordernum]&quot;: &quot;8549045538&quot;,
-    &quot;orders[order][0][userid]&quot;: &quot;1&quot;,
-    &quot;orders[order][0][contactid]&quot;: &quot;0&quot;,
-    &quot;orders[order][0][date]&quot;: &quot;2016-01-01 17:02:40&quot;,
-    &quot;orders[order][0][nameservers]&quot;: &quot;&quot;,
-    &quot;orders[order][0][transfersecret]&quot;: &quot;&quot;,
-    &quot;orders[order][0][renewals]&quot;: &quot;&quot;,
-    &quot;orders[order][0][promocode]&quot;: &quot;&quot;,
-    &quot;orders[order][0][promotype]&quot;: &quot;&quot;,
-    &quot;orders[order][0][promovalue]&quot;: &quot;&quot;,
-    &quot;orders[order][0][orderdata]&quot;: &quot;a:0:}&quot;,
-    &quot;orders[order][0][amount]&quot;: &quot;15.95&quot;,
-    &quot;orders[order][0][paymentmethod]&quot;: &quot;paypal&quot;,
-    &quot;orders[order][0][invoiceid]&quot;: &quot;1&quot;,
-    &quot;orders[order][0][status]&quot;: &quot;Active&quot;,
-    &quot;orders[order][0][ipaddress]&quot;: &quot;&quot;,
-    &quot;orders[order][0][fraudmodule]&quot;: &quot;&quot;,
-    &quot;orders[order][0][fraudoutput]&quot;: &quot;&quot;,
-    &quot;orders[order][0][notes]&quot;: &quot;&quot;,
-    &quot;orders[order][0][paymentmethodname]&quot;: &quot;PayPal&quot;,
-    &quot;orders[order][0][paymentstatus]&quot;: &quot;Unpaid&quot;,
-    &quot;orders[order][0][name]&quot;: &quot;Test Client&quot;,
-    &quot;orders[order][0][currencyprefix]&quot;: &quot;$&quot;,
-    &quot;orders[order][0][currencysuffix]&quot;: &quot; USD&quot;,
-    &quot;orders[order][0][frauddata]&quot;: &quot;&quot;,
-    &quot;orders[order][0][lineitems][lineitem][0][type]&quot;: &quot;product&quot;,
-    &quot;orders[order][0][lineitems][lineitem][0][relid]&quot;: &quot;1&quot;,
-    &quot;orders[order][0][lineitems][lineitem][0][producttype]&quot;: &quot;Other Product\/Service&quot;,
-    &quot;orders[order][0][lineitems][lineitem][0][product]&quot;: &quot;SSL Certificates - Rapid SSL&quot;,
-    &quot;orders[order][0][lineitems][lineitem][0][domain] &quot;: &quot;&gt;&quot;,
-    &quot;orders[order][0][lineitems][lineitem][0][billingcycle]&quot;: &quot;Monthly&quot;,
-    &quot;orders[order][0][lineitems][lineitem][0][amount]&quot;: &quot;$15.95 USD&quot;,
-    &quot;orders[order][0][lineitems][lineitem][0][status]&quot;: &quot;Active&quot;
+    &quot;totalresults&quot;: 1,
+    &quot;startnumber&quot;: 0,
+    &quot;numreturned&quot;: 1,
+    &quot;orders&quot;: {
+        &quot;order&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;ordernum&quot;: 7858259149,
+                &quot;userid&quot;: 1,
+                &quot;contactid&quot;: 0,
+                &quot;date&quot;: &quot;2020-09-23 13:59:35&quot;,
+                &quot;nameservers&quot;: &quot;&quot;,
+                &quot;transfersecret&quot;: &quot;&quot;,
+                &quot;renewals&quot;: &quot;&quot;,
+                &quot;promocode&quot;: &quot;&quot;,
+                &quot;promotype&quot;: &quot;&quot;,
+                &quot;promovalue&quot;: &quot;&quot;,
+                &quot;orderdata&quot;: &quot;}&quot;,
+                &quot;amount&quot;: &quot;8.00&quot;,
+                &quot;paymentmethod&quot;: &quot;stripe&quot;,
+                &quot;invoiceid&quot;: 1,
+                &quot;status&quot;: &quot;Active&quot;,
+                &quot;ipaddress&quot;: &quot;123.456.789.110&quot;,
+                &quot;fraudmodule&quot;: &quot;fraudlabs&quot;,
+                &quot;fraudoutput&quot;: &quot;{\&quot;is_country_match\&quot;:\&quot;Y\&quot;,\&quot;is_high_risk_country\&quot;:\&quot;N\&quot;,\&quot;distance_in_km\&quot;:484.990000000000009094947017729282379150390625,\&quot;distance_in_mile\&quot;:301.3600000000000136424205265939235687255859375,\&quot;ip_country\&quot;:\&quot;US\&quot;,\&quot;ip_continent\&quot;:\&quot;North America\&quot;,\&quot;ip_region\&quot;:\&quot;Texas\&quot;,\&quot;ip_city\&quot;:\&quot;Houston\&quot;,\&quot;ip_latitude\&quot;:\&quot;29.8284\&quot;,\&quot;ip_longitude\&quot;:\&quot;-95.4696\&quot;,\&quot;ip_timezone\&quot;:\&quot;-04:00\&quot;,\&quot;ip_elevation\&quot;:\&quot;104\&quot;,\&quot;ip_domain\&quot;:\&quot;whmcs.com\&quot;,\&quot;ip_mobile_mnc\&quot;:\&quot;NA\&quot;,\&quot;ip_mobile_mcc\&quot;:\&quot;NA\&quot;,\&quot;ip_mobile_brand\&quot;:\&quot;NA\&quot;,\&quot;ip_netspeed\&quot;:\&quot;DSL\&quot;,\&quot;ip_isp_name\&quot;:\&quot;WHMCS\&quot;,\&quot;ip_usage_type\&quot;:\&quot;Commercial\&quot;,\&quot;is_free_email\&quot;:\&quot;Y\&quot;,\&quot;is_new_domain_name\&quot;:\&quot;N\&quot;,\&quot;is_domain_exists\&quot;:\&quot;Y\&quot;,\&quot;is_proxy_ip_address\&quot;:\&quot;N\&quot;,\&quot;is_bin_found\&quot;:\&quot;NA\&quot;,\&quot;is_bin_country_match\&quot;:\&quot;NA\&quot;,\&quot;is_bin_name_match\&quot;:\&quot;NA\&quot;,\&quot;is_bin_phone_match\&quot;:\&quot;NA\&quot;,\&quot;is_bin_prepaid\&quot;:\&quot;NA\&quot;,\&quot;is_address_ship_forward\&quot;:\&quot;N\&quot;,\&quot;is_bill_ship_city_match\&quot;:\&quot;Y\&quot;,\&quot;is_bill_ship_state_match\&quot;:\&quot;Y\&quot;,\&quot;is_bill_ship_country_match\&quot;:\&quot;Y\&quot;,\&quot;is_bill_ship_postal_match\&quot;:\&quot;Y\&quot;,\&quot;is_ship_address_blacklist\&quot;:\&quot;N\&quot;,\&quot;is_phone_blacklist\&quot;:\&quot;N\&quot;,\&quot;is_ip_blacklist\&quot;:\&quot;N\&quot;,\&quot;is_email_blacklist\&quot;:\&quot;N\&quot;,\&quot;is_credit_card_blacklist\&quot;:\&quot;NA\&quot;,\&quot;is_device_blacklist\&quot;:\&quot;NA\&quot;,\&quot;is_user_blacklist\&quot;:\&quot;NA\&quot;,\&quot;is_high_risk_username\&quot;:\&quot;NA\&quot;,\&quot;is_export_controlled_country\&quot;:\&quot;NA\&quot;,\&quot;is_malware_exploit\&quot;:\&quot;NA\&quot;,\&quot;user_order_id\&quot;:\&quot;7858259149\&quot;,\&quot;user_order_memo\&quot;:\&quot;\&quot;,\&quot;fraudlabspro_score\&quot;:14,\&quot;fraudlabspro_distribution\&quot;:\&quot;57\&quot;,\&quot;fraudlabspro_status\&quot;:\&quot;APPROVE\&quot;,\&quot;fraudlabspro_id\&quot;:\&quot;20200923-SAMPLE\&quot;,\&quot;fraudlabspro_version\&quot;:\&quot;1.5.1\&quot;,\&quot;fraudlabspro_error_code\&quot;:\&quot;\&quot;,\&quot;fraudlabspro_message\&quot;:\&quot;\&quot;,\&quot;fraudlabspro_credits\&quot;:496,\&quot;http_response_code\&quot;:200}&quot;,
+                &quot;notes&quot;: &quot;Sample Notes!&quot;,
+                &quot;paymentmethodname&quot;: &quot;Stripe&quot;,
+                &quot;paymentstatus&quot;: &quot;Paid&quot;,
+                &quot;name&quot;: &quot;WHMCS Tester&quot;,
+                &quot;currencyprefix&quot;: &quot;$&quot;,
+                &quot;currencysuffix&quot;: &quot;USD&quot;,
+                &quot;frauddata&quot;: &quot;&quot;,
+                &quot;lineitems&quot;: {
+                    &quot;lineitem&quot;: [
+                        {
+                            &quot;type&quot;: &quot;product&quot;,
+                            &quot;relid&quot;: 1,
+                            &quot;producttype&quot;: &quot;Other Product\/Service&quot;,
+                            &quot;product&quot;: &quot;SSL Certificates - Rapid SSL&quot;,
+                            &quot;domain&quot;: &quot;sampledomain.com&quot;,
+                            &quot;billingcycle&quot;: &quot;One-Time&quot;,
+                            &quot;amount&quot;: &quot;8.00&quot;,
+                            &quot;status&quot;: &quot;Active&quot;
+                        }
+                    ]
+                }
+            }
+        ]
+    }
 }
 </code></pre>
 

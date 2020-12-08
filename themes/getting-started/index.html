@@ -148,7 +148,15 @@
       
         <li class="" data-nav-id="/themes/theme-parameters/">
           <a href="//developers.whmcs.com/themes/theme-parameters/">
-            <span>Theme Parameters</span>
+            <span>The Theme Configuration File</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/themes/order-form-templates/">
+          <a href="//developers.whmcs.com/themes/order-form-templates/">
+            <span>The Theme Configuration File</span>
           </a>
         </li>
       
@@ -345,39 +353,37 @@
 
 <h2 id="creating-a-custom-theme">Creating a Custom Theme</h2>
 
-<p>If you wish to create a new Parent Theme (that other themes can inherit from and be a child of), or are using an older version of WHMCS, you can create a Custom Theme. For all other scenarios, we recommend using <a href="//developers.whmcs.com/themes/child-themes">Child Themes</a>.</p>
+<p>If you wish to create a new Parent Theme (that other themes can inherit from and be a child of), or are using WHMCS 8.0 or earlier, you can create a Custom Theme. For all other scenarios, we recommend using <a href="//developers.whmcs.com/themes/child-themes">Child Themes</a>.</p>
 
 <p>The first step is to create your own copy of the template. This ensures your customisations are not lost when updating.</p>
 
 <h3 id="method-1-using-source-control">Method 1: Using Source Control</h3>
 
-<p>If you&rsquo;re familiar with GIT Version Control, we make the Six theme available as a read-only repository on <a href="https://github.com/WHMCS/templates-six">Github</a> that enables you to build your template in a way that can be tracked and automatically updated.</p>
+<p>If you&rsquo;re familiar with Git version control, we make our system themes and order form templates available as read-only repositories on <a href="https://github.com/WHMCS/">GitHub</a>. You can use these to build your template in a way that can be tracked and automatically updated.</p>
 
 <p>To use this, navigate to the WHMCS templates directory:</p>
 
 <pre><code>$ cd ~/whmcs/templates/
 </code></pre>
 
-<p>Clone the Six template theme repo into your new template directory:</p>
+<p>Then, clone the repository into your new template directory:</p>
 
 <pre><code>$ git clone https://github.com/WHMCS/templates-six.git my-template-name
 </code></pre>
 
-<p>Now begin making your changes</p>
+<p>Next, you can <a href="//developers.whmcs.com/themes/customising">customise</a> your system theme or <a href="//developers.whmcs.com/themes/order-form-templates">order form template</a>.</p>
 
-<h3 id="method-2-non-source-controlled">Method 2: Non source controlled</h3>
+<h3 id="method-2-without-source-control">Method 2: Without Source Control</h3>
 
-<p>Alternatively, if you aren&rsquo;t familiar with GIT Source Control or don&rsquo;t wish to use it, you can simply make a copy of the <strong>Six</strong> template directory.</p>
+<p>Alternatively, if you aren&rsquo;t familiar with Git version control or don&rsquo;t wish to use it, you can make a copy of the template directory within WHMCS.</p>
 
-<ol>
-<li>Copy the <code>~/templates/six/</code> directory to <code>~/templates/yourname/</code></li>
-</ol>
+<p>To do this, copy the theme or order form template directory (for example, <code>~/templates/twenty-one/</code>) to <code>~/templates/yourname/</code>.</p>
 
 <div class="notice info" ><p>Template names should be a single word, consisting of only lowercase letters and numbers.</p>
 </div>
 
 
-<p>Now it&rsquo;s time to <a href="//developers.whmcs.com/themes/customising">customise your theme</a>.</p>
+<p>Next, you can <a href="//developers.whmcs.com/themes/customising">customise</a> your system theme or <a href="//developers.whmcs.com/themes/order-form-templates">order form template</a>.</p>
 
 
 			<div class="topic-navigation clearfix">

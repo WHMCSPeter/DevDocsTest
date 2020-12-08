@@ -148,7 +148,15 @@
       
         <li class="" data-nav-id="/themes/theme-parameters/">
           <a href="//developers.whmcs.com/themes/theme-parameters/">
-            <span>Theme Parameters</span>
+            <span>The Theme Configuration File</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/themes/order-form-templates/">
+          <a href="//developers.whmcs.com/themes/order-form-templates/">
+            <span>The Theme Configuration File</span>
           </a>
         </li>
       
@@ -329,9 +337,15 @@
 
 			<h1>Variables </h1>
 
-			<p>In the Smarty template language, template variables take the format <code>{$variable_name}</code>.</p>
+			
 
-<p>The following template parameters are made available to all pages.</p>
+<h2 id="variables">Variables</h2>
+
+<p>In the Smarty template language, template variables take the format <code>{$variable_name}</code>.</p>
+
+<h2 id="template-parameters">Template Parameters</h2>
+
+<p>The following template parameters are made available to all system themes and order form templates:</p>
 
 <table>
 <thead>
@@ -359,7 +373,7 @@
 
 <tr>
 <td>{$BASE_PATH_JS}</td>
-<td>The base URL to common Javascript assets.</td>
+<td>The base URL to common JavaScript assets.</td>
 </tr>
 
 <tr>
@@ -369,7 +383,7 @@
 
 <tr>
 <td>{$client}</td>
-<td>The currently logged in Client, or null if a client is not logged in.</td>
+<td>The currently logged in client, or <code>null</code> if a client is not logged in.</td>
 </tr>
 
 <tr>
@@ -394,7 +408,7 @@
 
 <tr>
 <td>{$filename}</td>
-<td>The basename of the current file requested by the web browser.</td>
+<td>The base name of the current file requested by the web browser.</td>
 </tr>
 
 <tr>
@@ -404,7 +418,7 @@
 
 <tr>
 <td>{$loggedin}</td>
-<td>true or false depending on if a client is logged in.</td>
+<td><code>true</code> or <code>false</code> depending on whether a client is logged in.</td>
 </tr>
 
 <tr>
@@ -434,17 +448,17 @@
 
 <tr>
 <td>{$systemurl}</td>
-<td>The URL to the WHMCS system. Either the SSL or non-SSL URL depending on whether the current page loaded via HTTPS.</td>
+<td>The URL to the WHMCS system. This is either the SSL or non-SSL URL depending on whether the current page loaded via HTTPS.</td>
 </tr>
 
 <tr>
 <td>{$template}</td>
-<td>The name of the template used for display.</td>
+<td>The name of the system theme used for display.</td>
 </tr>
 
 <tr>
 <td>{$todaysdate}</td>
-<td>The current date, presented in &ldquo;l, jS F Y&rdquo; format.</td>
+<td>The current date, presented in <code>l, jS F Y</code> format.</td>
 </tr>
 
 <tr>
@@ -459,7 +473,7 @@
 </tbody>
 </table>
 
-<p>For a complete listing of all variables available to you in a given template file, add the following line to your template file and then access the page which calls the template via a browser to receive a popup listing all available template data.</p>
+<p>For a complete listing of all variables available to you in a given template file, add the following line to your template file. Then, use a browser to access the page that calls the template. You will receive a popup list of all available template data.</p>
 
 <pre><code>{debug}
 </code></pre>

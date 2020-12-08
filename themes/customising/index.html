@@ -148,7 +148,15 @@
       
         <li class="" data-nav-id="/themes/theme-parameters/">
           <a href="//developers.whmcs.com/themes/theme-parameters/">
-            <span>Theme Parameters</span>
+            <span>The Theme Configuration File</span>
+          </a>
+        </li>
+      
+      
+      
+        <li class="" data-nav-id="/themes/order-form-templates/">
+          <a href="//developers.whmcs.com/themes/order-form-templates/">
+            <span>The Theme Configuration File</span>
           </a>
         </li>
       
@@ -331,44 +339,53 @@
 
 			
 
-<p>The header and footer template files that are common to every page and act as a wrapper around the primary body content are a good place to start for this.</p>
+<h2 id="customising-themes">Customising Themes</h2>
+
+<div class="notice tip" ><p>For information on customising Order Forms, see <a href="//developers.whmcs.com/themes/order-form-templates/">Order Form Templates</a>.</p>
+</div>
+
+
+<p>The header and footer system theme template files are common to every page and act as a wrapper around the primary body content. They are an excellent place to begin customising a theme.</p>
 
 <ul>
-<li>We strongly recommend you maintain all of the template includes and output variables present in the default template files in your custom header/footer as this will help ensure compatibility with addons and extensions you later install</li>
-<li>Navigation bar and Sidebar content is defined within WHMCS and passed to the templates for output. This allows modules and addons to interact with and manipulate these areas of the client area dynamically. The output styling of these is controlled by include files which are explained in more detail below.</li>
-<li>The footer template file includes a number of lines of javascript code immediately prior to the closing </body> tag which are essential to the correct operation of the client area. Please take care not to remove these lines.</li>
+<li>We strongly recommend that you maintain all of the template includes and output variables in the default template files in your custom header and footer. This will help ensure compatibility with addons and extensions you install later.</li>
+<li>Navigation bar and sidebar content is defined within WHMCS and passed to the templates for output. This allows modules and addons to interact with and manipulate these areas of the client area dynamically. The output styling of these is controlled by include files which are explained in more detail below.</li>
+<li>The footer template file includes a number of lines of JavaScript code immediately prior to the closing <code>&lt;/body&gt;</code> tag. These are essential to the correct operation of the client area. <strong>Do not</strong> remove these lines.</li>
+<li>You may also wish to consider creating <a href="//developers.whmcs.com/themes/child-themes/">child themes</a>, which have simpler development and maintenance requirements.</li>
 </ul>
 
 <h2 id="custom-logo">Custom Logo</h2>
 
-<p>The Six theme uses a conditional based on the <code>$assetLogoPath</code> variable to either display a custom logo or the name of the company as defined in Setup &gt; General Settings &gt; Company Name. In order to set a custom logo it must either exist as <code>/assests/img/logo.png</code> or <code>/assests/img/logo.jpg</code>.</p>
+<p>The Twenty-One and Six themes display either your company name or logo in the top-left corner of the Client Area. If you supply a logo, the <code>$assetLogoPath</code> variable contains the relative path to the logo file. You can upload the logo in the <strong>Setup Wizard</strong> or at <strong>Configuration &gt; System Settings &gt; General Settings</strong> in the <strong>General</strong> tab.</p>
+
+<p>To set a custom logo, it must be saved as either <code>logo.png</code> or <code>logo.jpg</code>.</p>
 
 <h2 id="include-files">Include Files</h2>
 
-<p>Include templates are templates that are shared and used by multiple pages. They are located within the <code>/includes/</code> sub-directory.</p>
+<p>Include templates are templates that are shared and used by multiple pages. They are located within the <code>/includes/</code> subdirectory.</p>
 
 <p><strong>Common to All Pages</strong></p>
 
 <ul>
-<li>head.tpl - Defines the CSS &amp; Javascript files included within the <head> section of a page</li>
-<li>navbar.tpl - Controls the output of the primary navigation bar menu items</li>
-<li>sidebar.tpl - Controls the output of the sidebar menu items</li>
+<li><code>head.tpl</code> - Defines the CSS and Javascript files included within the <code>&lt;head&gt;</code> section of a page.</li>
+<li><code>navbar.tpl</code> - Controls the output of the primary navigation bar menu items</li>
+<li><code>sidebar.tpl</code> - Controls the output of the sidebar menu items.</li>
 </ul>
 
 <p><strong>Used as Required</strong></p>
 
 <ul>
-<li>captcha.tpl - Used to output the captcha verification image wherever used</li>
-<li>pwstrength.tpl - Used to output the password strength meter and tooltip wherever used</li>
-<li>tablelist.tpl - Controls the output of all filterable data list tables throughout the client area</li>
+<li><code>captcha.tpl</code> - Used to output the captcha verification image wherever used.</li>
+<li><code>pwstrength.tpl</code> - Used to output the password strength meter and tooltip wherever used.</li>
+<li><code>tablelist.tpl</code> - Controls the output of all filterable data list tables throughout the client area.</li>
 </ul>
 
-<p>Editing any of these template files will affect everywhere that the respective elements are used. One place to edit, and one place to maintain during upgrades, will help make applying and preserving your customisations easier.</p>
+<p>Editing any of these template files will affect everywhere that the respective elements are used. One place to edit and one place to maintain during upgrades will help make applying and preserving your customisations easier.</p>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/themes/theme-parameters">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/themes/order-form-templates">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>

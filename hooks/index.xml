@@ -338,6 +338,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 
 &lt;ul&gt;&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/user/#useradd&#34;&gt;UserAdd&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/user/#userchangepassword&#34;&gt;UserChangePassword&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/user/#useredit&#34;&gt;UserEdit&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/user/#useremailverificationcomplete&#34;&gt;UserEmailVerificationComplete&lt;/a&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Contact&lt;/h3&gt;
@@ -543,6 +544,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#preupgradecheckout&#34;&gt;PreUpgradeCheckout&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#premiumpriceoverride&#34;&gt;PremiumPriceOverride&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#premiumpricerecalculationoverride&#34;&gt;PremiumPriceRecalculationOverride&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/everything-else/#hookname&#34;&gt;hookname&lt;/a&gt;
 &lt;/ul&gt;
 &lt;/div&gt;&lt;/div&gt;
 </description>

@@ -1441,7 +1441,7 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;skipvalidation&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;Pass as true to ignore required fields validation&lt;/td&gt;
+&lt;td&gt;Pass as true to ignore required fields validation. Does not apply to $email and $password2 when $owner_user_id is not provided&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
