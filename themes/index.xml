@@ -176,7 +176,7 @@ config:
 &lt;li&gt;&lt;code&gt;config&lt;/code&gt; / &lt;code&gt;parent&lt;/code&gt; — The name of the Parent Theme directory. The Parent Theme in the example above is the Twenty-One theme, so the parent theme directory name is &lt;code&gt;twenty-one&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The &lt;code&gt;theme.yaml&lt;/code&gt; file can also define other parameters about your theme. To learn more, see &lt;a href=&#34;//developers.whmcs.com/themes/theme-config/&#34;&gt;Theme Parameters&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;theme.yaml&lt;/code&gt; file can also define other parameters about your theme. To learn more, see &lt;a href=&#34;//developers.whmcs.com/themes/theme-parameters/&#34;&gt;Theme Parameters&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;You can create child themes with parents that are, in turn, children of other themes, as long as the ultimate parent theme includes all of the required WHMCS template files and assets. However, we do not recommend this for most uses.&lt;/p&gt;
 
@@ -354,7 +354,7 @@ provides:
 
 &lt;p&gt;An inheritance system allows parent-child relationships, with parents providing assets to children. Many custom Order Form Templates will require one or more assets in order to function. These needs are stated in the &lt;code&gt;dependencies&lt;/code&gt; list in the child&amp;rsquo;s &lt;code&gt;theme.yaml&lt;/code&gt; file, and then are fulfilled by the items in the &lt;code&gt;provides&lt;/code&gt; list in the parent&amp;rsquo;s &lt;code&gt;theme.yaml&lt;/code&gt; file.&lt;/p&gt;
 
-&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;For more about the &lt;code&gt;theme.yaml&lt;/code&gt; file and how to use it to declare and fulfill dependencies, see &lt;a href=&#34;//developers.whmcs.com/themes/theme-config/&#34;&gt;The Theme Configuration File&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;For more about the &lt;code&gt;theme.yaml&lt;/code&gt; file and how to use it to declare and fulfill dependencies, see &lt;a href=&#34;//developers.whmcs.com/themes/theme-parameters/&#34;&gt;The Theme Configuration File&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 
 
@@ -382,7 +382,7 @@ provides:
   parent: standard_cart
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;For more about the &lt;code&gt;theme.yaml&lt;/code&gt; file and its contents, see &lt;a href=&#34;//developers.whmcs.com/themes/theme-config/&#34;&gt;The Theme Configuration File&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;notice tip&#34; &gt;&lt;p&gt;For more about the &lt;code&gt;theme.yaml&lt;/code&gt; file and its contents, see &lt;a href=&#34;//developers.whmcs.com/themes/theme-parameters/&#34;&gt;The Theme Configuration File&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 
 
