@@ -1066,6 +1066,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getusers/">
+          <a href="//developers.whmcs.com/api-reference/getusers/">
+            <span>GetUsers</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/listoauthcredentials/">
           <a href="//developers.whmcs.com/api-reference/listoauthcredentials/">
             <span>ListOAuthCredentials</span>
@@ -1641,31 +1649,43 @@ print_r($results);
 
 <pre><code>{
     &quot;result&quot;: &quot;success&quot;,
-    &quot;totalresults&quot;: &quot;1&quot;,
-    &quot;startnumber&quot;: &quot;0&quot;,
-    &quot;numreturned&quot;: &quot;1&quot;,
-    &quot;invoices[invoice][0][id]&quot;: &quot;1&quot;,
-    &quot;invoices[invoice][0][userid]&quot;: &quot;1&quot;,
-    &quot;invoices[invoice][0][firstname]&quot;: &quot;Test&quot;,
-    &quot;invoices[invoice][0][lastname]&quot;: &quot;Client&quot;,
-    &quot;invoices[invoice][0][companyname]&quot;: &quot;&quot;,
-    &quot;invoices[invoice][0][invoicenum]&quot;: &quot;&quot;,
-    &quot;invoices[invoice][0][date]&quot;: &quot;2016-01-01&quot;,
-    &quot;invoices[invoice][0][duedate]&quot;: &quot;2016-01-08&quot;,
-    &quot;invoices[invoice][0][datepaid]&quot;: &quot;0000-00-00 00:00:00&quot;,
-    &quot;invoices[invoice][0][subtotal]&quot;: &quot;15.95&quot;,
-    &quot;invoices[invoice][0][credit]&quot;: &quot;0.00&quot;,
-    &quot;invoices[invoice][0][tax]&quot;: &quot;0.00&quot;,
-    &quot;invoices[invoice][0][tax2]&quot;: &quot;0.00&quot;,
-    &quot;invoices[invoice][0][total]&quot;: &quot;15.95&quot;,
-    &quot;invoices[invoice][0][taxrate]&quot;: &quot;0.00&quot;,
-    &quot;invoices[invoice][0][taxrate2]&quot;: &quot;0.00&quot;,
-    &quot;invoices[invoice][0][status]&quot;: &quot;Unpaid&quot;,
-    &quot;invoices[invoice][0][paymentmethod]&quot;: &quot;authorize&quot;,
-    &quot;invoices[invoice][0][notes]&quot;: &quot;&quot;,
-    &quot;invoices[invoice][0][currencycode]&quot;: &quot;USD&quot;,
-    &quot;invoices[invoice][0][currencyprefix]&quot;: &quot;$&quot;,
-    &quot;invoices[invoice][0][currencysuffix]&quot;: &quot;USD&quot;
+    &quot;totalresults&quot;: 1,
+    &quot;startnumber&quot;: 0,
+    &quot;numreturned&quot;: 1,
+    &quot;invoices&quot;: {
+        &quot;invoice&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;userid&quot;: 1,
+                &quot;firstname&quot;: &quot;Test&quot;,
+                &quot;lastname&quot;: &quot;Client&quot;,
+                &quot;companyname&quot;: &quot;&quot;,
+                &quot;invoicenum&quot;: &quot;&quot;,
+                &quot;date&quot;: &quot;2016-01-01&quot;,
+                &quot;duedate&quot;: &quot;2016-01-08&quot;,
+                &quot;datepaid&quot;: &quot;0000-00-00 00:00:00&quot;,
+                &quot;last_capture_attempt&quot;: &quot;0000-00-00 00:00:00&quot;,
+                &quot;date_refunded&quot;: &quot;0000-00-00 00:00:00&quot;,
+                &quot;date_cancelled&quot;: &quot;0000-00-00 00:00:00&quot;,
+                &quot;subtotal&quot;: &quot;15.95&quot;,
+                &quot;credit&quot;: &quot;0.00&quot;,
+                &quot;tax&quot;: &quot;0.00&quot;,
+                &quot;tax2&quot;: &quot;0.00&quot;,
+                &quot;total&quot;: &quot;15.95&quot;,
+                &quot;taxrate&quot;: &quot;0.000&quot;,
+                &quot;taxrate2&quot;: &quot;0.000&quot;,
+                &quot;status&quot;: &quot;Unpaid&quot;,
+                &quot;paymentmethod&quot;: &quot;paypalcheckout&quot;,
+                &quot;paymethodid&quot;: null,
+                &quot;notes&quot;: &quot;&quot;,
+                &quot;created_at&quot;: &quot;2016-01-08 14:06:34&quot;,
+                &quot;updated_at&quot;: &quot;2016-01-08 14:07:17&quot;,
+                &quot;currencycode&quot;: &quot;USD&quot;,
+                &quot;currencyprefix&quot;: &quot;$&quot;,
+                &quot;currencysuffix&quot;: &quot; USD&quot;
+            }
+        ]
+    }
 }
 </code></pre>
 

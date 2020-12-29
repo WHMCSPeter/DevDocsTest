@@ -1066,6 +1066,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getusers/">
+          <a href="//developers.whmcs.com/api-reference/getusers/">
+            <span>GetUsers</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/listoauthcredentials/">
           <a href="//developers.whmcs.com/api-reference/listoauthcredentials/">
             <span>ListOAuthCredentials</span>
@@ -1700,30 +1708,37 @@ print_r($results);
 
 <pre><code>{
     &quot;result&quot;: &quot;success&quot;,
-    &quot;invoiceid&quot;: &quot;1&quot;,
+    &quot;invoiceid&quot;: 1,
     &quot;invoicenum&quot;: &quot;&quot;,
-    &quot;userid&quot;: &quot;2361&quot;,
+    &quot;userid&quot;: 2361,
     &quot;date&quot;: &quot;2016-01-01&quot;,
-    &quot;duedate&quot;: &quot;2016-01-08&quot;,
+    &quot;duedate&quot;: &quot;2020-12-30&quot;,
     &quot;datepaid&quot;: &quot;0000-00-00 00:00:00&quot;,
+    &quot;lastcaptureattempt&quot;: &quot;0000-00-00 00:00:00&quot;,
     &quot;subtotal&quot;: &quot;15.95&quot;,
     &quot;credit&quot;: &quot;0.00&quot;,
     &quot;tax&quot;: &quot;0.00&quot;,
     &quot;tax2&quot;: &quot;0.00&quot;,
     &quot;total&quot;: &quot;15.95&quot;,
     &quot;balance&quot;: &quot;15.95&quot;,
-    &quot;taxrate&quot;: &quot;0.00&quot;,
-    &quot;taxrate2&quot;: &quot;0.00&quot;,
+    &quot;taxrate&quot;: &quot;0.000&quot;,
+    &quot;taxrate2&quot;: &quot;0.000&quot;,
     &quot;status&quot;: &quot;Unpaid&quot;,
-    &quot;paymentmethod&quot;: &quot;paypal&quot;,
+    &quot;paymentmethod&quot;: &quot;paypalcheckout&quot;,
     &quot;notes&quot;: &quot;&quot;,
-    &quot;ccgateway&quot;: &quot;&quot;,
-    &quot;items[item][0][id]&quot;: &quot;1&quot;,
-    &quot;items[item][0][type]&quot;: &quot;Hosting&quot;,
-    &quot;items[item][0][relid]&quot;: &quot;1&quot;,
-    &quot;items[item][0][description]&quot;: &quot;Sample Monthly Product (01\/01\/2016 - 31\/01\/2016)&quot;,
-    &quot;items[item][0][amount]&quot;: &quot;15.95&quot;,
-    &quot;items[item][0][taxed]&quot;: &quot;0&quot;,
+    &quot;ccgateway&quot;: false,
+    &quot;items&quot;: {
+        &quot;item&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;type&quot;: &quot;Hosting&quot;,
+                &quot;relid&quot;: 1,
+                &quot;description&quot;: &quot;Sample Monthly Product (01\/01\/2016 - 31\/01\/2016)&quot;,
+                &quot;amount&quot;: &quot;15.95&quot;,
+                &quot;taxed&quot;: 0
+            }
+        ]
+    },
     &quot;transactions&quot;: &quot;&quot;
 }
 </code></pre>
