@@ -1494,7 +1494,7 @@ add_hook(&#39;AdminClientProfileTabFields&#39;, 1, function($vars) {
 
 //Obtain the values defined in the AdminClientProfileTabFields hook point and save them as required
 add_hook(&#39;AdminClientProfileTabFieldsSave&#39;, 1, function($vars) {
-    $userId = $_REQUEST[&#39;userid&#39;];
+    $userId = $vars[&#39;userid&#39;];
     $additionalFieldOne = $_REQUEST[&#39;additionalFieldOne&#39;];
     $additionalFieldTwo = $_REQUEST[&#39;additionalFieldTwo&#39;];
 
@@ -15269,9 +15269,9 @@ add_hook(&#39;PreModuleCreate&#39;, 1, function($vars)
 );
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;premodulesuspend&#34;&gt;PreModuleSuspend&lt;/h2&gt;
+&lt;h2 id=&#34;premodulerenew&#34;&gt;PreModuleRenew&lt;/h2&gt;
 
-&lt;p&gt;Executes prior to the module suspend function being run for a service. Allows the action to be aborted.&lt;/p&gt;
+&lt;p&gt;Executes prior to the module create function being run for a service. Allows the action to be aborted.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-16&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -15295,19 +15295,19 @@ add_hook(&#39;PreModuleCreate&#39;, 1, function($vars)
 
 &lt;h4 id=&#34;response-16&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be used in account suspension. Use the same names as the input parameters. Return &lt;code&gt;abortcmd=true&lt;/code&gt; to abort the action.&lt;/p&gt;
+&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be used in account creation. Use the same names as the input parameters. Return &lt;code&gt;abortcmd=true&lt;/code&gt; to abort the action.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-16&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;PreModuleSuspend&#39;, 1, function($vars) {
+add_hook(&#39;PreModuleRenew&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;premoduleterminate&#34;&gt;PreModuleTerminate&lt;/h2&gt;
+&lt;h2 id=&#34;premodulesuspend&#34;&gt;PreModuleSuspend&lt;/h2&gt;
 
-&lt;p&gt;Executes prior to the module terminate function being run for a service. Allows the action to be aborted.&lt;/p&gt;
+&lt;p&gt;Executes prior to the module suspend function being run for a service. Allows the action to be aborted.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-17&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -15331,19 +15331,19 @@ add_hook(&#39;PreModuleSuspend&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response-17&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be used in account termination. Use the same names as the input parameters. Return &lt;code&gt;abortcmd=true&lt;/code&gt; to abort the action.&lt;/p&gt;
+&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be used in account suspension. Use the same names as the input parameters. Return &lt;code&gt;abortcmd=true&lt;/code&gt; to abort the action.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-17&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
-add_hook(&#39;PreModuleTerminate&#39;, 1, function($vars) {
+add_hook(&#39;PreModuleSuspend&#39;, 1, function($vars) {
     // Perform hook code here...
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;premoduleunsuspend&#34;&gt;PreModuleUnsuspend&lt;/h2&gt;
+&lt;h2 id=&#34;premoduleterminate&#34;&gt;PreModuleTerminate&lt;/h2&gt;
 
-&lt;p&gt;Executes prior to the module unsuspend function being run for a service. Allows the action to be aborted.&lt;/p&gt;
+&lt;p&gt;Executes prior to the module terminate function being run for a service. Allows the action to be aborted.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-18&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -15367,9 +15367,45 @@ add_hook(&#39;PreModuleTerminate&#39;, 1, function($vars) {
 
 &lt;h4 id=&#34;response-18&#34;&gt;Response&lt;/h4&gt;
 
-&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be used in account unsuspension. Use the same names as the input parameters. Return &lt;code&gt;abortcmd=true&lt;/code&gt; to abort the action.&lt;/p&gt;
+&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be used in account termination. Use the same names as the input parameters. Return &lt;code&gt;abortcmd=true&lt;/code&gt; to abort the action.&lt;/p&gt;
 
 &lt;h4 id=&#34;example-code-18&#34;&gt;Example Code&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+add_hook(&#39;PreModuleTerminate&#39;, 1, function($vars) {
+    // Perform hook code here...
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;premoduleunsuspend&#34;&gt;PreModuleUnsuspend&lt;/h2&gt;
+
+&lt;p&gt;Executes prior to the module unsuspend function being run for a service. Allows the action to be aborted.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-19&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;params&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;Array of common module parameters. See &lt;a href=&#34;https://developers.whmcs.com/provisioning-modules/module-parameters/&#34;&gt;https://developers.whmcs.com/provisioning-modules/module-parameters/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;response-19&#34;&gt;Response&lt;/h4&gt;
+
+&lt;p&gt;Accepts a return of key/value pairs to override the parameters to be used in account unsuspension. Use the same names as the input parameters. Return &lt;code&gt;abortcmd=true&lt;/code&gt; to abort the action.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-code-19&#34;&gt;Example Code&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 add_hook(&#39;PreModuleUnsuspend&#39;, 1, function($vars) {
@@ -16407,7 +16443,7 @@ add_hook(&#39;ClientAreaHeaderOutput&#39;, 1, function($vars) {
     $return = &#39;&#39;;
     if (
         $vars[&#39;filename&#39;] == &#39;index.php&#39;
-        &amp;amp;&amp;amp; array_key_exists(&#39;m&#39;, $_REQUEST)
+        &amp;amp;&amp;amp; isset($_REQUEST[&#39;m&#39;])
         &amp;amp;&amp;amp; $_REQUEST[&#39;m&#39;] == &#39;project_management&#39;
     ) {
         $return = &#39;&amp;lt;b&amp;gt;This is a custom output on the header when in the client area for Project Management&amp;lt;/b&amp;gt;&#39;;

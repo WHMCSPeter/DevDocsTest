@@ -506,6 +506,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/api-reference/getusers/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/hooks/</loc>
   </url>
   

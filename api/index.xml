@@ -421,6 +421,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/deleteuserclient/&#34;&gt;DeleteUserClient&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getpermissionslist/&#34;&gt;GetPermissionsList&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getuserpermissions/&#34;&gt;GetUserPermissions&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getusers/&#34;&gt;GetUsers&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/resetpassword/&#34;&gt;ResetPassword&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateuser/&#34;&gt;UpdateUser&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateuserpermissions/&#34;&gt;UpdateUserPermissions&lt;/a&gt;
