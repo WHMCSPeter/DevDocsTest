@@ -416,6 +416,35 @@ The first input parameter should be the name of the gateway module.
 The second input parameter should be an array of data received, such as the <strong>$_POST</strong> or <strong>$_REQUEST</strong> super globals.
 The last input parameter should be the human readable result/status to display in the log.</p>
 
+<h3 id="add-payment-to-the-invoice">Add Payment to the Invoice</h3>
+
+<pre><code>/**
+ * Add Invoice Payment.
+ *
+ * Apply a payment to the given invoice ID.
+ *
+ * @param int $invoiceId         Invoice ID
+ * @param string $transactionId  Transaction ID
+ * @param float $paymentAmount   Amount paid (defaults to full balance)
+ * @param float $paymentFee      Payment fee (optional)
+ * @param string $gatewayModule  Gateway module name
+ */
+addInvoicePayment(
+    $invoiceId,
+    $transactionId,
+    $paymentAmount,
+    $paymentFee,
+    $gatewayModuleName
+);
+</code></pre>
+
+<p>Use this function to apply the payment to an invoice.
+The first parameter should be the invoice ID to apply the payment to.
+The second parameter should be the unique transaction ID provided by the Payment Gateway.
+The third parameter should be the amount to be credited to the invoice. If this value is <code>0</code> or an empty string, the payment will be assumed to be the full balance due for the invoice.
+The fourth parameter should be the fee charged by the gateway. If this is unavailable, set this to &ldquo;0.00&rdquo;.
+The fifth parameter should be your Gateway Module Name. You can use <code>$gatewayParams['name']</code> for this. This documentation assumes you are following the sample callback file in the sample module which defines this variable and populates it with the gateway parameters from WHMCS.</p>
+
 
 			<div class="topic-navigation clearfix">
                 
@@ -503,7 +532,7 @@ The last input parameter should be the human readable result/status to display i
             </div>
             <div class="col-md-5">
                 <p class="pull-right">
-                    Copyright &copy; WHMCS 2020. All rights reserved.
+                    Copyright &copy; WHMCS 2021. All rights reserved.
                     <br>
                 </p>
             </div>
