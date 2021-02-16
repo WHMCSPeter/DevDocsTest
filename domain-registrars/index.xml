@@ -1349,12 +1349,15 @@ function modulename_GetTldPricing(array $params)
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/domain-registrars/extending-further/</guid>
-      <description>&lt;p&gt;###Custom Functions
-Custom functions allow you to define extra operations that can be performed using the module. The custom functions can perform actions, or define extra client area pages/output. Permissions can be granted for who can use each custom function, be it just clients, just admins, or both.&lt;/p&gt;
+      <description>
+
+&lt;h2 id=&#34;custom-functions&#34;&gt;Custom Functions&lt;/h2&gt;
+
+&lt;p&gt;Custom functions allow you to define extra operations that can be performed using the module. The custom functions can perform actions, or define extra client area pages/output. Permissions can be granted for who can use each custom function, be it just clients, just admins, or both.&lt;/p&gt;
 
 &lt;p&gt;The convention for custom function names follow the same as any other function of a module. It must begin with &lt;code&gt;yourmodulename_&lt;/code&gt;, and then the custom function name.&lt;/p&gt;
 
-&lt;p&gt;The easiest way to show this is with an example. So let&amp;rsquo;s take an example of a Push Function that will use a template, &amp;ldquo;pushdomain.tpl&amp;rdquo;:&lt;/p&gt;
+&lt;p&gt;The easiest way to show this is with an example. So let&amp;rsquo;s take an example of a Push Function that will use a template, &lt;code&gt;pushdomain.tpl&lt;/code&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;function yourmodulename_push($params) {
 
@@ -1377,7 +1380,7 @@ Custom functions allow you to define extra operations that can be performed usin
 
 &lt;p&gt;The above shows how to define custom functions, use the parameters passed, and return an array response. The response can either be a simple empty array/error for an action function, or a complex array return like the above to define an extra client area page for extra domain management functionality.&lt;/p&gt;
 
-&lt;p&gt;Now we need to allow clients to use this. The following function defines that clients are allowed to invoke the push function, and will add a menu option to the Domain Actions dropdown within the client area for it.&lt;/p&gt;
+&lt;p&gt;Now we need to allow clients to use this. The following function defines that clients are allowed to invoke the push function, and will add a menu option to the &lt;strong&gt;Domain Actions&lt;/strong&gt; dropdown within the client area for it.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;function yourmodulename_ClientAreaCustomButtonArray() {
     return array(
@@ -1386,22 +1389,22 @@ Custom functions allow you to define extra operations that can be performed usin
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The key value of the array is what is displayed to admins/clients on the button or menu options for the commands. And the value is the custom function name excluding the modulename_ prefix.&lt;/p&gt;
+&lt;p&gt;The key value of the array is what is displayed to admins/clients on the button or menu options for the commands, and the value is the custom function name excluding the &lt;code&gt;modulename_&lt;/code&gt; prefix.&lt;/p&gt;
 
-&lt;p&gt;If you want to provide clients with a custom button or way to invoke a function, then this can be done as follows within a .tpl file described in the previous Client Area Output section:&lt;/p&gt;
+&lt;p&gt;If you want to provide clients with a custom button or way to invoke a function, then this can be done as follows within a &lt;code&gt;.tpl&lt;/code&gt; file described in the previous Client Area Output section:&lt;/p&gt;
 
-&lt;p&gt;&lt;form method=&#34;post&#34; action=&#34;clientarea.php?action=domaindetails&#34;&gt;
- &lt;input type=&#34;hidden&#34; name=&#34;domainid&#34; value=&#34;{$domainid}&#34; /&gt;
- &lt;input type=&#34;hidden&#34; name=&#34;modop&#34; value=&#34;custom&#34; /&gt;
- &lt;input type=&#34;hidden&#34; name=&#34;a&#34; value=&#34;reboot&#34; /&gt;
- &lt;input type=&#34;submit&#34; value=&#34;Reboot VPS Server&#34; /&gt;
- &lt;/form&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;form method=&amp;quot;post&amp;quot; action=&amp;quot;clientarea.php?action=domaindetails&amp;quot;&amp;gt;
+&amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;domainid&amp;quot; value=&amp;quot;{$domainid}&amp;quot; /&amp;gt;
+&amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;modop&amp;quot; value=&amp;quot;custom&amp;quot; /&amp;gt;
+&amp;lt;input type=&amp;quot;hidden&amp;quot; name=&amp;quot;a&amp;quot; value=&amp;quot;reboot&amp;quot; /&amp;gt;
+&amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Reboot VPS Server&amp;quot; /&amp;gt;
+&amp;lt;/form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;###IDN Domains
-If you wish to support registration and management of IDN domain names via a registrar module, the domain object can be
-used to access various parameters related to the domain.  An domain name is considered IDN if it contains at least one
-character that is in a language-specific script or alphabet.  IDN is supported for second level domain names but not top
-level at this time.&lt;/p&gt;
+&lt;h2 id=&#34;idn-domains&#34;&gt;IDN Domains&lt;/h2&gt;
+
+&lt;p&gt;If you wish to support registration and management of IDN domain names via a registrar module, the domain object can be
+used to access various parameters related to the domain. A domain name is considered IDN if it contains at least one character that is in a language-specific script or alphabet. IDN is supported for second level domain names but not top level at this time.&lt;/p&gt;
 
 &lt;p&gt;The following options are available:&lt;/p&gt;
 
