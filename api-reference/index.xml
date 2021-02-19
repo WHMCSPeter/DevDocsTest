@@ -2248,20 +2248,6 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;gateway&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The gateway used, in system name format (for example, &lt;code&gt;paypal&lt;/code&gt; or &lt;code&gt;authorize&lt;/code&gt;).&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;date&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The date that the payment should have assigned. Format: YYYY-MM-DD HH:mm:ss&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
 &lt;td&gt;amount&lt;/td&gt;
 &lt;td&gt;float&lt;/td&gt;
 &lt;td&gt;The amount paid. You can leave this undefined to take the full amount of the invoice.&lt;/td&gt;
@@ -2276,10 +2262,24 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
+&lt;td&gt;gateway&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The gateway used, in system name format (for example, &lt;code&gt;paypal&lt;/code&gt; or &lt;code&gt;authorize&lt;/code&gt;).&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;noemail&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
 &lt;td&gt;Set this to true to prevent sending an email for the invoice payment.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;date&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The date that the payment should have assigned. Format: YYYY-MM-DD HH:mm:ss&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

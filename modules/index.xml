@@ -54,7 +54,7 @@
     &lt;/div&gt;
     &lt;div class=&#34;col-sm-6&#34;&gt;
         &lt;a href=&#34;//developers.whmcs.com/mail-providers/&#34;&gt;
-            &lt;i class=&#34;fa fa-money&#34;&gt;&lt;/i&gt;
+            &lt;i class=&#34;fa fa-envelope&#34;&gt;&lt;/i&gt;
             &lt;h3&gt;Mail Provider Modules&lt;/h3&gt;
             &lt;p&gt;Add custom mail providers to WHMCS.&lt;/p&gt;
         &lt;/a&gt;

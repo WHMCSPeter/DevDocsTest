@@ -776,7 +776,7 @@ function modulename_GetDomainInformation($params) {
         -&amp;gt;setExpiryDate(Carbon::createFromFormat(&#39;Y-m-d&#39;, $response[&#39;expirydate&#39;])) // $response[&#39;expirydate&#39;] = YYYY-MM-DD
         -&amp;gt;setRestorable(false)
         -&amp;gt;setIdProtectionStatus($response[&#39;addons&#39;][&#39;hasidprotect&#39;])
-        -&amp;gt;getDnsManagementStatus($response[&#39;addons&#39;][&#39;hasdnsmanagement&#39;])
+        -&amp;gt;setDnsManagementStatus($response[&#39;addons&#39;][&#39;hasdnsmanagement&#39;])
         -&amp;gt;setEmailForwardingStatus($response[&#39;addons&#39;][&#39;hasemailforwarding&#39;])
         -&amp;gt;setIsIrtpEnabled(in_array($response[&#39;tld&#39;], [&#39;.com&#39;]))
         -&amp;gt;setIrtpOptOutStatus($response[&#39;irtp&#39;][&#39;optoutstatus&#39;])
@@ -1098,7 +1098,7 @@ HTML;
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;IrtpTransferLockExpiryDate&lt;/td&gt;
+&lt;td&gt;setIrtpTransferLockExpiryDate&lt;/td&gt;
 &lt;td&gt;Date&lt;/td&gt;
 &lt;td&gt;The expiry date of the transfer lock (optional)&lt;/td&gt;
 &lt;/tr&gt;
@@ -1141,7 +1141,7 @@ function modulename_GetDomainInformation(array $params) {
         -&amp;gt;setIsIrtpEnabled(true)
         -&amp;gt;setIrtpOptOutStatus(false)
         -&amp;gt;setIrtpTransferLock(true)
-        -&amp;gt;IrtpTransferLockExpiryDate(Carbon::createFromFormat(&#39;Y-m-d&#39;, &#39;2019-06-15&#39;))
+        -&amp;gt;setIrtpTransferLockExpiryDate(Carbon::createFromFormat(&#39;Y-m-d&#39;, &#39;2019-06-15&#39;))
         -&amp;gt;setDomainContactChangePending(true)
         -&amp;gt;setPendingSuspension(true)
         -&amp;gt;setDomainContactChangeExpiryDate(Carbon::createFromFormat(&#39;Y-m-d&#39;, &#39;2018-08-20&#39;))

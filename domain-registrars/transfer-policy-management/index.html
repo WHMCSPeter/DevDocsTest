@@ -372,7 +372,7 @@
 </tr>
 
 <tr>
-<td>IrtpTransferLockExpiryDate</td>
+<td>setIrtpTransferLockExpiryDate</td>
 <td>Date</td>
 <td>The expiry date of the transfer lock (optional)</td>
 </tr>
@@ -415,7 +415,7 @@ function modulename_GetDomainInformation(array $params) {
         -&gt;setIsIrtpEnabled(true)
         -&gt;setIrtpOptOutStatus(false)
         -&gt;setIrtpTransferLock(true)
-        -&gt;IrtpTransferLockExpiryDate(Carbon::createFromFormat('Y-m-d', '2019-06-15'))
+        -&gt;setIrtpTransferLockExpiryDate(Carbon::createFromFormat('Y-m-d', '2019-06-15'))
         -&gt;setDomainContactChangePending(true)
         -&gt;setPendingSuspension(true)
         -&gt;setDomainContactChangeExpiryDate(Carbon::createFromFormat('Y-m-d', '2018-08-20'))
