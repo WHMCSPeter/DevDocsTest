@@ -345,7 +345,7 @@ function provisioningmodule_LoaderFunction() {
 &lt;td&gt;Integer&lt;/td&gt;
 &lt;td&gt;6.0&lt;/td&gt;
 &lt;td&gt;N/A&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;If specified, will display by default when configuring a server with the module when &lt;code&gt;Use SSL&lt;/code&gt; is disabled and will allow a user to override it should they wish.  Use this if your API can operate on varying port numbers.&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;If specified, will display by default when configuring a server with the module when &lt;code&gt;Use SSL&lt;/code&gt; is enabled and will allow a user to override it should they wish.  Use this if your API can operate on varying port numbers.&lt;/em&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;

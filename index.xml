@@ -924,6 +924,20 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
+&lt;td&gt;quantity&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;The number of hours or quantity the item corresponds to.&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;unit&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Either &amp;lsquo;hours&amp;rsquo; or &amp;lsquo;quantity&amp;rsquo;.&lt;/td&gt;
+&lt;td&gt;Optional&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;invoiceaction&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;One of &amp;lsquo;noinvoice&amp;rsquo;, &amp;lsquo;nextcron&amp;rsquo;, &amp;lsquo;nextinvoice&amp;rsquo;, &amp;lsquo;duedate&amp;rsquo;, or &amp;lsquo;recur&amp;rsquo;.&lt;/td&gt;
@@ -955,13 +969,6 @@ print_r($results);
 &lt;td&gt;duedate&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;Date the invoice should be due (only required for due date and recur invoice actions). YYYY-mm-dd&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;hours&lt;/td&gt;
-&lt;td&gt;float&lt;/td&gt;
-&lt;td&gt;The number of hours or quantity the item corresponds to (not required for single quantities).&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -1012,7 +1019,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             &#39;recur&#39; =&amp;gt; &#39;1&#39;,
             &#39;recurcycle&#39; =&amp;gt; &#39;Months&#39;,
             &#39;recurfor&#39; =&amp;gt; &#39;12&#39;,
-            &#39;duedate&#39; =&amp;gt; &#39;2016-01-01&#39;,
+            &#39;duedate&#39; =&amp;gt; &#39;2021-01-01&#39;,
             &#39;responsetype&#39; =&amp;gt; &#39;json&#39;,
         )
     )
@@ -1033,7 +1040,7 @@ $postData = array(
     &#39;recur&#39; =&amp;gt; &#39;1&#39;,
     &#39;recurcycle&#39; =&amp;gt; &#39;Months&#39;,
     &#39;recurfor&#39; =&amp;gt; &#39;12&#39;,
-    &#39;duedate&#39; =&amp;gt; &#39;2016-01-01&#39;,
+    &#39;duedate&#39; =&amp;gt; &#39;2021-01-01&#39;,
 );
 $adminUsername = &#39;ADMIN_USERNAME&#39;; // Optional for WHMCS 7.2 and later
 
@@ -1044,8 +1051,8 @@ print_r($results);
 &lt;h3 id=&#34;example-response-json&#34;&gt;Example Response JSON&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;{
-    &amp;quot;result&amp;quot;: &amp;quot;success&amp;quot;,
-    &amp;quot;billableid&amp;quot;: &amp;quot;1&amp;quot;
+    &amp;quot;status&amp;quot;: &amp;quot;success&amp;quot;,
+    &amp;quot;billableid&amp;quot;: 1
 }
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -1059,6 +1066,8 @@ print_r($results);
 &lt;li&gt;Invalid Invoice Action&lt;/li&gt;
 &lt;li&gt;Recurring must have a unit, cycle and limit&lt;/li&gt;
 &lt;li&gt;Due date is required&lt;/li&gt;
+&lt;li&gt;Invalid Unit, please specify either &amp;lsquo;hours&amp;rsquo; or &amp;lsquo;quantity&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;Invalid Date Format - Expected: &amp;lsquo;YYYY-mm-dd&amp;rsquo;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;version-history&#34;&gt;Version History&lt;/h3&gt;
@@ -1075,6 +1084,16 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;1.0&lt;/td&gt;
 &lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;8.2&lt;/td&gt;
+&lt;td&gt;Renamed &amp;lsquo;hours&amp;rsquo; parameter to &lt;code&gt;quantity&lt;/code&gt;. Now Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;8.2&lt;/td&gt;
+&lt;td&gt;Added &lt;code&gt;unit&lt;/code&gt; parameter.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

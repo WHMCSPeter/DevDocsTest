@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Payment Gateways - WHMCS Developer Documentation</title>
+    <title>Displaying Balances - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/payment-gateways/">
+    <link rel="canonical" href="//developers.whmcs.com/payment-gateways/displaying-balances/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -178,7 +178,7 @@
       
       
       
-        <li class="" data-nav-id="/payment-gateways/displaying-balances/">
+        <li class="active" data-nav-id="/payment-gateways/displaying-balances/">
           <a href="//developers.whmcs.com/payment-gateways/displaying-balances/">
             <span>Displaying Balances</span>
           </a>
@@ -306,30 +306,128 @@
                   
                     
                     
+                <a href="//developers.whmcs.com/payment-gateways/" itemprop="url"><span itemprop="title">Payment Gateways</span></a> <i class="fa fa-angle-right"></i>
+                    
                   
                 
                   
                 
                   
                 
-                <span itemprop="title"> Payment Gateways</span>
+                <span itemprop="title"> Displaying Balances</span>
               </div>
             </div>
 
 
-			<h1>Payment Gateways </h1>
+			<h1>Displaying Balances </h1>
 
-			<p>Creating a payment gateway module allows you to connect and integrate WHMCS with additional payment service providers.</p>
+			
 
-<p>The following guide assumes you have downloaded and are using one of the sample modules made available via our <a href="https://github.com/whmcs">GitHub page</a>.</p>
+<p>WHMCS 8.2 adds the ability to display payment gateway balances directly in the WHMCS Admin Area. By default, these balances are available for Stripe and PayPal Basic at <strong>Billing &gt; Transactions</strong>.</p>
 
-<p>To get started, continue to the Getting Started page.</p>
+<p>You can display the balances for other payment gateways through two payment gateway module classes: <code>BalanceInterface</code> and <code>BalanceCollection</code>.</p>
+
+<h2 id="connecting-to-gateways">Connecting to Gateways</h2>
+
+<p>Before you can retrieve balance information, connect to the desired gateway. For example:</p>
+
+<pre><code>use WHMCS\Module\Gateway\Balance;
+use WHMCS\Module\Gateway\BalanceCollection;
+
+/**
+ * @param array $params
+ *
+ * @return BalanceCollection
+ */
+function yourmodulename_account_balance(array $params = []): BalanceCollection
+{
+    $balanceInfo = [];
+    /**
+     * Connect to gateway to retrieve balance information.
+     */
+    $postfields = [
+        'account' =&gt; $params['apikey'],
+    ];
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, 'https://www.example.com/api/balance');
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $balanceData = json_decode($response);
+</code></pre>
+
+<h2 id="the-balance-class">The Balance Class</h2>
+
+<p>After you connect to the gateway, add an object for the <code>Balance</code> class.</p>
+
+<p>You can repeat this process as many times as needed for each balance type that the gateway supports (for example, <em>Available</em> and <em>Pending</em>). However, most gateways will only have one <code>Balance</code> type.</p>
+
+<p>You can do this in two ways:</p>
+
+<h3 id="using-the-default-label-and-color">Using the default label and color</h3>
+
+<div class="notice info" ><p>You must add an object for the <code>Balance</code> class using this method <strong>at least</strong> once.</p>
+</div>
+
+
+<pre><code>foreach ($balanceData['available'] as $availableData) {
+    $currencyCode = strtoupper($availableData['currency']);
+    $amount[$currencyCode] = ($availableData['amount'] / 100);
+
+    /**
+     * Add a Balance object using the default label and format colour.
+     */
+    $balanceInfo[] = Balance::factory(
+        $amount[$currencyCode],
+        $currencyCode
+    );
+}
+</code></pre>
+
+<h3 id="overriding-the-label-and-color">Overriding the label and color</h3>
+
+<p>Adding an object that overrides the label, color, or both is optional. To override the label and color, add the desired label and hex color code as in the example below:</p>
+
+<pre><code>$balanceInfo[] = Balance::factory(
+    $pending[$currencyCode],
+    $currencyCode,
+    'status.pending', //default label is status.available
+    '#6ecacc' //default colour is #5dc560
+</code></pre>
+
+<h2 id="the-balancecollection-class">The BalanceCollection Class</h2>
+
+<p>Next, add an object to the <code>BalanceCollection</code> class. It should accept an array of <code>Balance</code> objects.</p>
+
+<div class="notice info" ><p>If anything in the array <strong>isn&rsquo;t</strong> a <code>Balance</code> object, WHMCS will encounter a fatal error.</p>
+</div>
+
+
+<pre><code>/**
+ * The BalanceCollection object accepts an array containing any number of Balance objects.
+ * Passing an item in the array that is not a Balance object will cause a fatal error.
+ */
+return BalanceCollection::factoryFromItems(...$balanceInfo);
+}
+</code></pre>
+
+<h2 id="required-permissions">Required Permissions</h2>
+
+<p>By default, balance information will display in the Admin Area for admins with the <strong>Full Administrator</strong> role. To allow other admin roles to see balance information, enable <strong>View Gateway Balances</strong> for the desired role.</p>
 
 
 			<div class="topic-navigation clearfix">
                 
+                    <a class="nav nav-prev" href="//developers.whmcs.com/payment-gateways/merchant-gateway">
+                        <i class="fa fa-arrow-circle-left"></i>
+                        Previous
+                    </a>
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/payment-gateways/getting-started">
+                
+                    <a class="nav nav-next" href="//developers.whmcs.com/payment-gateways/callbacks">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>

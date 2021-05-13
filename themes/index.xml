@@ -190,7 +190,7 @@ config:
 
 &lt;p&gt;This is where you should put the CSS rules and declarations to control the look of your theme. Anything you define here will override styling defined by the Parent Theme. If you only want your Child Theme to contain CSS updates, using this method will give you a maintenance-free, automatically-updating Child Theme.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;// Example override for the primary background color
+&lt;pre&gt;&lt;code&gt;/* Example override for the primary background color */
 .primary-bg-color {
     background-color: #ddd;
 }

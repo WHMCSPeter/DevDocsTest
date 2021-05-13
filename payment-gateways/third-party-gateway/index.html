@@ -178,6 +178,14 @@
       
       
       
+        <li class="" data-nav-id="/payment-gateways/displaying-balances/">
+          <a href="//developers.whmcs.com/payment-gateways/displaying-balances/">
+            <span>Displaying Balances</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/payment-gateways/callbacks/">
           <a href="//developers.whmcs.com/payment-gateways/callbacks/">
             <span>Callback Files</span>
@@ -317,7 +325,7 @@
 
 <p>Follow the steps below to create a third party gateway module.</p>
 
-<div class="notice info" ><p>A Third Party Gateway module is one where a customer leaves the site to pay and returns when the payment process is complete. Examples include PayPal Standard, 2Checkout</p>
+<div class="notice info" ><p>A Third Party Gateway module is one where a customer leaves the site to pay and returns when the payment process is complete. Examples include PayPal Standard and 2Checkout.</p>
 </div>
 
 
@@ -326,7 +334,7 @@
 <ol>
 <li>Delete the <code>yourmodulename_capture</code> function from the module template since this is only required for <a href="//developers.whmcs.com/payment-gateways/merchant-gateway" title="Merchant Gateways">Merchant Gateway</a> modules.</li>
 <li>Define and return the HTML code that will forward the user to the payment gateway to complete the payment process inside the <code>yourmodulename_link</code> function. This is typically done by way of an HTML form utilizing the <strong>POST</strong> method.</li>
-<li>Optionally if your payment gateway supports sending notifications upon successful receipt of payments, create a <a href="//developers.whmcs.com/payment-gateways/callbacks" title="Callback Files">Callback File</a> to receive and handle those.</li>
+<li>Optionally, if your payment gateway supports sending notifications upon successful receipt of payments, create a <a href="//developers.whmcs.com/payment-gateways/callbacks" title="Callback Files">Callback File</a> to receive and handle those.</li>
 <li>If your payment gateway supports refunds, implement support for <a href="//developers.whmcs.com/payment-gateways/refunds" title="Refunding Transactions">Refunds</a>.</li>
 </ol>
 
@@ -336,35 +344,38 @@
 
 <h3 id="invoice-variables">Invoice Variables</h3>
 
-<pre><code>$params['invoiceid'] # Invoice ID Number
-$params['description'] # Description (eg. Company Name - Invoice #xxx)
+<pre><code>$params['invoiceid'] # Invoice ID Number.
+$params['description'] # Description (eg. Company Name - Invoice #xxx).
 $params['amount'] # Format: xxx.xx
-$params['currency'] # Currency Code (eg. GBD, USD, etc...)
+$params['currency'] # Currency Code (eg. GBD, USD, etc.)
 </code></pre>
 
 <h3 id="client-variables">Client Variables</h3>
 
-<pre><code>$params['clientdetails']['firstname'] # Client's First Name
-$params['clientdetails']['lastname'] # Client's Last Name
-$params['clientdetails']['email'] # Client's Email Address
-$params['clientdetails']['address1'] # Client's Address
+<pre><code>$params['clientdetails']['firstname'] # Client's First Name.
+$params['clientdetails']['lastname'] # Client's Last Name.
+$params['clientdetails']['email'] # Client's Email Address.
+$params['clientdetails']['address1'] # Client's Address.
 $params['clientdetails']['address2']
 $params['clientdetails']['city']
 $params['clientdetails']['state']
 $params['clientdetails']['postcode']
 $params['clientdetails']['country']
+$params['clientdetails']['model'] # An instance of WHMCS\User\Client. See below.
 $params['clientdetails']['phonenumber']
 </code></pre>
 
+<p>For more information on the <code>model</code> variable, see our <a href="https://classdocs.whmcs.com/">Class Documentation</a>.</p>
+
 <h3 id="system-variables">System Variables</h3>
 
-<pre><code>$params['companyname'] # your Company Name setting in WHMCS
-$params['systemurl'] # the url to the WHMCS Client Area
-$params['returnurl'] # the return url to the invoice
-$params['langpaynow'] # Language string for &quot;Pay Now&quot;
-$params['name'] # Module display name
-$params['paymentmethod'] # Module name
-$params['whmcsVersion'] # WHMCS Version Number
+<pre><code>$params['companyname'] # Your Company Name setting in WHMCS.
+$params['systemurl'] # The URL to the WHMCS Client Area.
+$params['returnurl'] # The return URL for the invoice.
+$params['langpaynow'] # The language string for &quot;Pay Now&quot;.
+$params['name'] # Module display name.
+$params['paymentmethod'] # Module name.
+$params['whmcsVersion'] # WHMCS Version Number.
 </code></pre>
 
 <h2 id="response-format">Response Format</h2>

@@ -930,6 +930,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getregistrars/">
+          <a href="//developers.whmcs.com/api-reference/getregistrars/">
+            <span>GetRegistrars</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/getservers/">
           <a href="//developers.whmcs.com/api-reference/getservers/">
             <span>GetServers</span>
@@ -1550,6 +1558,13 @@
 </tr>
 
 <tr>
+<td>requestor_id</td>
+<td>int</td>
+<td>Find orders for a specific requestor id</td>
+<td>Optional</td>
+</tr>
+
+<tr>
 <td>status</td>
 <td>string</td>
 <td>Find orders for a specific status</td>
@@ -1650,6 +1665,8 @@ print_r($results);
                 &quot;ordernum&quot;: 7858259149,
                 &quot;userid&quot;: 1,
                 &quot;contactid&quot;: 0,
+                &quot;requestor_id&quot;: 1,
+                &quot;admin_requestor_id&quot;: 0,
                 &quot;date&quot;: &quot;2020-09-23 13:59:35&quot;,
                 &quot;nameservers&quot;: &quot;&quot;,
                 &quot;transfersecret&quot;: &quot;&quot;,
@@ -1672,6 +1689,7 @@ print_r($results);
                 &quot;currencyprefix&quot;: &quot;$&quot;,
                 &quot;currencysuffix&quot;: &quot;USD&quot;,
                 &quot;frauddata&quot;: &quot;&quot;,
+                &quot;validationdata&quot;: &quot;&quot;,
                 &quot;lineitems&quot;: {
                     &quot;lineitem&quot;: [
                         {

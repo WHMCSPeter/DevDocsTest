@@ -205,6 +205,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#afterfraudcheck&#34;&gt;AfterFraudCheck&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#aftershoppingcartcheckout&#34;&gt;AfterShoppingCartCheckout&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#cancelorder&#34;&gt;CancelOrder&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#cartitemstax&#34;&gt;CartItemsTax&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#cartsubdomainvalidation&#34;&gt;CartSubdomainValidation&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#carttotaladjustment&#34;&gt;CartTotalAdjustment&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/shopping-cart/#deleteorder&#34;&gt;DeleteOrder&lt;/a&gt;
@@ -245,6 +246,8 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#aftermodulechangepasswordfailed&#34;&gt;AfterModuleChangePasswordFailed&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#aftermodulecreate&#34;&gt;AfterModuleCreate&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#aftermodulecreatefailed&#34;&gt;AfterModuleCreateFailed&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#aftermodulecustom&#34;&gt;AfterModuleCustom&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#aftermodulecustomfailed&#34;&gt;AfterModuleCustomFailed&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#aftermodulesuspend&#34;&gt;AfterModuleSuspend&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#aftermodulesuspendfailed&#34;&gt;AfterModuleSuspendFailed&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#aftermoduleterminate&#34;&gt;AfterModuleTerminate&lt;/a&gt;
@@ -255,6 +258,7 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#premodulechangepackage&#34;&gt;PreModuleChangePackage&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#premodulechangepassword&#34;&gt;PreModuleChangePassword&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#premodulecreate&#34;&gt;PreModuleCreate&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#premodulecustom&#34;&gt;PreModuleCustom&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#premodulerenew&#34;&gt;PreModuleRenew&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#premodulesuspend&#34;&gt;PreModuleSuspend&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/hooks-reference/module/#premoduleterminate&#34;&gt;PreModuleTerminate&lt;/a&gt;

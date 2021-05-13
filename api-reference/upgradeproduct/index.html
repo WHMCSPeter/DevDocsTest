@@ -930,6 +930,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getregistrars/">
+          <a href="//developers.whmcs.com/api-reference/getregistrars/">
+            <span>GetRegistrars</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/getservers/">
           <a href="//developers.whmcs.com/api-reference/getservers/">
             <span>GetServers</span>
@@ -1552,7 +1560,7 @@
 <tr>
 <td>newproductid</td>
 <td>int</td>
-<td>The Id of the new product</td>
+<td>The ID of the new product</td>
 <td>Optional</td>
 </tr>
 
@@ -1573,7 +1581,7 @@
 <tr>
 <td>configoptions</td>
 <td>array</td>
-<td>An array of config options to upgrade. Keys are the config option ids and values must be respective to config option type.</td>
+<td>If type=configoptions - Config options to include in the upgrade. Keys represent config option IDs while their values represent the config option choice ID or value (depending on type). In the example provided, config option ID=1 is a dropdown specifying option ID 4, and config option ID=2 is a quantity specifying a desire for 5 units.</td>
 <td>Optional</td>
 </tr>
 </tbody>
@@ -1622,7 +1630,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'newproductbillingcycle' =&gt; 'monthly',
             'type' =&gt; 'product',
             'newproductid' =&gt; '11',
-            'configoptions' =&gt; '[1 =&gt; 'text options', 2 = 5 //qty option] // Only used when type is 'configoptions'',
+            'configoptions' =&gt; [1 =&gt; 4, 2 =&gt; 5],
             'responsetype' =&gt; 'json',
         )
     )
@@ -1641,7 +1649,7 @@ $postData = array(
     'newproductbillingcycle' =&gt; 'monthly',
     'type' =&gt; 'product',
     'newproductid' =&gt; '11',
-    'configoptions' =&gt; '[1 =&gt; 'text options', 2 = 5 //qty option] // Only used when type is 'configoptions'',
+    'configoptions' =&gt; [1 =&gt; 4, 2 =&gt; 5],
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
