@@ -456,6 +456,7 @@ if ($results[&#39;result&#39;] == &#39;success&#39;) {
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domainupdatenameservers/&#34;&gt;DomainUpdateNameservers&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domainupdatewhoisinfo/&#34;&gt;DomainUpdateWhoisInfo&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/domainwhois/&#34;&gt;DomainWhois&lt;/a&gt;
+&lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/getregistrars/&#34;&gt;GetRegistrars&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/gettldpricing/&#34;&gt;GetTLDPricing&lt;/a&gt;
 &lt;li&gt; &lt;a href=&#34;//developers.whmcs.com/api-reference/updateclientdomain/&#34;&gt;UpdateClientDomain&lt;/a&gt;
 &lt;/ul&gt;

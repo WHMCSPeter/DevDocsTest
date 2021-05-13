@@ -930,6 +930,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getregistrars/">
+          <a href="//developers.whmcs.com/api-reference/getregistrars/">
+            <span>GetRegistrars</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/getservers/">
           <a href="//developers.whmcs.com/api-reference/getservers/">
             <span>GetServers</span>
@@ -1536,6 +1544,20 @@
 </tr>
 
 <tr>
+<td>gateway</td>
+<td>string</td>
+<td>The gateway used, in system name format (for example, <code>paypal</code> or <code>authorize</code>).</td>
+<td>Required</td>
+</tr>
+
+<tr>
+<td>date</td>
+<td>string</td>
+<td>The date that the payment should have assigned. Format: YYYY-MM-DD HH:mm:ss</td>
+<td>Required</td>
+</tr>
+
+<tr>
 <td>amount</td>
 <td>float</td>
 <td>The amount paid. You can leave this undefined to take the full amount of the invoice.</td>
@@ -1550,24 +1572,10 @@
 </tr>
 
 <tr>
-<td>gateway</td>
-<td>string</td>
-<td>The gateway used, in system name format (for example, <code>paypal</code> or <code>authorize</code>).</td>
-<td>Required</td>
-</tr>
-
-<tr>
 <td>noemail</td>
 <td>bool</td>
 <td>Set this to true to prevent sending an email for the invoice payment.</td>
 <td>Optional</td>
-</tr>
-
-<tr>
-<td>date</td>
-<td>string</td>
-<td>The date that the payment should have assigned. Format: YYYY-MM-DD HH:mm:ss</td>
-<td>Required</td>
 </tr>
 </tbody>
 </table>

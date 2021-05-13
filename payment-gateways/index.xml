@@ -17,7 +17,7 @@
       <guid>//developers.whmcs.com/payment-gateways/</guid>
       <description>&lt;p&gt;Creating a payment gateway module allows you to connect and integrate WHMCS with additional payment service providers.&lt;/p&gt;
 
-&lt;p&gt;The following guide assumes you have downloaded and are using one of the sample modules made available via our &lt;a href=&#34;https://github.com/whmcs&#34;&gt;Github page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The following guide assumes you have downloaded and are using one of the sample modules made available via our &lt;a href=&#34;https://github.com/whmcs&#34;&gt;GitHub page&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;To get started, continue to the Getting Started page.&lt;/p&gt;
 </description>
@@ -265,7 +265,7 @@
 
 &lt;p&gt;Follow the steps below to create a third party gateway module.&lt;/p&gt;
 
-&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;A Third Party Gateway module is one where a customer leaves the site to pay and returns when the payment process is complete. Examples include PayPal Standard, 2Checkout&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;A Third Party Gateway module is one where a customer leaves the site to pay and returns when the payment process is complete. Examples include PayPal Standard and 2Checkout.&lt;/p&gt;
 &lt;/div&gt;
 
 
@@ -274,7 +274,7 @@
 &lt;ol&gt;
 &lt;li&gt;Delete the &lt;code&gt;yourmodulename_capture&lt;/code&gt; function from the module template since this is only required for &lt;a href=&#34;//developers.whmcs.com/payment-gateways/merchant-gateway&#34; title=&#34;Merchant Gateways&#34;&gt;Merchant Gateway&lt;/a&gt; modules.&lt;/li&gt;
 &lt;li&gt;Define and return the HTML code that will forward the user to the payment gateway to complete the payment process inside the &lt;code&gt;yourmodulename_link&lt;/code&gt; function. This is typically done by way of an HTML form utilizing the &lt;strong&gt;POST&lt;/strong&gt; method.&lt;/li&gt;
-&lt;li&gt;Optionally if your payment gateway supports sending notifications upon successful receipt of payments, create a &lt;a href=&#34;//developers.whmcs.com/payment-gateways/callbacks&#34; title=&#34;Callback Files&#34;&gt;Callback File&lt;/a&gt; to receive and handle those.&lt;/li&gt;
+&lt;li&gt;Optionally, if your payment gateway supports sending notifications upon successful receipt of payments, create a &lt;a href=&#34;//developers.whmcs.com/payment-gateways/callbacks&#34; title=&#34;Callback Files&#34;&gt;Callback File&lt;/a&gt; to receive and handle those.&lt;/li&gt;
 &lt;li&gt;If your payment gateway supports refunds, implement support for &lt;a href=&#34;//developers.whmcs.com/payment-gateways/refunds&#34; title=&#34;Refunding Transactions&#34;&gt;Refunds&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -284,35 +284,38 @@
 
 &lt;h3 id=&#34;invoice-variables&#34;&gt;Invoice Variables&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;$params[&#39;invoiceid&#39;] # Invoice ID Number
-$params[&#39;description&#39;] # Description (eg. Company Name - Invoice #xxx)
+&lt;pre&gt;&lt;code&gt;$params[&#39;invoiceid&#39;] # Invoice ID Number.
+$params[&#39;description&#39;] # Description (eg. Company Name - Invoice #xxx).
 $params[&#39;amount&#39;] # Format: xxx.xx
-$params[&#39;currency&#39;] # Currency Code (eg. GBD, USD, etc...)
+$params[&#39;currency&#39;] # Currency Code (eg. GBD, USD, etc.)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;client-variables&#34;&gt;Client Variables&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;$params[&#39;clientdetails&#39;][&#39;firstname&#39;] # Client&#39;s First Name
-$params[&#39;clientdetails&#39;][&#39;lastname&#39;] # Client&#39;s Last Name
-$params[&#39;clientdetails&#39;][&#39;email&#39;] # Client&#39;s Email Address
-$params[&#39;clientdetails&#39;][&#39;address1&#39;] # Client&#39;s Address
+&lt;pre&gt;&lt;code&gt;$params[&#39;clientdetails&#39;][&#39;firstname&#39;] # Client&#39;s First Name.
+$params[&#39;clientdetails&#39;][&#39;lastname&#39;] # Client&#39;s Last Name.
+$params[&#39;clientdetails&#39;][&#39;email&#39;] # Client&#39;s Email Address.
+$params[&#39;clientdetails&#39;][&#39;address1&#39;] # Client&#39;s Address.
 $params[&#39;clientdetails&#39;][&#39;address2&#39;]
 $params[&#39;clientdetails&#39;][&#39;city&#39;]
 $params[&#39;clientdetails&#39;][&#39;state&#39;]
 $params[&#39;clientdetails&#39;][&#39;postcode&#39;]
 $params[&#39;clientdetails&#39;][&#39;country&#39;]
+$params[&#39;clientdetails&#39;][&#39;model&#39;] # An instance of WHMCS\User\Client. See below.
 $params[&#39;clientdetails&#39;][&#39;phonenumber&#39;]
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;For more information on the &lt;code&gt;model&lt;/code&gt; variable, see our &lt;a href=&#34;https://classdocs.whmcs.com/&#34;&gt;Class Documentation&lt;/a&gt;.&lt;/p&gt;
+
 &lt;h3 id=&#34;system-variables&#34;&gt;System Variables&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;$params[&#39;companyname&#39;] # your Company Name setting in WHMCS
-$params[&#39;systemurl&#39;] # the url to the WHMCS Client Area
-$params[&#39;returnurl&#39;] # the return url to the invoice
-$params[&#39;langpaynow&#39;] # Language string for &amp;quot;Pay Now&amp;quot;
-$params[&#39;name&#39;] # Module display name
-$params[&#39;paymentmethod&#39;] # Module name
-$params[&#39;whmcsVersion&#39;] # WHMCS Version Number
+&lt;pre&gt;&lt;code&gt;$params[&#39;companyname&#39;] # Your Company Name setting in WHMCS.
+$params[&#39;systemurl&#39;] # The URL to the WHMCS Client Area.
+$params[&#39;returnurl&#39;] # The return URL for the invoice.
+$params[&#39;langpaynow&#39;] # The language string for &amp;quot;Pay Now&amp;quot;.
+$params[&#39;name&#39;] # Module display name.
+$params[&#39;paymentmethod&#39;] # Module name.
+$params[&#39;whmcsVersion&#39;] # WHMCS Version Number.
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;response-format&#34;&gt;Response Format&lt;/h2&gt;
@@ -390,7 +393,7 @@ Any other response is considered a failure, and the subscriptionid value will re
 
 &lt;p&gt;Follow the steps below to create a third party gateway module.&lt;/p&gt;
 
-&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;A Merchant Gateway is one where a customer enters credit card details in WHMCS. The payment processes in the background. Can also include 3D Secure where the user leaves your site. Examples include PayPal Pro, Authorize.net AIM&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;A Merchant Gateway is one where a customer enters credit card details in WHMCS. The payment processes in the background. This can also include 3D Secure when the user leaves your site. Examples include PayPal Pro, Authorize.net, and AIM.&lt;/p&gt;
 &lt;/div&gt;
 
 
@@ -398,8 +401,8 @@ Any other response is considered a failure, and the subscriptionid value will re
 
 &lt;ol&gt;
 &lt;li&gt;Delete the &lt;code&gt;yourmodulename_link&lt;/code&gt; function from the module template since this is only required for &lt;a href=&#34;//developers.whmcs.com/payment-gateways/third-party-gateway&#34; title=&#34;Third Party Gateways&#34;&gt;Third Party Gateway&lt;/a&gt; modules.&lt;/li&gt;
-&lt;li&gt;Enter the gateway-specific code for processing the payment capture into the &lt;code&gt;yourmodulename_capture&lt;/code&gt; function. Typically this takes the format of an HTTP/Curl request to the gateway provider&amp;rsquo;s API.&lt;/li&gt;
-&lt;li&gt;If the gateway supports 3D Secure (Verified by Visa or MasterCard Secure Code) then please refer to &lt;a href=&#34;//developers.whmcs.com/payment-gateways/3d-secure&#34; title=&#34;3D Secure Process&#34;&gt;3D Secure&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Enter the gateway-specific code for processing the payment capture into the &lt;code&gt;yourmodulename_capture&lt;/code&gt; function. Typically, this takes the format of an HTTP/Curl request to the gateway provider&amp;rsquo;s API.&lt;/li&gt;
+&lt;li&gt;If the gateway supports 3D Secure (Verified by Visa or MasterCard Secure Code) refer to &lt;a href=&#34;//developers.whmcs.com/payment-gateways/3d-secure&#34; title=&#34;3D Secure Process&#34;&gt;3D Secure&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;If your payment gateway supports refunds, implement support for &lt;a href=&#34;//developers.whmcs.com/payment-gateways/refunds&#34; title=&#34;Refunding Transactions&#34;&gt;Refunds&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -420,79 +423,79 @@ Any other response is considered a failure, and the subscriptionid value will re
 &lt;tr&gt;
 &lt;td&gt;invoiceid&lt;/td&gt;
 &lt;td&gt;integer&lt;/td&gt;
-&lt;td&gt;Invoice ID Number&lt;/td&gt;
+&lt;td&gt;Invoice ID number.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;description&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Description (eg. Company Name - Invoice #xxx)&lt;/td&gt;
+&lt;td&gt;Description (for example, &lt;code&gt;Company Name - Invoice #xxx&lt;/code&gt;).&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;amount&lt;/td&gt;
 &lt;td&gt;float&lt;/td&gt;
-&lt;td&gt;Format: xxx.xx&lt;/td&gt;
+&lt;td&gt;Format: &lt;code&gt;xxx.xx&lt;/code&gt;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;currency&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Currency Code (eg. GBP, USD, etc.,)&lt;/td&gt;
+&lt;td&gt;Currency code (for example, GBP or USD).&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;cardtype&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The Card Type (Visa, MasterCard, etc. &amp;hellip;)&lt;/td&gt;
+&lt;td&gt;The card type (for example, Visa or MasterCard).&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;cardnum&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The Card Number&lt;/td&gt;
+&lt;td&gt;The card number.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;cardexp&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The Card Expiry Date (Format: MMYY)&lt;/td&gt;
+&lt;td&gt;The card expiry date (format: MMYY).&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;cardstart&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The Card Start Date (Format: MMYY)&lt;/td&gt;
+&lt;td&gt;The card start date (format: MMYY).&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;cardissuenum&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The Card Issue Number&lt;/td&gt;
+&lt;td&gt;The card issue number.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;cccvv&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Only available for card holder present initiated payment attempts&lt;/td&gt;
+&lt;td&gt;Only available for card holder present initiated payment attempts.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;clientdetails&lt;/td&gt;
 &lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;An array of client details. firstname, lastname, email, address1, address2, city, state, postcode, country, phonenumber&lt;/td&gt;
+&lt;td&gt;An array of client details that includes the following indices: firstname, lastname, email, address1, address2, city, state, postcode, country (ISO code), model (an instance of &lt;code&gt;&amp;lt;a href=&amp;quot;https://classdocs.whmcs.com/&amp;quot;&amp;gt;WHMCS/User/Client&amp;lt;/a&amp;gt;&lt;/code&gt;), and phonenumber.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;companyname&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The Company Name setting in WHMCS&lt;/td&gt;
+&lt;td&gt;The &lt;em&gt;Company Name&lt;/em&gt; setting in WHMCS.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;systemurl&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The url to the client area of the WHMCS install&lt;/td&gt;
+&lt;td&gt;The URL to the client area of the WHMCS installation.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -514,44 +517,44 @@ Any other response is considered a failure, and the subscriptionid value will re
 &lt;tr&gt;
 &lt;td&gt;status&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;One of either &lt;code&gt;success&lt;/code&gt;, &lt;code&gt;pending&lt;/code&gt;, &lt;code&gt;declined&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;One of either &lt;code&gt;success&lt;/code&gt;, &lt;code&gt;pending&lt;/code&gt;, or &lt;code&gt;declined&lt;/code&gt;.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;declinereason&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The reason for a decline&lt;/td&gt;
+&lt;td&gt;The reason why a transaction was declined.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;transid&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The Transaction ID returned by the payment gateway&lt;/td&gt;
+&lt;td&gt;The Transaction ID returned by the payment gateway.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;fee&lt;/td&gt;
 &lt;td&gt;float&lt;/td&gt;
-&lt;td&gt;(Optional) The transaction fee returned by the payment gateway&lt;/td&gt;
+&lt;td&gt;(Optional) The transaction fee returned by the payment gateway.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;rawdata&lt;/td&gt;
 &lt;td&gt;string or array&lt;/td&gt;
-&lt;td&gt;The raw data returned by the payment gateway for logging to the gateway log to aid in debugging&lt;/td&gt;
+&lt;td&gt;The raw data returned by the payment gateway for logging to the gateway log to aid in debugging.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;gatewayid&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;See &lt;a href=&#34;//developers.whmcs.com/payment-gateways/tokenised-remote-storage&#34; title=&#34;Tokenised Remote Storage&#34;&gt;Tokenised Remote Storage&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;See &lt;a href=&#34;//developers.whmcs.com/payment-gateways/tokenised-remote-storage&#34; title=&#34;Tokenised Remote Storage&#34;&gt;Tokenised Remote Storage&lt;/a&gt;.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h3 id=&#34;example-return&#34;&gt;Example Return&lt;/h3&gt;
 
-&lt;p&gt;The capture function should always return an array containing information about the transaction attempt.  This should take the following format:&lt;/p&gt;
+&lt;p&gt;The capture function should always return an array containing information about the transaction attempt. This should take the following format:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;return array(
     &#39;status&#39; =&amp;gt; &#39;success&#39;,
@@ -561,15 +564,17 @@ Any other response is considered a failure, and the subscriptionid value will re
 );
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;For a successful capture, the status should be returned as the string &lt;code&gt;success&lt;/code&gt;.
-For payments that are pending and do not require an immediate payment in WHMCS, the status should be &lt;code&gt;pending&lt;/code&gt;.
-For anything else, return a status that indicates the reason for failure.  Common failure response status values include &lt;code&gt;declined&lt;/code&gt; and &lt;code&gt;error&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;For a successful capture, the status should be returned as the string &lt;code&gt;success&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;The raw data you return will be recorded to the gateway log to aide in debugging. It can accept either a string or array.&lt;/p&gt;
+&lt;p&gt;For payments that are pending and do not require an immediate payment in WHMCS, the status should be &lt;code&gt;pending&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;For anything else, return a status that indicates the reason for failure. Common failure response status values include &lt;code&gt;declined&lt;/code&gt; and &lt;code&gt;error&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The raw data you return will be recorded to the gateway log to aide in debugging. It can accept either a string or an array.&lt;/p&gt;
 
 &lt;h2 id=&#34;simple-example&#34;&gt;Simple Example&lt;/h2&gt;
 
-&lt;p&gt;Below is a very simple demonstration of a capture function that submits a payment capture request and receives a JSON response. For a more complete example, please refer to the &lt;a href=&#34;https://github.com/WHMCS/sample-merchant-gateway&#34; title=&#34;Sample Merchant Gateway module on Github&#34;&gt;Sample Merchant Gateway module on Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Below is a demonstration of a capture function that submits a payment capture request and receives a JSON response. For a more complete example, please refer to the &lt;a href=&#34;https://github.com/WHMCS/sample-merchant-gateway&#34; title=&#34;Sample Merchant Gateway module on Github&#34;&gt;Sample Merchant Gateway module on GitHub&lt;/a&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;function yourmodulename_capture($params) {
 
@@ -622,6 +627,111 @@ For anything else, return a status that indicates the reason for failure.  Commo
     </item>
     
     <item>
+      <title>Displaying Balances</title>
+      <link>//developers.whmcs.com/payment-gateways/displaying-balances/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/payment-gateways/displaying-balances/</guid>
+      <description>
+
+&lt;p&gt;WHMCS 8.2 adds the ability to display payment gateway balances directly in the WHMCS Admin Area. By default, these balances are available for Stripe and PayPal Basic at &lt;strong&gt;Billing &amp;gt; Transactions&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can display the balances for other payment gateways through two payment gateway module classes: &lt;code&gt;BalanceInterface&lt;/code&gt; and &lt;code&gt;BalanceCollection&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;connecting-to-gateways&#34;&gt;Connecting to Gateways&lt;/h2&gt;
+
+&lt;p&gt;Before you can retrieve balance information, connect to the desired gateway. For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;use WHMCS\Module\Gateway\Balance;
+use WHMCS\Module\Gateway\BalanceCollection;
+
+/**
+ * @param array $params
+ *
+ * @return BalanceCollection
+ */
+function yourmodulename_account_balance(array $params = []): BalanceCollection
+{
+    $balanceInfo = [];
+    /**
+     * Connect to gateway to retrieve balance information.
+     */
+    $postfields = [
+        &#39;account&#39; =&amp;gt; $params[&#39;apikey&#39;],
+    ];
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/api/balance&#39;);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $balanceData = json_decode($response);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-balance-class&#34;&gt;The Balance Class&lt;/h2&gt;
+
+&lt;p&gt;After you connect to the gateway, add an object for the &lt;code&gt;Balance&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;p&gt;You can repeat this process as many times as needed for each balance type that the gateway supports (for example, &lt;em&gt;Available&lt;/em&gt; and &lt;em&gt;Pending&lt;/em&gt;). However, most gateways will only have one &lt;code&gt;Balance&lt;/code&gt; type.&lt;/p&gt;
+
+&lt;p&gt;You can do this in two ways:&lt;/p&gt;
+
+&lt;h3 id=&#34;using-the-default-label-and-color&#34;&gt;Using the default label and color&lt;/h3&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;You must add an object for the &lt;code&gt;Balance&lt;/code&gt; class using this method &lt;strong&gt;at least&lt;/strong&gt; once.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;pre&gt;&lt;code&gt;foreach ($balanceData[&#39;available&#39;] as $availableData) {
+    $currencyCode = strtoupper($availableData[&#39;currency&#39;]);
+    $amount[$currencyCode] = ($availableData[&#39;amount&#39;] / 100);
+
+    /**
+     * Add a Balance object using the default label and format colour.
+     */
+    $balanceInfo[] = Balance::factory(
+        $amount[$currencyCode],
+        $currencyCode
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;overriding-the-label-and-color&#34;&gt;Overriding the label and color&lt;/h3&gt;
+
+&lt;p&gt;Adding an object that overrides the label, color, or both is optional. To override the label and color, add the desired label and hex color code as in the example below:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$balanceInfo[] = Balance::factory(
+    $pending[$currencyCode],
+    $currencyCode,
+    &#39;status.pending&#39;, //default label is status.available
+    &#39;#6ecacc&#39; //default colour is #5dc560
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-balancecollection-class&#34;&gt;The BalanceCollection Class&lt;/h2&gt;
+
+&lt;p&gt;Next, add an object to the &lt;code&gt;BalanceCollection&lt;/code&gt; class. It should accept an array of &lt;code&gt;Balance&lt;/code&gt; objects.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;If anything in the array &lt;strong&gt;isn&amp;rsquo;t&lt;/strong&gt; a &lt;code&gt;Balance&lt;/code&gt; object, WHMCS will encounter a fatal error.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;pre&gt;&lt;code&gt;/**
+ * The BalanceCollection object accepts an array containing any number of Balance objects.
+ * Passing an item in the array that is not a Balance object will cause a fatal error.
+ */
+return BalanceCollection::factoryFromItems(...$balanceInfo);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;required-permissions&#34;&gt;Required Permissions&lt;/h2&gt;
+
+&lt;p&gt;By default, balance information will display in the Admin Area for admins with the &lt;strong&gt;Full Administrator&lt;/strong&gt; role. To allow other admin roles to see balance information, enable &lt;strong&gt;View Gateway Balances&lt;/strong&gt; for the desired role.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Callback Files</title>
       <link>//developers.whmcs.com/payment-gateways/callbacks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -665,8 +775,7 @@ For anything else, return a status that indicates the reason for failure.  Commo
 $gatewayParams = getGatewayVariables(&#39;yourgatewayname&#39;);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;This function can be used to retrieve the configuration data for a module as specified in the &lt;strong&gt;_config&lt;/strong&gt; array.
-For example, it might be needed to get a gateway username or secret key to validate a callback.&lt;/p&gt;
+&lt;p&gt;This function can be used to retrieve the configuration data for a module as specified in the &lt;code&gt;_config&lt;/code&gt; array. For example, it might be needed to get a gateway username or secret key to validate a callback.&lt;/p&gt;
 
 &lt;h3 id=&#34;validate-callback-invoice-id&#34;&gt;Validate Callback Invoice ID&lt;/h3&gt;
 
@@ -686,9 +795,9 @@ For example, it might be needed to get a gateway username or secret key to valid
 $invoiceId = checkCbInvoiceID($invoiceId, $gatewayName);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Use this function to verify that the invoice ID received in a callback is valid.
-Pass the $invoiceid and the gateway name into the function.
-If the invoice number is invalid, the callback script execution will be halted.&lt;/p&gt;
+&lt;p&gt;Use this function to verify that the invoice ID received in a callback is valid. Pass the &lt;code&gt;$invoiceid&lt;/code&gt; and the gateway name into the function.&lt;/p&gt;
+
+&lt;p&gt;If the invoice number is invalid, the callback script execution will be halted.&lt;/p&gt;
 
 &lt;h3 id=&#34;validate-callback-transaction-id&#34;&gt;Validate Callback Transaction ID&lt;/h3&gt;
 
@@ -705,9 +814,9 @@ If the invoice number is invalid, the callback script execution will be halted.&
 checkCbTransID($transactionId);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Use this function to check for any existing transactions for a given transaction ID.
-This protects against duplicate callbacks for the same transaction.
-If the transaction ID is already in the database, the callback script execution will be halted.&lt;/p&gt;
+&lt;p&gt;Use this function to check for any existing transactions for a given transaction ID. This protects against duplicate callbacks for the same transaction.&lt;/p&gt;
+
+&lt;p&gt;If the transaction ID is already in the database, the callback script execution will be halted.&lt;/p&gt;
 
 &lt;h3 id=&#34;log-transaction&#34;&gt;Log Transaction&lt;/h3&gt;
 
@@ -725,10 +834,13 @@ If the transaction ID is already in the database, the callback script execution 
 logTransaction($gatewayName, $_POST, $transactionStatus);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Use this function to create a gateway log entry.
-The first input parameter should be the name of the gateway module.
-The second input parameter should be an array of data received, such as the &lt;strong&gt;$_POST&lt;/strong&gt; or &lt;strong&gt;$_REQUEST&lt;/strong&gt; super globals.
-The last input parameter should be the human readable result/status to display in the log.&lt;/p&gt;
+&lt;p&gt;Use this function to create a gateway log entry.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The first input parameter should be the name of the gateway module.&lt;/li&gt;
+&lt;li&gt;The second input parameter should be an array of data received (for example, the &lt;code&gt;$_POST&lt;/code&gt; or &lt;code&gt;$_REQUEST&lt;/code&gt; super globals).&lt;/li&gt;
+&lt;li&gt;The last input parameter should be the human readable result or status to display in the log.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&#34;add-payment-to-the-invoice&#34;&gt;Add Payment to the Invoice&lt;/h3&gt;
 
@@ -752,12 +864,17 @@ addInvoicePayment(
 );
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Use this function to apply the payment to an invoice.
-The first parameter should be the invoice ID to apply the payment to.
-The second parameter should be the unique transaction ID provided by the Payment Gateway.
-The third parameter should be the amount to be credited to the invoice. If this value is &lt;code&gt;0&lt;/code&gt; or an empty string, the payment will be assumed to be the full balance due for the invoice.
-The fourth parameter should be the fee charged by the gateway. If this is unavailable, set this to &amp;ldquo;0.00&amp;rdquo;.
-The fifth parameter should be your Gateway Module Name. You can use &lt;code&gt;$gatewayParams[&#39;name&#39;]&lt;/code&gt; for this. This documentation assumes you are following the sample callback file in the sample module which defines this variable and populates it with the gateway parameters from WHMCS.&lt;/p&gt;
+&lt;p&gt;Use this function to apply the payment to an invoice.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The first parameter should be the invoice ID to apply the payment to.&lt;/li&gt;
+&lt;li&gt;The second parameter should be the unique transaction ID provided by the payment gateway.&lt;/li&gt;
+&lt;li&gt;The third parameter should be the amount to be credited to the invoice. If this value is &lt;code&gt;0&lt;/code&gt; or an empty string, the payment will be assumed to be the full balance due for the invoice.&lt;/li&gt;
+&lt;li&gt;The fourth parameter should be the fee charged by the gateway. If this is unavailable, set this to &lt;code&gt;0.00&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The fifth parameter should be your gateway module name. You can use &lt;code&gt;$gatewayParams[&#39;name&#39;]&lt;/code&gt; for this.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This documentation assumes you are following the sample callback file in the sample module which defines this variable and populates it with the gateway parameters from WHMCS.&lt;/p&gt;
 </description>
     </item>
     

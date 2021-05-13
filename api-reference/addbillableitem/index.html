@@ -930,6 +930,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getregistrars/">
+          <a href="//developers.whmcs.com/api-reference/getregistrars/">
+            <span>GetRegistrars</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/getservers/">
           <a href="//developers.whmcs.com/api-reference/getservers/">
             <span>GetServers</span>
@@ -1543,6 +1551,20 @@
 </tr>
 
 <tr>
+<td>quantity</td>
+<td>float</td>
+<td>The number of hours or quantity the item corresponds to.</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>unit</td>
+<td>string</td>
+<td>Either &lsquo;hours&rsquo; or &lsquo;quantity&rsquo;.</td>
+<td>Optional</td>
+</tr>
+
+<tr>
 <td>invoiceaction</td>
 <td>string</td>
 <td>One of &lsquo;noinvoice&rsquo;, &lsquo;nextcron&rsquo;, &lsquo;nextinvoice&rsquo;, &lsquo;duedate&rsquo;, or &lsquo;recur&rsquo;.</td>
@@ -1574,13 +1596,6 @@
 <td>duedate</td>
 <td>string</td>
 <td>Date the invoice should be due (only required for due date and recur invoice actions). YYYY-mm-dd</td>
-<td>Optional</td>
-</tr>
-
-<tr>
-<td>hours</td>
-<td>float</td>
-<td>The number of hours or quantity the item corresponds to (not required for single quantities).</td>
 <td>Optional</td>
 </tr>
 </tbody>
@@ -1631,7 +1646,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             'recur' =&gt; '1',
             'recurcycle' =&gt; 'Months',
             'recurfor' =&gt; '12',
-            'duedate' =&gt; '2016-01-01',
+            'duedate' =&gt; '2021-01-01',
             'responsetype' =&gt; 'json',
         )
     )
@@ -1652,7 +1667,7 @@ $postData = array(
     'recur' =&gt; '1',
     'recurcycle' =&gt; 'Months',
     'recurfor' =&gt; '12',
-    'duedate' =&gt; '2016-01-01',
+    'duedate' =&gt; '2021-01-01',
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later
 
@@ -1663,8 +1678,8 @@ print_r($results);
 <h3 id="example-response-json">Example Response JSON</h3>
 
 <pre><code>{
-    &quot;result&quot;: &quot;success&quot;,
-    &quot;billableid&quot;: &quot;1&quot;
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;billableid&quot;: 1
 }
 </code></pre>
 
@@ -1678,6 +1693,8 @@ print_r($results);
 <li>Invalid Invoice Action</li>
 <li>Recurring must have a unit, cycle and limit</li>
 <li>Due date is required</li>
+<li>Invalid Unit, please specify either &lsquo;hours&rsquo; or &lsquo;quantity&rsquo;</li>
+<li>Invalid Date Format - Expected: &lsquo;YYYY-mm-dd&rsquo;</li>
 </ul>
 
 <h3 id="version-history">Version History</h3>
@@ -1694,6 +1711,16 @@ print_r($results);
 <tr>
 <td>1.0</td>
 <td>Initial Version</td>
+</tr>
+
+<tr>
+<td>8.2</td>
+<td>Renamed &lsquo;hours&rsquo; parameter to <code>quantity</code>. Now Required</td>
+</tr>
+
+<tr>
+<td>8.2</td>
+<td>Added <code>unit</code> parameter.</td>
 </tr>
 </tbody>
 </table>

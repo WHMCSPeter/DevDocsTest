@@ -178,6 +178,14 @@
       
       
       
+        <li class="" data-nav-id="/payment-gateways/displaying-balances/">
+          <a href="//developers.whmcs.com/payment-gateways/displaying-balances/">
+            <span>Displaying Balances</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/payment-gateways/callbacks/">
           <a href="//developers.whmcs.com/payment-gateways/callbacks/">
             <span>Callback Files</span>
@@ -317,7 +325,7 @@
 
 <p>Follow the steps below to create a third party gateway module.</p>
 
-<div class="notice info" ><p>A Merchant Gateway is one where a customer enters credit card details in WHMCS. The payment processes in the background. Can also include 3D Secure where the user leaves your site. Examples include PayPal Pro, Authorize.net AIM</p>
+<div class="notice info" ><p>A Merchant Gateway is one where a customer enters credit card details in WHMCS. The payment processes in the background. This can also include 3D Secure when the user leaves your site. Examples include PayPal Pro, Authorize.net, and AIM.</p>
 </div>
 
 
@@ -325,8 +333,8 @@
 
 <ol>
 <li>Delete the <code>yourmodulename_link</code> function from the module template since this is only required for <a href="//developers.whmcs.com/payment-gateways/third-party-gateway" title="Third Party Gateways">Third Party Gateway</a> modules.</li>
-<li>Enter the gateway-specific code for processing the payment capture into the <code>yourmodulename_capture</code> function. Typically this takes the format of an HTTP/Curl request to the gateway provider&rsquo;s API.</li>
-<li>If the gateway supports 3D Secure (Verified by Visa or MasterCard Secure Code) then please refer to <a href="//developers.whmcs.com/payment-gateways/3d-secure" title="3D Secure Process">3D Secure</a>.</li>
+<li>Enter the gateway-specific code for processing the payment capture into the <code>yourmodulename_capture</code> function. Typically, this takes the format of an HTTP/Curl request to the gateway provider&rsquo;s API.</li>
+<li>If the gateway supports 3D Secure (Verified by Visa or MasterCard Secure Code) refer to <a href="//developers.whmcs.com/payment-gateways/3d-secure" title="3D Secure Process">3D Secure</a>.</li>
 <li>If your payment gateway supports refunds, implement support for <a href="//developers.whmcs.com/payment-gateways/refunds" title="Refunding Transactions">Refunds</a>.</li>
 </ol>
 
@@ -347,79 +355,79 @@
 <tr>
 <td>invoiceid</td>
 <td>integer</td>
-<td>Invoice ID Number</td>
+<td>Invoice ID number.</td>
 </tr>
 
 <tr>
 <td>description</td>
 <td>string</td>
-<td>Description (eg. Company Name - Invoice #xxx)</td>
+<td>Description (for example, <code>Company Name - Invoice #xxx</code>).</td>
 </tr>
 
 <tr>
 <td>amount</td>
 <td>float</td>
-<td>Format: xxx.xx</td>
+<td>Format: <code>xxx.xx</code></td>
 </tr>
 
 <tr>
 <td>currency</td>
 <td>string</td>
-<td>Currency Code (eg. GBP, USD, etc.,)</td>
+<td>Currency code (for example, GBP or USD).</td>
 </tr>
 
 <tr>
 <td>cardtype</td>
 <td>string</td>
-<td>The Card Type (Visa, MasterCard, etc. &hellip;)</td>
+<td>The card type (for example, Visa or MasterCard).</td>
 </tr>
 
 <tr>
 <td>cardnum</td>
 <td>string</td>
-<td>The Card Number</td>
+<td>The card number.</td>
 </tr>
 
 <tr>
 <td>cardexp</td>
 <td>string</td>
-<td>The Card Expiry Date (Format: MMYY)</td>
+<td>The card expiry date (format: MMYY).</td>
 </tr>
 
 <tr>
 <td>cardstart</td>
 <td>string</td>
-<td>The Card Start Date (Format: MMYY)</td>
+<td>The card start date (format: MMYY).</td>
 </tr>
 
 <tr>
 <td>cardissuenum</td>
 <td>string</td>
-<td>The Card Issue Number</td>
+<td>The card issue number.</td>
 </tr>
 
 <tr>
 <td>cccvv</td>
 <td>string</td>
-<td>Only available for card holder present initiated payment attempts</td>
+<td>Only available for card holder present initiated payment attempts.</td>
 </tr>
 
 <tr>
 <td>clientdetails</td>
 <td>array</td>
-<td>An array of client details. firstname, lastname, email, address1, address2, city, state, postcode, country, phonenumber</td>
+<td>An array of client details that includes the following indices: firstname, lastname, email, address1, address2, city, state, postcode, country (ISO code), model (an instance of <code>&lt;a href=&quot;https://classdocs.whmcs.com/&quot;&gt;WHMCS/User/Client&lt;/a&gt;</code>), and phonenumber.</td>
 </tr>
 
 <tr>
 <td>companyname</td>
 <td>string</td>
-<td>The Company Name setting in WHMCS</td>
+<td>The <em>Company Name</em> setting in WHMCS.</td>
 </tr>
 
 <tr>
 <td>systemurl</td>
 <td>string</td>
-<td>The url to the client area of the WHMCS install</td>
+<td>The URL to the client area of the WHMCS installation.</td>
 </tr>
 </tbody>
 </table>
@@ -441,44 +449,44 @@
 <tr>
 <td>status</td>
 <td>string</td>
-<td>One of either <code>success</code>, <code>pending</code>, <code>declined</code></td>
+<td>One of either <code>success</code>, <code>pending</code>, or <code>declined</code>.</td>
 </tr>
 
 <tr>
 <td>declinereason</td>
 <td>string</td>
-<td>The reason for a decline</td>
+<td>The reason why a transaction was declined.</td>
 </tr>
 
 <tr>
 <td>transid</td>
 <td>string</td>
-<td>The Transaction ID returned by the payment gateway</td>
+<td>The Transaction ID returned by the payment gateway.</td>
 </tr>
 
 <tr>
 <td>fee</td>
 <td>float</td>
-<td>(Optional) The transaction fee returned by the payment gateway</td>
+<td>(Optional) The transaction fee returned by the payment gateway.</td>
 </tr>
 
 <tr>
 <td>rawdata</td>
 <td>string or array</td>
-<td>The raw data returned by the payment gateway for logging to the gateway log to aid in debugging</td>
+<td>The raw data returned by the payment gateway for logging to the gateway log to aid in debugging.</td>
 </tr>
 
 <tr>
 <td>gatewayid</td>
 <td>string</td>
-<td>See <a href="//developers.whmcs.com/payment-gateways/tokenised-remote-storage" title="Tokenised Remote Storage">Tokenised Remote Storage</a></td>
+<td>See <a href="//developers.whmcs.com/payment-gateways/tokenised-remote-storage" title="Tokenised Remote Storage">Tokenised Remote Storage</a>.</td>
 </tr>
 </tbody>
 </table>
 
 <h3 id="example-return">Example Return</h3>
 
-<p>The capture function should always return an array containing information about the transaction attempt.  This should take the following format:</p>
+<p>The capture function should always return an array containing information about the transaction attempt. This should take the following format:</p>
 
 <pre><code>return array(
     'status' =&gt; 'success',
@@ -488,15 +496,17 @@
 );
 </code></pre>
 
-<p>For a successful capture, the status should be returned as the string <code>success</code>.
-For payments that are pending and do not require an immediate payment in WHMCS, the status should be <code>pending</code>.
-For anything else, return a status that indicates the reason for failure.  Common failure response status values include <code>declined</code> and <code>error</code>.</p>
+<p>For a successful capture, the status should be returned as the string <code>success</code>.</p>
 
-<p>The raw data you return will be recorded to the gateway log to aide in debugging. It can accept either a string or array.</p>
+<p>For payments that are pending and do not require an immediate payment in WHMCS, the status should be <code>pending</code>.</p>
+
+<p>For anything else, return a status that indicates the reason for failure. Common failure response status values include <code>declined</code> and <code>error</code>.</p>
+
+<p>The raw data you return will be recorded to the gateway log to aide in debugging. It can accept either a string or an array.</p>
 
 <h2 id="simple-example">Simple Example</h2>
 
-<p>Below is a very simple demonstration of a capture function that submits a payment capture request and receives a JSON response. For a more complete example, please refer to the <a href="https://github.com/WHMCS/sample-merchant-gateway" title="Sample Merchant Gateway module on Github">Sample Merchant Gateway module on Github</a>.</p>
+<p>Below is a demonstration of a capture function that submits a payment capture request and receives a JSON response. For a more complete example, please refer to the <a href="https://github.com/WHMCS/sample-merchant-gateway" title="Sample Merchant Gateway module on Github">Sample Merchant Gateway module on GitHub</a>.</p>
 
 <pre><code>function yourmodulename_capture($params) {
 
@@ -555,7 +565,7 @@ For anything else, return a status that indicates the reason for failure.  Commo
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/payment-gateways/callbacks">
+                    <a class="nav nav-next" href="//developers.whmcs.com/payment-gateways/displaying-balances">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>

@@ -930,6 +930,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getregistrars/">
+          <a href="//developers.whmcs.com/api-reference/getregistrars/">
+            <span>GetRegistrars</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="active" data-nav-id="/api-reference/getservers/">
           <a href="//developers.whmcs.com/api-reference/getservers/">
             <span>GetServers</span>
@@ -1522,6 +1530,20 @@
 </tr>
 
 <tr>
+<td>serviceId</td>
+<td>int</td>
+<td>Pass a Product/Service ID to fetch available servers for its module type.</td>
+<td>Optional</td>
+</tr>
+
+<tr>
+<td>addonId</td>
+<td>int</td>
+<td>Pass a Addon/Service ID to fetch available servers for its module type.</td>
+<td>Optional</td>
+</tr>
+
+<tr>
 <td>fetchStatus</td>
 <td>bool</td>
 <td>Pass as true to attempt to fetch server status values.</td>
@@ -1562,6 +1584,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS,
             // See https://developers.whmcs.com/api/authentication
             'username' =&gt; 'IDENTIFIER_OR_ADMIN_USERNAME',
             'password' =&gt; 'SECRET_OR_HASHED_PASSWORD',
+            'serviceId' =&gt; '1',
             'fetchStatus' =&gt; false,
             'responsetype' =&gt; 'json',
         )
@@ -1576,6 +1599,7 @@ curl_close($ch);
 
 <pre><code>$command = 'GetServers';
 $postData = array(
+    'serviceId' =&gt; '1',
     'fetchStatus' =&gt; false,
 );
 $adminUsername = 'ADMIN_USERNAME'; // Optional for WHMCS 7.2 and later

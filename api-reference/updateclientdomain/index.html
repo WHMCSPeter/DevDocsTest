@@ -930,6 +930,14 @@
       
       
       
+        <li class="" data-nav-id="/api-reference/getregistrars/">
+          <a href="//developers.whmcs.com/api-reference/getregistrars/">
+            <span>GetRegistrars</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="" data-nav-id="/api-reference/getservers/">
           <a href="//developers.whmcs.com/api-reference/getservers/">
             <span>GetServers</span>
@@ -1608,7 +1616,7 @@
 <tr>
 <td>registrar</td>
 <td>string</td>
-<td>The registrar to associate with the domain.</td>
+<td>The registrar to associate with the domain. Example: enom, resellerclub, customregistrarname</td>
 <td>Optional</td>
 </tr>
 
@@ -1781,6 +1789,7 @@ print_r($results);
 
 <ul>
 <li>Domain ID Not Found</li>
+<li>The Registrar is not active</li>
 <li>ns1 and ns2 required</li>
 <li>Registrar Error Message</li>
 </ul>

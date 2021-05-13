@@ -1452,7 +1452,7 @@ add_hook('ClientAreaProductDetailsOutput', 1, function($service) {
 <tr>
 <td>date</td>
 <td>\Carbon</td>
-<td>A Carbon object representing the date.</td>
+<td>A Carbon object representing the date/time.</td>
 </tr>
 </tbody>
 </table>
@@ -1464,7 +1464,8 @@ add_hook('ClientAreaProductDetailsOutput', 1, function($service) {
 <h4 id="example-code-9">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('FormatDateForClientAreaOutput', 1, function($vars) {
+
+add_hook('FormatDateForClientAreaOutput', 1, function ($vars) {
     // Perform hook code here...
 });
 </code></pre>
@@ -1500,7 +1501,8 @@ add_hook('FormatDateForClientAreaOutput', 1, function($vars) {
 <h4 id="example-code-10">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('FormatDateTimeForClientAreaOutput', 1, function($vars) {
+
+add_hook('FormatDateTimeForClientAreaOutput', 1, function ($vars) {
     // Perform hook code here...
 });
 </code></pre>

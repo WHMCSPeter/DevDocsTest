@@ -438,6 +438,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/api-reference/getregistrars/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/api-reference/getservers/</loc>
   </url>
   
@@ -1103,6 +1107,10 @@
   
   <url>
     <loc>//developers.whmcs.com/themes/variables/</loc>
+  </url>
+  
+  <url>
+    <loc>//developers.whmcs.com/payment-gateways/displaying-balances/</loc>
   </url>
   
   <url>
