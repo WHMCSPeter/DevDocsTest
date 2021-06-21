@@ -1611,7 +1611,26 @@ print_r($results);
 <h3 id="example-response-json">Example Response JSON</h3>
 
 <pre><code>{
-    &quot;result&quot;: &quot;success&quot;
+    &quot;result&quot;: &quot;success&quot;,
+    &quot;servers&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Sample cPanel Box&quot;,
+            &quot;hostname&quot;: &quot;hostname.example.com&quot;,
+            &quot;ipaddress&quot;: &quot;10.100.4.30&quot;,
+            &quot;active&quot;: true,
+            &quot;activeServices&quot;: 0,
+            &quot;maxAllowedServices&quot;: 200,
+            &quot;percentUsed&quot;: 0,
+            &quot;module&quot;: &quot;cpanel&quot;,
+            &quot;status&quot;: {
+                &quot;http&quot;: false,
+                &quot;load&quot;: &quot;&quot;,
+                &quot;uptime&quot;: &quot;&quot;
+            }
+        }
+    ],
+    &quot;fetchStatus&quot;: &quot;&quot;
 }
 </code></pre>
 

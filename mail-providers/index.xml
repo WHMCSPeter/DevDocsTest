@@ -208,7 +208,7 @@ public function testConnection($settings)
 
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;$params&lt;/code&gt; — An array of configuration parameters for the mail provider.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;$message&lt;/code&gt; — The &lt;code&gt;Message&lt;/code&gt; object.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$message&lt;/code&gt; — The &lt;code&gt;WHMCS\Mail\Message&lt;/code&gt; object.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;pre&gt;&lt;code&gt;public function send(array $params, Message $message)

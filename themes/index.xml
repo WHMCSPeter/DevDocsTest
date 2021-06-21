@@ -467,10 +467,10 @@ provides:
 
 &lt;h2 id=&#34;custom-css&#34;&gt;Custom CSS&lt;/h2&gt;
 
-&lt;p&gt;If you want to make changes to any of the CSS that is applied by default, we recommend making those customisations inside of the &lt;code&gt;/css/custom.css&lt;/code&gt; file. This file is included after &lt;code&gt;styles.css&lt;/code&gt;, allowing you to override any of the CSS defined within it. It will not be affected by future updates to the WHMCS software.&lt;/p&gt;
+&lt;p&gt;If you want to make changes to any of the CSS that is applied by default, we recommend creating a &lt;code&gt;css/custom.css&lt;/code&gt; file and making those customisations within it. This file is included after &lt;code&gt;styles.css&lt;/code&gt;, allowing you to override any of the CSS defined within it. It will not be affected by future updates to the WHMCS software.&lt;/p&gt;
 
 &lt;div class=&#34;notice tip&#34; &gt;&lt;ul&gt;
-&lt;li&gt;We strongly recommend adding your custom CSS rules to the &lt;code&gt;custom.css&lt;/code&gt; file and &lt;strong&gt;not&lt;/strong&gt; editing &lt;code&gt;/css/styles.css&lt;/code&gt; directly because it will make updating easier.&lt;/li&gt;
+&lt;li&gt;We strongly recommend creating a &lt;code&gt;css/custom.css&lt;/code&gt; file to contain your additional custom CSS rules and &lt;strong&gt;not&lt;/strong&gt; editing &lt;code&gt;css/styles.css&lt;/code&gt; directly because it will make updating easier.&lt;/li&gt;
 &lt;li&gt;You may also wish to consider creating a &lt;a href=&#34;//developers.whmcs.com/themes/child-themes/&#34;&gt;child theme&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;

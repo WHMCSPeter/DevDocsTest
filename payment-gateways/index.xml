@@ -636,11 +636,13 @@ Any other response is considered a failure, and the subscriptionid value will re
 
 &lt;p&gt;WHMCS 8.2 adds the ability to display payment gateway balances directly in the WHMCS Admin Area. By default, these balances are available for Stripe and PayPal Basic at &lt;strong&gt;Billing &amp;gt; Transactions&lt;/strong&gt;.&lt;/p&gt;
 
+&lt;p&gt;By default, balance information will display in the Admin Area for admins with the &lt;strong&gt;Full Administrator&lt;/strong&gt; role. To allow other admin roles to see balance information, enable &lt;strong&gt;View Gateway Balances&lt;/strong&gt; for the desired role.&lt;/p&gt;
+
 &lt;p&gt;You can display the balances for other payment gateways through two payment gateway module classes: &lt;code&gt;BalanceInterface&lt;/code&gt; and &lt;code&gt;BalanceCollection&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;connecting-to-gateways&#34;&gt;Connecting to Gateways&lt;/h2&gt;
+&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
 
-&lt;p&gt;Before you can retrieve balance information, connect to the desired gateway. For example:&lt;/p&gt;
+&lt;p&gt;Successful implementations of this functionality within a payment gateway module should resemble the example below:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;use WHMCS\Module\Gateway\Balance;
 use WHMCS\Module\Gateway\BalanceCollection;
@@ -668,66 +670,135 @@ function yourmodulename_account_balance(array $params = []): BalanceCollection
     curl_close($ch);
 
     $balanceData = json_decode($response);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;the-balance-class&#34;&gt;The Balance Class&lt;/h2&gt;
-
-&lt;p&gt;After you connect to the gateway, add an object for the &lt;code&gt;Balance&lt;/code&gt; class.&lt;/p&gt;
-
-&lt;p&gt;You can repeat this process as many times as needed for each balance type that the gateway supports (for example, &lt;em&gt;Available&lt;/em&gt; and &lt;em&gt;Pending&lt;/em&gt;). However, most gateways will only have one &lt;code&gt;Balance&lt;/code&gt; type.&lt;/p&gt;
-
-&lt;p&gt;You can do this in two ways:&lt;/p&gt;
-
-&lt;h3 id=&#34;using-the-default-label-and-color&#34;&gt;Using the default label and color&lt;/h3&gt;
-
-&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;You must add an object for the &lt;code&gt;Balance&lt;/code&gt; class using this method &lt;strong&gt;at least&lt;/strong&gt; once.&lt;/p&gt;
-&lt;/div&gt;
-
-
-&lt;pre&gt;&lt;code&gt;foreach ($balanceData[&#39;available&#39;] as $availableData) {
-    $currencyCode = strtoupper($availableData[&#39;currency&#39;]);
-    $amount[$currencyCode] = ($availableData[&#39;amount&#39;] / 100);
 
     /**
-     * Add a Balance object using the default label and format colour.
+     * Add Balance objects as many times as needed for each gateway
+     * balance type (most gateways will only have one).
      */
-    $balanceInfo[] = Balance::factory(
-        $amount[$currencyCode],
-        $currencyCode
-    );
+    foreach ($balanceData[&#39;available&#39;] as $availableData) {
+        $currencyCode = strtoupper($availableData[&#39;currency&#39;]);
+        $amount[$currencyCode] = ($availableData[&#39;amount&#39;] / 100);
+
+        /**
+         * Add a Balance object using the default label and format color.
+         */
+        $balanceInfo[] = Balance::factory(
+            $amount[$currencyCode],
+            $currencyCode
+        );
+    }
+
+    foreach ($balanceData[&#39;pending&#39;] as $pendingData) {
+        $currencyCode = strtoupper($pendingData[&#39;currency&#39;]);
+        $pending[$currencyCode] = ($pendingData[&#39;amount&#39;] / 100);
+
+        /**
+         * Add a Balance object overriding the default label and color.
+         */
+        $balanceInfo[] = Balance::factory(
+            $pending[$currencyCode],
+            $currencyCode,
+            &#39;status.pending&#39;, //The default label is status.available.
+            &#39;#6ecacc&#39; //The default color hex code is #5dc560.
+        );
+    }
+
+    /**
+     * The BalanceCollection object accepts an array containing any number of
+     * Balance objects. Passing an item in the array that is not a Balance
+     * object will cause a fatal error.
+     */
+    return BalanceCollection::factoryFromItems(...$balanceInfo);
 }
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Transaction Information</title>
+      <link>//developers.whmcs.com/payment-gateways/transaction-information/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//developers.whmcs.com/payment-gateways/transaction-information/</guid>
+      <description>
 
-&lt;h3 id=&#34;overriding-the-label-and-color&#34;&gt;Overriding the label and color&lt;/h3&gt;
+&lt;p&gt;WHMCS 8.2 added the ability to display additional transaction details in a modal in the WHMCS Admin Area. Clicking on a transaction ID will open the modal to display this information for enabled supported gateways. By default, these details are available by clicking a transaction ID at &lt;strong&gt;Billing &amp;gt; Transactions&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Adding an object that overrides the label, color, or both is optional. To override the label and color, add the desired label and hex color code as in the example below:&lt;/p&gt;
+&lt;p&gt;All Stripe gateways support this by default. You can display transaction information for other gateways using the &lt;code&gt;TransactionInformation&lt;/code&gt; function.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$balanceInfo[] = Balance::factory(
-    $pending[$currencyCode],
-    $currencyCode,
-    &#39;status.pending&#39;, //default label is status.available
-    &#39;#6ecacc&#39; //default colour is #5dc560
-&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;displaying-transaction-information&#34;&gt;Displaying Transaction Information&lt;/h2&gt;
 
-&lt;h2 id=&#34;the-balancecollection-class&#34;&gt;The BalanceCollection Class&lt;/h2&gt;
+&lt;p&gt;The following example code connects to the gateway and displays the transaction information:&lt;/p&gt;
 
-&lt;p&gt;Next, add an object to the &lt;code&gt;BalanceCollection&lt;/code&gt; class. It should accept an array of &lt;code&gt;Balance&lt;/code&gt; objects.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;use WHMCS\Billing\Payment\Transaction\Information;
+use WHMCS\Carbon;
 
-&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;If anything in the array &lt;strong&gt;isn&amp;rsquo;t&lt;/strong&gt; a &lt;code&gt;Balance&lt;/code&gt; object, WHMCS will encounter a fatal error.&lt;/p&gt;
-&lt;/div&gt;
-
-
-&lt;pre&gt;&lt;code&gt;/**
- * The BalanceCollection object accepts an array containing any number of Balance objects.
- * Passing an item in the array that is not a Balance object will cause a fatal error.
+/**
+ * @param array @params
+ *
+ * @return Information
  */
-return BalanceCollection::factoryFromItems(...$balanceInfo);
+function yourmodulename_TransactionInformation(array $params = []): Information
+{
+    /**
+     * Connect to gateway to retrieve transaction information.
+     */
+    $postfields = [
+        &#39;account&#39; =&amp;gt; $params[&#39;apikey&#39;],
+        &#39;transactionId&#39; =&amp;gt; $params[&#39;transactionId&#39;],
+    ];
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/api/transaction&#39;);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $transactionInformation = json_decode($response);
+    return (new Information())
+        -&amp;gt;setTransactionId($transactionData[&#39;id&#39;])
+        -&amp;gt;setAmount($transactionData[&#39;amount&#39;])
+        -&amp;gt;setCurrency($transactionData[&#39;currency&#39;])
+        -&amp;gt;setType($transactionData[&#39;type&#39;])
+        -&amp;gt;setAvailableOn(Carbon::parse($transactionData[&#39;available_on&#39;]))
+        -&amp;gt;setCreated(Carbon::parse($transactionData[&#39;created&#39;]))
+        -&amp;gt;setDescription($transactionData[&#39;description&#39;])
+        -&amp;gt;setFee($transactionData[&#39;fee&#39;])
+        -&amp;gt;setStatus($transactionData[&#39;status&#39;])
+        -&amp;gt;setAdditionalDatum(&#39;customName1&#39;, $transactionData[&#39;customValue1&#39;])
+        -&amp;gt;setAdditionalDatum(&#39;customName2&#39;, $transactionData[&#39;customValue2&#39;]);
 }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-information-class&#34;&gt;The Information Class&lt;/h2&gt;
+
+&lt;p&gt;The use of the &lt;code&gt;Information&lt;/code&gt; class causes the return from the &lt;code&gt;TransactionInformation&lt;/code&gt; function to be standard.&lt;/p&gt;
+
+&lt;p&gt;This class has no attribute requirements, but we recommend that you set &lt;code&gt;id&lt;/code&gt;, &lt;code&gt;amount&lt;/code&gt;, and &lt;code&gt;currency&lt;/code&gt; as in the example above. The data that you set here determines what displays in the modal. Values that evaluate to false will not display in the modal.&lt;/p&gt;
+
+&lt;p&gt;For more information about the &lt;code&gt;Information&lt;/code&gt; class, see the &lt;a href=&#34;https://classdocs.whmcs.com/8.2/WHMCS/Billing/Payment/Transaction/Information.html&#34;&gt;WHMCS Internal Class Documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;setting-additional-data&#34;&gt;Setting Additional Data&lt;/h3&gt;
+
+&lt;p&gt;Use the &lt;code&gt;Information&lt;/code&gt; class&amp;rsquo;s &lt;code&gt;setAdditionalDatum&lt;/code&gt; method to add data. The passed value will display with the label for the key. For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;setAdditionalDatum(string $key, $value)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;key-language-string-override&#34;&gt;key Language String Override&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code&gt;key&lt;/code&gt; value will be translated before it displays in the modal. You will need to add an &lt;a href=&#34;//developers.whmcs.com/languages/overrides/&#34;&gt;admin language string override&lt;/a&gt; for each additional piece of data.&lt;/p&gt;
+
+&lt;p&gt;For the code example above, you would add the following language strings:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$_ADMINLANG[&#39;transactions&#39;][&#39;information&#39;][&#39;customName1&#39;] = &amp;quot;Custom Name 1&amp;quot;;
+$_ADMINLANG[&#39;transactions&#39;][&#39;information&#39;][&#39;customName2&#39;] = &amp;quot;Custom Name 2&amp;quot;;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;required-permissions&#34;&gt;Required Permissions&lt;/h2&gt;
 
-&lt;p&gt;By default, balance information will display in the Admin Area for admins with the &lt;strong&gt;Full Administrator&lt;/strong&gt; role. To allow other admin roles to see balance information, enable &lt;strong&gt;View Gateway Balances&lt;/strong&gt; for the desired role.&lt;/p&gt;
+&lt;p&gt;By default, transaction information will display in the Admin Area for admins with the &lt;strong&gt;Full Administrator&lt;/strong&gt; role. To allow other admin roles to see balance information, enable &lt;strong&gt;List Transactions&lt;/strong&gt; for the desired role.&lt;/p&gt;
 </description>
     </item>
     
@@ -758,6 +829,19 @@ return BalanceCollection::factoryFromItems(...$balanceInfo);
 &lt;li&gt;Log the transaction to the WHMCS Gateway Log using the &lt;code&gt;logTransaction&lt;/code&gt; helper method.&lt;/li&gt;
 &lt;li&gt;Apply the payment to the invoice using the &lt;code&gt;addInvoicePayment&lt;/code&gt; helper method.&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h2 id=&#34;callback-redirection&#34;&gt;Callback Redirection&lt;/h2&gt;
+
+&lt;p&gt;When a payment is received, a payment notification containing the transaction details may be sent to the gateway module&amp;rsquo;s callback file. The URL of the callback file would be considered the &lt;code&gt;Callback URL&lt;/code&gt; (e.g. &lt;a href=&#34;https://example.com/whmcs/modules/gateways/callback/gatewaymodule.php&#34;&gt;https://example.com/whmcs/modules/gateways/callback/gatewaymodule.php&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Some gateways allow you to you pass a &lt;code&gt;Return URL&lt;/code&gt; and a &lt;code&gt;Callback URL&lt;/code&gt; in the payment button code. WHMCS can provide the &lt;code&gt;Return URL&lt;/code&gt; during the initial payment submission to the gateway via the &lt;code&gt;$params[&#39;returnurl&#39;]&lt;/code&gt; parameter, which is made available in the gateway module &lt;code&gt;_link&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;p&gt;Other payment gateways require the &lt;code&gt;Return URL&lt;/code&gt; to be specified in the payment gateway&amp;rsquo;s control panel settings outside of WHMCS to return the client upon completion of a payment (e.g. a success/failure page or redirect to the paid invoice). Create the file for this page as required and place it at &lt;code&gt;/modules/gateways/yourgatewayname/&lt;/code&gt;.
+The URL to this page will be considered the &lt;code&gt;Return URL&lt;/code&gt; (e.g. &lt;a href=&#34;https://example.com/whmcs/modules/gateways/yourgatewayname/customfile.php&#34;&gt;https://example.com/whmcs/modules/gateways/yourgatewayname/customfile.php&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;This URL could then be specified in the payment gateway&amp;rsquo;s control panel settings outside of WHMCS, leaving just the notification URL specified in the gateway module&amp;rsquo;s &lt;code&gt;_link&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;p&gt;If the gateway only supports one URL for both payment notification and redirection after payment, visitors can be redirected to the callback file and output provided to return them to the Client Area via a link or meta refresh. This output should be provided by the callback file after the &lt;code&gt;addInvoicePayment&lt;/code&gt; and &lt;code&gt;logTransaction&lt;/code&gt; functions.&lt;/p&gt;
 
 &lt;h2 id=&#34;helper-functions&#34;&gt;Helper Functions&lt;/h2&gt;
 
@@ -1701,34 +1785,6 @@ The most common messages are detailed below, other exceptions could be thrown an
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Installation &amp; Activation</title>
-      <link>//developers.whmcs.com/payment-gateways/installation-activation/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//developers.whmcs.com/payment-gateways/installation-activation/</guid>
-      <description>
-
-&lt;p&gt;To install the new module, upload it to the &lt;code&gt;/modules/gateways/&lt;/code&gt; folder of your WHMCS installation.&lt;/p&gt;
-
-&lt;p&gt;If the module includes a callback file, that should be uploaded to the &lt;code&gt;/modules/gateways/callback/&lt;/code&gt; folder.&lt;/p&gt;
-
-&lt;p&gt;Once uploaded, navigate to &lt;strong&gt;Setup &amp;gt; Payment Gateways&lt;/strong&gt; to activate and configure the new module.&lt;/p&gt;
-
-&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;&lt;strong&gt;Important Note&lt;/strong&gt; The process of activating a module detects the type of module that has been created. Therefore if you experience unexpected behaviours, please try deactivating and reactivating your module before continuing.&lt;/p&gt;
-&lt;/div&gt;
-
-
-&lt;h2 id=&#34;troubleshooting-errors-during-activation&#34;&gt;Troubleshooting errors during activation&lt;/h2&gt;
-
-&lt;p&gt;If you receive a blank page or error message within the &lt;strong&gt;Setup &amp;gt; Payment Gateways&lt;/strong&gt; page upon uploading your new payment gateway module, this indicates there could be a syntax error within the new code.&lt;/p&gt;
-
-&lt;p&gt;To debug this, you can turn on error reporting.  To do this, navigate to &lt;strong&gt;Setup &amp;gt; General Settings &amp;gt; Other&lt;/strong&gt; and check the &lt;strong&gt;Display Errors&lt;/strong&gt; setting.&lt;/p&gt;
-
-&lt;p&gt;This enables PHP error reporting and should show the cause of any issues. Once resolved, remember to disable Display Errors again.&lt;/p&gt;
 </description>
     </item>
     

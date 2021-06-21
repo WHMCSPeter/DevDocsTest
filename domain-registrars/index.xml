@@ -79,7 +79,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/domain-registrars/config-options/</guid>
-      <description>&lt;p&gt;As with all modules in WHMCS, the configuration function is a required function of all registrar modules.&lt;/p&gt;
+      <description>
+
+&lt;p&gt;As with all modules in WHMCS, the configuration function is a required function of all registrar modules.&lt;/p&gt;
 
 &lt;p&gt;This defines the settings that are available for your registrar module. The name of this function must be &lt;code&gt;yourmodulename_getConfigArray&lt;/code&gt;.&lt;/p&gt;
 
@@ -95,55 +97,78 @@
 &lt;/ul&gt;
 
 &lt;p&gt;Below are examples of the available parameters for each field type. Provisioning modules support up to 24 options defined in this way.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #75715e&#34;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span style=&#34;color: #66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;yourmodulename_getConfigArray&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;($params)&lt;/span&gt;
+&lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color: #66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;array&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;(&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;username&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;array&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;(&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;FriendlyName&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;UserName&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Type&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #75715e&#34;&gt;# Text Box&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Size&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;25&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #75715e&#34;&gt;# Defines the Field Width&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Description&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Textbox&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Default&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Example&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #f8f8f2&#34;&gt;),&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;password&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;array&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;(&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;FriendlyName&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Password&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Type&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;password&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #75715e&#34;&gt;# Password Field&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Size&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;25&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #75715e&#34;&gt;# Defines the Field Width&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Description&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Password&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Default&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Example&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #f8f8f2&#34;&gt;),&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;usessl&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;array&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;(&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;FriendlyName&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Enable SSL&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Type&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;yesno&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #75715e&#34;&gt;# Yes/No Checkbox&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Description&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Tick to use secure connections&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #f8f8f2&#34;&gt;),&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;package&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;array&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;(&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;FriendlyName&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Package Name&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Type&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;dropdown&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #75715e&#34;&gt;# Dropdown Choice of Options&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Options&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Starter,Advanced,Ultimate&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Description&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Sample Dropdown&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Default&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Advanced&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #f8f8f2&#34;&gt;),&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;disk&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;array&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;(&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;FriendlyName&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Disk Space&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Type&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;radio&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #75715e&#34;&gt;# Radio Selection of Options&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Options&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;100MB,200MB,300MB&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Description&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Radio Options Demo&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Default&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;200MB&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #f8f8f2&#34;&gt;),&lt;/span&gt;
+        &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;comments&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;array&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;(&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;FriendlyName&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Notes&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Type&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;textarea&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #75715e&#34;&gt;# Textarea&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Rows&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;3&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #75715e&#34;&gt;# Number of Rows&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Cols&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;50&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color: #75715e&#34;&gt;# Number of Columns&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Description&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Description goes here&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+            &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Default&amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;Enter notes here&amp;quot;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color: #f8f8f2&#34;&gt;),&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-function yourmodulename_getConfigArray($params)
-{
-    return array(
-        &amp;quot;username&amp;quot; =&amp;gt; array (
-            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;UserName&amp;quot;,
-            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;text&amp;quot;, # Text Box
-            &amp;quot;Size&amp;quot; =&amp;gt; &amp;quot;25&amp;quot;, # Defines the Field Width
-            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Textbox&amp;quot;,
-            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;Example&amp;quot;,
-        ),
-        &amp;quot;password&amp;quot; =&amp;gt; array (
-            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Password&amp;quot;,
-            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;password&amp;quot;, # Password Field
-            &amp;quot;Size&amp;quot; =&amp;gt; &amp;quot;25&amp;quot;, # Defines the Field Width
-            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Password&amp;quot;,
-            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;Example&amp;quot;,
-        ),
-        &amp;quot;usessl&amp;quot; =&amp;gt; array (
-            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Enable SSL&amp;quot;,
-            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;yesno&amp;quot;, # Yes/No Checkbox
-            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Tick to use secure connections&amp;quot;,
-        ),
-        &amp;quot;package&amp;quot; =&amp;gt; array (
-            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Package Name&amp;quot;,
-            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;dropdown&amp;quot;, # Dropdown Choice of Options
-            &amp;quot;Options&amp;quot; =&amp;gt; &amp;quot;Starter,Advanced,Ultimate&amp;quot;,
-            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Sample Dropdown&amp;quot;,
-            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;Advanced&amp;quot;,
-        ),
-        &amp;quot;disk&amp;quot; =&amp;gt; array (
-            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Disk Space&amp;quot;,
-            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;radio&amp;quot;, # Radio Selection of Options
-            &amp;quot;Options&amp;quot; =&amp;gt; &amp;quot;100MB,200MB,300MB&amp;quot;,
-            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Radio Options Demo&amp;quot;,
-            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;200MB&amp;quot;,
-        ),
-        &amp;quot;comments&amp;quot; =&amp;gt; array (
-            &amp;quot;FriendlyName&amp;quot; =&amp;gt; &amp;quot;Notes&amp;quot;,
-            &amp;quot;Type&amp;quot; =&amp;gt; &amp;quot;textarea&amp;quot;, # Textarea
-            &amp;quot;Rows&amp;quot; =&amp;gt; &amp;quot;3&amp;quot;, # Number of Rows
-            &amp;quot;Cols&amp;quot; =&amp;gt; &amp;quot;50&amp;quot;, # Number of Columns
-            &amp;quot;Description&amp;quot; =&amp;gt; &amp;quot;Description goes here&amp;quot;,
-            &amp;quot;Default&amp;quot; =&amp;gt; &amp;quot;Enter notes here&amp;quot;,
-        ),
-    );
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;configuration-validation&#34;&gt;Configuration Validation&lt;/h2&gt;
+
+&lt;p&gt;When the configuration settings for your module are being saved, you may wish to validate them first before allowing them to be saved. You can define the &lt;code&gt;_config_validate&lt;/code&gt; function in your module to do this.&lt;/p&gt;
+
+&lt;p&gt;This will allow you to run a block of code to determine if the details that the user has provided and is trying to save are valid or not. If there is a problem with validation, you can throw an exception to prevent the save action from completing.&lt;/p&gt;
+
+&lt;p&gt;The example code below demonstrates how to prevent saving the module configuration if an API responded with an error due to a parameter being invalid:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #75715e&#34;&gt;&amp;lt;?php&lt;/span&gt;
+ 
+&lt;span style=&#34;color: #66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;yourmodulename_config_validate&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;($params)&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;$apiKey&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;$params[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;api_key&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;];&lt;/span&gt;
+  
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;$valid&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color: #75715e&#34;&gt;// $response = yourmodulename_apicall(&amp;#39;validate_credentials&amp;#39;, [&lt;/span&gt;
+    &lt;span style=&#34;color: #75715e&#34;&gt;//     &amp;#39;apikey&amp;#39; =&amp;gt; $apiKey,&lt;/span&gt;
+    &lt;span style=&#34;color: #75715e&#34;&gt;// ]);&lt;/span&gt;
+    &lt;span style=&#34;color: #75715e&#34;&gt;// $valid = $response[&amp;#39;valid&amp;#39;];&lt;/span&gt;
+  
+    &lt;span style=&#34;color: #66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;$valid)&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color: #66d9ef&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;\Exception&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;API Key is invalid.&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 </description>
     </item>
     
@@ -281,6 +306,21 @@ function yourmodulename_getConfigArray($params)
 &lt;tr&gt;
 &lt;td&gt;ClientAreaAllowedFunctions&lt;/td&gt;
 &lt;td&gt;Like the above, used to define custom functions. These are functions that customers can invoke, but are not shown as buttons by default. (i.e. custom client area output will invoke them).&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Sync&lt;/td&gt;
+&lt;td&gt;Called when a domain name&amp;rsquo;s expiry date and status change at registry level is requested for propagation into WHMCS. (i.e by the Domain Syncronisation feature).&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;TransferSync&lt;/td&gt;
+&lt;td&gt;Called when the status of a domain transfer at registry level is requested for propagation into WHMCS. (i.e by the Domain Syncronisation feature).&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;GetTldPricing&lt;/td&gt;
+&lt;td&gt;Called when the importation and synchronising of TLD pricing, into WHMCS, from a registrar is requested. (i.e by the Registrar TLD &amp;amp; Pricing Sync Utility).&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

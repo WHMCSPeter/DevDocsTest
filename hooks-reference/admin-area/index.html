@@ -1222,9 +1222,9 @@ add_hook('AdminLogout', 1, function($vars) {
 });
 </code></pre>
 
-<h2 id="adminproductconfigfields">AdminProductConfigFields</h2>
+<h2 id="adminpredefinedaddons">AdminPredefinedAddons</h2>
 
-<p>Executes as a product is being edited.</p>
+<p>Executes as the Create New Addon page is loaded.</p>
 
 <h4 id="parameters-14">Parameters</h4>
 
@@ -1239,8 +1239,8 @@ add_hook('AdminLogout', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>pid</td>
-<td>int</td>
+<td>No input parameters for this hook point.</td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -1248,19 +1248,55 @@ add_hook('AdminLogout', 1, function($vars) {
 
 <h4 id="response-14">Response</h4>
 
-<p>An array of key -&gt; value pairs to display on the Other tab.</p>
+<p>array of values used for the creation of predefined addon panels. See example for array structure.</p>
 
 <h4 id="example-code-14">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('AdminProductConfigFields', 1, function($vars) {
-    // Perform hook code here...
+
+/**
+ * Setting the 'icontype' value to 'fa' allows for the use of Font Awesome icons.
+ */
+add_hook('AdminPredefinedAddons', 1, function () {
+    return [
+        [
+            'module' =&gt; 'yourmodule',
+            'icontype' =&gt; 'fa',
+            'iconvalue' =&gt; 'fad fa-cube',
+            'labeltype' =&gt; 'success',
+            'labelvalue' =&gt; 'Sample Label',
+            'paneltitle' =&gt; 'Sample Title',
+            'paneldescription' =&gt; 'Description to be displayed in the Predefined Addon panel.',
+            'addonname' =&gt; 'On addon creation, this value will be used as the addon name.',
+            'addondescription' =&gt; 'On addon creation, this value will be used as the addon description.',
+            'welcomeemail' =&gt; 'Hosting Account Welcome Email',
+            'featureaddon' =&gt; 'Name of feature addon as stored in the database.',
+        ],
+    ];
+});
+
+/**
+ * Alternatively the 'icontype' value can be set to 'url' to allow for the use of URLs and file paths.
+ */
+add_hook('AdminPredefinedAddons', 1, function () {
+    return [
+        [
+            'module' =&gt; 'yourmodule',
+            'icontype' =&gt; 'url',
+            'iconvalue' =&gt; 'https://www.whmcs.com/images/logo.png',
+            'paneltitle' =&gt; 'Sample Title',
+            'paneldescription' =&gt; 'Description to be displayed in the Predefined Addon panel.',
+            'addonname' =&gt; 'On addon creation, this value will be used as the addon name.',
+            'addondescription' =&gt; 'On addon creation, this value will be used as the addon description.',
+            'featureaddon' =&gt; 'Name of feature addon as stored in the database.',
+        ],
+    ];
 });
 </code></pre>
 
-<h2 id="adminproductconfigfieldssave">AdminProductConfigFieldsSave</h2>
+<h2 id="adminproductconfigfields">AdminProductConfigFields</h2>
 
-<p>Executes as a product is being saved. Access The Request variables to save custom config fields.</p>
+<p>Executes as a product is being edited.</p>
 
 <h4 id="parameters-15">Parameters</h4>
 
@@ -1284,9 +1320,45 @@ add_hook('AdminProductConfigFields', 1, function($vars) {
 
 <h4 id="response-15">Response</h4>
 
-<p>No response supported</p>
+<p>An array of key -&gt; value pairs to display on the Other tab.</p>
 
 <h4 id="example-code-15">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('AdminProductConfigFields', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="adminproductconfigfieldssave">AdminProductConfigFieldsSave</h2>
+
+<p>Executes as a product is being saved. Access The Request variables to save custom config fields.</p>
+
+<h4 id="parameters-16">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>pid</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-16">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-16">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AdminProductConfigFieldsSave', 1, function($vars) {
@@ -1298,7 +1370,7 @@ add_hook('AdminProductConfigFieldsSave', 1, function($vars) {
 
 <p>Executes when the Service has been edited. After the changes have been made.</p>
 
-<h4 id="parameters-16">Parameters</h4>
+<h4 id="parameters-17">Parameters</h4>
 
 <table>
 <thead>
@@ -1324,11 +1396,11 @@ add_hook('AdminProductConfigFieldsSave', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-16">Response</h4>
+<h4 id="response-17">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-16">Example Code</h4>
+<h4 id="example-code-17">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AdminServiceEdit', 1, function($vars) {
@@ -1340,7 +1412,7 @@ add_hook('AdminServiceEdit', 1, function($vars) {
 
 <p>Executes during Admin form-based password authentication</p>
 
-<h4 id="parameters-17">Parameters</h4>
+<h4 id="parameters-18">Parameters</h4>
 
 <table>
 <thead>
@@ -1366,11 +1438,11 @@ add_hook('AdminServiceEdit', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-17">Response</h4>
+<h4 id="response-18">Response</h4>
 
 <p>TRUE on success FALSE on failure</p>
 
-<h4 id="example-code-17">Example Code</h4>
+<h4 id="example-code-18">Example Code</h4>
 
 <pre><code>&lt;?php
 
@@ -1408,7 +1480,7 @@ add_hook(
 
 <h2 id="authadminapi">AuthAdminApi</h2>
 
-<h4 id="parameters-18">Parameters</h4>
+<h4 id="parameters-19">Parameters</h4>
 
 <table>
 <thead>
@@ -1434,11 +1506,11 @@ add_hook(
 </tbody>
 </table>
 
-<h4 id="response-18">Response</h4>
+<h4 id="response-19">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-18">Example Code</h4>
+<h4 id="example-code-19">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('AuthAdminApi', 1, function($vars) {
@@ -1450,7 +1522,7 @@ add_hook('AuthAdminApi', 1, function($vars) {
 
 <p>Executes as an invoice is being created in the admin area</p>
 
-<h4 id="parameters-19">Parameters</h4>
+<h4 id="parameters-20">Parameters</h4>
 
 <table>
 <thead>
@@ -1488,11 +1560,11 @@ add_hook('AuthAdminApi', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-19">Response</h4>
+<h4 id="response-20">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-19">Example Code</h4>
+<h4 id="example-code-20">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('InvoiceCreationAdminArea', 1, function($vars) {
@@ -1504,7 +1576,7 @@ add_hook('InvoiceCreationAdminArea', 1, function($vars) {
 
 <p>Executes as the service is being saved, before any changes have been made.</p>
 
-<h4 id="parameters-20">Parameters</h4>
+<h4 id="parameters-21">Parameters</h4>
 
 <table>
 <thead>
@@ -1524,11 +1596,11 @@ add_hook('InvoiceCreationAdminArea', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-20">Response</h4>
+<h4 id="response-21">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-20">Example Code</h4>
+<h4 id="example-code-21">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreAdminServiceEdit', 1, function($vars) {
@@ -1540,7 +1612,7 @@ add_hook('PreAdminServiceEdit', 1, function($vars) {
 
 <p>Executes as the order details page is being displayed</p>
 
-<h4 id="parameters-21">Parameters</h4>
+<h4 id="parameters-22">Parameters</h4>
 
 <table>
 <thead>
@@ -1596,11 +1668,11 @@ add_hook('PreAdminServiceEdit', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-21">Response</h4>
+<h4 id="response-22">Response</h4>
 
 <p>No response supported</p>
 
-<h4 id="example-code-21">Example Code</h4>
+<h4 id="example-code-22">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('ViewOrderDetailsPage', 1, function($vars) {

@@ -1656,20 +1656,34 @@ print_r($results);
 
 <pre><code>{
     &quot;result&quot;: &quot;success&quot;,
-    &quot;totalresults&quot;: &quot;2&quot;,
-    &quot;startnumber&quot;: &quot;0&quot;,
-    &quot;activity[entry][0][id]&quot;: &quot;2&quot;,
-    &quot;activity[entry][0][userid]&quot;: &quot;0&quot;,
-    &quot;activity[entry][0][date]&quot;: &quot;2016-01-01 17:24:26&quot;,
-    &quot;activity[entry][0][description]&quot;: &quot;Cron Job: Check for Updates: No new updates available&quot;,
-    &quot;activity[entry][0][username]&quot;: &quot;admin&quot;,
-    &quot;activity[entry][0][ipaddress]&quot;: &quot;192.168.99.1&quot;,
-    &quot;activity[entry][1][id]&quot;: &quot;1&quot;,
-    &quot;activity[entry][1][userid]&quot;: &quot;0&quot;,
-    &quot;activity[entry][2][date]&quot;: &quot;2016-01-01 17:24:20&quot;,
-    &quot;activity[entry][1][description]&quot;: &quot;Cron Job: Perform WHMCS Update Check&quot;,
-    &quot;activity[entry][1][username]&quot;: &quot;admin&quot;,
-    &quot;activity[entry][1][ipaddress]&quot;: &quot;192.168.99.1&quot;
+    &quot;totalresults&quot;: 2,
+    &quot;startnumber&quot;: 0,
+    &quot;activity&quot;: {
+        &quot;entry&quot;: [
+            {
+                &quot;id&quot;: 2,
+                &quot;clientId&quot;: 0,
+                &quot;userId&quot;: 0,
+                &quot;adminId&quot;: 1,
+                &quot;date&quot;: &quot;2021-01-01 06:56:49&quot;,
+                &quot;description&quot;: &quot;Cron Job: Check for Updates: No new updates available&quot;,
+                &quot;username&quot;: &quot;admin&quot;,
+                &quot;ipaddress&quot;: &quot;172.18.0.1&quot;,
+                &quot;userid&quot;: 0
+            },
+            {
+                &quot;id&quot;: 1,
+                &quot;clientId&quot;: 0,
+                &quot;userId&quot;: 0,
+                &quot;adminId&quot;: 1,
+                &quot;date&quot;: &quot;2021-01-01 06:56:49&quot;,
+                &quot;description&quot;: &quot;Cron Job: Perform WHMCS Update Check&quot;,
+                &quot;username&quot;: &quot;admin&quot;,
+                &quot;ipaddress&quot;: &quot;172.18.0.1&quot;,
+                &quot;userid&quot;: 0
+            }
+        ]
+    }
 }
 </code></pre>
 

@@ -186,6 +186,14 @@
       
       
       
+        <li class="" data-nav-id="/payment-gateways/transaction-information/">
+          <a href="//developers.whmcs.com/payment-gateways/transaction-information/">
+            <span>Transaction Information</span>
+          </a>
+        </li>
+      
+      
+      
         <li class="active" data-nav-id="/payment-gateways/callbacks/">
           <a href="//developers.whmcs.com/payment-gateways/callbacks/">
             <span>Callback Files</span>
@@ -343,6 +351,19 @@
 <li>Apply the payment to the invoice using the <code>addInvoicePayment</code> helper method.</li>
 </ol>
 
+<h2 id="callback-redirection">Callback Redirection</h2>
+
+<p>When a payment is received, a payment notification containing the transaction details may be sent to the gateway module&rsquo;s callback file. The URL of the callback file would be considered the <code>Callback URL</code> (e.g. <a href="https://example.com/whmcs/modules/gateways/callback/gatewaymodule.php">https://example.com/whmcs/modules/gateways/callback/gatewaymodule.php</a>).</p>
+
+<p>Some gateways allow you to you pass a <code>Return URL</code> and a <code>Callback URL</code> in the payment button code. WHMCS can provide the <code>Return URL</code> during the initial payment submission to the gateway via the <code>$params['returnurl']</code> parameter, which is made available in the gateway module <code>_link</code> function.</p>
+
+<p>Other payment gateways require the <code>Return URL</code> to be specified in the payment gateway&rsquo;s control panel settings outside of WHMCS to return the client upon completion of a payment (e.g. a success/failure page or redirect to the paid invoice). Create the file for this page as required and place it at <code>/modules/gateways/yourgatewayname/</code>.
+The URL to this page will be considered the <code>Return URL</code> (e.g. <a href="https://example.com/whmcs/modules/gateways/yourgatewayname/customfile.php">https://example.com/whmcs/modules/gateways/yourgatewayname/customfile.php</a>).</p>
+
+<p>This URL could then be specified in the payment gateway&rsquo;s control panel settings outside of WHMCS, leaving just the notification URL specified in the gateway module&rsquo;s <code>_link</code> function.</p>
+
+<p>If the gateway only supports one URL for both payment notification and redirection after payment, visitors can be redirected to the callback file and output provided to return them to the Client Area via a link or meta refresh. This output should be provided by the callback file after the <code>addInvoicePayment</code> and <code>logTransaction</code> functions.</p>
+
 <h2 id="helper-functions">Helper Functions</h2>
 
 <p>The following helper functions are made available for use in payment gateway callback files.</p>
@@ -463,7 +484,7 @@ addInvoicePayment(
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/payment-gateways/displaying-balances">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/payment-gateways/transaction-information">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>

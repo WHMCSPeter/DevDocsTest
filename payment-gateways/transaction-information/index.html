@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Displaying Balances - WHMCS Developer Documentation</title>
+    <title>Transaction Information - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="WHMCS developer documentation - themes, modules, hooks, oauth, api and more...">
     
-    <link rel="canonical" href="//developers.whmcs.com/payment-gateways/displaying-balances/">
+    <link rel="canonical" href="//developers.whmcs.com/payment-gateways/transaction-information/">
     
     <meta name="author" content="WHMCS Development Team">
     
@@ -178,7 +178,7 @@
       
       
       
-        <li class="active" data-nav-id="/payment-gateways/displaying-balances/">
+        <li class="" data-nav-id="/payment-gateways/displaying-balances/">
           <a href="//developers.whmcs.com/payment-gateways/displaying-balances/">
             <span>Displaying Balances</span>
           </a>
@@ -186,7 +186,7 @@
       
       
       
-        <li class="" data-nav-id="/payment-gateways/transaction-information/">
+        <li class="active" data-nav-id="/payment-gateways/transaction-information/">
           <a href="//developers.whmcs.com/payment-gateways/transaction-information/">
             <span>Transaction Information</span>
           </a>
@@ -322,103 +322,103 @@
                 
                   
                 
-                <span itemprop="title"> Displaying Balances</span>
+                <span itemprop="title"> Transaction Information</span>
               </div>
             </div>
 
 
-			<h1>Displaying Balances </h1>
+			<h1>Transaction Information </h1>
 
 			
 
-<p>WHMCS 8.2 adds the ability to display payment gateway balances directly in the WHMCS Admin Area. By default, these balances are available for Stripe and PayPal Basic at <strong>Billing &gt; Transactions</strong>.</p>
+<p>WHMCS 8.2 added the ability to display additional transaction details in a modal in the WHMCS Admin Area. Clicking on a transaction ID will open the modal to display this information for enabled supported gateways. By default, these details are available by clicking a transaction ID at <strong>Billing &gt; Transactions</strong>.</p>
 
-<p>By default, balance information will display in the Admin Area for admins with the <strong>Full Administrator</strong> role. To allow other admin roles to see balance information, enable <strong>View Gateway Balances</strong> for the desired role.</p>
+<p>All Stripe gateways support this by default. You can display transaction information for other gateways using the <code>TransactionInformation</code> function.</p>
 
-<p>You can display the balances for other payment gateways through two payment gateway module classes: <code>BalanceInterface</code> and <code>BalanceCollection</code>.</p>
+<h2 id="displaying-transaction-information">Displaying Transaction Information</h2>
 
-<h2 id="example">Example</h2>
+<p>The following example code connects to the gateway and displays the transaction information:</p>
 
-<p>Successful implementations of this functionality within a payment gateway module should resemble the example below:</p>
-
-<pre><code>use WHMCS\Module\Gateway\Balance;
-use WHMCS\Module\Gateway\BalanceCollection;
+<pre><code>use WHMCS\Billing\Payment\Transaction\Information;
+use WHMCS\Carbon;
 
 /**
- * @param array $params
+ * @param array @params
  *
- * @return BalanceCollection
+ * @return Information
  */
-function yourmodulename_account_balance(array $params = []): BalanceCollection
+function yourmodulename_TransactionInformation(array $params = []): Information
 {
-    $balanceInfo = [];
     /**
-     * Connect to gateway to retrieve balance information.
+     * Connect to gateway to retrieve transaction information.
      */
     $postfields = [
         'account' =&gt; $params['apikey'],
+        'transactionId' =&gt; $params['transactionId'],
     ];
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, 'https://www.example.com/api/balance');
+    curl_setopt($ch, CURLOPT_URL, 'https://www.example.com/api/transaction');
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postfields));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $response = curl_exec($ch);
     curl_close($ch);
 
-    $balanceData = json_decode($response);
-
-    /**
-     * Add Balance objects as many times as needed for each gateway
-     * balance type (most gateways will only have one).
-     */
-    foreach ($balanceData['available'] as $availableData) {
-        $currencyCode = strtoupper($availableData['currency']);
-        $amount[$currencyCode] = ($availableData['amount'] / 100);
-
-        /**
-         * Add a Balance object using the default label and format color.
-         */
-        $balanceInfo[] = Balance::factory(
-            $amount[$currencyCode],
-            $currencyCode
-        );
-    }
-
-    foreach ($balanceData['pending'] as $pendingData) {
-        $currencyCode = strtoupper($pendingData['currency']);
-        $pending[$currencyCode] = ($pendingData['amount'] / 100);
-
-        /**
-         * Add a Balance object overriding the default label and color.
-         */
-        $balanceInfo[] = Balance::factory(
-            $pending[$currencyCode],
-            $currencyCode,
-            'status.pending', //The default label is status.available.
-            '#6ecacc' //The default color hex code is #5dc560.
-        );
-    }
-
-    /**
-     * The BalanceCollection object accepts an array containing any number of
-     * Balance objects. Passing an item in the array that is not a Balance
-     * object will cause a fatal error.
-     */
-    return BalanceCollection::factoryFromItems(...$balanceInfo);
+    $transactionInformation = json_decode($response);
+    return (new Information())
+        -&gt;setTransactionId($transactionData['id'])
+        -&gt;setAmount($transactionData['amount'])
+        -&gt;setCurrency($transactionData['currency'])
+        -&gt;setType($transactionData['type'])
+        -&gt;setAvailableOn(Carbon::parse($transactionData['available_on']))
+        -&gt;setCreated(Carbon::parse($transactionData['created']))
+        -&gt;setDescription($transactionData['description'])
+        -&gt;setFee($transactionData['fee'])
+        -&gt;setStatus($transactionData['status'])
+        -&gt;setAdditionalDatum('customName1', $transactionData['customValue1'])
+        -&gt;setAdditionalDatum('customName2', $transactionData['customValue2']);
 }
 </code></pre>
+
+<h2 id="the-information-class">The Information Class</h2>
+
+<p>The use of the <code>Information</code> class causes the return from the <code>TransactionInformation</code> function to be standard.</p>
+
+<p>This class has no attribute requirements, but we recommend that you set <code>id</code>, <code>amount</code>, and <code>currency</code> as in the example above. The data that you set here determines what displays in the modal. Values that evaluate to false will not display in the modal.</p>
+
+<p>For more information about the <code>Information</code> class, see the <a href="https://classdocs.whmcs.com/8.2/WHMCS/Billing/Payment/Transaction/Information.html">WHMCS Internal Class Documentation</a>.</p>
+
+<h3 id="setting-additional-data">Setting Additional Data</h3>
+
+<p>Use the <code>Information</code> class&rsquo;s <code>setAdditionalDatum</code> method to add data. The passed value will display with the label for the key. For example:</p>
+
+<pre><code>setAdditionalDatum(string $key, $value)
+</code></pre>
+
+<h3 id="key-language-string-override">key Language String Override</h3>
+
+<p>The <code>key</code> value will be translated before it displays in the modal. You will need to add an <a href="//developers.whmcs.com/languages/overrides/">admin language string override</a> for each additional piece of data.</p>
+
+<p>For the code example above, you would add the following language strings:</p>
+
+<pre><code>$_ADMINLANG['transactions']['information']['customName1'] = &quot;Custom Name 1&quot;;
+$_ADMINLANG['transactions']['information']['customName2'] = &quot;Custom Name 2&quot;;
+</code></pre>
+
+<h2 id="required-permissions">Required Permissions</h2>
+
+<p>By default, transaction information will display in the Admin Area for admins with the <strong>Full Administrator</strong> role. To allow other admin roles to see balance information, enable <strong>List Transactions</strong> for the desired role.</p>
 
 
 			<div class="topic-navigation clearfix">
                 
-                    <a class="nav nav-prev" href="//developers.whmcs.com/payment-gateways/merchant-gateway">
+                    <a class="nav nav-prev" href="//developers.whmcs.com/payment-gateways/displaying-balances">
                         <i class="fa fa-arrow-circle-left"></i>
                         Previous
                     </a>
                 
                 
-                    <a class="nav nav-next" href="//developers.whmcs.com/payment-gateways/transaction-information">
+                    <a class="nav nav-next" href="//developers.whmcs.com/payment-gateways/callbacks">
                         <i class="fa fa-arrow-circle-right"></i>
                         Next
                     </a>
