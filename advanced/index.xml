@@ -1511,7 +1511,7 @@ add_hook(&#39;AdminAreaFooterOutput&#39;, 1, function ($vars) {
 
 &lt;p&gt;The logo.png file used for a module should not exceed &lt;strong&gt;500&lt;/strong&gt; pixels in width. An example placeholder logo for reference can be found below:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;./advanced/module-image-placeholder.png&#34; alt=&#34;Module Image Placeholder&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../module-image-placeholder.png&#34; alt=&#34;Module Image Placeholder&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     

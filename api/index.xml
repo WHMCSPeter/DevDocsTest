@@ -243,36 +243,40 @@ var_dump($jsonData);
 
 &lt;p&gt;Common uses for this include from modules, hooks, or other custom code local to the WHMCS installation.&lt;/p&gt;
 
+&lt;p&gt;The import of &lt;code&gt;init.php&lt;/code&gt; is not required when you’re already in a WHMCS runtime (like in a hook) where &lt;code&gt;init.php&lt;/code&gt; has already been imported.&lt;/p&gt;
+
 &lt;h2 id=&#34;usage-example&#34;&gt;Usage Example&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;span style=&#34;color: #75715e&#34;&gt;&amp;lt;?php&lt;/span&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-/**
- * WHMCS Sample Local API Call
- *
- * @package    WHMCS
- * @author     WHMCS Limited &amp;lt;development@whmcs.com&amp;gt;
- * @copyright  Copyright (c) WHMCS Limited 2005-2016
- * @license    http://www.whmcs.com/license/ WHMCS Eula
- * @version    $Id$
- * @link       http://www.whmcs.com/
- */
+&lt;span style=&#34;color: #e6db74&#34;&gt;/**&lt;/span&gt;
+&lt;span style=&#34;color: #e6db74&#34;&gt; * WHMCS Sample Local API Call&lt;/span&gt;
+&lt;span style=&#34;color: #e6db74&#34;&gt; *&lt;/span&gt;
+&lt;span style=&#34;color: #e6db74&#34;&gt; * @package    WHMCS&lt;/span&gt;
+&lt;span style=&#34;color: #e6db74&#34;&gt; * @author     WHMCS Limited &amp;lt;development@whmcs.com&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color: #e6db74&#34;&gt; * @copyright  Copyright (c) WHMCS Limited 2005-2016&lt;/span&gt;
+&lt;span style=&#34;color: #e6db74&#34;&gt; * @license    http://www.whmcs.com/license/ WHMCS Eula&lt;/span&gt;
+&lt;span style=&#34;color: #e6db74&#34;&gt; * @version    $Id$&lt;/span&gt;
+&lt;span style=&#34;color: #e6db74&#34;&gt; * @link       http://www.whmcs.com/&lt;/span&gt;
+&lt;span style=&#34;color: #e6db74&#34;&gt; */&lt;/span&gt;
 
-// Define parameters
-$command = &#39;SendEmail&#39;;
-$values = array(
-    &#39;messagename&#39; =&amp;gt; &#39;Test Template&#39;,
-    &#39;id&#39; =&amp;gt; &#39;1&#39;,
-);
-$adminuser = &#39;AdminUsername&#39;;
+&lt;span style=&#34;color: #66d9ef&#34;&gt;require_once&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;init.php&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;;&lt;/span&gt;
 
-// Call the localAPI function
-$results = localAPI($command, $values, $adminuser);
-if ($results[&#39;result&#39;] == &#39;success&#39;) {
-    echo &#39;Message sent successfully!&#39;;
-} else {
-    echo &amp;quot;An Error Occurred: &amp;quot; . $results[&#39;message&#39;];
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span style=&#34;color: #75715e&#34;&gt;// Define parameters&lt;/span&gt;
+&lt;span style=&#34;color: #f8f8f2&#34;&gt;$command&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;SendEmail&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #f8f8f2&#34;&gt;$values&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;array&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;(&lt;/span&gt;
+    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;messagename&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;Test Template&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;,&lt;/span&gt;
+&lt;span style=&#34;color: #f8f8f2&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color: #f8f8f2&#34;&gt;$adminuser&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;AdminUsername&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;;&lt;/span&gt;
+
+&lt;span style=&#34;color: #75715e&#34;&gt;// Call the localAPI function&lt;/span&gt;
+&lt;span style=&#34;color: #f8f8f2&#34;&gt;$results&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color: #a6e22e&#34;&gt;localAPI&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;($command,&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;$values,&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;$adminuser);&lt;/span&gt;
+&lt;span style=&#34;color: #66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;($results[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;result&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;success&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color: #66d9ef&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;Message sent successfully!&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color: #66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color: #66d9ef&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color: #e6db74&#34;&gt;&amp;quot;An Error Occurred: &amp;quot;&lt;/span&gt; &lt;span style=&#34;color: #f92672&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color: #f8f8f2&#34;&gt;$results[&lt;/span&gt;&lt;span style=&#34;color: #e6db74&#34;&gt;&amp;#39;message&amp;#39;&lt;/span&gt;&lt;span style=&#34;color: #f8f8f2&#34;&gt;];&lt;/span&gt;
+&lt;span style=&#34;color: #f8f8f2&#34;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 </description>
     </item>
     

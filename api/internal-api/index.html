@@ -271,36 +271,40 @@
 
 <p>Common uses for this include from modules, hooks, or other custom code local to the WHMCS installation.</p>
 
+<p>The import of <code>init.php</code> is not required when you’re already in a WHMCS runtime (like in a hook) where <code>init.php</code> has already been imported.</p>
+
 <h2 id="usage-example">Usage Example</h2>
+<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">&lt;?php</span>
 
-<pre><code>&lt;?php
-/**
- * WHMCS Sample Local API Call
- *
- * @package    WHMCS
- * @author     WHMCS Limited &lt;development@whmcs.com&gt;
- * @copyright  Copyright (c) WHMCS Limited 2005-2016
- * @license    http://www.whmcs.com/license/ WHMCS Eula
- * @version    $Id$
- * @link       http://www.whmcs.com/
- */
+<span style="color: #e6db74">/**</span>
+<span style="color: #e6db74"> * WHMCS Sample Local API Call</span>
+<span style="color: #e6db74"> *</span>
+<span style="color: #e6db74"> * @package    WHMCS</span>
+<span style="color: #e6db74"> * @author     WHMCS Limited &lt;development@whmcs.com&gt;</span>
+<span style="color: #e6db74"> * @copyright  Copyright (c) WHMCS Limited 2005-2016</span>
+<span style="color: #e6db74"> * @license    http://www.whmcs.com/license/ WHMCS Eula</span>
+<span style="color: #e6db74"> * @version    $Id$</span>
+<span style="color: #e6db74"> * @link       http://www.whmcs.com/</span>
+<span style="color: #e6db74"> */</span>
 
-// Define parameters
-$command = 'SendEmail';
-$values = array(
-    'messagename' =&gt; 'Test Template',
-    'id' =&gt; '1',
-);
-$adminuser = 'AdminUsername';
+<span style="color: #66d9ef">require_once</span> <span style="color: #e6db74">&#39;init.php&#39;</span><span style="color: #f8f8f2">;</span>
 
-// Call the localAPI function
-$results = localAPI($command, $values, $adminuser);
-if ($results['result'] == 'success') {
-    echo 'Message sent successfully!';
-} else {
-    echo &quot;An Error Occurred: &quot; . $results['message'];
-}
-</code></pre>
+<span style="color: #75715e">// Define parameters</span>
+<span style="color: #f8f8f2">$command</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;SendEmail&#39;</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">$values</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">array</span><span style="color: #f8f8f2">(</span>
+    <span style="color: #e6db74">&#39;messagename&#39;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&#39;Test Template&#39;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #e6db74">&#39;id&#39;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&#39;1&#39;</span><span style="color: #f8f8f2">,</span>
+<span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">$adminuser</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&#39;AdminUsername&#39;</span><span style="color: #f8f8f2">;</span>
+
+<span style="color: #75715e">// Call the localAPI function</span>
+<span style="color: #f8f8f2">$results</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">localAPI</span><span style="color: #f8f8f2">($command,</span> <span style="color: #f8f8f2">$values,</span> <span style="color: #f8f8f2">$adminuser);</span>
+<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">($results[</span><span style="color: #e6db74">&#39;result&#39;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&#39;success&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">echo</span> <span style="color: #e6db74">&#39;Message sent successfully!&#39;</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">echo</span> <span style="color: #e6db74">&quot;An Error Occurred: &quot;</span> <span style="color: #f92672">.</span> <span style="color: #f8f8f2">$results[</span><span style="color: #e6db74">&#39;message&#39;</span><span style="color: #f8f8f2">];</span>
+<span style="color: #f8f8f2">}</span>
+</pre></div>
 
 
 			<div class="topic-navigation clearfix">

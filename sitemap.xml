@@ -1114,6 +1114,10 @@
   </url>
   
   <url>
+    <loc>//developers.whmcs.com/payment-gateways/transaction-information/</loc>
+  </url>
+  
+  <url>
     <loc>//developers.whmcs.com/payment-gateways/callbacks/</loc>
   </url>
   

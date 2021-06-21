@@ -1545,7 +1545,7 @@ We suggest following any recommended actions in the warning to ensure future com
 &lt;li&gt;You did not enter your city&lt;/li&gt;
 &lt;li&gt;You did not enter your state&lt;/li&gt;
 &lt;li&gt;You did not enter your postcode&lt;/li&gt;
-&lt;li&gt;You did not enter your country&lt;/li&gt;
+&lt;li&gt;Valid country required&lt;/li&gt;
 &lt;li&gt;You did not enter your phone number&lt;/li&gt;
 &lt;li&gt;Invalid telephone phone number&lt;/li&gt;
 &lt;li&gt;You did not provide required custom field value for&lt;/li&gt;

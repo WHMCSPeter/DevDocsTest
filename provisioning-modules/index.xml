@@ -247,7 +247,7 @@ These events include:&lt;/p&gt;
  * Loader function that will populate the field in ConfigOptions
  * @return array The list of package names
  */
-function provisioningmodule_LoaderFunction() {
+function provisioningmodule_LoaderFunction($params) {
     // Make a call to the remote API endpoint
     $ch = curl_init(&#39;https://www.example.com/api/function&#39;);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

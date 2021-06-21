@@ -695,7 +695,7 @@ add_hook('AfterModuleCustomFailed', 1, function($vars) {
 });
 </code></pre>
 
-<h2 id="aftermodulesuspend">AfterModuleSuspend</h2>
+<h2 id="aftermoduledeprovisionaddonfeature">AfterModuleDeprovisionAddOnFeature</h2>
 
 <p>Executes upon successful completion of the module function.</p>
 
@@ -726,12 +726,12 @@ add_hook('AfterModuleCustomFailed', 1, function($vars) {
 <h4 id="example-code-8">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('AfterModuleSuspend', 1, function($vars) {
+add_hook('AfterModuleDeprovisionAddOnFeature', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="aftermodulesuspendfailed">AfterModuleSuspendFailed</h2>
+<h2 id="aftermoduledeprovisionaddonfeaturefailed">AfterModuleDeprovisionAddOnFeatureFailed</h2>
 
 <p>Executes upon failure of the module function to complete successfully. The failure reason is provided in the input parameters.</p>
 
@@ -768,12 +768,12 @@ add_hook('AfterModuleSuspend', 1, function($vars) {
 <h4 id="example-code-9">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('AfterModuleSuspendFailed', 1, function($vars) {
+add_hook('AfterModuleDeprovisionAddOnFeatureFailed', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="aftermoduleterminate">AfterModuleTerminate</h2>
+<h2 id="aftermoduleprovisionaddonfeature">AfterModuleProvisionAddOnFeature</h2>
 
 <p>Executes upon successful completion of the module function.</p>
 
@@ -804,12 +804,12 @@ add_hook('AfterModuleSuspendFailed', 1, function($vars) {
 <h4 id="example-code-10">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('AfterModuleTerminate', 1, function($vars) {
+add_hook('AfterModuleProvisionAddOnFeature', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="aftermoduleterminatefailed">AfterModuleTerminateFailed</h2>
+<h2 id="aftermoduleprovisionaddonfeaturefailed">AfterModuleProvisionAddOnFeatureFailed</h2>
 
 <p>Executes upon failure of the module function to complete successfully. The failure reason is provided in the input parameters.</p>
 
@@ -846,12 +846,12 @@ add_hook('AfterModuleTerminate', 1, function($vars) {
 <h4 id="example-code-11">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('AfterModuleTerminateFailed', 1, function($vars) {
+add_hook('AfterModuleProvisionAddOnFeatureFailed', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="aftermoduleunsuspend">AfterModuleUnsuspend</h2>
+<h2 id="aftermodulesuspend">AfterModuleSuspend</h2>
 
 <p>Executes upon successful completion of the module function.</p>
 
@@ -882,16 +882,52 @@ add_hook('AfterModuleTerminateFailed', 1, function($vars) {
 <h4 id="example-code-12">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('AfterModuleUnsuspend', 1, function($vars) {
+add_hook('AfterModuleSuspend', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="aftermoduleunsuspendfailed">AfterModuleUnsuspendFailed</h2>
+<h2 id="aftermodulesuspendaddonfeature">AfterModuleSuspendAddOnFeature</h2>
+
+<p>Executes upon successful completion of the module function.</p>
+
+<h4 id="parameters-13">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-13">Response</h4>
+
+<p>No response supported</p>
+
+<h4 id="example-code-13">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('AfterModuleSuspendAddOnFeature', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="aftermodulesuspendaddonfeaturefailed">AfterModuleSuspendAddOnFeatureFailed</h2>
 
 <p>Executes upon failure of the module function to complete successfully. The failure reason is provided in the input parameters.</p>
 
-<h4 id="parameters-13">Parameters</h4>
+<h4 id="parameters-14">Parameters</h4>
 
 <table>
 <thead>
@@ -917,57 +953,21 @@ add_hook('AfterModuleUnsuspend', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-13">Response</h4>
-
-<p>No response supported</p>
-
-<h4 id="example-code-13">Example Code</h4>
-
-<pre><code>&lt;?php
-add_hook('AfterModuleUnsuspendFailed', 1, function($vars) {
-    // Perform hook code here...
-});
-</code></pre>
-
-<h2 id="overridemoduleusernamegeneration">OverrideModuleUsernameGeneration</h2>
-
-<p>Executes as a username is being generated on module creation.</p>
-
-<h4 id="parameters-14">Parameters</h4>
-
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>params</td>
-<td>array</td>
-<td>The parameters being passed to the module function call</td>
-</tr>
-</tbody>
-</table>
-
 <h4 id="response-14">Response</h4>
 
-<p>Return the new username to be used.</p>
+<p>No response supported</p>
 
 <h4 id="example-code-14">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('OverrideModuleUsernameGeneration', 1, function($vars) {
+add_hook('AfterModuleSuspendAddOnFeatureFailed', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="premodulechangepackage">PreModuleChangePackage</h2>
+<h2 id="aftermodulesuspendfailed">AfterModuleSuspendFailed</h2>
 
-<p>Executes prior to the module change package function being run for a service. Allows the action to be aborted.</p>
+<p>Executes upon failure of the module function to complete successfully. The failure reason is provided in the input parameters.</p>
 
 <h4 id="parameters-15">Parameters</h4>
 
@@ -986,24 +986,30 @@ add_hook('OverrideModuleUsernameGeneration', 1, function($vars) {
 <td>array</td>
 <td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
 </tr>
+
+<tr>
+<td>failureResponseMessage</td>
+<td>string</td>
+<td>The failure reason error string returned by the provisioning module</td>
+</tr>
 </tbody>
 </table>
 
 <h4 id="response-15">Response</h4>
 
-<p>Accepts a return of key/value pairs to override the parameters to be used in account upgrade or downgrade. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+<p>No response supported</p>
 
 <h4 id="example-code-15">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('PreModuleChangePackage', 1, function($vars) {
+add_hook('AfterModuleSuspendFailed', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="premodulechangepassword">PreModuleChangePassword</h2>
+<h2 id="aftermoduleterminate">AfterModuleTerminate</h2>
 
-<p>Executes prior to the module change password function being run for a service. Allows the action to be aborted.</p>
+<p>Executes upon successful completion of the module function.</p>
 
 <h4 id="parameters-16">Parameters</h4>
 
@@ -1027,19 +1033,19 @@ add_hook('PreModuleChangePackage', 1, function($vars) {
 
 <h4 id="response-16">Response</h4>
 
-<p>Accepts a return of key/value pairs to override the parameters to be used in account password reset. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+<p>No response supported</p>
 
 <h4 id="example-code-16">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('PreModuleChangePassword', 1, function($vars) {
+add_hook('AfterModuleTerminate', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="premodulecreate">PreModuleCreate</h2>
+<h2 id="aftermoduleterminatefailed">AfterModuleTerminateFailed</h2>
 
-<p>Executes prior to the module create function being run for a service. Allows the action to be aborted.</p>
+<p>Executes upon failure of the module function to complete successfully. The failure reason is provided in the input parameters.</p>
 
 <h4 id="parameters-17">Parameters</h4>
 
@@ -1058,28 +1064,30 @@ add_hook('PreModuleChangePassword', 1, function($vars) {
 <td>array</td>
 <td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
 </tr>
+
+<tr>
+<td>failureResponseMessage</td>
+<td>string</td>
+<td>The failure reason error string returned by the provisioning module</td>
+</tr>
 </tbody>
 </table>
 
 <h4 id="response-17">Response</h4>
 
-<p>Accepts a return of key/value pairs to override the parameters to be used in account creation. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+<p>No response supported</p>
 
 <h4 id="example-code-17">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('PreModuleCreate', 1, function($vars)
-    {
-        return array(
-            'abortcmd' =&gt; true,
-        );
-    }
-);
+add_hook('AfterModuleTerminateFailed', 1, function($vars) {
+    // Perform hook code here...
+});
 </code></pre>
 
-<h2 id="premodulecustom">PreModuleCustom</h2>
+<h2 id="aftermoduleunsuspend">AfterModuleUnsuspend</h2>
 
-<p>Executes prior to the module custom function being run for a service. Allows the action to be aborted.</p>
+<p>Executes upon successful completion of the module function.</p>
 
 <h4 id="parameters-18">Parameters</h4>
 
@@ -1103,19 +1111,19 @@ add_hook('PreModuleCreate', 1, function($vars)
 
 <h4 id="response-18">Response</h4>
 
-<p>Accepts a return of key/value pairs to override the parameters to be used in account creation. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+<p>No response supported</p>
 
 <h4 id="example-code-18">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('PreModuleCustom', 1, function($vars) {
+add_hook('AfterModuleUnsuspend', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="premodulerenew">PreModuleRenew</h2>
+<h2 id="aftermoduleunsuspendaddonfeature">AfterModuleUnsuspendAddOnFeature</h2>
 
-<p>Executes prior to the module create function being run for a service. Allows the action to be aborted.</p>
+<p>Executes upon successful completion of the module function.</p>
 
 <h4 id="parameters-19">Parameters</h4>
 
@@ -1139,19 +1147,19 @@ add_hook('PreModuleCustom', 1, function($vars) {
 
 <h4 id="response-19">Response</h4>
 
-<p>Accepts a return of key/value pairs to override the parameters to be used in account creation. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+<p>No response supported</p>
 
 <h4 id="example-code-19">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('PreModuleRenew', 1, function($vars) {
+add_hook('AfterModuleUnsuspendAddOnFeature', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="premodulesuspend">PreModuleSuspend</h2>
+<h2 id="aftermoduleunsuspendaddonfeaturefailed">AfterModuleUnsuspendAddOnFeatureFailed</h2>
 
-<p>Executes prior to the module suspend function being run for a service. Allows the action to be aborted.</p>
+<p>Executes upon failure of the module function to complete successfully. The failure reason is provided in the input parameters.</p>
 
 <h4 id="parameters-20">Parameters</h4>
 
@@ -1170,24 +1178,30 @@ add_hook('PreModuleRenew', 1, function($vars) {
 <td>array</td>
 <td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
 </tr>
+
+<tr>
+<td>failureResponseMessage</td>
+<td>string</td>
+<td>The failure reason error string returned by the provisioning module</td>
+</tr>
 </tbody>
 </table>
 
 <h4 id="response-20">Response</h4>
 
-<p>Accepts a return of key/value pairs to override the parameters to be used in account suspension. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+<p>No response supported</p>
 
 <h4 id="example-code-20">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('PreModuleSuspend', 1, function($vars) {
+add_hook('AfterModuleUnsuspendAddOnFeatureFailed', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="premoduleterminate">PreModuleTerminate</h2>
+<h2 id="aftermoduleunsuspendfailed">AfterModuleUnsuspendFailed</h2>
 
-<p>Executes prior to the module terminate function being run for a service. Allows the action to be aborted.</p>
+<p>Executes upon failure of the module function to complete successfully. The failure reason is provided in the input parameters.</p>
 
 <h4 id="parameters-21">Parameters</h4>
 
@@ -1206,26 +1220,68 @@ add_hook('PreModuleSuspend', 1, function($vars) {
 <td>array</td>
 <td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
 </tr>
+
+<tr>
+<td>failureResponseMessage</td>
+<td>string</td>
+<td>The failure reason error string returned by the provisioning module</td>
+</tr>
 </tbody>
 </table>
 
 <h4 id="response-21">Response</h4>
 
-<p>Accepts a return of key/value pairs to override the parameters to be used in account termination. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+<p>No response supported</p>
 
 <h4 id="example-code-21">Example Code</h4>
 
 <pre><code>&lt;?php
-add_hook('PreModuleTerminate', 1, function($vars) {
+add_hook('AfterModuleUnsuspendFailed', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
 
-<h2 id="premoduleunsuspend">PreModuleUnsuspend</h2>
+<h2 id="overridemoduleusernamegeneration">OverrideModuleUsernameGeneration</h2>
 
-<p>Executes prior to the module unsuspend function being run for a service. Allows the action to be aborted.</p>
+<p>Executes as a username is being generated on module creation.</p>
 
 <h4 id="parameters-22">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>The parameters being passed to the module function call</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-22">Response</h4>
+
+<p>Return the new username to be used.</p>
+
+<h4 id="example-code-22">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('OverrideModuleUsernameGeneration', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="premodulechangepackage">PreModuleChangePackage</h2>
+
+<p>Executes prior to the module change package function being run for a service. Allows the action to be aborted.</p>
+
+<h4 id="parameters-23">Parameters</h4>
 
 <table>
 <thead>
@@ -1245,14 +1301,414 @@ add_hook('PreModuleTerminate', 1, function($vars) {
 </tbody>
 </table>
 
-<h4 id="response-22">Response</h4>
+<h4 id="response-23">Response</h4>
+
+<p>Accepts a return of key/value pairs to override the parameters to be used in account upgrade or downgrade. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+
+<h4 id="example-code-23">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreModuleChangePackage', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="premodulechangepassword">PreModuleChangePassword</h2>
+
+<p>Executes prior to the module change password function being run for a service. Allows the action to be aborted.</p>
+
+<h4 id="parameters-24">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-24">Response</h4>
+
+<p>Accepts a return of key/value pairs to override the parameters to be used in account password reset. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+
+<h4 id="example-code-24">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreModuleChangePassword', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="premodulecreate">PreModuleCreate</h2>
+
+<p>Executes prior to the module create function being run for a service. Allows the action to be aborted.</p>
+
+<h4 id="parameters-25">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-25">Response</h4>
+
+<p>Accepts a return of key/value pairs to override the parameters to be used in account creation. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+
+<h4 id="example-code-25">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreModuleCreate', 1, function($vars)
+    {
+        return array(
+            'abortcmd' =&gt; true,
+        );
+    }
+);
+</code></pre>
+
+<h2 id="premodulecustom">PreModuleCustom</h2>
+
+<p>Executes prior to the module custom function being run for a service. Allows the action to be aborted.</p>
+
+<h4 id="parameters-26">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-26">Response</h4>
+
+<p>Accepts a return of key/value pairs to override the parameters to be used in account creation. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+
+<h4 id="example-code-26">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreModuleCustom', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="premoduledeprovisionaddonfeature">PreModuleDeprovisionAddOnFeature</h2>
+
+<p>Executes prior to the module deprovision function being run for a Add-On Feature. Allows the action to be aborted.</p>
+
+<h4 id="parameters-27">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-27">Response</h4>
+
+<p>Accepts a return of key/value pairs to override the parameters to be used in feature deprovisioning. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+
+<h4 id="example-code-27">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreModuleDeprovisionAddOnFeature', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="premoduleprovisionaddonfeature">PreModuleProvisionAddOnFeature</h2>
+
+<p>Executes prior to the module provision function being run for an Add-On Feature. Allows the action to be aborted.</p>
+
+<h4 id="parameters-28">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-28">Response</h4>
+
+<p>Accepts a return of key/value pairs to override the parameters to be used in the feature provision. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+
+<h4 id="example-code-28">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreModuleProvisionAddOnFeature', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="premodulerenew">PreModuleRenew</h2>
+
+<p>Executes prior to the module create function being run for a service. Allows the action to be aborted.</p>
+
+<h4 id="parameters-29">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-29">Response</h4>
+
+<p>Accepts a return of key/value pairs to override the parameters to be used in account creation. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+
+<h4 id="example-code-29">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreModuleRenew', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="premodulesuspend">PreModuleSuspend</h2>
+
+<p>Executes prior to the module suspend function being run for a service. Allows the action to be aborted.</p>
+
+<h4 id="parameters-30">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-30">Response</h4>
+
+<p>Accepts a return of key/value pairs to override the parameters to be used in account suspension. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+
+<h4 id="example-code-30">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreModuleSuspend', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="premodulesuspendaddonfeature">PreModuleSuspendAddOnFeature</h2>
+
+<p>Executes prior to the module suspend function being run for an Add-On Feature. Allows the action to be aborted.</p>
+
+<h4 id="parameters-31">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-31">Response</h4>
+
+<p>Accepts a return of key/value pairs to override the parameters to be used in feature suspension. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+
+<h4 id="example-code-31">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreModuleSuspendAddOnFeature', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="premoduleterminate">PreModuleTerminate</h2>
+
+<p>Executes prior to the module terminate function being run for a service. Allows the action to be aborted.</p>
+
+<h4 id="parameters-32">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-32">Response</h4>
+
+<p>Accepts a return of key/value pairs to override the parameters to be used in account termination. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+
+<h4 id="example-code-32">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreModuleTerminate', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="premoduleunsuspend">PreModuleUnsuspend</h2>
+
+<p>Executes prior to the module unsuspend function being run for a service. Allows the action to be aborted.</p>
+
+<h4 id="parameters-33">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-33">Response</h4>
 
 <p>Accepts a return of key/value pairs to override the parameters to be used in account unsuspension. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
 
-<h4 id="example-code-22">Example Code</h4>
+<h4 id="example-code-33">Example Code</h4>
 
 <pre><code>&lt;?php
 add_hook('PreModuleUnsuspend', 1, function($vars) {
+    // Perform hook code here...
+});
+</code></pre>
+
+<h2 id="premoduleunsuspendaddonfeature">PreModuleUnsuspendAddOnFeature</h2>
+
+<p>Executes prior to the module unsuspend function being run for an Add-On Feature. Allows the action to be aborted.</p>
+
+<h4 id="parameters-34">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>params</td>
+<td>array</td>
+<td>Array of common module parameters. See <a href="https://developers.whmcs.com/provisioning-modules/module-parameters/">https://developers.whmcs.com/provisioning-modules/module-parameters/</a></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="response-34">Response</h4>
+
+<p>Accepts a return of key/value pairs to override the parameters to be used in feature unsuspension. Use the same names as the input parameters. Return <code>abortcmd=true</code> to abort the action.</p>
+
+<h4 id="example-code-34">Example Code</h4>
+
+<pre><code>&lt;?php
+add_hook('PreModuleUnsuspendAddOnFeature', 1, function($vars) {
     // Perform hook code here...
 });
 </code></pre>
