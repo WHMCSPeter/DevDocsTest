@@ -347,54 +347,55 @@
 </ul>
 
 <p>Below are examples of the available parameters for each field type. Provisioning modules support up to 24 options defined in this way.</p>
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">&lt;?php</span>
-<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">yourmodulename_getConfigArray</span><span style="color: #f8f8f2">($params)</span>
-<span style="color: #f8f8f2">{</span>
-    <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">array</span><span style="color: #f8f8f2">(</span>
-        <span style="color: #e6db74">&quot;username&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">array</span> <span style="color: #f8f8f2">(</span>
-            <span style="color: #e6db74">&quot;FriendlyName&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;UserName&quot;</span><span style="color: #f8f8f2">,</span>
-            <span style="color: #e6db74">&quot;Type&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;text&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #75715e"># Text Box</span>
-            <span style="color: #e6db74">&quot;Size&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;25&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #75715e"># Defines the Field Width</span>
-            <span style="color: #e6db74">&quot;Description&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Textbox&quot;</span><span style="color: #f8f8f2">,</span>
-            <span style="color: #e6db74">&quot;Default&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Example&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #f8f8f2">),</span>
-        <span style="color: #e6db74">&quot;password&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">array</span> <span style="color: #f8f8f2">(</span>
-            <span style="color: #e6db74">&quot;FriendlyName&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Password&quot;</span><span style="color: #f8f8f2">,</span>
-            <span style="color: #e6db74">&quot;Type&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;password&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #75715e"># Password Field</span>
-            <span style="color: #e6db74">&quot;Size&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;25&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #75715e"># Defines the Field Width</span>
-            <span style="color: #e6db74">&quot;Description&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Password&quot;</span><span style="color: #f8f8f2">,</span>
-            <span style="color: #e6db74">&quot;Default&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Example&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #f8f8f2">),</span>
-        <span style="color: #e6db74">&quot;usessl&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">array</span> <span style="color: #f8f8f2">(</span>
-            <span style="color: #e6db74">&quot;FriendlyName&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Enable SSL&quot;</span><span style="color: #f8f8f2">,</span>
-            <span style="color: #e6db74">&quot;Type&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;yesno&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #75715e"># Yes/No Checkbox</span>
-            <span style="color: #e6db74">&quot;Description&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Tick to use secure connections&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #f8f8f2">),</span>
-        <span style="color: #e6db74">&quot;package&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">array</span> <span style="color: #f8f8f2">(</span>
-            <span style="color: #e6db74">&quot;FriendlyName&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Package Name&quot;</span><span style="color: #f8f8f2">,</span>
-            <span style="color: #e6db74">&quot;Type&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;dropdown&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #75715e"># Dropdown Choice of Options</span>
-            <span style="color: #e6db74">&quot;Options&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Starter,Advanced,Ultimate&quot;</span><span style="color: #f8f8f2">,</span>
-            <span style="color: #e6db74">&quot;Description&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Sample Dropdown&quot;</span><span style="color: #f8f8f2">,</span>
-            <span style="color: #e6db74">&quot;Default&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Advanced&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #f8f8f2">),</span>
-        <span style="color: #e6db74">&quot;disk&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">array</span> <span style="color: #f8f8f2">(</span>
-            <span style="color: #e6db74">&quot;FriendlyName&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Disk Space&quot;</span><span style="color: #f8f8f2">,</span>
-            <span style="color: #e6db74">&quot;Type&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;radio&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #75715e"># Radio Selection of Options</span>
-            <span style="color: #e6db74">&quot;Options&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;100MB,200MB,300MB&quot;</span><span style="color: #f8f8f2">,</span>
-            <span style="color: #e6db74">&quot;Description&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Radio Options Demo&quot;</span><span style="color: #f8f8f2">,</span>
-            <span style="color: #e6db74">&quot;Default&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;200MB&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #f8f8f2">),</span>
-        <span style="color: #e6db74">&quot;comments&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">array</span> <span style="color: #f8f8f2">(</span>
-            <span style="color: #e6db74">&quot;FriendlyName&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Notes&quot;</span><span style="color: #f8f8f2">,</span>
-            <span style="color: #e6db74">&quot;Type&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;textarea&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #75715e"># Textarea</span>
-            <span style="color: #e6db74">&quot;Rows&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;3&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #75715e"># Number of Rows</span>
-            <span style="color: #e6db74">&quot;Cols&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;50&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #75715e"># Number of Columns</span>
-            <span style="color: #e6db74">&quot;Description&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Description goes here&quot;</span><span style="color: #f8f8f2">,</span>
-            <span style="color: #e6db74">&quot;Default&quot;</span> <span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Enter notes here&quot;</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #f8f8f2">),</span>
-    <span style="color: #f8f8f2">);</span>
-<span style="color: #f8f8f2">}</span>
-</pre></div>
+
+<pre><code>&lt;?php
+function yourmodulename_getConfigArray($params)
+{
+    return array(
+        &quot;username&quot; =&gt; array (
+            &quot;FriendlyName&quot; =&gt; &quot;UserName&quot;,
+            &quot;Type&quot; =&gt; &quot;text&quot;, # Text Box
+            &quot;Size&quot; =&gt; &quot;25&quot;, # Defines the Field Width
+            &quot;Description&quot; =&gt; &quot;Textbox&quot;,
+            &quot;Default&quot; =&gt; &quot;Example&quot;,
+        ),
+        &quot;password&quot; =&gt; array (
+            &quot;FriendlyName&quot; =&gt; &quot;Password&quot;,
+            &quot;Type&quot; =&gt; &quot;password&quot;, # Password Field
+            &quot;Size&quot; =&gt; &quot;25&quot;, # Defines the Field Width
+            &quot;Description&quot; =&gt; &quot;Password&quot;,
+            &quot;Default&quot; =&gt; &quot;Example&quot;,
+        ),
+        &quot;usessl&quot; =&gt; array (
+            &quot;FriendlyName&quot; =&gt; &quot;Enable SSL&quot;,
+            &quot;Type&quot; =&gt; &quot;yesno&quot;, # Yes/No Checkbox
+            &quot;Description&quot; =&gt; &quot;Tick to use secure connections&quot;,
+        ),
+        &quot;package&quot; =&gt; array (
+            &quot;FriendlyName&quot; =&gt; &quot;Package Name&quot;,
+            &quot;Type&quot; =&gt; &quot;dropdown&quot;, # Dropdown Choice of Options
+            &quot;Options&quot; =&gt; &quot;Starter,Advanced,Ultimate&quot;,
+            &quot;Description&quot; =&gt; &quot;Sample Dropdown&quot;,
+            &quot;Default&quot; =&gt; &quot;Advanced&quot;,
+        ),
+        &quot;disk&quot; =&gt; array (
+            &quot;FriendlyName&quot; =&gt; &quot;Disk Space&quot;,
+            &quot;Type&quot; =&gt; &quot;radio&quot;, # Radio Selection of Options
+            &quot;Options&quot; =&gt; &quot;100MB,200MB,300MB&quot;,
+            &quot;Description&quot; =&gt; &quot;Radio Options Demo&quot;,
+            &quot;Default&quot; =&gt; &quot;200MB&quot;,
+        ),
+        &quot;comments&quot; =&gt; array (
+            &quot;FriendlyName&quot; =&gt; &quot;Notes&quot;,
+            &quot;Type&quot; =&gt; &quot;textarea&quot;, # Textarea
+            &quot;Rows&quot; =&gt; &quot;3&quot;, # Number of Rows
+            &quot;Cols&quot; =&gt; &quot;50&quot;, # Number of Columns
+            &quot;Description&quot; =&gt; &quot;Description goes here&quot;,
+            &quot;Default&quot; =&gt; &quot;Enter notes here&quot;,
+        ),
+    );
+}
+</code></pre>
 
 <h2 id="configuration-validation">Configuration Validation</h2>
 
@@ -403,22 +404,23 @@
 <p>This will allow you to run a block of code to determine if the details that the user has provided and is trying to save are valid or not. If there is a problem with validation, you can throw an exception to prevent the save action from completing.</p>
 
 <p>The example code below demonstrates how to prevent saving the module configuration if an API responded with an error due to a parameter being invalid:</p>
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">&lt;?php</span>
+
+<pre><code>&lt;?php
  
-<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">yourmodulename_config_validate</span><span style="color: #f8f8f2">($params)</span> <span style="color: #f8f8f2">{</span>
-    <span style="color: #f8f8f2">$apiKey</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">$params[</span><span style="color: #e6db74">&#39;api_key&#39;</span><span style="color: #f8f8f2">];</span>
+function yourmodulename_config_validate($params) {
+    $apiKey = $params['api_key'];
   
-    <span style="color: #f8f8f2">$valid</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #75715e">// $response = yourmodulename_apicall(&#39;validate_credentials&#39;, [</span>
-    <span style="color: #75715e">//     &#39;apikey&#39; =&gt; $apiKey,</span>
-    <span style="color: #75715e">// ]);</span>
-    <span style="color: #75715e">// $valid = $response[&#39;valid&#39;];</span>
+    $valid = false;
+    // $response = yourmodulename_apicall('validate_credentials', [
+    //     'apikey' =&gt; $apiKey,
+    // ]);
+    // $valid = $response['valid'];
   
-    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #f8f8f2">$valid)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">throw</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">\Exception</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;API Key is invalid.&#39;</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #f8f8f2">}</span>
-<span style="color: #f8f8f2">}</span>
-</pre></div>
+    if (!$valid) {
+        throw new \Exception('API Key is invalid.');
+    }
+}
+</code></pre>
 
 
 			<div class="topic-navigation clearfix">
