@@ -889,7 +889,7 @@ add_hook('ClientDetailsValidation', 1, function($vars) {
 
 <h2 id="clientedit">ClientEdit</h2>
 
-<p>Executes when a client is edited.</p>
+<p>Executes when a client is edited through the Client Area, Admin Area, or API.</p>
 
 <h4 id="parameters-7">Parameters</h4>
 
@@ -972,7 +972,7 @@ add_hook('ClientDetailsValidation', 1, function($vars) {
 <tr>
 <td>country</td>
 <td>string</td>
-<td></td>
+<td>Two-letter ISO code.</td>
 </tr>
 
 <tr>
@@ -1008,31 +1008,31 @@ add_hook('ClientDetailsValidation', 1, function($vars) {
 <tr>
 <td>latefeeoveride</td>
 <td>bool</td>
-<td></td>
+<td>Used to prevent overdue invoices from including late fees.</td>
 </tr>
 
 <tr>
 <td>overideduenotices</td>
 <td>bool</td>
-<td></td>
+<td>Used to disable overdue email notices for clients.</td>
 </tr>
 
 <tr>
 <td>separateinvoices</td>
 <td>bool</td>
-<td></td>
+<td>Prevent items with the same due date and payment method from being grouped into a single invoice.</td>
 </tr>
 
 <tr>
 <td>disableautocc</td>
 <td>bool</td>
-<td></td>
+<td>Prevent invoices that are due via a merchant gateway from being automatically attempted for capture.</td>
 </tr>
 
 <tr>
 <td>emailoptout</td>
 <td>bool</td>
-<td></td>
+<td>Prevent emails sent via the Email Campaigns (formerly mass mail) or Email Marketer tools.</td>
 </tr>
 
 <tr>
@@ -1056,7 +1056,7 @@ add_hook('ClientDetailsValidation', 1, function($vars) {
 <tr>
 <td>billingcid</td>
 <td>int</td>
-<td></td>
+<td>The main contact for billing-related items.</td>
 </tr>
 
 <tr>
@@ -1068,7 +1068,7 @@ add_hook('ClientDetailsValidation', 1, function($vars) {
 <tr>
 <td>allow_sso</td>
 <td>bool</td>
-<td>Is Single Sign on enabled for the client?</td>
+<td>Whether Single Sign-On is enabled for the client.</td>
 </tr>
 
 <tr>
@@ -1080,19 +1080,19 @@ add_hook('ClientDetailsValidation', 1, function($vars) {
 <tr>
 <td>authmodule</td>
 <td>string</td>
-<td>The 2Factor Auth Module enabled for the user</td>
+<td>The Two-Factor Authentication module enabled for the user.</td>
 </tr>
 
 <tr>
 <td>authdata</td>
 <td>string</td>
-<td>The 2Factor Auth Data for the user</td>
+<td>The Two-Factor Authentication data for the user.</td>
 </tr>
 
 <tr>
 <td>email_verified</td>
 <td>bool</td>
-<td></td>
+<td>Whether the client has verified their email address.</td>
 </tr>
 
 <tr>
@@ -1102,9 +1102,39 @@ add_hook('ClientDetailsValidation', 1, function($vars) {
 </tr>
 
 <tr>
-<td>olddata</td>
-<td>array</td>
-<td>An array of the previous user information</td>
+<td>email_preferences[affiliate]</td>
+<td>bool</td>
+<td>Receives affiliate communications.</td>
+</tr>
+
+<tr>
+<td>email_preferences[domain]</td>
+<td>bool</td>
+<td>Whether the client receives registration or transfer confirmations and renewal notices.</td>
+</tr>
+
+<tr>
+<td>email_preferences[general]</td>
+<td>bool</td>
+<td>Whether the client receives account-related email.</td>
+</tr>
+
+<tr>
+<td>email_preferences[invoices]</td>
+<td>bool</td>
+<td>Whether the client receives new invoices, reminders, and overdue notices.</td>
+</tr>
+
+<tr>
+<td>email_preferences[product]</td>
+<td>bool</td>
+<td>Receives Welcome Emails, Suspension &amp; Other Lifecycle Notifications.</td>
+</tr>
+
+<tr>
+<td>email_preferences[support]</td>
+<td>bool</td>
+<td>Receives CC of all support ticket communications.</td>
 </tr>
 </tbody>
 </table>

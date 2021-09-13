@@ -429,28 +429,45 @@ provides:
 
 &lt;h2 id=&#34;custom-logo&#34;&gt;Custom Logo&lt;/h2&gt;
 
-&lt;p&gt;The Twenty-One and Six themes display either your company name or logo in the top-left corner of the Client Area. If you supply a logo, the &lt;code&gt;$assetLogoPath&lt;/code&gt; variable contains the relative path to the logo file. You can upload the logo in the &lt;strong&gt;Setup Wizard&lt;/strong&gt; or at &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; General Settings&lt;/strong&gt; in the &lt;strong&gt;General&lt;/strong&gt; tab.&lt;/p&gt;
+&lt;p&gt;The Twenty-One and Six themes display either your company name or logo in the top-left corner of the Client Area. If you supply a logo, the &lt;code&gt;$assetLogoPath&lt;/code&gt; variable contains the relative path to the logo file.&lt;/p&gt;
 
-&lt;p&gt;To set a custom logo, it must be saved as either &lt;code&gt;logo.png&lt;/code&gt; or &lt;code&gt;logo.jpg&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To set a custom logo, you can upload the logo in the &lt;strong&gt;Setup Wizard&lt;/strong&gt; or at &lt;strong&gt;Configuration &amp;gt; System Settings &amp;gt; General Settings&lt;/strong&gt; in the &lt;strong&gt;General&lt;/strong&gt; tab.&lt;/p&gt;
+
+&lt;p&gt;A logo can be manually uploaded to the &lt;code&gt;/assets/img&lt;/code&gt; directory, but the logo must be saved as either &lt;code&gt;logo.png&lt;/code&gt; or &lt;code&gt;logo.jpg&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;include-files&#34;&gt;Include Files&lt;/h2&gt;
 
 &lt;p&gt;Include templates are templates that are shared and used by multiple pages. They are located within the &lt;code&gt;/includes/&lt;/code&gt; subdirectory.&lt;/p&gt;
 
+&lt;p&gt;The following list of include files is accurate for WHMCS 8.1 and later:&lt;/p&gt;
+
 &lt;p&gt;&lt;strong&gt;Common to All Pages&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;head.tpl&lt;/code&gt; - Defines the CSS and Javascript files included within the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; section of a page.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;navbar.tpl&lt;/code&gt; - Controls the output of the primary navigation bar menu items&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sidebar.tpl&lt;/code&gt; - Controls the output of the sidebar menu items.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;confirmation.tpl&lt;/code&gt; — Controls the display of a confirmation modal.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flashmessage.tpl&lt;/code&gt; — Controls the display of flash messages (messages that the interface shows once).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;head.tpl&lt;/code&gt; — Defines the CSS and Javascript files included within the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; section of a page.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;modal.tpl&lt;/code&gt; — Controls the display of all Client Area modals.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;navbar.tpl&lt;/code&gt; — Controls the rendering of the primary navigation bar menu items.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;social-accounts.tpl&lt;/code&gt; — Controls the display of any configured social media icons in the footer. This include file is specific to Twenty-One.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;verifyemail.tpl&lt;/code&gt; — Controls the display of the email verification notice below the header.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Used as Required&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;captcha.tpl&lt;/code&gt; - Used to output the captcha verification image wherever used.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pwstrength.tpl&lt;/code&gt; - Used to output the password strength meter and tooltip wherever used.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;tablelist.tpl&lt;/code&gt; - Controls the output of all filterable data list tables throughout the client area.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;alert.tpl&lt;/code&gt; — Controls the rendering of a single alert (for example, a success message or warning).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;breadcrumb.tpl&lt;/code&gt; — Controls the display of the breadcrumbs in the page header.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;captcha.tpl&lt;/code&gt; — Renders the CAPTCHA verification image.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;domain-search.tpl&lt;/code&gt; — Controls the display of the domain search.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;generate-password.tpl&lt;/code&gt; — Controls the display of the password generation modal when a user opens it.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;index.tpl&lt;/code&gt; — Controls the display of store landing pages.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;linkedaccounts.tpl&lt;/code&gt; — Controls the display of the page for configuring third-party services like Facebook and Google.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;network-issues-notifications.tpl&lt;/code&gt; — Controls the display of the network status alert bar under the header. This include file is specific to Twenty-One.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;panel.tpl&lt;/code&gt; — Controls the display of a card-style display panel.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pwstrength.tpl&lt;/code&gt; — Controls the display of the password strength meter and tooltip.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sidebar.tpl&lt;/code&gt; — Controls the display of the sidebar menu items.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tablelist.tpl&lt;/code&gt; — Controls the display of all filterable data list tables.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Editing any of these template files will affect everywhere that the respective elements are used. One place to edit and one place to maintain during upgrades will help make applying and preserving your customisations easier.&lt;/p&gt;

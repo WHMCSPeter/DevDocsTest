@@ -356,28 +356,45 @@
 
 <h2 id="custom-logo">Custom Logo</h2>
 
-<p>The Twenty-One and Six themes display either your company name or logo in the top-left corner of the Client Area. If you supply a logo, the <code>$assetLogoPath</code> variable contains the relative path to the logo file. You can upload the logo in the <strong>Setup Wizard</strong> or at <strong>Configuration &gt; System Settings &gt; General Settings</strong> in the <strong>General</strong> tab.</p>
+<p>The Twenty-One and Six themes display either your company name or logo in the top-left corner of the Client Area. If you supply a logo, the <code>$assetLogoPath</code> variable contains the relative path to the logo file.</p>
 
-<p>To set a custom logo, it must be saved as either <code>logo.png</code> or <code>logo.jpg</code>.</p>
+<p>To set a custom logo, you can upload the logo in the <strong>Setup Wizard</strong> or at <strong>Configuration &gt; System Settings &gt; General Settings</strong> in the <strong>General</strong> tab.</p>
+
+<p>A logo can be manually uploaded to the <code>/assets/img</code> directory, but the logo must be saved as either <code>logo.png</code> or <code>logo.jpg</code>.</p>
 
 <h2 id="include-files">Include Files</h2>
 
 <p>Include templates are templates that are shared and used by multiple pages. They are located within the <code>/includes/</code> subdirectory.</p>
 
+<p>The following list of include files is accurate for WHMCS 8.1 and later:</p>
+
 <p><strong>Common to All Pages</strong></p>
 
 <ul>
-<li><code>head.tpl</code> - Defines the CSS and Javascript files included within the <code>&lt;head&gt;</code> section of a page.</li>
-<li><code>navbar.tpl</code> - Controls the output of the primary navigation bar menu items</li>
-<li><code>sidebar.tpl</code> - Controls the output of the sidebar menu items.</li>
+<li><code>confirmation.tpl</code> — Controls the display of a confirmation modal.</li>
+<li><code>flashmessage.tpl</code> — Controls the display of flash messages (messages that the interface shows once).</li>
+<li><code>head.tpl</code> — Defines the CSS and Javascript files included within the <code>&lt;head&gt;</code> section of a page.</li>
+<li><code>modal.tpl</code> — Controls the display of all Client Area modals.</li>
+<li><code>navbar.tpl</code> — Controls the rendering of the primary navigation bar menu items.</li>
+<li><code>social-accounts.tpl</code> — Controls the display of any configured social media icons in the footer. This include file is specific to Twenty-One.</li>
+<li><code>verifyemail.tpl</code> — Controls the display of the email verification notice below the header.</li>
 </ul>
 
 <p><strong>Used as Required</strong></p>
 
 <ul>
-<li><code>captcha.tpl</code> - Used to output the captcha verification image wherever used.</li>
-<li><code>pwstrength.tpl</code> - Used to output the password strength meter and tooltip wherever used.</li>
-<li><code>tablelist.tpl</code> - Controls the output of all filterable data list tables throughout the client area.</li>
+<li><code>alert.tpl</code> — Controls the rendering of a single alert (for example, a success message or warning).</li>
+<li><code>breadcrumb.tpl</code> — Controls the display of the breadcrumbs in the page header.</li>
+<li><code>captcha.tpl</code> — Renders the CAPTCHA verification image.</li>
+<li><code>domain-search.tpl</code> — Controls the display of the domain search.</li>
+<li><code>generate-password.tpl</code> — Controls the display of the password generation modal when a user opens it.</li>
+<li><code>index.tpl</code> — Controls the display of store landing pages.</li>
+<li><code>linkedaccounts.tpl</code> — Controls the display of the page for configuring third-party services like Facebook and Google.</li>
+<li><code>network-issues-notifications.tpl</code> — Controls the display of the network status alert bar under the header. This include file is specific to Twenty-One.</li>
+<li><code>panel.tpl</code> — Controls the display of a card-style display panel.</li>
+<li><code>pwstrength.tpl</code> — Controls the display of the password strength meter and tooltip.</li>
+<li><code>sidebar.tpl</code> — Controls the display of the sidebar menu items.</li>
+<li><code>tablelist.tpl</code> — Controls the display of all filterable data list tables.</li>
 </ul>
 
 <p>Editing any of these template files will affect everywhere that the respective elements are used. One place to edit and one place to maintain during upgrades will help make applying and preserving your customisations easier.</p>

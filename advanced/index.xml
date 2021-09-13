@@ -1145,6 +1145,17 @@ EOF;
 
 &lt;p&gt;&lt;img src=&#34;../sample-widget-output.png&#34; alt=&#34;Widget Output Sample&#34; /&gt;&lt;/p&gt;
 
+&lt;h3 id=&#34;naming-convention&#34;&gt;Naming Convention&lt;/h3&gt;
+
+&lt;p&gt;The widget filename and folder should be in the same format as PHP class names due to how WHMCS imports the files from the respective folder.&lt;/p&gt;
+
+&lt;p&gt;The following file naming conventions are acceptable formats:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;PascalCase or StudlyCaps
+camelCase
+snake_case
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;permissions&#34;&gt;Permissions&lt;/h2&gt;
 
 &lt;p&gt;Widgets use the administrator role access control permissions system.&lt;/p&gt;

@@ -2839,7 +2839,7 @@ add_hook(&#39;ClientDetailsValidation&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;clientedit&#34;&gt;ClientEdit&lt;/h2&gt;
 
-&lt;p&gt;Executes when a client is edited.&lt;/p&gt;
+&lt;p&gt;Executes when a client is edited through the Client Area, Admin Area, or API.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-7&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -2922,7 +2922,7 @@ add_hook(&#39;ClientDetailsValidation&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;country&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Two-letter ISO code.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -2958,31 +2958,31 @@ add_hook(&#39;ClientDetailsValidation&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;latefeeoveride&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Used to prevent overdue invoices from including late fees.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;overideduenotices&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Used to disable overdue email notices for clients.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;separateinvoices&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Prevent items with the same due date and payment method from being grouped into a single invoice.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;disableautocc&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Prevent invoices that are due via a merchant gateway from being automatically attempted for capture.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;emailoptout&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Prevent emails sent via the Email Campaigns (formerly mass mail) or Email Marketer tools.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -3006,7 +3006,7 @@ add_hook(&#39;ClientDetailsValidation&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;billingcid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;The main contact for billing-related items.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -3018,7 +3018,7 @@ add_hook(&#39;ClientDetailsValidation&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;allow_sso&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;Is Single Sign on enabled for the client?&lt;/td&gt;
+&lt;td&gt;Whether Single Sign-On is enabled for the client.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -3030,19 +3030,19 @@ add_hook(&#39;ClientDetailsValidation&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;authmodule&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The 2Factor Auth Module enabled for the user&lt;/td&gt;
+&lt;td&gt;The Two-Factor Authentication module enabled for the user.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;authdata&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The 2Factor Auth Data for the user&lt;/td&gt;
+&lt;td&gt;The Two-Factor Authentication data for the user.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;email_verified&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Whether the client has verified their email address.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -3052,9 +3052,39 @@ add_hook(&#39;ClientDetailsValidation&#39;, 1, function($vars) {
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;olddata&lt;/td&gt;
-&lt;td&gt;array&lt;/td&gt;
-&lt;td&gt;An array of the previous user information&lt;/td&gt;
+&lt;td&gt;email_preferences[affiliate]&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Receives affiliate communications.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;email_preferences[domain]&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Whether the client receives registration or transfer confirmations and renewal notices.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;email_preferences[general]&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Whether the client receives account-related email.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;email_preferences[invoices]&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Whether the client receives new invoices, reminders, and overdue notices.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;email_preferences[product]&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Receives Welcome Emails, Suspension &amp;amp; Other Lifecycle Notifications.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;email_preferences[support]&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Receives CC of all support ticket communications.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -14011,7 +14041,7 @@ add_hook(&#39;InvoiceChangeGateway&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;invoicecreated&#34;&gt;InvoiceCreated&lt;/h2&gt;
 
-&lt;p&gt;Executes when an invoice is created following sending the Invoice Created email.&lt;/p&gt;
+&lt;p&gt;Executed when an invoice has left &amp;ldquo;Draft&amp;rdquo; status and is available to its respective client. Execution of this hook occurs after sending the &lt;code&gt;Invoice Created&lt;/code&gt; email.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-8&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -14033,20 +14063,20 @@ add_hook(&#39;InvoiceChangeGateway&#39;, 1, function($vars) {
 
 &lt;tr&gt;
 &lt;td&gt;user&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;mixed&lt;/td&gt;
+&lt;td&gt;The user who initiated the invoice creation (either &lt;code&gt;system&lt;/code&gt; or an admin ID value).&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;invoiceid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The invoice ID that was created&lt;/td&gt;
+&lt;td&gt;The invoice ID.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;status&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The status of the new invoice&lt;/td&gt;
+&lt;td&gt;The status of the released invoice.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -14087,14 +14117,14 @@ add_hook(&#39;InvoiceCreated&#39;, 1, function($vars) {
 
 &lt;tr&gt;
 &lt;td&gt;user&lt;/td&gt;
-&lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;mixed&lt;/td&gt;
+&lt;td&gt;User who initiated the invoice creation, either &lt;code&gt;system&lt;/code&gt; or an admin ID value&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;invoiceid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The id of the newly created invoice&lt;/td&gt;
+&lt;td&gt;The ID of the newly created invoice&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
