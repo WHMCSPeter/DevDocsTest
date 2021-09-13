@@ -1228,14 +1228,14 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;firstname&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;First name of the client to be created. Also used for the first name of the user when &lt;code&gt;owner_user_id&lt;/code&gt; is not specified.&lt;/td&gt;
 &lt;td&gt;Required&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;lastname&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Last name of the client to be created. Also used for the last name of the user when &lt;code&gt;owner_user_id&lt;/code&gt; is not specified.&lt;/td&gt;
 &lt;td&gt;Required&lt;/td&gt;
 &lt;/tr&gt;
 
@@ -1249,7 +1249,7 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;email&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Email address of the client to be created. Also used for the email of the user when &lt;code&gt;owner_user_id&lt;/code&gt; is not specified.&lt;/td&gt;
 &lt;td&gt;Required&lt;/td&gt;
 &lt;/tr&gt;
 
@@ -1291,7 +1291,7 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;country&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;2 character ISO country code&lt;/td&gt;
+&lt;td&gt;2 character ISO country code.&lt;/td&gt;
 &lt;td&gt;Required&lt;/td&gt;
 &lt;/tr&gt;
 
@@ -1305,133 +1305,133 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;tax_id&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The client Tax ID&lt;/td&gt;
+&lt;td&gt;The client&amp;rsquo;s tax ID.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;password2&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The password for the newly created user account. Required when $owner_user_id is not provided&lt;/td&gt;
+&lt;td&gt;The password for the newly-created user account. Required when &lt;code&gt;owner_user_id&lt;/code&gt; is not specified.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;securityqid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The ID of the Security Question from tbladminsecurityquestions for a newly created user&lt;/td&gt;
+&lt;td&gt;The ID of the security question in &lt;code&gt;tbladminsecurityquestions&lt;/code&gt;. Required when &lt;code&gt;owner_user_id&lt;/code&gt; is not specified.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;securityqans&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The Security Question Answer for a newly created user&lt;/td&gt;
+&lt;td&gt;The security question answer for a newly-created user.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;currency&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;Currency ID from tblcurrencies&lt;/td&gt;
+&lt;td&gt;Currency ID from &lt;code&gt;tblcurrencies&lt;/code&gt;.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;groupid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;Client Group ID from tblclientgroups&lt;/td&gt;
+&lt;td&gt;Client Group ID from &lt;code&gt;tblclientgroups&lt;/code&gt;.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;customfields&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Base64 encoded serialized array of custom field values&lt;/td&gt;
+&lt;td&gt;Base64 encoded serialized array of custom field values.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;language&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Default language setting. Provide full name: &amp;lsquo;english&amp;rsquo;, &amp;lsquo;french&amp;rsquo;, etc&amp;hellip;&lt;/td&gt;
+&lt;td&gt;Default language setting. Also used for the language of the user when &lt;code&gt;owner_user_id&lt;/code&gt; is not specified. Provide the full name: &amp;lsquo;english&amp;rsquo;, &amp;lsquo;french&amp;rsquo;, etc&amp;hellip;.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;clientip&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;The originating IP address for the request&lt;/td&gt;
+&lt;td&gt;The originating IP address for the request.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;notes&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;Admin only notes&lt;/td&gt;
+&lt;td&gt;Admin only notes.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;marketingoptin&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;Set true to opt client in to marketing emails&lt;/td&gt;
+&lt;td&gt;Whether the client should opt-in to receiving marketing emails.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;noemail&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;Pass as true to skip sending welcome email&lt;/td&gt;
+&lt;td&gt;Whether to send the client a welcome email. A true value will not send the email.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;skipvalidation&lt;/td&gt;
 &lt;td&gt;bool&lt;/td&gt;
-&lt;td&gt;Pass as true to ignore required fields validation. Does not apply to $email and $password2 when $owner_user_id is not provided&lt;/td&gt;
+&lt;td&gt;Whether to enforce required fields. A true value will not enforce required fields. This does not apply to &lt;code&gt;email&lt;/code&gt; and &lt;code&gt;password2&lt;/code&gt; when &lt;code&gt;owner_user_id&lt;/code&gt; is not specified.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;del&gt;cardtype&lt;/del&gt;&lt;/td&gt;
 &lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
-&lt;td&gt;&lt;del&gt;Credit card type. Provide full name: Visa, Mastercard, American Express, etc&amp;hellip;&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Credit card type. Provide full name: Visa, Mastercard, American Express, etc&amp;hellip;.&lt;/del&gt;&lt;/td&gt;
 &lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;del&gt;cardnum&lt;/del&gt;&lt;/td&gt;
 &lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
-&lt;td&gt;&lt;del&gt;Credit card number&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Credit card number.&lt;/del&gt;&lt;/td&gt;
 &lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;del&gt;expdate&lt;/del&gt;&lt;/td&gt;
 &lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
-&lt;td&gt;&lt;del&gt;Format: MMYY&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Format: MMYY.&lt;/del&gt;&lt;/td&gt;
 &lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;del&gt;startdate&lt;/del&gt;&lt;/td&gt;
 &lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
-&lt;td&gt;&lt;del&gt;Format: MMYY (if applicable)&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Format: MMYY (if applicable).&lt;/del&gt;&lt;/td&gt;
 &lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;del&gt;issuenumber&lt;/del&gt;&lt;/td&gt;
 &lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
-&lt;td&gt;&lt;del&gt;Credit card issue number (if applicable)&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Credit card issue number (if applicable).&lt;/del&gt;&lt;/td&gt;
 &lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;&lt;del&gt;cvv&lt;/del&gt;&lt;/td&gt;
 &lt;td&gt;&lt;del&gt;string&lt;/del&gt;&lt;/td&gt;
-&lt;td&gt;&lt;del&gt;Credit card CVV number (will not be stored)&lt;/del&gt;&lt;/td&gt;
+&lt;td&gt;&lt;del&gt;Credit card CVV number (will not be stored).&lt;/del&gt;&lt;/td&gt;
 &lt;td&gt;Deprecated&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -2870,6 +2870,11 @@ print_r($results);
 &lt;tr&gt;
 &lt;td&gt;1.0&lt;/td&gt;
 &lt;td&gt;Initial Version&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;7.8&lt;/td&gt;
+&lt;td&gt;Renamed &lt;code&gt;productids&lt;/code&gt; response to &lt;code&gt;serviceids&lt;/code&gt;. &lt;code&gt;productids&lt;/code&gt; may be removed in a future version.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;

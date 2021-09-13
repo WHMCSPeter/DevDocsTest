@@ -273,9 +273,8 @@
  *
  * @package    WHMCS
  * @author     WHMCS Limited &lt;development@whmcs.com&gt;
- * @copyright  Copyright (c) WHMCS Limited 2005-2016
- * @license    http://www.whmcs.com/license/ WHMCS Eula
- * @version    $Id$
+ * @copyright  Copyright (c) WHMCS Limited 2005-2021
+ * @license    http://www.whmcs.com/eula/ WHMCS Eula
  * @link       http://www.whmcs.com/
  */
 
@@ -284,14 +283,15 @@ $whmcsUrl = &quot;https://www.yourdomain.com/path/to/whmcs/&quot;;
 
 // For WHMCS 7.2 and later, we recommend using an API Authentication Credential pair.
 // Learn more at http://docs.whmcs.com/API_Authentication_Credentials
-// Prior to WHMCS 7.2, an admin username and md5 hash of the admin password may be used.
-$username = &quot;your_api_credential_identifier&quot;;
-$password = &quot;your_api_credential_secret&quot;;
+// Prior to WHMCS 7.2, an admin username and md5 hash of the admin password may be used
+// with the 'username' and 'password' keys instead of 'identifier' and 'secret'.
+$api_identifier = &quot;your_api_credential_identifier&quot;;
+$api_secret = &quot;your_api_credential_secret&quot;;
 
 // Set post values
 $postfields = array(
-    'username' =&gt; $username,
-    'password' =&gt; $password,
+    'identifier' =&gt; $api_identifier,
+    'secret' =&gt; $api_secret,
     'action' =&gt; 'GetClients',
     'responsetype' =&gt; 'json',
 );

@@ -1890,7 +1890,8 @@ add_hook('ShoppingCartCheckoutCompletePage', 1, function($vars) {
 
 <h2 id="shoppingcartvalidatecheckout">ShoppingCartValidateCheckout</h2>
 
-<p>Executes on checkout via the shopping cart. The <code>$_SESSION['cart']</code> varible contains the products in the cart and associated configuration. See <code>PreCalculateCartTotals</code> for more details on cart session data.</p>
+<p>Executes during checkout completion, which occurs before order and invoice creation. Use this to
+prevent order creation and present errors to the user.</p>
 
 <h4 id="parameters-26">Parameters</h4>
 
@@ -1907,25 +1908,19 @@ add_hook('ShoppingCartCheckoutCompletePage', 1, function($vars) {
 <tr>
 <td>a</td>
 <td>string</td>
-<td>Value will be checkout</td>
+<td>Value will be <code>checkout</code>.</td>
 </tr>
 
 <tr>
 <td>submit</td>
-<td>bool</td>
-<td>Value will be true</td>
-</tr>
-
-<tr>
-<td>i</td>
-<td>int</td>
-<td>This is the index of the item in the $_SESSION[&lsquo;cart&rsquo;]</td>
+<td>string</td>
+<td>Value will be true.</td>
 </tr>
 
 <tr>
 <td>promocode</td>
 <td>string</td>
-<td>String  If entered, a promotion code</td>
+<td>If entered, a promotion code.</td>
 </tr>
 
 <tr>
@@ -1943,7 +1938,7 @@ add_hook('ShoppingCartCheckoutCompletePage', 1, function($vars) {
 <tr>
 <td>ccinfo</td>
 <td>string</td>
-<td>Either new or useexisting</td>
+<td>Either <code>new</code> or <code>useexisting</code>.</td>
 </tr>
 
 <tr>
@@ -1983,105 +1978,111 @@ add_hook('ShoppingCartCheckoutCompletePage', 1, function($vars) {
 </tr>
 
 <tr>
-<td>loginemail</td>
-<td>string</td>
-<td>Existing Clients email address</td>
+<td>clientId</td>
+<td>int</td>
+<td>A non-zero value if the user is authenticated during checkout.</td>
 </tr>
 
 <tr>
-<td>loginpw</td>
+<td>loginemail</td>
 <td>string</td>
-<td>Existing Clients password</td>
+<td>Value present only when the client authenticates during checkout.</td>
+</tr>
+
+<tr>
+<td>loginpassword</td>
+<td>string</td>
+<td>Value present only when the client authenticates during checkout.</td>
 </tr>
 
 <tr>
 <td>firstname</td>
 <td>string</td>
-<td>The following will be present for new clients only</td>
+<td>Value present when the client is new.</td>
 </tr>
 
 <tr>
 <td>lastname</td>
 <td>string</td>
-<td></td>
+<td>Value present when the client is new.</td>
 </tr>
 
 <tr>
 <td>companyname</td>
 <td>string</td>
-<td></td>
+<td>Value present when client is new</td>
 </tr>
 
 <tr>
 <td>email</td>
 <td>string</td>
-<td></td>
+<td>Value present when client is new</td>
 </tr>
 
 <tr>
 <td>address1</td>
 <td>string</td>
-<td></td>
+<td>Value present when client is new</td>
 </tr>
 
 <tr>
 <td>address2</td>
 <td>string</td>
-<td></td>
+<td>Value present when client is new</td>
 </tr>
 
 <tr>
 <td>city</td>
 <td>string</td>
-<td></td>
+<td>Value present when client is new</td>
 </tr>
 
 <tr>
 <td>state</td>
 <td>string</td>
-<td></td>
+<td>Value present when client is new</td>
 </tr>
 
 <tr>
 <td>country</td>
 <td>string</td>
-<td></td>
+<td>Value present when client is new; two letter ISO code</td>
 </tr>
 
 <tr>
 <td>phonenumber</td>
 <td>string</td>
-<td></td>
+<td>Value present when client is new</td>
 </tr>
 
 <tr>
 <td>password</td>
 <td>string</td>
-<td></td>
+<td>Value present when client is new</td>
 </tr>
 
 <tr>
 <td>password2</td>
 <td>string</td>
-<td></td>
+<td>Value present when client is new</td>
 </tr>
 
 <tr>
 <td>securityqid</td>
 <td>string</td>
-<td></td>
+<td>Value present when client is new</td>
 </tr>
 
 <tr>
 <td>securityqans</td>
 <td>string</td>
-<td></td>
+<td>Value present when client is new</td>
 </tr>
 
 <tr>
 <td>customfield</td>
 <td>array</td>
-<td></td>
+<td>Value present when client is new</td>
 </tr>
 </tbody>
 </table>
@@ -2104,7 +2105,7 @@ add_hook('ShoppingCartValidateCheckout', 1, function($vars) {
 
 <h2 id="shoppingcartvalidatedomain">ShoppingCartValidateDomain</h2>
 
-<p>Executes when Cart Domain Validation is occurring</p>
+<p>Executes when Domain Update is occurring</p>
 
 <h4 id="parameters-27">Parameters</h4>
 
@@ -2119,21 +2120,9 @@ add_hook('ShoppingCartValidateCheckout', 1, function($vars) {
 
 <tbody>
 <tr>
-<td>domainoption</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>sld</td>
-<td>string</td>
-<td>eg whmcs in whmcs.com</td>
-</tr>
-
-<tr>
-<td>tld</td>
-<td>string</td>
-<td>eg com in whmcs.com</td>
+<td>N/A</td>
+<td>array</td>
+<td>The REQUEST variables</td>
 </tr>
 </tbody>
 </table>
