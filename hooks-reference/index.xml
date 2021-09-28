@@ -14275,7 +14275,7 @@ add_hook(&#39;InvoicePaidPreEmail&#39;, 1, function($vars) {
 
 &lt;h2 id=&#34;invoicepaymentreminder&#34;&gt;InvoicePaymentReminder&lt;/h2&gt;
 
-&lt;p&gt;Executes when an invoice payment reminder is sent&lt;/p&gt;
+&lt;p&gt;Executes when an automated invoice payment reminder is sent.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-13&#34;&gt;Parameters&lt;/h4&gt;
 
