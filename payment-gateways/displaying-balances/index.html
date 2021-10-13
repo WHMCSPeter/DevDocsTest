@@ -140,7 +140,7 @@
       
         <li class="" data-nav-id="/payment-gateways/meta-data-params/">
           <a href="//developers.whmcs.com/payment-gateways/meta-data-params/">
-            <span>Meta Data Parameters</span>
+            <span>Metadata Parameters</span>
           </a>
         </li>
       
@@ -339,9 +339,16 @@
 
 <h2 id="example">Example</h2>
 
-<p>Successful implementations of this functionality within a payment gateway module should resemble the example below:</p>
+<p>Successful implementations of this functionality within a payment gateway module should resemble the example below:
+You can display the balances for other payment gateways through two payment gateway module classes: <code>BalanceInterface</code> and <code>BalanceCollection</code>.</p>
 
-<pre><code>use WHMCS\Module\Gateway\Balance;
+<h2 id="connecting-to-gateways">Connecting to Gateways</h2>
+
+<p>Before you can retrieve balance information, connect to the desired gateway. For example:</p>
+
+<pre><code>&lt;?php
+
+use WHMCS\Module\Gateway\Balance;
 use WHMCS\Module\Gateway\BalanceCollection;
 
 /**
@@ -352,12 +359,12 @@ use WHMCS\Module\Gateway\BalanceCollection;
 function yourmodulename_account_balance(array $params = []): BalanceCollection
 {
     $balanceInfo = [];
-    /**
-     * Connect to gateway to retrieve balance information.
-     */
+
+    // Connect to gateway to retrieve balance information.
     $postfields = [
         'account' =&gt; $params['apikey'],
     ];
+
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, 'https://www.example.com/api/balance');
     curl_setopt($ch, CURLOPT_POST, 1);
@@ -366,19 +373,15 @@ function yourmodulename_account_balance(array $params = []): BalanceCollection
     $response = curl_exec($ch);
     curl_close($ch);
 
-    $balanceData = json_decode($response);
+    $balanceData = json_decode($response, true);
 
-    /**
-     * Add Balance objects as many times as needed for each gateway
-     * balance type (most gateways will only have one).
-     */
+    // Add Balance objects as many times as needed for each gateway
+    // balance type (most gateways will only have one).
     foreach ($balanceData['available'] as $availableData) {
         $currencyCode = strtoupper($availableData['currency']);
         $amount[$currencyCode] = ($availableData['amount'] / 100);
 
-        /**
-         * Add a Balance object using the default label and format color.
-         */
+        // Add a Balance object using the default label and format color.
         $balanceInfo[] = Balance::factory(
             $amount[$currencyCode],
             $currencyCode
@@ -389,9 +392,7 @@ function yourmodulename_account_balance(array $params = []): BalanceCollection
         $currencyCode = strtoupper($pendingData['currency']);
         $pending[$currencyCode] = ($pendingData['amount'] / 100);
 
-        /**
-         * Add a Balance object overriding the default label and color.
-         */
+        // Add a Balance object overriding the default label and color.
         $balanceInfo[] = Balance::factory(
             $pending[$currencyCode],
             $currencyCode,
@@ -400,14 +401,67 @@ function yourmodulename_account_balance(array $params = []): BalanceCollection
         );
     }
 
-    /**
-     * The BalanceCollection object accepts an array containing any number of
-     * Balance objects. Passing an item in the array that is not a Balance
-     * object will cause a fatal error.
-     */
+    // The BalanceCollection object accepts an array containing any number of
+    // Balance objects. Passing an item in the array that is not a Balance
+    // object will cause a fatal error.
     return BalanceCollection::factoryFromItems(...$balanceInfo);
 }
 </code></pre>
+
+<h2 id="the-balance-class">The Balance Class</h2>
+
+<p>After you connect to the gateway, add an object for the <code>Balance</code> class.</p>
+
+<p>You can repeat this process as many times as needed for each balance type that the gateway supports (for example, <em>Available</em> and <em>Pending</em>). However, most gateways will only have one <code>Balance</code> type.</p>
+
+<p>You can do this in two ways:</p>
+
+<h3 id="using-the-default-label-and-color">Using the default label and color</h3>
+
+<div class="notice info" ><p>You must add an object for the <code>Balance</code> class using this method <strong>at least</strong> once.</p>
+</div>
+
+
+<pre><code>foreach ($balanceData['available'] as $availableData) {
+    $currencyCode = strtoupper($availableData['currency']);
+    $amount[$currencyCode] = ($availableData['amount'] / 100);
+
+    // Add a Balance object using the default label and format colour.
+    $balanceInfo[] = Balance::factory(
+        $amount[$currencyCode],
+        $currencyCode
+    );
+}
+</code></pre>
+
+<h3 id="overriding-the-label-and-color">Overriding the label and color</h3>
+
+<p>Adding an object that overrides the label, color, or both is optional. To override the label and color, add the desired label and hex color code as in the example below:</p>
+
+<pre><code>$balanceInfo[] = Balance::factory(
+    $pending[$currencyCode],
+    $currencyCode,
+    'status.pending', // Default label is 'status.available'
+    '#6ecacc' //default colour is #5dc560
+);
+</code></pre>
+
+<h2 id="the-balancecollection-class">The BalanceCollection Class</h2>
+
+<p>Next, add an object to the <code>BalanceCollection</code> class. It should accept an array of <code>Balance</code> objects.</p>
+
+<div class="notice info" ><p>If anything in the array <strong>isn&rsquo;t</strong> a <code>Balance</code> object, WHMCS will encounter a fatal error.</p>
+</div>
+
+
+<pre><code>// The BalanceCollection object accepts an array containing any number of Balance objects.
+// Passing an item in the array that is not a Balance object will cause a fatal error.
+return BalanceCollection::factoryFromItems(...$balanceInfo);
+</code></pre>
+
+<h2 id="required-permissions">Required Permissions</h2>
+
+<p>By default, balance information will display in the Admin Area for admins with the <strong>Full Administrator</strong> role. To allow other admin roles to see balance information, enable <strong>View Gateway Balances</strong> for the desired role.</p>
 
 
 			<div class="topic-navigation clearfix">

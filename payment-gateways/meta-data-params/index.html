@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Meta Data Parameters - WHMCS Developer Documentation</title>
+    <title>Metadata Parameters - WHMCS Developer Documentation</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
@@ -140,7 +140,7 @@
       
         <li class="active" data-nav-id="/payment-gateways/meta-data-params/">
           <a href="//developers.whmcs.com/payment-gateways/meta-data-params/">
-            <span>Meta Data Parameters</span>
+            <span>Metadata Parameters</span>
           </a>
         </li>
       
@@ -322,16 +322,18 @@
                 
                   
                 
-                <span itemprop="title"> Meta Data Parameters</span>
+                <span itemprop="title"> Metadata Parameters</span>
               </div>
             </div>
 
 
-			<h1>Meta Data Parameters </h1>
+			<h1>Metadata Parameters </h1>
 
-			<p>The meta data function allows you to define module related capabilities and settings.</p>
+			
 
-<p>Payment Gateway Modules support the following meta data configuration parameters.</p>
+<p>The metadata function allows you to define module related capabilities and settings.</p>
+
+<p>Payment Gateway Modules support the following metadata configuration parameters.</p>
 
 <table>
 <thead>
@@ -347,7 +349,7 @@
 <tbody>
 <tr>
 <td>DisplayName</td>
-<td>Text</td>
+<td>String</td>
 <td>6.0</td>
 <td>Module Name</td>
 <td>An alternate display name that will be used instead of the filename if defined</td>
@@ -355,10 +357,18 @@
 
 <tr>
 <td>APIVersion</td>
-<td>Text</td>
+<td>String</td>
 <td>5.2</td>
 <td>1.1</td>
 <td>Defines API Version the module uses. Use <code>1.1</code> unless you have a need specific to use <code>1.0</code></td>
+</tr>
+
+<tr>
+<td>gatewayType</td>
+<td>String</td>
+<td>8.0</td>
+<td><em>undefined</em></td>
+<td>This should be set to &lsquo;Bank&rsquo; if the module is a Bank module, or the metadata should be omitted.</td>
 </tr>
 
 <tr>
@@ -386,6 +396,22 @@
 </tr>
 </tbody>
 </table>
+
+<h3 id="example">Example</h3>
+
+<pre><code>function yourmodulename_MetaData()
+{
+    return [
+        'DisplayName' =&gt; 'Your Module Name',
+        'gatewayType' =&gt; 'Bank', // Only set if the module is a Bank Module
+        'failedEmail' =&gt; 'Credit Card Payment Failed',
+        'successEmail' =&gt; 'Custom Credit Card Payment Template', // You can utilise custom templates here
+        'pendingEmail' =&gt; 'Custom Credit Card Pending Template',
+        'APIVersion' =&gt; '1.1', // Use API Version 1.1
+    ];
+}
+
+</code></pre>
 
 
 			<div class="topic-navigation clearfix">

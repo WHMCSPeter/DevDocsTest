@@ -140,7 +140,7 @@
       
         <li class="" data-nav-id="/payment-gateways/meta-data-params/">
           <a href="//developers.whmcs.com/payment-gateways/meta-data-params/">
-            <span>Meta Data Parameters</span>
+            <span>Metadata Parameters</span>
           </a>
         </li>
       
@@ -333,10 +333,9 @@
 
 <p>A remote input module is a type of merchant gateway that accepts input of pay
 method data remotely within an iFrame so that it appears transparent to the end
-user, and then exchanges it for a token that is returned back to WHMCS to be
-stored for future billing attempts.</p>
+user, and then exchanges it for a token that is returned to WHMCS to be stored for future billing attempts.</p>
 
-<p>Within WHMCS, sensitive payment data such as a card number is not stored
+<p>Within WHMCS, sensitive payment data such as a card number or bank account information is not stored
 locally when a remote input module is used.</p>
 
 <h2 id="creating-a-remote-input-gateway">Creating a Remote Input Gateway</h2>
@@ -346,7 +345,7 @@ These functions are <code>remoteinput</code> and <code>remoteupdate</code>.</p>
 
 <p>Once processed, a notification will be sent to a <a href="//developers.whmcs.com/payment-gateways/callbacks" title="Callback Files">callback file</a> where the Pay Method should be stored and the payment applied.</p>
 
-<p>For a more complete example, please refer to the <a href="https://github.com/WHMCS/sample-remote-input-gateway" title="Sample Remote Input Gateway module on Github">Sample Remote Input Gateway module on Github</a>.</p>
+<p>For a more complete example, please refer to the <a href="https://github.com/WHMCS/sample-remote-input-gateway" title="Sample Remote Input Gateway module">Sample Remote Input Gateway module</a> or <a href="https://github.com/WHMCS/sample-remote-bank-gateway-module" title="Sample Remote Input Bank Gateway module on Github">Sample Remote Input Bank Gateway module on Github</a>.</p>
 
 <h2 id="remote-input">Remote Input</h2>
 
@@ -354,11 +353,11 @@ These functions are <code>remoteinput</code> and <code>remoteupdate</code>.</p>
 or when adding a new payment method outside of the checkout process.</p>
 
 <p>The remote input function is required to return an HTML form that will be automatically submitted into an iframe target.
-The page rendered within the iframe should allow the user to enter card details in one of 2 workflow scenarios:</p>
+The page rendered within the iframe should allow the user to enter card or bank details in one of 2 workflow scenarios:</p>
 
 <ul>
-<li>Making payment using a new card - in this workflow the remote endpoint should allow the user to enter card details, generate a token, and capture payment for the requested amount</li>
-<li>Adding a new card to the users account - in this workflow the remote endpoint should allow the user to enter card details and generate a token, but not perform any immediate capture</li>
+<li>Making payment using a new card or bank - in this workflow the remote endpoint should allow the user to enter card/bank details, generate a token, and capture payment for the requested amount</li>
+<li>Adding a new card or bank to the users account - in this workflow the remote endpoint should allow the user to enter card/bank details and generate a token, but not perform any immediate capture</li>
 </ul>
 
 <p>The workflow type can be determined based on if an invoiceid and amount parameter is received as part of the parameters passed to the <code>remoteinput</code> function.</p>
@@ -442,7 +441,7 @@ way of a modal, popup or other such facility.</p>
 {
     return &lt;&lt;&lt;HTML
 &lt;div class=&quot;alert alert-info text-center&quot;&gt;
-    Updating your card is not possible. Please create a new Pay Method to make changes.
+    Updating your card/bank is not possible. Please create a new Pay Method to make changes.
 &lt;/div&gt;
 HTML;
 }
@@ -457,7 +456,7 @@ should be caught and logged.</p>
 
 <h3 id="createcardpaymethod">createCardPayMethod</h3>
 
-<p>This function can be used to add a new pay method to a client account</p>
+<p>This function can be used to add a new card pay method to a client account.</p>
 
 <h4 id="parameters">Parameters</h4>
 
@@ -474,7 +473,7 @@ should be caught and logged.</p>
 <tr>
 <td>clientId</td>
 <td>int</td>
-<td>The id of the client for the new pay method</td>
+<td>The ID of the client for the new pay method</td>
 </tr>
 
 <tr>
@@ -522,7 +521,7 @@ should be caught and logged.</p>
 <tr>
 <td>billingContactId</td>
 <td>string or integer</td>
-<td>Optional. The id of the billing contact to use. Defaults to &lsquo;billing&rsquo;</td>
+<td>Optional. The ID of the billing contact to use. Defaults to &lsquo;billing&rsquo;</td>
 </tr>
 
 <tr>
@@ -540,7 +539,7 @@ should be caught and logged.</p>
 <h4 id="error">Error</h4>
 
 <p>When an error occurs in the function call, an exception will be thrown with an appropriate message.
-The most common messages are detailed below, other exceptions could be thrown and need to be caught.</p>
+The most common messages are detailed below. Other exceptions could be thrown and need to be caught.</p>
 
 <table>
 <thead>
@@ -555,7 +554,7 @@ The most common messages are detailed below, other exceptions could be thrown an
 <tr>
 <td>Exception</td>
 <td>Client ID not found</td>
-<td>Check the client id. The client id passed has not been found</td>
+<td>Check the client ID. The client ID passed has not been found</td>
 </tr>
 
 <tr>
@@ -598,7 +597,7 @@ The most common messages are detailed below, other exceptions could be thrown an
 
 <h3 id="updatecardpaymethod">updateCardPayMethod</h3>
 
-<p>This function can be used to update an existing pay method for a client.</p>
+<p>This function can be used to update an existing card pay method for a client.</p>
 
 <h4 id="parameters-1">Parameters</h4>
 
@@ -615,13 +614,13 @@ The most common messages are detailed below, other exceptions could be thrown an
 <tr>
 <td>clientId</td>
 <td>int</td>
-<td>The id of the client that the pay method belongs to</td>
+<td>The ID of the client that the pay method belongs to</td>
 </tr>
 
 <tr>
 <td>payMethodId</td>
 <td>int</td>
-<td>The id of the pay method to be updated</td>
+<td>The ID of the pay method to be updated</td>
 </tr>
 
 <tr>
@@ -652,12 +651,12 @@ The most common messages are detailed below, other exceptions could be thrown an
 
 <h4 id="return-1">Return</h4>
 
-<p>Boolean return <code>true</code> on successful creation of a pay method.</p>
+<p>Boolean return <code>true</code> on successful update of the pay method.</p>
 
 <h4 id="error-1">Error</h4>
 
 <p>When an error occurs in the function call, an exception will be thrown with an appropriate message.
-The most common messages are detailed below, other exceptions could be thrown and need to be caught.</p>
+The most common messages are detailed below. Other exceptions could be thrown and need to be caught.</p>
 
 <table>
 <thead>
@@ -672,13 +671,13 @@ The most common messages are detailed below, other exceptions could be thrown an
 <tr>
 <td>Exception</td>
 <td>Client ID not found</td>
-<td>Check the client id. The client id passed has not been found</td>
+<td>Check the client ID. The client ID passed has not been found</td>
 </tr>
 
 <tr>
 <td>Exception</td>
 <td>PayMethod ID not found</td>
-<td>Check the pay method id. The pay method id passed has not been found</td>
+<td>Check the pay method ID. The pay method ID passed has not been found</td>
 </tr>
 
 <tr>
@@ -691,6 +690,234 @@ The most common messages are detailed below, other exceptions could be thrown an
 <td>RuntimeException</td>
 <td>Card expiry date is required</td>
 <td>For a local storage gateway, the card expiry date is required</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="createbankpaymethod">createBankPayMethod</h3>
+
+<p>This function can be used to add a new bank pay method to a client account.</p>
+
+<h4 id="parameters-2">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>clientId</td>
+<td>int</td>
+<td>The ID of the client for the new pay method</td>
+</tr>
+
+<tr>
+<td>gatewayName</td>
+<td>string</td>
+<td>The name of the module adding the pay method</td>
+</tr>
+
+<tr>
+<td>accountType</td>
+<td>string</td>
+<td>The type of bank account being added, such as checking or savings. Defaults to &lsquo;checking&rsquo;</td>
+</tr>
+
+<tr>
+<td>routingNumber</td>
+<td>string</td>
+<td>Bank routing number. A blank string &ldquo; can be passed for remote tokens</td>
+</tr>
+
+<tr>
+<td>accountNumber</td>
+<td>string</td>
+<td>Bank account number. A blank string &ldquo; can be passed for remote tokens</td>
+</tr>
+
+<tr>
+<td>bankName</td>
+<td>string</td>
+<td>Name of the bank</td>
+</tr>
+
+<tr>
+<td>accountHolderName</td>
+<td>string</td>
+<td>The bank account owner&rsquo;s name</td>
+</tr>
+
+<tr>
+<td>remoteToken</td>
+<td>string</td>
+<td>Required for a remote pay method. The remote token for a remote pay method.</td>
+</tr>
+
+<tr>
+<td>billingContactId</td>
+<td>string or integer</td>
+<td>Optional. The ID of the billing contact to use. Defaults to &lsquo;billing&rsquo;</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>string</td>
+<td>The description for the new pay method</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="return-2">Return</h4>
+
+<p>Boolean return <code>true</code> on successful creation of a pay method.</p>
+
+<h4 id="error-2">Error</h4>
+
+<p>When an error occurs in the function call, an exception will be thrown with an appropriate message.
+The most common messages are detailed below. Other exceptions could be thrown and need to be caught.</p>
+
+<table>
+<thead>
+<tr>
+<th>Exception</th>
+<th>Message</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Exception</td>
+<td>Client ID not found</td>
+<td>Check the client ID. The client ID passed has not been found</td>
+</tr>
+
+<tr>
+<td>Exception</td>
+<td>Module Not Found</td>
+<td>Check the gateway module name. The module name passed has not been found</td>
+</tr>
+
+<tr>
+<td>Exception</td>
+<td>Module Not Activated</td>
+<td>The gateway module passed is not currently active</td>
+</tr>
+
+<tr>
+<td>InvalidArgumentException</td>
+<td>Invalid Workflow Type for PayMethod</td>
+<td>Only bank accounts can be added using this function</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="updatebankpaymethod">updateBankPayMethod</h3>
+
+<p>This function can be used to update an existing bank pay method for a client.</p>
+
+<h4 id="parameters-3">Parameters</h4>
+
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>clientId</td>
+<td>int</td>
+<td>The ID of the client for the new pay method</td>
+</tr>
+
+<tr>
+<td>payMethodId</td>
+<td>int</td>
+<td>The ID of the pay method to be updated</td>
+</tr>
+
+<tr>
+<td>accountType</td>
+<td>string</td>
+<td>The type of bank account being added, such as checking or savings. Defaults to &lsquo;checking&rsquo;</td>
+</tr>
+
+<tr>
+<td>routingNumber</td>
+<td>string</td>
+<td>Bank routing number. A blank string &ldquo; can be passed for remote tokens</td>
+</tr>
+
+<tr>
+<td>accountNumber</td>
+<td>string</td>
+<td>Bank account number. A blank string &ldquo; can be passed for remote tokens</td>
+</tr>
+
+<tr>
+<td>bankName</td>
+<td>string</td>
+<td>Name of the bank</td>
+</tr>
+
+<tr>
+<td>accountHolderName</td>
+<td>string</td>
+<td>The bank account owner&rsquo;s name</td>
+</tr>
+
+<tr>
+<td>remoteToken</td>
+<td>string</td>
+<td>Required for a remote pay method. The remote token for a remote pay method.</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="return-3">Return</h4>
+
+<p>Boolean return <code>true</code> on successful update of the pay method.</p>
+
+<h4 id="error-3">Error</h4>
+
+<p>When an error occurs in the function call, an exception will be thrown with an appropriate message.
+The most common messages are detailed below. Other exceptions could be thrown and need to be caught.</p>
+
+<table>
+<thead>
+<tr>
+<th>Exception</th>
+<th>Message</th>
+<th>Notes</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Exception</td>
+<td>Client ID not found</td>
+<td>Check the client ID. The client ID passed has not been found</td>
+</tr>
+
+<tr>
+<td>Exception</td>
+<td>PayMethod ID not found</td>
+<td>Check the pay method ID. The pay method ID passed has not been found</td>
+</tr>
+
+<tr>
+<td>InvalidArgumentException</td>
+<td>Invalid PayMethod</td>
+<td>The pay method being updated is not a bank account</td>
 </tr>
 </tbody>
 </table>

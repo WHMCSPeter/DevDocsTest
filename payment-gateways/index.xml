@@ -75,14 +75,16 @@
     </item>
     
     <item>
-      <title>Meta Data Parameters</title>
+      <title>Metadata Parameters</title>
       <link>//developers.whmcs.com/payment-gateways/meta-data-params/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//developers.whmcs.com/payment-gateways/meta-data-params/</guid>
-      <description>&lt;p&gt;The meta data function allows you to define module related capabilities and settings.&lt;/p&gt;
+      <description>
 
-&lt;p&gt;Payment Gateway Modules support the following meta data configuration parameters.&lt;/p&gt;
+&lt;p&gt;The metadata function allows you to define module related capabilities and settings.&lt;/p&gt;
+
+&lt;p&gt;Payment Gateway Modules support the following metadata configuration parameters.&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -98,7 +100,7 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;DisplayName&lt;/td&gt;
-&lt;td&gt;Text&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
 &lt;td&gt;6.0&lt;/td&gt;
 &lt;td&gt;Module Name&lt;/td&gt;
 &lt;td&gt;An alternate display name that will be used instead of the filename if defined&lt;/td&gt;
@@ -106,10 +108,18 @@
 
 &lt;tr&gt;
 &lt;td&gt;APIVersion&lt;/td&gt;
-&lt;td&gt;Text&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
 &lt;td&gt;5.2&lt;/td&gt;
 &lt;td&gt;1.1&lt;/td&gt;
 &lt;td&gt;Defines API Version the module uses. Use &lt;code&gt;1.1&lt;/code&gt; unless you have a need specific to use &lt;code&gt;1.0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;gatewayType&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;8.0&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;undefined&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;This should be set to &amp;lsquo;Bank&amp;rsquo; if the module is a Bank module, or the metadata should be omitted.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -137,6 +147,22 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;function yourmodulename_MetaData()
+{
+    return [
+        &#39;DisplayName&#39; =&amp;gt; &#39;Your Module Name&#39;,
+        &#39;gatewayType&#39; =&amp;gt; &#39;Bank&#39;, // Only set if the module is a Bank Module
+        &#39;failedEmail&#39; =&amp;gt; &#39;Credit Card Payment Failed&#39;,
+        &#39;successEmail&#39; =&amp;gt; &#39;Custom Credit Card Payment Template&#39;, // You can utilise custom templates here
+        &#39;pendingEmail&#39; =&amp;gt; &#39;Custom Credit Card Pending Template&#39;,
+        &#39;APIVersion&#39; =&amp;gt; &#39;1.1&#39;, // Use API Version 1.1
+    ];
+}
+
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -642,9 +668,16 @@ Any other response is considered a failure, and the subscriptionid value will re
 
 &lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
 
-&lt;p&gt;Successful implementations of this functionality within a payment gateway module should resemble the example below:&lt;/p&gt;
+&lt;p&gt;Successful implementations of this functionality within a payment gateway module should resemble the example below:
+You can display the balances for other payment gateways through two payment gateway module classes: &lt;code&gt;BalanceInterface&lt;/code&gt; and &lt;code&gt;BalanceCollection&lt;/code&gt;.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;use WHMCS\Module\Gateway\Balance;
+&lt;h2 id=&#34;connecting-to-gateways&#34;&gt;Connecting to Gateways&lt;/h2&gt;
+
+&lt;p&gt;Before you can retrieve balance information, connect to the desired gateway. For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+use WHMCS\Module\Gateway\Balance;
 use WHMCS\Module\Gateway\BalanceCollection;
 
 /**
@@ -655,12 +688,12 @@ use WHMCS\Module\Gateway\BalanceCollection;
 function yourmodulename_account_balance(array $params = []): BalanceCollection
 {
     $balanceInfo = [];
-    /**
-     * Connect to gateway to retrieve balance information.
-     */
+
+    // Connect to gateway to retrieve balance information.
     $postfields = [
         &#39;account&#39; =&amp;gt; $params[&#39;apikey&#39;],
     ];
+
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, &#39;https://www.example.com/api/balance&#39;);
     curl_setopt($ch, CURLOPT_POST, 1);
@@ -669,19 +702,15 @@ function yourmodulename_account_balance(array $params = []): BalanceCollection
     $response = curl_exec($ch);
     curl_close($ch);
 
-    $balanceData = json_decode($response);
+    $balanceData = json_decode($response, true);
 
-    /**
-     * Add Balance objects as many times as needed for each gateway
-     * balance type (most gateways will only have one).
-     */
+    // Add Balance objects as many times as needed for each gateway
+    // balance type (most gateways will only have one).
     foreach ($balanceData[&#39;available&#39;] as $availableData) {
         $currencyCode = strtoupper($availableData[&#39;currency&#39;]);
         $amount[$currencyCode] = ($availableData[&#39;amount&#39;] / 100);
 
-        /**
-         * Add a Balance object using the default label and format color.
-         */
+        // Add a Balance object using the default label and format color.
         $balanceInfo[] = Balance::factory(
             $amount[$currencyCode],
             $currencyCode
@@ -692,9 +721,7 @@ function yourmodulename_account_balance(array $params = []): BalanceCollection
         $currencyCode = strtoupper($pendingData[&#39;currency&#39;]);
         $pending[$currencyCode] = ($pendingData[&#39;amount&#39;] / 100);
 
-        /**
-         * Add a Balance object overriding the default label and color.
-         */
+        // Add a Balance object overriding the default label and color.
         $balanceInfo[] = Balance::factory(
             $pending[$currencyCode],
             $currencyCode,
@@ -703,14 +730,67 @@ function yourmodulename_account_balance(array $params = []): BalanceCollection
         );
     }
 
-    /**
-     * The BalanceCollection object accepts an array containing any number of
-     * Balance objects. Passing an item in the array that is not a Balance
-     * object will cause a fatal error.
-     */
+    // The BalanceCollection object accepts an array containing any number of
+    // Balance objects. Passing an item in the array that is not a Balance
+    // object will cause a fatal error.
     return BalanceCollection::factoryFromItems(...$balanceInfo);
 }
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-balance-class&#34;&gt;The Balance Class&lt;/h2&gt;
+
+&lt;p&gt;After you connect to the gateway, add an object for the &lt;code&gt;Balance&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;p&gt;You can repeat this process as many times as needed for each balance type that the gateway supports (for example, &lt;em&gt;Available&lt;/em&gt; and &lt;em&gt;Pending&lt;/em&gt;). However, most gateways will only have one &lt;code&gt;Balance&lt;/code&gt; type.&lt;/p&gt;
+
+&lt;p&gt;You can do this in two ways:&lt;/p&gt;
+
+&lt;h3 id=&#34;using-the-default-label-and-color&#34;&gt;Using the default label and color&lt;/h3&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;You must add an object for the &lt;code&gt;Balance&lt;/code&gt; class using this method &lt;strong&gt;at least&lt;/strong&gt; once.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;pre&gt;&lt;code&gt;foreach ($balanceData[&#39;available&#39;] as $availableData) {
+    $currencyCode = strtoupper($availableData[&#39;currency&#39;]);
+    $amount[$currencyCode] = ($availableData[&#39;amount&#39;] / 100);
+
+    // Add a Balance object using the default label and format colour.
+    $balanceInfo[] = Balance::factory(
+        $amount[$currencyCode],
+        $currencyCode
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;overriding-the-label-and-color&#34;&gt;Overriding the label and color&lt;/h3&gt;
+
+&lt;p&gt;Adding an object that overrides the label, color, or both is optional. To override the label and color, add the desired label and hex color code as in the example below:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$balanceInfo[] = Balance::factory(
+    $pending[$currencyCode],
+    $currencyCode,
+    &#39;status.pending&#39;, // Default label is &#39;status.available&#39;
+    &#39;#6ecacc&#39; //default colour is #5dc560
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-balancecollection-class&#34;&gt;The BalanceCollection Class&lt;/h2&gt;
+
+&lt;p&gt;Next, add an object to the &lt;code&gt;BalanceCollection&lt;/code&gt; class. It should accept an array of &lt;code&gt;Balance&lt;/code&gt; objects.&lt;/p&gt;
+
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;If anything in the array &lt;strong&gt;isn&amp;rsquo;t&lt;/strong&gt; a &lt;code&gt;Balance&lt;/code&gt; object, WHMCS will encounter a fatal error.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;pre&gt;&lt;code&gt;// The BalanceCollection object accepts an array containing any number of Balance objects.
+// Passing an item in the array that is not a Balance object will cause a fatal error.
+return BalanceCollection::factoryFromItems(...$balanceInfo);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;required-permissions&#34;&gt;Required Permissions&lt;/h2&gt;
+
+&lt;p&gt;By default, balance information will display in the Admin Area for admins with the &lt;strong&gt;Full Administrator&lt;/strong&gt; role. To allow other admin roles to see balance information, enable &lt;strong&gt;View Gateway Balances&lt;/strong&gt; for the desired role.&lt;/p&gt;
 </description>
     </item>
     
@@ -1424,10 +1504,9 @@ transaction.&amp;lt;/div&amp;gt;
 
 &lt;p&gt;A remote input module is a type of merchant gateway that accepts input of pay
 method data remotely within an iFrame so that it appears transparent to the end
-user, and then exchanges it for a token that is returned back to WHMCS to be
-stored for future billing attempts.&lt;/p&gt;
+user, and then exchanges it for a token that is returned to WHMCS to be stored for future billing attempts.&lt;/p&gt;
 
-&lt;p&gt;Within WHMCS, sensitive payment data such as a card number is not stored
+&lt;p&gt;Within WHMCS, sensitive payment data such as a card number or bank account information is not stored
 locally when a remote input module is used.&lt;/p&gt;
 
 &lt;h2 id=&#34;creating-a-remote-input-gateway&#34;&gt;Creating a Remote Input Gateway&lt;/h2&gt;
@@ -1437,7 +1516,7 @@ These functions are &lt;code&gt;remoteinput&lt;/code&gt; and &lt;code&gt;remoteu
 
 &lt;p&gt;Once processed, a notification will be sent to a &lt;a href=&#34;//developers.whmcs.com/payment-gateways/callbacks&#34; title=&#34;Callback Files&#34;&gt;callback file&lt;/a&gt; where the Pay Method should be stored and the payment applied.&lt;/p&gt;
 
-&lt;p&gt;For a more complete example, please refer to the &lt;a href=&#34;https://github.com/WHMCS/sample-remote-input-gateway&#34; title=&#34;Sample Remote Input Gateway module on Github&#34;&gt;Sample Remote Input Gateway module on Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For a more complete example, please refer to the &lt;a href=&#34;https://github.com/WHMCS/sample-remote-input-gateway&#34; title=&#34;Sample Remote Input Gateway module&#34;&gt;Sample Remote Input Gateway module&lt;/a&gt; or &lt;a href=&#34;https://github.com/WHMCS/sample-remote-bank-gateway-module&#34; title=&#34;Sample Remote Input Bank Gateway module on Github&#34;&gt;Sample Remote Input Bank Gateway module on Github&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;remote-input&#34;&gt;Remote Input&lt;/h2&gt;
 
@@ -1445,11 +1524,11 @@ These functions are &lt;code&gt;remoteinput&lt;/code&gt; and &lt;code&gt;remoteu
 or when adding a new payment method outside of the checkout process.&lt;/p&gt;
 
 &lt;p&gt;The remote input function is required to return an HTML form that will be automatically submitted into an iframe target.
-The page rendered within the iframe should allow the user to enter card details in one of 2 workflow scenarios:&lt;/p&gt;
+The page rendered within the iframe should allow the user to enter card or bank details in one of 2 workflow scenarios:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Making payment using a new card - in this workflow the remote endpoint should allow the user to enter card details, generate a token, and capture payment for the requested amount&lt;/li&gt;
-&lt;li&gt;Adding a new card to the users account - in this workflow the remote endpoint should allow the user to enter card details and generate a token, but not perform any immediate capture&lt;/li&gt;
+&lt;li&gt;Making payment using a new card or bank - in this workflow the remote endpoint should allow the user to enter card/bank details, generate a token, and capture payment for the requested amount&lt;/li&gt;
+&lt;li&gt;Adding a new card or bank to the users account - in this workflow the remote endpoint should allow the user to enter card/bank details and generate a token, but not perform any immediate capture&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;The workflow type can be determined based on if an invoiceid and amount parameter is received as part of the parameters passed to the &lt;code&gt;remoteinput&lt;/code&gt; function.&lt;/p&gt;
@@ -1533,7 +1612,7 @@ way of a modal, popup or other such facility.&lt;/p&gt;
 {
     return &amp;lt;&amp;lt;&amp;lt;HTML
 &amp;lt;div class=&amp;quot;alert alert-info text-center&amp;quot;&amp;gt;
-    Updating your card is not possible. Please create a new Pay Method to make changes.
+    Updating your card/bank is not possible. Please create a new Pay Method to make changes.
 &amp;lt;/div&amp;gt;
 HTML;
 }
@@ -1548,7 +1627,7 @@ should be caught and logged.&lt;/p&gt;
 
 &lt;h3 id=&#34;createcardpaymethod&#34;&gt;createCardPayMethod&lt;/h3&gt;
 
-&lt;p&gt;This function can be used to add a new pay method to a client account&lt;/p&gt;
+&lt;p&gt;This function can be used to add a new card pay method to a client account.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -1565,7 +1644,7 @@ should be caught and logged.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;clientId&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The id of the client for the new pay method&lt;/td&gt;
+&lt;td&gt;The ID of the client for the new pay method&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -1613,7 +1692,7 @@ should be caught and logged.&lt;/p&gt;
 &lt;tr&gt;
 &lt;td&gt;billingContactId&lt;/td&gt;
 &lt;td&gt;string or integer&lt;/td&gt;
-&lt;td&gt;Optional. The id of the billing contact to use. Defaults to &amp;lsquo;billing&amp;rsquo;&lt;/td&gt;
+&lt;td&gt;Optional. The ID of the billing contact to use. Defaults to &amp;lsquo;billing&amp;rsquo;&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -1631,7 +1710,7 @@ should be caught and logged.&lt;/p&gt;
 &lt;h4 id=&#34;error&#34;&gt;Error&lt;/h4&gt;
 
 &lt;p&gt;When an error occurs in the function call, an exception will be thrown with an appropriate message.
-The most common messages are detailed below, other exceptions could be thrown and need to be caught.&lt;/p&gt;
+The most common messages are detailed below. Other exceptions could be thrown and need to be caught.&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -1646,7 +1725,7 @@ The most common messages are detailed below, other exceptions could be thrown an
 &lt;tr&gt;
 &lt;td&gt;Exception&lt;/td&gt;
 &lt;td&gt;Client ID not found&lt;/td&gt;
-&lt;td&gt;Check the client id. The client id passed has not been found&lt;/td&gt;
+&lt;td&gt;Check the client ID. The client ID passed has not been found&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -1689,7 +1768,7 @@ The most common messages are detailed below, other exceptions could be thrown an
 
 &lt;h3 id=&#34;updatecardpaymethod&#34;&gt;updateCardPayMethod&lt;/h3&gt;
 
-&lt;p&gt;This function can be used to update an existing pay method for a client.&lt;/p&gt;
+&lt;p&gt;This function can be used to update an existing card pay method for a client.&lt;/p&gt;
 
 &lt;h4 id=&#34;parameters-1&#34;&gt;Parameters&lt;/h4&gt;
 
@@ -1706,13 +1785,13 @@ The most common messages are detailed below, other exceptions could be thrown an
 &lt;tr&gt;
 &lt;td&gt;clientId&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The id of the client that the pay method belongs to&lt;/td&gt;
+&lt;td&gt;The ID of the client that the pay method belongs to&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;payMethodId&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The id of the pay method to be updated&lt;/td&gt;
+&lt;td&gt;The ID of the pay method to be updated&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -1743,12 +1822,12 @@ The most common messages are detailed below, other exceptions could be thrown an
 
 &lt;h4 id=&#34;return-1&#34;&gt;Return&lt;/h4&gt;
 
-&lt;p&gt;Boolean return &lt;code&gt;true&lt;/code&gt; on successful creation of a pay method.&lt;/p&gt;
+&lt;p&gt;Boolean return &lt;code&gt;true&lt;/code&gt; on successful update of the pay method.&lt;/p&gt;
 
 &lt;h4 id=&#34;error-1&#34;&gt;Error&lt;/h4&gt;
 
 &lt;p&gt;When an error occurs in the function call, an exception will be thrown with an appropriate message.
-The most common messages are detailed below, other exceptions could be thrown and need to be caught.&lt;/p&gt;
+The most common messages are detailed below. Other exceptions could be thrown and need to be caught.&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -1763,13 +1842,13 @@ The most common messages are detailed below, other exceptions could be thrown an
 &lt;tr&gt;
 &lt;td&gt;Exception&lt;/td&gt;
 &lt;td&gt;Client ID not found&lt;/td&gt;
-&lt;td&gt;Check the client id. The client id passed has not been found&lt;/td&gt;
+&lt;td&gt;Check the client ID. The client ID passed has not been found&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;Exception&lt;/td&gt;
 &lt;td&gt;PayMethod ID not found&lt;/td&gt;
-&lt;td&gt;Check the pay method id. The pay method id passed has not been found&lt;/td&gt;
+&lt;td&gt;Check the pay method ID. The pay method ID passed has not been found&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
@@ -1782,6 +1861,234 @@ The most common messages are detailed below, other exceptions could be thrown an
 &lt;td&gt;RuntimeException&lt;/td&gt;
 &lt;td&gt;Card expiry date is required&lt;/td&gt;
 &lt;td&gt;For a local storage gateway, the card expiry date is required&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;createbankpaymethod&#34;&gt;createBankPayMethod&lt;/h3&gt;
+
+&lt;p&gt;This function can be used to add a new bank pay method to a client account.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-2&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;clientId&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The ID of the client for the new pay method&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;gatewayName&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The name of the module adding the pay method&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;accountType&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The type of bank account being added, such as checking or savings. Defaults to &amp;lsquo;checking&amp;rsquo;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;routingNumber&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Bank routing number. A blank string &amp;ldquo; can be passed for remote tokens&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;accountNumber&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Bank account number. A blank string &amp;ldquo; can be passed for remote tokens&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;bankName&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Name of the bank&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;accountHolderName&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The bank account owner&amp;rsquo;s name&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;remoteToken&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Required for a remote pay method. The remote token for a remote pay method.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;billingContactId&lt;/td&gt;
+&lt;td&gt;string or integer&lt;/td&gt;
+&lt;td&gt;Optional. The ID of the billing contact to use. Defaults to &amp;lsquo;billing&amp;rsquo;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;description&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The description for the new pay method&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;return-2&#34;&gt;Return&lt;/h4&gt;
+
+&lt;p&gt;Boolean return &lt;code&gt;true&lt;/code&gt; on successful creation of a pay method.&lt;/p&gt;
+
+&lt;h4 id=&#34;error-2&#34;&gt;Error&lt;/h4&gt;
+
+&lt;p&gt;When an error occurs in the function call, an exception will be thrown with an appropriate message.
+The most common messages are detailed below. Other exceptions could be thrown and need to be caught.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Exception&lt;/th&gt;
+&lt;th&gt;Message&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Exception&lt;/td&gt;
+&lt;td&gt;Client ID not found&lt;/td&gt;
+&lt;td&gt;Check the client ID. The client ID passed has not been found&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Exception&lt;/td&gt;
+&lt;td&gt;Module Not Found&lt;/td&gt;
+&lt;td&gt;Check the gateway module name. The module name passed has not been found&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Exception&lt;/td&gt;
+&lt;td&gt;Module Not Activated&lt;/td&gt;
+&lt;td&gt;The gateway module passed is not currently active&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;InvalidArgumentException&lt;/td&gt;
+&lt;td&gt;Invalid Workflow Type for PayMethod&lt;/td&gt;
+&lt;td&gt;Only bank accounts can be added using this function&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;updatebankpaymethod&#34;&gt;updateBankPayMethod&lt;/h3&gt;
+
+&lt;p&gt;This function can be used to update an existing bank pay method for a client.&lt;/p&gt;
+
+&lt;h4 id=&#34;parameters-3&#34;&gt;Parameters&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Variable&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;clientId&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The ID of the client for the new pay method&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;payMethodId&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;The ID of the pay method to be updated&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;accountType&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The type of bank account being added, such as checking or savings. Defaults to &amp;lsquo;checking&amp;rsquo;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;routingNumber&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Bank routing number. A blank string &amp;ldquo; can be passed for remote tokens&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;accountNumber&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Bank account number. A blank string &amp;ldquo; can be passed for remote tokens&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;bankName&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Name of the bank&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;accountHolderName&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The bank account owner&amp;rsquo;s name&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;remoteToken&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Required for a remote pay method. The remote token for a remote pay method.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;return-3&#34;&gt;Return&lt;/h4&gt;
+
+&lt;p&gt;Boolean return &lt;code&gt;true&lt;/code&gt; on successful update of the pay method.&lt;/p&gt;
+
+&lt;h4 id=&#34;error-3&#34;&gt;Error&lt;/h4&gt;
+
+&lt;p&gt;When an error occurs in the function call, an exception will be thrown with an appropriate message.
+The most common messages are detailed below. Other exceptions could be thrown and need to be caught.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Exception&lt;/th&gt;
+&lt;th&gt;Message&lt;/th&gt;
+&lt;th&gt;Notes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Exception&lt;/td&gt;
+&lt;td&gt;Client ID not found&lt;/td&gt;
+&lt;td&gt;Check the client ID. The client ID passed has not been found&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Exception&lt;/td&gt;
+&lt;td&gt;PayMethod ID not found&lt;/td&gt;
+&lt;td&gt;Check the pay method ID. The pay method ID passed has not been found&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;InvalidArgumentException&lt;/td&gt;
+&lt;td&gt;Invalid PayMethod&lt;/td&gt;
+&lt;td&gt;The pay method being updated is not a bank account&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
