@@ -343,7 +343,9 @@
 
 <h2 id="domain-syncing">Domain Syncing</h2>
 
-<p>Domain syncing is performed in batches. When defined in your module, the Sync function will be called for 50 domains on a rolling basis each time the domain sync cron is invoked. Once all domains assigned to your module have been synced it will start from the beginning again.</p>
+<p>Domain syncing is performed in batches. When defined in your module, the <em>Sync</em> function will be called for 50 domains on a rolling basis each time the domain sync cron is invoked. After all of the domains that are assigned to your module have been synced, it will start from the beginning again.</p>
+
+<p>Domains are only checked when they are in <strong>Active</strong> or <strong>Pending Transfer</strong> status.</p>
 
 <p>The below example shows the supported return values for the function.</p>
 

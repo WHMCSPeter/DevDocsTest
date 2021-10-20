@@ -216,6 +216,16 @@ function yourmodulename_config_validate($params) {
 &lt;/tr&gt;
 
 &lt;tr&gt;
+&lt;td&gt;GetEmailForwarding&lt;/td&gt;
+&lt;td&gt;Called when Email Forwarding is displayed within WHMCS.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;SaveEmailForwarding&lt;/td&gt;
+&lt;td&gt;Called when changes to Email Forwarding are submitted.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
 &lt;td&gt;GetNameservers&lt;/td&gt;
 &lt;td&gt;Called when a domain is viewed within WHMCS. It can return up to 5 nameservers that are set for the domain.&lt;/td&gt;
 &lt;/tr&gt;
@@ -341,7 +351,9 @@ function yourmodulename_config_validate($params) {
 
 &lt;h2 id=&#34;domain-syncing&#34;&gt;Domain Syncing&lt;/h2&gt;
 
-&lt;p&gt;Domain syncing is performed in batches. When defined in your module, the Sync function will be called for 50 domains on a rolling basis each time the domain sync cron is invoked. Once all domains assigned to your module have been synced it will start from the beginning again.&lt;/p&gt;
+&lt;p&gt;Domain syncing is performed in batches. When defined in your module, the &lt;em&gt;Sync&lt;/em&gt; function will be called for 50 domains on a rolling basis each time the domain sync cron is invoked. After all of the domains that are assigned to your module have been synced, it will start from the beginning again.&lt;/p&gt;
+
+&lt;p&gt;Domains are only checked when they are in &lt;strong&gt;Active&lt;/strong&gt; or &lt;strong&gt;Pending Transfer&lt;/strong&gt; status.&lt;/p&gt;
 
 &lt;p&gt;The below example shows the supported return values for the function.&lt;/p&gt;
 
