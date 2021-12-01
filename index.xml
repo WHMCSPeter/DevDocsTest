@@ -924,16 +924,16 @@ print_r($results);
 &lt;/tr&gt;
 
 &lt;tr&gt;
-&lt;td&gt;quantity&lt;/td&gt;
-&lt;td&gt;float&lt;/td&gt;
-&lt;td&gt;The number of hours or quantity the item corresponds to.&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
 &lt;td&gt;unit&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
 &lt;td&gt;Either &amp;lsquo;hours&amp;rsquo; or &amp;lsquo;quantity&amp;rsquo;.&lt;/td&gt;
+&lt;td&gt;Required&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;quantity&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;The number of units the billable items represents. Defaults to 0.&lt;/td&gt;
 &lt;td&gt;Optional&lt;/td&gt;
 &lt;/tr&gt;
 

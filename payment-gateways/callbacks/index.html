@@ -476,7 +476,7 @@ addInvoicePayment(
 <li>The second parameter should be the unique transaction ID provided by the payment gateway.</li>
 <li>The third parameter should be the amount to be credited to the invoice. If this value is <code>0</code> or an empty string, the payment will be assumed to be the full balance due for the invoice.</li>
 <li>The fourth parameter should be the fee charged by the gateway. If this is unavailable, set this to <code>0.00</code>.</li>
-<li>The fifth parameter should be your gateway module name. You can use <code>$gatewayParams['name']</code> for this.</li>
+<li>The fifth parameter should be your gateway module name. You can use <code>$gatewayParams['paymentmethod']</code> for this.</li>
 </ul>
 
 <p>This documentation assumes you are following the sample callback file in the sample module which defines this variable and populates it with the gateway parameters from WHMCS.</p>
