@@ -235,25 +235,25 @@
 
 			
 
-<p>Mail Providers determine how WHMCS transmits email to admins and their customers.</p>
+<p>Mail providers determine how WHMCS transmits email to admins and their customers.</p>
 
 <h2 id="sample-module">Sample Module</h2>
 
-<p>The <code>SenderModuleInterface</code> interface for Mail Providers ships with WHMCS. The class that you create must be in the <code>WHMCS\Module\Mail</code> namespace.</p>
+<p>The <code>SenderModuleInterface</code> interface for mail providers ships with WHMCS. The class that you create must be in the <code>WHMCS\Module\Mail</code> namespace.</p>
 
 <h2 id="choosing-a-name">Choosing A Name</h2>
 
-<p>Mail Provider Modules are in the <code>modules/mail</code> directory. Each module has its own subdirectory, which you should use to store the files relating to the module.</p>
+<p>Mail provider modules are in the <code>modules/mail</code> directory. Each module has its own subdirectory, which you should use to store the files relating to the module.</p>
 
-<p>Mail Provider modules are PHP files that contain a class that implements <code>SenderModuleInterface</code>.</p>
+<p>Mail provider modules are PHP files that contain a class that implements the <code>SenderModuleInterface</code> interface.</p>
 
-<p>To create a new Mail Provider module, perform these steps:</p>
+<p>To create a new mail provider module, perform these steps:</p>
 
 <ol>
 <li>Choose a name for your module. Module names must be a single string that consists of only alphanumeric characters (no spaces or other characters). Names must begin with a letter and must be unique.</li>
 <li>Create a new directory using your desired module name.</li>
-<li>Create a new file within the directory, using your module name as the filename, with the <code>.php</code> extension.
-Add the following code to the file, replacing <code>YourModuleName</code> with the name of your module:</li>
+<li>Create a new file within the directory, using your module name as the filename and the <code>.php</code> extension.</li>
+<li>Add the following code to the file, replacing <code>YourModuleName</code> with the name of your module:</li>
 </ol>
 
 <pre><code>&lt;?php
@@ -275,7 +275,7 @@ use WHMCS\Module\MailSender\DescriptionTrait;
 class YourModuleName implements SenderModuleInterface
 {
     use DescriptionTrait;
-    
+
     /**
      * Constructor
      *
@@ -327,7 +327,7 @@ class YourModuleName implements SenderModuleInterface
 }
 </code></pre>
 
-<p>For more information on the SenderModuleInterface and Message class, see <a href="https://classdocs.whmcs.com/8.1/WHMCS/Mail_ns.html">our additional documentation</a>.</p>
+<p>For more information on the <code>SenderModuleInterface</code> and <code>Message</code> class, see <a href="https://classdocs.whmcs.com/8.1/WHMCS/Mail_ns.html">our additional documentation</a>.</p>
 
 
 			<div class="topic-navigation clearfix">
