@@ -44,46 +44,33 @@
 
 &lt;h2 id=&#34;create-your-hook-file&#34;&gt;Create your Hook File&lt;/h2&gt;
 
-&lt;p&gt;Hooks live inside files located within the &lt;code&gt;/includes/hooks/&lt;/code&gt; directory (or as part of a module - see module hooks).&lt;/p&gt;
+&lt;p&gt;Hooks in WHMCS exist in the &lt;code&gt;/includes/hooks/&lt;/code&gt; directory. Alternately, they may be within a module (for more information, see &lt;a href=&#34;//developers.whmcs.com/hooks/module-hooks/&#34;&gt;Module Hooks&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;Begin by creating a file named &lt;code&gt;helloworld.php&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;The example process below creates a WHMCS hook.&lt;/p&gt;
+
+&lt;h2 id=&#34;1-create-the-hook-file&#34;&gt;1. Create the Hook File&lt;/h2&gt;
+
+&lt;p&gt;Create the &lt;code&gt;helloworld.php&lt;/code&gt; file in the &lt;code&gt;/includes/hooks/&lt;/code&gt; directory:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;touch ~/includes/hooks/helloworld.php
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;add-your-hook-function&#34;&gt;Add your Hook Function&lt;/h2&gt;
+&lt;p&gt;The filename &lt;strong&gt;cannot&lt;/strong&gt; begin with an underscore (&lt;code&gt;_&lt;/code&gt;).&lt;/p&gt;
 
-&lt;p&gt;Hook functions can be either named functions or closures.&lt;/p&gt;
+&lt;h2 id=&#34;2-add-the-hook-function&#34;&gt;2. Add the Hook Function&lt;/h2&gt;
 
-&lt;p&gt;Below is an example hook that will execute whenever the ClientAdd event occurs.&lt;/p&gt;
+&lt;p&gt;Add the hook code to the new &lt;code&gt;.php&lt;/code&gt; file. Hook functions can be either named functions or closures.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-/**
- * Register hook function call.
- *
- * @param string $hookPoint The hook point to call
- * @param integer $priority The priority for the given hook function
- * @param string|function Function name to call or anonymous function.
- *
- * @return Depends on hook function point.
- */
-add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
-{
-    $userid = $vars[&#39;userid&#39;];
-    $firstname = $vars[&#39;firstname&#39;];
-    $lastname = $vars[&#39;lastname&#39;];
-    $email = $vars[&#39;email&#39;];
-    $password = $vars[&#39;password&#39;];
+&lt;ul&gt;
+&lt;li&gt;For an example of hook code, see &lt;a href=&#34;//developers.whmcs.com/hooks/sample-hook&#34;&gt;Sample Hook&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Hook functions can be either named functions or closures.&lt;/li&gt;
+&lt;/ul&gt;
 
-    // Run code to create remote forum account here...
-});
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;When the hook code runs, the system will pass a selection of variables to your hook point. The variables you receive will depend on the invoked action and the data that is available to it.&lt;/p&gt;
 
-&lt;p&gt;A selection of variables will be passed into your hook point. The variables you receive will depend upon the action being invoked and the data available to it.&lt;/p&gt;
+&lt;p&gt;Some hook points will also allow you to return values. In some cases, the response you provide can override default behaviours.&lt;/p&gt;
 
-&lt;p&gt;Some hook points will also allow you to return values, and in some cases, the response you provide can alter the program flow to allow you to override default behaviours.&lt;/p&gt;
-
-&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;When using a named function, we recommend you prefix your function name with something unique to you and your code to prevent potential naming conflicts with future code.&lt;/p&gt;
+&lt;div class=&#34;notice info&#34; &gt;&lt;p&gt;When using a named function, prefix your function name with something unique to you and your code in order to prevent naming conflicts.&lt;/p&gt;
 &lt;/div&gt;
 
 </description>
@@ -135,29 +122,37 @@ add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
       <guid>//developers.whmcs.com/hooks/sample-hook/</guid>
       <description>&lt;p&gt;&lt;code&gt;/includes/hooks/samplehook.php&lt;/code&gt;&lt;/p&gt;
 
+&lt;p&gt;The hook below will execute whenever the &lt;code&gt;ClientAdd&lt;/code&gt; event occurs:&lt;/p&gt;
+
 &lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
 /**
  * Register hook function call.
  *
- * @param string $hookPoint The hook point to call
- * @param integer $priority The priority for the given hook function
- * @param string|function Function name to call or anonymous function.
+ * @param string $hookPoint The hook point to call.
+ * @param integer $priority The priority for the hook function.
+ * @param string|function The function name to call or the anonymous function.
  *
- * @return Depends on hook function point.
+ * @return This depends on the hook function point.
  */
-add_hook(&#39;ClientAdd&#39;, 1, function ($vars)
-{
-    $userid = $vars[&#39;userid&#39;];
-    $firstname = $vars[&#39;firstname&#39;];
-    $lastname = $vars[&#39;lastname&#39;];
-    $email = $vars[&#39;email&#39;];
-    $password = $vars[&#39;password&#39;];
 
-    // Run code to create remote forum account here...
-});
+ if (!defined(&#39;WHMCS&#39;))
+     die(&#39;You cannot access this file directly.&#39;);
+
+ function create_forum_account($vars) {
+
+     $firstname = $vars[&#39;firstname&#39;];
+     $lastname = $vars[&#39;lastname&#39;];
+     $email = $vars[&#39;email&#39;];
+
+     // Add the code to create a remote forum account here.
+
+ }
+
+ add_hook(&#39;ClientAdd&#39;, 1, &#39;create_forum_account&#39;);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;div class=&#34;notice note&#34; &gt;&lt;p&gt;For a full list of available hooks, please refer to the &lt;a href=&#34;//developers.whmcs.com/hooks/hook-index/&#34;&gt;Hooks Index&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;notice note&#34; &gt;&lt;p&gt;For a full list of available hooks, see &lt;a href=&#34;//developers.whmcs.com/hooks/hook-index/&#34;&gt;Hooks Index&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 
 </description>

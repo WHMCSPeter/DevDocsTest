@@ -444,19 +444,19 @@ add_hook('AddonActivated', 1, function($vars) {
 <tr>
 <td>userid</td>
 <td>int</td>
-<td>The currently logged in user</td>
+<td>An alias for $clientid maintained for backwards compatibility</td>
 </tr>
 
 <tr>
 <td>clientid</td>
 <td>int</td>
-<td>The currently logged in client</td>
+<td>The client associated with the addon&rsquo;s service</td>
 </tr>
 
 <tr>
 <td>serviceid</td>
 <td>int</td>
-<td></td>
+<td>The product service the addon is being activated for (tblhosting)</td>
 </tr>
 
 <tr>
@@ -1224,7 +1224,7 @@ add_hook('ProductAddonDelete', 1, function($vars) {
             </div>
             <div class="col-md-5">
                 <p class="pull-right">
-                    Copyright &copy; WHMCS 2021. All rights reserved.
+                    Copyright &copy; WHMCS 2022. All rights reserved.
                     <br>
                 </p>
             </div>

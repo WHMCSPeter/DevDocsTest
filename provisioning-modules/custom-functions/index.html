@@ -347,18 +347,16 @@
 
 			
 
-<p>Custom functions allow definition of extra operations that run using the module.
-The custom functions can perform actions, or define extra client area pages/output.
-Permissions can be granted for who can use each custom function, be it just clients, just admins, or both.</p>
+<p>Custom functions allow you to define operations that run using the module.
+The custom functions can perform actions or define additional Client Area pages or output.
+Permissions can be granted for who can use each custom function (just clients, just admins, or both).</p>
 
-<p>The convention for custom function names follow the same as any other function of a module.
-It must begin with the module <strong>filename_</strong>, and then the custom function name.</p>
-
-<p>The easiest way to show this is with an example.</p>
+<p>The convention for custom function names is the same as any other module function.
+It must begin with the module filename (<code>filename_</code>) and the custom function name.</p>
 
 <h2 id="example-custom-function-a-id-example-function-a">Example Custom Function <a id="example-function"></a></h2>
 
-<p>Let’s take an example of a reboot &amp; shutdown function in a VM/VPS system.</p>
+<p>Consider the following example of a reboot and shutdown function in a VM or VPS system:</p>
 
 <pre><code>function mymodule_reboot($params) {
 
@@ -387,9 +385,10 @@ function mymodule_shutdown($params) {
 }
 </code></pre>
 
-<p>The above shows how to define custom functions and to used the passed variables.
-The custom function returns either “success” or an error message to show a failure.
-If we wanted to allow clients to perform reboots, but only admins to be able to perform a shutdown, that would be defined like:</p>
+<p>The above example defines a custom function and uses the passed variables.
+The custom function returns either <code>success</code> or an error message to indicate failure.</p>
+
+<p>The following example allows clients to perform reboots but only allows admins to perform a reboot or shutdown:</p>
 
 <pre><code>function mymodule_ClientAreaCustomButtonArray() {
     $buttonarray = array(
@@ -407,10 +406,8 @@ function mymodule_AdminCustomButtonArray() {
 }
 </code></pre>
 
-<p>The above allows a clients to run the “reboot” function, and admins “reboot” and “shutdown”.</p>
-
-<p>The key value of the array is what displays to admins/clients on the button or menu options for the commands.
-And the value is the custom function name excluding the <strong>modulename_</strong> prefix.</p>
+<p>The key value of the array is what displays to admins and clients on the button or menu options for the commands.
+The value is the custom function name without the <code>modulename_</code> prefix.</p>
 
 <p>A description of how to provide a button or way to invoke a custom function is in the Client Area Output section:</p>
 
@@ -509,7 +506,7 @@ And the value is the custom function name excluding the <strong>modulename_</str
             </div>
             <div class="col-md-5">
                 <p class="pull-right">
-                    Copyright &copy; WHMCS 2021. All rights reserved.
+                    Copyright &copy; WHMCS 2022. All rights reserved.
                     <br>
                 </p>
             </div>
