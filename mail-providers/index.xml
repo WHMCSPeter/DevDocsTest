@@ -56,6 +56,7 @@
 
 namespace WHMCS\Module\Mail;
 
+use WHMCS\Authentication\CurrentUser;
 use WHMCS\Exception\Mail\SendFailure;
 use WHMCS\Exception\Module\InvalidConfiguration;
 use WHMCS\Mail\Message;
@@ -73,52 +74,158 @@ class YourModuleName implements SenderModuleInterface
     use DescriptionTrait;
 
     /**
-     * Constructor
-     *
-     * Any instance of a mail module should have the display name at the ready.
-     * Therefore it is recommend to ensure these
-     * values are set during object instantiation.
-     *
-     * @see \WHMCS\Module\MailSender\DescriptionTrait::setDisplayName()
-     */
-    public function __construct()
-    {
-        $this-&amp;gt;setDisplayName(&#39;Sample Mail Module&#39;);
-    }
-
-    /**
-     * An array of configuration options for the Mail Provider.
+     * Provider settings.
      *
      * @return array
      */
     public function settings()
     {
-        //
+        return [
+            &#39;username&#39; =&amp;gt; [
+                &#39;FriendlyName&#39; =&amp;gt; &#39;Username&#39;,
+                &#39;Type&#39; =&amp;gt; &#39;text&#39;,
+                &#39;Description&#39; =&amp;gt; &#39;The Your Module Name username.&#39;,
+            ],
+            &#39;password&#39; =&amp;gt; [
+                &#39;FriendlyName&#39; =&amp;gt; &#39;Password&#39;,
+                &#39;Type&#39; =&amp;gt; &#39;password&#39;,
+                &#39;Description&#39; =&amp;gt; &#39;The Your Module Name password.&#39;,
+            ],
+        ];
     }
 
     /**
-     * Test the connection to the Mail Provider.
+     * Module name used internally
      *
-     * @param array $params Module configuration parameters.
-     * @throws InvalidConfiguration On error, InvalidConfiguration will be thrown.
+     * @return string
      */
-    public function testConnection(array $params)
+    public function getName()
     {
-        //
+        return &#39;Yourmodulename&#39;;
     }
 
     /**
-     * Send an email.
+     * Module name shown in the Admin Area
      *
-     * @param array $params Module configuration parameters.
-     * @param Message $message The Message object containing details specific to the message.
-     *
-     * @return void
-     * @throws SendFailure
+     * @return string
      */
-    public function send(array $params, Message $message)
+    public function getDisplayName()
     {
-        //
+        return &#39;Your Module Name (https://example.com)&#39;;
+    }
+
+    /**
+     * Test connection.
+     *
+     * @param array $settings
+     *
+     * @return array
+     */
+    public function testConnection(array $settings)
+    {
+        $currentAdmin = (new CurrentUser)-&amp;gt;admin();
+
+        try {
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+            curl_setopt($ch, CURLOPT_USERPWD, $settings[&#39;username&#39;] . &#39;:&#39; . $settings[&#39;password&#39;]);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, &#39;POST&#39;);
+            curl_setopt($ch, CURLOPT_URL, &#39;https://mymodule.com/api/messages&#39;);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, [
+                &#39;from&#39; =&amp;gt; &#39;test@example.com&#39;,
+                &#39;to&#39; =&amp;gt; $currentAdmin-&amp;gt;email,
+                &#39;subject&#39; =&amp;gt; &#39;Your Module Name Test&#39;,
+                &#39;html&#39; =&amp;gt; &#39;This email was sent to test the new mail configuration. If you received this message, &#39;
+                    . &#39;it confirms that email is sending correctly. You do not need to take any further action.&#39;
+            ]);
+
+            curl_exec($ch);
+            curl_close($ch);
+        } catch (Exception $e) {
+            throw new Exception(&amp;quot;Unable to send a Test Message: &amp;quot; . $e-&amp;gt;getMessage());
+        }
+    }
+
+    /**
+     * This is responsible for delivering mail to the mail provider.
+     *
+     * @param array $settings
+     * @param Message $message
+     */
+    public function send(array $settings, Message $message)
+    {
+        try {
+
+            $postFields = [
+                &#39;from&#39; =&amp;gt; $message-&amp;gt;getFromName(),
+                &#39;fromEmail&#39; =&amp;gt; $message-&amp;gt;getFromEmail(),
+                &#39;subject&#39; =&amp;gt; $message-&amp;gt;getSubject(),
+            ];
+
+            // Retrieve recipients.
+            foreach ($message-&amp;gt;getRecipients(&#39;to&#39;) as $to) {
+                $postFields[&#39;toName&#39;][] = $to[0];
+                $postFields[&#39;toEmail&#39;][] = $to[1];
+            }
+            foreach ($message-&amp;gt;getRecipients(&#39;cc&#39;) as $cc) {
+                $postFields[&#39;ccName&#39;][] = $cc[0];
+                $postFields[&#39;ccEmail&#39;][] = $cc[1];
+            }
+            foreach ($message-&amp;gt;getRecipients(&#39;bcc&#39;) as $bcc) {
+                $postFields[&#39;bccName&#39;][] = $bcc[0];
+                $postFields[&#39;bccEmail&#39;][] = $bcc[1];
+            }
+
+            $replyTo = $message-&amp;gt;getReplyTo();
+            if ($replyTo) {
+                $postFields[&#39;replyToName&#39;] = $replyTo[&#39;name&#39;];
+                $postFields[&#39;replyToEmail&#39;] = $replyTo[&#39;email&#39;];
+            }
+
+            // Build body
+            $body = $message-&amp;gt;getBody();
+            $plainText = $message-&amp;gt;getPlainText();
+            if ($body) {
+                $postFields[&#39;html&#39;] = $body;
+                if (empty($plainText)) {
+                    $plainText = &#39; &#39;;
+                }
+                $postFields[&#39;text&#39;] = $plainText;
+            } else {
+                $postFields[&#39;text&#39;] = $plainText;
+            }
+
+            //Prepare attachments
+            $attachments = [];
+            foreach ($message-&amp;gt;getAttachments() as $attachment) {
+                if (array_key_exists(&#39;data&#39;, $attachment)) {
+                    $filename = $attachment[&#39;filename&#39;];
+                    $data = $attachment[&#39;data&#39;];
+                } else {
+                    $filename = $attachment[&#39;filename&#39;];
+                    $data = file_get_contents($attachment[&#39;filepath&#39;]);
+                }
+                $attachments[] = [&#39;filename&#39; =&amp;gt; $filename, &#39;data&#39; =&amp;gt; $data];
+            }
+
+            $postFields[&#39;attachments&#39;] = $attachments;
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+            curl_setopt($ch, CURLOPT_USERPWD, $settings[&#39;username&#39;] . &#39;:&#39; . $settings[&#39;password&#39;]);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, &#39;POST&#39;);
+            curl_setopt($ch, CURLOPT_URL, &#39;https://mymodule.com/api/messages&#39;);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
+
+            curl_exec($ch);
+            curl_close($ch);
+        } catch (Exception $e) {
+            throw new Exception(&amp;quot;Unable to send a Test Message: &amp;quot; . $e-&amp;gt;getMessage());
+        }
     }
 }
 &lt;/code&gt;&lt;/pre&gt;

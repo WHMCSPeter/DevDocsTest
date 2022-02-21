@@ -1130,18 +1130,16 @@ is used in specific contexts of a service.&lt;/p&gt;
       <guid>//developers.whmcs.com/provisioning-modules/custom-functions/</guid>
       <description>
 
-&lt;p&gt;Custom functions allow definition of extra operations that run using the module.
-The custom functions can perform actions, or define extra client area pages/output.
-Permissions can be granted for who can use each custom function, be it just clients, just admins, or both.&lt;/p&gt;
+&lt;p&gt;Custom functions allow you to define operations that run using the module.
+The custom functions can perform actions or define additional Client Area pages or output.
+Permissions can be granted for who can use each custom function (just clients, just admins, or both).&lt;/p&gt;
 
-&lt;p&gt;The convention for custom function names follow the same as any other function of a module.
-It must begin with the module &lt;strong&gt;filename_&lt;/strong&gt;, and then the custom function name.&lt;/p&gt;
-
-&lt;p&gt;The easiest way to show this is with an example.&lt;/p&gt;
+&lt;p&gt;The convention for custom function names is the same as any other module function.
+It must begin with the module filename (&lt;code&gt;filename_&lt;/code&gt;) and the custom function name.&lt;/p&gt;
 
 &lt;h2 id=&#34;example-custom-function-a-id-example-function-a&#34;&gt;Example Custom Function &lt;a id=&#34;example-function&#34;&gt;&lt;/a&gt;&lt;/h2&gt;
 
-&lt;p&gt;Let’s take an example of a reboot &amp;amp; shutdown function in a VM/VPS system.&lt;/p&gt;
+&lt;p&gt;Consider the following example of a reboot and shutdown function in a VM or VPS system:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;function mymodule_reboot($params) {
 
@@ -1170,9 +1168,10 @@ function mymodule_shutdown($params) {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The above shows how to define custom functions and to used the passed variables.
-The custom function returns either “success” or an error message to show a failure.
-If we wanted to allow clients to perform reboots, but only admins to be able to perform a shutdown, that would be defined like:&lt;/p&gt;
+&lt;p&gt;The above example defines a custom function and uses the passed variables.
+The custom function returns either &lt;code&gt;success&lt;/code&gt; or an error message to indicate failure.&lt;/p&gt;
+
+&lt;p&gt;The following example allows clients to perform reboots but only allows admins to perform a reboot or shutdown:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;function mymodule_ClientAreaCustomButtonArray() {
     $buttonarray = array(
@@ -1190,10 +1189,8 @@ function mymodule_AdminCustomButtonArray() {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The above allows a clients to run the “reboot” function, and admins “reboot” and “shutdown”.&lt;/p&gt;
-
-&lt;p&gt;The key value of the array is what displays to admins/clients on the button or menu options for the commands.
-And the value is the custom function name excluding the &lt;strong&gt;modulename_&lt;/strong&gt; prefix.&lt;/p&gt;
+&lt;p&gt;The key value of the array is what displays to admins and clients on the button or menu options for the commands.
+The value is the custom function name without the &lt;code&gt;modulename_&lt;/code&gt; prefix.&lt;/p&gt;
 
 &lt;p&gt;A description of how to provide a button or way to invoke a custom function is in the Client Area Output section:&lt;/p&gt;
 

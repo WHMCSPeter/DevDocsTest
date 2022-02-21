@@ -116,19 +116,19 @@ add_hook(&#39;AddonActivated&#39;, 1, function($vars) {
 &lt;tr&gt;
 &lt;td&gt;userid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The currently logged in user&lt;/td&gt;
+&lt;td&gt;An alias for $clientid maintained for backwards compatibility&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;clientid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;The currently logged in client&lt;/td&gt;
+&lt;td&gt;The client associated with the addon&amp;rsquo;s service&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td&gt;serviceid&lt;/td&gt;
 &lt;td&gt;int&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;The product service the addon is being activated for (tblhosting)&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;

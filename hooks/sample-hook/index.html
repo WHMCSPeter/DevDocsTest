@@ -251,29 +251,37 @@
 
 			<p><code>/includes/hooks/samplehook.php</code></p>
 
+<p>The hook below will execute whenever the <code>ClientAdd</code> event occurs:</p>
+
 <pre><code>&lt;?php
+
 /**
  * Register hook function call.
  *
- * @param string $hookPoint The hook point to call
- * @param integer $priority The priority for the given hook function
- * @param string|function Function name to call or anonymous function.
+ * @param string $hookPoint The hook point to call.
+ * @param integer $priority The priority for the hook function.
+ * @param string|function The function name to call or the anonymous function.
  *
- * @return Depends on hook function point.
+ * @return This depends on the hook function point.
  */
-add_hook('ClientAdd', 1, function ($vars)
-{
-    $userid = $vars['userid'];
-    $firstname = $vars['firstname'];
-    $lastname = $vars['lastname'];
-    $email = $vars['email'];
-    $password = $vars['password'];
 
-    // Run code to create remote forum account here...
-});
+ if (!defined('WHMCS'))
+     die('You cannot access this file directly.');
+
+ function create_forum_account($vars) {
+
+     $firstname = $vars['firstname'];
+     $lastname = $vars['lastname'];
+     $email = $vars['email'];
+
+     // Add the code to create a remote forum account here.
+
+ }
+
+ add_hook('ClientAdd', 1, 'create_forum_account');
 </code></pre>
 
-<div class="notice note" ><p>For a full list of available hooks, please refer to the <a href="//developers.whmcs.com/hooks/hook-index/">Hooks Index</a>.</p>
+<div class="notice note" ><p>For a full list of available hooks, see <a href="//developers.whmcs.com/hooks/hook-index/">Hooks Index</a>.</p>
 </div>
 
 
@@ -364,7 +372,7 @@ add_hook('ClientAdd', 1, function ($vars)
             </div>
             <div class="col-md-5">
                 <p class="pull-right">
-                    Copyright &copy; WHMCS 2021. All rights reserved.
+                    Copyright &copy; WHMCS 2022. All rights reserved.
                     <br>
                 </p>
             </div>

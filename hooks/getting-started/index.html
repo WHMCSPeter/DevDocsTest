@@ -255,46 +255,33 @@
 
 <h2 id="create-your-hook-file">Create your Hook File</h2>
 
-<p>Hooks live inside files located within the <code>/includes/hooks/</code> directory (or as part of a module - see module hooks).</p>
+<p>Hooks in WHMCS exist in the <code>/includes/hooks/</code> directory. Alternately, they may be within a module (for more information, see <a href="//developers.whmcs.com/hooks/module-hooks/">Module Hooks</a>).</p>
 
-<p>Begin by creating a file named <code>helloworld.php</code>:</p>
+<p>The example process below creates a WHMCS hook.</p>
+
+<h2 id="1-create-the-hook-file">1. Create the Hook File</h2>
+
+<p>Create the <code>helloworld.php</code> file in the <code>/includes/hooks/</code> directory:</p>
 
 <pre><code>touch ~/includes/hooks/helloworld.php
 </code></pre>
 
-<h2 id="add-your-hook-function">Add your Hook Function</h2>
+<p>The filename <strong>cannot</strong> begin with an underscore (<code>_</code>).</p>
 
-<p>Hook functions can be either named functions or closures.</p>
+<h2 id="2-add-the-hook-function">2. Add the Hook Function</h2>
 
-<p>Below is an example hook that will execute whenever the ClientAdd event occurs.</p>
+<p>Add the hook code to the new <code>.php</code> file. Hook functions can be either named functions or closures.</p>
 
-<pre><code>&lt;?php
-/**
- * Register hook function call.
- *
- * @param string $hookPoint The hook point to call
- * @param integer $priority The priority for the given hook function
- * @param string|function Function name to call or anonymous function.
- *
- * @return Depends on hook function point.
- */
-add_hook('ClientAdd', 1, function ($vars)
-{
-    $userid = $vars['userid'];
-    $firstname = $vars['firstname'];
-    $lastname = $vars['lastname'];
-    $email = $vars['email'];
-    $password = $vars['password'];
+<ul>
+<li>For an example of hook code, see <a href="//developers.whmcs.com/hooks/sample-hook">Sample Hook</a>.</li>
+<li>Hook functions can be either named functions or closures.</li>
+</ul>
 
-    // Run code to create remote forum account here...
-});
-</code></pre>
+<p>When the hook code runs, the system will pass a selection of variables to your hook point. The variables you receive will depend on the invoked action and the data that is available to it.</p>
 
-<p>A selection of variables will be passed into your hook point. The variables you receive will depend upon the action being invoked and the data available to it.</p>
+<p>Some hook points will also allow you to return values. In some cases, the response you provide can override default behaviours.</p>
 
-<p>Some hook points will also allow you to return values, and in some cases, the response you provide can alter the program flow to allow you to override default behaviours.</p>
-
-<div class="notice info" ><p>When using a named function, we recommend you prefix your function name with something unique to you and your code to prevent potential naming conflicts with future code.</p>
+<div class="notice info" ><p>When using a named function, prefix your function name with something unique to you and your code in order to prevent naming conflicts.</p>
 </div>
 
 
@@ -385,7 +372,7 @@ add_hook('ClientAdd', 1, function ($vars)
             </div>
             <div class="col-md-5">
                 <p class="pull-right">
-                    Copyright &copy; WHMCS 2021. All rights reserved.
+                    Copyright &copy; WHMCS 2022. All rights reserved.
                     <br>
                 </p>
             </div>
