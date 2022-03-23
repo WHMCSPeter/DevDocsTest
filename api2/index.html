@@ -2442,7 +2442,6 @@ jQuery(window).scroll(function() {
         if (activeSectionId.hasClass('active') !== true) {
             activeSectionId.addClass('active');
             jQuery('.api-content div[data-section-id!="' + activeItemId + '"]').removeClass('active');
-            console.log(activeSectionId.data('section-id'));
         }
     } else {
         jQuery('.api-content div[data-section-id]').removeClass('active');
